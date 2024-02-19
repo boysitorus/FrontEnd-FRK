@@ -21,37 +21,41 @@
                         <div class="card-body py-4 px-5 text-center">
 
                             <div class="mb-md-5 px-4 mt-md-4">
+                                
+                                <form action="" method="post">
+                                    <h2 class="fw-bold mb-5" style="font-size: 42px">Login</h2>
 
-                                <h2 class="fw-bold mb-5" style="font-size: 42px">Login</h2>
+                                    <div class="form-outline form-white mb-2">
+                                        <label class="d-flex align-items-start form-label" for="typeEmailX">Email /
+                                            Username</label>
+                                        <input type="email" id="typeEmailX"
+                                            class="shadow form-control form-control-lg border-dark"
+                                            style="background-color: #FBFBFB; height: 58px" />
+                                    </div>
 
-                                <div class="form-outline form-white mb-2">
-                                    <label class="d-flex align-items-start form-label" for="typeEmailX">Email /
-                                        Username</label>
-                                    <input type="email" id="typeEmailX"
-                                        class="shadow form-control form-control-lg border-dark"
-                                        style="background-color: #FBFBFB; height: 58px" />
-                                </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <label class="d-flex align-items-start form-label" for="typePasswordX">Kata
+                                            Sandi</label>
+                                        <input type="password" id="typePasswordX"
+                                            class="shadow form-control form-control-lg border-dark"
+                                            style="background-color: #FBFBFB; height: 58px" />
+                                    </div>
 
-                                <div class="form-outline form-white mb-4">
-                                    <label class="d-flex align-items-start form-label" for="typePasswordX">Kata
-                                        Sandi</label>
-                                    <input type="password" id="typePasswordX"
-                                        class="shadow form-control form-control-lg border-dark"
-                                        style="background-color: #FBFBFB; height: 58px" />
-                                </div>
+                                    <p class="small mb-2 pb-lg-2 d-flex align-items-start "><a
+                                            class="text-decoration-none" style="color: #696969" href="#!">Lupa kata
+                                            sandi?</a></p>
 
-                                <p class="small mb-2 pb-lg-2 d-flex align-items-start "><a class="text-decoration-none"
-                                        style="color: #696969" href="#!">Lupa kata sandi?</a></p>
-
-                                <button
-                                    style="background-color: #69839C; font-size: 2rem;font-weight: 600; width: 100%; height: 75px"
-                                    class="btn text-white btn-lg px-5" type="submit">Masuk</button>
+                                    <button
+                                        style="background-color: #69839C; font-size: 2rem;font-weight: 600; width: 100%; height: 75px"
+                                        class="btn text-white btn-lg px-5" type="submit">Masuk</button>
+                                </form>
 
                             </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <p class="mt-3">Belum punya akun? <a href="#!" style="color: #3553BF" class="fw-bold text-decoration-none">Daftar Sekarang</a>
+                        <p class="mt-3">Belum punya akun? <a href="#!" style="color: #3553BF"
+                                class="fw-bold text-decoration-none">Daftar Sekarang</a>
                         </p>
                     </div>
                 </div>
