@@ -49,7 +49,7 @@
 
     {{-- DATA --}}
 
-    <div class="bg-white w-100 mt-5 d-flex align-items-center justify-content-start ps-4 p-3">
+    <div class="bg-white w-100 mt-5 d-flex align-items-center justify-content-start ps-4 p-2">
     
         <div class="container">
                 <div class="row">
