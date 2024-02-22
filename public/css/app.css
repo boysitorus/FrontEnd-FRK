@@ -61,3 +61,13 @@ body {
   padding-right: 15px;
 }
 
+.notif{
+  border-radius: 10px;
+  border: #EFD6A3 solid 3px;
+  background-color: #F7E6B4;
+}
+
+.notif span{
+  font-size: 15px;
+}
+
