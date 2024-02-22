@@ -31,7 +31,7 @@
     {{-- NAME --}}
 
     <div class="bg-white w-100 mt-5 d-flex align-items-center justify-content-start ps-4 p-3">
-        <img src="" width="120" height="120" alt="">
+        <img class="profile" src="/assets/img/tes-img.jpg" width="120" height="120" alt="">
         <span class="ms-5">
             <span class="">
                 Selamat Datang
@@ -46,5 +46,26 @@
     </div>
 
     {{-- END OF NAME --}}
+
+    {{-- DATA --}}
+
+    <div class="bg-white w-100 mt-5 d-flex align-items-center justify-content-start ps-4 p-3">
+    
+        <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="judul-data">Data Pokok</div>
+                    <div>Jika ingin mengubah data, silahkan lakukan melalui menu terkait</div>
+                        
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="judul-data">Data Pokok</div>
+                    <div>Jika ingin mengubah data, silahkan lakukan melalui menu terkait</div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    {{-- END OF DATA --}}
 
 @endsection
