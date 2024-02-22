@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function() {
     return view('Template.app');
 });
+
+Route::get('/profile', function(){
+    return view('App.Profile.profile');
+});
