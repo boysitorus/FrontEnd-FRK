@@ -83,3 +83,10 @@ body {
     font-size: 28px;
     font-weight: bold;
 }
+
+.empty-box {
+    width: 488px;
+    height: 205px;
+    background-color: #f6f6f6;
+    border-color: #d9d9d9;
+}

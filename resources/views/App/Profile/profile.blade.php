@@ -56,11 +56,12 @@
                     <div class="col-sm-6">
                         <div class="judul-data">Data Pokok</div>
                     <div>Jika ingin mengubah data, silahkan lakukan melalui menu terkait</div>
-                        
+                    <div class="empty-box"></div>
                     </div>
                     <div class="col-sm-6">
                         <div class="judul-data">Data Pokok</div>
                     <div>Jika ingin mengubah data, silahkan lakukan melalui menu terkait</div>
+                    <div class="empty-box"></div>
                     </div>
                 </div>
             </div>
