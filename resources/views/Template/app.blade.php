@@ -74,7 +74,7 @@
 
     <!--Main layout-->
     <main style="margin-top: 74px">
-        <div class="bg-utama container pt-4">
+        <div class="bg-utama container-fluid pt-4">
             @yield('content')
         </div>
     </main>

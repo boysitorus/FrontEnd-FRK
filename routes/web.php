@@ -24,3 +24,7 @@ Route::get('/dashboard', function() {
 Route::get('/profile', function(){
     return view('App.Profile.profile');
 });
+
+Route::get('/formRencanaKerja', function() {
+    return view('Template.rencana');
+});
