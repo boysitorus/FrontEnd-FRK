@@ -15,7 +15,7 @@
     <!--Main Navigation-->
     <header>
         <!-- Sidebar -->
-        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-abu">
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-nav-utama">
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-5">
                     <a href="#" class="list-group-item bg-abu list-group-item-action py-2 ripple" aria-current="true">
@@ -33,7 +33,7 @@
         <!-- Sidebar -->
 
         <!-- Navbar -->
-        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-abu fixed-top">
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-header fixed-top">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
@@ -49,7 +49,7 @@
                 </a>
 
                 <span class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <h5 class="pt-1 text-dark" style="font-weight: 700">Form Rencana Kerja - Form Evaluasi Diri</h5>
+                    <h3 class="pt-1 text-dark" style="font-weight: 700">Form Rencana Kerja - Form Evaluasi Diri</h3>
                     <h6 style="color: #3C3C3C; font-style: italic">Institut Teknologi Del</h6>
                 </span>
 
@@ -74,7 +74,7 @@
 
     <!--Main layout-->
     <main style="margin-top: 74px">
-        <div class="bg-utama container-fluid pt-4">
+        <div class="bg-abu container-fluid pt-4">
             @yield('content')
         </div>
     </main>

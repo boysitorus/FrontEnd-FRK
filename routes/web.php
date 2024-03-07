@@ -26,5 +26,5 @@ Route::get('/profile', function(){
 });
 
 Route::get('/formRencanaKerja', function() {
-    return view('Template.rencana');
+    return view('App.Rencana.penelitian');
 });
