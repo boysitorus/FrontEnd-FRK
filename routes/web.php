@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RencanaKerjaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,8 @@ Route::get('/dashboard', function() {
 
 Route::get('/profile', function(){
     return view('App.Profile.profile');
+});
+
+Route::prefix('/formRencanaKerja')->group(function () {
+    Route::get('/pendidikan', [RencanaKerjaController::class, 'getPendidikanPanel'])->name('rk-pendidikkan');
 });
