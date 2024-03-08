@@ -1,7 +1,7 @@
 @extends('Template.rencana')
 
 
-@section('content')
+@section('content-kegiatan')
 
 {{-- TAMPILAN BAGIAN PENDIDIKAN --}}
 
@@ -12,7 +12,7 @@
         <hr/>
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitian-A" type="button" class="btn btn-success col-md-auto m-3" data-bs-toggle="modal" data-bs-target="#modalPendidikan_A">
+            <button id="btnFrkPenelitian-A" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_A">
                 Tambah Kegiatan
             </button>
         </div>
@@ -35,28 +35,34 @@
                         <th scope="col" class="fw-bold">Asesor 2</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="align-middle">
                     <tr>
                         <td scope="row">1</td>
-                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. </td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <td scope="row">2</td>
-                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. </td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -72,13 +78,13 @@
         <hr/>
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto m-3" data-bs-toggle="modal" data-bs-target="#modalPendidikan_B">
+            <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_B">
                 Tambah Kegiatan
             </button>
         </div>
 
         <div class="text-sm">
-            <table id="tablePendidikan-B" class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
+            <table id="tablePendidikan-B" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
@@ -105,7 +111,10 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <td scope="row">2</td>
@@ -116,7 +125,10 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -132,19 +144,19 @@
         <hr/>
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-3" data-bs-toggle="modal" data-bs-target="#modalPendidikan_C">
+            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_C">
                 Tambah Kegiatan
             </button>
         </div>
 
         <div class="text-sm">
-            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
+            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                         <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                     </tr>
@@ -156,12 +168,15 @@
                 <tbody>
                     <tr>
                         <td scope="row">1</td>
-                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td>Lorem ipsum dolor sit amet consectetur.</td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <td scope="row">2</td>
@@ -170,7 +185,10 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
