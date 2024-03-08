@@ -31,20 +31,20 @@
 
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
-                    <li class="nav-item nav-item-150">
-                        <a class="nav-link " href="#">Rencana Pendidikan</a>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link " href="#"><b>Rencana Pendidikan</b></a>
                     </li>
-                    <li class="nav-item nav-item-150">
-                        <a class="nav-link active" href="#">Rencana Penelitian</a>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link active" href="#"><b>Rencana Penelitian</b></a>
                     </li>
-                    <li class="nav-item nav-item-150">
-                        <a class="nav-link" href="#">Rencana Pengabdian</a>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link" href="#"><b>Rencana Pengabdian</b></a>
                     </li>
-                    <li class="nav-item nav-item-150">
-                        <a class="nav-link" href="#">Tunjangan Lainnya</a>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link" href="#"><b>Tunjangan Lainnya</b></a>
                     </li>
-                    <li class="nav-item nav-item-150">
-                        <a class="nav-link" href="#">Simpulan</a>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link" href="#"><b>Simpulan</b></a>
                     </li>
                 </ul>
             </div>

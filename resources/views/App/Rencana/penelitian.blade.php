@@ -23,7 +23,7 @@
                                 <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota</th>
                                 <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                                 <th scope="col" colspan="2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle">Aksi</th>
+                                <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
                             </tr>
                             <tr>
                                 <th scope="col">Asesor 1</th>
@@ -40,7 +40,14 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td>
+                                    <a href="#">
+                                        <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit"/>
+                                    </a>
+                                    <a>
+                                        <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete"/>
+                                    </a>
+                                </td>
                             </tr>
                             <tr>
                                 <td scope="row">2</td>

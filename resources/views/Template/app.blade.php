@@ -44,7 +44,7 @@
 
                 <!-- Brand -->
                 <a class="navbar-brand" href="#">
-                    <img src="{{ asset('assets/img/Logo.png') }}" width ="44" height="44" alt="IT Del Logo"
+                    <img src="{{ asset('assets/img/Logo.png') }}" width ="60" height="60" alt="IT Del Logo"
                         loading="lazy" />
                 </a>
 
