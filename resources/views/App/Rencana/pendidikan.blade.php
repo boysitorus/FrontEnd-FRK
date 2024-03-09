@@ -46,22 +46,8 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>Lorem ipsum dolor sit amet consectetur. </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_A"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -112,22 +98,8 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_B"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -174,20 +146,8 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_C"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -205,13 +165,13 @@
         <hr/>
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_D">
+            <button id="btnFrkPenelitianD" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_D">
                 Tambah Kegiatan
             </button>
         </div>
 
         <div class="text-sm">
-            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+            <table id="tablePendidikan-D" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
@@ -265,13 +225,13 @@
         <hr/>
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_D">
+            <button id="btnFrkPenelitianE" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_D">
                 Tambah Kegiatan
             </button>
         </div>
 
         <div class="text-sm">
-            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+            <table id="tablePendidikan-E" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
@@ -325,13 +285,13 @@
         <hr/>
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_F">
+            <button id="btnFrkPenelitianF" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_F">
                 Tambah Kegiatan
             </button>
         </div>
 
         <div class="text-sm">
-            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+            <table id="tablePendidikan-F" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
@@ -385,13 +345,13 @@
         <hr/>
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_G">
+            <button id="btnFrkPenelitianG" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_G">
                 Tambah Kegiatan
             </button>
         </div>
 
         <div class="text-sm">
-            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+            <table id="tablePendidikan-G" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
@@ -458,13 +418,13 @@
         <hr/>
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_H">
+            <button id="btnFrkPenelitianH" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_H">
                 Tambah Kegiatan
             </button>
         </div>
 
         <div class="text-sm">
-            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+            <table id="tablePendidikan-H" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
@@ -531,13 +491,13 @@
         <hr/>
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_I">
+            <button id="btnFrkPenelitianI" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_I">
                 Tambah Kegiatan
             </button>
         </div>
 
         <div class="text-sm">
-            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+            <table id="tablePendidikan-I" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
@@ -597,7 +557,7 @@
 {{-- AKHIR BAGIAN I --}}
 
 
-{{-- TEMPAT MODAL --}}
+{{-- TEMPAT MODAL TAMBAH KEGIATAN--}}
 
 {{-- MULAI MODAL A --}}
 <div class="modal fade modal-lg" id="modalPendidikan_A" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -887,5 +847,221 @@
     </div>
 </div>
 {{-- AKHIR MODAL I --}}
+
+
+{{--TEMPAT MODAL EDIT --}}
+{{-- MULAI MODAL A --}}
+<div class="modal fade modal-lg" id="modalEditPendidikan_A" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">A. Kuliah (Teori) pada tingkat Diploma dan S1 terhadap setiap kelompok</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah Kelas Tatap Muka</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Jumlah Kelas Evaluasi</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">SKS Mata Kuliah</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditConfirm">Simpan  Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL A --}}
+
+{{-- MULAI MODAL B --}}
+<div class="modal fade modal-lg" id="modalEditPendidikan_B" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">B. Asistensi tugas atau praktikum terhadap setiap kelompok</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah K (*K=30 orang mhs selama 1 semester) </label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Jumlah kelompok yang dibimbing :</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">SKS Matakuliah (1 SKS = 2 jam)</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL B --}}
+
+{{-- MULAI MODAL C --}}
+<div class="modal fade modal-lg" id="modalEditPendidikan_C" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">C. Bimbingan kuliah kerja yang terprogram terhadap setiap kelompok, Pembimbingan Praktek Klinik/Lapangan, dan DPL (Dosen Pembimbing lapangan)</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah Mahasiswa Bimbingan</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL C --}}
+
+
+{{-- TEMPAT MODAL EDIT CONFIRM --}}
+<div class="modal fade" id="modalEditConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <h1><i class="bi bi-question-circle text-warning"></i></h1>
+                <h5>Yakin untuk menyimpan perubahan kegiatan ini?</h5>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                <button id="confirmEditBtn" type="button" class="btn btn-primary">Yakin</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- TEMPAT MODAL DELETE CONFIRM --}}
+<div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                <p class="text-muted small">proses ini tidak dapat diurungkan bila anda sudah menekan tombol 'Yakin'</p>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Yakin</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{-- TEMPAT TOAST --}}
+
+{{-- TOAS EDIT --}}
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <div id="editToast" class="toast bg-success-subtle" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body">
+        <i class="bi bi-check2-circle"></i>
+        Berhasil Mengubah Kegiatan
+    </div>
+  </div>
+</div>
+
+{{-- TOAST DELETE --}}
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <div id="deleteToast" class="toast bg-success-subtle" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body">
+        <i class="bi bi-check2-circle"></i>
+        Berhasil Menghapus Kegiatan
+    </div>
+  </div>
+</div>
+
+
+
+{{-- TEMPAT JAVASCRIPT --}}
+<script>
+    document.getElementById('confirmEditBtn').addEventListener('click', function() {
+        showEditToast();
+    });
+
+    function showEditToast() {
+        // Menutup modal
+        $('#modalEditConfirm').modal('hide');
+
+        // Menambahkan kelas 'show' ke elemen toast
+        $('#editToast').addClass('show');
+
+        // Menghapus kelas 'show' setelah beberapa detik (sesuaikan dengan durasi animasi toast)
+        setTimeout(function () {
+            $('#editToast').removeClass('show');
+        }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
+    }
+</script>
+
+<script>
+    document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+        showDeleteToast();
+    });
+
+    function showDeleteToast() {
+        // Menutup modal
+        $('#modalDeleteConfirm').modal('hide');
+
+        // Menambahkan kelas 'show' ke elemen toast
+        $('#deleteToast').addClass('show');
+
+        // Menghapus kelas 'show' setelah beberapa detik (sesuaikan dengan durasi animasi toast)
+        setTimeout(function () {
+            $('#deleteToast').removeClass('show');
+        }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
+    }
+</script>
 
 @endsection
