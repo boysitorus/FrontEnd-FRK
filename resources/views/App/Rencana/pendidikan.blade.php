@@ -198,6 +198,188 @@
 {{-- AKHIR BAGIAN C --}}
 
 
+{{-- BAGIAN D --}}
+<div id="pendidikan-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h6><b>D. Seminar yang terjadwal terhadap setiap kelompok</b></h6>
+        <hr/>
+
+        <div class="row justify-content-end mr-0">
+            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_D">
+                Tambah Kegiatan
+            </button>
+        </div>
+
+        <div class="text-sm">
+            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelompok</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                        <th scope="col" colspan="2" class="align-middle fw-bold col-2">Status</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="fw-bold">Asesor 1</th>
+                        <th scope="col" class="fw-bold">Asesor 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">1</td>
+                        <td>Lorem ipsum dolor sit amet consectetur.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">2</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{-- AKHIR BAGIAN D --}}
+
+{{-- BAGIAN E --}}
+<div id="pendidikan-E" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h6><b>E. Bimbingan dan tugas akhir/Skripsi/Karya Tulis Ilmiah SO  (Diploma) dan S1 Dosen Pembimbing utama dan pembimbing penyerta dinilai sama</b></h6>
+        <hr/>
+
+        <div class="row justify-content-end mr-0">
+            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_D">
+                Tambah Kegiatan
+            </button>
+        </div>
+
+        <div class="text-sm">
+            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Dibimbing</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                        <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="fw-bold">Asesor 1</th>
+                        <th scope="col" class="fw-bold">Asesor 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">1</td>
+                        <td>Lorem ipsum dolor sit amet consectetur.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">2</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{-- AKHIR BAGIAN E --}}
+
+{{-- BAGIAN F --}}
+<div id="pendidikan-F" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h6><b>F. Menguji proposal S1, S2, S3, Kualifikasi</b></h6>
+        <hr/>
+
+        <div class="row justify-content-end mr-0">
+            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_F">
+                Tambah Kegiatan
+            </button>
+        </div>
+
+        <div class="text-sm">
+            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                        <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="fw-bold">Asesor 1</th>
+                        <th scope="col" class="fw-bold">Asesor 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">1</td>
+                        <td>Lorem ipsum dolor sit amet consectetur.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">2</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{-- AKHIR BAGIAN F --}}
+
+
+
 
 
 {{-- TEMPAT MODAL --}}
@@ -307,5 +489,95 @@
     </div>
 </div>
 {{-- AKHIR MODAL C --}}
+
+{{-- MULAI MODAL D --}}
+<div class="modal fade modal-lg" id="modalPendidikan_D" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">D. Seminar yang terjadwal terhadap setiap kelompok</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah Kelompok</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL D --}}
+
+{{-- MULAI MODAL E --}}
+<div class="modal fade modal-lg" id="modalPendidikan_E" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">E. Bimbingan dan tugas akhir/Skripsi/Karya Tulis Ilmiah SO  (Diploma) dan S1 Dosen Pembimbing utama dan pembimbing penyerta dinilai sama</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah Kelompok Dibimbing</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL E --}}
+
+{{-- MULAI MODAL F --}}
+<div class="modal fade modal-lg" id="modalPendidikan_F" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">F. Menguji proposal S1, S2, S3, Kualifikasi</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL F --}}
 
 @endsection
