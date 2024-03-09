@@ -378,8 +378,223 @@
 </div>
 {{-- AKHIR BAGIAN F --}}
 
+{{-- BAGIAN G --}}
+<div id="pendidikan-G" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h6><b>G. Membimbing dosen yang lebih rendah Jenjang Jabatan Akademiknya</b></h6>
+        <hr/>
+
+        <div class="row justify-content-end mr-0">
+            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_G">
+                Tambah Kegiatan
+            </button>
+        </div>
+
+        <div class="text-sm">
+            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Dosen Bimbingan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                        <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="fw-bold">Asesor 1</th>
+                        <th scope="col" class="fw-bold">Asesor 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">1</td>
+                        <td>Lorem ipsum dolor sit amet consectetur.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">2</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">3</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{-- AKHIR BAGIAN G --}}
 
 
+{{-- BAGIAN H --}}
+<div id="pendidikan-H" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h6><b>H. Mengembangkan program perkuliahan/pengajaran (Silabus,  SAP/RPP, GBPP, dll) dalam kelompok atau mandiri yang hasilnya dipakai untuk kegiatan perkuliahan</b></h6>
+        <hr/>
+
+        <div class="row justify-content-end mr-0">
+            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_H">
+                Tambah Kegiatan
+            </button>
+        </div>
+
+        <div class="text-sm">
+            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah SAP</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                        <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="fw-bold">Asesor 1</th>
+                        <th scope="col" class="fw-bold">Asesor 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">1</td>
+                        <td>Lorem ipsum dolor sit amet consectetur.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">2</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">3</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{-- AKHIR BAGIAN H --}}
+
+
+{{-- BAGIAN I --}}
+<div id="pendidikan-I" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h6><b>I. Melaksanakan kegiatan detasering dan pencangkokan  dosen dalam 1 semester</b></h6>
+        <hr/>
+
+        <div class="row justify-content-end mr-0">
+            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal" data-bs-target="#modalPendidikan_I">
+                Tambah Kegiatan
+            </button>
+        </div>
+
+        <div class="text-sm">
+            <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle" style="border: 2px;">
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Dosen (Maks. 2/smt)</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                        <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="fw-bold">Asesor 1</th>
+                        <th scope="col" class="fw-bold">Asesor 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">1</td>
+                        <td>Lorem ipsum dolor sit amet consectetur.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">2</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">3</td>
+                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{-- AKHIR BAGIAN I --}}
 
 
 {{-- TEMPAT MODAL --}}
@@ -579,5 +794,98 @@
     </div>
 </div>
 {{-- AKHIR MODAL F --}}
+
+
+{{-- MULAI MODAL G --}}
+<div class="modal fade modal-lg" id="modalPendidikan_G" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">G. Membimbing dosen yang lebih rendah Jenjang Jabatan Akademiknya</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah Dosen Bimbingan</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </form>
+            </div>  
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL G -}}
+
+
+{{-- MULAI MODAL H --}}
+<div class="modal fade modal-lg" id="modalPendidikan_H" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">H. Mengembangkan program perkuliahan/pengajaran (Silabus,  SAP/RPP, GBPP, dll) dalam kelompok atau mandiri yang hasilnya dipakai untuk kegiatan perkuliahan</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah SAP</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </form>
+            </div>  
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL H --}}
+
+
+{{-- MULAI MODAL I --}}
+<div class="modal fade modal-lg" id="modalPendidikan_I" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">I. Melaksanakan kegiatan detasering dan pencangkokan  dosen dalam 1 semester</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah Dosen (Maks. 2/smt)</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </form>
+            </div>  
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL I --}}
 
 @endsection
