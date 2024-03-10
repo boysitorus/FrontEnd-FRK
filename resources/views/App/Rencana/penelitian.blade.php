@@ -139,7 +139,7 @@
                     <hr/>
 
                     <div class = "row justify-content-end mr-0">
-                        <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
+                        <button id="btnFrkPenelitianG" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
 
                     </div>
 
@@ -226,7 +226,7 @@
                     <hr/>
 
                     <div class = "row justify-content-end mr-0">
-                        <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
+                        <button id="btnFrkPenelitianH" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
 
                     </div>
 
