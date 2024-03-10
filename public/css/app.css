@@ -5,7 +5,23 @@
 }
 
 .bg-abu {
-    background-color: #d9d9d9;
+    background-color: #f5f5f5;
+}
+
+.bg-nav-utama {
+    background-color: #c8d4de;
+}
+
+.bg-header {
+    background-color: #93b5d7;
+}
+
+.bg-card {
+    background-color: #f2f2f2;
+}
+
+.bg-alert-info {
+    background-color: #d3e9f4 !important;
 }
 
 body {
@@ -27,6 +43,8 @@ body {
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
     width: 240px;
     z-index: 600;
+    font-weight: 600;
+    background-color: #bccad7;
 }
 
 @media (max-width: 991.98px) {
@@ -34,13 +52,20 @@ body {
         width: 100%;
     }
 }
+
 .sidebar .active {
-    border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
 }
 
-.sidebar > .list-group-item:hover {
-    background-color: #000000;
+.sidebar a {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.sidebar a:hover {
+    background-color: rgba(188, 202, 215, 0.6);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 }
 
 .sidebar-sticky {
@@ -89,4 +114,90 @@ body {
     height: 205px;
     background-color: #f6f6f6;
     border-color: #d9d9d9;
+}
+
+.breadcrumbs {
+    font-size: 20px;
+    color: #696969;
+}
+
+.alert-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.ml-1 {
+    margin-left: 1rem;
+}
+
+.ml-2 {
+    margin-left: 2rem;
+}
+
+.ml-3 {
+    margin-left: 3rem;
+}
+
+.ml-4 {
+    margin-left: 4rem;
+}
+
+.mr-0 {
+    margin-right: 0rem;
+}
+
+.mr-1 {
+    margin-right: 1rem;
+}
+
+.mr-2 {
+    margin-right: 2rem;
+}
+
+.mr-3 {
+    margin-right: 3rem;
+}
+
+.mr-4 {
+    margin-right: 4rem;
+}
+
+.nav-item-150 {
+    width: 150px;
+}
+
+.list-group-item {
+    margin-bottom: 5px;
+}
+
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0;
+    padding: 0;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block !important;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block !important;
+    left: 100%;
+    margin-top: -37px;
+}
+
+.dropdown-item {
+    font-size: small; /* 13px */
+}
+.dropdown-toggle::after {
+    font-size: var(--font-md);
+    margin-bottom: -2px;
+}
+.dropdown-menu li a.active {
+    color: #fff;
+}
+
+.custom-toggle-arrow {
+    font-size: 18px;
+    margin-top: 1px;
+    line-height: 12px;
 }
