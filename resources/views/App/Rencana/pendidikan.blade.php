@@ -195,8 +195,8 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_D"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -207,8 +207,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_D"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                 </tbody>
@@ -255,8 +256,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_E"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -267,8 +269,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_E"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                 </tbody>
@@ -315,8 +318,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_F"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -327,8 +331,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_F"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                 </tbody>
@@ -375,8 +380,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_G"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -387,8 +393,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_G"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -399,8 +406,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_G"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                 </tbody>
@@ -448,8 +456,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_H"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -460,8 +469,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_H"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -472,8 +482,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_H"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                 </tbody>
@@ -521,8 +532,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_I"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -533,8 +545,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_I"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -545,8 +558,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_I"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                 </tbody>
@@ -591,8 +605,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_J"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -602,8 +617,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_J"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -613,8 +629,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_J"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                 </tbody>
@@ -661,8 +678,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_K"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -673,8 +691,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_K"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                     <tr>
@@ -685,8 +704,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                        <button type="button" class="btn btn-secondary mr-1"><i class="bi bi-eyedropper"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash3-fill"></i></i></button>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_K"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+
                         </td>
                     </tr>
                 </tbody>
@@ -915,7 +935,7 @@
                         <input class="form-control" type="text">
                     </div>
                 </form>
-            </div>  
+            </div>
 
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -946,7 +966,7 @@
                         <input class="form-control" type="text">
                     </div>
                 </form>
-            </div>  
+            </div>
 
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -974,10 +994,13 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Jumlah Dosen (Maks. 2/smt)</label>
-                        <input class="form-control" type="text">
+                        <select class="form-control" id="myDropdown">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                          </select>
                     </div>
                 </form>
-            </div>  
+            </div>
 
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1003,7 +1026,7 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                 </form>
-            </div>  
+            </div>
 
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1033,7 +1056,7 @@
                         <input class="form-control" type="text">
                     </div>
                 </form>
-            </div>  
+            </div>
 
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
