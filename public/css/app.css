@@ -27,11 +27,14 @@
 body {
     background-color: #fbfbfb;
 }
+
 @media (min-width: 991.98px) {
     main {
         padding-left: 240px;
     }
 }
+
+
 
 /* Sidebar */
 .sidebar {
@@ -39,8 +42,9 @@ body {
     top: 0;
     bottom: 0;
     left: 0;
-    padding: 58px 0 0; /* Height of navbar */
+    padding: 70px 0 0; /* Height of navbar */
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    max-width: 240px;
     width: 240px;
     z-index: 600;
     font-weight: 600;
@@ -61,6 +65,7 @@ body {
 
 .sidebar a {
     background-color: rgba(255, 255, 255, 0.4);
+    border: none;
 }
 
 .sidebar a:hover {
@@ -166,9 +171,6 @@ body {
     width: 150px;
 }
 
-.list-group-item {
-    margin-bottom: 5px;
-}
 
 .dropdown-menu {
     background-color: rgba(0, 0, 0, 0.4);
@@ -176,12 +178,9 @@ body {
     padding: 0;
 }
 
-.dropdown:hover > .dropdown-menu {
-    display: block !important;
-}
 .dropdown-submenu:hover > .dropdown-menu {
     display: block !important;
-    left: 100%;
+    
     margin-top: -37px;
 }
 
@@ -200,4 +199,39 @@ body {
     font-size: 18px;
     margin-top: 1px;
     line-height: 12px;
+}
+
+.sub-menu{
+    position: relative;
+    display: block;
+    margin-bottom: -4px;
+    padding-left: 36px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.list-group-item{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#sidebarMenu.active {
+    min-width: 70px;
+    max-width: 70px;
+}
+
+#sidebarMenu.active span {
+    display: none;
+}
+
+#sidebarMenu.active .bi-chevron-down{
+    display: none;
+}
+
+main {
+    padding-left: 240px;
+}
+
+main.active {
+    padding-left: 70px;
 }

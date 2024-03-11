@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FRK & FED</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
@@ -19,84 +19,143 @@
         <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-nav-utama">
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-5">
-                    <a href="#" class="list-group-item bg-abu list-group-item-action py-2 ripple mt-5"
-                        aria-current="true">
-                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Profil</span>
-                    </a>
 
-                    <div class="dropend">
-                        <a type="button" class="list-group-item list-group-item-action py-2 ripple active"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi-caret-right-fill me-2"></i>Rencana Kerja
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="list-group-item list-group-item-action py-2 ripple active">
-                                    <span>Rekap Kegiatan</span>
-                                </a></li>
-                        </ul>
-                    </div>
+                    <ul class="mt-5 list-unstyled ps-0">
+                        <li style="border-bottom: solid black 1px">
+                            <a id="sidebarCollapse" type="button"
+                                class="list-group-item bg-abu list-group-item-action py-2 ripple d-flex justify-content-end">
+                                <i class="bi bi-arrow-left-circle"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="list-group-item bg-abu list-group-item-action py-2 ripple">
+                                <i class="bi bi-person-fill me-1"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
 
-                    <div class="dropend">
-                        <a type="button" class="list-group-item list-group-item-action py-2 ripple"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi-caret-right-fill me-2"></i>Evaluasi Diri
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
-                                    <span>Rekap Kegiatan</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-
-
-                    <a href="#" class="list-group-item bg-abu list-group-item-action py-2 ripple"><i
-                            class="fas fa-lock fa-fw me-3"></i><span>Evaluasi Diri</span></a>
-
-                    <a href="#" class="list-group-item bg-abu list-group-item-action py-2 ripple"><i
-                            class="fas fa-lock fa-fw me-3"></i><span>Riwayat Kegiatan</span></a>
-
-                    <div class="dropend">
-                        <a type="button" class="list-group-item list-group-item-action py-2 ripple"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi-caret-right-fill me-2"></i>Asesor
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-submenu">
-                                <a type="button" class="list-group-item list-group-item-action py-2 ripple active"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi-caret-right-fill me-2"></i>Evaluasi Diri
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                                            <span>Rekap Kegiatan</span>
-                                        </a></li>
-                                    <li><a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                                            <span>Rekap Kegiatan Disetujui</span>
-                                        </a></li>
+                        <li>
+                            <a type="button"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed active
+                                d-flex justify-content-between align-items-center"
+                                data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
+                                <i class="bi bi-person-workspace me-2"></i>
+                                <div class="me-auto"><span>Rencana Kerja</span></div>
+                                <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <div class="collapse" id="frk-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li>
+                                        <a href="#"
+                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
+                                            Rekap Kegiatan
+                                        </a>
+                                    </li>
 
                                 </ul>
-                            </li>
+                            </div>
+                        </li>
 
-                            <li class="dropdown-submenu">
-                                <a type="button" class="list-group-item list-group-item-action py-2 ripple active"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi-caret-right-fill me-2"></i>Rencana Kerja
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                                            <span>Rekap Kegiatan</span>
-                                        </a></li>
-                                    <li><a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                                            <span>Rekap Kegiatan Disetujui</span>
-                                        </a></li>
+                        <li>
+                            <a type="button"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                data-bs-toggle="collapse" data-bs-target="#fed-collapse" aria-expanded="false">
+                                <i class="bi bi-pencil-square me-2"></i>
+                                <div class="me-auto"><span>Evaluasi Diri</span></div>
+                                <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <div class="collapse" id="fed-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li>
+                                        <a href="#"
+                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
+                                            Rekap Kegiatan
+                                        </a>
+                                    </li>
 
                                 </ul>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="" class="list-group-item bg-abu list-group-item-action py-2 ripple">
+                                <i class="bi bi-clock-fill me-1"></i>
+                                <span>Riwayat Kegiatan</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a type="button"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                data-bs-toggle="collapse" data-bs-target="#asesor-collapse" aria-expanded="false">
+                                <i class="bi bi-people-fill me-2"></i>
+                                <div class="me-auto"><span>Asesor</span></div>
+                                <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <div class="collapse" id="asesor-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li>
+                                        <a type="button"
+                                            class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                            data-bs-toggle="collapse" data-bs-target="#asesor-frk-collapse"
+                                            aria-expanded="false">
+
+                                            <div class="me-auto">Rencana Kerja</div>
+                                            <i class="bi bi-chevron-down"></i>
+                                        </a>
+                                        <div class="collapse" id="asesor-frk-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li>
+                                                    <a href="#"
+                                                        class="text-decoration-none sub-menu list-group-item-action py-2 ripple"
+                                                        style="margin-bottom:0.1px">
+                                                        Rekap Kegiatan
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="#"
+                                                        class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
+                                                        Rekap Kegiatan yang Disetujui
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a type="button"
+                                            class="btn-toggle list-group-item blist-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                            data-bs-toggle="collapse" data-bs-target="#asesor-fed-collapse"
+                                            aria-expanded="false">
+
+                                            <div class="me-auto">Evaluasi Diri</div>
+                                            <i class="bi bi-chevron-down"></i>
+                                        </a>
+                                        <div class="collapse" id="asesor-fed-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li>
+                                                    <a href="#"
+                                                        class="text-decoration-none sub-menu list-group-item-action py-2 ripple margin"
+                                                        style="margin-bottom:0.1px">
+                                                        Rekap Kegiatan
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="#"
+                                                        class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
+                                                        Rekap Kegiatan yang Disetujui
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
 
                 </div>
             </div>
@@ -108,8 +167,9 @@
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
-                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
 
@@ -145,17 +205,34 @@
     <!--Main Navigation-->
 
     <!--Main layout-->
-    <main style="margin-top: 74px">
+    <main id="contentPage" style="margin-top: 74px;">
         <div class="bg-abu container-fluid pt-4">
             @yield('content')
         </div>
     </main>
     <!--Main layout-->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebarMenu').toggleClass('active');
+                $('#contentPage').toggleClass('active');
+            });
+
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script>
+
 
 </body>
 
