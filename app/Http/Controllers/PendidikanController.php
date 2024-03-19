@@ -35,10 +35,8 @@ class PendidikanController extends Controller
     }
 
     public function deleteTeori($id){
-        $response = Http::delete("http://localhost:9000/api/pendidikan/teori/{$id}");
+        Http::delete("http://localhost:9000/api/pendidikan/teori/{$id}");
 
-        if($response->successful()){
-            
-        }
+        return redirect()->back()->with('success', 'Item deleted');
     }
 }

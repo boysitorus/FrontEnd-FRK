@@ -44,19 +44,57 @@
                             @foreach ($teori as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td>{{$item['nama_kegiatan']}}</td>
-                                    <td>{{$item['jumlah_kelas']}}</td>
-                                    <td>{{$item['jumlah_evaluasi']}}</td>
-                                    <td>{{$item['sks_matakuliah']}}</td>
-                                    <td>{{$item['sks_terhitung']}}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['jumlah_kelas'] }}</td>
+                                    <td>{{ $item['jumlah_evaluasi'] }}</td>
+                                    <td>{{ $item['sks_matakuliah'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan_A"><i
                                                 class="bi bi-pencil-square"></i></button>
+
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
+                                                class="bi bi-trash3"></i></button>
+
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+
+                                                    <div class="modal-body text-center">
+                                                        <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                        <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                        <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                            anda sudah menekan tombol 'Yakin'
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Batalkan</button>
+                                                        {{-- <a href="{{ route('rk-pendidikan.teori.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            id="confirmDeleteBtn" class="btn btn-danger">Yakin</a> --}}
+                                                        <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-pendidikan.teori.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                        <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                            action="{{ route('rk-pendidikan.teori.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            method="POST" style="display: none;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -88,11 +126,13 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah K (*K=30 orang mhs selama
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah K (*K=30 orang mhs
+                                selama
                                 1 semester) </th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah kelompok yang dibimbing
                             </th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Matakuliah (1 SKS = 2
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Matakuliah (1 SKS =
+                                2
                                 jam)</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
