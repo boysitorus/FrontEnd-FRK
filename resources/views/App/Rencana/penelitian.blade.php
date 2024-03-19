@@ -135,7 +135,7 @@
 {{-- Wilo --}}
             <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
                 <div class="card-body">
-                    <h5><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh kelompok disetujui oleh pimpinan dan tercapai</b></h5>
+                    <h5><b>C. Menulis 1 judul naskah buku yang akan diterbitkan  dalam waktu sebanyak-banyaknya 4 semester (disetujui  oleh pimpinan dan tercatat)sama dengan 3 sks.</b></h5>
                     <hr/>
 
                     <div class = "row justify-content-end mr-0">
@@ -164,7 +164,8 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                                <td>Lorem ipsum dolor sit amet consectetur</td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
