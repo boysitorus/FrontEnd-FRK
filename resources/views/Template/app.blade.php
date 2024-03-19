@@ -36,7 +36,8 @@
 
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed active
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed 
+                                {{ request()->routeIs('rk-pendidikan') ? 'active' : '' }}
                                 d-flex justify-content-between align-items-center"
                                 data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
                                 <i class="bi bi-person-workspace me-2"></i>
@@ -44,9 +45,10 @@
                                 <i class="bi bi-chevron-down"></i>
                             </a>
                             <div class="collapse" id="frk-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <ul
+                                    class="btn-toggle-nav list-unstyled fw-normal pb-1 small {{ request()->routeIs('rk-pendidikan') ? 'active' : '' }}">
                                     <li>
-                                        <a href="#"
+                                        <a href="{{ route('rk-pendidikan') }}"
                                             class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                             Rekap Kegiatan
                                         </a>

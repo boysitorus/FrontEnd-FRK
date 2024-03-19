@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PendidikanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RencanaKerjaController;
 
@@ -27,5 +28,7 @@ Route::get('/profile', function(){
 });
 
 Route::prefix('/formRencanaKerja')->group(function () {
-    Route::get('/pendidikan', [RencanaKerjaController::class, 'getPendidikanPanel'])->name('rk-pendidikkan');
+    Route::get('/pendidikan', [PendidikanController::class, 'getTeori'])->name('rk-pendidikan');
+    Route::post('/pendidikan/teori', [PendidikanController::class, 'postTeori'])->name('rk-pendidikan.teori.create');
+    Route::delete('/pendidikan/teori/{id}', [PendidikanController::class, 'deleteTeori'])->name('rk-pendidikan.teori.destroy');
 });
