@@ -28,3 +28,8 @@ Route::get('/profile', function(){
 Route::get('/formRencanaKerja', function() {
     return view('App.Rencana.penelitian');
 });
+
+Route::prefix('/formRencanaKerja')->group(function () {
+    Route::get('/pendidikan', [RencanaKerjaController::class, 'getPendidikanPanel'])->name('rk-pendidikkan');
+    Route::get('/penelitian', [RencanaKerjaController::class, 'getPenelitianPanel'])->name('rk-penelitian');
+});
