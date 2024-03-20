@@ -330,8 +330,10 @@
         <hr />
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
-                Kegiatan</button>
+        <button id="btnFrkPenelitianE" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
+                data-bs-toggle="modal" data-bs-target="#modalPenelitian_E">
+                Tambah Kegiatan
+            </button>
 
         </div>
 
@@ -355,9 +357,7 @@
             <tbody>
                 <tr>
                     <td scope="row">1</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -365,19 +365,15 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">2</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -385,19 +381,15 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">3</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -405,12 +397,10 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
             </tbody>
@@ -429,8 +419,10 @@
         <hr />
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
-                Kegiatan</button>
+        <button id="btnFrkPenelitianF" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
+                data-bs-toggle="modal" data-bs-target="#modalPenelitian_F">
+                Tambah Kegiatan
+            </button>
 
         </div>
 
@@ -440,7 +432,7 @@
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                    <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Editor/Anggota)</th>
+                    <th scope="col" rowspan="2" class="align-middle">Posisi <p>(Ketua/Editor/Anggota)</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
                     <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
@@ -453,59 +445,47 @@
             <tbody>
                 <tr>
                     <td scope="row">1</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">2</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">3</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
             </tbody>
