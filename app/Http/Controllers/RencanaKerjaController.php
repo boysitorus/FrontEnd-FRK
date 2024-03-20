@@ -6,5 +6,11 @@ use Illuminate\Http\Request;
 
 class RencanaKerjaController extends Controller
 {
-    //
+    public function getPendidikanPanel(){
+        return view('App.Rencana.pendidikan');
+    }
+
+    public function getPenelitianPanel(){
+        return view('App.Rencana.penelitian');
+    }
 }
