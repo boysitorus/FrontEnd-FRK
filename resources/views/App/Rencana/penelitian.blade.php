@@ -893,7 +893,14 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td>
+                        <a href="#">
+                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+                        </a>
+                        <a>
+                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+                        </a>
+                    </td>
                             </tr>
                             <tr>
                                 <td scope="row">2</td>
@@ -902,7 +909,14 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td>
+                        <a href="#">
+                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+                        </a>
+                        <a>
+                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+                        </a>
+                    </td>
                             </tr>
                             <tr>
                                 <td scope="row">3</td>
@@ -911,7 +925,14 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td>
+                        <a href="#">
+                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+                        </a>
+                        <a>
+                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+                        </a>
+                    </td>
                             </tr>
                         </tbody>
                     </table>
@@ -920,7 +941,7 @@
 
             <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
                 <div class="card-body">
-                    <h5><b>L. L. Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya</b></h5>
+                    <h5><b>L. Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya</b></h5>
                     <hr/>
 
                     <div class = "row justify-content-end mr-0">
@@ -950,7 +971,14 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td>
+                        <a href="#">
+                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+                        </a>
+                        <a>
+                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+                        </a>
+                    </td>
                             </tr>
                             <tr>
                                 <td scope="row">2</td>
@@ -959,7 +987,14 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td>
+                        <a href="#">
+                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+                        </a>
+                        <a>
+                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+                        </a>
+                    </td>
                             </tr>
                             <tr>
                                 <td scope="row">3</td>
@@ -968,7 +1003,14 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td>
+                        <a href="#">
+                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+                        </a>
+                        <a>
+                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+                        </a>
+                    </td>
                             </tr>
                         </tbody>
                     </table>
