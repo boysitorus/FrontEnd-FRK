@@ -28,7 +28,20 @@ Route::get('/profile', function(){
 });
 
 Route::prefix('/formRencanaKerja')->group(function () {
-    Route::get('/pendidikan', [PendidikanController::class, 'getTeori'])->name('rk-pendidikan');
-    Route::post('/pendidikan/teori', [PendidikanController::class, 'postTeori'])->name('rk-pendidikan.teori.create');
+    // Rute untuk menampilkan semua data
+    Route::get('/pendidikan', [PendidikanController::class, 'getAll'])->name('rk-pendidikan.all');
+
+    // Rute untuk data teori
+    Route::get('/pendidikan/teori', [PendidikanController::class, 'getTeori'])->name('rk-pendidikan.teori');
+    Route::post('/pendidikan/teori-tambah', [PendidikanController::class, 'postTeori'])->name('rk-pendidikan.teori.create');
     Route::delete('/pendidikan/teori/{id}', [PendidikanController::class, 'deleteTeori'])->name('rk-pendidikan.teori.destroy');
+
+    // Rute untuk data bimbingan
+    Route::get('/pendidikan/bimbingan', [PendidikanController::class, 'getBimbingan'])->name('rk-pendidikan.bimbingan');
+    Route::post('/pendidikan/bimbingan-tambah', [PendidikanController::class, 'postBimbingan'])->name('rk-pendidikan.bimbingan.create');
+
+    // Rute untuk data seminar
+    Route::get('/pendidikan/seminar', [PendidikanController::class, 'getSeminar'])->name('rk-pendidikan.seminar');
+    Route::post('/pendidikan/seminar-tambah', [PendidikanController::class, 'postSeminar'])->name('rk-pendidikan.seminar.create');
 });
+

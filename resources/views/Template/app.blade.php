@@ -48,7 +48,7 @@
                                 <ul
                                     class="btn-toggle-nav list-unstyled fw-normal pb-1 small {{ request()->routeIs('rk-pendidikan') ? 'active' : '' }}">
                                     <li>
-                                        <a href="{{ route('rk-pendidikan') }}"
+                                        <a href="{{ route('rk-pendidikan.all') }}"
                                             class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                             Rekap Kegiatan
                                         </a>
