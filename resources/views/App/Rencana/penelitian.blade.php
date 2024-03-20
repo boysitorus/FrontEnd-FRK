@@ -9,7 +9,7 @@
                     <hr/>
 
                     <div class = "row justify-content-end mr-0">
-                        <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
+                        <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2 " data-bs-toggle="modal" data-bs-target="#modalPenelitian_A">Tambah Kegiatan</button>
                     </div>
 
                     <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -83,7 +83,7 @@
                     <hr/>
 
                     <div class = "row justify-content-end mr-0">
-                    <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
+                    <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#modalPenelitian_B">Tambah Kegiatan</button>
                     </div>
 
                     <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
