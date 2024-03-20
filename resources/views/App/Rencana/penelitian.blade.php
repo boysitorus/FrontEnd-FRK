@@ -10,7 +10,6 @@
 
                     <div class = "row justify-content-end mr-0">
                         <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
-
                     </div>
 
                     <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -23,7 +22,7 @@
                                 <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota</th>
                                 <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                                 <th scope="col" colspan="2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
+                                <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                             </tr>
                             <tr>
                                 <th scope="col">Asesor 1</th>
@@ -33,7 +32,7 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -41,13 +40,12 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_A"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -55,10 +53,13 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                                </td>
                             </tr>
                             <tr>
                                 <td scope="row">3</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -66,6 +67,10 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -99,21 +104,27 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                                </td>
                             </tr>
                             <tr>
                                 <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                                </td>
                             </tr>
                             <tr>
                                 <td scope="row">3</td>
@@ -122,7 +133,10 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -293,7 +307,7 @@
 {{-- TEMPAT MODAL TAMBAH KEGIATAN--}}
 
 {{-- MULAI MODAL A --}}
-<div class="modal fade modal-lg" id="modalPendidikan_A" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade modal-lg" id="modalPenelitian_A" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
@@ -332,7 +346,7 @@
 
 
 {{-- MULAI MODAL B --}}
-<div class="modal fade modal-lg" id="modalPendidikan_B" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade modal-lg" id="modalPenelitian_B" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
@@ -360,3 +374,111 @@
     </div>
 </div>
 {{-- AKHIR MODAL B --}}
+
+
+{{-- TEMPAT MODAL EDIT CONFIRM --}}
+<div class="modal fade" id="modalEditConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <h1><i class="bi bi-question-circle text-warning"></i></h1>
+                <h5>Yakin untuk menyimpan perubahan kegiatan ini?</h5>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                <button id="confirmEditBtn" type="button" class="btn btn-primary">Yakin</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- TEMPAT MODAL DELETE CONFIRM --}}
+<div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                <p class="text-muted small">proses ini tidak dapat diurungkan bila anda sudah menekan tombol 'Yakin'</p>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Yakin</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{-- TEMPAT TOAST --}}
+
+{{-- TOAS EDIT --}}
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <div id="editToast" class="toast bg-success-subtle" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body">
+        <i class="bi bi-check2-circle"></i>
+        Berhasil Mengubah Kegiatan
+    </div>
+  </div>
+</div>
+
+{{-- TOAST DELETE --}}
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <div id="deleteToast" class="toast bg-success-subtle" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body">
+        <i class="bi bi-check2-circle"></i>
+        Berhasil Menghapus Kegiatan
+    </div>
+  </div>
+</div>
+
+
+
+{{-- TEMPAT JAVASCRIPT --}}
+<script>
+    document.getElementById('confirmEditBtn').addEventListener('click', function() {
+        showEditToast();
+    });
+
+    function showEditToast() {
+        // Menutup modal
+        $('#modalEditConfirm').modal('hide');
+
+        // Menambahkan kelas 'show' ke elemen toast
+        $('#editToast').addClass('show');
+
+        // Menghapus kelas 'show' setelah beberapa detik (sesuaikan dengan durasi animasi toast)
+        setTimeout(function () {
+            $('#editToast').removeClass('show');
+        }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
+    }
+</script>
+
+<script>
+    document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+        showDeleteToast();
+    });
+
+    function showDeleteToast() {
+        // Menutup modal
+        $('#modalDeleteConfirm').modal('hide');
+
+        // Menambahkan kelas 'show' ke elemen toast
+        $('#deleteToast').addClass('show');
+
+        // Menghapus kelas 'show' setelah beberapa detik (sesuaikan dengan durasi animasi toast)
+        setTimeout(function () {
+            $('#deleteToast').removeClass('show');
+        }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
+    }
+</script>
