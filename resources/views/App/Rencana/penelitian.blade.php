@@ -400,7 +400,7 @@ git @extends('Template.rencana')
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
                     <th scope="col" rowspan="2" class="align-middle">Jenis Pekerjaan</th>
-                    <th scope="col" rowspan="2" class="align-middle">Peran</th>
+                    <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Editor/Anggota)</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
                     <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
@@ -486,7 +486,7 @@ git @extends('Template.rencana')
         <hr />
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianG" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
+            <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
                 Kegiatan</button>
 
         </div>
@@ -497,7 +497,7 @@ git @extends('Template.rencana')
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                    <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota Tim</th>
+                    <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Editor/Anggota)</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
                     <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
