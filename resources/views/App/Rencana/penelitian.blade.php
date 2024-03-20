@@ -41,12 +41,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <a href="#">
-                                        <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit"/>
-                                    </a>
-                                    <a>
-                                        <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete"/>
-                                    </a>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_A"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                                 </td>
                             </tr>
                             <tr>
