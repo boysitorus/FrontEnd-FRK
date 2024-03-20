@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class = "mt-5 flex-wrap ml-4 mr-4">
+    <div class = "mt-5 flex-wrap ml-4 mr-4 ">
         <div class = "row">
             <div class = "col">
                 <h3 class = "font-weight-bold">Rekap Kegiatan</h3>
@@ -32,7 +32,7 @@
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link " href="#"><b>Rencana Pendidikan</b></a>= 
+                        <a class="nav-link " href="#"><b>Rencana Pendidikan</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link active" href="#"><b>Rencana Penelitian</b></a>

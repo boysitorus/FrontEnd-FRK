@@ -1,87 +1,18 @@
-git @extends('Template.rencana')
+@extends('Template.rencana')
 
 
 @section('content-penelitian')
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh
-                kelompok (disetujui oleh pimpinan dan tercapai)</b></h5>
+        <h5><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh kelompok (disetujui oleh pimpinan dan tercapai)</b></h5>
+
         <hr />
 
-                    <div class = "row justify-content-end mr-0">
-                        <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2 " data-bs-toggle="modal" data-bs-target="#modalPenelitian_A">Tambah Kegiatan</button>
-                    </div>
-        <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
-                Kegiatan</button>
-
+        <div class = "row justify-content-end mr-0">
+            <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2 " data-bs-toggle="modal" data-bs-target="#modalPenelitian_A">Tambah Kegiatan</button>
         </div>
 
-                    <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                                <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Anggota)</th>
-                                <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota</th>
-                                <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                                <th scope="col" colspan="2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col">Asesor 1</th>
-                                <th scope="col">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">3</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
             <thead>
                 <tr>
@@ -92,7 +23,7 @@ git @extends('Template.rencana')
                     <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                 </tr>
                 <tr>
                     <th scope="col">Asesor 1</th>
@@ -102,8 +33,7 @@ git @extends('Template.rencana')
             <tbody>
                 <tr>
                     <td scope="row">1</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -111,18 +41,12 @@ git @extends('Template.rencana')
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">2</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu
-                        pharetra.</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -130,11 +54,13 @@ git @extends('Template.rencana')
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
                 <tr>
                     <td scope="row">3</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu
-                        pharetra.</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -142,6 +68,10 @@ git @extends('Template.rencana')
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -150,74 +80,16 @@ git @extends('Template.rencana')
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>B. Pelaksanaan penelitian mandiri atau pembuatan karya seni atau teknologi (disetujui oleh pimpinan dan
-                tercatat)</b></h5>
+        <h5><b>B. Pelaksanaan penelitian mandiri atau pembuatan karya seni atau teknologi (disetujui oleh pimpinan dan tercatat)</b></h5>
+
         <hr />
 
-                    <div class = "row justify-content-end mr-0">
-                    <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#modalPenelitian_B">Tambah Kegiatan</button>
-                    </div>
-        <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
-                Kegiatan</button>
+        <div class = "row justify-content-end mr-0">
+            <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#modalPenelitian_B">
+                Tambah Kegiatan
+            </button>
         </div>
 
-                    <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                                <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                                <th scope="col" colspan="2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col">Asesor 1</th>
-                                <th scope="col">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">3</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
             <thead>
                 <tr>
@@ -236,127 +108,55 @@ git @extends('Template.rencana')
             <tbody>
                 <tr>
                     <td scope="row">1</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu
-                        pharetra.</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
                 <tr>
                     <td scope="row">2</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu
-                        pharetra.</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
                 <tr>
                     <td scope="row">3</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu
-                        pharetra.</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-
-<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-    <div class="card-body">
-        <h5><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh
-                kelompok disetujui oleh pimpinan dan tercapai</b></h5>
-        <hr />
-        =======
         <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
             <div class="card-body">
                 <h5><b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
                         (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</b></h5>
                 <hr />
-                >>>>>>> 6a44ae337751ce1625d21456c826ab819d6635a0
 
                 <div class="row justify-content-end mr-0">
                     <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
                         Kegiatan</button>
 
                 </div>
-
-                <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-                    <thead>
-                        <tr>
-                            <th scope="col" rowspan="2" class="align-middle">No.</th>
-                            <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                            <th scope="col" rowspan="2" class="align-middle">Jenis Pengerjaan</th>
-                            <th scope="col" rowspan="2" class="align-middle">Peran</th>
-                            <th scope="col" rowspan="2" class="align-middle">Kategori</th>
-                            <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                            <th scope="col" colspan="2">Status</th>
-                            <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
-                        </tr>
-                        <tr>
-                            <th scope="col">Asesor 1</th>
-                            <th scope="col">Asesor 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris
-                                elit arcu
-                                pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#">
-                                    <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                                </a>
-                                <a>
-                                    <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris
-                                elit arcu
-                                pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td scope="row">3</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris
-                                elit arcu
-                                pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
         <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
             <thead>
                 <tr>
@@ -1211,161 +1011,161 @@ git @extends('Template.rencana')
 </div>
 
 
-            <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-                <div class="card-body">
-                    <h5><b>K. Memperoleh hak paten</b></h5>
-                    <hr/>
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>K. Memperoleh hak paten</b></h5>
+        <hr/>
 
-                    <div class = "row justify-content-end mr-0">
-                    <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
-                    </div>
-                    
-                    <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                                <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                                <th scope="col" colspan="2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col">Asesor 1</th>
-                                <th scope="col">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
-                    </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
-                    </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">3</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
-                    </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div class = "row justify-content-end mr-0">
+        <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
+        </div>
+        
+        <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
+            <thead>
+                <tr>
+                    <th scope="col" rowspan="2" class="align-middle">No.</th>
+                    <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
+                    <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
+                    <th scope="col" colspan="2">Status</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
+                </tr>
+                <tr>
+                    <th scope="col">Asesor 1</th>
+                    <th scope="col">Asesor 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">1</td>
+                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+            <a href="#">
+                <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+            </a>
+            <a>
+                <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+            </a>
+        </td>
+                </tr>
+                <tr>
+                    <td scope="row">2</td>
+                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+            <a href="#">
+                <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+            </a>
+            <a>
+                <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+            </a>
+        </td>
+                </tr>
+                <tr>
+                    <td scope="row">3</td>
+                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+            <a href="#">
+                <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+            </a>
+            <a>
+                <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+            </a>
+        </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-            <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-                <div class="card-body">
-                    <h5><b>L. Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya</b></h5>
-                    <hr/>
+<div class="card shadow-sm mt-5 ml-1 mr-1 mb-2 bg-card">
+    <div class="card-body">
+        <h5><b>L. Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya</b></h5>
+        <hr/>
 
-                    <div class = "row justify-content-end mr-0">
-                    <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
-                    </div>
-                    
-                    <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                                <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                                <th scope="col" colspan="2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col">Asesor 1</th>
-                                <th scope="col">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
-                    </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
-                    </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">3</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
-                    </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div class = "row justify-content-end mr-0">
+        <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
+        </div>
+        
+        <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
+            <thead>
+                <tr>
+                    <th scope="col" rowspan="2" class="align-middle">No.</th>
+                    <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
+                    <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
+                    <th scope="col" colspan="2">Status</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
+                </tr>
+                <tr>
+                    <th scope="col">Asesor 1</th>
+                    <th scope="col">Asesor 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">1</td>
+                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+            <a href="#">
+                <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+            </a>
+            <a>
+                <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+            </a>
+        </td>
+                </tr>
+                <tr>
+                    <td scope="row">2</td>
+                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+            <a href="#">
+                <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+            </a>
+            <a>
+                <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+            </a>
+        </td>
+                </tr>
+                <tr>
+                    <td scope="row">3</td>
+                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+            <a href="#">
+                <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
+            </a>
+            <a>
+                <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
+            </a>
+        </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 
 

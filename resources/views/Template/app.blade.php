@@ -203,7 +203,7 @@
 
     <!--Main layout-->
     <main id="contentPage" style="margin-top: 74px;">
-        <div class="bg-abu container-fluid pt-4">
+        <div class="bg-abu container-fluid pt-4 ">
             @yield('content')
         </div>
     </main>
