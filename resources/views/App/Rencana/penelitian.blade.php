@@ -480,7 +480,7 @@ git @extends('Template.rencana')
 <!--Bagian F-->
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat)
+        <h5><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat)
             sama dengan 2 sks
         </b></h5>
         <hr />
