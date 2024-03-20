@@ -3,6 +3,7 @@
 
 @section('content-penelitian')
 
+{{-- TABEL A --}}
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
         <h5><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh kelompok (disetujui oleh pimpinan dan tercapai)</b></h5>
@@ -77,7 +78,9 @@
         </table>
     </div>
 </div>
+{{-- AKHIR TABEL A --}}
 
+{{-- TABEL B --}}
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
         <h5><b>B. Pelaksanaan penelitian mandiri atau pembuatan karya seni atau teknologi (disetujui oleh pimpinan dan tercatat)</b></h5>
@@ -146,17 +149,19 @@
         </table>
     </div>
 </div>
-        <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-            <div class="card-body">
-                <h5><b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
-                        (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</b></h5>
-                <hr />
+{{-- AKHIR TABEL B --}}
 
-                <div class="row justify-content-end mr-0">
-                    <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
-                        Kegiatan</button>
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
+                (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</b></h5>
+        <hr />
 
-                </div>
+        <div class="row justify-content-end mr-0">
+            <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
+                Kegiatan</button>
+
+        </div>
         <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
             <thead>
                 <tr>
