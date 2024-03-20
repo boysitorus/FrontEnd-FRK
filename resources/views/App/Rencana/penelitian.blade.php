@@ -374,6 +374,79 @@
     </div>
 </div>
 {{-- AKHIR MODAL B --}}
+{{-- LANJUT MODAL C S/D HABIS --}}
+
+
+{{--TEMPAT MODAL EDIT --}}
+
+{{-- MULAI MODAL A --}}
+<div class="modal fade modal-lg" id="modalEditPenelitian_A" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh kelompok (disetujui oleh pimpinan dan tercapai)</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Posisi</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditConfirm">Simpan  Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL A --}}
+
+{{-- MULAI MODAL B --}}
+<div class="modal fade modal-lg" id="modalEditPenelitian_B" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">B. Pelaksanaan penelitian mandiri atau pembuatan karya seni atau teknologi (disetujui oleh pimpinan dan tercatat)</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Posisi</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL B --}}
+
 
 
 {{-- TEMPAT MODAL EDIT CONFIRM --}}
