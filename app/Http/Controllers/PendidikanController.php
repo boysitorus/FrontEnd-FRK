@@ -71,6 +71,12 @@ class PendidikanController extends Controller
         return redirect()->back();
     }
 
+    public function deleteBimbingan($id){
+        Http::delete("http://localhost:9000/api/pendidikan/bimbingan/{$id}");
+
+        return redirect()->back();
+    }
+
     public function postSeminar(Request $request)
     {
         Http::post('http://localhost:9000/api/pendidikan/seminar',
@@ -79,6 +85,14 @@ class PendidikanController extends Controller
             'nama_kegiatan' => $request->get('nama_kegiatan'),
             'jumlah_kelompok' => $request->get('jumlah_kelompok'),
         ]);
+
+        return redirect()->back();
+    }
+
+    public function deleteSeminar($id)
+    {
+        Http::delete("http://localhost:9000/api/pendidikan/seminar/{$id}");
+
 
         return redirect()->back();
     }
