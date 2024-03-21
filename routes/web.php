@@ -45,5 +45,11 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::get('/pendidikan/seminar', [PendidikanController::class, 'getSeminar'])->name('rk-pendidikan.seminar');
     Route::post('/pendidikan/seminar-tambah', [PendidikanController::class, 'postSeminar'])->name('rk-pendidikan.seminar.create');
     Route::delete('/pendidikan/seminar/{id}', [PendidikanController::class, 'deleteSeminar'])->name('rk-pendidikan.seminar.destroy');
+    
+    // Rute untuk data penunjang
+    Route::get('/penunjang', function(){
+        return view('App.Rencana.penunjang');
+    });
 });
+
 
