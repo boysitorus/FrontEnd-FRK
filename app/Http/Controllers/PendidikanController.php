@@ -53,6 +53,21 @@ class PendidikanController extends Controller
         return redirect()->back()->with('success', 'Pendidikan teori added successfully');
     }
 
+    public function editTeori(Request $request){
+        Http::post(
+            'http://localhost:9000/api/pendidikan/edit/teori',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_kelas' => $request->get('jumlah_kelas'),
+                'jumlah_evaluasi' => $request->get('jumlah_evaluasi'),
+                'sks_matakuliah' => $request->get('sks_matakuliah'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
     public function deleteTeori($id){
         Http::delete("http://localhost:9000/api/pendidikan/teori/{$id}");
 
