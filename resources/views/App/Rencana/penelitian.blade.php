@@ -324,17 +324,13 @@
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
         <h5><b>E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan dalam waktu sebanyak-banyaknya 4
-                semester
-                (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks
+                semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks
             </b></h5>
         <hr />
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianE" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
-                data-bs-toggle="modal" data-bs-target="#modalPenelitian_E">
-                Tambah Kegiatan
-            </button>
-
+            <button id="btnFrkPenelitianE" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
+                data-bs-toggle="modal" data-bs-target="#modalPenelitian_E">Tambah Kegiatan</button>
         </div>
 
         <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -366,7 +362,7 @@
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                            data-bs-target="#modalEditPenelitian_E"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
@@ -382,7 +378,7 @@
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                            data-bs-target="#modalEditPenelitian_E"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
@@ -398,7 +394,7 @@
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                            data-bs-target="#modalEditPenelitian_E"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
@@ -453,7 +449,7 @@
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                            data-bs-target="#modalEditPenelitian_F"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
@@ -468,7 +464,7 @@
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                            data-bs-target="#modalEditPenelitian_F"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
@@ -483,7 +479,7 @@
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                            data-bs-target="#modalEditPenelitian_F"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
@@ -1245,6 +1241,82 @@
     </div>
 </div>
 {{-- AKHIR MODAL B --}}
+
+<!--Modal E-->
+<div class="modal fade modal-lg" id="modalPenelitian_E" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau menyadur naskah buku teks yang akan 
+                    diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Jenis Pekerjaan</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Posisi (Ketua/Editor/Anggota)</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- AKHIR MODAL E -->
+
+<!--Modal F-->
+<div class="modal fade modal-lg" id="modalPenelitian_F" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu 
+                    sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat), sama dengan 2 sks </h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Posisi (Ketua/Editor/Anggota)</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- AKHIR MODAL F -->
 
 {{-- MULAI MODAL M --}}
 <div class="modal fade modal-lg" id="modalPenelitian_M" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
