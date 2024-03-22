@@ -1248,8 +1248,10 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau menyadur naskah buku teks yang akan 
-                    diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks</h6>
+                <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau menyadur naskah buku teks yang
+                    akan
+                    diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama
+                    dengan 2 sks</h6>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -1288,7 +1290,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu 
+                <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu judul naskah buku yang akan
+                    diterbitkan dalam waktu
                     sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat), sama dengan 2 sks </h6>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -1380,8 +1383,19 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tahap Pencapaian</label>
-                        <input type="text" class="form-control">
+                        <label for="dropdownKategori">Tingkatan:</label>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pilih
+                            </button>
+                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
+                                <li><a class="dropdown-item" href="#">Tingkat Regional/minimal fakultas</a></li>
+                                <li><a class="dropdown-item" href="#">Tingkat nasional</a></li>
+                                <li><a class="dropdown-item" href="#">Tingkat Internasional</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -1496,11 +1510,15 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tahap Pencapaian</label>
+                        <label class="form-label">Kategori</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Posisi</label>
+                        <label for="email" class="form-label">SKS Terhitung</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Status</label>
                         <input type="text" class="form-control">
                     </div>
                 </form>
@@ -1534,16 +1552,15 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tahap Pencapaian</label>
+                        <label class="form-label">Tingkatan</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Posisi</label>
+                        <label for="email" class="form-label">Status</label>
                         <input type="text" class="form-control">
                     </div>
                 </form>
             </div>
-
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
