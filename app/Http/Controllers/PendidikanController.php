@@ -22,15 +22,11 @@ class PendidikanController extends Controller
             $responseSeminar = Http::get('http://localhost:9000/api/pendidikan/seminar');
             $seminar = $responseSeminar->json();
 
-            $responsePraktikum = Http::get('http://localhost:9000/api/pendidikan/praktikum');
-            $praktikum = $responsePraktikum->json();
-
             // Menggabungkan data teori dan bimbingan
             $data = [
                 'teori' => $teori,
                 'bimbingan' => $bimbingan,
                 'seminar' => $seminar,
-                'praktikum' => $praktikum
             ];
 
             // Mengirim data ke view
@@ -124,6 +120,19 @@ class PendidikanController extends Controller
         return redirect()->back();
     }
 
+    public function editBimbingan(Request $request)
+    {
+        Http::post('http://localhost:9000/api/pendidikan/edit/bimbingan',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
+            ]
+        );
+
+        return redirect()->back();
+    }
+
     public function deleteBimbingan($id){
         Http::delete("http://localhost:9000/api/pendidikan/bimbingan/{$id}");
 
@@ -142,9 +151,60 @@ class PendidikanController extends Controller
         return redirect()->back();
     }
 
+    public function editSeminar(Request $request)
+    {
+        Http::post('http://localhost:9000/api/pendidikan/edit/seminar',
+        [
+            'id_rencana' => $request->get('id_rencana'),
+            'nama_kegiatan' =>$request->get('nama_kegiatan'),
+            'jumlah_kelompok' =>$request->get('jumlah_kelompok'),
+        ]);
+
+        return redirect()->back();
+    }
+
     public function deleteSeminar($id)
     {
         Http::delete("http://localhost:9000/api/pendidikan/seminar/{$id}");
+
+
+        return redirect()->back();
+    }
+
+    public function postRendah(Request $request)
+    {
+        Http::post('http://localhost:9000/api/pendidikan/rendah',
+        [
+            'id_dosen' => $request->get('id_dosen'),
+            'nama_kegiatan' => $request->get('nama_kegiatan'),
+            'jumlah_dosen' => $request->get('jumlah_dosen'),
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function deleteRendah($id)
+    {
+        Http::delete("http://localhost:9000/api/pendidikan/rendah/{$id}");
+
+
+        return redirect()->back();
+    }
+    public function postKembang(Request $request)
+    {
+        Http::post('http://localhost:9000/api/pendidikan/kembang',
+        [
+            'id_dosen' => $request->get('id_dosen'),
+            'nama_kegiatan' => $request->get('nama_kegiatan'),
+            'jumlah_sap' => $request->get('jumlah_sap'),
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function deleteKembang($id)
+    {
+        Http::delete("http://localhost:9000/api/pendidikan/kembang/{$id}");
 
 
         return redirect()->back();
