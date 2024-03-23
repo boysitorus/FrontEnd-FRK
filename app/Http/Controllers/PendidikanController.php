@@ -14,6 +14,9 @@ class PendidikanController extends Controller
             $responseTeori = Http::get('http://localhost:9000/api/pendidikan/teori');
             $teori = $responseTeori->json();
 
+            $responsePraktikum = Http::get('http://localhost:9000/api/pendidikan/praktikum');
+            $praktikum = $responsePraktikum->json();
+
             // Mengambil data bimbingan dari Lumen
             $responseBimbingan = Http::get('http://localhost:9000/api/pendidikan/bimbingan');
             $bimbingan = $responseBimbingan->json();
@@ -22,11 +25,14 @@ class PendidikanController extends Controller
             $responseSeminar = Http::get('http://localhost:9000/api/pendidikan/seminar');
             $seminar = $responseSeminar->json();
 
+
+
             // Menggabungkan data teori dan bimbingan
             $data = [
                 'teori' => $teori,
                 'bimbingan' => $bimbingan,
                 'seminar' => $seminar,
+                'praktikum' => $praktikum,
             ];
 
             // Mengirim data ke view
