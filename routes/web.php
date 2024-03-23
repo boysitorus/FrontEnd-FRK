@@ -33,4 +33,6 @@ Route::get('/formRencanaKerja', function() {
 Route::prefix('/formRencanaKerja')->group(function () {
     Route::get('/pendidikan', [RencanaKerjaController::class, 'getPendidikanPanel'])->name('rk-pendidikkan');
     Route::get('/penelitian', [RencanaKerjaController::class, 'getPenelitianPanel'])->name('rk-penelitian');
+    Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
 });
+

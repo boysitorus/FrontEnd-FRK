@@ -35,7 +35,7 @@
                         <a class="nav-link " href="#"><b>Rencana Pendidikan</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link active" href="#"><b>Rencana Penelitian</b></a>
+                        <a class="nav-link " href="#"><b>Rencana Penelitian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link" href="#"><b>Rencana Pengabdian</b></a>
@@ -44,12 +44,12 @@
                         <a class="nav-link" href="#"><b>Tunjangan Lainnya</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link" href="#"><b>Simpulan</b></a>
+                        <a class="nav-link active" href="#"><b>Simpulan</b></a>
                     </li>
                 </ul>
             </div>
 
-            @yield('content-penelitian')
+            @yield('content-simpulan')
         </div>
     <div>
 

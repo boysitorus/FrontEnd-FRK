@@ -1257,7 +1257,6 @@
 
 
 
-@endsection
 
 
 {{-- TEMPAT MODAL TAMBAH KEGIATAN--}}
@@ -1601,3 +1600,6 @@ function showDeleteToast() {
     }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
 }
 </script>
+
+
+@endsection
