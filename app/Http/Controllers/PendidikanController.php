@@ -86,6 +86,19 @@ class PendidikanController extends Controller
         return redirect()->back();
     }
 
+    public function editBimbingan(Request $request)
+    {
+        Http::post('http://localhost:9000/api/pendidikan/edit/bimbingan',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
+            ]
+        );
+
+        return redirect()->back();
+    }
+
     public function deleteBimbingan($id){
         Http::delete("http://localhost:9000/api/pendidikan/bimbingan/{$id}");
 
@@ -99,6 +112,18 @@ class PendidikanController extends Controller
             'id_dosen' => $request->get('id_dosen'),
             'nama_kegiatan' => $request->get('nama_kegiatan'),
             'jumlah_kelompok' => $request->get('jumlah_kelompok'),
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function editSeminar(Request $request)
+    {
+        Http::post('http://localhost:9000/api/pendidikan/edit/seminar',
+        [
+            'id_rencana' => $request->get('id_rencana'),
+            'nama_kegiatan' =>$request->get('nama_kegiatan'),
+            'jumlah_kelompok' =>$request->get('jumlah_kelompok'),
         ]);
 
         return redirect()->back();
