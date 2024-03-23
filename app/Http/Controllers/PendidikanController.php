@@ -22,11 +22,15 @@ class PendidikanController extends Controller
             $responseSeminar = Http::get('http://localhost:9000/api/pendidikan/seminar');
             $seminar = $responseSeminar->json();
 
+            $responsePraktikum = Http::get('http://localhost:9000/api/pendidikan/praktikum');
+            $praktikum = $responsePraktikum->json();
+
             // Menggabungkan data teori dan bimbingan
             $data = [
                 'teori' => $teori,
                 'bimbingan' => $bimbingan,
                 'seminar' => $seminar,
+                'praktikum' => $praktikum
             ];
 
             // Mengirim data ke view
@@ -73,6 +77,40 @@ class PendidikanController extends Controller
 
         return redirect()->back()->with('success', 'Item deleted');
     }
+
+    // Praktikum
+
+    public function postPraktikum(Request $request){
+        Http::post(
+            'http://localhost:9000/api/pendidikan/praktikum',
+            $request->all()
+        );
+
+        return redirect()->back()->with('success', 'Pendidikan praktikum added successfully');
+    }
+
+    public function editPraktikum(Request $request){
+        Http::post(
+            'http://localhost:9000/api/pendidikan/edit/praktikum',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_kelas' => $request->get('jumlah_kelas'),
+                'sks_matakuliah' => $request->get('sks_matakuliah')
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deletePraktikum($id){
+        Http::delete("http://localhost:9000/api/pendidikan/praktikum/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+    // END of Praktikum
+
 
     public function postBimbingan(Request $request)
     {
