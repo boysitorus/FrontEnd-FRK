@@ -1036,7 +1036,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">C. Pimpinan Pembina Unit Kegiatan Mahasiswa</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1047,7 +1047,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Jumlah Kegiatan</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1067,7 +1067,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">D. Pimpinan organisasi sosial intern sebagai hanya Ketua/Wakil yang dibina Ketua, misal a. Koperasi fakultas, b. Dharma wanita, c. Takmir Masjid/Pastoran</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1076,10 +1076,6 @@
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama Kegiatan</label>
                                     <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                                    <input class="form-control" type="text">
                                 </div>
                             </form>
                         </div>
@@ -1097,7 +1093,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">E. Jabatan struktural (berdasarkan beban/semester)</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1108,7 +1104,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Jabatan</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1127,7 +1123,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">F. Jabatan non struktural</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1138,7 +1134,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Jabatan</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1157,7 +1153,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">G. Ketua Redaksi Jurnal ber-ISSN / Anggota Redaksi Jurnal ber-ISSN</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1168,7 +1164,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Jabatan</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1187,7 +1183,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">H. Ketua Panitia Ad Hoc: (umur panitia sekurang-kurangnya 2 semester), seperti Panitia Reviewer RKAT, Panitia Telaah Prodi Anggota Panitia Ad Hoc</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1198,7 +1194,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Jabatan</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1218,7 +1214,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">I. Ketua Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1229,7 +1225,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Tingkat Jabatan</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1248,7 +1244,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">J. Anggota Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1259,7 +1255,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Tingkat Jabatan</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1278,7 +1274,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI , asesor BAN-PT</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1289,7 +1285,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Jabatan</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1308,7 +1304,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">L. Menjadi Pengurus/Anggota Asosiasi Profesi</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1319,7 +1315,11 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Jabatan</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tingkatan</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1339,7 +1339,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">M. Peserta seminar/workshop/kursus berdasar penugasan pimpinan</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1350,7 +1350,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Tingkatan</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1369,7 +1369,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">N. Reviewer jurnal ilmiah , proposal Hibah dll</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1378,10 +1378,6 @@
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama Kegiatan</label>
                                     <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                                    <input class="form-control" type="text">
                                 </div>
                             </form>
                         </div>
