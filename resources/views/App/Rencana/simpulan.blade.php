@@ -6,10 +6,12 @@
     <button class="btn btn-danger">Download PDF</button>
 </div>
 
-<div id="simpulan" class="card shadow-sm mt-5 ml-1 mr-1 bg-card ">
+<div id="simpulan" class="card border-primary shadow-sm mt-5 ml-1 mr-1 bg-card ">
+    <div class="card-header bg-primary">
+        <h6 style="color: white"><b>Simpulan rencana kerja</b></h6>
+    </div>
     <div class="card-body">
-        <h6 ><b>Simpulan rencana kerja</b></h6>
-        <hr />
+        <!-- <hr /> -->
 
         <div style="border: 1px solid black; padding: 10px; background-color: #DFF5FF; color: #008DDA; margin-bottom:50px">
             <p><strong>Keterangan:</strong></p>
@@ -20,7 +22,8 @@
         </div>
 
         <div class="text-sm">
-            <table id="simpulan" class="table table-striped table-bordered mt-2 text-center table-bordered" style="border: 2px;">
+            <table id="simpulan" class="table table-striped mt-2 text-center outer-border-only-table">
+            <!-- <table id="simpulan" class="table table-striped mt-2 text-center" style="border: 2px;"> -->
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: left;" >No.</th>
@@ -76,7 +79,8 @@
                     </tr>
                 </tbody>
 </table>
-<table class="table table-striped table-bordered mt-2 text-center table-bordered" style="border: 2px;">
+<table class="table table-borderless">
+<!-- <table class="table table-striped table-bordered mt-2 text-center table-bordered" style="border: 2px;"> -->
                 <tbody class="align-middle">
                 <tr>
                 <td colspan="2" style="text-align: left;"><i><strong>Kriteria Pelaksanaan Pendidikan dan Pelaksanaan Penelitian</strong></i></td>
@@ -99,7 +103,7 @@
                     </tr>
                 </tbody>
                 <tbody class="align-middle" >
-                <tr >
+                <tr style="border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;">
                 <td colspan="2" style="text-align: left; background-color: #DFF5FF;" ><strong>Total Kinerja</strong></td>
                         <td style=" text-align: left; background-color: #DFF5FF;">Minimal 12 sks dan maksimal 16 sks</td>
                         <td style="color: green; background-color: #DFF5FF;">15.5</td>

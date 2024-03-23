@@ -10,6 +10,31 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    <style>
+        /* Remove inner borders */
+        table.outer-border-only-table td,
+        table.outer-border-only-table th {
+            border: none;
+        }
+
+        /* Add outer border */
+        table.outer-border-only-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid black; /* Adjust the border style as needed */
+        }
+        table.outer-border-only-table th,
+        table.outer-border-only-table td {
+            border-left: none;
+            border-right: none;
+            border-top: none;
+        }
+        table.outer-border-only-table thead th,
+        table.outer-border-only-table tbody tr:last-child td {
+            border-bottom: 1px solid black;
+        }
+    </style>
 </head>
 
 <body>
