@@ -46,5 +46,11 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::get('/pendidikan/seminar', [PendidikanController::class, 'getSeminar'])->name('rk-pendidikan.seminar');
     Route::post('/pendidikan/seminar-tambah', [PendidikanController::class, 'postSeminar'])->name('rk-pendidikan.seminar.create');
     Route::delete('/pendidikan/seminar/{id}', [PendidikanController::class, 'deleteSeminar'])->name('rk-pendidikan.seminar.destroy');
+
+    // Rute untuk data Tugas Akhir
+    Route::get('/pendidikan/tugasAkhir', [PendidikanController::class, 'getTugasAkhir'])->name('rk-pendidikan.seminar');
+    Route::post('/pendidikan/tugasAkhir-tambah', [PendidikanController::class, 'postTugasAkhir'])->name('rk-pendidikan.tugasAkhir.create');
+    Route::post('/pendidikan/editTugasAkhir', [PendidikanController::class, 'editTugasAkhir'])->name('rk-pendidikan.tugasAkhir.update');
+    Route::delete('/pendidikan/tugasAkhir/{id}', [PendidikanController::class, 'deleteTugasAkhir'])->name('rk-pendidikan.tugasAkhir.destroy');
 });
 

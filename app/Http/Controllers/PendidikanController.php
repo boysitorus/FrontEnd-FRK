@@ -22,11 +22,16 @@ class PendidikanController extends Controller
             $responseSeminar = Http::get('http://localhost:9000/api/pendidikan/seminar');
             $seminar = $responseSeminar->json();
 
+            //Mengambil data seminar dari Lumen
+            $responseTugasAkhir = Http::get('http://localhost:9000/api/pendidikan/tugasAkhir');
+            $tugasAkhir = $responseTugasAkhir->json();
+
             // Menggabungkan data teori dan bimbingan
             $data = [
                 'teori' => $teori,
                 'bimbingan' => $bimbingan,
                 'seminar' => $seminar,
+                'tugasAkhir' => $tugasAkhir
             ];
 
             // Mengirim data ke view
@@ -107,6 +112,39 @@ class PendidikanController extends Controller
     public function deleteSeminar($id)
     {
         Http::delete("http://localhost:9000/api/pendidikan/seminar/{$id}");
+
+
+        return redirect()->back();
+    }
+
+
+    public function editTugasAkhir(Request $request)
+    {
+        Http::put("http://localhost:9000/api/pendidikan/tugasAkhir/{$request->id_rencana}",
+        [
+            'id_dosen' => $request->get('id_dosen'),
+            'nama_kegiatan' => $request->get('nama_kegiatan'),
+            'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function postTugasAkhir(Request $request)
+    {
+        Http::post('http://localhost:9000/api/pendidikan/tugasAkhir',
+        [
+            'id_dosen' => $request->get('id_dosen'),
+            'nama_kegiatan' => $request->get('nama_kegiatan'),
+            'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function deleteTugasAkhir($id)
+    {
+        Http::delete("http://localhost:9000/api/pendidikan/tugasAkhir/{$id}");
 
 
         return redirect()->back();
