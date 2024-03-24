@@ -19,11 +19,11 @@ Route::get('/', function () {
     return view('Auth.login');
 });
 
-Route::get('/dashboard', function() {
+Route::get('/dashboard', function () {
     return view('Template.app');
 });
 
-Route::get('/profile', function(){
+Route::get('/profile', function () {
     return view('App.Profile.profile');
 });
 
@@ -53,19 +53,19 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::post('/pendidikan/seminar-tambah', [PendidikanController::class, 'postSeminar'])->name('rk-pendidikan.seminar.create');
     Route::delete('/pendidikan/seminar/{id}', [PendidikanController::class, 'deleteSeminar'])->name('rk-pendidikan.seminar.destroy');
 
-    
+
     // Rute untuk data penunjang
-    Route::get('/penunjang', function(){
+    Route::get('/penunjang', function () {
         return view('App.Rencana.penunjang');
     });
     Route::post('/pendidikan/edit/seminar', [PendidikanController::class, 'editSeminar'])->name('rk-pendidikan.seminar.update');
-    
+
     // Rute untuk data rendah
     // Route::get('/pendidikan/rendah', [PendidikanController::class, 'getRendah'])->name('rk-pendidikan.rendah');
     Route::post('/pendidikan/rendah-tambah', [PendidikanController::class, 'postRendah'])->name('rk-pendidikan.rendah.create');
     Route::post('/pendidikan/edit/rendah', [PendidikanController::class, 'editRendah'])->name('rk-pendidikan.rendah.update');
     Route::delete('/pendidikan/rendah/{id}', [PendidikanController::class, 'deleteRendah'])->name('rk-pendidikan.rendah.destroy');
-    
+
     // Rute untuk data kembang
     // Route::get('/pendidikan/kembang', [PendidikanController::class, 'getKembang'])->name('rk-pendidikan.kembang');
     Route::post('/pendidikan/kembang-tambah', [PendidikanController::class, 'postKembang'])->name('rk-pendidikan.kembang.create');
@@ -90,6 +90,10 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::post('/pendidikan/edit/asistensi', [PendidikanController::class, 'editAsistensi'])->name('rk-pendidikan.asistensi.update');
     Route::delete('/pendidikan/asistensi/{id}', [PendidikanController::class, 'deleteAsistensi'])->name('rk-pendidikan.asistensi.destroy');
 
+
+    //Rute Untuk TugasAkhir (Bag.E)
+
+    Route::post('/pendidikan/tugasAkhir', [PendidikanController::class, 'postTugasAkhir'])->name('rk-pendidikan.tugasAkhir.create');
+
+    Route::delete('/pendidikan/tugasAkhir/{id}', [PendidikanController::class, 'deleteTugasAkhir'])->name('rk-pendidikan.tugasAkhir.destroy');
 });
-
-
