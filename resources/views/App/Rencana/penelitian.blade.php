@@ -336,7 +336,7 @@
 
         <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
             <thead>
-            <tr>
+                <tr>
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
@@ -658,7 +658,7 @@
         <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
             <thead>
                 <tr>
-                <th scope="col" rowspan="2" class="align-middle">No.</th>
+                    <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">Banyaknya BKD yang Terhitung</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
@@ -725,8 +725,8 @@
         <hr />
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianJ" type="button" class="btn btn-success col-md-auto mt-2 mb-2" 
-            data-bs-toggle="modal" data-bs-target="#modalPenelitian_J">Tambah
+            <button id="btnFrkPenelitianJ" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
+                data-bs-toggle="modal" data-bs-target="#modalPenelitian_J">Tambah
                 Kegiatan</button>
 
         </div>
@@ -755,7 +755,7 @@
                     <td></td>
                     <td></td>
                     <td>
-                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                             data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
@@ -769,7 +769,7 @@
                     <td></td>
                     <td></td>
                     <td>
-                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                             data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
@@ -1391,7 +1391,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</h6>
+                <h6 class="modal-title" id="exampleModalLabel">I. Sebagai asesor Beban Kerja Dosen dan Evaluasi
+                    Pelaksanaan Tridharma Perguruan Tinggi</h6>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -1440,10 +1441,13 @@
                                 Pilih
                             </button>
                             <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN 
-                                    tidak terakreditasi atau proceedings seminar nasional maupun internasional</a></li>
+                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah
+                                        ber-ISSN
+                                        tidak terakreditasi atau proceedings seminar nasional maupun internasional</a>
+                                </li>
                                 <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi</a></li>
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</a></li>
+                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi
+                                        internasional (dalam bahasa intenasional)</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1466,7 +1470,7 @@
 </div>
 <!-- Akhir modal J -->
 
-{{-- MULAI MODAL M --}}
+{{-- MULAI MODAL K --}}
 <div class="modal fade modal-lg" id="modalPenelitian_M" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document"
@@ -1710,7 +1714,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan 
+                <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau menyadur naskah buku teks yang
+                    akan diterbitkan
                     dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks
                 </h6>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1752,8 +1757,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu judul naskah buku yang akan 
-                    diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat) 
+                <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu judul naskah buku yang akan
+                    diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat)
                     sama dengan 2 sks
                 </h6>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1910,7 +1915,7 @@
                         <label for="nama" class="form-label">Nama Kegiatan</label>
                         <input type="text" class="form-control" id="nama">
                     </div>
-                 
+
                 </form>
             </div>
 
@@ -1942,16 +1947,19 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tingkatan</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">SKS Terhitung</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Status</label>
-                        <input type="text" class="form-control">
+                        <label for="dropdownTingkatan">Tingkatan:</label>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownTingkatan"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pilih
+                            </button>
+                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownTingkatan">
+                                <li><a class="dropdown-item" href="#">Tingkat Regional/minimal fakultas</a></li>
+                                <li><a class="dropdown-item" href="#">Tingkat nasional</a></li>
+                                <li><a class="dropdown-item" href="#">Tingkat Internasional</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -1984,12 +1992,19 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tingkatan</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Status</label>
-                        <input type="text" class="form-control">
+                        <label for="dropdownTingkatan">Tingkatan:</label>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownTingkatan"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pilih
+                            </button>
+                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownTingkatan">
+                                <li><a class="dropdown-item" href="#">Tingkat Regional/minimal fakultas</a></li>
+                                <li><a class="dropdown-item" href="#">Tingkat nasional</a></li>
+                                <li><a class="dropdown-item" href="#">Tingkat Internasional</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </form>
             </div>
