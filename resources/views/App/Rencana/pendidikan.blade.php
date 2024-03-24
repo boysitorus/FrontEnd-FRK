@@ -360,7 +360,7 @@
                             @endphp
                             @foreach ($bimbingan as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
