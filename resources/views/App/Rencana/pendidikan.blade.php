@@ -1826,34 +1826,36 @@
     {{-- MULAI MODAL I --}}
     <div class="modal fade modal-lg" id="modalEditPendidikan_I" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">I. Melaksanakan kegiatan detasering dan pencangkokan
-                        dosen dalam 1 semester</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">I. Melaksanakan kegiatan detasering dan pencangkokan
+                    dosen dalam 1 semester</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
 
+            <form action="/api/pendidikan/cangkok" method="post">
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Dosen</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
+                    @csrf
+
+                    <div class="mb-3">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah Dosen</label>
+                        <input class="form-control" type="text" name="jumlah_dosen">
+                    </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
+</div>
+
     {{-- AKHIR MODAL I --}}
 
     {{-- MULAI MODAL J --}}
