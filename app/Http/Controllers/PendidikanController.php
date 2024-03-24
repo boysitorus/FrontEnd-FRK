@@ -25,7 +25,13 @@ class PendidikanController extends Controller
             $responseSeminar = Http::get('http://localhost:9000/api/pendidikan/seminar');
             $seminar = $responseSeminar->json();
 
+            //Mengambil data rendah dari Lumen
+            $responseRendah = Http::get('http://localhost:9000/api/pendidikan/rendah');
+            $rendah = $responseRendah->json();
 
+            //Mengambil data kembang dari Lumen
+            $responseKembang = Http::get('http://localhost:9000/api/pendidikan/kembang');
+            $kembang = $responseKembang->json();
 
             // Menggabungkan data teori dan bimbingan
             $data = [
@@ -33,6 +39,8 @@ class PendidikanController extends Controller
                 'bimbingan' => $bimbingan,
                 'seminar' => $seminar,
                 'praktikum' => $praktikum,
+                'rendah' => $rendah,
+                'kembang' => $kembang
             ];
 
             // Mengirim data ke view
@@ -189,6 +197,19 @@ class PendidikanController extends Controller
         return redirect()->back();
     }
 
+    public function editRendah(Request $request){
+        Http::post(
+            'http://localhost:9000/api/pendidikan/edit/rendah',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_dosen' => $request->get('jumlah_dosen'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
     public function deleteRendah($id)
     {
         Http::delete("http://localhost:9000/api/pendidikan/rendah/{$id}");
@@ -206,6 +227,19 @@ class PendidikanController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function editKembang(Request $request){
+        Http::post(
+            'http://localhost:9000/api/pendidikan/edit/teori',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_sap' => $request->get('jumlah_sap'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
     }
 
     public function deleteKembang($id)
