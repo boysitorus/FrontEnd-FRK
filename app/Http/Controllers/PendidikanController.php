@@ -48,6 +48,10 @@ class PendidikanController extends Controller
             $responseAsistensi = Http::get('http://localhost:9000/api/pendidikan/asistensi');
             $asistensi = $responseAsistensi->json();
 
+            $responseProposal = Http::get('http://localhost:9000/api/pendidikan/proposal');
+            $proposal = $responseProposal->json();
+
+
             // Menggabungkan data teori dan bimbingan
             $data = [
                 'teori' => $teori,
@@ -59,7 +63,8 @@ class PendidikanController extends Controller
                 'tugasAkhir' => $tugasAkhir,
                 'cangkok' => $cangkok,
                 'koordinator' => $koordinator,
-                'asistensi' => $asistensi
+                'asistensi' => $asistensi,
+                'proposal' => $proposal
             ];
 
             // Mengirim data ke view
@@ -217,7 +222,7 @@ class PendidikanController extends Controller
         return redirect()->back();
     }
 
-    public function postRendah(Request $request)
+    public function postRendah(Request $request)    
     {
         Http::post(
             'http://localhost:9000/api/pendidikan/rendah',
@@ -290,12 +295,14 @@ class PendidikanController extends Controller
 
     public function postCangkok(Request $request)
     {
-        Http::post('http://localhost:9000/api/pendidikan/cangkok',
-        [
-            'id_dosen' => $request->get('id_dosen'),
-            'nama_kegiatan' => $request->get('nama_kegiatan'),
-            'jumlah_dosen' => $request->get('jumlah_dosen'),
-        ]);
+        Http::post(
+            'http://localhost:9000/api/pendidikan/cangkok',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_dosen' => $request->get('jumlah_dosen'),
+            ]
+        );
 
         return redirect()->back();
     }
@@ -334,16 +341,19 @@ class PendidikanController extends Controller
 
     public function postKoordinator(Request $request)
     {
-        Http::post('http://localhost:9000/api/pendidikan/koordinator',
-        [
-            'id_dosen' => $request->get('id_dosen'),
-            'nama_kegiatan' => $request->get('nama_kegiatan')
-        ]);
+        Http::post(
+            'http://localhost:9000/api/pendidikan/koordinator',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan')
+            ]
+        );
 
         return redirect()->back();
     }
 
-    public function editKoordinator(Request $request){
+    public function editKoordinator(Request $request)
+    {
         Http::post(
             'http://localhost:9000/api/pendidikan/edit/koordinator',
             [
@@ -419,16 +429,60 @@ class PendidikanController extends Controller
             ]
         );
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Pendidikan Tugas Akhir added successfully');
     }
 
     public function editTugasAkhir(Request $request)
     {
+        Http::post(
+            'http://localhost:9000/api/pendidikan/edit/tugasAkhir',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
     }
 
     public function deleteTugasAkhir($id)
     {
         Http::delete("http://localhost:9000/api/pendidikan/tugasAkhir/{$id}");
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+    public function postProposal(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/pendidikan/proposal',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pendidikan Tugas Akhir added successfully');
+    }
+
+    public function editProposal(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/pendidikan/edit/proposal',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteProposal($id)
+    {
+        Http::delete("http://localhost:9000/api/pendidikan/proposal/{$id}");
+        return redirect()->back()->with('success', 'Item deleted');
     }
 }
