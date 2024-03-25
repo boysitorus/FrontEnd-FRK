@@ -628,7 +628,7 @@
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
+                            data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
@@ -642,7 +642,7 @@
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
+                            data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
@@ -656,7 +656,7 @@
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
+                            data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
@@ -703,8 +703,8 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
+                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_J"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
@@ -1563,6 +1563,9 @@
                     </div>
                 </form>
             </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
         </div>
     </div>
 </div>
@@ -1977,6 +1980,71 @@
 </div>
 {{-- AKHIR MODAL H --}}
 
+<!-- Mulai Modal I -->
+<div class="modal fade modal-lg" id="modalEditPenelitian_I" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class=" modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Banyaknya BKD Terhitung</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Akhir modal I -->
+
+<!-- Awal Modal J -->
+<div class="modal fade modal-lg" id="modalEditPenelitian_J" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">J. Menulis Jurnal Ilmiah</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class=" modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Kategori</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Akhir Modal J -->
+
 {{-- MULAI MODAL K --}}
 <div class="modal fade modal-lg" id="modalEditPenelitian_K" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1994,17 +2062,20 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Kategori</label>
-                        <input type="text" class="form-control">
+                        <label for="dropdownKategori">Kategori:</label>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pilih
+                            </button>
+                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
+                                <li><a class="dropdown-item" href="#">Paten Sederhana</a></li>
+                                <li><a class="dropdown-item" href="#">Paten Biasa</a></li>
+                                <li><a class="dropdown-item" href="#">Paten Internasional (minimal tiga negara)</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">SKS Terhitung</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Status</label>
-                        <input type="text" class="form-control">
-                    </div>
+
                 </form>
             </div>
 
