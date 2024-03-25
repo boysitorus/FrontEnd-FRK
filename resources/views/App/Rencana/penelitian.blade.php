@@ -161,6 +161,7 @@
         </table>
     </div>
 </div>
+
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
         <h5><b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
@@ -498,9 +499,8 @@
         <hr />
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianG" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
-                Kegiatan</button>
-
+            <button id="btnFrkPenelitianG" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
+                data-bs-toggle="modal" data-bs-target="#modalPenelitian_G">Tambah Kegiatan</button>
         </div>
 
         <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -513,7 +513,7 @@
                     <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota Tim</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                 </tr>
                 <tr>
                     <th scope="col">Asesor 1</th>
@@ -523,9 +523,7 @@
             <tbody>
                 <tr>
                     <td scope="row">1</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -533,19 +531,15 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_G"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">2</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -553,19 +547,15 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">3</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -573,12 +563,10 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
             </tbody>
@@ -592,18 +580,19 @@
         <hr />
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianH" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
-                Kegiatan</button>
-
+            <button id="btnFrkPenelitianH" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
+                data-bs-toggle="modal" data-bs-target="#modalPenelitian_H">Tambah Kegiatan</button>
         </div>
+
 
         <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
             <thead>
                 <tr>
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
+                    <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                 </tr>
                 <tr>
                     <th scope="col">Asesor 1</th>
@@ -613,50 +602,41 @@
             <tbody>
                 <tr>
                     <td scope="row">1</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">2</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">3</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
                 </tr>
             </tbody>
@@ -1320,6 +1300,72 @@
 </div>
 <!-- AKHIR MODAL F -->
 
+{{-- MULAI MODAL G --}}
+<div class="modal fade modal-lg" id="modalPenelitian_G" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen  yang sesuai dengan bidang ilmu dan tidak diterbitkan,  tetapi digunakan oleh mahasiswa</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Jenis Pengerjaan</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah Anggota</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL G --}}
+
+{{-- MULAI MODAL H --}}
+<div class="modal fade modal-lg" id="modalPenelitian_H" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">H. PEKERTI/AA</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL H --}}
+
 {{-- MULAI MODAL M --}}
 <div class="modal fade modal-lg" id="modalPenelitian_M" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -1489,6 +1535,74 @@
     </div>
 </div>
 {{-- AKHIR MODAL B --}}
+
+{{-- MULAI MODAL G --}}
+<div class="modal fade modal-lg" id="modalEditPenelitian_G" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen yang sesuai dengan bidang ilmu dan tidak diterbitkan, tetapi digunakan oleh mahasiswa</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jenis Pengerjaan</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Jumlah Anggota</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL G --}}
+
+{{-- MULAI MODAL H --}}
+<div class="modal fade modal-lg" id="modalEditPenelitian_H" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">H. PEKERTI/AA</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL H --}}
 
 {{-- MULAI MODAL M --}}
 <div class="modal fade modal-lg" id="modalEditPenelitian_M" tabindex="-1" role="dialog"
