@@ -1466,8 +1466,10 @@
 </div>
 <!-- Akhir modal J -->
 
-{{-- MULAI MODAL M --}}
-<div class="modal fade modal-lg" id="modalPenelitian_M" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+
+
+{{-- MULAI MODAL K --}}
+<div class="modal fade modal-lg" id="modalPenelitian_K" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document"
         style="min-height: 500px; max-height: 100vh; display: flex; align-items: center;">
@@ -1922,6 +1924,7 @@
     </div>
 </div>
 {{-- AKHIR MODAL L --}}
+
 
 {{-- MULAI MODAL M --}}
 <div class="modal fade modal-lg" id="modalEditPenelitian_M" tabindex="-1" role="dialog"
