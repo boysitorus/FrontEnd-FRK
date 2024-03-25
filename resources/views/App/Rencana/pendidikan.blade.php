@@ -1205,23 +1205,26 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
-                                                            Kegiatan</label>
+                                                        <label for="nama_kegiatan" class="form-label">
+                                                            Nama Kegiatan
+                                                        </label>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jumlah_dosen" class="form-label">Jumlah Kelas
-                                                            Tatap Muka</label>
-                                                        <input placeholder="{{ $item['jumlah_dosen'] }}" type="text"
-                                                            class="form-control" name="jumlah_dosen">
+                                                        <label for="jumlah_dosen" class="form-label">
+                                                            Jumlah Dosen (Maks. 2/smt)
+                                                        </label>
+                                                        <select class="form-control" name="jumlah_dosen" id="jumlah_dosen">
+                                                            <option value="1" {{ $item['jumlah_dosen'] == 1 ? 'selected' : '' }}>1</option>
+                                                            <option value="2" {{ $item['jumlah_dosen'] == 2 ? 'selected' : '' }}>2</option>
+                                                        </select>
                                                     </div>
+                                                    
 
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    {{-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button> --}}
                                                     <button type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
@@ -1347,8 +1350,9 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
-                                                            Kegiatan</label>
+                                                        <label for="nama_kegiatan" class="form-label">
+                                                            Nama Kegiatan
+                                                        </label>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
@@ -1397,8 +1401,8 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan
-                            </th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Dosen</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -1417,6 +1421,7 @@
                                 <tr>
                                     <td scope="row">{{$counter++}}</td>
                                     <td>{{$item['nama_kegiatan']}}</td>
+                                    <td>{{$item['jumlah_dosen']}}</td>
                                     <td>{{$item['jumlah_mahasiswa']}}</td>
                                     <td>{{$item['sks_terhitung']}}</td>
                                     <td></td>
@@ -1476,6 +1481,10 @@
                                                             <input name="nama_kegiatan" placeholder="{{ $item['nama_kegiatan'] }}" type="text" class="form-control" id="nama">
                                                         </div>
                                                         <div class="mb-3">
+                                                            <label for="nama" class="form-label">Jumlah Dosen</label>
+                                                            <input name="jumlah_dosen" placeholder="{{ $item['jumlah_dosen'] }}" type="text" class="form-control" id="nama">
+                                                        </div>
+                                                        <div class="mb-3">
                                                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa</label>
                                                             <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="text"
                                                                 class="form-control" name="jumlah_mahasiswa">
@@ -1489,7 +1498,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- AKHIR MODAL J --}}
                             @endforeach
                         @endif
                     </tbody>
@@ -1874,7 +1882,11 @@
                                 <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"/>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Jumlah Mahasiswa Bimbingan :</label>
+                                <label class="form-label">Jumlah Dosen</label>
+                                <input class="form-control" type="text" name="jumlah_dosen">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jumlah Mahasiswa Bimbingan</label>
                                 <input class="form-control" type="text" name="jumlah_mahasiswa">
                             </div>
                             <div class="modal-footer">
