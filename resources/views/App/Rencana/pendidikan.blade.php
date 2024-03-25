@@ -244,12 +244,12 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
-                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="text"
+                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="number"
                                                             class="form-control" name="jumlah_kelas">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Praktikum (1 SKS = 2 jam)</label>
-                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="text"
+                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="number"
                                                             class="form-control" name="sks_matakuliah">
                                                     </div>
 
