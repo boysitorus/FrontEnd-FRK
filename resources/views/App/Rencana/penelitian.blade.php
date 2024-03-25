@@ -1530,6 +1530,9 @@
                     </div>
                 </form>
             </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
         </div>
     </div>
 </div>
@@ -1941,17 +1944,20 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Kategori</label>
-                        <input type="text" class="form-control">
+                        <label for="dropdownKategori">Kategori:</label>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pilih
+                            </button>
+                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
+                                <li><a class="dropdown-item" href="#">Paten Sederhana</a></li>
+                                <li><a class="dropdown-item" href="#">Paten Biasa</a></li>
+                                <li><a class="dropdown-item" href="#">Paten Internasional (minimal tiga negara)</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">SKS Terhitung</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Status</label>
-                        <input type="text" class="form-control">
-                    </div>
+
                 </form>
             </div>
 
