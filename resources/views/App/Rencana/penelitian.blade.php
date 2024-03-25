@@ -31,55 +31,31 @@
                     <th scope="col">Asesor 2</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+            <tbody class="align-middle">
+                @if (isset($penelitian_kelompok) && sizeof($penelitian_kelompok) > 0)
+                    @php
+                        $counter = 1;
+                    @endphp
+                    @foreach ($penelitian_kelompok as $item)
+                        <tr>
+                            <td scope="row">{{ $counter++ }}</td>
+                            <td>{{$item['nama_kegiatan']}}</td>
+                            <td>{{$item['status_tahapan']}}</td>
+                            <td>{{$item['posisi']}}</td>
+                            <td>{{$item['jumlah_anggota']}}</td>
+                            <td>{{$item['sks_terhitung']}}</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                             data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
+                
             </tbody>
         </table>
     </div>
@@ -1149,8 +1125,7 @@
 {{-- TEMPAT MODAL TAMBAH KEGIATAN--}}
 
 {{-- MULAI MODAL A --}}
-<div class="modal fade modal-lg" id="modalPenelitian_A" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade modal-lg" id="modalPenelitian_A" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -1159,30 +1134,32 @@
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <div class="modal-body">
-                <form>
+            <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" method = "POST">
+                @csrf
+                <div class="modal-body">
+                    <input type="hidden" name="id_dosen" value="1">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tahap Pencapaian</label>
-                        <input type="text" class="form-control">
+                        <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                        <input name="status_tahapan" type="text" class="form-control" id="status_tahapan">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Posisi</label>
-                        <input type="text" class="form-control">
+                        <label for="posisi" class="form-label">Posisi</label>
+                        <input name="posisi" type="text" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Jumlah Anggota</label>
-                        <input type="text" class="form-control">
+                        <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
+                        <input name="jumlah_anggota" type="number" class="form-control">
                     </div>
-                </form>
-            </div>
+                </div>
 
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div> 
+            </form>
         </div>
     </div>
 </div>

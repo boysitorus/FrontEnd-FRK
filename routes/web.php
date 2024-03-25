@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RencanaKerjaController;
+use App\Http\Controllers\PenelitianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,15 @@ Route::get('/formRencanaKerja', function() {
 
 Route::prefix('/formRencanaKerja')->group(function () {
     Route::get('/pendidikan', [RencanaKerjaController::class, 'getPendidikanPanel'])->name('rk-pendidikkan');
-    Route::get('/penelitian', [RencanaKerjaController::class, 'getPenelitianPanel'])->name('rk-penelitian');
+    Route::get('/penelitian', [PenelitianController::class, 'getAll'])->name('rk-penelitian');
     Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
+
+    // Rute untuk data penelitian kelompok
+    Route::get('/penelitian/penelitian_kelompok', [PenelitianController::class, 'getPenelitianKelompok'])->name('rk-penelitian.penelitian_kelompok');
+    Route::post('/penelitian/penelitian_kelompok-tambah', [PenelitianController::class, 'postPenelitianKelompok'])->name('rk-penelitian.penelitian_kelompok.create');
+    Route::delete('/penelitian/penelitian_kelompok/{id}', [PenelitianController::class, 'deletePenelitianKelompok'])->name('rk-penelitian.penelitian_kelompok.destroy');
+    Route::post('/penelitian/edit/penelitian_kelompok', [PenelitianController::class, 'editPenelitianKelompok'])->name('rk-penelitian.penelitian_kelompok.update');
+
+    // Rute untuk data ___
 });
 
