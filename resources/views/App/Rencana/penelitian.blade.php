@@ -336,7 +336,7 @@
 
         <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
             <thead>
-                <tr>
+            <tr>
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
@@ -344,7 +344,7 @@
                     <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Editor/Anggota)</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                 </tr>
                 <tr>
                     <th scope="col">Asesor 1</th>
@@ -429,10 +429,10 @@
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                    <th scope="col" rowspan="2" class="align-middle">Posisi <p>(Ketua/Editor/Anggota)</th>
+                    <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Editor/Anggota)</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                 </tr>
                 <tr>
                     <th scope="col">Asesor 1</th>
