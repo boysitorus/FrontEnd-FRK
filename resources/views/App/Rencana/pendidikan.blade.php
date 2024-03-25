@@ -416,7 +416,7 @@
                                                 <h6 class="modal-title" id="exampleModalLabel">{{ $counter++}}. {{ $item['nama_kegiatan'] }}</h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            
+
                                             <form action ="{{ route('rk-pendidikan.bimbingan.update') }}" method="POST">
                                                 <div class="modal-body">
                                                     @csrf
@@ -562,7 +562,7 @@
                                                         <input placeholder="{{ $item['jumlah_kelompok'] }}" class="form-control" type="text" name="jumlah_kelompok">
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                                 </div>
@@ -627,7 +627,9 @@
                                 <td></td>
                                 <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan-{{$item['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPendidikan-{{$item['id_rencana']}}">
+                                    <i class="bi bi-pencil-square"></i></button>
+
                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i class="bi bi-trash3-fill"></i></button>
 
@@ -681,7 +683,7 @@
                                                 <div class="modal-body">
                                                     @csrf
                                                     <input type="hidden" name="id_rencana"
-                                                        value="{{ $item['id_rencana'] }}" />
+                                                    value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
@@ -1221,7 +1223,7 @@
                                                             <option value="2" {{ $item['jumlah_dosen'] == 2 ? 'selected' : '' }}>2</option>
                                                         </select>
                                                     </div>
-                                                    
+
 
                                                 </div>
 
@@ -1374,7 +1376,7 @@
                                 </div>
                             @endforeach
                         @endif
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -1754,7 +1756,7 @@
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
-                    
+
                 </div>
             </div>
         </div>
@@ -2070,13 +2072,13 @@
                     @csrf
                         <input type="hidden" name="id_rencana" value="">
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input type="text" class="form-control" id="nama" name="nama_kegiatan">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input class="form-control" type="text">
-                    </div>
+                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                            <input type="text" class="form-control" name="jumlah_mahasiswa">
+                        </div>
                 </div>
 
                 <div class="modal-footer">
@@ -2124,10 +2126,10 @@
     {{-- AKHIR MODAL F --}}
 
     {{-- MULAI MODAL I --}}
-    
+
 
     {{-- MULAI MODAL J --}}
-    
+
 
     {{-- MULAI MODAL K --}}
     <div class="modal fade modal-lg" id="modalEditPendidikan_K" tabindex="-1" role="dialog"
@@ -2281,13 +2283,13 @@
             event.preventDefault();
             addData();
         });
-    
+
         document.getElementById('formEditKegiatan').addEventListener('submit', function(event) {
             event.preventDefault();
             editData();
         });
     </script>
-    
-    
+
+
 
 @endsection
