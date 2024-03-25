@@ -693,7 +693,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="text"
+                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa">
                                                     </div>
 
@@ -827,7 +827,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="text"
+                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa">
                                                     </div>
 
@@ -1681,7 +1681,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="text">
+                            <input name="jumlah_mahasiswa" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1715,7 +1715,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="text">
+                            <input name="jumlah_mahasiswa" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -2077,7 +2077,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input type="text" class="form-control" name="jumlah_mahasiswa">
+                            <input type="number" class="form-control" name="jumlah_mahasiswa">
                         </div>
                 </div>
 
@@ -2112,7 +2112,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input class="form-control" type="text">
+                            <input class="form-control" type="number">
                     </div>
                 </div>
 
