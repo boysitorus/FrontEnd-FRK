@@ -73,9 +73,16 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::delete('/pendidikan/kembang/{id}', [PendidikanController::class, 'deleteKembang'])->name('rk-pendidikan.kembang.destroy');
 
 
-    //Rute Untuk TugasAkhir (Bag.E)
+    //Rute Untuk TugasAkhir
 
     Route::post('/pendidikan/tugasAkhir', [PendidikanController::class, 'postTugasAkhir'])->name('rk-pendidikan.tugasAkhir.create');
-
+    Route::post('/pendidikan/edit/tugasAkhir', [PendidikanController::class, 'editTugasAkhir'])->name('rk-pendidikan.tugasAkhir.update');
     Route::delete('/pendidikan/tugasAkhir/{id}', [PendidikanController::class, 'deleteTugasAkhir'])->name('rk-pendidikan.tugasAkhir.destroy');
+
+
+    //Rute Untuk Proposal
+
+    Route::post('/pendidikan/proposal', [PendidikanController::class, 'postProposal'])->name('rk-pendidikan.proposal.create');
+    Route::post('/pendidikan/edit/proposal', [PendidikanController::class, 'editProposal'])->name('rk-pendidikan.proposal.update');
+    Route::delete('/pendidikan/proposal/{id}', [PendidikanController::class, 'deleteProposal'])->name('rk-pendidikan.proposal.destroy');
 });
