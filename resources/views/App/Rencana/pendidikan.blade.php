@@ -355,7 +355,7 @@
                             @endphp
                             @foreach ($bimbingan as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
@@ -363,9 +363,10 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan_C">
+                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
+
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i>
@@ -415,7 +416,7 @@
                                                 <h6 class="modal-title" id="exampleModalLabel">{{ $counter++}}. {{ $item['nama_kegiatan'] }}</h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-
+                                            
                                             <form action ="{{ route('rk-pendidikan.bimbingan.update') }}" method="POST">
                                                 <div class="modal-body">
                                                     @csrf
@@ -494,7 +495,7 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan_D">
+                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
@@ -561,7 +562,7 @@
                                                         <input placeholder="{{ $item['jumlah_kelompok'] }}" class="form-control" type="text" name="jumlah_kelompok">
                                                     </div>
                                                 </div>
-
+                                                
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                                 </div>
@@ -1602,22 +1603,23 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <div class="modal-body">
-                    <form>
+                <form action="{{ route('rk-pendidikan.bimbingan.create') }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                            <input class="form-control" type="text">
+                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Bimbingan</label>
+                            <input type="number" class="form-control" name="jumlah_mahasiswa">
                         </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -1629,27 +1631,28 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">D. Seminar yang terjadwal terhadap setiap kelompok
-                    </h6>
+                    <h6 class="modal-title" id="exampleModalLabel">D. Seminar yang terjadwal terhadap setiap kelompok</h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <div class="modal-body">
-                    <form>
+                <form action="{{ route('rk-pendidikan.seminar.create') }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Jumlah Kelompok</label>
-                            <input class="form-control" type="text">
+                            <label for="jumlah_kelompok" class="form-label">Jumlah Kelompok</label>
+                            <input type="number" class="form-control" name="jumlah_kelompok">
                         </div>
-                    </form>
-                </div>
+                    </div>
 
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
