@@ -102,4 +102,10 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::get('/penunjang', function () {
         return view('App.Rencana.penunjang');
     });
+
+    Route::get('/simpulan', function () {
+        return view('App.Rencana.simpulan');
+    });
+
+
 });
