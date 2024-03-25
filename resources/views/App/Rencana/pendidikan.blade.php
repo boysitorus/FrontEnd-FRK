@@ -2,6 +2,7 @@
 
 
 @section('content-kegiatan')
+<meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- TAMPILAN BAGIAN PENDIDIKAN --}}
 
     {{-- BAGIAN A --}}
@@ -53,12 +54,12 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-pencil-square"></i></button>
+                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}"><i
+                                                class="bi bi-pencil-square"></i></button>
 
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}">
-                                            <i class="bi bi-trash3"></i></button>
+                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
+                                                class="bi bi-trash3"></i></button>
 
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -82,8 +83,7 @@
                                                             data-bs-dismiss="modal">Batalkan</button>
                                                         {{-- <a href="{{ route('rk-pendidikan.teori.destroy', ['id' => $item['id_rencana']]) }}"
                                                             id="confirmDeleteBtn" class="btn btn-danger">Yakin</a> --}}
-                                                        <a id="confirmDeleteBtn" class="btn btn-primary"
-                                                            href="{{ route('rk-pendidikan.teori.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-pendidikan.teori.destroy', ['id' => $item['id_rencana']]) }}"
                                                             onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
 
                                                         <form id="delete-form-{{ $item['id_rencana'] }}"
@@ -97,7 +97,6 @@
                                             </div>
                                         </div>
                                     </td>
-
                                 </tr>
 
                                 <div class="modal fade modal-lg" id="modalEditPendidikan-{{ $item['id_rencana'] }}"
@@ -105,40 +104,36 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
-                                                    {{ $item['nama_kegiatan'] }}</h6>
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
                                             <form action="{{ route('rk-pendidikan.teori.update') }}" method="POST">
                                                 <div class="modal-body">
                                                     @csrf
-                                                    <input type="hidden" name="id_rencana"
-                                                        value="{{ $item['id_rencana'] }}" />
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text" class="form-control" id="nama"
+                                                            name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas
                                                             Tatap Muka</label>
-                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="text"
-                                                            class="form-control" name="jumlah_kelas">
+                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="number" class="form-control" name="jumlah_kelas">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas
                                                             Evaluasi</label>
-                                                        <input placeholder="{{ $item['jumlah_evaluasi'] }}"
-                                                            type="text" class="form-control" name="jumlah_evaluasi">
+                                                        <input placeholder="{{ $item['jumlah_evaluasi'] }}" type="number" class="form-control"
+                                                            name="jumlah_evaluasi">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Mata
                                                             Kuliah</label>
-                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="text"
-                                                            class="form-control" name="sks_matakuliah">
+                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="number" class="form-control" name="sks_matakuliah">
                                                     </div>
 
                                                 </div>
@@ -146,9 +141,9 @@
                                                 <div class="modal-footer">
                                                     {{-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#modalEditConfirm">Simpan Perubahan</button> --}}
-                                                    <button type="submit" class="btn btn-primary">
-                                                        Simpan Perubahan
-                                                    </button>
+                                                        <button type="submit" class="btn btn-primary">
+                                                            Simpan Perubahan
+                                                        </button>
                                                 </div>
                                             </form>
 
@@ -171,8 +166,8 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPendidikan_B">
+                <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal"
+                    data-bs-target="#modalPendidikan_B">
                     Tambah Kegiatan
                 </button>
             </div>
@@ -249,12 +244,12 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
-                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="text"
+                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="number"
                                                             class="form-control" name="jumlah_kelas">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Praktikum (1 SKS = 2 jam)</label>
-                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="text"
+                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="number"
                                                             class="form-control" name="sks_matakuliah">
                                                     </div>
 
@@ -360,7 +355,7 @@
                             @endphp
                             @foreach ($bimbingan as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
@@ -595,7 +590,7 @@
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianE" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPendidikan_D">
+                    data-bs-toggle="modal" data-bs-target="#modalPendidikan_E">
                     Tambah Kegiatan
                 </button>
             </div>
@@ -607,8 +602,7 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Dibimbing
-                            </th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Dibimbing</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -618,38 +612,103 @@
                             <th scope="col" class="fw-bold">Asesor 2</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
+                    <tbody class="align-middle">
+                        @if (isset($tugasAkhir) && sizeof($tugasAkhir) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($tugasAkhir as $item)
+                            <tr>
+                                <td scope="row">{{ $counter++ }}</td>
+                                <td>{{ $item['nama_kegiatan'] }}</td>
+                                <td>{{ $item['jumlah_mahasiswa'] }}</td>
+                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_E"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalEditPendidikan-{{$item['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
+                               <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i class="bi bi-trash3-fill"></i></button>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_E"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
 
-                            </td>
-                        </tr>
+                                                <div class="modal-body text-center">
+                                                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                    <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                        anda sudah menekan tombol 'Yakin'
+                                                    </p>
+                                                </div>
+
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batalkan</button>
+                                                    <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                    <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                        action="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                                <div class="modal fade modal-lg" id="modalEditPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
+                                                    {{ $item['nama_kegiatan'] }}</h6>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('rk-pendidikan.tugasAkhir.update') }}" method="POST">
+                                                <div class="modal-body">
+                                                    @csrf
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}" />
+
+                                                    <div class="mb-3">
+                                                        <label for="nama_kegiatan" class="form-label">Nama
+                                                            Kegiatan</label>
+                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="text"
+                                                            class="form-control" name="jumlah_mahasiswa">
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                             @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -677,8 +736,7 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan
-                            </th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -688,38 +746,103 @@
                             <th scope="col" class="fw-bold">Asesor 2</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
+                    <tbody class="align-middle">
+                        @if (isset($proposal) && sizeof($proposal) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($proposal as $item)
+                            <tr>
+                                <td scope="row">{{ $counter++ }}</td>
+                                <td>{{ $item['nama_kegiatan'] }}</td>
+                                <td>{{ $item['jumlah_mahasiswa'] }}</td>
+                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_F"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalEditPendidikan-{{$item['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
+                               <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i class="bi bi-trash3-fill"></i></button>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_F"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
 
-                            </td>
-                        </tr>
+                                                <div class="modal-body text-center">
+                                                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                    <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                        anda sudah menekan tombol 'Yakin'
+                                                    </p>
+                                                </div>
+
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batalkan</button>
+                                                    <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-pendidikan.proposal.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                    <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                        action="{{ route('rk-pendidikan.proposal.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                                <div class="modal fade modal-lg" id="modalEditPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
+                                                    {{ $item['nama_kegiatan'] }}</h6>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('rk-pendidikan.proposal.update') }}" method="POST">
+                                                <div class="modal-body">
+                                                    @csrf
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}" />
+
+                                                    <div class="mb-3">
+                                                        <label for="nama_kegiatan" class="form-label">Nama
+                                                            Kegiatan</label>
+                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="text"
+                                                            class="form-control" name="jumlah_mahasiswa">
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                             @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -771,12 +894,46 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_G">
+                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i></i>
                                         </button>
+
+                                        {{-- MULAI MODAL G --}}
+                                            <div class="modal fade modal-lg" id="modalEditPendidikan_{{ $item['id_rencana'] }}" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h6 class="modal-title" id="exampleModalLabel">G. Membimbing dosen yang lebih rendah Jenjang Jabatan
+                                                                Akademiknya</h6>
+                                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <form action="{{ route('rk-pendidikan.rendah.update') }}" method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                                <div class="mb-3">
+                                                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                                                    <input name="nama_kegiatan" type="text" class="form-control" id="nama" placeholder="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Jumlah Dosen Dibimbing</label>
+                                                                    <input name="jumlah_dosen" class="form-control" type="text" placeholder="{{$item['jumlah_dosen']}}" value="{{$item['jumlah_dosen']}}">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                                                                </div>
+                                                            </form>
+                                                                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{-- AKHIR MODAL G --}}
 
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -806,7 +963,7 @@
                                 </tr>
                             @endforeach
                         @endif
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -860,12 +1017,47 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_H">
+                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i></i>
                                         </button>
+
+                                        {{-- MULAI MODAL G --}}
+                                            <div class="modal fade modal-lg" id="modalEditPendidikan_{{ $item['id_rencana'] }}" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h6 class="modal-title" id="exampleModalLabel">H. Mengembangkan program perkuliahan/pengajaran (Silabus, SAP/RPP, GBPP, dll) dalam kelompok atau mandiri yang hasilnya dipakai untuk kegiatan perkuliahan
+                                                                Akademiknya</h6>
+                                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <form action="{{ route('rk-pendidikan.kembang.update') }}" method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                                <div class="mb-3">
+                                                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                                                    <input name="nama_kegiatan" type="text" class="form-control" id="nama" placeholder="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Jumlah SAP</label>
+                                                                    <input name="jumlah_sap" class="form-control" type="text" placeholder="{{$item['jumlah_sap']}}" value="{{$item['jumlah_sap']}}">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                                                                </div>
+                                                            </form>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{-- AKHIR MODAL G --}}
 
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -935,53 +1127,116 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_I"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                        @if (isset($cangkok) && sizeof($cangkok) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($cangkok as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['jumlah_dosen'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
+                                            <i class="bi bi-pencil-square"></i></button>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_I"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}">
+                                            <i class="bi bi-trash3"></i></button>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">3</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_I"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
 
-                            </td>
-                        </tr>
+                                                    <div class="modal-body text-center">
+                                                        <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                        <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                        <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                            anda sudah menekan tombol 'Yakin'
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Batalkan</button>
+                                                        {{-- <a href="{{ route('rk-pendidikan.teori.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            id="confirmDeleteBtn" class="btn btn-danger">Yakin</a> --}}
+                                                        <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                            href="{{ route('rk-pendidikan.cangkok.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                        <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                            action="{{ route('rk-pendidikan.cangkok.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            method="POST" style="display: none;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+                                <div class="modal fade modal-lg" id="modalEditPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
+                                                    {{ $item['nama_kegiatan'] }}</h6>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('rk-pendidikan.cangkok.update') }}" method="POST">
+                                                <div class="modal-body">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}" />
+
+                                                    <div class="mb-3">
+                                                        <label for="nama_kegiatan" class="form-label">
+                                                            Nama Kegiatan
+                                                        </label>
+                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="jumlah_dosen" class="form-label">
+                                                            Jumlah Dosen (Maks. 2/smt)
+                                                        </label>
+                                                        <select class="form-control" name="jumlah_dosen" id="jumlah_dosen">
+                                                            <option value="1" {{ $item['jumlah_dosen'] == 1 ? 'selected' : '' }}>1</option>
+                                                            <option value="2" {{ $item['jumlah_dosen'] == 2 ? 'selected' : '' }}>2</option>
+                                                        </select>
+                                                    </div>
+                                                    
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -1019,50 +1274,107 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td class="text-start">Lorem ipsum dolor sit amet consectetur.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_J"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                        @if (isset($koordinator) && sizeof($koordinator) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($koordinator as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
+                                            <i class="bi bi-pencil-square"></i></button>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td class="text-start">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna
-                                pellentesque mauris elit arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_J"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}">
+                                            <i class="bi bi-trash3"></i></button>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">3</td>
-                            <td class="text-start">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna
-                                pellentesque mauris elit arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_J"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
 
-                            </td>
-                        </tr>
+                                                    <div class="modal-body text-center">
+                                                        <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                        <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                        <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                            anda sudah menekan tombol 'Yakin'
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Batalkan</button>
+                                                        {{-- <a href="{{ route('rk-pendidikan.teori.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            id="confirmDeleteBtn" class="btn btn-danger">Yakin</a> --}}
+                                                        <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                            href="{{ route('rk-pendidikan.koordinator.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                        <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                            action="{{ route('rk-pendidikan.koordinator.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            method="POST" style="display: none;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+                                <div class="modal fade modal-lg" id="modalEditPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
+                                                    {{ $item['nama_kegiatan'] }}</h6>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('rk-pendidikan.koordinator.update') }}" method="POST">
+                                                <div class="modal-body">
+                                                    @csrf
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}" />
+
+                                                    <div class="mb-3">
+                                                        <label for="nama_kegiatan" class="form-label">
+                                                            Nama Kegiatan
+                                                        </label>
+                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    {{-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button> --}}
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+                        
                     </tbody>
                 </table>
             </div>
@@ -1090,8 +1402,8 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan
-                            </th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Dosen</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -1102,53 +1414,92 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td class="text-start">Lorem ipsum dolor sit amet consectetur.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_K"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                        @if (isset($asistensi) && sizeof($asistensi) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($asistensi as $item)
+                                <tr>
+                                    <td scope="row">{{$counter++}}</td>
+                                    <td>{{$item['nama_kegiatan']}}</td>
+                                    <td>{{$item['jumlah_dosen']}}</td>
+                                    <td>{{$item['jumlah_mahasiswa']}}</td>
+                                    <td>{{$item['sks_terhitung']}}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
+                                            <i class="bi bi-trash3-fill"></i></i>
+                                        </button>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td class="text-start">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna
-                                pellentesque mauris elit arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_K"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">3</td>
-                            <td class="text-start">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna
-                                pellentesque mauris elit arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan_K"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                                    <div class="modal-body text-center">
+                                                        <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                        <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                        <p class="text-muted small">Proses ini tidak dapat diurungkan bila Anda sudah menekan tombol 'Yakin'.</p>
+                                                    </div>
 
-                            </td>
-                        </tr>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                                                        <form action="{{ route('rk-pendidikan.asistensi.destroy', ['id' => $item['id_rencana']]) }}" method="POST" style="display: inline;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button id="confirmDeleteBtn" type="submit" class="btn btn-primary">Yakin</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <div class="modal fade modal-lg" id="modalEditPendidikan_{{ $item['id_rencana'] }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">
+                                                    K. Asistensi tugas atau praktikum terhadap setiap kelompok.
+                                                </h6>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('rk-pendidikan.asistensi.update') }}" method="POST">
+                                                <div class="modal-body">
+                                                        @csrf
+                                                        @method('POST')
+                                                        <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                        <div class="mb-3">
+                                                            <label for="nama" class="form-label">Nama Kegiatan</label>
+                                                            <input name="nama_kegiatan" placeholder="{{ $item['nama_kegiatan'] }}" type="text" class="form-control" id="nama">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="nama" class="form-label">Jumlah Dosen</label>
+                                                            <input name="jumlah_dosen" placeholder="{{ $item['jumlah_dosen'] }}" type="text" class="form-control" id="nama">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa</label>
+                                                            <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="text"
+                                                                class="form-control" name="jumlah_mahasiswa">
+                                                        </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -1280,8 +1631,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">D. Seminar yang terjadwal terhadap setiap kelompok
-                    </h6>
+                    <h6 class="modal-title" id="exampleModalLabel">D. Seminar yang terjadwal terhadap setiap kelompok</h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -1315,27 +1665,29 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h6 class="modal-title" id="exampleModalLabel">E. Bimbingan dan tugas akhir/Skripsi/Karya Tulis
-                        Ilmiah
-                        SO (Diploma) dan S1 Dosen Pembimbing utama dan pembimbing penyerta dinilai sama</h6>
+                        Ilmiah SO (Diploma) dan S1 Dosen Pembimbing utama dan pembimbing penyerta dinilai sama</h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
-                    <form>
+                    <form action="{{ route('rk-pendidikan.tugasAkhir.create') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Jumlah Kelompok Dibimbing</label>
-                            <input class="form-control" type="text">
+                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                            <input name="jumlah_mahasiswa" class="form-control" type="text">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -1352,20 +1704,21 @@
                 </div>
 
                 <div class="modal-body">
-                    <form>
+                    <form action="{{ route('rk-pendidikan.proposal.create') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input class="form-control" type="text">
+                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                            <input name="jumlah_mahasiswa" class="form-control" type="text">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </div>
         </div>
@@ -1388,9 +1741,10 @@
                     <form action="{{ route('rk-pendidikan.rendah.create') }}" method="POST">
                         @csrf
                         @method('POST')
+                        <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
+                            <label class="form-label">Nama Kegiatan</label>
+                            <input name="nama_kegiatan" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah Dosen Bimbingan</label>
@@ -1400,6 +1754,7 @@
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </div>
@@ -1422,6 +1777,8 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-pendidikan.kembang.create') }}" method="POST">
                         @csrf
+                        @method('POST')
+                        <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama">
@@ -1429,7 +1786,7 @@
                         <div class="mb-3">
                             <label class="form-label">Jumlah SAP</label>
                             <input name="jumlah_sap" class="form-control" type="text">
-                        </div> 
+                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
@@ -1453,27 +1810,29 @@
                 </div>
 
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Dosen (Maks. 2/smt)</label>
-                            <select class="form-control" id="myDropdown">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
-                        </div>
+                    <form action="{{ route('rk-pendidikan.cangkok.create') }}" method="POST">
+                        @csrf
+                            <input type="hidden" name="id_dosen" value="1"/>
+                            <div class="mb-3">
+                                <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jumlah Dosen (Maks. 2/smt)</label>
+                                <select class="form-control" id="jumlah_dosen" name="jumlah_dosen">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
                     </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </div>
         </div>
     </div>
+
     {{-- AKHIR MODAL I --}}
 
     {{-- MULAI MODAL J --}}
@@ -1488,16 +1847,17 @@
                 </div>
 
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
+                    <form action="{{ route('rk-pendidikan.koordinator.create') }}" method="POST">
+                        @csrf
+                            <input type="hidden" name="id_dosen" value="1"/>
+                            <div class="mb-3">
+                                <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
                     </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </div>
         </div>
@@ -1516,20 +1876,25 @@
                 </div>
 
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Mhasiswa Bimbingan :</label>
-                            <input class="form-control" type="text">
-                        </div>
+                    <form action="{{ route('rk-pendidikan.asistensi.create') }}" method="POST">
+                        @csrf
+                            <input type="hidden" name="id_dosen" value="1"/>
+                            <div class="mb-3">
+                                <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jumlah Dosen</label>
+                                <input class="form-control" type="text" name="jumlah_dosen">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jumlah Mahasiswa Bimbingan</label>
+                                <input class="form-control" type="text" name="jumlah_mahasiswa">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
                     </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </div>
         </div>
@@ -1690,9 +2055,9 @@
     </div>
     {{-- AKHIR MODAL D --}}
 
-    {{-- MULAI MODAL E --}}
+   {{-- MULAI MODAL E --}}
     <div class="modal fade modal-lg" id="modalEditPendidikan_E" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1700,28 +2065,31 @@
                         Ilmiah SO (Diploma) dan S1 Dosen Pembimbing utama dan pembimbing penyerta dinilai sama</h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
+                <form>
                 <div class="modal-body">
-                    <form>
+                    @csrf
+                        <input type="hidden" name="id_rencana" value="">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Jumlah Kelompok dibimbing</label>
+                            <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
                             <input class="form-control" type="text">
-                        </div>
-                    </form>
+                    </div>
                 </div>
 
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
                 </div>
+            </form>
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL E --}}
+{{-- AKHIR MODAL E --}}
+
 
     {{-- MULAI MODAL F --}}
     <div class="modal fade modal-lg" id="modalEditPendidikan_F" tabindex="-1" role="dialog"
@@ -1734,16 +2102,16 @@
                 </div>
 
                 <div class="modal-body">
-                    <form>
+                    @csrf
+                        <input type="hidden" name="id_rencana" value="">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Jumlah mahasiswa dibimbing</label>
+                            <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
                             <input class="form-control" type="text">
-                        </div>
-                    </form>
+                    </div>
                 </div>
 
                 <div class="modal-footer">
@@ -1755,135 +2123,11 @@
     </div>
     {{-- AKHIR MODAL F --}}
 
-    {{-- MULAI MODAL G --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_G" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">G. Membimbing dosen yang lebih rendah Jenjang Jabatan
-                        Akademiknya</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        @csrf
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Dosen Dibimbing</label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                        </div>
-                    </formmethod=>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL G --}}
-
-
-    {{-- MULAI MODAL H --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_H" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">H. Mengembangkan program perkuliahan/pengajaran
-                        (Silabus, SAP/RPP, GBPP, dll) dalam kelompok atau mandiri yang hasilnya dipakai untuk kegiatan
-                        perkuliahan</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah SAP</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL H --}}
-
     {{-- MULAI MODAL I --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_I" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">I. Melaksanakan kegiatan detasering dan pencangkokan
-                        dosen dalam 1 semester</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Dosen</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL I --}}
+    
 
     {{-- MULAI MODAL J --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_J" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">J. Koordinator Tugas Akhir/Skripsi, Proyek Akhir atau
-                        KP</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL J --}}
+    
 
     {{-- MULAI MODAL K --}}
     <div class="modal fade modal-lg" id="modalEditPendidikan_K" tabindex="-1" role="dialog"
@@ -1920,7 +2164,7 @@
 
 
     {{-- TEMPAT MODAL EDIT CONFIRM --}}
-    {{-- <div class="modal fade" id="modalEditConfirm" tabindex="-1" role="dialog"
+    <div class="modal fade" id="modalEditConfirm" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -1935,11 +2179,11 @@
 
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                    <button id="confirmEditBtn" type="submit" class="btn btn-primary">Yakin</button>
+                    <button id="confirmEditBtn" type="button" class="btn btn-primary">Yakin</button>
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     {{-- TEMPAT MODAL DELETE CONFIRM --}}
     <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
@@ -2030,4 +2274,20 @@
             }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
         }
     </script>
+
+    {{-- ------------- Script bagian I -------------------- --}}
+    <script>
+        document.getElementById('formTambahKegiatan').addEventListener('submit', function(event) {
+            event.preventDefault();
+            addData();
+        });
+    
+        document.getElementById('formEditKegiatan').addEventListener('submit', function(event) {
+            event.preventDefault();
+            editData();
+        });
+    </script>
+    
+    
+
 @endsection

@@ -701,7 +701,7 @@
 
                 <div class="row justify-content-end mr-0">
                     <button id="btnFrkPenunjangK" type="button" class="btn btn-success col-md-auto m-1"
-                        data-bs-toggle="modal" data-bs-target="#modalPenunjang_H">
+                        data-bs-toggle="modal" data-bs-target="#modalPenunjang_K">
                         Tambah Kegiatan
                     </button>
                 </div>
@@ -983,11 +983,11 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Jumlah Mahasiswa:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1013,11 +1013,11 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                    <label class="form-label">Jumlah Mahasiswa:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1043,11 +1043,12 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Jumlah Kegiatan</label>
+                                    <label class="form-label">Jumlah Kegiatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1074,7 +1075,7 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                             </form>
@@ -1086,7 +1087,7 @@
                 </div>
             </div>
     {{-- AKHIR TEMPAT MENAMBAH KEGIATAN D}}
-
+    
     {{-- TEMPAT MODAL TAMBAH KEGIATAN E--}}
             <div class="modal fade modal-lg" id="modalPenunjang_E" tabindex="-1" role="dialog" 
             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1100,11 +1101,14 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Jabatan</label>
+
+                                    <label class="form-label">Jabatan:</label>
+
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1130,11 +1134,12 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Jabatan</label>
+                                    <label class="form-label">Jabatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1160,11 +1165,11 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jabatan</label>
+                                    <label class="form-label">Jabatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1183,18 +1188,19 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">H. Ketua Panitia Ad Hoc: (umur panitia sekurang-kurangnya 2 semester), seperti Panitia Reviewer RKAT, Panitia Telaah Prodi Anggota Panitia Ad Hoc</h6>
+
+                            <h6 class="modal-title" id="exampleModalLabel">H. Ketua Panitia Ad Hoc</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jabatan</label>
+                                    <label class="form-label">Jabatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1208,24 +1214,24 @@
 
     {{-- AKHIR TEMPAT MENAMBAH KEGIATAN H}}
 
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN I--}}
+   {{-- TEMPAT MODAL TAMBAH KEGIATAN I--}}
             <div class="modal fade modal-lg" id="modalPenunjang_I" tabindex="-1" role="dialog" 
             aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">I. Ketua Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">I. Ketua Panitia Tetap</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Tingkat Jabatan</label>
+                                    <label class="form-label">Tingkat Jabatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1251,11 +1257,11 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Tingkat Jabatan</label>
+                                    <label class="form-label">Tingkat Jabatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1274,18 +1280,18 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI , asesor BAN-PT</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI, assesor BAN-PT</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jabatan</label>
+                                    <label class="form-label">Jabatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1299,7 +1305,7 @@
     {{-- AKHIR TEMPAT MENAMBAH KEGIATAN K}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN L--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_L " tabindex="-1" role="dialog" 
+    <div class="modal fade modal-lg" id="modalPenunjang_L" tabindex="-1" role="dialog" 
             aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -1311,7 +1317,7 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
@@ -1320,6 +1326,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Tingkatan</label>
+                                    <label class="form-label">Jabatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1346,11 +1353,11 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Tingkatan</label>
+                                    <label class="form-label">Tingkatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1376,7 +1383,7 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                             </form>
@@ -1390,8 +1397,7 @@
 
     {{-- AKHIR TEMPAT MENAMBAH KEGIATAN N}}
 
-
-    {{-- TEMPAT MODAL EDIT CONFIRM --}}
+    {{-- TEMPAT MODAL EDIT CONFIRM A--}}
         <div class="modal fade" id="modalEditPenunjang_A" tabindex="-1" aria-labelledby="modalEditPenunjangALabel"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -1402,17 +1408,403 @@
                     </div>
                     <div class="modal-body">
                         
+                    <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jumlah Mahasiswa:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM B--}}
+        <div class="modal fade" id="modalEditPenunjang_B" tabindex="-1" aria-labelledby="modalEditPenunjangBLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangBLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jumlah Mahasiswa:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM C--}}
+        <div class="modal fade" id="modalEditPenunjang_C" tabindex="-1" aria-labelledby="modalEditPenunjangCLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangCLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jumlah Kegiatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM D--}}
+        <div class="modal fade" id="modalEditPenunjang_D" tabindex="-1" aria-labelledby="modalEditPenunjangDLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangDLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
                         <form>
                             <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
+                                <label for="editKegiatan" class="form-label">Nama Kegiatan:</label>
                                 <input type="text" class="form-control" id="editKegiatan">
                             </div>
                             
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM E--}}
+        <div class="modal fade" id="modalEditPenunjang_E" tabindex="-1" aria-labelledby="modalEditPenunjangELabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangELabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM F--}}
+        <div class="modal fade" id="modalEditPenunjang_F" tabindex="-1" aria-labelledby="modalEditPenunjangFLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangFLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM G--}}
+        <div class="modal fade" id="modalEditPenunjang_G" tabindex="-1" aria-labelledby="modalEditPenunjangGLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangGLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM H--}}
+        <div class="modal fade" id="modalEditPenunjang_H" tabindex="-1" aria-labelledby="modalEditPenunjangHLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangHLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM I--}}
+        <div class="modal fade" id="modalEditPenunjang_I" tabindex="-1" aria-labelledby="modalEditPenunjangILabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangILabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tingkat Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM J--}}
+        <div class="modal fade" id="modalEditPenunjang_J" tabindex="-1" aria-labelledby="modalEditPenunjangJLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangJLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tingkat Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM K--}}
+        <div class="modal fade" id="modalEditPenunjang_K" tabindex="-1" aria-labelledby="modalEditPenunjangKLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangKLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM L--}}
+        <div class="modal fade" id="modalEditPenunjang_L" tabindex="-1" aria-labelledby="modalEditPenunjangLLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangLLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM M--}}
+        <div class="modal fade" id="modalEditPenunjang_M" tabindex="-1" aria-labelledby="modalEditPenunjangMLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangMLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tingkatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR MODAL EDIT --}}
+
+    {{-- TEMPAT MODAL EDIT CONFIRM N--}}
+        <div class="modal fade" id="modalEditPenunjang_N" tabindex="-1" aria-labelledby="modalEditPenunjangNLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditPenunjangNLabel">Edit Kegiatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <form>
+                            <div class="mb-3">
+                                <label for="editKegiatan" class="form-label">Nama Kegiatan:</label>
+                                <input type="text" class="form-control" id="editKegiatan">
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
