@@ -44,7 +44,7 @@
                             @endphp
                             @foreach ($teori as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_kelas'] }}</td>
                                     <td>{{ $item['jumlah_evaluasi'] }}</td>
