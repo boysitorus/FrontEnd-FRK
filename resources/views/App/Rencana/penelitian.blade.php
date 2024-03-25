@@ -164,12 +164,14 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
-                (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</b></h5>
+        <h5>
+            <b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
+                (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</b>
+            </h5>
         <hr />
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
+            <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#modalPenelitian_C">Tambah
                 Kegiatan</button>
 
         </div>
@@ -203,37 +205,11 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_C"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
-                </tr>
-                <tr>
-                    <td scope="row">2</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu
-                        pharetra.</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu
-                        pharetra.</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                 </tr>
             </tbody>
         </table>
@@ -247,7 +223,7 @@
         <hr />
 
         <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
+            <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#modalPenelitian_D">Tambah
                 Kegiatan</button>
 
         </div>
@@ -282,39 +258,11 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#">
-                            <img src="{{ asset('assets/icon/Vectoredit.svg') }}" alt="edit" />
-                        </a>
-                        <a>
-                            <img src="{{ asset('assets/icon/Vectordelete.svg') }}" alt="delete" />
-                        </a>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_D"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
-                </tr>
-                <tr>
-                    <td scope="row">2</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                 </tr>
             </tbody>
         </table>
@@ -1239,6 +1187,91 @@
 </div>
 {{-- AKHIR MODAL B --}}
 
+{{-- MULAI MODAL C --}}
+<div class="modal fade modal-lg" id="modalPenelitian_C" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jenis Pengerjaan</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Peran</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kategori</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL C --}}
+
+
+{{-- MULAI MODAL D --}}
+<div class="modal fade modal-lg" id="modalPenelitian_D" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jenis Pengerjaan</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Peran</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL D --}}
+
+
+
 <!--Modal E-->
 <div class="modal fade modal-lg" id="modalPenelitian_E" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -1708,6 +1741,91 @@
 </div>
 {{-- AKHIR MODAL B --}}
 
+{{-- MULAI MODAL C --}}
+<div class="modal fade modal-lg" id="modalEditPenelitian_C" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.
+</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Jenis Pengerjaan</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Kategori</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL C --}}
+
+{{-- MULAI MODAL D --}}
+<div class="modal fade modal-lg" id="modalEditPenelitian_D" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal tiga negara), disetujui oleh pimpinan dan tercatat
+</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Jenis Pengerjaan</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Peran</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL D --}}
+
+
+
+
 <!-- MODAL E -->
 <div class="modal fade modal-lg" id="modalEditPenelitian_E" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1915,7 +2033,7 @@
                         <label for="nama" class="form-label">Nama Kegiatan</label>
                         <input type="text" class="form-control" id="nama">
                     </div>
-                 
+
                 </form>
             </div>
 
