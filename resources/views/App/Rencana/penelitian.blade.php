@@ -100,7 +100,7 @@
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                            data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                     </td>
