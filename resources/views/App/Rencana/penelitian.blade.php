@@ -1641,6 +1641,87 @@
 </div>
 {{-- AKHIR MODAL B --}}
 
+<!-- MODAL E -->
+<div class="modal fade modal-lg" id="modalEditPenelitian_E" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan 
+                    dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks
+                </h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jenis Pekerjaan</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Posisi</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Akhir Modal E-->
+
+<!-- MODAL F -->
+<div class="modal fade modal-lg" id="modalEditPenelitian_F" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu judul naskah buku yang akan 
+                    diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat) 
+                    sama dengan 2 sks
+                </h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Akhir Modal F-->
+
 {{-- MULAI MODAL G --}}
 <div class="modal fade modal-lg" id="modalEditPenelitian_G" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
