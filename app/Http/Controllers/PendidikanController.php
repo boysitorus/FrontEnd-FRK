@@ -25,8 +25,6 @@ class PendidikanController extends Controller
             $responseSeminar = Http::get('http://localhost:9000/api/pendidikan/seminar');
             $seminar = $responseSeminar->json();
 
-<<<<<<< HEAD
-=======
             //Mengambil data rendah dari Lumen
             $responseRendah = Http::get('http://localhost:9000/api/pendidikan/rendah');
             $rendah = $responseRendah->json();
@@ -54,14 +52,11 @@ class PendidikanController extends Controller
             $proposal = $responseProposal->json();
 
 
->>>>>>> 3e057e10515dc23e1bf3176e00f17992394a0962
             // Menggabungkan data teori dan bimbingan
             $data = [
                 'teori' => $teori,
                 'bimbingan' => $bimbingan,
                 'seminar' => $seminar,
-<<<<<<< HEAD
-=======
                 'praktikum' => $praktikum,
                 'rendah' => $rendah,
                 'kembang' => $kembang,
@@ -70,7 +65,6 @@ class PendidikanController extends Controller
                 'koordinator' => $koordinator,
                 'asistensi' => $asistensi,
                 'proposal' => $proposal
->>>>>>> 3e057e10515dc23e1bf3176e00f17992394a0962
             ];
 
             // Mengirim data ke view
@@ -227,8 +221,6 @@ class PendidikanController extends Controller
 
         return redirect()->back();
     }
-<<<<<<< HEAD
-=======
 
     public function postRendah(Request $request)    
     {
@@ -493,5 +485,4 @@ class PendidikanController extends Controller
         Http::delete("http://localhost:9000/api/pendidikan/proposal/{$id}");
         return redirect()->back()->with('success', 'Item deleted');
     }
->>>>>>> 3e057e10515dc23e1bf3176e00f17992394a0962
 }
