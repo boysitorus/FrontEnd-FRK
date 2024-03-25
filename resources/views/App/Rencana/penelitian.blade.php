@@ -1471,7 +1471,7 @@
 <!-- Akhir modal J -->
 
 {{-- MULAI MODAL K --}}
-<div class="modal fade modal-lg" id="modalPenelitian_M" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade modal-lg" id="modalPenelitian_K" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document"
         style="min-height: 500px; max-height: 100vh; display: flex; align-items: center;">
@@ -1553,7 +1553,7 @@
                 <form>
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <input type="text" name="nama_kegiatan" class=" form-control" id="nama">
                     </div>
                     <div class="mb-3">
                         <label for="dropdownTingkatan">Tingkatan:</label>
@@ -1624,8 +1624,6 @@
     </div>
 </div>
 {{-- AKHIR MODAL N--}}
-
-{{-- LANJUT MODAL C S/D HABIS --}}
 
 
 {{--TEMPAT MODAL EDIT --}}
