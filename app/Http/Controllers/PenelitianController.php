@@ -99,7 +99,7 @@ class PenelitianController extends Controller
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'tahap_pencapaian' => $request->get('tahap_pencapaian'),
+                'status_tahapan' => $request->get('status_tahapan'),
                 'posisi' => $request->get('posisi'),
                 'jumlah_anggota' => $request->get('jumlah_anggota'),
             ]
