@@ -1887,11 +1887,11 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Dosen</label>
-                                <input class="form-control" type="text" name="jumlah_dosen">
+                                <input class="form-control" type="number" name="jumlah_dosen">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                                <input class="form-control" type="text" name="jumlah_mahasiswa">
+                                <input class="form-control" type="number" name="jumlah_mahasiswa">
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
