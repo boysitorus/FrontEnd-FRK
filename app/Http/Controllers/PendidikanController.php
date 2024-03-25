@@ -301,17 +301,26 @@ class PendidikanController extends Controller
     }
 
     public function editCangkok(Request $request){
-        Http::post(
-            'http://localhost:9000/api/pendidikan/edit/cangkok/{$id}',
+        $id_rencana = $request->get('id_rencana');
+    
+        $response = Http::post(
+            "http://localhost:9000/api/pendidikan/edit/cangkok/{$id_rencana}",
             [
-                'id_rencana' => $request->get('id_rencana'),
+                'id_rencana' => $id_rencana,
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_dosen' => $request->get('jumlah_dosen'),
             ]
         );
-
-        return redirect()->back()->with('success', 'Item updated successfully');
+    
+        // Cek apakah request berhasil
+        if ($response->successful()) {
+            return redirect()->back()->with('success', 'Item berhasil diedit');
+        } else {
+            // Tampilkan pesan error jika gagal
+            return redirect()->back()->with('error', 'Failed to update item');
+        }
     }
+    
 
     public function deleteCangkok($id)
     {
@@ -362,6 +371,7 @@ class PendidikanController extends Controller
         [
             'id_dosen' => $request->get('id_dosen'),
             'nama_kegiatan' => $request->get('nama_kegiatan'),
+            'jumlah_dosen' => $request->get('jumlah_dosen'),
             'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
         ]);
 
@@ -369,16 +379,25 @@ class PendidikanController extends Controller
     }
 
     public function editAsistensi(Request $request){
-        Http::post(
+        $id_rencana = $request->get('id_rencana');
+
+        $response = Http::post(
             'http://localhost:9000/api/pendidikan/edit/asistensi',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_dosen' => $request->get('jumlah_dosen'),
                 'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
             ]
         );
 
-        return redirect()->back()->with('success', 'Item updated successfully');
+        // Cek apakah request berhasil
+        if ($response->successful()) {
+            return redirect()->back()->with('success', 'Item berhasil diedit');
+        } else {
+            // Tampilkan pesan error jika gagal
+            return redirect()->back()->with('error', 'Failed to update item');
+        }
     }
 
     public function deleteAsistensi($id)
