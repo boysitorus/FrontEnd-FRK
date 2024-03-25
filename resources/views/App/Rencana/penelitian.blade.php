@@ -1018,7 +1018,7 @@
                 <tr>
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                    <th scope="col" rowspan="2" class="align-middle">Kategori</th>
+                    <th scope="col" rowspan="2" class="align-middle">Tingkatan</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
                     <th scope="col" rowspan="2" class="align-middle" style="width:200px;">Aksi</th>
@@ -1342,7 +1342,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen  yang sesuai dengan bidang ilmu dan tidak diterbitkan,  tetapi digunakan oleh mahasiswa</h6>
+                <h6 class="modal-title" id="exampleModalLabel">G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen
+                    yang sesuai dengan bidang ilmu dan tidak diterbitkan, tetapi digunakan oleh mahasiswa</h6>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -1488,16 +1489,17 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label for="dropdownKategori">Kategori:</label>
+                        <label for="dropdownTingkatan">Tingkatan:</label>
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownTingkatan"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Pilih
                             </button>
-                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
-                                <li><a class="dropdown-item" href="#">Paten Sederhana</a></li>
-                                <li><a class="dropdown-item" href="#">Paten Biasa</a></li>
-                                <li><a class="dropdown-item" href="#">Paten Internasional (minimal tiga negara)</a></li>
+                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownTingkatan">
+                                <li><a class="dropdown-item" href="#">Tingkat Regional/minimal fakultas</a></li>
+                                <li><a class="dropdown-item" href="#">Tingkat nasional</a></li>
+                                <li><a class="dropdown-item" href="#">Tingkat Internasional</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -1531,13 +1533,13 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label for="dropdownKategori">Tingkatan:</label>
+                        <label for="dropdownTingkatan">Tingkatan:</label>
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownTingkatan"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Pilih
                             </button>
-                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
+                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownTingkatan">
                                 <li><a class="dropdown-item" href="#">Tingkat Regional/minimal fakultas</a></li>
                                 <li><a class="dropdown-item" href="#">Tingkat nasional</a></li>
                                 <li><a class="dropdown-item" href="#">Tingkat Internasional</a>
@@ -1645,7 +1647,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen yang sesuai dengan bidang ilmu dan tidak diterbitkan, tetapi digunakan oleh mahasiswa</h6>
+                <h6 class="modal-title" id="exampleModalLabel">G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen
+                    yang sesuai dengan bidang ilmu dan tidak diterbitkan, tetapi digunakan oleh mahasiswa</h6>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -1806,7 +1809,7 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Kategori</label>
+                        <label class="form-label">Tingkatan</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="mb-3">
