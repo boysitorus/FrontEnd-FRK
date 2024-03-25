@@ -64,7 +64,6 @@ class PendidikanController extends Controller
                 'cangkok' => $cangkok,
                 'koordinator' => $koordinator,
                 'asistensi' => $asistensi,
-                'tugasAkhir' => $tugasAkhir,
                 'proposal' => $proposal
             ];
 
@@ -223,7 +222,7 @@ class PendidikanController extends Controller
         return redirect()->back();
     }
 
-    public function postRendah(Request $request)
+    public function postRendah(Request $request)    
     {
         Http::post(
             'http://localhost:9000/api/pendidikan/rendah',

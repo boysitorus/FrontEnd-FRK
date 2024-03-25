@@ -1058,6 +1058,7 @@
                                                                         data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
                                                                 </div>
                                                             </form>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1742,8 +1743,8 @@
                         @method('POST')
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
+                            <label class="form-label">Nama Kegiatan</label>
+                            <input name="nama_kegiatan" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah Dosen Bimbingan</label>
@@ -1753,6 +1754,7 @@
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </div>
