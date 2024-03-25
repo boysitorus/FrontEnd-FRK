@@ -186,7 +186,7 @@
                     <th scope="col" rowspan="2" class="align-middle">Kategori</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                 </tr>
                 <tr>
                     <th scope="col">Asesor 1</th>
@@ -196,7 +196,7 @@
             <tbody>
                 <tr>
                     <td scope="row">1</td>
-                    <td>Lorem ipsum dolor sit amet consectetur</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -238,7 +238,7 @@
                     <th scope="col" rowspan="2" class="align-middle">Peran</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle" style="width:100px;">Aksi</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                 </tr>
                 <tr>
                     <th scope="col">Asesor 1</th>
@@ -248,9 +248,7 @@
             <tbody>
                 <tr>
                     <td scope="row">1</td>
-                    <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                        arcu
-                        pharetra.</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
