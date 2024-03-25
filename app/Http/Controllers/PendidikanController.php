@@ -310,6 +310,7 @@ class PendidikanController extends Controller
     public function editCangkok(Request $request){
         $id_rencana = $request->get('id_rencana');
     
+        // Pastikan URL API benar dan sesuai dengan konfigurasi server Anda
         $response = Http::post(
             "http://localhost:9000/api/pendidikan/edit/cangkok/{$id_rencana}",
             [
@@ -327,6 +328,7 @@ class PendidikanController extends Controller
             return redirect()->back()->with('error', 'Failed to update item');
         }
     }
+    
     
 
     public function deleteCangkok($id)
