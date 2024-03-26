@@ -1643,43 +1643,41 @@
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
+            
             <div class="modal-body">
-                <form>
+            <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST">
+            @csrf
+                    <input type="hidden" name="id_dosen" value="1">
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama Kegiatan</label>
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label for="dropdownKategori">Kategori</label>
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Pilih
-                            </button>
-                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah
-                                        ber-ISSN
-                                        tidak terakreditasi atau proceedings seminar nasional maupun internasional</a>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi</a></li>
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi
-                                        internasional (dalam bahasa intenasional)</a></li>
-                            </ul>
-                        </div>
+                        <label for="lingkup_penerbit" class="form-label">Kategori</label>
+                            <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
+                                <option selected>Pilih Kategori</option>
+                                <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
+                                    atau proceedings seminar nasional maupun internasional</option>
+                                <option value="2">Diterbitkan oleh Jurnal terakreditasi</option>
+                                <option value="3">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
+                            </select>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Jenis Pengerjaan</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Jenis Peran</label>
-                        <input type="text" class="form-control">
+                        <label for="peran" class="form-label">Jenis Peran</label>
+                        <select name ="peran" class="form-select" aria-label="Default select example">
+                            <option selected>Pilih Peran</option>
+                            <option value="1">Penulis Utama</option>
+                            <option value="2">Penulis Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>
@@ -1772,7 +1770,7 @@
                 <form>
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <input type="text" name="nama_kegiatan" class=" form-control" id="nama">
                     </div>
                     <div class="mb-3">
                         <label for="dropdownTingkatan">Tingkatan:</label>
@@ -1843,8 +1841,6 @@
     </div>
 </div>
 {{-- AKHIR MODAL N--}}
-
-{{-- LANJUT MODAL C S/D HABIS --}}
 
 
 {{--TEMPAT MODAL EDIT --}}
