@@ -1692,10 +1692,11 @@
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST">
+          <div class="modal-body">
+                <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST">
             @csrf
-                <div class="modal-body">
-                    <input type="hidden" name="id_dosen" value="1">
+
+                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana']}}">
                     <div class="mb-3">
                         <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                         <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">

@@ -416,4 +416,67 @@ class PenelitianController extends Controller
         return redirect()->back()->with('success', 'Item deleted');
     }
 
+    public function deletePenelitianTidharma($id){
+        Http::delete("http://localhost:8001/api/penelitian/penelitian_tridharma/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+    // Bagian J
+    public function getJurnalIlmiah(){
+         try{
+            //Mengambil data j dari Lumen
+         $responseJurnalIlmiah = Http::get('http://localhost:8001/api/penelitian/jurnal_ilmiah');
+         $JurnalIlmiah = $responseJurnalIlmiah->json();
+
+            $data = [
+                'jurnal_ilmiah' => $JurnalIlmiah,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postJurnalIlmiah(Request $request){
+        Http::post(
+            'http://localhost:8001/api/penelitian/jurnal_ilmiah',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'lingkup_penerbit'=> $request->get('lingkup_penerbit'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'peran'  => $request->get('peran'),
+
+            ]
+        );
+
+        return redirect()->back()->with('succes', 'Penelitian jurnal_ilmiah added successfully');
+    }
+
+    public function editJurnalIlmiah(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/jurnal_ilmiah',
+            [
+                'id_jurnal' => $request->get('id_jurnal'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'lingkup_peberbit'=> $request->get('lingkup_penerbit'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'peran'  => $request->get('peran'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteJurnalIlmiah($id){
+        Http::delete("http://localhost:8001/api/penelitian/jurnal_ilmiah/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
 }
