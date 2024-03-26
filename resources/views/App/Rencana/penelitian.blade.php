@@ -109,12 +109,36 @@
                                             </div>
                                         </form>
                                     </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {{-- TEMPAT MODAL DELETE CONFIRM --}}
+                        <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body text-center">
+                                        <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                        <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                        <p class="text-muted small">proses ini tidak dapat diurungkan bila anda sudah menekan tombol
+                                            'Yakin'
+                                        </p>
+                                    </div>
+
+                                    <div class="modal-footer justify-content-center">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                                        <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Yakin</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 @endif
-                
             </tbody>
         </table>
     </div>
