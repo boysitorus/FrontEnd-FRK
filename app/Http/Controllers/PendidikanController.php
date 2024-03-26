@@ -222,7 +222,7 @@ class PendidikanController extends Controller
         return redirect()->back();
     }
 
-    public function postRendah(Request $request)    
+    public function postRendah(Request $request)
     {
         Http::post(
             'http://localhost:9000/api/pendidikan/rendah',
@@ -307,9 +307,10 @@ class PendidikanController extends Controller
         return redirect()->back();
     }
 
-    public function editCangkok(Request $request){
+    public function editCangkok(Request $request)
+    {
         $id_rencana = $request->get('id_rencana');
-    
+
         // Pastikan URL API benar dan sesuai dengan konfigurasi server Anda
         $response = Http::post(
             "http://localhost:9000/api/pendidikan/edit/cangkok/{$id_rencana}",
@@ -319,7 +320,7 @@ class PendidikanController extends Controller
                 'jumlah_dosen' => $request->get('jumlah_dosen'),
             ]
         );
-    
+
         // Cek apakah request berhasil
         if ($response->successful()) {
             return redirect()->back()->with('success', 'Item berhasil diedit');
@@ -328,8 +329,8 @@ class PendidikanController extends Controller
             return redirect()->back()->with('error', 'Failed to update item');
         }
     }
-    
-    
+
+
 
     public function deleteCangkok($id)
     {
@@ -379,18 +380,21 @@ class PendidikanController extends Controller
 
     public function postAsistensi(Request $request)
     {
-        Http::post('http://localhost:9000/api/pendidikan/asistensi',
-        [
-            'id_dosen' => $request->get('id_dosen'),
-            'nama_kegiatan' => $request->get('nama_kegiatan'),
-            'jumlah_dosen' => $request->get('jumlah_dosen'),
-            'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
-        ]);
+        Http::post(
+            'http://localhost:9000/api/pendidikan/asistensi',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_dosen' => $request->get('jumlah_dosen'),
+                'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
+            ]
+        );
 
         return redirect()->back();
     }
 
-    public function editAsistensi(Request $request){
+    public function editAsistensi(Request $request)
+    {
         $id_rencana = $request->get('id_rencana');
 
         $response = Http::post(
