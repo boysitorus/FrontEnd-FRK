@@ -274,7 +274,7 @@ class PendidikanController extends Controller
     public function editKembang(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/edit/teori',
+            'http://localhost:9000/api/pendidikan/edit/kembang',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
