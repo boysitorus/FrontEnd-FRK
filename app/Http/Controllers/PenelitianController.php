@@ -16,7 +16,8 @@ class PenelitianController extends Controller
             $PenelitianKelompok = $responsePenelitianKelompok->json();
 
             // Mengambil data penelitian mandiri dari Lumen
-
+            $responsePenelitianMandiri = Http::get('http://localhost:8001/api/penelitian/penelitian_mandiri');
+            $PenelitianMandiri = $responsePenelitianMandiri->json();
             // Mengambil data c dari Lumen
 
             //Mengambil data d dari Lumen
@@ -49,7 +50,7 @@ class PenelitianController extends Controller
             // Menggabungkan data
             $data = [
                 'penelitian_kelompok' => $PenelitianKelompok,
-                //'penelitianMandiri' => $PenelitianMandiri
+                'penelitian_mandiri' => $PenelitianMandiri,
                 'menyadur'=>$Menyadur,
                 'menyunting'=>$Menyunting
             ];
@@ -62,6 +63,7 @@ class PenelitianController extends Controller
         }
     }
 
+    // CRUD Tabel A. Penelitian Kelompok
     public function getPenelitianKelompok()
     {
         try {
@@ -119,6 +121,68 @@ class PenelitianController extends Controller
 
         return redirect()->back()->with('success', 'Item deleted');
     }
+
+    //END CRUD TABEL A. PENELITIAN KELOMPOK
+
+    // CRUD Tabel B. PENELITIAN MANDIRI
+
+    public function getPenelitianMandiri()
+    {
+        try {
+            // Mengambil data penelitian mandiri dari Lumen
+            $responsePenelitianMandiri = Http::get('http://localhost:8001/api/penelitian/penelitian_mandiri');
+            $PenelitianMandiri = $responsePenelitianMandiri->json();
+
+            $data = [
+                'penelitian_mandiri' => $PenelitianMandiri,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postPenelitianMandiri(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/penelitian_mandiri',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'status_tahapan' => $request->get('status_tahapan')
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian penelitian_kelompok added successfully');
+    }
+
+    public function editPenelitianMandiri(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/penelitian_mandiri',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'status_tahapan' => $request->get('status_tahapan')
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian kelompok updated successfully');
+    }
+
+    public function deletePenelitianMandiri($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/penelitian_mandiri/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+
+    //END CRUD TABEL B. PENELITIAN MANDIRI
+
 
     public function getMenyadur()
     {

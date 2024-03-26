@@ -42,6 +42,12 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::delete('/penelitian/penelitian_kelompok/{id}', [PenelitianController::class, 'deletePenelitianKelompok'])->name('rk-penelitian.penelitian_kelompok.destroy');
     Route::post('/penelitian/edit/penelitian_kelompok', [PenelitianController::class, 'editPenelitianKelompok'])->name('rk-penelitian.penelitian_kelompok.update');
 
+    // Rute untuk data penelitian mandiri
+    Route::get('/penelitian/penelitian_mandiri', [PenelitianController::class, 'getPenelitianMandiri'])->name('rk-penelitian.penelitian_mandiri');
+    Route::post('/penelitian/penelitian_mandiri-tambah', [PenelitianController::class, 'postPenelitianMandiri'])->name('rk-penelitian.penelitian_mandiri.create');
+    Route::delete('/penelitian/penelitian_mandiri/{id}', [PenelitianController::class, 'deletePenelitianMandiri'])->name('rk-penelitian.penelitian_mandiri.destroy');
+    Route::post('/penelitian/edit/penelitian_mandiri', [PenelitianController::class, 'editPenelitianMandiri'])->name('rk-penelitian.penelitian_mandiri.update');
+
     // Rute untuk data ___
 
     // Rute untuk data menyadur naskah buku
