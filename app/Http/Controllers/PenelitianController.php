@@ -48,10 +48,10 @@ class PenelitianController extends Controller
 
             //Mengambil data m dari Lumen
             $responsePembicaraSeminar = Http::get('http://localhost:8001/api/penelitian/pembicara_seminar');
-            $Menyadur = $responsePembicaraSeminar->json();
+            $PembicaraSeminar = $responsePembicaraSeminar->json();
             //Mengambil data n dari Lumen
             $responsePenyajianMakalah = Http::get('http://localhost:8001/api/penelitian/penyajian_makalah');
-            $Menyadur = $responsePenyajianMakalah->json();
+            $PenyajianMakalah = $responsePenyajianMakalah->json();
 
 
             // Menggabungkan data
@@ -316,7 +316,7 @@ class PenelitianController extends Controller
             $PembicaraSeminar= $responsePembicaraSeminar->json();
             
             $data = [
-                'penelitian_kelompok' => $PenelitianKelompok,
+                'pembicara_seminar' => $PembicaraSeminar,
             ];
             
             // Mengirim data ke view
@@ -367,7 +367,7 @@ class PenelitianController extends Controller
         try {
             // Mengambil data penelitian kelompok dari Lumen
             $responsePenyajianMakalah = Http::get('http://localhost:8001/api/penelitian/penyajian_makalah');
-            $PenyajianMakalah = $responsePenyajianaMakalah->json();
+            $PenyajianMakalah = $responsePenyajianMakalah->json();
 
             $data = [
                 'penyajian_makalah' => $PenyajianMakalah,
