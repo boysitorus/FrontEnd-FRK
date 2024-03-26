@@ -12,7 +12,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data penelitian kelompok dari Lumen
-            $responsePenelitianKelompok = Http::get('http://localhost:9000/api/penelitian/penelitian_kelompok');
+            $responsePenelitianKelompok = Http::get('http://localhost:8001/api/penelitian/penelitian_kelompok');
             $PenelitianKelompok = $responsePenelitianKelompok->json();
 
             // Mengambil data penelitian mandiri dari Lumen
@@ -22,11 +22,11 @@ class PenelitianController extends Controller
             //Mengambil data d dari Lumen
 
             //Mengambil data e dari Lumen
-            $responseMenyadur = Http::get('http://localhost:9000/api/penelitian/menyadur');
+            $responseMenyadur = Http::get('http://localhost:8001/api/penelitian/menyadur');
             $Menyadur = $responseMenyadur->json();
 
             //Mengambil data f dari Lumen
-            $responseMenyunting = Http::get('http://localhost:9000/api/penelitian/menyunting');
+            $responseMenyunting = Http::get('http://localhost:8001/api/penelitian/menyunting');
             $Menyunting = $responseMenyunting->json();
 
             //Mengambil data g dari Lumen
@@ -124,7 +124,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data Menyadur naskah dari Lumen
-            $responseMenyadur = Http::get('http://localhost:9000/api/penelitian/menyadur');
+            $responseMenyadur = Http::get('http://localhost:8001/api/penelitian/menyadur');
             $Menyadur= $responseMenyadur->json();
 
             $data = [
@@ -142,7 +142,7 @@ class PenelitianController extends Controller
     public function postMenyadur(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penelitian/menyadur',
+            'http://localhost:8001/api/penelitian/menyadur',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -157,7 +157,7 @@ class PenelitianController extends Controller
     public function editMenyadur(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penelitian/edit/menyadur',
+            'http://localhost:8001/api/penelitian/edit/menyadur',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -171,7 +171,7 @@ class PenelitianController extends Controller
 
     public function deleteMenyadur($id)
     {
-        Http::delete("http://localhost:9000/api/penelitian/menyadur/{$id}");
+        Http::delete("http://localhost:8001/api/penelitian/menyadur/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -180,7 +180,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data Menyunting naskah dari Lumen
-            $responseMenyunting = Http::get('http://localhost:9000/api/penelitian/menyunting');
+            $responseMenyunting = Http::get('http://localhost:8001/api/penelitian/menyunting');
             $Menyunting= $responseMenyunting->json();
 
             $data = [
@@ -198,7 +198,7 @@ class PenelitianController extends Controller
     public function postMenyunting(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penelitian/menyunting',
+            'http://localhost:8001/api/penelitian/menyunting',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -213,7 +213,7 @@ class PenelitianController extends Controller
     public function editMenyunting(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penelitian/edit/menyunting',
+            'http://localhost:8001/api/penelitian/edit/menyunting',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -227,7 +227,7 @@ class PenelitianController extends Controller
 
     public function deleteMenyunting($id)
     {
-        Http::delete("http://localhost:9000/api/penelitian/menyunting/{$id}");
+        Http::delete("http://localhost:8001/api/penelitian/menyunting/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
