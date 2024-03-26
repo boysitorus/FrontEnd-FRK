@@ -1036,21 +1036,21 @@
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h6 class="modal-title" id="exampleModalLabel">H. Mengembangkan program perkuliahan/pengajaran (Silabus, SAP/RPP, GBPP, dll) dalam kelompok atau mandiri yang hasilnya dipakai untuk kegiatan perkuliahan
+                                                            <h6 class="modal-title text-start" id="exampleModalLabel">H. Mengembangkan program perkuliahan/pengajaran (Silabus, SAP/RPP, GBPP, dll) dalam kelompok atau mandiri yang hasilnya dipakai untuk kegiatan perkuliahan
                                                                 Akademiknya</h6>
                                                             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
 
-                                                        <div class="modal-body">
+                                                        <div class="modal-body text-start">
                                                             <form action="{{ route('rk-pendidikan.kembang.update') }}" method="POST">
                                                                 @csrf
                                                                 <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
                                                                 <div class="mb-3">
-                                                                    <label for="nama" class="form-label">Nama Kegiatan</label>
+                                                                    <label for="nama" class="form-label text-start">Nama Kegiatan</label>
                                                                     <input name="nama_kegiatan" type="text" class="form-control" id="nama" placeholder="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}">
                                                                 </div>
                                                                 <div class="mb-3">
-                                                                    <label class="form-label">Jumlah SAP</label>
+                                                                    <label class="form-label text-start">Jumlah SAP</label>
                                                                     <input name="jumlah_sap" class="form-control" type="number" min="0" max="2" placeholder="{{$item['jumlah_sap']}}" value="{{$item['jumlah_sap']}}">
                                                                 </div>
                                                                 <div class="modal-footer">
