@@ -416,7 +416,7 @@
                                                 <h6 class="modal-title" id="exampleModalLabel">{{ $counter++}}. {{ $item['nama_kegiatan'] }}</h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            
+
                                             <form action ="{{ route('rk-pendidikan.bimbingan.update') }}" method="POST">
                                                 <div class="modal-body">
                                                     @csrf
@@ -427,7 +427,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" class="form-control" type="text" name="jumlah_mahasiswa">
+                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" class="form-control" type="number" name="jumlah_mahasiswa">
                                                     </div>
                                                 </div>
 
@@ -559,10 +559,10 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelompok" class="form-label">Jumlah kelompok</label>
-                                                        <input placeholder="{{ $item['jumlah_kelompok'] }}" class="form-control" type="text" name="jumlah_kelompok">
+                                                        <input placeholder="{{ $item['jumlah_kelompok'] }}" class="form-control" type="number" name="jumlah_kelompok">
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                                 </div>
@@ -627,7 +627,9 @@
                                 <td></td>
                                 <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPendidikan-{{$item['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPendidikan-{{$item['id_rencana']}}">
+                                    <i class="bi bi-pencil-square"></i></button>
+
                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i class="bi bi-trash3-fill"></i></button>
 
@@ -681,7 +683,7 @@
                                                 <div class="modal-body">
                                                     @csrf
                                                     <input type="hidden" name="id_rencana"
-                                                        value="{{ $item['id_rencana'] }}" />
+                                                    value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
@@ -691,7 +693,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="text"
+                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa">
                                                     </div>
 
@@ -825,7 +827,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="text"
+                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa">
                                                     </div>
 
@@ -1221,7 +1223,7 @@
                                                             <option value="2" {{ $item['jumlah_dosen'] == 2 ? 'selected' : '' }}>2</option>
                                                         </select>
                                                     </div>
-                                                    
+
 
                                                 </div>
 
@@ -1374,7 +1376,7 @@
                                 </div>
                             @endforeach
                         @endif
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -1679,7 +1681,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="text">
+                            <input name="jumlah_mahasiswa" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1713,7 +1715,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="text">
+                            <input name="jumlah_mahasiswa" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1754,7 +1756,7 @@
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
-                    
+
                 </div>
             </div>
         </div>
@@ -1885,11 +1887,11 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Dosen</label>
-                                <input class="form-control" type="text" name="jumlah_dosen">
+                                <input class="form-control" type="number" name="jumlah_dosen">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                                <input class="form-control" type="text" name="jumlah_mahasiswa">
+                                <input class="form-control" type="number" name="jumlah_mahasiswa">
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1900,290 +1902,6 @@
         </div>
     </div>
     {{-- AKHIR MODAL K --}}
-
-
-    {{-- TEMPAT MODAL EDIT --}}
-
-    {{-- MULAI MODAL A --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_A" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">A. Kuliah (Teori) pada tingkat Diploma dan S1
-                        terhadap setiap kelompok</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form>
-                    <div class="modal-body">
-                        @csrf
-
-                        <div class="mb-3">
-                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama" name="nama_kegiatan">
-                        </div>
-                        <div class="mb-3">
-                            <label for="jumlah_kelas" class="form-label">Jumlah Kelas Tatap Muka</label>
-                            <input type="text" class="form-control" name="jumlah_kelas">
-                        </div>
-                        <div class="mb-3">
-                            <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas Evaluasi</label>
-                            <input type="text" class="form-control" name="jumlah_evaluasi">
-                        </div>
-                        <div class="mb-3">
-                            <label for="sks_matakuliah" class="form-label">SKS Mata Kuliah</label>
-                            <input type="text" class="form-control" name="sks_matakuliah">
-                        </div>
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL A --}}
-
-    {{-- MULAI MODAL B --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_B" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">B. Asistensi tugas atau praktikum terhadap setiap
-                        kelompok</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah K (*K=30 orang mhs selama 1 semester) </label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Jumlah kelompok yang dibimbing :</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">SKS Matakuliah (1 SKS = 2 jam)</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL B --}}
-
-    {{-- MULAI MODAL C --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_C" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">C. Bimbingan kuliah kerja yang terprogram terhadap
-                        setiap kelompok, Pembimbingan Praktek Klinik/Lapangan, dan DPL (Dosen Pembimbing lapangan)</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL C --}}
-
-    {{-- MULAI MODAL D --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_D" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">D. Seminar yang terjadwal terhadap setiap kelompok
-                    </h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah kelompok</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL D --}}
-
-   {{-- MULAI MODAL E --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_E" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">E. Bimbingan dan tugas akhir/Skripsi/Karya Tulis
-                        Ilmiah SO (Diploma) dan S1 Dosen Pembimbing utama dan pembimbing penyerta dinilai sama</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form>
-                <div class="modal-body">
-                    @csrf
-                        <input type="hidden" name="id_rencana" value="">
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input class="form-control" type="text">
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </form>
-            </div>
-        </div>
-    </div>
-{{-- AKHIR MODAL E --}}
-
-
-    {{-- MULAI MODAL F --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_F" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">F. Menguji proposal S1, S2, S3, Kualifikasi</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    @csrf
-                        <input type="hidden" name="id_rencana" value="">
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input class="form-control" type="text">
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL F --}}
-
-    {{-- MULAI MODAL I --}}
-    
-
-    {{-- MULAI MODAL J --}}
-    
-
-    {{-- MULAI MODAL K --}}
-    <div class="modal fade modal-lg" id="modalEditPendidikan_K" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">K. Asistensi tugas atau praktikum terhadap setiap
-                        kelompok.</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Mhasiswa Bimbingan</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL K --}}
-
-
-    {{-- TEMPAT MODAL EDIT CONFIRM --}}
-    <div class="modal fade" id="modalEditConfirm" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body text-center">
-                    <h1><i class="bi bi-question-circle text-warning"></i></h1>
-                    <h5>Yakin untuk menyimpan perubahan kegiatan ini?</h5>
-                </div>
-
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                    <button id="confirmEditBtn" type="button" class="btn btn-primary">Yakin</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     {{-- TEMPAT MODAL DELETE CONFIRM --}}
     <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
@@ -2281,13 +1999,11 @@
             event.preventDefault();
             addData();
         });
-    
+
         document.getElementById('formEditKegiatan').addEventListener('submit', function(event) {
             event.preventDefault();
             editData();
         });
     </script>
-    
-    
 
 @endsection
