@@ -659,9 +659,11 @@
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">Kategori</th>
+                    <th scope="col" rowspan="2" class="align-middle">Jenis Pengerjaan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Peran</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle" style="width:200px;">Aksi</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                 </tr>
                 <tr>
                     <th scope="col">Asesor 1</th>
@@ -1407,12 +1409,12 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input type="nama_kegiatan" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Banyaknya BKD yang Terhitung</label>
-                        <input type="text" class="form-control">
+                        <label class="bkd_terhitung">Banyaknya BKD yang Terhitung</label>
+                        <input type="bkd_terhitung" class="form-control">
                     </div>
                 </form>
             </div>
@@ -1438,11 +1440,11 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label for="dropdownKategori">Kategori</label>
+                        <label for="kategori_dropdown">Kategori</label>
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -1460,11 +1462,11 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Jenis Pengerjaan</label>
+                        <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Jenis Peran</label>
+                        <label for="jenis_peran" class="form-label">Jenis Peran</label>
                         <input type="text" class="form-control">
                     </div>
                 </form>

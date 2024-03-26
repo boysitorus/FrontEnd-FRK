@@ -30,6 +30,8 @@ class PenelitianController extends Controller
             //Mengambil data h dari Lumen
 
             //Mengambil data i dari Lumen
+            $responsePenelitianTridharma = Http::get('http://localhost:8001/api/penelitian/penelitian_tridharma');
+            $PenelitianTridharma = $responsePenelitianTridharma->json();
 
             //Mengambil data j dari Lumen
 
@@ -45,6 +47,7 @@ class PenelitianController extends Controller
             // Menggabungkan data
             $data = [
                 'penelitian_kelompok' => $PenelitianKelompok,
+                'penelitian_tridharma' => $PenelitianTridharma,
                 //'penelitianMandiri' => $PenelitianMandiri
                 //dst
             ];
@@ -111,6 +114,57 @@ class PenelitianController extends Controller
     public function deletePenelitianKelompok($id)
     {
         Http::delete("http://localhost:8001/api/penelitian/penelitian_kelompok/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+    // untuk bagian I
+    public function getPenelitianTridharma(){
+        try{
+            //Mengambil data i dari Lumen
+            $responsePenelitianTridharma = Http::get('http://localhost:8001/api/penelitian/penelitian_tridharma');
+            $PenelitianTridharma = $responsePenelitianTridharma->json();
+
+            $data = [
+                'penelitian_tridharma' => $PenelitianTridharma,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postPenelitianTridharma(Request $request){
+        Http::post(
+            'http://localhost:8001/api/penelitian/penelitian_tridharma',
+            [
+                'id_tridharma' => $request->get('id_tridharma'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'bkd_terhitung' => $request->get('bkd_terhitung'),
+            ]
+        );
+
+        return redirect()->back()->with('succes', 'Penelitian penelitian_tridharma added successfully');
+    }
+
+    public function editPenelitianTridharma(Request $request){
+        Http::post(
+            'http://localhost:8001/api/penelitian/penelitian_tridharma',
+            [
+                'id_tridharma' => $request->get('id_tridharma'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'bkd_terhitung' => $request->get('bkd_terhitung'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated succesfully');
+    }
+
+    public function deletePenelitianTidharma($id){
+        Http::delete("http://localhost:8001/api/penelitian/penelitian_tridharma/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
