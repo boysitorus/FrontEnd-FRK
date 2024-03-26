@@ -928,7 +928,7 @@
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Jumlah Dosen Dibimbing</label>
-                                                                    <input name="jumlah_dosen" class="form-control" type="text" placeholder="{{$item['jumlah_dosen']}}" value="{{$item['jumlah_dosen']}}">
+                                                                    <input name="jumlah_dosen" class="form-control" type="number" placeholder="{{$item['jumlah_dosen']}}" value="{{$item['jumlah_dosen']}}">
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
@@ -1051,7 +1051,7 @@
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Jumlah SAP</label>
-                                                                    <input name="jumlah_sap" class="form-control" type="text" placeholder="{{$item['jumlah_sap']}}" value="{{$item['jumlah_sap']}}">
+                                                                    <input name="jumlah_sap" class="form-control" type="number" min="0" max="2" placeholder="{{$item['jumlah_sap']}}" value="{{$item['jumlah_sap']}}">
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
@@ -1748,7 +1748,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah Dosen Bimbingan</label>
-                            <input name="jumlah_dosen" class="form-control" type="text">
+                            <input name="jumlah_dosen" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1785,7 +1785,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah SAP</label>
-                            <input name="jumlah_sap" class="form-control" type="text">
+                            <input name="jumlah_sap" class="form-control" type="number" min="0" max="2">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
