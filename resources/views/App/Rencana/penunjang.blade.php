@@ -1047,6 +1047,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label">Jumlah Kegiatan</label>
                                     <label class="form-label">Jumlah Kegiatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
@@ -1104,7 +1105,10 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label">Jabatan</label>
+
                                     <label class="form-label">Jabatan:</label>
+
                                     <input class="form-control" type="text">
                                 </div>
                             </form>
@@ -1134,6 +1138,7 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label">Jabatan</label>
                                     <label class="form-label">Jabatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
@@ -1183,6 +1188,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
+
                             <h6 class="modal-title" id="exampleModalLabel">H. Ketua Panitia Ad Hoc</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
@@ -1244,7 +1250,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">J. Anggota Panitia Tetap</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">J. Anggota Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1315,6 +1321,11 @@
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label">Jabatan</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tingkatan</label>
                                     <label class="form-label">Jabatan:</label>
                                     <input class="form-control" type="text">
                                 </div>
@@ -1397,17 +1408,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                    <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jumlah Mahasiswa:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1425,17 +1438,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                    <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jumlah Mahasiswa:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1453,17 +1468,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                    <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jumlah Kegiatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1483,15 +1500,14 @@
                         
                         <form>
                             <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
+                                <label for="editKegiatan" class="form-label">Nama Kegiatan:</label>
                                 <input type="text" class="form-control" id="editKegiatan">
                             </div>
                             
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1509,17 +1525,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                    <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1537,17 +1555,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1565,17 +1585,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1593,17 +1615,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1621,17 +1645,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tingkat Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1649,17 +1675,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tingkat Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1677,17 +1705,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1705,17 +1735,19 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jabatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
@@ -1733,24 +1765,26 @@
                     </div>
                     <div class="modal-body">
                         
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
+                    <form>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
+                                    <input type="text" class="form-control" id="nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tingkatan:</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>
         </div>
     {{-- AKHIR MODAL EDIT --}}
 
-    {{-- TEMPAT MODAL EDIT CONFIRM K--}}
+    {{-- TEMPAT MODAL EDIT CONFIRM N--}}
         <div class="modal fade" id="modalEditPenunjang_N" tabindex="-1" aria-labelledby="modalEditPenunjangNLabel"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -1763,15 +1797,14 @@
                         
                         <form>
                             <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Kegiatan</label>
+                                <label for="editKegiatan" class="form-label">Nama Kegiatan:</label>
                                 <input type="text" class="form-control" id="editKegiatan">
                             </div>
                             
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>

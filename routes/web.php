@@ -52,12 +52,6 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::get('/pendidikan/seminar', [PendidikanController::class, 'getSeminar'])->name('rk-pendidikan.seminar');
     Route::post('/pendidikan/seminar-tambah', [PendidikanController::class, 'postSeminar'])->name('rk-pendidikan.seminar.create');
     Route::delete('/pendidikan/seminar/{id}', [PendidikanController::class, 'deleteSeminar'])->name('rk-pendidikan.seminar.destroy');
-
-
-    // Rute untuk data penunjang
-    Route::get('/penunjang', function () {
-        return view('App.Rencana.penunjang');
-    });
     Route::post('/pendidikan/edit/seminar', [PendidikanController::class, 'editSeminar'])->name('rk-pendidikan.seminar.update');
 
     // Rute untuk data rendah
@@ -78,13 +72,13 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::post('/pendidikan/edit/cangkok', [PendidikanController::class, 'editCangkok'])->name('rk-pendidikan.cangkok.update');
     Route::delete('/pendidikan/cangkok/{id}', [PendidikanController::class, 'deleteCangkok'])->name('rk-pendidikan.cangkok.destroy');
 
-    // Rute untuk data cangkok
+    // Rute untuk data koordinator
     // Route::get('/pendidikan/rendah', [PendidikanController::class, 'getRendah'])->name('rk-pendidikan.rendah');
     Route::post('/pendidikan/koordinator-tambah', [PendidikanController::class, 'postKoordinator'])->name('rk-pendidikan.koordinator.create');
     Route::post('/pendidikan/edit/koordinator', [PendidikanController::class, 'editKoordinator'])->name('rk-pendidikan.koordinator.update');
     Route::delete('/pendidikan/koordinator/{id}', [PendidikanController::class, 'deleteKoordinator'])->name('rk-pendidikan.koordinator.destroy');
 
-    // Rute untuk data cangkok
+    // Rute untuk data asistensi
     // Route::get('/pendidikan/rendah', [PendidikanController::class, 'getRendah'])->name('rk-pendidikan.rendah');
     Route::post('/pendidikan/asistensi-tambah', [PendidikanController::class, 'postAsistensi'])->name('rk-pendidikan.asistensi.create');
     Route::post('/pendidikan/edit/asistensi', [PendidikanController::class, 'editAsistensi'])->name('rk-pendidikan.asistensi.update');
@@ -103,4 +97,9 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::post('/pendidikan/proposal', [PendidikanController::class, 'postProposal'])->name('rk-pendidikan.proposal.create');
     Route::post('/pendidikan/edit/proposal', [PendidikanController::class, 'editProposal'])->name('rk-pendidikan.proposal.update');
     Route::delete('/pendidikan/proposal/{id}', [PendidikanController::class, 'deleteProposal'])->name('rk-pendidikan.proposal.destroy');
+    
+    // Rute untuk data penunjang
+    Route::get('/penunjang', function () {
+        return view('App.Rencana.penunjang');
+    });
 });
