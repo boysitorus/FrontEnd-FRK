@@ -409,22 +409,26 @@
 
                                                     <div class="modal-footer justify-content-center">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Batalkan</button>
-                                                            <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                            data-bs-dismiss="modal">Batalkan
+                                                        </button>
+                                                        <a id="confirmDeleteBtn" class="btn btn-primary"
                                                             href="{{ route('rk-penelitian.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
                                                             onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
-                                                            <form id="delete-form-{{ $item['id_rencana'] }}" action="{{ route('rk-penelitian.menyadur.destroy', ['id' => $item['id_rencana']]) }}" method="POST" style="display: none;">
+                                                        <form id="delete-form-{{ $item['id_rencana'] }}" 
+                                                            action="{{ route('rk-penelitian.menyadur.destroy', ['id' => $item['id_rencana']]) }}" 
+                                                            method="POST" >
                                                                 @csrf
                                                                 @method('DELETE')
-                                                            </form>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                             
-                                <!-- MODAL E -->
+                                <!-- MODAL Edit E -->
                                 <div class="modal fade modal-lg" id="modalEditPenelitian-{{$item['id_rencana']}}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -434,27 +438,45 @@
                                                 </h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-
+                                            
+                                            <div class="modal-body">
                                             <form action="{{ route('rk-penelitian.menyadur.update')}}" method="POST">
                                             @csrf
                                                 <div class="modal-body">
-                                                <div class="mb-3">
-                                                    <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}">
+                                                    <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}"/>
+                                                <div class="mb-3">    
                                                     <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                                     <input placeholder="{{$item ['nama_kegiatan']}}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                                                    <input placeholder="{{$item['status_tahapan']}}" name="status_tahapan" id="status_tahapan" type="text" class="form-control">
+                                                    {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
+                                                    <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                                        <option selected>Pilih tahapan</option>
+                                                        <option value="Proposal">Proposal</option>
+                                                        <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner</option>
+                                                        <option value="Analisa Data">Analisa Data</option>
+                                                        <option value="Laporan Akhir">Laporan Akhir</option>
+                                                        <option value="Konsep (desain)">Konsep (desain)</option>
+                                                        <option value="50% dari Karya">50% dari Karya</option>
+                                                        <option value="Hasil akhir">Hasil akhir</option>
+                                                    </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
-                                                    <input placeholder="{{$item['posisi']}}" name="posisi" type="text" class="form-control" name="posisi">
+                                                    <label for="posisi" class="form-label">Posisi</label>
+                                                    {{---<input name="posisi" type="text" class="form-control">--}}
+                                                    <select name="posisi" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                                                        <option selected>Pilih posisi</option>
+                                                        <option value="Ketua">Ketua</option>
+                                                        <option value="Editor">Editor</option>
+                                                        <option value="Anggota">Anggota</option>
+                                                    </select>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
