@@ -1702,13 +1702,13 @@
                     </div>
                     <div class="mb-3">
                         <label for="lingkup_penerbit" class="form-label">Kategori</label>
-                            <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
-                                <option selected>Pilih Kategori</option>
-                                <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
-                                    atau proceedings seminar nasional maupun internasional</option>
-                                <option value="2">Diterbitkan oleh Jurnal terakreditasi</option>
-                                <option value="3">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
-                            </select>
+                        <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
+                            <option selected>Pilih Kategori</option>
+                            <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
+                                atau proceedings seminar nasional maupun internasional</option>
+                            <option value="2">Diterbitkan oleh Jurnal terakreditasi</option>
+                            <option value="3">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
@@ -1726,11 +1726,11 @@
                             <option value="2">Penulis Lainnya</option>
                         </select>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
+                 </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
