@@ -689,12 +689,12 @@
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
                                                         <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
-                                                            class="form-control" name="jumlah_mahasiswa">
+                                                            class="form-control" name="jumlah_mahasiswa" required>
                                                     </div>
 
                                                 </div>
@@ -828,7 +828,7 @@
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
                                                         <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
-                                                            class="form-control" name="jumlah_mahasiswa">
+                                                            class="form-control" name="jumlah_mahasiswa" required>
                                                     </div>
 
                                                 </div>
@@ -920,11 +920,11 @@
                                                                 <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
                                                                 <div class="mb-3">
                                                                     <label for="nama" class="form-label">Nama Kegiatan</label>
-                                                                    <input name="nama_kegiatan" type="text" class="form-control" id="nama" placeholder="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}">
+                                                                    <input name="nama_kegiatan" type="text" class="form-control" id="nama" placeholder="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}" required>
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Jumlah Dosen Dibimbing</label>
-                                                                    <input name="jumlah_dosen" class="form-control" type="text" placeholder="{{$item['jumlah_dosen']}}" value="{{$item['jumlah_dosen']}}">
+                                                                    <input name="jumlah_dosen" class="form-control" type="text" placeholder="{{$item['jumlah_dosen']}}" value="{{$item['jumlah_dosen']}}" required>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
@@ -1043,11 +1043,11 @@
                                                                 <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
                                                                 <div class="mb-3">
                                                                     <label for="nama" class="form-label">Nama Kegiatan</label>
-                                                                    <input name="nama_kegiatan" type="text" class="form-control" id="nama" placeholder="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}">
+                                                                    <input name="nama_kegiatan" type="text" class="form-control" id="nama" placeholder="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}" required>
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Jumlah SAP</label>
-                                                                    <input name="jumlah_sap" class="form-control" type="text" placeholder="{{$item['jumlah_sap']}}" value="{{$item['jumlah_sap']}}">
+                                                                    <input name="jumlah_sap" class="form-control" type="text" placeholder="{{$item['jumlah_sap']}}" value="{{$item['jumlah_sap']}}" required>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
@@ -1212,7 +1212,7 @@
                                                             Nama Kegiatan
                                                         </label>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_dosen" class="form-label">
@@ -1357,7 +1357,7 @@
                                                             Nama Kegiatan
                                                         </label>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
 
                                                 </div>
@@ -1481,16 +1481,16 @@
                                                         <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
                                                         <div class="mb-3">
                                                             <label for="nama" class="form-label">Nama Kegiatan</label>
-                                                            <input name="nama_kegiatan" placeholder="{{ $item['nama_kegiatan'] }}" type="text" class="form-control" id="nama">
+                                                            <input name="nama_kegiatan" placeholder="{{ $item['nama_kegiatan'] }}" type="text" class="form-control" id="nama" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="nama" class="form-label">Jumlah Dosen</label>
-                                                            <input name="jumlah_dosen" placeholder="{{ $item['jumlah_dosen'] }}" type="text" class="form-control" id="nama">
+                                                            <input name="jumlah_dosen" placeholder="{{ $item['jumlah_dosen'] }}" type="text" class="form-control" id="nama" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa</label>
                                                             <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="text"
-                                                                class="form-control" name="jumlah_mahasiswa">
+                                                                class="form-control" name="jumlah_mahasiswa" required>
                                                         </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -1746,11 +1746,11 @@
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control">
+                            <input name="nama_kegiatan" type="text" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah Dosen Bimbingan</label>
-                            <input name="jumlah_dosen" class="form-control" type="text">
+                            <input name="jumlah_dosen" class="form-control" type="text" required>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1783,11 +1783,11 @@
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah SAP</label>
-                            <input name="jumlah_sap" class="form-control" type="text">
+                            <input name="jumlah_sap" class="form-control" type="text" required>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1817,7 +1817,7 @@
                             <input type="hidden" name="id_dosen" value="1"/>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"/>
+                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Dosen (Maks. 2/smt)</label>
@@ -1854,7 +1854,7 @@
                             <input type="hidden" name="id_dosen" value="1"/>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"/>
+                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required/>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1883,15 +1883,15 @@
                             <input type="hidden" name="id_dosen" value="1"/>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"/>
+                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Dosen</label>
-                                <input class="form-control" type="number" name="jumlah_dosen">
+                                <input class="form-control" type="number" name="jumlah_dosen" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                                <input class="form-control" type="number" name="jumlah_mahasiswa">
+                                <input class="form-control" type="number" name="jumlah_mahasiswa" required>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
