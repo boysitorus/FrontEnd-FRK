@@ -914,7 +914,7 @@
                                                             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
 
-                                                        <div class="modal-body">
+                                                        <div class="modal-body text-center">
                                                             <form action="{{ route('rk-pendidikan.rendah.update') }}" method="POST">
                                                                 @csrf
                                                                 <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
