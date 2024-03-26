@@ -602,7 +602,7 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Dibimbing</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelompok</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -619,7 +619,7 @@
                         @endphp
                         @foreach ($tugasAkhir as $item)
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
+                                <td scope="row">{{ $counter }}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
                                 <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
@@ -692,7 +692,7 @@
                                                             class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
                                                         <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa" required>
                                                     </div>
@@ -738,7 +738,7 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelompok</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -755,7 +755,7 @@
                         @endphp
                         @foreach ($proposal as $item)
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
+                                <td scope="row">{{ $counter}}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
                                 <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
@@ -826,7 +826,7 @@
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
                                                         <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa" required>
                                                     </div>
@@ -1701,7 +1701,7 @@
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
-                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
                             <input name="jumlah_mahasiswa" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
@@ -1735,7 +1735,7 @@
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
-                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
                             <input name="jumlah_mahasiswa" class="form-control" type="number" required>
                         </div>
                         <div class="modal-footer">
