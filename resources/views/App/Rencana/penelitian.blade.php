@@ -839,7 +839,7 @@
                 <tr>
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                    <th scope="col" rowspan="2" class="align-middle">Banyaknya BKD yang Terhitung</th>
+                    <th scope="col" rowspan="2" class="align-middle">Banyaknya BKD yang Dievaluasi</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
                     <th scope="col" rowspan="2" class="align-middle" style="width:200px;">Aksi</th>
@@ -849,49 +849,29 @@
                     <th scope="col">Asesor 2</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+            <tbody class="align-middle">
+                @if (isset($penelitian_tridharma) && sizeof($penelitian_tridharma) > 0)
+                    @php
+                        $counter = 1;
+                    @endphp
+                    @foreach ($penelitian_tridharma as $item)
+                        <tr>
+                            <td scope="row">{{ $counter++ }}</td>
+                            <td>{{$item['nama_kegiatan']}}</td>
+                            <td>{{$item['bkd_evaluasi']}}</td>
+                            <td>{{$item['sks_terhitung']}}</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                             data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
+                
             </tbody>
         </table>
     </div>
@@ -916,44 +896,42 @@
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">Kategori</th>
+                    <th scope="col" rowspan="2" class="align-middle">Jenis Pengerjaan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Peran</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle" style="width:200px;">Aksi</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                 </tr>
                 <tr>
                     <th scope="col">Asesor 1</th>
                     <th scope="col">Asesor 2</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPenelitian_J"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+            <tbody class="align-middle">
+                @if (isset($jurnal_ilmiah) && sizeof($jurnal_ilmiah) > 0)
+                    @php
+                        $counter = 1;
+                    @endphp
+                    @foreach ($jurnal_ilmiah as $item)
+                        <tr>
+                            <td scope="row">{{ $counter++ }}</td>
+                            <td>{{$item['nama_kegiatan']}}</td>
+                            <td>{{$item['lingkup_penerbit']}}</td>
+                            <td>{{$item['jenis_pengerjaan']}}</td>
+                            <td>{{$item['peran']}}</td>
+                            <td>{{$item['sks_terhitung']}}</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                             data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
+                
             </tbody>
         </table>
     </div>
@@ -1681,22 +1659,23 @@
                     Pelaksanaan Tridharma Perguruan Tinggi</h6>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
+            
+            <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST">
+            @csrf
             <div class="modal-body">
-                <form>
+            <input type="hidden" name="id_dosen" value="1">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Banyaknya BKD yang Terhitung</label>
-                        <input type="text" class="form-control">
+                        <label for="bkd_evaluasi" class="form-label">Banyaknya BKD yang Dievaluasi</label>
+                        <input name="bkd_evaluasi" type="text" class="form-control" id="bkd_evaluasi">
                     </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
+                    <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+                </form>
             </div>
         </div>
     </div>
@@ -1713,43 +1692,44 @@
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <div class="modal-body">
-                <form>
+            <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST">
+            @csrf
+                <div class="modal-body">
+                    <input type="hidden" name="id_dosen" value="1">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                     </div>
                     <div class="mb-3">
-                        <label for="dropdownKategori">Kategori</label>
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Pilih
-                            </button>
-                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah
-                                        ber-ISSN
-                                        tidak terakreditasi atau proceedings seminar nasional maupun internasional</a>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi</a></li>
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi
-                                        internasional (dalam bahasa intenasional)</a></li>
-                            </ul>
-                        </div>
+                        <label for="lingkup_penerbit" class="form-label">Kategori</label>
+                            <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
+                                <option selected>Pilih Kategori</option>
+                                <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
+                                    atau proceedings seminar nasional maupun internasional</option>
+                                <option value="2">Diterbitkan oleh Jurnal terakreditasi</option>
+                                <option value="3">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
+                            </select>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Jenis Pengerjaan</label>
-                        <input type="text" class="form-control">
+                        <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
+                        <select name="jenis_pengerjaan" class="form-select" aria-label="Default select example">
+                            <option selected>Pilih Jenis Pengerjaan</option>
+                            <option value="1">Mandiri</option>
+                            <option value="2">Kelompok</option>
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Jenis Peran</label>
-                        <input type="text" class="form-control">
+                        <label for="peran" class="form-label">Jenis Peran</label>
+                        <select name ="peran" class="form-select" aria-label="Default select example">
+                            <option selected>Pilih Peran</option>
+                            <option value="1">Penulis Utama</option>
+                            <option value="2">Penulis Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>
@@ -2208,7 +2188,7 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Banyaknya BKD Terhitung</label>
+                        <label class="bkd_evaluasi">Banyaknya BKD Dievaluasi</label>
                         <input type="text" class="form-control">
                     </div>
                 </form>
@@ -2241,8 +2221,29 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Kategori</label>
-                        <input type="text" class="form-control">
+                        <label for="kategori" class="form-label">Kategori</label>
+                        <select class="form-select" aria-label="Default select example">
+                        <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
+                                atau proceedings seminar nasional maupun internasional</option>
+                            <option value="2">Diterbitkan oleh Jurnal terakreditasi</option>
+                            <option value="3">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
+                            </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Pilih Jenis Pengerjaan</option>
+                            <option value="1">Mandiri</option>
+                            <option value="2">Kelompok</option>
+                            </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="peran" class="form-label">Jenis Peran</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Pilih Peran</option>
+                            <option value="1">Penulis Utama</option>
+                            <option value="2">Penulis Lainnya</option>
+                            </select>
                     </div>
                 </form>
             </div>
