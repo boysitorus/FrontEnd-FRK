@@ -1693,22 +1693,16 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.tugasAkhir.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.tugasAkhir.create') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="number" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Mahasiswa Dibimbing perlu diisi
-                            </div>
+                            <input name="jumlah_mahasiswa" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1733,22 +1727,16 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.proposal.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.proposal.create') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="number" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Mahasiswa Dibimbing perlu diisi
-                            </div>
+                            <input name="jumlah_mahasiswa" class="form-control" type="number" required>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1773,23 +1761,17 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.rendah.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.rendah.create') }}" method="POST">
                         @csrf
                         @method('POST')
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah Dosen Bimbingan</label>
-                            <input name="jumlah_dosen" class="form-control" type="text" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Dosen Bimbingan perlu diisi
-                            </div>
+                            <input name="jumlah_dosen" class="form-control" type="number" required min="1" step="any" >
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1816,23 +1798,17 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.kembang.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.kembang.create') }}" method="POST">
                         @csrf
                         @method('POST')
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah SAP</label>
-                            <input name="jumlah_sap" class="form-control" type="text" required>
-                            <div class="invalid-feedback">
-                                Jumlah SAP perlu diisi
-                            </div>
+                            <input name="jumlah_sap" class="form-control" type="number" required min="1" step="any">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
