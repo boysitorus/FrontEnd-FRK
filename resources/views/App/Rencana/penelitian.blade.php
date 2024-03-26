@@ -293,7 +293,7 @@
                                     data-bs-target="#modalDeleteConfirm-{{$counter++}}"><i class="bi bi-trash3"></i></button>
 
                                 <!-- modal delete E -->
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter++}}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -313,20 +313,13 @@
                                                     <div class="modal-footer justify-content-center">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batalkan</button>
-                                                        {{--<a id="confirmDeleteBtn" class="btn btn-primary"
-                                                            href="{{ route('rk-pendidikan.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>--}}
-                                                            
-                                                            <a id="confirmDeleteBtn" class="btn btn-primary">Yakin?</a>
-                                                        {{--<form id="delete-form-{{ $item['id_rencana'] }}"
-                                                            action="{{ route('rk-pendidikan.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            method="POST" style="display: none;">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                        </form>--}}
-                                                        <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                            <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                            href="{{ route('rk-penelitian.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+                                                            <form id="delete-form-{{ $item['id_rencana'] }}" action="{{ route('rk-penelitian.menyadur.destroy', ['id' => $item['id_rencana']]) }}" method="POST" style="display: none;">
                                                                 @csrf
-                                                            style="display: none;">
+                                                                @method('DELETE')
+                                                            </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -432,10 +425,10 @@
                             <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                 data-bs-target="#modalEditPenelitian-{{$item['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm-{{$counter++}}"><i class="bi bi-trash3"></i></button>
+                                    data-bs-target="#modalDeleteConfirm-{{$counter}}"><i class="bi bi-trash3"></i></button>
 
                                 <!-- modal delete E -->
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter}}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -455,20 +448,13 @@
                                                     <div class="modal-footer justify-content-center">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batalkan</button>
-                                                        {{--<a id="confirmDeleteBtn" class="btn btn-primary"
-                                                            href="{{ route('rk-pendidikan.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>--}}
-                                                            
-                                                            <a id="confirmDeleteBtn" class="btn btn-primary">Yakin?</a>
-
-                                                        {{--<form id="delete-form-{{ $item['id_rencana'] }}"
-                                                            action="{{ route('rk-pendidikan.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            method="POST" style="display: none;">--}}
-
-                                                            <form id="delete-form-{{ $item['id_rencana']}}" 
+                                                        <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                            href="{{ route('rk-penelitian.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+                                                            <form id="delete-form-{{ $item['id_rencana'] }}" action="{{ route('rk-penelitian.menyunting.destroy', ['id' => $item['id_rencana']]) }}" method="POST" style="display: none;">
                                                                 @csrf
-                                                            style="display: none;">
-                                                        </form>
+                                                                @method('DELETE')
+                                                            </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -490,23 +476,25 @@
                                             <form action="{{ route('rk-penelitian.menyunting.update')}}" method="POST">
                                             @csrf
                                                 <div class="modal-body">
-                                                <div class="mb-3">
-                                                    <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}">
-                                                    <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                    <input placeholder="{{$item ['nama_kegiatan']}}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                                                    <input placeholder="{{$item['status_tahapan']}}" name="status_tahapan" id="status_tahapan" type="text" class="form-control">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
-                                                    <input placeholder="{{$item['posisi']}}" name="posisi" type="text" class="form-control" name="posisi">
+                                                    <div class="mb-3">
+                                                        <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}">
+                                                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                        <input placeholder="{{$item ['nama_kegiatan']}}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                                                        <input placeholder="{{$item['status_tahapan']}}" name="status_tahapan" id="status_tahapan" type="text" class="form-control">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
+                                                        <input placeholder="{{$item['posisi']}}" name="posisi" type="text" class="form-control" name="posisi">
+                                                    </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
