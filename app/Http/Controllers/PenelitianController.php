@@ -116,7 +116,7 @@ class PenelitianController extends Controller
             ]
         );
 
-        return redirect()->back()->with('success', 'Item updated successfully');
+        return redirect()->back()->with('success', 'Penelitian kelompok updated successfully');
     }
 
     public function deletePenelitianKelompok($id)
