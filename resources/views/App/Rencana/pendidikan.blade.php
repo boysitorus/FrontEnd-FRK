@@ -427,7 +427,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" class="form-control" type="number" name="jumlah_mahasiswa">
+                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" class="form-control" type="number" name="jumlah_mahasiswa" min="1" step="any">
                                                     </div>
                                                 </div>
 
@@ -559,7 +559,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelompok" class="form-label">Jumlah kelompok</label>
-                                                        <input placeholder="{{ $item['jumlah_kelompok'] }}" class="form-control" type="number" name="jumlah_kelompok">
+                                                        <input placeholder="{{ $item['jumlah_kelompok'] }}" class="form-control" type="number" name="jumlah_kelompok" min="1" step="any">
                                                     </div>
                                                 </div>
 
@@ -914,7 +914,7 @@
                                                             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
 
-                                                        <div class="modal-body text-center">
+                                                        <div class="modal-body">
                                                             <form action="{{ route('rk-pendidikan.rendah.update') }}" method="POST">
                                                                 @csrf
                                                                 <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
@@ -924,7 +924,7 @@
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Jumlah Dosen Dibimbing</label>
-                                                                    <input name="jumlah_dosen" class="form-control" type="number" placeholder="{{$item['jumlah_dosen']}}" value="{{$item['jumlah_dosen']}}">
+                                                                    <input name="jumlah_dosen" class="form-control" type="text" placeholder="{{$item['jumlah_dosen']}}" value="{{$item['jumlah_dosen']}}">
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
@@ -1032,22 +1032,22 @@
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h6 class="modal-title text-start" id="exampleModalLabel">H. Mengembangkan program perkuliahan/pengajaran (Silabus, SAP/RPP, GBPP, dll) dalam kelompok atau mandiri yang hasilnya dipakai untuk kegiatan perkuliahan
+                                                            <h6 class="modal-title" id="exampleModalLabel">H. Mengembangkan program perkuliahan/pengajaran (Silabus, SAP/RPP, GBPP, dll) dalam kelompok atau mandiri yang hasilnya dipakai untuk kegiatan perkuliahan
                                                                 Akademiknya</h6>
                                                             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
 
-                                                        <div class="modal-body text-start">
+                                                        <div class="modal-body">
                                                             <form action="{{ route('rk-pendidikan.kembang.update') }}" method="POST">
                                                                 @csrf
                                                                 <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
                                                                 <div class="mb-3">
-                                                                    <label for="nama" class="form-label text-start">Nama Kegiatan</label>
+                                                                    <label for="nama" class="form-label">Nama Kegiatan</label>
                                                                     <input name="nama_kegiatan" type="text" class="form-control" id="nama" placeholder="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}">
                                                                 </div>
                                                                 <div class="mb-3">
-                                                                    <label class="form-label text-start">Jumlah SAP</label>
-                                                                    <input name="jumlah_sap" class="form-control" type="number" min="0" max="2" placeholder="{{$item['jumlah_sap']}}" value="{{$item['jumlah_sap']}}">
+                                                                    <label class="form-label">Jumlah SAP</label>
+                                                                    <input name="jumlah_sap" class="form-control" type="text" placeholder="{{$item['jumlah_sap']}}" value="{{$item['jumlah_sap']}}">
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
@@ -1522,37 +1522,25 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-pendidikan.teori.create') }}" method="POST" class="needs-validation was-validated">
+                <form action="{{ route('rk-pendidikan.teori.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas Tatap Muka</label>
-                            <input placeholder="0" type="number" class="form-control" name="jumlah_kelas" required min="1" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah kelas tidak valid
-                            </div>
+                            <input type="number" class="form-control" name="jumlah_kelas">
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas Evaluasi</label>
-                            <input placeholder="0" type="number" class="form-control" name="jumlah_evaluasi" required min="1" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah evaluasi tidak valid
-                            </div>
+                            <input type="number" class="form-control" name="jumlah_evaluasi">
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Mata Kuliah</label>
-                            <input placeholder="0" type="number" class="form-control" name="sks_matakuliah" required min="1" step="any">
-                            <div class="invalid-feedback">
-                                SKS matakuliah tidak valid
-                            </div>
+                            <input type="number" class="form-control" name="sks_matakuliah">
                         </div>
                     </div>
 
@@ -1578,29 +1566,20 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.praktikum.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.praktikum.create') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
-                            <input placeholder="0" name="jumlah_kelas" type="number" class="form-control" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah kelas tidak valid
-                            </div>
+                            <input name="jumlah_kelas" type="number" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Praktikum (1 SKS = 2 jam)</label>
-                            <input placeholder="0" name="sks_matakuliah" type="number" class="form-control" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                SKS praktikum tidak valid
-                            </div>
+                            <input name="sks_matakuliah" type="number" class="form-control">
                         </div>
 
                         <div class="modal-footer">
@@ -1626,23 +1605,17 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-pendidikan.bimbingan.create') }}" method="POST" class="needs-validation was-validated">
+                <form action="{{ route('rk-pendidikan.bimbingan.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                            <input placeholder="0" type="number" class="form-control" name="jumlah_mahasiswa" required min="1" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah mahasiswa tidak valid
-                            </div>
+                            <input type="number" class="form-control" name="jumlah_mahasiswa" required min="1" step="any">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -1664,23 +1637,17 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-pendidikan.seminar.create') }}" method="POST" class="needs-validation was-validated">
+                <form action="{{ route('rk-pendidikan.seminar.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelompok" class="form-label">Jumlah Kelompok</label>
-                            <input placeholder="0" type="number" class="form-control" name="jumlah_kelompok" required min="1" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah kelompok tidak valid
-                            </div>
+                            <input type="number" class="form-control" name="jumlah_kelompok" required min="1" step="any">
                         </div>
                     </div>
 
@@ -1705,22 +1672,16 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.tugasAkhir.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.tugasAkhir.create') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input placeholder="0" name="jumlah_mahasiswa" class="form-control" type="number" required min="1" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah mahasiswa tidak valid
-                            </div>
+                            <input name="jumlah_mahasiswa" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1745,22 +1706,16 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.proposal.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.proposal.create') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input placeholder="0" name="jumlah_mahasiswa" class="form-control" type="number" required min="1" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah mahasiswa tidak valid
-                            </div>
+                            <input name="jumlah_mahasiswa" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1785,23 +1740,17 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.rendah.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.rendah.create') }}" method="POST">
                         @csrf
                         @method('POST')
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                            <input name="nama_kegiatan" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah Dosen Bimbingan</label>
-                            <input placeholder="0" name="jumlah_dosen" class="form-control" type="number" required min="1" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah dosen tidak valid
-                            </div>
+                            <input name="jumlah_dosen" class="form-control" type="text">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1828,23 +1777,17 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.kembang.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.kembang.create') }}" method="POST">
                         @csrf
                         @method('POST')
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah SAP</label>
-                            <input placeholder="0" name="jumlah_sap" class="form-control" type="number" required step="any" min="1">
-                            <div class="invalid-feedback">
-                                Jumlah SAP tidak valid
-                            </div>
+                            <input name="jumlah_sap" class="form-control" type="text">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1869,25 +1812,19 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.cangkok.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.cangkok.create') }}" method="POST">
                         @csrf
                             <input type="hidden" name="id_dosen" value="1"/>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required />
-                                <div class="invalid-feedback">
-                                    Nama kegiatan perlu di isi
-                                </div>
+                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Dosen (Maks. 2/smt)</label>
-                                <select class="form-control" id="jumlah_dosen" name="jumlah_dosen" required>
+                                <select class="form-control" id="jumlah_dosen" name="jumlah_dosen">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Jumlah dosen harus dipilih
-                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1912,15 +1849,12 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.koordinator.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.koordinator.create') }}" method="POST">
                         @csrf
                             <input type="hidden" name="id_dosen" value="1"/>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required/>
-                                <div class="invalid-feedback">
-                                    Nama kegiatan perlu di isi
-                                </div>
+                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"/>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1944,29 +1878,20 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.asistensi.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.asistensi.create') }}" method="POST">
                         @csrf
                             <input type="hidden" name="id_dosen" value="1"/>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required/>
-                                <div class="invalid-feedback">
-                                    Nama kegiatan perlu di isi
-                                </div>
+                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Dosen</label>
-                                <input placeholder="0" class="form-control" type="number" name="jumlah_dosen" required min="1" step="any">
-                                <div class="invalid-feedback">
-                                    Jumlah dosen tidak valid
-                                </div>
+                                <input class="form-control" type="number" name="jumlah_dosen">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                                <input placeholder="0" class="form-control" type="number" name="jumlah_mahasiswa" required min="1" step="any">
-                                <div class="invalid-feedback">
-                                    Jumlah mahasiswa tidak valid
-                                </div>
+                                <input class="form-control" type="number" name="jumlah_mahasiswa">
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
