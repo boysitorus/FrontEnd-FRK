@@ -312,9 +312,9 @@ class PenelitianController extends Controller
         Http::post(
             'http://localhost:8001/api/penelitian/jurnal_ilmiah',
             [
-                'id_jurnal' => $request->get('id_jurnal'),
+                'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'lingkup_peberbit'=> $request->get('lingkup_penerbit'),
+                'lingkup_penerbit'=> $request->get('lingkup_penerbit'),
                 'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
                 'peran'  => $request->get('peran'),
 

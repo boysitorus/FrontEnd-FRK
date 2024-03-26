@@ -293,7 +293,7 @@
                                     data-bs-target="#modalDeleteConfirm-{{$counter++}}"><i class="bi bi-trash3"></i></button>
 
                                 <!-- modal delete E -->
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter++}}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -313,20 +313,13 @@
                                                     <div class="modal-footer justify-content-center">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batalkan</button>
-                                                        {{--<a id="confirmDeleteBtn" class="btn btn-primary"
-                                                            href="{{ route('rk-pendidikan.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>--}}
-                                                            
-                                                            <a id="confirmDeleteBtn" class="btn btn-primary">Yakin?</a>
-                                                        {{--<form id="delete-form-{{ $item['id_rencana'] }}"
-                                                            action="{{ route('rk-pendidikan.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            method="POST" style="display: none;">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                        </form>--}}
-                                                        <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                            <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                            href="{{ route('rk-penelitian.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+                                                            <form id="delete-form-{{ $item['id_rencana'] }}" action="{{ route('rk-penelitian.menyadur.destroy', ['id' => $item['id_rencana']]) }}" method="POST" style="display: none;">
                                                                 @csrf
-                                                            style="display: none;">
+                                                                @method('DELETE')
+                                                            </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -432,10 +425,10 @@
                             <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                 data-bs-target="#modalEditPenelitian-{{$item['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm-{{$counter++}}"><i class="bi bi-trash3"></i></button>
+                                    data-bs-target="#modalDeleteConfirm-{{$counter}}"><i class="bi bi-trash3"></i></button>
 
                                 <!-- modal delete E -->
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter}}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -455,20 +448,13 @@
                                                     <div class="modal-footer justify-content-center">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batalkan</button>
-                                                        {{--<a id="confirmDeleteBtn" class="btn btn-primary"
-                                                            href="{{ route('rk-pendidikan.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>--}}
-                                                            
-                                                            <a id="confirmDeleteBtn" class="btn btn-primary">Yakin?</a>
-
-                                                        {{--<form id="delete-form-{{ $item['id_rencana'] }}"
-                                                            action="{{ route('rk-pendidikan.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            method="POST" style="display: none;">--}}
-
-                                                            <form id="delete-form-{{ $item['id_rencana']}}" 
+                                                        <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                            href="{{ route('rk-penelitian.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+                                                            <form id="delete-form-{{ $item['id_rencana'] }}" action="{{ route('rk-penelitian.menyunting.destroy', ['id' => $item['id_rencana']]) }}" method="POST" style="display: none;">
                                                                 @csrf
-                                                            style="display: none;">
-                                                        </form>
+                                                                @method('DELETE')
+                                                            </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -490,23 +476,25 @@
                                             <form action="{{ route('rk-penelitian.menyunting.update')}}" method="POST">
                                             @csrf
                                                 <div class="modal-body">
-                                                <div class="mb-3">
-                                                    <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}">
-                                                    <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                    <input placeholder="{{$item ['nama_kegiatan']}}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                                                    <input placeholder="{{$item['status_tahapan']}}" name="status_tahapan" id="status_tahapan" type="text" class="form-control">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
-                                                    <input placeholder="{{$item['posisi']}}" name="posisi" type="text" class="form-control" name="posisi">
+                                                    <div class="mb-3">
+                                                        <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}">
+                                                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                        <input placeholder="{{$item ['nama_kegiatan']}}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                                                        <input placeholder="{{$item['status_tahapan']}}" name="status_tahapan" id="status_tahapan" type="text" class="form-control">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
+                                                        <input placeholder="{{$item['posisi']}}" name="posisi" type="text" class="form-control" name="posisi">
+                                                    </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
@@ -1491,22 +1479,23 @@
                     Pelaksanaan Tridharma Perguruan Tinggi</h6>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
+            
+            <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST">
+            @csrf
             <div class="modal-body">
-                <form>
+            <input type="hidden" name="id_dosen" value="1">
                     <div class="mb-3">
                         <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                     </div>
                     <div class="mb-3">
-                        <label class="bkd_evaluasi">Banyaknya BKD yang Dievaluasi</label>
-                        <input type="text" class="form-control">
+                        <label for="bkd_evaluasi" class="form-label">Banyaknya BKD yang Dievaluasi</label>
+                        <input name="bkd_evaluasi" type="text" class="form-control" id="bkd_evaluasi">
                     </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
+                    <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+                </form>
             </div>
         </div>
     </div>
@@ -1523,43 +1512,44 @@
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <div class="modal-body">
-                <form>
+            <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST">
+            @csrf
+                <div class="modal-body">
+                    <input type="hidden" name="id_dosen" value="1">
                     <div class="mb-3">
                         <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                     </div>
                     <div class="mb-3">
-                        <label for="lingkup_penerbit">Kategori</label>
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Pilih
-                            </button>
-                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah
-                                        ber-ISSN
-                                        tidak terakreditasi atau proceedings seminar nasional maupun internasional</a>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi</a></li>
-                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi
-                                        internasional (dalam bahasa intenasional)</a></li>
-                            </ul>
-                        </div>
+                        <label for="lingkup_penerbit" class="form-label">Kategori</label>
+                            <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
+                                <option selected>Pilih Kategori</option>
+                                <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
+                                    atau proceedings seminar nasional maupun internasional</option>
+                                <option value="2">Diterbitkan oleh Jurnal terakreditasi</option>
+                                <option value="3">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
+                            </select>
                     </div>
                     <div class="mb-3">
                         <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
-                        <input type="text" class="form-control">
+                        <select name="jenis_pengerjaan" class="form-select" aria-label="Default select example">
+                            <option selected>Pilih Jenis Pengerjaan</option>
+                            <option value="1">Mandiri</option>
+                            <option value="2">Kelompok</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="peran" class="form-label">Jenis Peran</label>
-                        <input type="text" class="form-control">
+                        <select name ="peran" class="form-select" aria-label="Default select example">
+                            <option selected>Pilih Peran</option>
+                            <option value="1">Penulis Utama</option>
+                            <option value="2">Penulis Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>
@@ -2051,8 +2041,29 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Kategori</label>
-                        <input type="text" class="form-control">
+                        <label for="kategori" class="form-label">Kategori</label>
+                        <select class="form-select" aria-label="Default select example">
+                        <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
+                                atau proceedings seminar nasional maupun internasional</option>
+                            <option value="2">Diterbitkan oleh Jurnal terakreditasi</option>
+                            <option value="3">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
+                            </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Pilih Jenis Pengerjaan</option>
+                            <option value="1">Mandiri</option>
+                            <option value="2">Kelompok</option>
+                            </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="peran" class="form-label">Jenis Peran</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Pilih Peran</option>
+                            <option value="1">Penulis Utama</option>
+                            <option value="2">Penulis Lainnya</option>
+                            </select>
                     </div>
                 </form>
             </div>
