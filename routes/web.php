@@ -78,13 +78,6 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::post('/pendidikan/edit/koordinator', [PendidikanController::class, 'editKoordinator'])->name('rk-pendidikan.koordinator.update');
     Route::delete('/pendidikan/koordinator/{id}', [PendidikanController::class, 'deleteKoordinator'])->name('rk-pendidikan.koordinator.destroy');
 
-    // Rute untuk data asistensi
-    // Route::get('/pendidikan/rendah', [PendidikanController::class, 'getRendah'])->name('rk-pendidikan.rendah');
-    Route::post('/pendidikan/asistensi-tambah', [PendidikanController::class, 'postAsistensi'])->name('rk-pendidikan.asistensi.create');
-    Route::post('/pendidikan/edit/asistensi', [PendidikanController::class, 'editAsistensi'])->name('rk-pendidikan.asistensi.update');
-    Route::delete('/pendidikan/asistensi/{id}', [PendidikanController::class, 'deleteAsistensi'])->name('rk-pendidikan.asistensi.destroy');
-
-
     //Rute Untuk TugasAkhir
 
     Route::post('/pendidikan/tugasAkhir', [PendidikanController::class, 'postTugasAkhir'])->name('rk-pendidikan.tugasAkhir.create');

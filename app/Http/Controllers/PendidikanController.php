@@ -44,10 +44,6 @@ class PendidikanController extends Controller
             $responseKoordinator = Http::get('http://localhost:9000/api/pendidikan/koordinator');
             $koordinator = $responseKoordinator->json();
 
-            //Mengambil data asistensi dari Lumen
-            $responseAsistensi = Http::get('http://localhost:9000/api/pendidikan/asistensi');
-            $asistensi = $responseAsistensi->json();
-
             $responseProposal = Http::get('http://localhost:9000/api/pendidikan/proposal');
             $proposal = $responseProposal->json();
 
@@ -63,7 +59,6 @@ class PendidikanController extends Controller
                 'tugasAkhir' => $tugasAkhir,
                 'cangkok' => $cangkok,
                 'koordinator' => $koordinator,
-                'asistensi' => $asistensi,
                 'proposal' => $proposal
             ];
 
@@ -376,53 +371,6 @@ class PendidikanController extends Controller
         return redirect()->back();
     }
 
-    // ASISTEMSI
-
-    public function postAsistensi(Request $request)
-    {
-        Http::post(
-            'http://localhost:9000/api/pendidikan/asistensi',
-            [
-                'id_dosen' => $request->get('id_dosen'),
-                'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'jumlah_dosen' => $request->get('jumlah_dosen'),
-                'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
-            ]
-        );
-
-        return redirect()->back();
-    }
-
-    public function editAsistensi(Request $request)
-    {
-        $id_rencana = $request->get('id_rencana');
-
-        $response = Http::post(
-            'http://localhost:9000/api/pendidikan/edit/asistensi',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'jumlah_dosen' => $request->get('jumlah_dosen'),
-                'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
-            ]
-        );
-
-        // Cek apakah request berhasil
-        if ($response->successful()) {
-            return redirect()->back()->with('success', 'Item berhasil diedit');
-        } else {
-            // Tampilkan pesan error jika gagal
-            return redirect()->back()->with('error', 'Failed to update item');
-        }
-    }
-
-    public function deleteAsistensi($id)
-    {
-        Http::delete("http://localhost:9000/api/pendidikan/asistensi/{$id}");
-
-
-        return redirect()->back();
-    }
 
     public function postTugasAkhir(Request $request)
     {

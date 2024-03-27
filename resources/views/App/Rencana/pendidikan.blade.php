@@ -122,18 +122,18 @@
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas
                                                             Tatap Muka</label>
-                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="number" class="form-control" name="jumlah_kelas">
+                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="number" class="form-control" name="jumlah_kelas" min="1">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas
                                                             Evaluasi</label>
                                                         <input placeholder="{{ $item['jumlah_evaluasi'] }}" type="number" class="form-control"
-                                                            name="jumlah_evaluasi">
+                                                            name="jumlah_evaluasi" min="1">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Mata
                                                             Kuliah</label>
-                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="number" class="form-control" name="sks_matakuliah">
+                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="number" class="form-control" name="sks_matakuliah" min="1">
                                                     </div>
 
                                                 </div>
@@ -245,12 +245,12 @@
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
                                                         <input placeholder="{{ $item['jumlah_kelas'] }}" type="number"
-                                                            class="form-control" name="jumlah_kelas">
+                                                            class="form-control" name="jumlah_kelas" min="1">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Praktikum (1 SKS = 2 jam)</label>
                                                         <input placeholder="{{ $item['sks_matakuliah'] }}" type="number"
-                                                            class="form-control" name="sks_matakuliah">
+                                                            class="form-control" name="sks_matakuliah" min="1">
                                                     </div>
 
                                                 </div>
@@ -602,7 +602,7 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Dibimbing</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelompok</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -619,7 +619,7 @@
                         @endphp
                         @foreach ($tugasAkhir as $item)
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
+                                <td scope="row">{{ $counter }}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
                                 <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
@@ -692,7 +692,7 @@
                                                             class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
                                                         <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa" required>
                                                     </div>
@@ -738,7 +738,7 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelompok</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -755,7 +755,7 @@
                         @endphp
                         @foreach ($proposal as $item)
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
+                                <td scope="row">{{ $counter}}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
                                 <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
@@ -826,7 +826,7 @@
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
+                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
                                                         <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa" required>
                                                     </div>
@@ -1384,131 +1384,6 @@
     </div>
     {{-- AKHIR BAGIAN J --}}
 
-    {{-- BAGIAN K --}}
-    <div id="pendidikan-K" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h6><b>K. Asistensi tugas atau praktikum terhadap setiap kelompok.</b></h6>
-            <hr />
-
-            <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitianK" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPendidikan_K">
-                    Tambah Kegiatan
-                </button>
-            </div>
-
-            <div class="text-sm">
-                <table id="tablePendidikan-K" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-                    style="border: 2px;">
-                    <thead>
-                        <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Dosen</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                            <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="fw-bold">Asesor 1</th>
-                            <th scope="col" class="fw-bold">Asesor 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (isset($asistensi) && sizeof($asistensi) > 0)
-                            @php
-                                $counter = 1;
-                            @endphp
-                            @foreach ($asistensi as $item)
-                                <tr>
-                                    <td scope="row">{{$counter++}}</td>
-                                    <td>{{$item['nama_kegiatan']}}</td>
-                                    <td>{{$item['jumlah_dosen']}}</td>
-                                    <td>{{$item['jumlah_mahasiswa']}}</td>
-                                    <td>{{$item['sks_terhitung']}}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal" data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-trash3-fill"></i></i>
-                                        </button>
-
-                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-
-                                                    <div class="modal-body text-center">
-                                                        <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                                                        <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                                                        <p class="text-muted small">Proses ini tidak dapat diurungkan bila Anda sudah menekan tombol 'Yakin'.</p>
-                                                    </div>
-
-                                                    <div class="modal-footer justify-content-center">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                                                        <form action="{{ route('rk-pendidikan.asistensi.destroy', ['id' => $item['id_rencana']]) }}" method="POST" style="display: inline;">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button id="confirmDeleteBtn" type="submit" class="btn btn-primary">Yakin</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <div class="modal fade modal-lg" id="modalEditPendidikan_{{ $item['id_rencana'] }}" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">
-                                                    K. Asistensi tugas atau praktikum terhadap setiap kelompok.
-                                                </h6>
-                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form action="{{ route('rk-pendidikan.asistensi.update') }}" method="POST">
-                                                <div class="modal-body">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
-                                                        <div class="mb-3">
-                                                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                                                            <input name="nama_kegiatan" placeholder="{{ $item['nama_kegiatan'] }}" type="text" class="form-control" id="nama" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="nama" class="form-label">Jumlah Dosen</label>
-                                                            <input name="jumlah_dosen" placeholder="{{ $item['jumlah_dosen'] }}" type="text" class="form-control" id="nama" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa</label>
-                                                            <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="text"
-                                                                class="form-control" name="jumlah_mahasiswa" required>
-                                                        </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR BAGIAN K --}}
-
     {{-- TEMPAT MODAL TAMBAH KEGIATAN --}}
 
     {{-- MULAI MODAL A --}}
@@ -1522,37 +1397,29 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-pendidikan.teori.create') }}" method="POST" class="needs-validation was-validated">
+                <form action="{{ route('rk-pendidikan.teori.create') }}" method="POST" class="needs-validation">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                            
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas Tatap Muka</label>
-                            <input type="number" class="form-control" name="jumlah_kelas" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Kelas Tatap Muka perlu di isi
-                            </div>
+                            <input type="number" class="form-control" name="jumlah_kelas" required min="1" step="any">
+                            
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas Evaluasi</label>
-                            <input type="number" class="form-control" name="jumlah_evaluasi" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Kelas Evaluasi perlu diisi
-                            </div>
+                            <input type="number" class="form-control" name="jumlah_evaluasi" required min="1" step="any">
+                            
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Mata Kuliah</label>
-                            <input type="number" class="form-control" name="sks_matakuliah" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                SKS Mata Kuliah perlu diisi
-                            </div>
+                            <input type="number" class="form-control" name="sks_matakuliah" required min="1" step="any">
+                            
                         </div>
                     </div>
 
@@ -1578,29 +1445,23 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.praktikum.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.praktikum.create') }}" method="POST" class="needs-validation">
                         @csrf
                         <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                        
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
-                            <input name="jumlah_kelas" type="number" class="form-control" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Kelas perlu diisi
-                            </div>
+                            <input name="jumlah_kelas" type="number" class="form-control" required min="1" step="any">
+                        
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Praktikum (1 SKS = 2 jam)</label>
-                            <input name="sks_matakuliah" type="number" class="form-control" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                SKS Praktikum perlu diisi
-                            </div>
+                            <input name="sks_matakuliah" type="number" class="form-control" required min="1" step="any">
+                        
                         </div>
 
                         <div class="modal-footer">
@@ -1693,22 +1554,16 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.tugasAkhir.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.tugasAkhir.create') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="number" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Mahasiswa Dibimbing perlu diisi
-                            </div>
+                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
+                            <input name="jumlah_mahasiswa" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1733,22 +1588,16 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.proposal.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.proposal.create') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Dibimbing</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="number" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Mahasiswa Dibimbing perlu diisi
-                            </div>
+                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
+                            <input name="jumlah_mahasiswa" class="form-control" type="number" required>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1773,23 +1622,17 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.rendah.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.rendah.create') }}" method="POST">
                         @csrf
                         @method('POST')
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah Dosen Bimbingan</label>
-                            <input name="jumlah_dosen" class="form-control" type="text" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Dosen Bimbingan perlu diisi
-                            </div>
+                            <input name="jumlah_dosen" class="form-control" type="number" required min="1" step="any" >
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1816,23 +1659,17 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.kembang.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.kembang.create') }}" method="POST">
                         @csrf
                         @method('POST')
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah SAP</label>
-                            <input name="jumlah_sap" class="form-control" type="text" required>
-                            <div class="invalid-feedback">
-                                Jumlah SAP perlu diisi
-                            </div>
+                            <input name="jumlah_sap" class="form-control" type="number" required min="1" step="any">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1910,43 +1747,6 @@
         </div>
     </div>
     {{-- AKHIR MODAL J --}}
-
-    {{-- MULAI MODAL K --}}
-    <div class="modal fade modal-lg" id="modalPendidikan_K" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">K. Asistensi tugas atau praktikum terhadap setiap
-                        kelompok.</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.asistensi.create') }}" method="POST">
-                        @csrf
-                            <input type="hidden" name="id_dosen" value="1"/>
-                            <div class="mb-3">
-                                <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Jumlah Dosen</label>
-                                <input class="form-control" type="number" name="jumlah_dosen" required min="0" step="any">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                                <input class="form-control" type="number" name="jumlah_mahasiswa" required min="0" step="any">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                            </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL K --}}
 
     {{-- TEMPAT MODAL DELETE CONFIRM --}}
     <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
