@@ -1522,37 +1522,29 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-pendidikan.teori.create') }}" method="POST" class="needs-validation was-validated">
+                <form action="{{ route('rk-pendidikan.teori.create') }}" method="POST" class="needs-validation">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                            
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas Tatap Muka</label>
-                            <input type="number" class="form-control" name="jumlah_kelas" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Kelas Tatap Muka perlu di isi
-                            </div>
+                            <input type="number" class="form-control" name="jumlah_kelas" required min="1" step="any">
+                            
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas Evaluasi</label>
-                            <input type="number" class="form-control" name="jumlah_evaluasi" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Kelas Evaluasi perlu diisi
-                            </div>
+                            <input type="number" class="form-control" name="jumlah_evaluasi" required min="1" step="any">
+                            
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Mata Kuliah</label>
-                            <input type="number" class="form-control" name="sks_matakuliah" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                SKS Mata Kuliah perlu diisi
-                            </div>
+                            <input type="number" class="form-control" name="sks_matakuliah" required min="1" step="any">
+                            
                         </div>
                     </div>
 
@@ -1578,29 +1570,23 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-pendidikan.praktikum.create') }}" method="POST" class="needs-validation was-validated">
+                    <form action="{{ route('rk-pendidikan.praktikum.create') }}" method="POST" class="needs-validation">
                         @csrf
                         <input type="hidden" name="id_dosen" value="1" />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan perlu di isi
-                            </div>
+                        
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
-                            <input name="jumlah_kelas" type="number" class="form-control" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                Jumlah Kelas perlu diisi
-                            </div>
+                            <input name="jumlah_kelas" type="number" class="form-control" required min="1" step="any">
+                        
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Praktikum (1 SKS = 2 jam)</label>
-                            <input name="sks_matakuliah" type="number" class="form-control" required min="0" step="any">
-                            <div class="invalid-feedback">
-                                SKS Praktikum perlu diisi
-                            </div>
+                            <input name="sks_matakuliah" type="number" class="form-control" required min="1" step="any">
+                        
                         </div>
 
                         <div class="modal-footer">
