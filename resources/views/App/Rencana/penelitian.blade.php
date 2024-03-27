@@ -605,7 +605,7 @@
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm-{{$counter}}"><i class="bi bi-trash3"></i></button>
 
-                                <!-- modal delete E -->
+                                <!-- modal delete F -->
                                     <div class="modal fade" id="modalDeleteConfirm-{{ $counter}}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -663,7 +663,7 @@
                                                         {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
                                                         <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
                                                             <option selected>Pilih tahapan</option>
-                                                            <option value="Pendahuluan">Proposal</option>
+                                                            <option value="Pendahuluan">Pendahuluan</option>
                                                             <option value="50% dari isi buku">50% dari isi buku</option>
                                                             <option value="sks buku jadi">sks buku jadi</option>
                                                             <option value="persetujuan penerbit">persetujuan penerbit</option>
@@ -671,9 +671,14 @@
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
-                                                        <input placeholder="{{$item['posisi']}}" name="posisi" type="text" class="form-control" name="posisi">
-                                                    </div>
+                                                    <label for="posisi" class="form-label">Posisi</label>
+                                                    {{---<input name="posisi" type="text" class="form-control">--}}
+                                                    <select name="posisi" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                                                        <option selected>Pilih posisi</option>
+                                                        <option value="Ketua">Ketua</option>
+                                                        <option value="Anggota">Anggota</option>
+                                                    </select>
+                                                </div>
                                                 </div>
 
                                                 <div class="modal-footer">
@@ -1567,11 +1572,23 @@
                     </div>
                     <div class="mb-3">
                         <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                        <input name="status_tahapan" id="status_tahapan" type="text" class="form-control">
+                        <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option selected>Pilih tahapan</option>
+                                <option value="Pendahuluan">Pendahuluan</option>
+                                <option value="50% dari isi buku">50% dari isi buku</option>
+                                <option value="sks buku jadi">sks buku jadi</option>
+                                <option value="persetujuan penerbit">persetujuan penerbit</option>
+                                <option value="sks buku selesai dicetak">sks buku selesai dicetak</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
-                        <input name="posisi" type="text" class="form-control" name="posisi">
+                        <select name="posisi" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                            <option selected>Pilih posisi</option>
+                            <option value="Ketua">Ketua</option>
+                            <option value="Editor">Editor</option>
+                            <option value="Anggota">Anggota</option>
+                        </select>
                     </div>
                 </div>
 
@@ -1605,11 +1622,22 @@
                     </div>
                     <div class="mb-3">
                         <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                        <input name="status_tahapan" id="status_tahapan" type="text" class="form-control">
+                        <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option selected>Pilih tahapan</option>
+                                <option value="Pendahuluan">Pendahuluan</option>
+                                <option value="50% dari isi buku">50% dari isi buku</option>
+                                <option value="sks buku jadi">sks buku jadi</option>
+                                <option value="persetujuan penerbit">persetujuan penerbit</option>
+                                <option value="sks buku selesai dicetak">sks buku selesai dicetak</option>
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
-                        <input name="posisi" type="text" class="form-control" name="posisi">
+                        <label for="posisi" class="form-label">Posisi</label>
+                        <select name="posisi" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                            <option selected>Pilih posisi</option>
+                            <option value="Ketua">Ketua</option>
+                            <option value="Anggota">Anggota</option>
+                        </select>
                     </div>
                 </div>
 
