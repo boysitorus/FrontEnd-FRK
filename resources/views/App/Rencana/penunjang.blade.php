@@ -18,7 +18,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePenunjang-A" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePenunjang-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -87,7 +87,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePenunjang-B" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePenunjang-B" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -159,7 +159,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePenunjang-C" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePenunjang-C" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -229,7 +229,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePenunjang-D" class="table table-striped table-bordered mt-2 text-center align-middle" 
+                <table id="tablePenunjang-D" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle" 
                 style="border: 2px;">
                 <thead>
                      <tr>
@@ -292,7 +292,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePenunjang-E" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePenunjang-E" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -361,7 +361,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePenunjang-F" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePenunjang-F" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -430,7 +430,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePenunjang-G" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePenunjang-G" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -500,7 +500,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePenunjang-H" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePenunjang-H" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -569,7 +569,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePenunjang-I" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePenunjang-I" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -638,7 +638,7 @@
                 </div>
 
                 <div class="text-sm">
-                    <table id="tablePenunjang-J" class="table table-striped table-bordered mt-2 text-center align-middle"
+                    <table id="tablePenunjang-J" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                         style="border: 2px;">
                         <thead>
                             <tr>
@@ -707,7 +707,7 @@
                 </div>
 
                 <div class="text-sm">
-                    <table id="tablePenunjang-K" class="table table-striped table-bordered mt-2 text-center align-middle"
+                    <table id="tablePenunjang-K" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                         style="border: 2px;">
                         <thead>
                             <tr>
@@ -776,7 +776,7 @@
                 </div>
 
                 <div class="text-sm">
-                    <table id="tablePenunjang-L" class="table table-striped table-bordered mt-2 text-center align-middle"
+                    <table id="tablePenunjang-L" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                         style="border: 2px;">
                         <thead>
                             <tr>
@@ -848,7 +848,7 @@
                 </div>
 
                 <div class="text-sm">
-                    <table id="tablePenunjang-M" class="table table-striped table-bordered mt-2 text-center align-middle"
+                    <table id="tablePenunjang-M" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                         style="border: 2px;">
                         <thead>
                             <tr>
@@ -917,7 +917,7 @@
                 </div>
 
                 <div class="text-sm">
-                    <table id="tablePenunjang-N" class="table table-striped table-bordered mt-2 text-center align-middle"
+                    <table id="tablePenunjang-N" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                         style="border: 2px;">
                         <thead>
                             <tr>
