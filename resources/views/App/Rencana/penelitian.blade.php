@@ -1431,33 +1431,44 @@
 {{-- AKHIR MODAL A --}}
 
 
+
 {{-- MULAI MODAL B --}}
-<div class="modal fade modal-lg" id="modalPenelitian_B" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade modal-lg" id="modalPenelitian_B" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">B. Pelaksanaan penelitian mandiri atau pembuatan karya
-                    seni atau teknologi (disetujui oleh pimpinan dan tercatat)</h6>
+                <h6 class="modal-title" id="exampleModalLabel">A. Keterlibatan dalam 1 judul penelitian atau pembuatan
+                    karya seni atau teknologi yang dilakukan oleh kelompok (disetujui oleh pimpinan dan tercapai)</h6>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <div class="modal-body">
-                <form>
+            <form action="{{ route('rk-penelitian.penelitian_mandiri.create') }}" method = "POST">
+                @csrf
+                <div class="modal-body">
+                    <input type="hidden" name="id_dosen" value="1">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tahap Pencapaian</label>
-                        <input type="text" class="form-control">
+                        <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                        <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option selected>Pilih tahapan</option>
+                            <option value="Proposal">Proposal</option>
+                            <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner</option>
+                            <option value="Analisa Data">Analisa Data</option>
+                            <option value="Laporan Akhir">Laporan Akhir</option>
+                            <option value="Konsep (desain)">Konsep (desain)</option>
+                            <option value="50% dari Karya">50% dari Karya:</option>
+                            <option value="Hasil akhir">Hasil akhir</option>
+                        </select>
                     </div>
-                </form>
-            </div>
+                </div>
 
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div> 
+            </form>
         </div>
     </div>
 </div>
