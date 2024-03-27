@@ -46,7 +46,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_A"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -62,7 +62,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_A"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -115,7 +115,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_B"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -131,7 +131,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_B"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -187,7 +187,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_C"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -203,7 +203,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_C"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -255,7 +255,7 @@
                             <button type="button" class="btn btn-warning mr-1" 
                                 data-bs-toggle="modal" data-bs-target="#modalEditPenunjang_D"><i class="bi bi-pencil-square"></i></button>
                             <button type="button" class="btn btn-danger" 
-                                data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></button>
+                                data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -268,7 +268,7 @@
                             <button type="button" class="btn btn-warning mr-1" 
                                 data-bs-toggle="modal" data-bs-target="#modalEditPenunjang_D"><i class="bi bi-pencil-square"></i></button>
                             <button type="button" class="btn btn-danger" 
-                                data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></button>
+                                data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -320,7 +320,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_E"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -336,7 +336,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_E"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -389,7 +389,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_F"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -405,7 +405,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_F"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -458,7 +458,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_G"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -474,7 +474,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_G"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -528,7 +528,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_H"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -544,7 +544,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_H"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -597,7 +597,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_H"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -613,7 +613,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenunjang_I"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -666,7 +666,7 @@
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenunjang_J"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                                 </td>
                             </tr>
@@ -682,7 +682,7 @@
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenunjang_J"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                                 </td>
                             </tr>
@@ -735,7 +735,7 @@
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenunjang_K"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                                 </td>
                             </tr>
@@ -751,7 +751,7 @@
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenunjang_K"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                                 </td>
                             </tr>
@@ -806,7 +806,7 @@
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenunjang_L"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                                 </td>
                             </tr>
@@ -823,7 +823,7 @@
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenunjang_L"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                                 </td>
                             </tr>
@@ -876,7 +876,7 @@
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenunjang_M"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                                 </td>
                             </tr>
@@ -892,7 +892,7 @@
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenunjang_M"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                                 </td>
                             </tr>
@@ -943,7 +943,7 @@
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenunjang_N"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                                 </td>
                             </tr>
@@ -958,7 +958,7 @@
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenunjang_N"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3-fill"></i></i></button>
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                                 </td>
                             </tr>
