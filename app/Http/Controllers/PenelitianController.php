@@ -38,9 +38,13 @@ class PenelitianController extends Controller
             //Mengambil data j dari Lumen
 
             //Mengambil data k dari Lumen
+            $responseHakPaten = Http::get('http://localhost:8001/api/penelitian/hak_paten');
+            $hakpaten = $responseHakPaten->json();
+
 
             //Mengambil data l dari Lumen
-
+            $responseMediaMassa = Http::get('http://localhost:8001/api/penelitian/media_massa');
+            $mediamassa = $responseMediaMassa->json();
             //Mengambil data m dari Lumen
 
             //Mengambil data n dari Lumen
@@ -51,7 +55,9 @@ class PenelitianController extends Controller
                 'penelitian_kelompok' => $PenelitianKelompok,
                 //'penelitianMandiri' => $PenelitianMandiri
                 'menyadur'=>$Menyadur,
-                'menyunting'=>$Menyunting
+                'menyunting'=>$Menyunting,
+                'hakpaten' => $hakpaten,
+                'mediamassa' => $mediamassa
             ];
 
             // Mengirim data ke view
@@ -228,6 +234,73 @@ class PenelitianController extends Controller
     public function deleteMenyunting($id)
     {
         Http::delete("http://localhost:8001/api/penelitian/menyunting/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+    public function postHakPaten(Request $request){
+        Http::post("http://localhost:8001/api/penelitian/hak_paten", 
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'lingkup_wilayah' => $request->get('lingkup_wilayah'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item stored successfully');
+    }
+
+    public function editHakPaten(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/hak_paten',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'lingkup_wilayah' => $request->get('lingkup_wilayah'),
+
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteHakPaten($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/hak_paten/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+    //Media_Massa
+    public function postMediaMassa(Request $request){
+        Http::post("http://localhost:8001/api/penelitian/media_massa", 
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item stored successfully');
+    }
+
+    public function editMediaMassa(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/media_massa',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteMediaMassa($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/media_massa/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
