@@ -213,10 +213,10 @@
 
                      <div class="ms-auto d-flex align-items-center justify-content-start">
                         <img class="d-inline" src="{{ asset('assets/icon/Logout.svg') }}" alt="">
-                        <a class="text-reset me-3 text-decoration-none" href="#">
+                        <a class="text-reset me-3 text-decoration-none" href="{{ route('logout.get') }}">
                             <h5 class="ms-2 pt-2 " style="font-weight: 700;">Keluar</h5>
-                        </a>              
-                    </div> 
+                        </a>
+                    </div>
 
                 </div>
             </div>
