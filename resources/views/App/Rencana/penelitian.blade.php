@@ -450,7 +450,6 @@
                                 data-bs-target="#modalEditPenelitian-{{$item['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm-{{$counter}}"><i class="bi bi-trash3"></i></button>
-                                    data-bs-target="#modalDeleteConfirm-{{$counter}}"><i class="bi bi-trash3"></i></button>
 
                                 <!-- modal delete E -->
                                     <div class="modal fade" id="modalDeleteConfirm-{{ $counter++}}" tabindex="-1"
