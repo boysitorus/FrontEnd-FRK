@@ -188,7 +188,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if (isset($penelitian_mandiri) && sizeof($penelitian_mandiri) > 0)
+            @if (isset($penelitian_mandiri) && sizeof($penelitian_mandiri) > 0)
                     @php
                         $counter = 1;
                     @endphp
@@ -508,11 +508,7 @@
                                             @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}"/>
-                                                <div class="mb-3">
-                                                <div class="mb-3">
-                                                    <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}">
                                                 <div class="mb-3">    
-                                                    <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}">
                                                     <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                                     <input placeholder="{{$item ['nama_kegiatan']}}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                                                 </div>
