@@ -4,8 +4,8 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh
-                kelompok (disetujui oleh pimpinan dan tercapai)</b></h5>
+        <h6><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh
+                kelompok (disetujui oleh pimpinan dan tercapai)</b></h6>
 
         <hr />
 
@@ -160,8 +160,8 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>B. Pelaksanaan penelitian mandiri atau pembuatan karya seni atau teknologi (disetujui oleh pimpinan dan
-                tercatat)</b></h5>
+        <h6><b>B. Pelaksanaan penelitian mandiri atau pembuatan karya seni atau teknologi (disetujui oleh pimpinan dan
+                tercatat)</b></h6>
 
         <hr />
 
@@ -299,10 +299,10 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5>
+        <h6>
             <b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
                 (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</b>
-            </h5>
+            </h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -353,8 +353,8 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal
-                tiga negara), disetujui oleh pimpinan dan tercatat</b></h5>
+        <h6><b>D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal
+                tiga negara), disetujui oleh pimpinan dan tercatat</b></h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -405,9 +405,9 @@
 <!--Bagian E-->
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan dalam waktu sebanyak-banyaknya 4
+        <h6><b>E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan dalam waktu sebanyak-banyaknya 4
                 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks
-            </b></h5>
+            </b></h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -555,10 +555,10 @@
 <!--Bagian F-->
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
+        <h6><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
                 (disetujui pimpinan dan tercatat)
                 sama dengan 2 sks
-            </b></h5>
+            </b></h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -704,8 +704,8 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen yang sesuai dengan bidang ilmu dan tidak
-                diterbitkan, tetapi digunakan oleh mahasiswa</b></h5>
+        <h6><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen yang sesuai dengan bidang ilmu dan tidak
+                diterbitkan, tetapi digunakan oleh mahasiswa</b></h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -786,7 +786,7 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>H. PEKERTI/AA</b></h5>
+        <h6><b>H. PEKERTI/AA</b></h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -856,7 +856,7 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</b></h5>
+        <h6><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</b></h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -931,7 +931,7 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>J. Menulis Jurnal Ilmiah</b></h5>
+        <h6><b>J. Menulis Jurnal Ilmiah</b></h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -993,8 +993,8 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>K. Memperoleh hak paten</b>
-        </h5>
+        <h6><b>K. Memperoleh hak paten</b>
+        </h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -1093,8 +1093,8 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>L. Menulis di media massa</b>
-        </h5>
+        <h6><b>L. Menulis di media massa</b>
+        </h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -1194,8 +1194,8 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya</b>
-        </h5>
+        <h6><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya</b>
+        </h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
@@ -1295,7 +1295,7 @@
 
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h5><b>N. Penyaji makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</b></h5>
+        <h6><b>N. Penyaji makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</b></h6>
         <hr />
 
         <div class="row justify-content-end mr-0">
