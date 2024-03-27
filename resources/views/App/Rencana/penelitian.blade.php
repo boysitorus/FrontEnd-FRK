@@ -453,13 +453,11 @@
                                                     {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
                                                     <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
                                                         <option selected>Pilih tahapan</option>
-                                                        <option value="Proposal">Proposal</option>
-                                                        <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner</option>
-                                                        <option value="Analisa Data">Analisa Data</option>
-                                                        <option value="Laporan Akhir">Laporan Akhir</option>
-                                                        <option value="Konsep (desain)">Konsep (desain)</option>
-                                                        <option value="50% dari Karya">50% dari Karya</option>
-                                                        <option value="Hasil akhir">Hasil akhir</option>
+                                                        <option value="Pendahuluan">Pendahuluan</option>
+                                                        <option value="50% dari isi buku">50% dari isi buku</option>
+                                                        <option value="sks buku jadi">sks buku jadi</option>
+                                                        <option value="persetujuan penerbit">persetujuan penerbit</option>
+                                                        <option value="sks buku selesai dicetak">sks buku selesai dicetak</option> 
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
@@ -482,7 +480,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--Akhir Modal E-->
                             </td>
                         </tr>
                     @endforeach
@@ -602,7 +599,15 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                                                        <input placeholder="{{$item['status_tahapan']}}" name="status_tahapan" id="status_tahapan" type="text" class="form-control">
+                                                        {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
+                                                        <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                                            <option selected>Pilih tahapan</option>
+                                                            <option value="Pendahuluan">Pendahuluan</option>
+                                                            <option value="50% dari isi buku">50% dari isi buku</option>
+                                                            <option value="sks buku jadi">sks buku jadi</option>
+                                                            <option value="persetujuan penerbit">persetujuan penerbit</option>
+                                                            <option value="sks buku selesai dicetak">sks buku selesai dicetak</option> 
+                                                        </select>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
