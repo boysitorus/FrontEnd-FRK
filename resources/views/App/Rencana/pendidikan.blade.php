@@ -19,7 +19,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tabelPendidikan-A" class="table table-striped table-bordered mt-2 text-center"
+                <table id="tabelPendidikan-A" class="table table-striped table-bordered mt-2 text-center border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -173,7 +173,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePendidikan-B" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePendidikan-B" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -331,7 +331,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePendidikan-C" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -464,7 +464,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePendidikan-D" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePendidikan-D" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -596,7 +596,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePendidikan-E" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePendidikan-E" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -732,7 +732,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePendidikan-F" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePendidikan-F" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -866,7 +866,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePendidikan-G" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePendidikan-G" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -989,7 +989,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePendidikan-H" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePendidikan-H" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -1111,7 +1111,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePendidikan-I" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePendidikan-I" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -1260,7 +1260,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePendidikan-J" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePendidikan-J" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -1398,7 +1398,7 @@
             </div>
 
             <div class="text-sm">
-                <table id="tablePendidikan-K" class="table table-striped table-bordered mt-2 text-center align-middle"
+                <table id="tablePendidikan-K" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>

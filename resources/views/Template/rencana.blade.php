@@ -32,19 +32,19 @@
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link active " href="#">Rencana Pendidikan</a>
+                        <a class="nav-link active fw-bold" href="#">Rencana Pendidikan</a>
                     </li>
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link" href="#">Rencana Penelitian</a>
+                        <a class="nav-link fw-bold" href="#">Rencana Penelitian</a>
                     </li>
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link" href="#">Rencana Pengabdian</a>
+                        <a class="nav-link fw-bold" href="#">Rencana Pengabdian</a>
                     </li>
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link" href="#">Tunjangan Lainnya</a>
+                        <a class="nav-link fw-bold" href="#">Tunjangan Lainnya</a>
                     </li>
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link" href="#">Simpulan</a>
+                        <a class="nav-link fw-bold" href="#">Simpulan</a>
                     </li>
                 </ul>
             </div>
