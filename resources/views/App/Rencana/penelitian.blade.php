@@ -1,10 +1,11 @@
 @extends('Template.rencana')
 
 @section('content-penelitian')
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh
-                    kelompok (disetujui oleh pimpinan dan tercapai)</b></h5>
+
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh
+                kelompok (disetujui oleh pimpinan dan tercapai)</b></h5>
 
             <hr />
 
@@ -13,57 +14,57 @@
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_A">Tambah Kegiatan</button>
             </div>
 
-            <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-                <thead>
-                    <tr>
-                        <th scope="col" rowspan="2" class="align-middle">No.</th>
-                        <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                        <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Anggota)</th>
-                        <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota</th>
-                        <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                        <th scope="col" colspan="2">Status</th>
-                        <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                    </tr>
-                    <tr>
-                        <th scope="col">Asesor 1</th>
-                        <th scope="col">Asesor 2</th>
-                    </tr>
-                </thead>
-                <tbody class="align-middle">
-                    @if (isset($penelitian_kelompok) && sizeof($penelitian_kelompok) > 0)
-                        @php
-                            $counter = 1;
-                        @endphp
-                        @foreach ($penelitian_kelompok as $item)
-                            <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['status_tahapan'] }}</td>
-                                <td>{{ $item['posisi'] }}</td>
-                                <td>{{ $item['jumlah_anggota'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
-
-                </tbody>
-            </table>
-        </div>
+        <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
+            <thead>
+                <tr>
+                    <th scope="col" rowspan="2" class="align-middle">No.</th>
+                    <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
+                    <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Anggota)</th>
+                    <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota</th>
+                    <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
+                    <th scope="col" colspan="2">Status</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
+                </tr>
+                <tr>
+                    <th scope="col">Asesor 1</th>
+                    <th scope="col">Asesor 2</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                @if (isset($penelitian_kelompok) && sizeof($penelitian_kelompok) > 0)
+                    @php
+                        $counter = 1;
+                    @endphp
+                    @foreach ($penelitian_kelompok as $item)
+                        <tr>
+                            <td scope="row">{{ $counter++ }}</td>
+                            <td>{{$item['nama_kegiatan']}}</td>
+                            <td>{{$item['status_tahapan']}}</td>
+                            <td>{{$item['posisi']}}</td>
+                            <td>{{$item['jumlah_anggota']}}</td>
+                            <td>{{$item['sks_terhitung']}}</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
+                
+            </tbody>
+        </table>
     </div>
+</div>
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>B. Pelaksanaan penelitian mandiri atau pembuatan karya seni atau teknologi (disetujui oleh pimpinan dan
-                    tercatat)</b></h5>
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>B. Pelaksanaan penelitian mandiri atau pembuatan karya seni atau teknologi (disetujui oleh pimpinan dan
+                tercatat)</b></h5>
 
             <hr />
 
@@ -74,76 +75,76 @@
                 </button>
             </div>
 
-            <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-                <thead>
-                    <tr>
-                        <th scope="col" rowspan="2" class="align-middle">No.</th>
-                        <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                        <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                        <th scope="col" colspan="2">Status</th>
-                        <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                    </tr>
-                    <tr>
-                        <th scope="col">Asesor 1</th>
-                        <th scope="col">Asesor 2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">1</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">3</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
+            <thead>
+                <tr>
+                    <th scope="col" rowspan="2" class="align-middle">No.</th>
+                    <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
+                    <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
+                    <th scope="col" colspan="2">Status</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
+                </tr>
+                <tr>
+                    <th scope="col">Asesor 1</th>
+                    <th scope="col">Asesor 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5>
-                <b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
-                    (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</b>
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5>
+            <b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
+                (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</b>
             </h5>
-            <hr />
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
@@ -192,11 +193,11 @@
         </div>
     </div>
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal
-                    tiga negara), disetujui oleh pimpinan dan tercatat</b></h5>
-            <hr />
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal
+                tiga negara), disetujui oleh pimpinan dan tercatat</b></h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
@@ -205,104 +206,103 @@
 
             </div>
 
-            <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-                <thead>
-                    <tr>
-                        <th scope="col" rowspan="2" class="align-middle">No.</th>
-                        <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                        <th scope="col" rowspan="2" class="align-middle">Jenis Pekerjaan</th>
-                        <th scope="col" rowspan="2" class="align-middle">Peran</th>
-                        <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                        <th scope="col" colspan="2">Status</th>
-                        <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                    </tr>
-                    <tr>
-                        <th scope="col">Asesor 1</th>
-                        <th scope="col">Asesor 2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">1</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_D"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
+            <thead>
+                <tr>
+                    <th scope="col" rowspan="2" class="align-middle">No.</th>
+                    <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
+                    <th scope="col" rowspan="2" class="align-middle">Jenis Pekerjaan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Peran</th>
+                    <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
+                    <th scope="col" colspan="2">Status</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
+                </tr>
+                <tr>
+                    <th scope="col">Asesor 1</th>
+                    <th scope="col">Asesor 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditPenelitian_D"><i class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <!--Bagian E-->
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan dalam waktu sebanyak-banyaknya 4
-                    semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks
-                </b></h5>
-            <hr />
+</div>
+
+<!--Bagian E-->
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan dalam waktu sebanyak-banyaknya 4
+                semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks
+            </b></h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianE" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_E">Tambah Kegiatan</button>
             </div>
 
-            <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-                <thead>
-                    <tr>
-                        <th scope="col" rowspan="2" class="align-middle">No.</th>
-                        <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                        <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Editor/Anggota)</th>
-                        <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                        <th scope="col" colspan="2">Status</th>
-                        <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                    </tr>
-                    <tr>
-                        <th scope="col">Asesor 1</th>
-                        <th scope="col">Asesor 2</th>
-                    </tr>
-                </thead>
-                <tbody class="align-middle">
-                    @if (isset($menyadur) && sizeof($menyadur) > 0)
-                        @php
-                            $counter = 1;
-                        @endphp
-                        @foreach ($menyadur as $item)
-                            <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['status_tahapan'] }}</td>
-                                <td>{{ $item['posisi'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
-                                            class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm-{{ $counter++ }}"><i
-                                            class="bi bi-trash3"></i></button>
+        <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
+            <thead>
+                <tr>
+                    <th scope="col" rowspan="2" class="align-middle">No.</th>
+                    <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
+                    <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Editor/Anggota)</th>
+                    <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
+                    <th scope="col" colspan="2">Status</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
+                </tr>
+                <tr>
+                    <th scope="col">Asesor 1</th>
+                    <th scope="col">Asesor 2</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                @if (isset($menyadur) && sizeof($menyadur) > 0)
+                    @php
+                        $counter = 1;
+                    @endphp
+                    @foreach ($menyadur as $item)
+                        <tr>
+                            <td scope="row">{{ $counter++ }}</td>
+                            <td>{{$item['nama_kegiatan']}}</td>
+                            <td>{{$item['status_tahapan']}}</td>
+                            <td>{{$item['posisi']}}</td>
+                            <td>{{$item['sks_terhitung']}}</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                data-bs-target="#modalEditPenelitian-{{$item['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modalDeleteConfirm-{{$counter++}}"><i class="bi bi-trash3"></i></button>
 
-                                    <!-- modal delete E -->
+                                <!-- modal delete E -->
                                     <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
+                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
 
                                                 <div class="modal-body text-center">
                                                     <h1><i class="bi bi-x-circle text-danger"></i></h1>
@@ -312,101 +312,85 @@
                                                     </p>
                                                 </div>
 
-                                                <div class="modal-footer justify-content-center">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Batalkan</button>
-                                                    {{-- <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Batalkan</button>
+                                                        {{--<a id="confirmDeleteBtn" class="btn btn-primary"
                                                             href="{{ route('rk-pendidikan.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a> --}}
-
-                                                    <a id="confirmDeleteBtn" class="btn btn-primary">Yakin?</a>
-                                                    {{-- <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>--}}
+                                                            
+                                                            <a id="confirmDeleteBtn" class="btn btn-primary">Yakin?</a>
+                                                        {{--<form id="delete-form-{{ $item['id_rencana'] }}"
                                                             action="{{ route('rk-pendidikan.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
                                                             method="POST" style="display: none;">
                                                             @csrf
                                                             @method('DELETE')
-                                                        </form> --}}
-                                                    <form id="delete-form-{{ $item['id_rencana'] }}" @csrf
-                                                        style="display: none;">
+                                                        </form>--}}
+                                                        <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                                @csrf
+                                                            style="display: none;">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                            
+                                <!-- MODAL E -->
+                                <div class="modal fade modal-lg" id="modalEditPenelitian-{{$item['id_rencana']}}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau menyadur naskah buku teks yang
+                                                    akan diterbitkan
+                                                    dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks
+                                                </h6>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
 
-                                    <!-- MODAL E -->
-                                    <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}"
-                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau
-                                                        menyadur naskah buku teks yang
-                                                        akan diterbitkan
-                                                        dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan
-                                                        dan tercatat), sama dengan 2 sks
-                                                    </h6>
-                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
+                                            <form action="{{ route('rk-penelitian.menyadur.update')}}" method="POST">
+                                            @csrf
+                                                <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}">
+                                                    <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                    <input placeholder="{{$item ['nama_kegiatan']}}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                                                    <input placeholder="{{$item['status_tahapan']}}" name="status_tahapan" id="status_tahapan" type="text" class="form-control">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
+                                                    <input placeholder="{{$item['posisi']}}" name="posisi" type="text" class="form-control" name="posisi">
                                                 </div>
 
-                                                <form action="{{ route('rk-penelitian.menyadur.update') }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    <div class="modal-body">
-                                                        <div class="mb-3">
-                                                            <input type="hidden" name="id_rencana"
-                                                                value="{{ $item['id_rencana'] }}">
-                                                            <label for="nama_kegiatan" class="form-label">Nama
-                                                                Kegiatan</label>
-                                                            <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                                name="nama_kegiatan" type="text" class="form-control"
-                                                                id="nama_kegiatan">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="status_tahapan" class="form-label">Tahap
-                                                                Pencapaian</label>
-                                                            <input placeholder="{{ $item['status_tahapan'] }}"
-                                                                name="status_tahapan" id="status_tahapan" type="text"
-                                                                class="form-control">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="posisi" class="form-label">Posisi
-                                                                (Ketua/Editor/Anggota)
-                                                            </label>
-                                                            <input placeholder="{{ $item['posisi'] }}" name="posisi"
-                                                                type="text" class="form-control" name="posisi">
-                                                        </div>
-
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#modalEditConfirm">Simpan
-                                                                Perubahan</button>
-                                                        </div>
-                                                </form>
-                                            </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
-                                    <!--Akhir Modal E-->
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
-                </tbody>
-            </table>
-        </div>
+                                </div>
+                                <!--Akhir Modal E-->
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
+            </tbody>
+        </table>
     </div>
-    <!-- Akhir Bagian E-->
+</div>
+<!-- Akhir Bagian E-->
 
-    <!--Bagian F-->
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
-                    (disetujui pimpinan dan tercatat)
-                    sama dengan 2 sks
-                </b></h5>
-            <hr />
+<!--Bagian F-->
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
+                (disetujui pimpinan dan tercatat)
+                sama dengan 2 sks
+            </b></h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianF" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
@@ -416,53 +400,51 @@
 
             </div>
 
-            <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-                <thead>
-                    <tr>
-                        <th scope="col" rowspan="2" class="align-middle">No.</th>
-                        <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
-                        <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Editor/Anggota)</th>
-                        <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                        <th scope="col" colspan="2">Status</th>
-                        <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                    </tr>
-                    <tr>
-                        <th scope="col">Asesor 1</th>
-                        <th scope="col">Asesor 2</th>
-                    </tr>
-                </thead>
-                <tbody class="align-middle">
-                    @if (isset($menyunting) && sizeof($menyunting) > 0)
-                        @php
-                            $counter = 1;
-                        @endphp
-                        @foreach ($menyunting as $item)
-                            <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['status_tahapan'] }}</td>
-                                <td>{{ $item['posisi'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
-                                            class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm-{{ $counter++ }}"><i
-                                            class="bi bi-trash3"></i></button>
+        <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
+            <thead>
+                <tr>
+                    <th scope="col" rowspan="2" class="align-middle">No.</th>
+                    <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
+                    <th scope="col" rowspan="2" class="align-middle">Posisi (Ketua/Editor/Anggota)</th>
+                    <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
+                    <th scope="col" colspan="2">Status</th>
+                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
+                </tr>
+                <tr>
+                    <th scope="col">Asesor 1</th>
+                    <th scope="col">Asesor 2</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                @if (isset($menyunting) && sizeof($menyunting) > 0)
+                    @php
+                        $counter = 1;
+                    @endphp
+                    @foreach ($menyunting as $item)
+                        <tr>
+                            <td scope="row">{{ $counter++ }}</td>
+                            <td>{{$item['nama_kegiatan']}}</td>
+                            <td>{{$item['status_tahapan']}}</td>
+                            <td>{{$item['posisi']}}</td>
+                            <td>{{$item['sks_terhitung']}}</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                data-bs-target="#modalEditPenelitian-{{$item['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modalDeleteConfirm-{{$counter++}}"><i class="bi bi-trash3"></i></button>
 
-                                    <!-- modal delete E -->
+                                <!-- modal delete E -->
                                     <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
+                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
 
                                                 <div class="modal-body text-center">
                                                     <h1><i class="bi bi-x-circle text-danger"></i></h1>
@@ -472,100 +454,83 @@
                                                     </p>
                                                 </div>
 
-                                                <div class="modal-footer justify-content-center">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Batalkan</button>
-                                                    {{-- <a id="confirmDeleteBtn" class="btn btn-primary"
-                                                                href="{{ route('rk-pendidikan.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
-                                                                onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a> --}}
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Batalkan</button>
+                                                        {{--<a id="confirmDeleteBtn" class="btn btn-primary"
+                                                            href="{{ route('rk-pendidikan.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>--}}
+                                                            
+                                                            <a id="confirmDeleteBtn" class="btn btn-primary">Yakin?</a>
 
-                                                    <a id="confirmDeleteBtn" class="btn btn-primary">Yakin?</a>
+                                                        {{--<form id="delete-form-{{ $item['id_rencana'] }}"
+                                                            action="{{ route('rk-pendidikan.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            method="POST" style="display: none;">--}}
 
-                                                    {{-- <form id="delete-form-{{ $item['id_rencana'] }}"
-                                                                action="{{ route('rk-pendidikan.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
-                                                                method="POST" style="display: none;"> --}}
-
-                                                    <form id="delete-form-{{ $item['id_rencana'] }}" @csrf
-                                                        style="display: none;">
-                                                    </form>
+                                                            <form id="delete-form-{{ $item['id_rencana']}}" 
+                                                                @csrf
+                                                            style="display: none;">
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                            
+                                <!-- MODAL E -->
+                                <div class="modal fade modal-lg" id="modalEditPenelitian-{{$item['id_rencana']}}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau menyadur naskah buku teks yang
+                                                    akan diterbitkan
+                                                    dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks
+                                                </h6>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
 
-                                    <!-- MODAL E -->
-                                    <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}"
-                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau
-                                                        menyadur naskah buku teks yang
-                                                        akan diterbitkan
-                                                        dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan
-                                                        dan tercatat), sama dengan 2 sks
-                                                    </h6>
-                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
+                                            <form action="{{ route('rk-penelitian.menyunting.update')}}" method="POST">
+                                            @csrf
+                                                <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <input type="hidden" name="id_rencana" value="{{$item ['id_rencana']}}">
+                                                    <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                    <input placeholder="{{$item ['nama_kegiatan']}}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                                                    <input placeholder="{{$item['status_tahapan']}}" name="status_tahapan" id="status_tahapan" type="text" class="form-control">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
+                                                    <input placeholder="{{$item['posisi']}}" name="posisi" type="text" class="form-control" name="posisi">
                                                 </div>
 
-                                                <form action="{{ route('rk-penelitian.menyunting.update') }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    <div class="modal-body">
-                                                        <div class="mb-3">
-                                                            <input type="hidden" name="id_rencana"
-                                                                value="{{ $item['id_rencana'] }}">
-                                                            <label for="nama_kegiatan" class="form-label">Nama
-                                                                Kegiatan</label>
-                                                            <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                                name="nama_kegiatan" type="text" class="form-control"
-                                                                id="nama_kegiatan">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="status_tahapan" class="form-label">Tahap
-                                                                Pencapaian</label>
-                                                            <input placeholder="{{ $item['status_tahapan'] }}"
-                                                                name="status_tahapan" id="status_tahapan" type="text"
-                                                                class="form-control">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="posisi" class="form-label">Posisi
-                                                                (Ketua/Editor/Anggota)
-                                                            </label>
-                                                            <input placeholder="{{ $item['posisi'] }}" name="posisi"
-                                                                type="text" class="form-control" name="posisi">
-                                                        </div>
-
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#modalEditConfirm">Simpan
-                                                                Perubahan</button>
-                                                        </div>
-                                                </form>
-                                            </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
-                                    <!--Akhir Modal E-->
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
-                </tbody>
-            </table>
-        </div>
+                                </div>
+                                <!--Akhir Modal E-->
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
+            </tbody>
+        </table>
     </div>
-
+</div>
 
     <!--Akhir Bagian F-->
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen yang sesuai dengan bidang ilmu dan tidak
-                    diterbitkan, tetapi digunakan oleh mahasiswa</b></h5>
-            <hr />
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen yang sesuai dengan bidang ilmu dan tidak
+                diterbitkan, tetapi digunakan oleh mahasiswa</b></h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianG" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
@@ -643,10 +608,10 @@
         </div>
     </div>
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>H. PEKERTI/AA</b></h5>
-            <hr />
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>H. PEKERTI/AA</b></h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianH" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
@@ -713,10 +678,10 @@
         </div>
     </div>
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</b></h5>
-            <hr />
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</b></h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianI" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
@@ -788,10 +753,10 @@
     </div>
 
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>J. Menulis Jurnal Ilmiah</b></h5>
-            <hr />
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>J. Menulis Jurnal Ilmiah</b></h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianJ" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
@@ -851,11 +816,11 @@
 
     {{-- AWAL HAK PATEN BAGIAN K --}}
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>K. Memperoleh hak paten</b>
-            </h5>
-            <hr />
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>K. Memperoleh hak paten</b>
+        </h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button data-bs-toggle="modal" data-bs-target="#modalPenelitian_K" id=" btnFrkPenelitianM"
@@ -988,11 +953,11 @@
 
     {{-- AKHIR MODAL K --}}
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>L. Menulis di media massa</b>
-            </h5>
-            <hr />
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>L. Menulis di media massa</b>
+        </h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button data-bs-toggle="modal" data-bs-target="#modalPenelitian_L" id=" btnFrkPenelitianM"
@@ -1112,11 +1077,11 @@
         </div>
     </div>
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya</b>
-            </h5>
-            <hr />
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya</b>
+        </h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button data-bs-toggle="modal" data-bs-target="#modalPenelitian_M" id=" btnFrkPenelitianM"
@@ -1219,10 +1184,10 @@
     </div>
 
 
-    <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h5><b>N. Penyaji makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</b></h5>
-            <hr />
+<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div class="card-body">
+        <h5><b>N. Penyaji makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</b></h5>
+        <hr />
 
             <div class="row justify-content-end mr-0">
                 <button data-bs-toggle="modal" data-bs-target="#modalPenelitian_N" id="btnFrkPenelitianN" type="button"
@@ -1318,70 +1283,69 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" method = "POST">
-                    @csrf
-                    <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
-                        <div class="mb-3">
-                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
-                        </div>
-                        <div class="mb-3">
-                            <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                            <input name="status_tahapan" type="text" class="form-control" id="status_tahapan">
-                        </div>
-                        <div class="mb-3">
-                            <label for="posisi" class="form-label">Posisi</label>
-                            <input name="posisi" type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
-                            <input name="jumlah_anggota" type="number" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL A --}}
-
-
-    {{-- MULAI MODAL B --}}
-    <div class="modal fade modal-lg" id="modalPenelitian_B" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">B. Pelaksanaan penelitian mandiri atau pembuatan
-                        karya
-                        seni atau teknologi (disetujui oleh pimpinan dan tercatat)</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
+            <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" method = "POST">
+                @csrf
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tahap Pencapaian</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
+                    <input type="hidden" name="id_dosen" value="1">
+                    <div class="mb-3">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                    </div>
+                    <div class="mb-3">
+                        <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                        <input name="status_tahapan" type="text" class="form-control" id="status_tahapan">
+                    </div>
+                    <div class="mb-3">
+                        <label for="posisi" class="form-label">Posisi</label>
+                        <input name="posisi" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
+                        <input name="jumlah_anggota" type="number" class="form-control">
+                    </div>
                 </div>
 
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
+                </div> 
+            </form>
+        </div>
+    </div>
+</div>
+{{-- AKHIR MODAL A --}}
+
+
+{{-- MULAI MODAL B --}}
+<div class="modal fade modal-lg" id="modalPenelitian_B" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">B. Pelaksanaan penelitian mandiri atau pembuatan karya
+                    seni atau teknologi (disetujui oleh pimpinan dan tercatat)</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahap Pencapaian</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL B --}}
+</div>
+{{-- AKHIR MODAL B --}}
 
     {{-- MULAI MODAL C --}}
     <div class="modal fade modal-lg" id="modalPenelitian_C" tabindex="-1" role="dialog"
@@ -1485,24 +1449,24 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-
-                <form action="{{ route('rk-penelitian.menyadur.create') }}" method= "POST">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <input type="hidden" name="id_dosen" value="1">
-                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
-                        </div>
-                        <div class="mb-3">
-                            <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                            <input name="status_tahapan" id="status_tahapan" type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
-                            <input name="posisi" type="text" class="form-control" name="posisi">
-                        </div>
+            
+            <form action="{{route('rk-penelitian.menyadur.create')}}" method= "POST">
+            @csrf
+                <div class="modal-body">    
+                    <div class="mb-3">
+                        <input type="hidden" name="id_dosen" value="1">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                     </div>
+                    <div class="mb-3">
+                        <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                        <input name="status_tahapan" id="status_tahapan" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
+                        <input name="posisi" type="text" class="form-control" name="posisi">
+                    </div>
+                </div>
 
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1513,34 +1477,34 @@
     </div>
     <!-- AKHIR MODAL E -->
 
-    <!--Modal F-->
-    <div class="modal fade modal-lg" id="modalPenelitian_F" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu judul naskah buku yang akan
-                        diterbitkan dalam waktu
-                        sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat), sama dengan 2 sks </h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="{{ route('rk-penelitian.menyunting.create') }}" method= "POST">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <input type="hidden" name="id_dosen" value="1">
-                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
-                        </div>
-                        <div class="mb-3">
-                            <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                            <input name="status_tahapan" id="status_tahapan" type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
-                            <input name="posisi" type="text" class="form-control" name="posisi">
-                        </div>
+<!--Modal F-->
+<div class="modal fade modal-lg" id="modalPenelitian_F" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu judul naskah buku yang akan
+                    diterbitkan dalam waktu
+                    sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat), sama dengan 2 sks </h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{route('rk-penelitian.menyunting.create')}}" method= "POST">
+            @csrf
+                <div class="modal-body">    
+                    <div class="mb-3">
+                        <input type="hidden" name="id_dosen" value="1">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                     </div>
+                    <div class="mb-3">
+                        <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                        <input name="status_tahapan" id="status_tahapan" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
+                        <input name="posisi" type="text" class="form-control" name="posisi">
+                    </div>
+                </div>
 
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1618,29 +1582,29 @@
     </div>
     {{-- AKHIR MODAL H --}}
 
-    <!-- Mulai modal I -->
-    <div class="modal fade modal-lg" id="modalPenelitian_I" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">I. Sebagai asesor Beban Kerja Dosen dan Evaluasi
-                        Pelaksanaan Tridharma Perguruan Tinggi</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+<!-- Mulai modal I -->
+<div class="modal fade modal-lg" id="modalPenelitian_I" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">I. Sebagai asesor Beban Kerja Dosen dan Evaluasi
+                    Pelaksanaan Tridharma Perguruan Tinggi</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
 
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Banyaknya BKD yang Terhitung</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Banyaknya BKD yang Terhitung</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
 
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1650,60 +1614,58 @@
     </div>
     <!-- Akhir modal I -->
 
-    <!-- Awal modal J -->
-    <div class="modal fade modal-lg" id="modalPenelitian_J" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">J. Menulis Jurnal Ilmiah</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+<!-- Awal modal J -->
+<div class="modal fade modal-lg" id="modalPenelitian_J" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">J. Menulis Jurnal Ilmiah</h6>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
 
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dropdownKategori">Kategori</label>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pilih
+                            </button>
+                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
+                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah
+                                        ber-ISSN
+                                        tidak terakreditasi atau proceedings seminar nasional maupun internasional</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi</a></li>
+                                <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi
+                                        internasional (dalam bahasa intenasional)</a></li>
+                            </ul>
                         </div>
-                        <div class="mb-3">
-                            <label for="dropdownKategori">Kategori</label>
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Pilih
-                                </button>
-                                <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
-                                    <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal ilmiah/majalah
-                                            ilmiah
-                                            ber-ISSN
-                                            tidak terakreditasi atau proceedings seminar nasional maupun internasional</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal
-                                            terakreditasi</a></li>
-                                    <li><a class="dropdown-item" href="#">Diterbitkan oleh Jurnal terakreditasi
-                                            internasional (dalam bahasa intenasional)</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Jenis Pengerjaan</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Jenis Peran</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Jenis Pengerjaan</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Jenis Peran</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
 
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>
-    <!-- Akhir modal J -->
+</div>
+<!-- Akhir modal J -->
 
     {{-- MULAI MODAL K --}}
     <div class="modal fade modal-lg" id="modalPenelitian_K" tabindex="-1" role="dialog"
@@ -1791,37 +1753,36 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dropdownTingkatan">Tingkatan:</label>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownTingkatan"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pilih
+                            </button>
+                            <ul class="dropdown-menu form-control" aria-labelledby="dropdownTingkatan">
+                                <li><a class="dropdown-item" href="#">Tingkat Regional/minimal fakultas</a></li>
+                                <li><a class="dropdown-item" href="#">Tingkat nasional</a></li>
+                                <li><a class="dropdown-item" href="#">Tingkat Internasional</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="mb-3">
-                            <label for="dropdownTingkatan">Tingkatan:</label>
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownTingkatan"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Pilih
-                                </button>
-                                <ul class="dropdown-menu form-control" aria-labelledby="dropdownTingkatan">
-                                    <li><a class="dropdown-item" href="#">Tingkat Regional/minimal fakultas</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Tingkat nasional</a></li>
-                                    <li><a class="dropdown-item" href="#">Tingkat Internasional</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL M --}}
+</div>
+{{-- AKHIR MODAL M --}}
 
 
     {{-- MULAI MODAL N --}}
@@ -1861,15 +1822,15 @@
                     </form>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL N --}}
+</div>
+{{-- AKHIR MODAL N--}}
 
-    {{-- LANJUT MODAL C S/D HABIS --}}
+{{-- LANJUT MODAL C S/D HABIS --}}
 
 
     {{-- TEMPAT MODAL EDIT --}}
