@@ -457,7 +457,7 @@
                                                         <option value="50% dari isi buku">50% dari isi buku</option>
                                                         <option value="sks buku jadi">sks buku jadi</option>
                                                         <option value="persetujuan penerbit">persetujuan penerbit</option>
-                                                        <option value="sks buku selesai dicetak">sks buku selesai dicetak</option> 
+                                                        <option value="sks buku selesai dicetak">sks buku selesai dicetak</option>                                                  
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
@@ -576,15 +576,14 @@
                                             </div>
                                         </div>
                             
-                                <!-- MODAL E -->
+                                <!-- MODAL Edit F -->
                                 <div class="modal fade modal-lg" id="modalEditPenelitian-{{$item['id_rencana']}}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau menyadur naskah buku teks yang
-                                                    akan diterbitkan
-                                                    dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks
+                                                <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu judul naskah buku yang akan diterbitkan 
+                                                    dalam waktu sebanyak-banyaknya 4 semester(disetujui pimpinan dan tercatat)sama dengan 2 sks
                                                 </h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
@@ -602,11 +601,11 @@
                                                         {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
                                                         <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
                                                             <option selected>Pilih tahapan</option>
-                                                            <option value="Pendahuluan">Pendahuluan</option>
+                                                            <option value="Pendahuluan">Proposal</option>
                                                             <option value="50% dari isi buku">50% dari isi buku</option>
                                                             <option value="sks buku jadi">sks buku jadi</option>
                                                             <option value="persetujuan penerbit">persetujuan penerbit</option>
-                                                            <option value="sks buku selesai dicetak">sks buku selesai dicetak</option> 
+                                                            <option value="sks buku selesai dicetak">sks buku selesai dicetak</option>
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
