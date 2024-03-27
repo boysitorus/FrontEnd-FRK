@@ -439,7 +439,6 @@
                     @foreach ($menyadur as $item)
                         <tr>
                             <td scope="row">{{ $counter }}</td>
-                            <td scope="row">{{ $counter }}</td>
                             <td>{{$item['nama_kegiatan']}}</td>
                             <td>{{$item['status_tahapan']}}</td>
                             <td>{{$item['posisi']}}</td>
