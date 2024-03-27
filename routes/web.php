@@ -27,6 +27,10 @@ Route::get('/profile', function () {
     return view('App.Profile.profile');
 });
 
+Route::get('/penunjang', function () {
+    return view('App.Rencana.penunjang');
+});
+
 Route::prefix('/formRencanaKerja')->group(function () {
     // Rute untuk menampilkan semua data
     Route::get('/pendidikan', [PendidikanController::class, 'getAll'])->name('rk-pendidikan.all');

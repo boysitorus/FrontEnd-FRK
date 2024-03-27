@@ -214,7 +214,7 @@
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
-                                                class="bi bi-trash3-fill"></i></i></button>
+                                                class="bi bi-trash3"></i></i></button>
                                     </td>
                                 </tr>
 
