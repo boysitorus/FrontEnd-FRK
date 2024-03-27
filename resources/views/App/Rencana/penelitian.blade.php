@@ -576,7 +576,7 @@
                                             </div>
                                         </div>
                             
-                                <!-- MODAL Edit F -->
+                                <!-- MODAL EDIT F -->
                                 <div class="modal fade modal-lg" id="modalEditPenelitian-{{$item['id_rencana']}}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">

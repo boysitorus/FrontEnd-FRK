@@ -194,7 +194,7 @@ class PenelitianController extends Controller
 
     //END CRUD TABEL B. PENELITIAN MANDIRI
 
-
+    // CRUD TABEL E. Menyadur
     public function getMenyadur()
     {
         try {
