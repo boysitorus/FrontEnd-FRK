@@ -123,7 +123,7 @@
 
         <!-- Add a red-colored sentence -->
         <div style="margin-top: 25px; margin-bottom: 25px; text-align: center; color: red;">
-        <strong>Tidak memenuhi ketentuan Perundan-undang beban kerja dosen, pelaksanaan kegiatan yang Tidak Memenuhi</strong>
+        <strong>Tidak memenuhi ketentuan Perundang-undang beban kerja dosen, pelaksanaan kegiatan yang Tidak Memenuhi</strong>
         </div>
 
     </div>
@@ -165,13 +165,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: gray; color: #fff;" class = "ml-2">
+            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: gray; color: #fff;" class = "ml-4">
                 <i class="fas fa-arrow-left"></i> Kembali
             </button>
         </div>
         <div class="col-md-6 text-md-end">
             <!-- Simpan Permanen button with save icon -->
-            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: #063F78;  color: #fff;" class = "mr-2" >
+            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: #063F78;  color: #fff;" class = "mr-4" >
                 <i class="fas fa-save"></i> Simpan Permanen
             </button>
         </div>

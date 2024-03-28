@@ -107,5 +107,10 @@ Route::prefix('/formRencanaKerja')->group(function () {
         return view('App.Rencana.simpulan');
     });
 
+    Route::get('/FEDsimpulan', function () {
+        return view('App.Rencana.FEDsimpulan');
+    });
+
+
 
 });
