@@ -102,7 +102,7 @@ Route::prefix('/formRencanaKerja')->group(function () {
 });
 
 Route::prefix('/formEvaluasiDiri')->group(function () {
-    Route::get('/', function() {
+    Route::get('/penelitian', function() {
        return view('App.Evaluasi.penelitian'); 
     });
 });
