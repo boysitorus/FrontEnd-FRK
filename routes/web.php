@@ -105,6 +105,7 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::post('/penelitian/edit/pembicara_seminar', [PenelitianController::class, 'editPembicaraSeminar'])->name('rk-penelitian.pembicara_seminar.update');
 
     // Rute untuk data penyajian makalah
+    Route::get('/penelitian/penyajian_makalah', [PenelitianController::class, 'getPenyajianMakalah '])->name('rk-penelitian.penyajian_makalah');
     Route::post('/penelitian/penyajian_makalah-tambah', [PenelitianController::class, 'postPenyajianMakalah'])->name('rk-penelitian.penyjajian_makalah.create');
     Route::delete('/penelitian/penyajian_makalah/{id}', [PenelitianController::class, 'deletePenyajianMakalah'])->name('rk-penelitian.penyajian_makalah.destroy');
     Route::post('/penelitian/edit/penyajian_makalah', [PenelitianController::class, 'editPenyajianMakalah'])->name('rk-penelitian.penyajian_makalah.update');

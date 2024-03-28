@@ -548,114 +548,6 @@ class PenelitianController extends Controller
     // END CRUD TABEL L
 
 
-    public function getPembicaraSeminar()
-    {
-        try {
-            // Mengambil data Pembicara Seminar dari Lumen
-            $responsePembicaraSeminar = Http::get('http://localhost:8001/api/penelitian/pembicara_seminar');
-            $PembicaraSeminar= $responsePembicaraSeminar->json();
-
-            $data = [
-                'pembicara_seminar' => $PembicaraSeminar,
-            ];
-
-            // Mengirim data ke view
-            return view('App.Rencana.penelitian', $data);
-        } catch (\Throwable $th) {
-            // Tangani error jika terjadi
-            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
-        }
-    }
-
-    public function postPembicaraSeminar(Request $request)
-    {
-        Http::post(
-            'http://localhost:8001/api/penelitian/pembicara_seminar',
-            [
-            'id_dosen' => $request->get('id_dosen'),
-            'nama_kegiatan' => $request->get('nama_kegiatan'),
-            'tingkatan' => $request->get('tingkatan'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penelitian pembicara_seminar added successfully');
-    }
-
-    public function editPembicaraSeminar(Request $request)
-    {
-        Http::post(
-            'http://localhost:8001/api/penelitian/edit/pembicara_Seminar',
-            [
-            'id_dosen' => $request->get('id_rencana'),
-            'nama_kegiatan' => $request->get('nama_kegiatan'),
-            'tingkatan' => $request->get('tingkatan'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Item updated successfully');
-    }
-
-    public function deletePembicaraSeminar($id)
-    {
-        Http::delete("http://localhost:8001/api/penelitian/pembicara_seminar/{$id}");
-
-    return redirect()->back()->with('success', 'Item deleted');
-    }
-
-    public function getPenyajianMakalah()
-    {
-        try {
-            // Mengambil data penelitian kelompok dari Lumen
-            $responsePenyajianMakalah = Http::get('http://localhost:8001/api/penelitian/penyajian_makalah');
-            $PenyajianMakalah = $responsePenyajianMakalah->json();
-
-            $data = [
-                'penyajian_makalah' => $PenyajianMakalah,
-            ];
-
-            // Mengirim data ke view
-            return view('App.Rencana.penelitian', $data);
-        } catch (\Throwable $th) {
-            // Tangani error jika terjadi
-            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
-        }
-    }
-
-    public function postPenyajianMakalah(Request $request)
-    {
-        Http::post(
-            'http://localhost:8001/api/penelitian/penyajian_makalah',
-            [
-                'id_dosen' => $request->get('id_dosen'),
-                'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'tingkatan' => $request->get('tingkatan'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penelitian penyajian_makalah added successfully');
-    }
-
-    public function editPenyajianMakalah(Request $request)
-    {
-        Http::post(
-            'http://localhost:8001/api/penelitian/edit/penyajian_makalah',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'tingkatan' => $request->get('tingkatan'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Item updated successfully');
-    }
-
-    public function deletePenyajianMakalah($id)
-    {
-        Http::delete("http://localhost:8001/api/penelitian/penyajian_makalah/{$id}");
-
-        return redirect()->back()->with('success', 'Item deleted');
-    }
-
     public function deletePenelitianTidharma($id){
         Http::delete("http://localhost:8001/api/penelitian/penelitian_tridharma/{$id}");
 
@@ -718,5 +610,123 @@ class PenelitianController extends Controller
 
         return redirect()->back()->with('success', 'Item deleted');
     }
+
+
+    // CRUD Tabel M
+
+    public function getPembicaraSeminar()
+    {
+        try { 
+            $responsePembicaraSeminar = Http::get('http://localhost:8001/api/penelitian/pembicara_seminar');
+            $PembicaraSeminar= $responsePembicaraSeminar->json();
+            
+            $data = [
+                'pembicara_seminar' => $PembicaraSeminar,
+            ];
+            
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) { 
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+    
+    public function postPembicaraSeminar(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/pembicara_seminar',
+            [
+            'id_dosen' => $request->get('id_dosen'),
+            'nama_kegiatan' => $request->get('nama_kegiatan'),
+            'tingkatan' => $request->get('tingkatan'),
+            ]
+        );
+            
+        return redirect()->back()->with('success', 'Penelitian pembicara_seminar added successfully');
+    }
+            
+    public function editPembicaraSeminar(Request $request)
+    {  
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/pembicara_seminar',
+            [
+            'id_rencana' => $request->get('id_rencana'),
+            'nama_kegiatan' => $request->get('nama_kegiatan'),
+            'tingkatan' => $request->get('tingkatan'),
+            ]
+        );         
+            
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+            
+    public function deletePembicaraSeminar($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/pembicara_seminar/{$id}");
+            
+    return redirect()->back()->with('success', 'Item deleted');
+    }
+
+    // CRUD Tabel N
+    public function getPenyajianMakalah()
+    {
+        try {
+            // Mengambil data penelitian kelompok dari Lumen
+            $responsePenyajianMakalah = Http::get('http://localhost:8001/api/penelitian/penyajian_makalah');
+            $PenyajianMakalah = $responsePenyajianMakalah->json();
+
+            $data = [
+                'penyajian_makalah' => $PenyajianMakalah,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postPenyajianMakalah(Request $request)
+    { 
+        Http::post(
+            'http://localhost:8001/api/penelitian/penyajian_makalah',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'tingkatan' => $request->get('tingkatan'),
+                'jenis_kegiatan' => $request->get('jenis_kegiatan'),
+                'posisi'=> $request ->get('posisi'),
+                'jumlah_anggota' => $request->get('jumlah_anggota'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian penyajian_makalah added successfully');
+    }
+
+    public function editPenyajianMakalah(Request $request)
+    { 
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/penyajian_makalah',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'tingkatan' => $request->get('tingkatan'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'posisi'=> $request ->get('posisi'),
+                'jumlah_anggota' => $request->get('jumlah_anggota'), 
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deletePenyajianMakalah($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/penyajian_makalah/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+
 
 }
