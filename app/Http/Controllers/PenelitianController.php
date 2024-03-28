@@ -43,8 +43,12 @@ class PenelitianController extends Controller
             $JurnalIlmiah = $responseJurnalIlmiah->json();
 
             //Mengambil data k dari Lumen
+            $responseHakPaten = Http::get('http://localhost:8001/api/penelitian/hak_paten');
+            $hakpaten = $responseHakPaten->json();
 
             //Mengambil data l dari Lumen
+            $responseMediaMassa = Http::get('http://localhost:8001/api/penelitian/media_massa');
+            $mediamassa = $responseMediaMassa->json();
 
             //Mengambil data m dari Lumen
             $responsePembicaraSeminar = Http::get('http://localhost:8001/api/penelitian/pembicara_seminar');
@@ -306,6 +310,118 @@ class PenelitianController extends Controller
 
         return redirect()->back()->with('success', 'Item deleted');
     }
+
+    // CRUD TABEL K 
+    public function getHakPaten()
+    {
+        try {
+            // Mengambil data Hak Paten naskah dari Lumen
+            $responseHakPaten = Http::get('http://localhost:8001/api/penelitian/hak_paten');
+            $HakPaten= $responseHakPaten->json();
+
+            $data = [
+                'hak_paten' => $HakPaten,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postHakPaten(Request $request){
+        Http::post("http://localhost:8001/api/penelitian/hak_paten", 
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'lingkup_wilayah' => $request->get('lingkup_wilayah'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item stored successfully');
+    }
+
+    public function editHakPaten(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/hak_paten',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'lingkup_wilayah' => $request->get('lingkup_wilayah'),
+
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteHakPaten($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/hak_paten/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+    // END CRUD TABEL K
+
+
+    // CRUD TABEL L 
+    public function getMediaMassa()
+    {
+        try {
+            // Mengambil data Media Massa naskah dari Lumen
+            $responseMediaMassa = Http::get('http://localhost:8001/api/penelitian/media_massa');
+            $MediaMassa= $responseMediaMassa->json();
+
+            $data = [
+                'media_masssa' => $MediaMassa,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postMediaMassa(Request $request){
+        Http::post("http://localhost:8001/api/penelitian/media_massa", 
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item stored successfully');
+    }
+
+    public function editMediaMassa(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/media_massa',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteMediaMassa($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/media_massa/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+
+    // END CRUD TABEL L
 
 
     public function getPembicaraSeminar()
