@@ -75,11 +75,13 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::post('/penelitian/edit/menyunting', [PenelitianController::class, 'editMenyunting'])->name('rk-penelitian.menyunting.update');
 
     // Rute untuk hak_paten
+    Route::get('/penelitian/hak_paten', [PenelitianController::class, 'getHakPaten'])->name('rk-penelitian.hak_paten');
     Route::post('/penelitian/hak_paten', [PenelitianController::class, 'postHakPaten'])->name('rk-penelitian.hak_paten.create');
     Route::post('/penelitian/edit/hak_paten', [PenelitianController::class, 'editHakPaten'])->name('rk-penelitian.hak_paten.update');
     Route::delete('/penelitian/hak_paten/{id}', [PenelitianController::class, 'deleteHakPaten'])->name('rk-penelitian.hak_paten.destroy');
 
     // Rute untuk media_massa
+    Route::get('/penelitian/media_massa', [PenelitianController::class, 'getMediaMassa'])->name('rk-penelitian.media_massa');
     Route::post('/penelitian/media_massa', [PenelitianController::class, 'postMediaMassa'])->name('rk-penelitian.media_massa.create');
     Route::post('/penelitian/edit/media_massa', [PenelitianController::class, 'editMediaMassa'])->name('rk-penelitian.media_massa.update');
     Route::delete('/penelitian/media_massa/{id}', [PenelitianController::class, 'deleteMediaMassa'])->name('rk-penelitian.media_massa.destroy');

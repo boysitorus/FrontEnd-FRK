@@ -1022,11 +1022,11 @@
                 </tr>
             </thead>
             <tbody>
-                @if (isset($hakpaten) && sizeof($hakpaten) > 0)
+                @if (isset($hak_paten) && sizeof($hak_paten) > 0)
                     @php
                         $counter = 1;
                     @endphp
-                    @foreach ($hakpaten as $item)
+                    @foreach ($hak_paten as $item)
                         <tr>
                             <td scope="row">{{ $counter++ }}</td>
                             <td> {{ $item['nama_kegiatan'] }} </td>
@@ -1159,11 +1159,11 @@
                 </tr>
             </thead>
             <tbody>
-                @if (isset($mediamassa) && sizeof($mediamassa) > 0)
+                @if (isset($media_massa) && sizeof($media_massa) > 0)
                     @php
                         $counter = 1;
                     @endphp
-                    @foreach ($mediamassa as $item)
+                    @foreach ($media_massa as $item)
                         <tr>
                             <td scope="row">{{ $counter++ }}</td>
                             <td> {{ $item['nama_kegiatan'] }} </td>

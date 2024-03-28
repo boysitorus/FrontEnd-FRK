@@ -44,11 +44,11 @@ class PenelitianController extends Controller
 
             //Mengambil data k dari Lumen
             $responseHakPaten = Http::get('http://localhost:8001/api/penelitian/hak_paten');
-            $hakpaten = $responseHakPaten->json();
+            $HakPaten = $responseHakPaten->json();
 
             //Mengambil data l dari Lumen
             $responseMediaMassa = Http::get('http://localhost:8001/api/penelitian/media_massa');
-            $mediamassa = $responseMediaMassa->json();
+            $MediaMassa = $responseMediaMassa->json();
 
             //Mengambil data m dari Lumen
             $responsePembicaraSeminar = Http::get('http://localhost:8001/api/penelitian/pembicara_seminar');
@@ -67,7 +67,9 @@ class PenelitianController extends Controller
                 'menyadur'=>$Menyadur,
                 'menyunting'=>$Menyunting,
                 'pembicara_seminar'=>$PembicaraSeminar,
-                'penyajian_makalah'=>$PenyajianMakalah
+                'penyajian_makalah'=>$PenyajianMakalah,
+                'hak_paten'=>$HakPaten,
+                'media_massa'=>$MediaMassa
             ];
 
             // Mengirim data ke view
@@ -377,7 +379,7 @@ class PenelitianController extends Controller
             $MediaMassa= $responseMediaMassa->json();
 
             $data = [
-                'media_masssa' => $MediaMassa,
+                'media_massa' => $MediaMassa,
             ];
 
             // Mengirim data ke view
