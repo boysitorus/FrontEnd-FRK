@@ -100,3 +100,9 @@ Route::prefix('/formRencanaKerja')->group(function () {
         return view('App.Rencana.penunjang');
     });
 });
+
+Route::prefix('/formEvaluasiDiri')->group(function () {
+    Route::get('/', function() {
+       return view('App.Evaluasi.penelitian'); 
+    });
+});
