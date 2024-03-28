@@ -27,6 +27,10 @@ Route::get('/profile', function () {
     return view('App.Profile.profile');
 });
 
+Route::get('/penunjang', function () {
+    return view('App.Rencana.penunjang');
+});
+
 Route::prefix('/formRencanaKerja')->group(function () {
     // Rute untuk menampilkan semua data
     Route::get('/pendidikan', [PendidikanController::class, 'getAll'])->name('rk-pendidikan.all');
@@ -72,18 +76,11 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::post('/pendidikan/edit/cangkok', [PendidikanController::class, 'editCangkok'])->name('rk-pendidikan.cangkok.update');
     Route::delete('/pendidikan/cangkok/{id}', [PendidikanController::class, 'deleteCangkok'])->name('rk-pendidikan.cangkok.destroy');
 
-    // Rute untuk data cangkok
+    // Rute untuk data koordinator
     // Route::get('/pendidikan/rendah', [PendidikanController::class, 'getRendah'])->name('rk-pendidikan.rendah');
     Route::post('/pendidikan/koordinator-tambah', [PendidikanController::class, 'postKoordinator'])->name('rk-pendidikan.koordinator.create');
     Route::post('/pendidikan/edit/koordinator', [PendidikanController::class, 'editKoordinator'])->name('rk-pendidikan.koordinator.update');
     Route::delete('/pendidikan/koordinator/{id}', [PendidikanController::class, 'deleteKoordinator'])->name('rk-pendidikan.koordinator.destroy');
-
-    // Rute untuk data cangkok
-    // Route::get('/pendidikan/rendah', [PendidikanController::class, 'getRendah'])->name('rk-pendidikan.rendah');
-    Route::post('/pendidikan/asistensi-tambah', [PendidikanController::class, 'postAsistensi'])->name('rk-pendidikan.asistensi.create');
-    Route::post('/pendidikan/edit/asistensi', [PendidikanController::class, 'editAsistensi'])->name('rk-pendidikan.asistensi.update');
-    Route::delete('/pendidikan/asistensi/{id}', [PendidikanController::class, 'deleteAsistensi'])->name('rk-pendidikan.asistensi.destroy');
-
 
     //Rute Untuk TugasAkhir
 
@@ -113,4 +110,10 @@ Route::prefix('/formRencanaKerja')->group(function () {
 
 
 
+});
+
+Route::prefix('/formEvaluasiDiri')->group(function () {
+    Route::get('/penelitian', function() {
+       return view('App.Evaluasi.penelitian'); 
+    });
 });

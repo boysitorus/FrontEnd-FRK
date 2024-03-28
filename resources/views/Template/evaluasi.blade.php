@@ -7,7 +7,7 @@
         <div class = "row">
             <div class = "col">
                 <h3 class = "font-weight-bold">Rekap Kegiatan</h3>
-                <p class = "breadcrumbs">Rencana Kerja / Rekap Kegiatan</p>
+                <p class = "breadcrumbs">Evaluasi Diri / Rekap Kegiatan</p>
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
@@ -32,16 +32,16 @@
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link active fw-bold" href="#">Rencana Pendidikan</a>
+                        <a class="nav-link active fw-bold" href="#">Evaluasi Pendidikan</a>
                     </li>
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link fw-bold" href="#">Rencana Penelitian</a>
+                        <a class="nav-link fw-bold" href="#">Evaluasi Penelitian</a>
                     </li>
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link fw-bold" href="#">Rencana Pengabdian</a>
+                        <a class="nav-link fw-bold" href="#">Evaluasi Pengabdian</a>
                     </li>
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link fw-bold" href="#">Tunjangan Lainnya</a>
+                        <a class="nav-link fw-bold" href="#">Evaluasi Penunjang</a>
                     </li>
                     <li class="nav-item nav-item-150">
                         <a class="nav-link fw-bold" href="#">Simpulan</a>

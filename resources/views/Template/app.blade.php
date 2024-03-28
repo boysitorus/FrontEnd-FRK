@@ -223,7 +223,13 @@
             $('#sidebarCollapse').on('click', function() {
                 $('#sidebarMenu').toggleClass('active');
                 $('#contentPage').toggleClass('active');
+                $('li > div.collapse').removeClass('show');
             });
+
+            $('.btn-toggle').on('click', function() {
+                $('#sidebarMenu').removeClass('active');
+                $('#contentPage').removeClass('active');
+            })
 
         });
     </script>
