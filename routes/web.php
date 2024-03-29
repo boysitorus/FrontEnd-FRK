@@ -74,6 +74,18 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::delete('/penelitian/menyunting/{id}', [PenelitianController::class, 'deleteMenyunting'])->name('rk-penelitian.menyunting.destroy');
     Route::post('/penelitian/edit/menyunting', [PenelitianController::class, 'editMenyunting'])->name('rk-penelitian.menyunting.update');
 
+    // Rute untuk data penelitian modul
+    Route::get('/penelitian/penelitian_modul', [PenelitianController::class, 'getPenelitianModul'])->name('rk-penelitian.penelitian_modul');
+    Route::post('/penelitian/penelitian_modul-tambah', [PenelitianController::class, 'postPenelitianModul'])->name('rk-penelitian.penelitian_modul.create');
+    Route::delete('/penelitian/penelitian_modul/{id}', [PenelitianController::class, 'deletePenelitianModul'])->name('rk-penelitian.penelitian_modul.destroy');
+    Route::post('/penelitian/edit/penelitian_modul', [PenelitianController::class, 'editPenelitianModul'])->name('rk-penelitian.penelitian_modul.update');
+
+    // Rute untuk data penelitian pekerti
+    Route::get('/penelitian/penelitian_pekerti', [PenelitianController::class, 'getPenelitianPekerti'])->name('rk-penelitian.penelitian_pekerti');
+    Route::post('/penelitian/penelitian_pekerti-tambah', [PenelitianController::class, 'postPenelitianPekerti'])->name('rk-penelitian.penelitian_pekerti.create');
+    Route::delete('/penelitian/penelitian_pekerti/{id}', [PenelitianController::class, 'deletePenelitianPekerti'])->name('rk-penelitian.penelitian_pekerti.destroy');
+    Route::post('/penelitian/edit/penelitian_pekerti', [PenelitianController::class, 'editPenelitianPekerti'])->name('rk-penelitian.penelitian_pekerti.update');
+
     // Rute untuk hak_paten
     Route::get('/penelitian/hak_paten', [PenelitianController::class, 'getHakPaten'])->name('rk-penelitian.hak_paten');
     Route::post('/penelitian/hak_paten', [PenelitianController::class, 'postHakPaten'])->name('rk-penelitian.hak_paten.create');
@@ -92,7 +104,7 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::delete('/penelitian/pembicara_seminar/{id}', [PenelitianController::class, 'deletePembicaraSeminar'])->name('rk-penelitian.pembicara_seminar.destroy');
     Route::post('/penelitian/edit/pembicara_seminar', [PenelitianController::class, 'editPembicaraSeminar'])->name('rk-penelitian.pembicara_seminar.update');
 
-    // Rute untuk data penyajian makalah 
+    // Rute untuk data penyajian makalah
     Route::post('/penelitian/penyajian_makalah-tambah', [PenelitianController::class, 'postPenyajianMakalah'])->name('rk-penelitian.penyjajian_makalah.create');
     Route::delete('/penelitian/penyajian_makalah/{id}', [PenelitianController::class, 'deletePenyajianMakalah'])->name('rk-penelitian.penyajian_makalah.destroy');
     Route::post('/penelitian/edit/penyajian_makalah', [PenelitianController::class, 'editPenyajianMakalah'])->name('rk-penelitian.penyajian_makalah.update');
