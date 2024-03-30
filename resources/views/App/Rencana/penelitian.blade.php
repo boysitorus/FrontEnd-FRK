@@ -1096,9 +1096,10 @@
     </div>
     <!--Akhir Bagian H-->
 
+    <!--MULAI BAGIAN I-->
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</b></h6>
+            <h5><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</b></h5>
             <hr />
 
             <div class="row justify-content-end mr-0">
@@ -1112,68 +1113,125 @@
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle">No.</th>
                         <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle">Banyaknya BKD yang Terhitung</th>
+                        <th scope="col" rowspan="2" class="align-middle">Banyaknya BKD yang Dievaluasi</th>
                         <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                         <th scope="col" colspan="2">Status</th>
-                        <th scope="col" rowspan="2" class="align-middle" style="width:200px;">Aksi</th>
+                        <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                     </tr>
                     <tr>
                         <th scope="col">Asesor 1</th>
                         <th scope="col">Asesor 2</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">1</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">3</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
+                <tbody class="align-middle">
+                    @if (isset($penelitian_tridharma) && sizeof($penelitian_tridharma) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($penelitian_tridharma as $item)
+                            <tr>
+                                <td scope="row">{{ $counter++ }}</td>
+                                <td>{{$item['nama_kegiatan']}}</td>
+                                <td>{{$item['jumlah_bkd']}}</td>
+                                <td>{{$item['sks_terhitung']}}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                data-bs-target="#modalEditPenelitian-{{$item ['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#modalDeleteConfirm-{{$item ['id_rencana']}}"><i class="bi bi-trash3"></i></button>
+
+                                {{-- MODAL DELETE I --}}
+                                <div class="modal fade" id="modalDeleteConfirm-{{$item ['id_rencana']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body text-center">
+                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                    anda sudah menekan tombol 'Yakin'
+                                                </p>
+                                            </div>
+
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    Batalkan
+                                                </button>
+                                                <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.penelitian_tridharma.destroy', ['id' => $item['id_rencana']]) }}" 
+                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
+                                                </a>
+                                                <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                    action="{{ route('rk-penelitian.penelitian_tridharma.destroy', ['id' => $item['id_rencana']]) }}"
+                                                    method="POST" >
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{-- AKHIR MODAL DELETE I --}}
+                                </td>
+                            </tr>
+
+                            {{-- MODAL EDIT I --}}
+                            <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
+                                            </h6>
+                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <form action="{{ route('rk-penelitian.penelitian_tridharma.update') }}" method="POST">
+                                            @csrf
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
+                                                    <div class="mb-3">
+                                                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="jumlah_bkd" class="form-label">Banyaknya BKD yang dievaluasi</label>
+                                                        <input placeholder="{{ $item['jumlah_bkd'] }}" name="jumlah_bkd" type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    {{--<button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>--}}
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL EDIT I --}}
+                        @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
     </div>
+    <!--AKHIR BAGIAN I -->
 
 
+
+    <!--MULAI BAGIAN J-->
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>J. Menulis Jurnal Ilmiah</b></h6>
+            <h5><b>J. Menulis Jurnal Ilmiah</b></h5>
             <hr />
 
             <div class="row justify-content-end mr-0">
@@ -1189,44 +1247,141 @@
                         <th scope="col" rowspan="2" class="align-middle">No.</th>
                         <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                         <th scope="col" rowspan="2" class="align-middle">Kategori</th>
+                        <th scope="col" rowspan="2" class="align-middle">Jenis Pengerjaan</th>
+                        <th scope="col" rowspan="2" class="align-middle">Peran</th>
                         <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                         <th scope="col" colspan="2">Status</th>
-                        <th scope="col" rowspan="2" class="align-middle" style="width:200px;">Aksi</th>
+                        <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                     </tr>
                     <tr>
                         <th scope="col">Asesor 1</th>
                         <th scope="col">Asesor 2</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">1</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_J"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
+                <tbody class="align-middle">
+                    @if (isset($jurnal_ilmiah) && sizeof($jurnal_ilmiah) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($jurnal_ilmiah as $item)
+                            <tr>
+                                <td scope="row">{{ $counter }}</td>
+                                <td>{{$item['nama_kegiatan']}}</td>
+                                <td>{{$item['lingkup_penerbit']}}</td>
+                                <td>{{$item['jenis_pengerjaan']}}</td>
+                                <td>{{$item['peran']}}</td>
+                                <td>{{$item['sks_terhitung']}}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                data-bs-target="#modalEditPenelitian-{{$item ['id_rencana']}}">
+                                <i class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i class="bi bi-trash3"></i></button>
+
+                                {{-- MODAL DELETE J --}}
+                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body text-center">
+                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                    anda sudah menekan tombol 'Yakin'
+                                                </p>
+                                            </div>
+
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    Batalkan
+                                                </button>
+                                                <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.jurnal_ilmiah.destroy', ['id' => $item['id_rencana']]) }}" 
+                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
+                                                </a>
+                                                <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                    action="{{ route('rk-penelitian.jurnal_ilmiah.destroy', ['id' => $item['id_rencana']]) }}"
+                                                    method="POST" >
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{-- AKHIR MODAL DELETE J --}}
+
+                                </td>
+                            </tr>
+                            
+                            {{-- MODAL EDIT J --}}
+                            <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
+                                            </h6>
+                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <form action="{{ route('rk-penelitian.jurnal_ilmiah.update') }}" method="POST">
+                                            @csrf
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
+                                                    <div class="mb-3">
+                                                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="lingkup_penerbit" class="form-label">Kategori</label>
+                                                        <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
+                                                            <option selected>Pilih Kategori</option>
+                                                            <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
+                                                                atau proceedings seminar nasional maupun internasional</option>
+                                                            <option value="2">Diterbitkan oleh Jurnal terakreditasi</option>
+                                                            <option value="3">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
+                                                        <select name="jenis_pengerjaan" class="form-select" aria-label="Default select example">
+                                                            <option selected>Pilih Jenis Pengerjaan</option>
+                                                            <option value="1">Mandiri</option>
+                                                            <option value="2">Kelompok</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="peran" class="form-label">Jenis Peran</label>
+                                                        <select name ="peran" class="form-select" aria-label="Default select example">
+                                                            <option selected>Pilih Peran</option>
+                                                            <option value="Penulis Utama">Penulis Utama</option>
+                                                            <option value="Penulis Lainnya">Penulis Lainnya</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL EDIT J --}}
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                    
                 </tbody>
             </table>
         </div>
@@ -2261,9 +2416,9 @@
     </div>
     {{-- AKHIR MODAL H --}}
 
-    <!-- Mulai modal I -->
-    <div class="modal fade modal-lg" id="modalPenelitian_I" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- MULAI MODAL I -->
+    <div class="modal fade modal-lg" id="modalPenelitian_I" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -2271,37 +2426,32 @@
                         Pelaksanaan Tridharma Perguruan Tinggi</h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
-
-                <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST">
-                    @csrf
-
+                
+                <div class="modal-body">
                     <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST">
                         @csrf
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Banyaknya BKD yang Terhitung</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </form>
+                        <input type="hidden" name="id_dosen" value="1">
+                        <div class="mb-3">
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input name ="nama_kegiatan"type="text" class="form-control" id="nama_kegiatan">
                         </div>
-
+                        <div class="mb-3">
+                            <label for = "jumlah_bkd" class="form-label">Banyaknya BKD yang Dievaluasi</label>
+                            <input name="jumlah_bkd" type="number" class="form-control" id="jumlah_bkd">
+                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Akhir modal I -->
+    <!-- AKHIR MODAL I -->
 
-    <!-- Awal modal J -->
-    <div class="modal fade modal-lg" id="modalPenelitian_J" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- MULAI MODAL J -->
+    <div class="modal fade modal-lg" id="modalPenelitian_J" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -2309,37 +2459,39 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-
                 <div class="modal-body">
                     <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST">
                         @csrf
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
+                            <input type="text" class="form-control" name="nama_kegiatan" id="nama_kegiatan">
                         </div>
                         <div class="mb-3">
                             <label for="lingkup_penerbit" class="form-label">Kategori</label>
                             <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
                                 <option selected>Pilih Kategori</option>
-                                <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak
-                                    terakreditasi
+                                <option value="Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
+                                    atau proceedings seminar nasional maupun internasional">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
                                     atau proceedings seminar nasional maupun internasional</option>
-                                <option value="2">Diterbitkan oleh Jurnal terakreditasi</option>
-                                <option value="3">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa
-                                    intenasional)</option>
+                                <option value="Diterbitkan oleh Jurnal terakreditasi">Diterbitkan oleh Jurnal terakreditasi</option>
+                                <option value="Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Jenis Pengerjaan</label>
-                            <input type="text" class="form-control">
+                            <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
+                            <select name="jenis_pengerjaan" class="form-select" aria-label="Default select example">
+                                <option selected>Pilih Jenis Pengerjaan</option>
+                                <option value="Mandiri">Mandiri</option>
+                                <option value="Kelompok">Kelompok</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="peran" class="form-label">Jenis Peran</label>
                             <select name ="peran" class="form-select" aria-label="Default select example">
                                 <option selected>Pilih Peran</option>
-                                <option value="1">Penulis Utama</option>
-                                <option value="2">Penulis Lainnya</option>
+                                <option value="Penulis Utama">Penulis Utama</option>
+                                <option value="Penulis Lainnya">Penulis Lainnya</option>
                             </select>
                         </div>
                         <div class="modal-footer">
@@ -2350,7 +2502,7 @@
             </div>
         </div>
     </div>
-    <!-- Akhir modal J -->
+    <!-- AKHIR MODAL J -->
 
     {{-- MULAI MODAL K --}}
     <div class="modal fade modal-lg" id="modalPenelitian_K" tabindex="-1" role="dialog"
@@ -2532,560 +2684,6 @@
         </div>
     </div>
     {{-- AKHIR MODAL N --}}
-
-
-    {{-- TEMPAT MODAL EDIT --}}
-
-    {{-- MULAI MODAL A --}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_A" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">A. Keterlibatan dalam 1 judul penelitian atau
-                        pembuatan
-                        karya seni atau teknologi yang dilakukan oleh kelompok (disetujui oleh pimpinan dan
-                        tercapai)
-                    </h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tahap Pencapaian</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Posisi</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL A --}}
-
-    {{-- MULAI MODAL B --}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_B" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">B. Pelaksanaan penelitian mandiri atau pembuatan
-                        karya
-                        seni atau teknologi (disetujui oleh pimpinan dan tercatat)</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tahap Pencapaian</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Posisi</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL B --}}
-
-    {{-- MULAI MODAL C --}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_C" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">C. Menulis 1 judul naskah buku yang akan diterbitkan
-                        dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.
-                    </h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tahap Pencapaian</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Jenis Pengerjaan</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Kategori</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL C --}}
-
-    {{-- MULAI MODAL D --}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_D" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">D. Menulis satu judul naskah buku internasional
-                        (berbahasa dan diedarkan secara internasional minimal tiga negara), disetujui oleh pimpinan dan
-                        tercatat
-                    </h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tahap Pencapaian</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Jenis Pengerjaan</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Peran</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL D --}}
-
-
-
-
-
-    <!-- MODAL F -->
-    <div class="modal fade modal-lg" id="modalEditPenelitian_F" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu judul naskah buku yang akan
-                        diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat)
-                        sama dengan 2 sks
-                    </h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tahap Pencapaian</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Akhir Modal F-->
-
-    {{-- MULAI MODAL G --}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_G" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen
-                        yang sesuai dengan bidang ilmu dan tidak diterbitkan, tetapi digunakan oleh mahasiswa</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tahap Pencapaian</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jenis Pengerjaan</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Jumlah Anggota</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL G --}}
-
-    {{-- MULAI MODAL H --}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_H" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">H. PEKERTI/AA</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL H --}}
-
-    <!-- Mulai Modal I -->
-    <div class="modal fade modal-lg" id="modalEditPenelitian_I" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">I. Sebagai asesor Beban Kerja Dosen dan Evaluasi
-                        Pelaksanaan Tridharma Perguruan Tinggi</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class=" modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Banyaknya BKD Terhitung</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Akhir modal I -->
-
-    <!-- Awal Modal J -->
-    <div class="modal fade modal-lg" id="modalEditPenelitian_J" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">J. Menulis Jurnal Ilmiah</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class=" modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Kategori</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Akhir Modal J -->
-
-    {{-- MULAI MODAL K --}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_K" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">K. Memperoleh hak paten</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class=" modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="dropdownKategori">Kategori:</label>
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategori"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Pilih
-                                </button>
-                                <ul class="dropdown-menu form-control" aria-labelledby="dropdownKategori">
-                                    <li><a class="dropdown-item" href="#">Paten Sederhana</a></li>
-                                    <li><a class="dropdown-item" href="#">Paten Biasa</a></li>
-                                    <li><a class="dropdown-item" href="#">Paten Internasional (minimal tiga
-                                            negara)</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL K --}}
-
-    {{-- MULAI MODAL L --}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_L" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">L. Menulis di media massa</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class=" modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL L --}}
-
-
-    {{-- MULAI MODAL M --}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_M" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">M. Menyampaikan orasi ilmiah, pembicara dalam
-                        seminar, nara sumber terkait dengan bidang
-                        keilmuannya</h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class=" modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="dropdownTingkatan">Tingkatan:</label>
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownTingkatan"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                </button>
-                                <ul class="dropdown-menu form-control" aria-labelledby="dropdownTingkatan">
-                                    <li><a class="dropdown-item" href="#">Tingkat Regional/minimal fakultas</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Tingkat nasional</a></li>
-                                    <li><a class="dropdown-item" href="#">Tingkat Internasional</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL M --}}
-
-    {{-- MULAI MODAL N --}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_N" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">N. Penyaji makalah dalam seminar atau pertemuan
-                        ilmiah terkait dengan bidang ilmu
-                    </h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="dropdownTingkatan">Tingkatan:</label>
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownTingkatan"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                </button>
-                                <ul class="dropdown-menu form-control" aria-labelledby="dropdownTingkatan">
-                                    <li><a class="dropdown-item" href="#">Tingkat Regional/minimal fakultas</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Tingkat nasional</a></li>
-                                    <li><a class="dropdown-item" href="#">Tingkat Internasional</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL N --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM --}}
-    <div class="modal fade" id="modalEditConfirm" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body text-center">
-                    <h1><i class="bi bi-question-circle text-warning"></i></h1>
-                    <h5>Yakin untuk menyimpan perubahan kegiatan ini?</h5>
-                </div>
-
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                    <button id="confirmEditBtn" type="button" class="btn btn-primary">Yakin</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- TEMPAT MODAL DELETE CONFIRM --}}
-    <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body text-center">
-                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                    <p class="text-muted small">proses ini tidak dapat diurungkan bila anda sudah menekan tombol
-                        'Yakin'
-                    </p>
-                </div>
-
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                    <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Yakin</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     {{-- TEMPAT TOAST --}}

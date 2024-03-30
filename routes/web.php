@@ -57,13 +57,13 @@ Route::prefix('/formRencanaKerja')->group(function () {
     // Rute untuk data Penelitian Tridharma
     Route::get('/penelitian/penelitian_tridharma', [PenelitianController::class,'getPenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma');
     Route::post('/penelitian/penelitian_tridharma', [PenelitianController::class,'postPenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma.create');
-    Route::delete('/penelitian/penelitian_tridharma', [PenelitianController::class,'deletePenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma.destroy');
+    Route::delete('/penelitian/penelitian_tridharma/{id}', [PenelitianController::class,'deletePenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma.destroy');
     Route::post('/penelitian/edit/penelitian_tridharma', [PenelitianController::class,'editPenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma.update');
 
     // Rute untuk data Menulis Jurnal Ilmiah
     Route::get('/penelitian/jurnal_ilmiah', [PenelitianController::class,'getJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah');
     Route::post('/penelitian/jurnal_ilmiah', [PenelitianController::class,'postJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah.create');
-    Route::delete('/penelitian/jurnal_ilmiah', [PenelitianController::class,'deleteJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah.destroy');
+    Route::delete('/penelitian/jurnal_ilmiah/{id}', [PenelitianController::class,'deleteJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah.destroy');
     Route::post('/penelitian/edit/jurnal_ilmiah', [PenelitianController::class,'editJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah.update');
 
     // Rute untuk data menyadur naskah buku
