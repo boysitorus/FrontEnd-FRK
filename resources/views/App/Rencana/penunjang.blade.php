@@ -1280,7 +1280,7 @@ cx                        style="border: 2px;">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI, assesor BAN-PT</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI, Assesor BAN-PT</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1351,7 +1351,7 @@ cx                        style="border: 2px;">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">M. Peserta seminar/workshop/kursus berdasar penugasan pimpinan</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">M. Peserta Meminar/Workshop/Kursus Berdasar Penugasan Pimpinan</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1384,7 +1384,7 @@ cx                        style="border: 2px;">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">N. Reviewer jurnal ilmiah , proposal Hibah dll</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">N. Reviewer Jurnal Ilmiah , Proposal Hibah dll</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
