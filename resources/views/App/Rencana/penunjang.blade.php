@@ -1358,7 +1358,9 @@ cx                        style="border: 2px;">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Tingkatan:</label>
-                                    <input class="form-control" type="text">
+                                    <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan">
+                                        <option value="1">Regional</option>
+                                        <option value="2">Nasional</option>
                                 </div>
                             </form>
                         </div>
