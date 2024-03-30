@@ -1321,13 +1321,18 @@ cx                        style="border: 2px;">
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jabatan</label>
-                                    <input class="form-control" type="text">
+                                    <label class="form-label">Jabatan:</label>
+                                    <select class="form-control" id="jenis_jabatan" name="jenis_jabatan">
+                                        <option value="anggota">Anggota</option>
+                                        <option value="ketua">Ketua</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Tingkatan</label>
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
+                                    <label class="form-label">Tingkatan:</label>
+                                    <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan">
+                                        <option value="regional">Regional</option>
+                                        <option value="Nasional">Nasional</option>
+                                    </select>
                                 </div>
                             </form>
                         </div>
