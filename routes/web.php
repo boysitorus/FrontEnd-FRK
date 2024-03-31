@@ -3,6 +3,7 @@
 use App\Http\Controllers\PendidikanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RencanaKerjaController;
+use App\Http\Controllers\PenunjangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +26,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/profile', function () {
     return view('App.Profile.profile');
-});
-
-Route::get('/penunjang', function () {
-    return view('App.Rencana.penunjang');
 });
 
 Route::prefix('/formRencanaKerja')->group(function () {
@@ -96,9 +93,17 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::delete('/pendidikan/proposal/{id}', [PendidikanController::class, 'deleteProposal'])->name('rk-pendidikan.proposal.destroy');
     
     // Rute untuk data penunjang
-    Route::get('/penunjang', function () {
-        return view('App.Rencana.penunjang');
-    });
+    Route::get('/penunjang', [PenunjangController::class, 'getAll'])->name('rk-penunjang.all');
+
+    // C.
+    Route::post('/penunjang/ukm', [PenunjangController::class, 'postUkm'])->name('rk-penunjang.ukm.create');
+    Route::post('/penunjang/edit/ukm', [PenunjangController::class, 'editUkm'])->name('rk-penunjang.ukm.update');
+    Route::delete('/penunjang/ukm/{id}', [PenunjangController::class, 'deleteUkm'])->name('rk-penunjang.ukm.destroy');
+
+    // C.
+    Route::post('/penunjang/sosial', [PenunjangController::class, 'postSosial'])->name('rk-penunjang.sosial.create');
+    Route::post('/penunjang/edit/sosial', [PenunjangController::class, 'editSosial'])->name('rk-penunjang.sosial.update');
+    Route::delete('/penunjang/sosial/{id}', [PenunjangController::class, 'deleteSosial'])->name('rk-penunjang.sosial.destroy');
 
     Route::get('/simpulan', function () {
         return view('App.Rencana.simpulan');
@@ -107,9 +112,6 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::get('/FEDsimpulan', function () {
         return view('App.Rencana.FEDsimpulan');
     });
-
-
-
 });
 
 Route::prefix('/formEvaluasiDiri')->group(function () {
