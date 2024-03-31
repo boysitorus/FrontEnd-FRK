@@ -205,27 +205,24 @@
     {{--AKHIR BAGIAN C --}}
 
     {{-- BAGIAN D --}}
-    <div id="penunjang-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div id="penelitian-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>D. Pimpinan organisasi sosial intern sebagai hanya Ketua/Wakil yang dibina Ketua, misal 
-                a. Koperasi fakultas, b. Dharma wanita, c.  Takmir Masjid/Pastoran</b></h6>
+            <h6><b>D. Menulis satu judul naskah buku internasional  
+                (berbahasa dan diedarkan secara internasional minimal  tiga negara), 
+                disetujui oleh pimpinan dan tercatat</b></h6>
             <hr />
 
-            <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenunjangD" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPenunjang_D">
-                    Tambah Kegiatan
-                </button>
-            </div>
-
             <div class="text-sm">
-                <table id="tablePenunjang-D" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle" 
+                <table id="tablePenelitian-D" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle" 
                 style="border: 2px;">
                 <thead>
                      <tr>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4">Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Tahap Pencapaian</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Pengerjaan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Peran</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                         <th scope="col" colspan="2" class="align-middle fw-bold col-2">Status</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                     </tr>
@@ -241,9 +238,12 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>
                             <button type="button" class="btn btn-warning mr-1" 
-                                data-bs-toggle="modal" data-bs-target="#modalEditPenunjang_D"><i class="bi bi-pencil-square"></i></button>
+                                data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_D"><i class="bi bi-pencil-square"></i></button>
                             <button type="button" class="btn btn-danger" 
                                 data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                         </td>
@@ -254,9 +254,12 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>
                             <button type="button" class="btn btn-warning mr-1" 
-                                data-bs-toggle="modal" data-bs-target="#modalEditPenunjang_D"><i class="bi bi-pencil-square"></i></button>
+                                data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_D"><i class="bi bi-pencil-square"></i></button>
                             <button type="button" class="btn btn-danger" 
                                 data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                         </td>
@@ -269,27 +272,23 @@
     {{-- AKHIR BAGIAN D --}}
 
     {{-- BAGIAN E --}}
-    <div id="penunjang-E" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div id="penelitian-E" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>E. Jabatan struktural (berdasarkan beban/semester)</b></h6>
+            <h6><b>E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan 
+                dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama  dengan 2 sks</b></h6>
             <hr />
 
-            <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenunjangE" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPenunjang_E">
-                    Tambah Kegiatan
-                </button>
-            </div>
-
             <div class="text-sm">
-                <table id="tablePenunjang-E" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePenelitian-E" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Tahap Pencapaian</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Pengerjaan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Posisi (Ketua/ Editor/ Anggota)</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                         </tr>
@@ -305,10 +304,12 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>   
+                            <td></td>
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenunjang_E"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_E"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -322,9 +323,11 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenunjang_E"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_E"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -338,27 +341,23 @@
     {{-- AKHIR BAGIAN E --}}
 
     {{-- BAGIAN F --}}
-    <div id="penunjang-F" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div id="penelitian-F" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>F. Jabatan non struktural</b></h6>
+            <h6><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu 
+                sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat) sama dengan 2 sks</b></h6>
             <hr />
 
-            <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenunjangF" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPenunjang_F">
-                    Tambah Kegiatan
-                </button>
-            </div>
-
             <div class="text-sm">
-                <table id="tablePenunjang-F" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePenelitian-F" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Tahap Pencapaian</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jenis Pengerjaan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Posisi (Ketua/ Editor/ Anggota)</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                         </tr>
@@ -375,9 +374,11 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenunjang_F"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_F"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -391,9 +392,11 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenunjang_F"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_F"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -407,27 +410,23 @@
     {{-- AKHIR BAGIAN F --}}
 
     {{-- BAGIAN G --}}
-    <div id="penunjang-G" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div id="penelitian-G" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>G. Ketua Redaksi Jurnal ber-ISSN / Anggota Redaksi Jurnal ber-ISSN</b></h6>
+            <h6><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen  yang sesuai dengan 
+                bidang ilmu dan tidak diterbitkan,  tetapi digunakan oleh mahasiswa</b></h6>
             <hr />
 
-            <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenunjangG" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPenunjang_G">
-                    Tambah Kegiatan
-                </button>
-            </div>
-
             <div class="text-sm">
-                <table id="tablePenunjang-G" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePenelitian-G" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Tahap Pencapaian</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Pengerjaan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Peran</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                         </tr>
@@ -444,9 +443,11 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenunjang_G"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_G"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -460,9 +461,11 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenunjang_G"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_G"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -476,27 +479,18 @@
     {{-- AKHIR BAGIAN G --}}
 
     {{-- BAGIAN H --}}
-    <div id="penunjang-H" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+    <div id="penelitian-H" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>H. Ketua Panitia Ad Hoc: (umur panitia sekurang-kurangnya 2  semester), 
-                seperti Panitia Reviewer RKAT, Panitia Telaah Prodi Anggota Panitia Ad Hoc</b></h6>
+            <h6><b>H. PEKERTI/AA</b></h6>
             <hr />
 
-            <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenunjangH" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPenunjang_H">
-                    Tambah Kegiatan
-                </button>
-            </div>
-
             <div class="text-sm">
-                <table id="tablePenunjang-H" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePenelitian-H" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -513,10 +507,9 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenunjang_H"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -529,10 +522,9 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenunjang_H"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -546,26 +538,18 @@
     {{-- AKHIR BAGIAN H --}}
 
     {{-- BAGIAN I --}}
-    <div id="penunjang-I" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body">
-            <h6><b>I. Ketua Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</b></h6>
+    <div id="penelitian-I" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+        <div class="card-body"><b><h6>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</b></h6>
             <hr />
 
-            <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenunjangI" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPenunjang_I">
-                    Tambah Kegiatan
-                </button>
-            </div>
-
             <div class="text-sm">
-                <table id="tablePenunjang-I" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePenelitian-I" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkat Jabatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Banyaknya BKD yang di Evaluasi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -585,7 +569,7 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenunjang_H"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -601,7 +585,7 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenunjang_I"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -615,29 +599,25 @@
     {{-- AKHIR BAGIAN I --}}
 
     {{-- BAGIAN J--}}
-        <div id="penunjang-J" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+        <div id="penelitian-J" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
             <div class="card-body">
-                <h6><b>J. Anggota Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</b></h6>
+                <h6><b>J. Menulis jurnal ilmiah</b></h6>
                 <hr />
 
-                <div class="row justify-content-end mr-0">
-                    <button id="btnFrkPenunjangJ" type="button" class="btn btn-success col-md-auto m-1"
-                        data-bs-toggle="modal" data-bs-target="#modalPenunjang_J">
-                        Tambah Kegiatan
-                    </button>
-                </div>
-
                 <div class="text-sm">
-                    <table id="tablePenunjang-J" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                    <table id="tablePenelitian-J" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                         style="border: 2px;">
                         <thead>
                             <tr>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkat Jabatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Kegiatan</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Kategori</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Pengerjaan</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Peran</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jumlah Anggota</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                                 <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Aksi</th>
                             </tr>
                             <tr>
                                 <th scope="col" class="fw-bold">Asesor 1</th>
@@ -652,9 +632,12 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenunjang_J"><i class="bi bi-pencil-square"></i></button>
+                                        data-bs-target="#modalEditPenelitian_J"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -664,6 +647,9 @@
                                 <td scope="row">2</td>
                                 <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
                                     arcu pharetra.</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -684,26 +670,19 @@
     {{-- AKHIR BAGIAN J --}}
 
     {{-- BAGIAN K --}}
-        <div id="penunjang-K" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+        <div id="penelitian-K" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
             <div class="card-body">
-                <h6><b>K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI , asesor BAN-PT</b></h6>
+                <h6><b>K. Memperoleh hak paten</b></h6>
                 <hr />
 
-                <div class="row justify-content-end mr-0">
-                    <button id="btnFrkPenunjangK" type="button" class="btn btn-success col-md-auto m-1"
-                        data-bs-toggle="modal" data-bs-target="#modalPenunjang_K">
-                        Tambah Kegiatan
-                    </button>
-                </div>
-
                 <div class="text-sm">
-                    <table id="tablePenunjang-K" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                    <table id="tablePenelitian-K" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                         style="border: 2px;">
                         <thead>
                             <tr>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan(Ketua/Anggota)</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold">Kategori</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                                 <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -723,7 +702,7 @@
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenunjang_K"><i class="bi bi-pencil-square"></i></button>
+                                        data-bs-target="#modalEditPenelitian_K"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -739,7 +718,7 @@
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenunjang_K"><i class="bi bi-pencil-square"></i></button>
+                                        data-bs-target="#modalEditPenelitian_K"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -753,162 +732,15 @@
     {{-- AKHIR BAGIAN K --}}
 
     {{-- BAGIAN L --}}
-        <div id="penunjang-L" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+        <div id="penelitian-L" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
             <div class="card-body">
-                <h6><b>L. Menjadi Pengurus/Anggota Asosiasi Profesi</b></h6>
+                <h6><b>L. Menulis di media massa (Koran/majalah: tulisan berupa opini, 
+                    form diskusi, kritik, kajian ilmiah, ulasan ahli/pakar yang terkait dengan keahlian bidang ilmunya)</b></h6>
                 <hr />
 
-                <div class="row justify-content-end mr-0">
-                    <button id="btnFrkPenunjangL" type="button" class="btn btn-success col-md-auto m-1"
-                        data-bs-toggle="modal" data-bs-target="#modalPenunjang_L">
-                        Tambah Kegiatan
-                    </button>
-                </div>
-
                 <div class="text-sm">
-                    <table id="tablePenunjang-L" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                    <table id="tablePenelitian-L" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                         style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jabatan(Ketua/Anggota)</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col" class="fw-bold">Asesor 1</th>
-                                <th scope="col" class="fw-bold">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>Lorem ipsum dolor sit amet consectetur.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenunjang_L"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                    arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenunjang_L"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR BAGIAN L --}}
-
-    {{-- BAGIAN M --}}
-        <div id="penunjang-M" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-            <div class="card-body">
-                <h6><b>M. Peserta seminar/workshop/kursus berdasar penugasan  pimpinan</b></h6>
-                <hr />
-
-                <div class="row justify-content-end mr-0">
-                    <button id="btnFrkPenunjangM" type="button" class="btn btn-success col-md-auto m-1"
-                        data-bs-toggle="modal" data-bs-target="#modalPenunjang_M">
-                        Tambah Kegiatan
-                    </button>
-                </div>
-
-                <div class="text-sm">
-                    <table id="tablePenunjang-M" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-                        style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col" class="fw-bold">Asesor 1</th>
-                                <th scope="col" class="fw-bold">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>Lorem ipsum dolor sit amet consectetur.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenunjang_M"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                    arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenunjang_M"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR BAGIAN M --}}
-
-    {{-- BAGIAN N --}}
-        <div id="penunjang-N" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-            <div class="card-body">
-                <h6><b>N. Reviewer jurnal ilmiah , proposal Hibah dll</b></h6>
-                <hr />
-
-                <div class="row justify-content-end mr-0">
-                    <button id="btnFrkPenunjangN" type="button" class="btn btn-success col-md-auto m-1"
-                        data-bs-toggle="modal" data-bs-target="#modalPenunjang_N">
-                        Tambah Kegiatan
-                    </button>
-                </div>
-
-                <div class="text-sm">
-                    <table id="tablePenunjang-N" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-cx                        style="border: 2px;">
                         <thead>
                             <tr>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
@@ -931,7 +763,7 @@ cx                        style="border: 2px;">
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenunjang_N"><i class="bi bi-pencil-square"></i></button>
+                                        data-bs-target="#modalEditPenelitian_L"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -946,7 +778,140 @@ cx                        style="border: 2px;">
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenunjang_N"><i class="bi bi-pencil-square"></i></button>
+                                        data-bs-target="#modalEditPenelitian_L"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR BAGIAN L --}}
+
+    {{-- BAGIAN M --}}
+        <div id="penelitian-M" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+            <div class="card-body">
+                <h6><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya</b></h6>
+                <hr />
+
+                <div class="text-sm">
+                    <table id="tablePenelitian-M" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                        style="border: 2px;">
+                        <thead>
+                            <tr>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold">Kategori</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                            </tr>
+                            <tr>
+                                <th scope="col" class="fw-bold">Asesor 1</th>
+                                <th scope="col" class="fw-bold">Asesor 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Lorem ipsum dolor sit amet consectetur.</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian_M"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
+                                    arcu pharetra.</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian_M"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {{-- AKHIR BAGIAN M --}}
+
+    {{-- BAGIAN N --}}
+        <div id="penelitian-N" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+            <div class="card-body">
+                <h6><b>N. Penyaji makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</b></h6>
+                <hr />
+
+                <div class="text-sm">
+                    <table id="tablePenelitian-N" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                     style="border: 2px;">
+                        <thead>
+                            <tr>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Kategori</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Kegiatan</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Posisi</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jumlah Anggota</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
+                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                            </tr>
+                            <tr>
+                                <th scope="col" class="fw-bold">Asesor 1</th>
+                                <th scope="col" class="fw-bold">Asesor 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Lorem ipsum dolor sit amet consectetur.</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian_N"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
+                                    arcu pharetra.</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian_N"><i class="bi bi-pencil-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -959,7 +924,7 @@ cx                        style="border: 2px;">
         </div>
     {{-- AKHIR BAGIAN N --}}
 
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN A--}}
+    <!-- {{-- TEMPAT MODAL TAMBAH KEGIATAN A--}}
             <div class="modal fade modal-lg" id="modalPenunjang_A" tabindex="-1" role="dialog" 
             aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1385,36 +1350,36 @@ cx                        style="border: 2px;">
                 </div>
             </div>
 
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN N}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN N}} -->
 
     {{-- TEMPAT MODAL EDIT CONFIRM A--}}
-        <div class="modal fade" id="modalEditPenunjang_A" tabindex="-1" aria-labelledby="modalEditPenunjangALabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangALabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                    <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+    <div class="modal fade" id="modalEditPenelitian_A" tabindex="-1" aria-labelledby="modalEditPenelitianALabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitianALabel">Edit Penelitian A</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Choose a file or drag it here</h3>
+                            <!-- File input -->
+                            <input type="file" id="fileInput" multiple>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Attachment</button>
+            </div>
         </div>
+    </div>
+</div>
+
     {{-- AKHIR MODAL EDIT --}}
 
     {{-- TEMPAT MODAL EDIT CONFIRM B--}}
