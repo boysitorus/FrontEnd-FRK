@@ -918,7 +918,7 @@
 
                 <div class="text-sm">
                     <table id="tablePenunjang-N" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-cx                        style="border: 2px;">
+                       style="border: 2px;">
                         <thead>
                             <tr>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>

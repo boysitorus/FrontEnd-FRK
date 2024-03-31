@@ -47,8 +47,9 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_A"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+
 
                             </td>
                         </tr>
@@ -65,8 +66,8 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_A"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -111,8 +112,8 @@
                             <td>
                             <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_B"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                            <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -127,8 +128,8 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_B"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -172,8 +173,8 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_C"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -188,8 +189,8 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_C"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -233,8 +234,8 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_D"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -249,8 +250,8 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_D"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -294,8 +295,8 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_E"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -310,8 +311,8 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_E"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -355,8 +356,8 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_F"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -371,8 +372,8 @@
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_F"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" 
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -385,34 +386,35 @@
 
 
 
-     {{-- TEMPAT MODAL EDIT CONFIRM A--}}
+    {{-- TEMPAT MODAL EDIT CONFIRM A--}}
         <div class="modal fade" id="modalEditPengabdian_A" tabindex="-1" aria-labelledby="modalEditPengabdianALabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPengabdianALabel">Edit Kegiatan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+
                     <div class="modal-body">
-                        
-                    <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>Choose a file or drag it here</h3>
+                                    <!-- File input -->
+                                    <input type="file" id="fileInput" multiple>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
                 </div>
             </div>
         </div>
+
     {{-- AKHIR MODAL EDIT --}}
 
     {{-- TEMPAT MODAL EDIT CONFIRM B--}}
@@ -591,7 +593,7 @@
 
         {{-- TEMPAT TOAST --}}
 
-        {{-- TOAS EDIT --}}
+        {{-- TOAST EDIT --}}
         <div class="toast-container position-fixed top-0 end-0 p-3">
             <div id="editToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
                 aria-atomic="true">
@@ -651,6 +653,60 @@
                 }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
             }
         </script>
+
+    <script>
+        // Fungsi untuk mencegah perilaku default saat drag dan drop
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        // Inisialisasi dropArea dan menambahkan event listener
+        const dropArea = document.getElementById('dropArea');
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        // Menandai dropArea saat dragover
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => {
+                dropArea.classList.add('active');
+            }, false);
+        });
+
+        // Menghapus penandaan dropArea saat dragleave atau drop
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => {
+                dropArea.classList.remove('active');
+            }, false);
+        });
+
+        // Menangani drop file
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+
+            handleFiles(files);
+        }
+
+        // Fungsi untuk mengunggah file
+        function uploadFiles() {
+            const files = document.getElementById('fileInput').files;
+            handleFiles(files);
+        }
+
+        // Fungsi untuk menangani file yang diunggah
+        function handleFiles(files) {
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                // Lakukan sesuatu dengan file yang diunggah, misalnya mengirimnya ke server
+                console.log('Uploaded file:', file.name);
+            }
+        }
+
+    </script> 
 
 
 @endsection
