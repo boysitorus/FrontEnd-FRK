@@ -11,49 +11,59 @@ class PenelitianController extends Controller
     public function getAll()
     {
         try {
-            // Mengambil data penelitian kelompok dari Lumen
+            // Mengambil data a. penelitian kelompok dari Lumen
             $responsePenelitianKelompok = Http::get('http://localhost:8001/api/penelitian/penelitian_kelompok');
             $PenelitianKelompok = $responsePenelitianKelompok->json();
 
-            // Mengambil data penelitian mandiri dari Lumen
+            // Mengambil data b. penelitian mandiri dari Lumen
             $responsePenelitianMandiri = Http::get('http://localhost:8001/api/penelitian/penelitian_mandiri');
             $PenelitianMandiri = $responsePenelitianMandiri->json();
-            // Mengambil data c dari Lumen
 
-            //Mengambil data d dari Lumen
+            // Mengambil data c. buku terbit dari Lumen
+            $responseBukuTerbit = Http::get('http://localhost:8001/api/penelitian/buku_terbit');
+            $BukuTerbit = $responseBukuTerbit->json();
 
-            //Mengambil data e dari Lumen
+            //Mengambil data d. buku internasional dari Lumen
+            $responseBukuInternasional = Http::get('http://localhost:8001/api/penelitian/buku_internasional');
+            $BukuInternasional = $responseBukuInternasional->json();
+
+            //Mengambil data e. menydur dari Lumen
             $responseMenyadur = Http::get('http://localhost:8001/api/penelitian/menyadur');
             $Menyadur = $responseMenyadur->json();
 
-            //Mengambil data f dari Lumen
+            //Mengambil data f. menyunting dari Lumen
             $responseMenyunting = Http::get('http://localhost:8001/api/penelitian/menyunting');
             $Menyunting = $responseMenyunting->json();
 
-            //Mengambil data g dari Lumen
+            //Mengambil data g. penelitian dari Lumen
+            $responsePenelitianModul = Http::get('http://localhost:8001/api/penelitian/penelitian_modul');
+            $PenelitianModul = $responsePenelitianModul->json();
 
-            //Mengambil data h dari Lumen
+            //Mengambil data h. pekerti dari Lumen
+            $responsePenelitianPekerti = Http::get('http://localhost:8001/api/penelitian/penelitian_pekerti');
+            $PenelitianPekerti = $responsePenelitianPekerti->json();
 
-            //Mengambil data i dari Lumen
+            //Mengambil data i. tridharma dari Lumen
             $responsePenelitianTridharma = Http::get('http://localhost:8001/api/penelitian/penelitian_tridharma');
             $PenelitianTridharma = $responsePenelitianTridharma->json();
 
-            //Mengambil data j dari Lumen
+            //Mengambil data j. jurnal ilmiah dari Lumen
             $responseJurnalIlmiah = Http::get('http://localhost:8001/api/penelitian/jurnal_ilmiah');
             $JurnalIlmiah = $responseJurnalIlmiah->json();
 
-            //Mengambil data k dari Lumen
+            //Mengambil data k. hak paten dari Lumen
             $responseHakPaten = Http::get('http://localhost:8001/api/penelitian/hak_paten');
-            $hakpaten = $responseHakPaten->json();
+            $HakPaten = $responseHakPaten->json();
 
-
-            //Mengambil data l dari Lumen
+            //Mengambil data l. media massa dari Lumen
             $responseMediaMassa = Http::get('http://localhost:8001/api/penelitian/media_massa');
-            $mediamassa = $responseMediaMassa->json();
-            //Mengambil data m dari Lumen
+            $MediaMassa = $responseMediaMassa->json();
+
+            //Mengambil data m. pembicara seminar dari Lumen
             $responsePembicaraSeminar = Http::get('http://localhost:8001/api/penelitian/pembicara_seminar');
             $PembicaraSeminar = $responsePembicaraSeminar->json();
-            //Mengambil data n dari Lumen
+
+            //Mengambil data n. penyajian makalah  dari Lumen
             $responsePenyajianMakalah = Http::get('http://localhost:8001/api/penelitian/penyajian_makalah');
             $PenyajianMakalah = $responsePenyajianMakalah->json();
 
@@ -61,11 +71,19 @@ class PenelitianController extends Controller
             // Menggabungkan data
             $data = [
                 'penelitian_kelompok' => $PenelitianKelompok,
+                'penelitian_mandiri' => $PenelitianMandiri,
+                'buku_terbit' => $BukuTerbit,
+                'buku_internasional' => $BukuInternasional,
+                'menyadur'=>$Menyadur,
+                'menyunting'=>$Menyunting,
+                'penelitian_modul' => $PenelitianModul,
+                'penelitian_pekerti' => $PenelitianPekerti,
                 'penelitian_tridharma' => $PenelitianTridharma,
                 'jurnal_ilmiah' => $JurnalIlmiah,
-                'penelitian_mandiri' => $PenelitianMandiri,
-                'menyadur'=>$Menyadur,
-                'menyunting'=>$Menyunting
+                'pembicara_seminar'=>$PembicaraSeminar,
+                'penyajian_makalah'=>$PenyajianMakalah,
+                'hak_paten'=>$HakPaten,
+                'media_massa'=>$MediaMassa
             ];
 
             // Mengirim data ke view
@@ -76,7 +94,7 @@ class PenelitianController extends Controller
         }
     }
 
-    // CRUD Tabel A. Penelitian Kelompok
+    // CRUD Tabel A. PENELITIAN KELOMPOK // CRUD Tabel A. PENELITIAN KELOMPOK
     public function getPenelitianKelompok()
     {
         try {
@@ -135,9 +153,9 @@ class PenelitianController extends Controller
         return redirect()->back()->with('success', 'Item deleted');
     }
 
-    //END CRUD TABEL A. PENELITIAN KELOMPOK
+    //END CRUD TABEL A. PENELITIAN KELOMPOK //END CRUD TABEL A. PENELITIAN KELOMPOK
 
-    // CRUD Tabel B. PENELITIAN MANDIRI
+    //CRUD TABEL B. PENELITIAN MANDIRI //CRUD TABEL B. PENELITIAN MANDIRI
 
     public function getPenelitianMandiri()
     {
@@ -193,10 +211,129 @@ class PenelitianController extends Controller
         return redirect()->back()->with('success', 'Item deleted');
     }
 
+    //END CRUD TABEL B. PENELITIAN MANDIRI //END CRUD TABEL B. PENELITIAN MANDIRI
 
-    //END CRUD TABEL B. PENELITIAN MANDIRI
+    //CRUD TABEL C. BUKU TERBIT //CRUD TABEL C. BUKU TERBIT //CRUD TABEL C. BUKU TERBIT
+    public function getBukuTerbit()
+    {
+        try {
+            // Mengambil data penelitian kelompok dari Lumen
+            $responseBukuTerbit = Http::get('http://localhost:8001/api/penelitian/buku_terbit');
+            $BukuTerbit = $responseBukuTerbit->json();
 
-    // CRUD TABEL E. Menyadur
+            $data = [
+                'buku_terbit' => $BukuTerbit,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postBukuTerbit(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/buku_terbit',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'status_tahapan' => $request->get('status_tahapan'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'peran' => $request->get('peran')
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian buku_terbit added successfully');
+    }
+
+    public function editBukuTerbit(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/buku_terbit',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'status_tahapan' => $request->get('status_tahapan'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'peran' => $request->get('peran')
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Buku Terbit updated successfully');
+    }
+
+    public function deleteBukuTerbit($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/buku_terbit/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+    //END CRUD TABEL C. BUKU TERBIT //END CRUD TABEL C. BUKU TERBIT 
+
+    //CRUD TABEL D. BUKU INTERNASIONAL //CRUD TABEL D. BUKU INTERNASIONAL
+    public function getBukuInternasional()
+    {
+        try {
+            // Mengambil data penelitian kelompok dari Lumen
+            $responseBukuInternasional = Http::get('http://localhost:8001/api/penelitian/buku_internasional');
+            $BukuInternasional = $responseBukuInternasional->json();
+
+            $data = [
+                'buku_internasional' => $BukuInternasional,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postBukuInternasional(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/buku_internasional',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'status_tahapan' => $request->get('status_tahapan'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'peran' => $request->get('peran')
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian buku_internasional added successfully');
+    }
+
+    public function editBukuInternasional(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/buku_internasional',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'status_tahapan' => $request->get('status_tahapan'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'peran' => $request->get('peran')
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Buku Internasional updated successfully');
+    }
+
+    public function deleteBukuInternasional($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/buku_internasional/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+    //END CRUD TABEL D. BUKU INTERNASIONAL //END CRUD TABEL D. BUKU INTERNASIONAL
+
+    //CRUD TABEL E. MENYADUR //CRUD TABEL E. MENYADUR //CRUD TABEL E. MENYADUR 
     public function getMenyadur()
     {
         try {
@@ -252,7 +389,9 @@ class PenelitianController extends Controller
 
         return redirect()->back()->with('success', 'Item deleted');
     }
+    //END CRUD TABEL E. MENYADUR //END CRUD TABEL E. MENYADUR //END CRUD TABEL E. MENYADUR
 
+    //CRUD TABEL F. MENYUNTING //CRUD TABEL F. MENYUNTING //CRUD TABEL F. MENYUNTING 
     public function getMenyunting()
     {
         try {
@@ -308,4 +447,469 @@ class PenelitianController extends Controller
 
         return redirect()->back()->with('success', 'Item deleted');
     }
+    //END CRUD TABEL F. MENYUNTING //END CRUD TABEL F. MENYUNTING
+
+    // CRUD TABEL G. PENELITIAN MODUL // CRUD TABEL G. PENELITIAN MODUL
+    public function getPenelitianModul()
+    {
+        try {
+            // Mengambil data penelitian modul dari Lumen
+            $responsePenelitianModul = Http::get('http://localhost:8001/api/penelitian/penelitian_modul');
+            $PenelitianModul = $responsePenelitianModul->json();
+
+            $data = [
+                'penelitian_modul' => $PenelitianModul,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postPenelitianModul(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/penelitian_modul',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'status_tahapan' => $request->get('status_tahapan'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'peran' => $request->get('peran'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian penelitian_modul added successfully');
+    }
+
+    public function editPenelitianModul(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/penelitian_modul',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'status_tahapan' => $request->get('status_tahapan'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'peran' => $request->get('peran'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian modul updated successfully');
+    }
+
+    public function deletePenelitianModul($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/penelitian_modul/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+    //END CRUD TABEL G. PENELITIAN MODUL //END CRUD TABEL G. PENELITIAN MODUL
+
+    // CRUD TABEL H. PENELITIAN PEKERTI // CRUD TABEL H. PENELITIAN PEKERTI
+    public function getPenelitianPekerti()
+    {
+        try {
+            // Mengambil data penelitian modul dari Lumen
+            $responsePenelitianPekerti = Http::get('http://localhost:8001/api/penelitian/penelitian_pekerti');
+            $PenelitianPekerti = $responsePenelitianPekerti->json();
+
+            $data = [
+                'penelitian_pekerti' => $PenelitianPekerti,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postPenelitianPekerti(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/penelitian_pekerti',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian penelitian_pekerti added successfully');
+    }
+
+    public function editPenelitianPekerti(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/penelitian_pekerti',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan')
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian pekerti updated successfully');
+    }
+
+    public function deletePenelitianPekerti($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/penelitian_pekerti/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+    //END CRUD TABEL H. PENELITIAN PEKERTI //END CRUD TABEL H. PENELITIAN PEKERTI
+
+
+    //CRUD TABEL I PELAKSANAAN TRIDHARMA //CRUD TABEL I PELAKSANAAN TRIDHARMA
+    public function getPenelitianTridharma()
+    {
+        try {
+            // Mengambil data penelitian kelompok dari Lumen
+            $responsePenelitianTridharma = Http::get('http://localhost:8001/api/penelitian/penelitian_tridharma');
+            $PenelitianTridharma = $responsePenelitianTridharma->json();
+
+            $data = [
+                'penelitian_tridharma' => $PenelitianTridharma,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postPenelitianTridharma(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/penelitian_tridharma',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_bkd' => $request->get('jumlah_bkd'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian penyajian_makalah added successfully');
+    }
+
+    public function editPenelitianTridharma(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/penelitian_tridharma',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_bkd' => $request->get('jumlah_bkd'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deletePenelitianTridharma($id){
+        Http::delete("http://localhost:8001/api/penelitian/penelitian_tridharma/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+    // END CRUD BAGIAN I. PELAKSANAAN TRIDHARMA // END CRUD BAGIAN I. PELAKSANAAN TRIDHARMA
+
+    // START CRUD BAGIAN J. JURNAL ILMIAH // START CRUD BAGIAN J. JURNAL ILMIAH
+    public function getJurnalIlmiah(){
+         try{
+            //Mengambil data j dari Lumen
+         $responseJurnalIlmiah = Http::get('http://localhost:8001/api/penelitian/jurnal_ilmiah');
+         $JurnalIlmiah = $responseJurnalIlmiah->json();
+
+            $data = [
+                'jurnal_ilmiah' => $JurnalIlmiah,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postJurnalIlmiah(Request $request){
+        $this->validate($request, 
+        [
+            'id_dosen'=> 'required',
+            'nama_kegiatan' => 'required',
+            'lingkup_penerbit'=> 'required',
+            'jenis_pengerjaan' => 'required',
+            'peran' => 'required',
+        ]);
+
+        Http::post(
+            'http://localhost:8001/api/penelitian/jurnal_ilmiah',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'lingkup_penerbit'=> $request->get('lingkup_penerbit'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'peran'  => $request->get('peran'),
+
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian jurnal_ilmiah added successfully');
+    }
+
+    public function editJurnalIlmiah(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/jurnal_ilmiah',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'lingkup_peberbit'=> $request->get('lingkup_penerbit'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'peran'  => $request->get('peran'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteJurnalIlmiah($id){
+        Http::delete("http://localhost:8001/api/penelitian/jurnal_ilmiah/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+    //END CRUD TABEL J JURNAL ILMIAH //END CRUD TABEL J JURNAL ILMIAH
+
+    //CRUD TABEL K. HAK PATEN //CRUD TABEL K. HAK PATEN //CRUD TABEL K. HAK PATEN
+    public function getHakPaten()
+    {
+        try {
+            // Mengambil data Hak Paten naskah dari Lumen
+            $responseHakPaten = Http::get('http://localhost:8001/api/penelitian/hak_paten');
+            $HakPaten= $responseHakPaten->json();
+
+            $data = [
+                'hak_paten' => $HakPaten,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postHakPaten(Request $request){
+        Http::post("http://localhost:8001/api/penelitian/hak_paten",
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'lingkup_wilayah' => $request->get('lingkup_wilayah'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item stored successfully');
+    }
+
+    public function editHakPaten(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/hak_paten',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'lingkup_wilayah' => $request->get('lingkup_wilayah'),
+
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteHakPaten($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/hak_paten/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+
+    //END CRUD TABEL K. HAK PATEN //END CRUD TABEL K. HAK PATEN //END CRUD TABEL K. HAK PATEN
+
+    // CRUD TABEL L. MEDIA MASSA // CRUD TABEL L. MEDIA MASSA // CRUD TABEL L. MEDIA MASSA
+    public function getMediaMassa()
+    {
+        try {
+            // Mengambil data Media Massa naskah dari Lumen
+            $responseMediaMassa = Http::get('http://localhost:8001/api/penelitian/media_massa');
+            $MediaMassa= $responseMediaMassa->json();
+
+            $data = [
+                'media_massa' => $MediaMassa,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postMediaMassa(Request $request){
+        Http::post("http://localhost:8001/api/penelitian/media_massa",
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item stored successfully');
+    }
+
+    public function editMediaMassa(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/media_massa',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteMediaMassa($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/media_massa/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+    //END CRUD TABEL L. MEDIA MASSA // END CRUD TABEL L. MEDIA MASSA
+
+    //CRUD TABEL M. PEMBICARA SEMINAR //CRUD TABEL M. PEMBICARA SEMINAR
+    public function getPembicaraSeminar()
+    {
+        try { 
+            $responsePembicaraSeminar = Http::get('http://localhost:8001/api/penelitian/pembicara_seminar');
+            $PembicaraSeminar= $responsePembicaraSeminar->json();
+            
+            $data = [
+                'pembicara_seminar' => $PembicaraSeminar,
+            ];
+            
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) { 
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+    
+    public function postPembicaraSeminar(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/penelitian/pembicara_seminar',
+            [
+            'id_dosen' => $request->get('id_dosen'),
+            'nama_kegiatan' => $request->get('nama_kegiatan'),
+            'tingkatan' => $request->get('tingkatan'),
+            ]
+        );
+            
+        return redirect()->back()->with('success', 'Penelitian pembicara_seminar added successfully');
+    }
+            
+    public function editPembicaraSeminar(Request $request)
+    {  
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/pembicara_seminar',
+            [
+            'id_rencana' => $request->get('id_rencana'),
+            'nama_kegiatan' => $request->get('nama_kegiatan'),
+            'tingkatan' => $request->get('tingkatan'),
+            ]
+        );         
+            
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+            
+    public function deletePembicaraSeminar($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/pembicara_seminar/{$id}");
+            
+    return redirect()->back()->with('success', 'Item deleted');
+    }
+    //END CRUD TABEL M. PEMBICARA SEMINAR //END CRUD TABEL M. PEMBICARA SEMINAR
+
+    //CRUD TABEL N PENYAJIAN MAKALAH //CRUD TABEL N PENYAJIAN MAKALAH
+    public function getPenyajianMakalah()
+    {
+        try {
+            // Mengambil data penelitian kelompok dari Lumen
+            $responsePenyajianMakalah = Http::get('http://localhost:8001/api/penelitian/penyajian_makalah');
+            $PenyajianMakalah = $responsePenyajianMakalah->json();
+
+            $data = [
+                'penyajian_makalah' => $PenyajianMakalah,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postPenyajianMakalah(Request $request)
+    { 
+        Http::post(
+            'http://localhost:8001/api/penelitian/penyajian_makalah',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'tingkatan' => $request->get('tingkatan'),
+                'jenis_kegiatan' => $request->get('jenis_kegiatan'),
+                'posisi'=> $request ->get('posisi'),
+                'jumlah_anggota' => $request->get('jumlah_anggota'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penelitian penyajian_makalah added successfully');
+    }
+
+    public function editPenyajianMakalah(Request $request)
+    { 
+        Http::post(
+            'http://localhost:8001/api/penelitian/edit/penyajian_makalah',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'tingkatan' => $request->get('tingkatan'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+                'posisi'=> $request ->get('posisi'),
+                'jumlah_anggota' => $request->get('jumlah_anggota'), 
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deletePenyajianMakalah($id)
+    {
+        Http::delete("http://localhost:8001/api/penelitian/penyajian_makalah/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted');
+    }
+    //END CRUD TABEL N. PENYAJIAN MAKALAH
+
+//END PENELITIAN CONTROLLER
 }
