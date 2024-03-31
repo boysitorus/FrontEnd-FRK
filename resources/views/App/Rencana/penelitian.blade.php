@@ -340,16 +340,15 @@
     {{----------------------------------- TABEL C -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6>
+            <h5>
                 <b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
                     (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</b>
-            </h6>
+                </h5>
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
-                    data-bs-toggle="modal" data-bs-target="#modalPenelitian_C">Tambah
-                    Kegiatan</button>
+                <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
+                data-bs-toggle="modal" data-bs-target="#modalPenelitian_C">Tambah Kegiatan</button>
 
             </div>
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -360,7 +359,6 @@
                         <th scope="col" rowspan="2" class="align-middle">Tahap Pencapaian</th>
                         <th scope="col" rowspan="2" class="align-middle">Jenis Pengerjaan</th>
                         <th scope="col" rowspan="2" class="align-middle">Peran</th>
-                        <th scope="col" rowspan="2" class="align-middle">Kategori</th>
                         <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                         <th scope="col" colspan="2">Status</th>
                         <th scope="col" rowspan="2" class="align-middle">Aksi</th>
@@ -370,24 +368,131 @@
                         <th scope="col">Asesor 2</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">1</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_C"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
+                <tbody class ="align-middle">
+                    @if (isset($buku_terbit) && sizeof($buku_terbit) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($buku_terbit as $item)
+                            <tr>
+                                <td scope="row">{{ $counter }}</td>
+                                <td>{{$item['nama_kegiatan']}}</td>
+                                <td>{{$item['status_tahapan']}}</td>
+                                <td>{{$item['jenis_pengerjaan']}}</td>
+                                <td>{{$item['peran']}}</td>
+                                <td>{{$item['sks_terhitung']}}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i class="bi bi-trash3"></i></button>
+                                        {{-- Modal delete C --}}
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="modal-body text-center">
+                                                        <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                        <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                        <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                            anda sudah menekan tombol 'Yakin'
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                            Batalkan
+                                                        </button>
+                                                        <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.buku_terbit.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
+                                                        </a>
+                                                        <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                            action="{{ route('rk-penelitian.buku_terbit.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            method="POST" >
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                {{-- AKHIR MODAL DELETE C --}}
+                                </td>
+                            </tr>
+
+                        {{-- modal edit C --}}
+
+                    <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
+                                            </h6>
+                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <form action="{{ route('rk-penelitian.buku_terbit.update') }}" method="POST">
+                                            @csrf
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
+                                                    <div class="mb-3">
+                                                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                                                        {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
+                                                        <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                                            <option selected>Pilih tahapan</option>
+                                                            <option value="Pendahuluan">Pendahuluan</option>
+                                                            <option value="50% dari isi buku">50% dari isi buku</option>
+                                                            <option value="Buku Jadi ">Buku Jadi</option>
+                                                            <option value="Persetujuan Penerbit">Persetujuan Penerbit</option>
+                                                            <option value="Buku Selesai Dicetak">Buku Selesai Dicetak</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
+                                                        {{---<input name="posisi" type="text" class="form-control">--}}
+                                                        <select name="jenis_pengerjaan" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                                                            <option selected>Jenis Pengerjaan</option>
+                                                            <option value="Mandiri">Mandiri</option>
+                                                            <option value="Kelompok">Kelompok</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="peran" class="form-label">Peran</label>
+                                                        {{---<input name="posisi" type="text" class="form-control">--}}
+                                                        <select name="peran" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                                                            <option selected>Peran</option>
+                                                            <option value="Editor">Editor</option>
+                                                            <option value="Kontributor">Kontributor</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    {{--<button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>--}}
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL EDIT C --}}
+                        @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -397,15 +502,15 @@
     {{----------------------------------- TABEL D -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal
-                    tiga negara), disetujui oleh pimpinan dan tercatat</b></h6>
+            <h5><b>D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal
+                    tiga negara), disetujui oleh pimpinan dan tercatat</b></h5>
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
-                    data-bs-toggle="modal" data-bs-target="#modalPenelitian_D">Tambah
-                    Kegiatan</button>
-
+                <button id="btnFrkPenelitianD" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
+                    data-bs-toggle="modal" data-bs-target="#modalPenelitian_D">
+                    Tambah Kegiatan
+                </button>
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -425,23 +530,131 @@
                         <th scope="col">Asesor 2</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">1</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian_D"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
+                    <tbody class="align-middle">
+                    @if (isset($buku_internasional) && sizeof($buku_internasional) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($buku_internasional as $item)
+                            <tr>
+                                <td scope="row">{{ $counter }}</td>
+                                <td>{{$item['nama_kegiatan']}}</td>
+                                <td>{{$item['status_tahapan']}}</td>
+                                <td>{{$item['jenis_pengerjaan']}}</td>
+                                <td>{{$item['peran']}}</td>
+                                <td>{{$item['sks_terhitung']}}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i class="bi bi-trash3"></i></button>
+
+                                {{-- MODAL DELETE D --}}
+                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body text-center">
+                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                    anda sudah menekan tombol 'Yakin'
+                                                </p>
+                                            </div>
+
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    Batalkan
+                                                </button>
+                                                <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.buku_internasional.destroy', ['id' => $item['id_rencana']]) }}"
+                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
+                                                </a>
+                                                <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                    action="{{ route('rk-penelitian.buku_internasional.destroy', ['id' => $item['id_rencana']]) }}"
+                                                    method="POST" >
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{-- AKHIR MODAL DELETE D --}}
+                                </td>
+                            </tr>
+
+                            {{-- MODAL EDIT D --}}
+                            <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
+                                            </h6>
+                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <form action="{{ route('rk-penelitian.buku_internasional.update') }}" method="POST">
+                                            @csrf
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
+                                                    <div class="mb-3">
+                                                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                                                        {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
+                                                        <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                                            <option selected>Pilih tahapan</option>
+                                                            <option value="Proposal">Pendahuluan</option>
+                                                            <option value="50% dari isi buku">50% dari isi buku</option>
+                                                            <option value="Buku Jadi">Buku Jadi</option>
+                                                            <option value="Persetujuan Penerbit">Persetujuan Penerbit</option>
+                                                            <option value="Buku Selesai Dicetak">Buku Selesai Dicetak</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="jenis_pengerjaan" class="form-label">Jenis_Pengerjaan</label>
+                                                        {{---<input name="posisi" type="text" class="form-control">--}}
+                                                        <select name="posisi" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                                                            <option selected>Pilih Jenis Pengerjaan</option>
+                                                            <option value="Mandiri">Mandiri</option>
+                                                            <option value="Kelompok">Kelompok</option>
+                                                        </select>
+                                                    </div>
+                                                <div class="mb-3">
+                                                        <label for="peran" class="form-label">Peran</label>
+                                                        {{---<input name="posisi" type="text" class="form-control">--}}
+                                                        <select name="peran" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                                                            <option selected>Pilih Peran</option>
+                                                            <option value="Editor">Editor</option>
+                                                            <option value="Kontributor">Kontributor</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    {{--<button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>--}}
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Simpan Perubahan
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL EDIT D --}}
+                        @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -2111,14 +2324,11 @@
     {{----------------------------- AKHIR MODAL TAMBAH B -----------------------------}}
 
     {{----------------------------- MULAI MODAL TAMBAH C -----------------------------}}
-    <div class="modal fade modal-lg" id="modalPenelitian_C" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade modal-lg" id="modalEditPenelitian_C" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">C. Menulis 1 judul naskah buku yang akan diterbitkan
-                        dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.
-                    </h6>
+                    <h6 class="modal-title" id="exampleModalLabel">C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -2133,22 +2343,19 @@
                             <input type="text" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Jenis Pengerjaan</label>
+                            <label for="email" class="form-label">Jenis Pengerjaan</label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Peran</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Kategori</label>
+                            <label for="email" class="form-label">Kategori</label>
                             <input type="text" class="form-control">
                         </div>
                     </form>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
                 </div>
             </div>
         </div>
@@ -2157,14 +2364,12 @@
 
 
     {{----------------------------- MULAI MODAL TAMBAH D -----------------------------}}
-    <div class="modal fade modal-lg" id="modalPenelitian_D" tabindex="-1" role="dialog"
+    <div class="modal fade modal-lg" id="modalEditPenelitian_D" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">C. Menulis 1 judul naskah buku yang akan diterbitkan
-                        dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.
-                    </h6>
+                    <h6 class="modal-title" id="exampleModalLabel">D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal tiga negara), disetujui oleh pimpinan dan tercatat</h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -2179,18 +2384,19 @@
                             <input type="text" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Jenis Pengerjaan</label>
+                            <label for="email" class="form-label">Jenis Pengerjaan</label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Peran</label>
+                            <label for="email" class="form-label">Peran</label>
                             <input type="text" class="form-control">
                         </div>
                     </form>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
                 </div>
             </div>
         </div>
