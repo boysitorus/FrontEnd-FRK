@@ -1970,15 +1970,11 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="tingkatan" class="form-label">Tingkatan</label>
-                                                            {{-- <input name="tingkatan" type="text" class="form-control"
-                                                    id="tingkatan"> --}}
                                                             <select name="tingkatan"
                                                                 class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-md example">
-                                                                <option selected>Pilih Tingkatan</option>
                                                                 <option
-                                                                    value="Tingkat Regional/minimal
-                                                    fakultas">
+                                                                    value="Tingkat Regional/minimal fakultas">
                                                                     Tingkat Regional/minimal
                                                                     fakultas
                                                                 </option>
@@ -1991,8 +1987,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        {{-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#modalEditConfirm">Simpan Perubahan</button> --}}
                                                         <button type="submit" class="btn btn-primary">
                                                             Simpan Perubahan
                                                         </button>
@@ -2140,7 +2134,6 @@
                                                             <label for="tingkatan" class="form-label">Tingkatan:</label>
                                                             <select name="tingkatan" class="form-control"
                                                                 id="tingkatan">
-                                                                <option value="">Pilih Tingkatan</option>
                                                                 <option
                                                                     value="Tingkat regional daerah, institusional(minimum fakultas)"
                                                                     {{ $item['lingkup_wilayah'] == 'Tingkat regional daerah, institusional(minimum fakultas)' ? 'selected' : '' }}>
@@ -2161,7 +2154,6 @@
                                                             <select name="posisi"
                                                                 class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-md example">
-                                                                <option value="">Pilih Posisi</option>
                                                                 <option value="Ketua"
                                                                     {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua
                                                                 </option>
