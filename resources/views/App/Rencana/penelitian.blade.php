@@ -392,7 +392,9 @@
             </table>
         </div>
     </div>
+    {{-------------------------------- AKHIR TABEL C --------------------------------}}
 
+    {{----------------------------------- TABEL D -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal
@@ -444,8 +446,9 @@
             </table>
         </div>
     </div>
+    {{-------------------------------- AKHIR TABEL D --------------------------------}}
 
-    <!--Bagian E-->
+    {{----------------------------------- TABEL E -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan dalam waktu sebanyak-banyaknya 4
@@ -551,59 +554,50 @@
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}"
-                                                        method="POST">
-                                                        @csrf
+                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST">
+                                                    @csrf
                                                         <div class="modal-body">
-                                                            <input type="hidden" name="id_rencana"
-                                                                value="{{ $item['id_rencana'] }}" />
-                                                            <div class="mb-3">
-                                                                <label for="nama_kegiatan" class="form-label">Nama
-                                                                    Kegiatan</label>
-                                                                <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                                    name="nama_kegiatan" type="text"
-                                                                    class="form-control" id="nama_kegiatan">
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label for="status_tahapan" class="form-label">Tahap
-                                                                    Pencapaian</label>
-                                                                {{-- <input name="status_tahapan" type="text" class="form-control" id="status_tahapan"> --}}
-                                                                <select name="status_tahapan"
-                                                                    class="form-select form-select-md mb-3"
-                                                                    aria-label=".form-select-md example">
-                                                                    <option selected>Pilih tahapan</option>
-                                                                    <option value="Pendahuluan">Pendahuluan</option>
-                                                                    <option value="50% dari isi buku">50% dari isi buku
-                                                                    </option>
-                                                                    <option value="sks buku jadi">sks buku jadi</option>
-                                                                    <option value="persetujuan penerbit">persetujuan
-                                                                        penerbit</option>
-                                                                    <option value="sks buku selesai dicetak">sks buku
-                                                                        selesai dicetak</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label for="posisi" class="form-label">Posisi</label>
-                                                                {{-- -<input name="posisi" type="text" class="form-control"> --}}
-                                                                <select name="posisi"
-                                                                    class="form-select form-select-md mb-3"
-                                                                    aria-label=".form-select-lg example">
-                                                                    <option selected>Pilih posisi</option>
-                                                                    <option value="Ketua">Ketua</option>
-                                                                    <option value="Editor">Editor</option>
-                                                                    <option value="Anggota">Anggota</option>
-                                                                </select>
-                                                            </div>
-
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary">
-                                                                    Simpan Perubahan
-                                                                </button>
-                                                            </div>
+                                                        <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
+                                                        <div class="mb-3">
+                                                            <label for="nama_kegiatan" class="form-label">Nama
+                                                                Kegiatan</label>
+                                                            <input placeholder="{{ $item['nama_kegiatan'] }}"
+                                                                name="nama_kegiatan" type="text"
+                                                                class="form-control" id="nama_kegiatan">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                                                            <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                                                <option selected>Pilih tahapan</option>
+                                                                <option value="Pendahuluan">Pendahuluan</option>
+                                                                <option value="50% dari isi buku">50% dari isi buku
+                                                                </option>
+                                                                <option value="sks buku jadi">sks buku jadi</option>
+                                                                <option value="persetujuan penerbit">persetujuan penerbit</option>
+                                                                <option value="sks buku selesai dicetak">sks bukuselesai dicetak</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="posisi" class="form-label">Posisi</label>
+                                                            <select name="posisi"
+                                                                class="form-select form-select-md mb-3"
+                                                                aria-label=".form-select-lg example">
+                                                                <option selected>Pilih posisi</option>
+                                                                <option value="Ketua">Ketua</option>
+                                                                <option value="Editor">Editor</option>
+                                                                <option value="Anggota">Anggota</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Simpan Perubahan
+                                                            </button>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
@@ -612,9 +606,9 @@
             </table>
         </div>
     </div>
-    <!-- Akhir Bagian E-->
+    {{-------------------------------- AKHIR TABEL E --------------------------------}}
 
-    <!--Bagian F-->
+    {{----------------------------------- TABEL F -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
@@ -736,7 +730,6 @@
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap
                                                                 Pencapaian</label>
-                                                            {{-- <input name="status_tahapan" type="text" class="form-control" id="status_tahapan"> --}}
                                                             <select name="status_tahapan"
                                                                 class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-md example">
@@ -753,7 +746,6 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="posisi" class="form-label">Posisi</label>
-                                                            {{-- -<input name="posisi" type="text" class="form-control"> --}}
                                                             <select name="posisi" class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-lg example">
                                                                 <option selected>Pilih posisi</option>
@@ -772,7 +764,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--Akhir Modal E-->
+                                    <!--Akhir Modal F-->
                                 </td>
                             </tr>
                         @endforeach
@@ -782,9 +774,9 @@
         </div>
     </div>
 
-    <!--Akhir Bagian F-->
+    {{-------------------------------- AKHIR TABEL F --------------------------------}}
 
-    <!--Awal Bagian G-->
+    {{----------------------------------- TABEL G -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen yang sesuai dengan bidang ilmu dan tidak
@@ -962,9 +954,9 @@
             </table>
         </div>
     </div>
-    <!--Akhir Bagian G-->
+    {{-------------------------------- AKHIR TABEL G --------------------------------}}
 
-    <!--Awal Bagian H-->
+    {{----------------------------------- TABEL H -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>H. PEKERTI/AA</b></h6>
@@ -1098,9 +1090,9 @@
             </table>
         </div>
     </div>
-    <!--Akhir Bagian H-->
+    {{-------------------------------- AKHIR TABEL H --------------------------------}}
 
-    <!--MULAI BAGIAN I-->
+    {{----------------------------------- TABEL I -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h5><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</b></h5>
@@ -1210,8 +1202,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    {{--<button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>--}}
                                                     <button type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
@@ -1228,11 +1218,9 @@
             </table>
         </div>
     </div>
-    <!--AKHIR BAGIAN I -->
+    {{-------------------------------- AKHIR TABEL I --------------------------------}}
 
-
-
-    <!--MULAI BAGIAN J-->
+    {{----------------------------------- TABEL J -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h5><b>J. Menulis Jurnal Ilmiah</b></h5>
@@ -1381,19 +1369,15 @@
                                 </div>
                             </div>
                             {{-- AKHIR MODAL EDIT J --}}
-                                </td>
-                            </tr>
                         @endforeach
                     @endif
-                    
                 </tbody>
             </table>
         </div>
     </div>
+    {{-------------------------------- AKHIR TABEL J --------------------------------}}
 
-
-    {{-- AWAL HAK PATEN BAGIAN K --}}
-
+    {{----------------------------------- TABEL K -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h5><b>K. Memperoleh hak paten</b>
@@ -1415,7 +1399,7 @@
                         <th scope="col" rowspan="2" class="align-middle">Kategori</th>
                         <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                         <th scope="col" colspan="2">Status</th>
-                        <th scope="col" rowspan="2" class="align-middle" style="width:200px;">Aksi</th>
+                        <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                     </tr>
                     <tr>
                         <th scope="col">Asesor 1</th>
@@ -1519,20 +1503,17 @@
                                                         Perubahan</button>
                                                 </div>
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
                     @endif
-
                 </tbody>
             </table>
         </div>
     </div>
-
-    {{-- AKHIR MODAL K --}}
+    {{--------------------------------- AKHIR TABEL K ---------------------------------}}
 
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
@@ -1655,14 +1636,13 @@
                             {{-- awal mula masalah --}}
                         @endforeach
                     @endif
-
                 </tbody>
             </table>
         </div>
     </div>
 
 
-    {{-- AWAL BAGIAN M --}}
+    {{----------------------------------- TABEL M -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya</b>
@@ -1822,10 +1802,9 @@
             </table>
         </div>
     </div>
+    {{-------------------------------- AKHIR TABEL M --------------------------------}}
 
-    {{-- AKHIR BAGIAN M --}}
-
-    {{-- AWAL BAGIAN N --}}
+    {{----------------------------------- TABEL N -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>N. Penyaji makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</b></h6>
@@ -2010,7 +1989,6 @@
                                                             Perubahan</button>
                                                     </div>
                                                 </form>
-
                                             </div>
                                         </div>
                                     </div>
@@ -2023,11 +2001,11 @@
             </table>
         </div>
     </div>
+    {{-------------------------------- AKHIR TABEL N --------------------------------}}
 
+    {{------------------------- TEMPAT MODAL TAMBAH KEGIATAN -------------------------}}
 
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN --}}
-
-    {{-- MULAI MODAL A --}}
+    {{----------------------------- MULAI MODAL TAMBAH A -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_A" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2084,11 +2062,9 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL A --}}
+    {{----------------------------- AKHIR MODAL TAMBAH A -----------------------------}}
 
-
-
-    {{-- MULAI MODAL B --}}
+    {{----------------------------- MULAI MODAL TAMBAH B -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_B" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2132,9 +2108,9 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL B --}}
+    {{----------------------------- AKHIR MODAL TAMBAH B -----------------------------}}
 
-    {{-- MULAI MODAL C --}}
+    {{----------------------------- MULAI MODAL TAMBAH C -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_C" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2177,10 +2153,10 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL C --}}
+    {{----------------------------- AKHIR MODAL TAMBAH C -----------------------------}}
 
 
-    {{-- MULAI MODAL D --}}
+    {{----------------------------- MULAI MODAL TAMBAH D -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_D" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2219,9 +2195,9 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL D --}}
+    {{----------------------------- AKHIR MODAL TAMBAH D -----------------------------}}
 
-    <!--Modal E-->
+    {{----------------------------- MULAI MODAL TAMBAH E -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_E" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2274,9 +2250,9 @@
             </div>
         </div>
     </div>
-    <!-- AKHIR MODAL E -->
+    {{----------------------------- AKHIR MODAL TAMBAH E -----------------------------}}
 
-    <!--Modal F-->
+    {{----------------------------- MULAI MODAL TAMBAH F -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_F" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2325,9 +2301,9 @@
             </div>
         </div>
     </div>
-    <!-- AKHIR MODAL F -->
+    {{----------------------------- AKHIR MODAL TAMBAH F -----------------------------}}
 
-    {{-- MULAI MODAL G --}}
+    {{----------------------------- MULAI MODAL TAMBAH G -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_G" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2389,9 +2365,9 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL G --}}
+    {{----------------------------- AKHIR MODAL TAMBAH G -----------------------------}}
 
-    {{-- MULAI MODAL H --}}
+    {{----------------------------- MULAI MODAL TAMBAH H -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_H" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2418,9 +2394,9 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL H --}}
+    {{----------------------------- AKHIR MODAL TAMBAH H -----------------------------}}
 
-    <!-- MULAI MODAL I -->
+    {{----------------------------- MULAI MODAL TAMBAH I -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_I" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2451,9 +2427,9 @@
             </div>
         </div>
     </div>
-    <!-- AKHIR MODAL I -->
+    {{----------------------------- AKHIR MODAL TAMBAH I -----------------------------}}
 
-    <!-- MULAI MODAL J -->
+    {{----------------------------- MULAI MODAL TAMBAH J -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_J" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2506,9 +2482,9 @@
             </div>
         </div>
     </div>
-    <!-- AKHIR MODAL J -->
+    {{----------------------------- AKHIR MODAL TAMBAH J -----------------------------}}
 
-    {{-- MULAI MODAL K --}}
+    {{----------------------------- MULAI MODAL TAMBAH K -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_K" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document"
@@ -2541,15 +2517,12 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
+    {{----------------------------- AKHIR MODAL TAMBAH K -----------------------------}}
 
-
-    {{-- AKHIR MODAL K --}}
-
-    {{-- MULAI MODAL L --}}
+    {{----------------------------- MULAI MODAL TAMBAH L -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_L" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document"
@@ -2577,11 +2550,9 @@
             </div>
         </div>
     </div>
+    {{----------------------------- AKHIR MODAL TAMBAH L -----------------------------}}
 
-    {{-- AKHIR MODAL L --}}
-
-
-    {{-- MULAI MODAL M - TAMBAH KEGIATAN --}}
+    {{----------------------------- MULAI MODAL TAMBAH M -----------------------------}}
     <div class="modal fade modal-lg" id="modalPenelitian_M" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document"
@@ -2624,9 +2595,9 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL M --}}
+    {{----------------------------- AKHIR MODAL TAMBAH M -----------------------------}}
 
-    {{-- MULAI MODAL N - TAMBAH KEGIATAN --}}
+    {{----------------------------- MULAI MODAL TAMBAH N -----------------------------}}
     <div class="modal fade" id="modalPenelitian_N" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -2687,7 +2658,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL N --}}
+    {{----------------------------- AKHIR MODAL TAMBAH N -----------------------------}}
 
 
     {{-- TEMPAT TOAST --}}
