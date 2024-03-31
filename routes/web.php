@@ -119,3 +119,9 @@ Route::prefix('/formEvaluasiDiri')->group(function () {
        return view('App.Evaluasi.penelitian'); 
     });
 });
+
+Route::prefix('/formEvaluasiDiri')->group(function () {
+    Route::get('/pengabdian', function() {
+       return view('App.Evaluasi.pengabdian'); 
+    });
+});
