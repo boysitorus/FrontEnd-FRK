@@ -2,6 +2,7 @@
 
 @section('content-penelitian')
 
+    {{----------------------------------- TABEL A -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh
@@ -176,7 +177,9 @@
             </table>
         </div>
     </div>
+    {{-------------------------------- AKHIR TABEL A --------------------------------}}
 
+    {{----------------------------------- TABEL B -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>B. Pelaksanaan penelitian mandiri atau pembuatan karya seni atau teknologi (disetujui oleh pimpinan dan
@@ -300,7 +303,6 @@
                                                     <div class="mb-3">
                                                         <label for="status_tahapan" class="form-label">Tahap
                                                             Pencapaian</label>
-                                                        {{-- <input name="status_tahapan" type="text" class="form-control" id="status_tahapan"> --}}
                                                         <select name="status_tahapan"
                                                             class="form-select form-select-md mb-3"
                                                             aria-label=".form-select-md example">
@@ -326,14 +328,16 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL EDIT A --}}
+                            {{-- AKHIR MODAL EDIT B --}}
                         @endforeach
                     @endif
                 </tbody>
             </table>
         </div>
     </div>
+    {{-------------------------------- AKHIR TABEL B --------------------------------}}
 
+    {{----------------------------------- TABEL C -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6>
