@@ -2324,38 +2324,63 @@
     {{----------------------------- AKHIR MODAL TAMBAH B -----------------------------}}
 
     {{----------------------------- MULAI MODAL TAMBAH C -----------------------------}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_C" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade modal-lg" id="modalPenelitian_C" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</h6>
+                    <h6 class="modal-title" id="exampleModalLabel">C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.
+                    </h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
+                    <form action="{{ route('rk-penelitian.buku_terbit.create') }}" method="POST">
+                    @csrf
+                        <div class="modal-body">
+                            <input type="hidden" name="id_dosen" value="1" />
+                            <div class="mb-3">
+                                <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                            </div>
+                            <div class="mb-3">
+                                <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                                {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
+                                <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                    <option selected>Pilih tahapan</option>
+                                    <option value="Pendahuluan">Pendahuluan</option>
+                                    <option value="50% dari isi buku">50% dari isi buku</option>
+                                    <option value="Buku Jadi ">Buku Jadi</option>
+                                    <option value="Persetujuan Penerbit">Persetujuan Penerbit</option>
+                                    <option value="Buku Selesai Dicetak">Buku Selesai Dicetak</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
+                                {{---<input name="posisi" type="text" class="form-control">--}}
+                                <select name="jenis_pengerjaan" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                                    <option selected>Jenis Pengerjaan</option>
+                                    <option value="Mandiri">Mandiri</option>
+                                    <option value="Kelompok">Kelompok</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="peran" class="form-label">Peran</label>
+                                {{---<input name="posisi" type="text" class="form-control">--}}
+                                <select name="peran" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                                    <option selected>Peran</option>
+                                    <option value="Editor">Editor</option>
+                                    <option value="Kontributor">Kontributor</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tahap Pencapaian</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Jenis Pengerjaan</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Kategori</label>
-                            <input type="text" class="form-control">
+                        <div class="modal-footer">
+                            {{--<button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#modalEditConfirm">Simpan Perubahan</button>--}}
+                            <button type="submit" class="btn btn-primary">
+                                Simpan Perubahan
+                            </button>
                         </div>
                     </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
                 </div>
             </div>
         </div>
@@ -2364,8 +2389,8 @@
 
 
     {{----------------------------- MULAI MODAL TAMBAH D -----------------------------}}
-    <div class="modal fade modal-lg" id="modalEditPenelitian_D" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade modal-lg" id="modalPenelitian_D" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -2374,29 +2399,52 @@
                 </div>
 
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
+                    <form action="{{ route('rk-penelitian.buku_internasional.create') }}" method="POST">
+                    @csrf
+                        <div class="modal-body">
+                            <input type="hidden" name="id_dosen" value=1 />
+                            <div class="mb-3">
+                                <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                            </div>
+                            <div class="mb-3">
+                                <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                                {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
+                                <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                    <option selected>Pilih tahapan</option>
+                                    <option value="Proposal">Pendahuluan</option>
+                                    <option value="50% dari isi buku">50% dari isi buku</option>
+                                    <option value="Buku Jadi">Buku Jadi</option>
+                                    <option value="Persetujuan Penerbit">Persetujuan Penerbit</option>
+                                    <option value="Buku Selesai Dicetak">Buku Selesai Dicetak</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
+                                <select name="jenis_pengerjaan" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                                    <option selected>Pilih Jenis Pengerjaan</option>
+                                    <option value="Mandiri">Mandiri</option>
+                                    <option value="Kelompok">Kelompok</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="peran" class="form-label">Peran</label>
+                                {{---<input name="posisi" type="text" class="form-control">--}}
+                                <select name="peran" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                                    <option selected>Pilih Peran</option>
+                                    <option value="Ketua">Editor</option>
+                                    <option value="Anggota">Kontributor</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tahap Pencapaian</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Jenis Pengerjaan</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Peran</label>
-                            <input type="text" class="form-control">
+                        <div class="modal-footer">
+                            {{--<button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#modalEditConfirm">Simpan Perubahan</button>--}}
+                            <button type="submit" class="btn btn-primary">
+                                Simpan Perubahan
+                            </button>
                         </div>
                     </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
                 </div>
             </div>
         </div>
