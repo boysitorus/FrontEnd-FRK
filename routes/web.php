@@ -99,10 +99,21 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::get('/penunjang', function () {
         return view('App.Rencana.penunjang');
     });
+
+    Route::get('/simpulan', function () {
+        return view('App.Rencana.simpulan');
+    });
+
+    Route::get('/FEDsimpulan', function () {
+        return view('App.Rencana.FEDsimpulan');
+    });
+
+
+
 });
 
 Route::prefix('/formEvaluasiDiri')->group(function () {
-    Route::get('/', function() {
+    Route::get('/penelitian', function() {
        return view('App.Evaluasi.penelitian'); 
     });
 });

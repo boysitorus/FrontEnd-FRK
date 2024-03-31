@@ -1280,7 +1280,7 @@ cx                        style="border: 2px;">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI, assesor BAN-PT</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI, Assesor BAN-PT</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1321,13 +1321,18 @@ cx                        style="border: 2px;">
                                     <input type="text" class="form-control" id="nama">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Jabatan</label>
-                                    <input class="form-control" type="text">
+                                    <label class="form-label">Jabatan:</label>
+                                    <select class="form-control" id="jenis_jabatan" name="jenis_jabatan">
+                                        <option value="anggota">Anggota</option>
+                                        <option value="ketua">Ketua</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Tingkatan</label>
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
+                                    <label class="form-label">Tingkatan:</label>
+                                    <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan">
+                                        <option value="regional">Regional</option>
+                                        <option value="Nasional">Nasional</option>
+                                    </select>
                                 </div>
                             </form>
                         </div>
@@ -1346,7 +1351,7 @@ cx                        style="border: 2px;">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">M. Peserta seminar/workshop/kursus berdasar penugasan pimpinan</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">M. Peserta Meminar/Workshop/Kursus Berdasar Penugasan Pimpinan</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>
@@ -1358,7 +1363,10 @@ cx                        style="border: 2px;">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Tingkatan:</label>
-                                    <input class="form-control" type="text">
+                                    <select class="form-control" id="jenis_kegiatan" name="jenis_kegiatan">
+                                        <option value="regional">Regional</option>
+                                        <option value="nasional">Nasional</option>
+                                    </select>
                                 </div>
                             </form>
                         </div>
@@ -1376,7 +1384,7 @@ cx                        style="border: 2px;">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">N. Reviewer jurnal ilmiah , proposal Hibah dll</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">N. Reviewer Jurnal Ilmiah , Proposal Hibah dll</h6>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" 
                             aria-label="Close"></button>
                         </div>

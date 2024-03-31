@@ -9,4 +9,12 @@ class RencanaKerjaController extends Controller
     public function getPendidikanPanel(){
         return view('App.Rencana.pendidikan');
     }
+
+    public function getSimpulanPanel(){
+        return view('App.Rencana.simpulan');
+    }
+
+    public function getFEDSimpulanPanel(){
+        return view('App.Rencana.FEDsimpulan');
+    }
 }
