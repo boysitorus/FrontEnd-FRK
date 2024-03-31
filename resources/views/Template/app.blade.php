@@ -53,7 +53,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" class="list-group-item bg-abu list-group-item-action py-2 ripple">
+                            <a href="{{route('profile')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple">
                                 <i class="bi bi-person-fill me-1"></i>
                                 <span>Profile</span>
                             </a>

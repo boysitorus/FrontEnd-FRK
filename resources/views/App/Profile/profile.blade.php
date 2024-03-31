@@ -37,10 +37,11 @@
                 Selamat Datang
             </span>
             <h3 style="font-weight: 700">
-                WILONA DIVA ARTHA SIMBOLON
+                {{$auth->user->data_lengkap->dosen->nama}}
             </h3>
             <span class="d-block">
-                Fakultas Informatika dan Teknik Elektro - Informatika
+                {{ $keanggotaan }}
+{{--                Fakultas Informatika dan Teknik Elektro - Informatika--}}
             </span>
         </span>
     </div>
@@ -50,7 +51,7 @@
     {{-- DATA --}}
 
     <div class="bg-white w-100 mt-5 d-flex align-items-center justify-content-start ps-4 p-2">
-    
+
         <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
