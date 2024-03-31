@@ -119,48 +119,43 @@
                                                         value="{{ $item['id_rencana'] }}" />
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}"
+                                                        <input 
                                                             name="nama_kegiatan" type="text" class="form-control"
-                                                            id="nama_kegiatan">
+                                                            id="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="status_tahapan" class="form-label">Tahap
                                                             Pencapaian</label>
-                                                        {{-- <input name="status_tahapan" type="text" class="form-control" id="status_tahapan"> --}}
                                                         <select name="status_tahapan"
                                                             class="form-select form-select-md mb-3"
                                                             aria-label=".form-select-md example">
-                                                            <option selected>Pilih tahapan</option>
-                                                            <option value="Proposal">Proposal</option>
-                                                            <option value="Pengumpulan data /sebar kuesioner">Pengumpulan
+                                                            <option value="Proposal" {{ $item['status_tahapan'] == 'Proposal' ? 'selected' : '' }}>Proposal</option>
+                                                            <option value="Pengumpulan data /sebar kuesioner" {{ $item['status_tahapan'] == 'Pengumpulan data /sebar kuesioner' ? 'selected' : '' }}>Pengumpulan
                                                                 data /sebar kuesioner</option>
-                                                            <option value="Analisa Data">Analisa Data</option>
-                                                            <option value="Laporan Akhir">Laporan Akhir</option>
-                                                            <option value="Konsep (desain)">Konsep (desain)</option>
-                                                            <option value="50% dari Karya">50% dari Karya</option>
-                                                            <option value="Hasil akhir">Hasil akhir</option>
+                                                            <option value="Analisa Data" {{ $item['status_tahapan'] == 'Analisa Data' ? 'selected' : '' }}>Analisa Data</option>
+                                                            <option value="Laporan Akhir" {{ $item['status_tahapan'] == 'Laporan Akhir' ? 'selected' : '' }}>Laporan Akhir</option>
+                                                            <option value="Konsep (desain)" {{ $item['status_tahapan'] == 'Konsep (desain)' ? 'selected' : '' }}>Konsep (desain)</option>
+                                                            <option value="50% dari Karya" {{ $item['status_tahapan'] == '50% dari Karya' ? 'selected' : '' }}>50% dari Karya</option>
+                                                            <option value="Hasil akhir" {{ $item['status_tahapan'] == 'Hasil akhir' ? 'selected' : '' }}>Hasil akhir</option>
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="posisi" class="form-label">Posisi</label>
-                                                        {{-- -<input name="posisi" type="text" class="form-control"> --}}
                                                         <select name="posisi" class="form-select form-select-md mb-3"
                                                             aria-label=".form-select-lg example">
-                                                            <option selected>Pilih posisi</option>
-                                                            <option value="Ketua">Ketua</option>
-                                                            <option value="Anggota">Anggota</option>
+                                                            <option value="Ketua" {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua</option>
+                                                            <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_anggota" class="form-label">Jumlah
                                                             Anggota</label>
-                                                        <input placeholder="{{ $item['jumlah_anggota'] }}"
-                                                            name="jumlah_anggota" type="number" class="form-control">
+                                                        <input name="jumlah_anggota" type="number" class="form-control"
+                                                            value="{{ $item['jumlah_anggota'] }}">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    {{-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button> --}}
                                                     <button type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
@@ -296,9 +291,10 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}"
+                                                        <input 
                                                             name="nama_kegiatan" type="text" class="form-control"
-                                                            id="nama_kegiatan">
+                                                            id="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="status_tahapan" class="form-label">Tahap
@@ -306,15 +302,14 @@
                                                         <select name="status_tahapan"
                                                             class="form-select form-select-md mb-3"
                                                             aria-label=".form-select-md example">
-                                                            <option selected>Pilih tahapan</option>
-                                                            <option value="Proposal">Proposal</option>
-                                                            <option value="Pengumpulan data /sebar kuesioner">Pengumpulan
+                                                            <option value="Proposal" {{ $item['status_tahapan'] == 'Proposal' ? 'selected' : '' }}>Proposal</option>
+                                                            <option value="Pengumpulan data /sebar kuesioner" {{ $item['status_tahapan'] == 'Pengumpulan data /sebar kuesioner' ? 'selected' : '' }}>Pengumpulan
                                                                 data /sebar kuesioner</option>
-                                                            <option value="Analisa Data">Analisa Data</option>
-                                                            <option value="Laporan Akhir">Laporan Akhir</option>
-                                                            <option value="Konsep (desain)">Konsep (desain)</option>
-                                                            <option value="50% dari Karya">50% dari Karya</option>
-                                                            <option value="Hasil akhir">Hasil akhir</option>
+                                                            <option value="Analisa Data" {{ $item['status_tahapan'] == 'Analisa Data' ? 'selected' : '' }}>Analisa Data</option>
+                                                            <option value="Laporan Akhir" {{ $item['status_tahapan'] == 'Laporan Akhir' ? 'selected' : '' }}>Laporan Akhir</option>
+                                                            <option value="Konsep (desain)" {{ $item['status_tahapan'] == 'Konsep (desain)' ? 'selected' : '' }}>Konsep (desain)</option>
+                                                            <option value="50% dari Karya" {{ $item['status_tahapan'] == '50% dari Karya' ? 'selected' : '' }}>50% dari Karya</option>
+                                                            <option value="Hasil akhir" {{ $item['status_tahapan'] == 'Hasil akhir' ? 'selected' : '' }}>Hasil akhir</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -2236,13 +2231,14 @@
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
+                                placeholder="isi nama kegiatan">
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-md example">
-                                <option selected>Pilih tahapan</option>
+                                <option disabled selected value>Pilih tahapan</option>
                                 <option value="Proposal">Proposal</option>
                                 <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner
                                 </option>
@@ -2257,14 +2253,14 @@
                             <label for="posisi" class="form-label">Posisi</label>
                             <select name="posisi" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-lg example">
-                                <option selected>Pilih posisi</option>
+                                <option disabled selected value>Pilih posisi</option>
                                 <option value="Ketua">Ketua</option>
                                 <option value="Anggota">Anggota</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
-                            <input name="jumlah_anggota" type="number" class="form-control">
+                            <input name="jumlah_anggota" type="number" class="form-control" placeholder=1>
                         </div>
                     </div>
 
@@ -2295,13 +2291,14 @@
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
+                                placeholder="isi nama kegiatan">
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-md example">
-                                <option selected>Pilih tahapan</option>
+                                <option disabled selected value>Pilih tahapan</option>
                                 <option value="Proposal">Proposal</option>
                                 <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner
                                 </option>
@@ -2346,7 +2343,7 @@
                                 <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                                 {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
                                 <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                                    <option selected>Pilih tahapan</option>
+                                    <option disabled selected value>Pilih tahapan</option>
                                     <option value="Pendahuluan">Pendahuluan</option>
                                     <option value="50% dari isi buku">50% dari isi buku</option>
                                     <option value="Buku Jadi ">Buku Jadi</option>
@@ -2358,7 +2355,7 @@
                                 <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                                 {{---<input name="posisi" type="text" class="form-control">--}}
                                 <select name="jenis_pengerjaan" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
-                                    <option selected>Jenis Pengerjaan</option>
+                                    <option disabled selected value>Jenis Pengerjaan</option>
                                     <option value="Mandiri">Mandiri</option>
                                     <option value="Kelompok">Kelompok</option>
                                 </select>
@@ -2367,7 +2364,7 @@
                                 <label for="peran" class="form-label">Peran</label>
                                 {{---<input name="posisi" type="text" class="form-control">--}}
                                 <select name="peran" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
-                                    <option selected>Peran</option>
+                                    <option disabled selected value>Peran</option>
                                     <option value="Editor">Editor</option>
                                     <option value="Kontributor">Kontributor</option>
                                 </select>
@@ -2411,7 +2408,7 @@
                                 <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                                 {{--<input name="status_tahapan" type="text" class="form-control" id="status_tahapan">--}}
                                 <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                                    <option selected>Pilih tahapan</option>
+                                    <option disabled selected value>Pilih tahapan</option>
                                     <option value="Proposal">Pendahuluan</option>
                                     <option value="50% dari isi buku">50% dari isi buku</option>
                                     <option value="Buku Jadi">Buku Jadi</option>
@@ -2422,7 +2419,7 @@
                             <div class="mb-3">
                                 <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                                 <select name="jenis_pengerjaan" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
-                                    <option selected>Pilih Jenis Pengerjaan</option>
+                                    <option disabled selected value>Pilih Jenis Pengerjaan</option>
                                     <option value="Mandiri">Mandiri</option>
                                     <option value="Kelompok">Kelompok</option>
                                 </select>
@@ -2431,7 +2428,7 @@
                                 <label for="peran" class="form-label">Peran</label>
                                 {{---<input name="posisi" type="text" class="form-control">--}}
                                 <select name="peran" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
-                                    <option selected>Pilih Peran</option>
+                                    <option disabled selected value>Pilih Peran</option>
                                     <option value="Ketua">Editor</option>
                                     <option value="Anggota">Kontributor</option>
                                 </select>
@@ -2477,7 +2474,7 @@
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-md example">
-                                <option selected>Pilih tahapan</option>
+                                <option disabled selected value>Pilih tahapan</option>
                                 <option value="Pendahuluan">Pendahuluan</option>
                                 <option value="50% dari isi buku">50% dari isi buku</option>
                                 <option value="sks buku jadi">sks buku jadi</option>
@@ -2489,7 +2486,7 @@
                             <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
                             <select name="posisi" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-lg example">
-                                <option selected>Pilih posisi</option>
+                                <option disabled selected value>Pilih posisi</option>
                                 <option value="Ketua">Ketua</option>
                                 <option value="Editor">Editor</option>
                                 <option value="Anggota">Anggota</option>
@@ -2529,7 +2526,7 @@
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-md example">
-                                <option selected>Pilih tahapan</option>
+                                <option disabled selected value>Pilih tahapan</option>
                                 <option value="Pendahuluan">Pendahuluan</option>
                                 <option value="50% dari isi buku">50% dari isi buku</option>
                                 <option value="sks buku jadi">sks buku jadi</option>
@@ -2541,7 +2538,7 @@
                             <label for="posisi" class="form-label">Posisi</label>
                             <select name="posisi" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-lg example">
-                                <option selected>Pilih posisi</option>
+                                <option disabled selected value>Pilih posisi</option>
                                 <option value="Ketua">Ketua</option>
                                 <option value="Anggota">Anggota</option>
                             </select>
@@ -2581,7 +2578,7 @@
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-md example">
-                                <option selected>Pilih tahapan</option>
+                                <option disabled selected value>Pilih tahapan</option>
                                 <option value="Proposal">Proposal</option>
                                 <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner
                                 </option>
@@ -2596,7 +2593,7 @@
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                             <select name="jenis_pengerjaan" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-lg example">
-                                <option selected>Pilih Jenis Pengerjaan</option>
+                                <option disabled selected value>Pilih Jenis Pengerjaan</option>
                                 <option value="Mandiri">Mandiri</option>
                                 <option value="Kelompok">Kelompok</option>
                             </select>
@@ -2605,7 +2602,7 @@
                             <label for="peran" class="form-label">Peran</label>
                             <select name="peran" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-lg example">
-                                <option selected>Pilih Peran</option>
+                                <option disabled selected value>Pilih Peran</option>
                                 <option value="Penulis Utama">Penulis Utama</option>
                                 <option value="Anggota">Anggota</option>
                             </select>
@@ -2704,7 +2701,7 @@
                         <div class="mb-3">
                             <label for="lingkup_penerbit" class="form-label">Kategori</label>
                             <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
-                                <option selected>Pilih Kategori</option>
+                                <option disabled selected value>Pilih Kategori</option>
                                 <option value="Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
                                     atau proceedings seminar nasional maupun internasional">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
                                     atau proceedings seminar nasional maupun internasional</option>
@@ -2715,7 +2712,7 @@
                         <div class="mb-3">
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                             <select name="jenis_pengerjaan" class="form-select" aria-label="Default select example">
-                                <option selected>Pilih Jenis Pengerjaan</option>
+                                <option disabled selected value>Pilih Jenis Pengerjaan</option>
                                 <option value="Mandiri">Mandiri</option>
                                 <option value="Kelompok">Kelompok</option>
                             </select>
@@ -2723,7 +2720,7 @@
                         <div class="mb-3">
                             <label for="peran" class="form-label">Jenis Peran</label>
                             <select name ="peran" class="form-select" aria-label="Default select example">
-                                <option selected>Pilih Peran</option>
+                                <option disabled selected value>Pilih Peran</option>
                                 <option value="Penulis Utama">Penulis Utama</option>
                                 <option value="Penulis Lainnya">Penulis Lainnya</option>
                             </select>
@@ -2831,7 +2828,7 @@
                         <div class="mb-3">
                             <label for="tingkatan">Tingkatan:</label>
                             <select name="tingkatan" class="form-control" id="tingkatan">
-                                <option value=""></option>
+                                <option disabled selected value>Pilih tingkatan</option>
                                 <option value="Tingkat Regional/minimal fakultas">Tingkat Regional/minimal fakultas
                                 </option>
                                 <option value="Tingkat Nasional">
@@ -2873,7 +2870,7 @@
                         <div class="mb-3">
                             <label for="tingkatan" class="form-label">Tingkatan:</label>
                             <select name="tingkatan" class="form-control" id="tingkatan">
-                                <option value=""></option>
+                                <option disabled selected value>Pilih tingkatan</option>
                                 <option value="Tingkat regional daerah, institusional(minimum fakultas)">Tingkat regional
                                     daerah, institusional(minimum fakultas)</option>
                                 <option value="Tingkat Nasional">Tingkat Nasional</option>
@@ -2886,7 +2883,7 @@
                             <label for="posisi" class="form-label">Posisi</label>
                             <select name="posisi" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-md example">
-                                <option value=""></option>
+                                <option disabled selected value>Pilih posisi</option>
                                 <option value="Ketua">Ketua</option>
                                 <option value="Anggota">Anggota</option>
                             </select>
@@ -2899,7 +2896,7 @@
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                             <select name="jenis_pengerjaan" class="form-select form-select-md mb-3"
                                 aria-label=".form-select-md example">
-                                <option value=""></option>
+                                <option disabled selected value>Pilih jenis pengerjaan</option>
                                 <option value="Individual">Individual</option>
                                 <option value="Kelompok">Kelompok</option>
                             </select>
