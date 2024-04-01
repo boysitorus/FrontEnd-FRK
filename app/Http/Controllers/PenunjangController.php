@@ -22,11 +22,23 @@ class PenunjangController extends Controller
             $responseSosial = Http::get('http://localhost:9000/api/penunjang/sosial');
             $sosial = $responseSosial->json();
 
+            $responseAsosiasi = Http::get('http://localhost:9000/api/penunjang/asosiasi');
+            $asosiasi = $responseAsosiasi->json();
+
+            $responseSeminar = Http::get('http://localhost:9000/api/penunjang/seminar');
+            $seminar = $responseSeminar->json();
+
+            $responseReviewer = Http::get('http://localhost:9000/api/penunjang/reviewer');
+            $reviewer = $responseReviewer->json();
+
             $data = [
                 'akademik' => $akademik,
                 'bimbingan' => $bimbingan,
                 'ukm' => $ukm,
                 'sosial' => $sosial,
+                'asosiasi' => $asosiasi,
+                'seminar' => $seminar,
+                'reviewer' => $reviewer
             ];
 
             return view('App.Rencana.penunjang', $data);
@@ -169,5 +181,108 @@ class PenunjangController extends Controller
         Http::delete("http://localhost:9000/api/penunjang/sosial/{$id}");
 
         return redirect()->back();
+    }
+
+    // BAGIAN L. Menjadi Pengurus/Anggota Asosiasi Profesi
+    public function postAsosiasi(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/asosiasi',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jabatan' => $request->get('jabatan'),
+            ]
+        );
+        return redirect()->back();
+    }
+
+    public function editAsosiasi(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/asosiasi",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jabatan' => $request->get('jabatan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteAsosiasi($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/asosiasi/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted successfully');
+    }
+
+    // BAGIAN M. Peserta seminar/workshop/kursus berdasar penugasan pimpinan
+    public function postSeminar(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/seminar',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_tingkatan' => $request->get('jenis_tingkatan'),
+            ]
+        );
+        return redirect()->back()->with('success', 'Item added successfully');
+    }
+
+    public function editSeminar(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/seminar",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_tingkatan' => $request->get('jenis_tingkatan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteSeminar($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/seminar/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted successfully');
+    }
+
+    // BAGIAN N. Reviewer jurnal ilmiah , proposal Hibah dll
+    public function postReviewer(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/reviewer',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+            ]
+        );
+        return redirect()->back()->with('success', 'Item added successfully');
+    }
+
+    public function editReviewer(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/reviewer",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item updated successfully');
+    }
+
+    public function deleteReviewer($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/reviewer/{$id}");
+
+        return redirect()->back()->with('success', 'Item deleted successfully');
     }
 }

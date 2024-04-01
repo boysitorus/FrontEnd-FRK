@@ -114,6 +114,25 @@ Route::prefix('/formRencanaKerja')->group(function () {
         Route::post('/sosial', [PenunjangController::class, 'postSosial'])->name('rk-penunjang.sosial.create');
         Route::post('/edit/sosial', [PenunjangController::class, 'editSosial'])->name('rk-penunjang.sosial.update');
         Route::delete('/sosial/{id}', [PenunjangController::class, 'deleteSosial'])->name('rk-penunjang.sosial.destroy');
+        
+
+
+
+        // L.
+        Route::post('/asosiasi', [PenunjangController::class, 'postAsosiasi'])->name('rk-penunjang.asosasi.create');
+        Route::post('/edit/asosiasi', [PenunjangController::class, 'editAsosiasi'])->name('rk-penunjang.asosasi.update');
+        Route::delete('/asosiasi/{id}', [PenunjangController::class, 'deleteAsosiasi'])->name('rk-penunjang.asosiasi.destroy');
+
+        // M.
+        Route::post('/seminar', [PenunjangController::class, 'postSeminar'])->name('rk-penunjang.seminar.create');
+        Route::post('/edit/seminar', [PenunjangController::class, 'editSeminar'])->name('rk-penunjang.seminar.update');
+        Route::delete('/seminar/{id}', [PenunjangController::class, 'deleteSeminar'])->name('rk-penunjang.seminar.destroy');
+
+        // N.
+        Route::post('/reviewer', [PenunjangController::class, 'postReviewer'])->name('rk-penunjang.reviewer.create');
+        Route::post('/edit/reviewer', [PenunjangController::class, 'editReviewer'])->name('rk-penunjang.reviewer.update');
+        Route::delete('/reviewer/{id}', [PenunjangController::class, 'deleteReviewer'])->name('rk-penunjang.reviewer.destroy');
+
     });
 
     Route::get('/simpulan', function () {
