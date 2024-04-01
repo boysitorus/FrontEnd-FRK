@@ -55,7 +55,7 @@ class PenunjangController extends Controller
         Http::post(
             'http://localhost:9000/api/penunjang/edit/akademik',
             [
-                'id_dosen' => $request->get('id_dosen'),
+                'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
             ]
@@ -87,7 +87,7 @@ class PenunjangController extends Controller
         Http::post(
             'http://localhost:9000/api/penunjang/edit/bimbingan',
             [
-                'id_dosen' => $request->get('id_dosen'),
+                'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
             ]

@@ -103,7 +103,7 @@ Route::prefix('/formRencanaKerja')->group(function () {
         // B.
         Route::post('/bimbingan', [PenunjangController::class, 'postBimbingan'])->name('rk-penunjang.bimbingan.create');
         Route::post('/edit/bimbingan', [PenunjangController::class, 'postBimbingan'])->name('rk-penunjang.bimbingan.update');
-        Route::post('/bimbingan/{id}', [PenunjangController::class, 'deleteBimbingan'])->name('rk-penunjang.bimbingan.destroy');
+        Route::delete('/bimbingan/{id}', [PenunjangController::class, 'deleteBimbingan'])->name('rk-penunjang.bimbingan.destroy');
 
         // C.
         Route::post('/ukm', [PenunjangController::class, 'postUkm'])->name('rk-penunjang.ukm.create');
