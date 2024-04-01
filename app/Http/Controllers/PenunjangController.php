@@ -60,7 +60,7 @@ class PenunjangController extends Controller
                 'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
             ]
         );
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Item updated successfully');
     }
     public function deleteAkademik($id)
     {
@@ -92,7 +92,7 @@ class PenunjangController extends Controller
                 'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
             ]
         );
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Item updated successfully');
     }
     public function deleteBimbingan($id)
     {
