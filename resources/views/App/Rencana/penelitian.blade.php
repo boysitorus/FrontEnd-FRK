@@ -335,10 +335,10 @@
     {{----------------------------------- TABEL C -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h5>
+            <h6>
                 <b>C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester
                     (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</b>
-                </h5>
+            </h6>
             <hr />
 
             <div class="row justify-content-end mr-0">
@@ -497,8 +497,8 @@
     {{----------------------------------- TABEL D -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h5><b>D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal
-                    tiga negara), disetujui oleh pimpinan dan tercatat</b></h5>
+            <h6><b>D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal
+                    tiga negara), disetujui oleh pimpinan dan tercatat</b></h6>
             <hr />
 
             <div class="row justify-content-end mr-0">
@@ -625,9 +625,8 @@
                                                             <option value="Kelompok">Kelompok</option>
                                                         </select>
                                                     </div>
-                                                <div class="mb-3">
+                                                    <div class="mb-3">
                                                         <label for="peran" class="form-label">Peran</label>
-                                                        {{---<input name="posisi" type="text" class="form-control">--}}
                                                         <select name="peran" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
                                                             <option selected>Pilih Peran</option>
                                                             <option value="Editor">Editor</option>
@@ -636,8 +635,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    {{--<button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>--}}
                                                     <button type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
@@ -751,11 +748,7 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h6 class="modal-title" id="exampleModalLabel">E. Menterjemahkan atau
-                                                        menyadur naskah buku teks yang
-                                                        akan diterbitkan
-                                                        dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan
-                                                        dan tercatat), sama dengan 2 sks
+                                                    <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
                                                     </h6>
                                                     <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
@@ -913,10 +906,7 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h6 class="modal-title" id="exampleModalLabel">F. Menyunting satu
-                                                        judul naskah buku yang akan diterbitkan
-                                                        dalam waktu sebanyak-banyaknya 4 semester(disetujui pimpinan dan
-                                                        tercatat)sama dengan 2 sks
+                                                    <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
                                                     </h6>
                                                     <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
@@ -1303,7 +1293,7 @@
     {{----------------------------------- TABEL I -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h5><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</b></h5>
+            <h6><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</b></h6>
             <hr />
 
             <div class="row justify-content-end mr-0">
@@ -1334,7 +1324,7 @@
                         @endphp
                         @foreach ($penelitian_tridharma as $item)
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
+                                <td scope="row">{{ $counter }}</td>
                                 <td>{{$item['nama_kegiatan']}}</td>
                                 <td>{{$item['jumlah_bkd']}}</td>
                                 <td>{{$item['sks_terhitung']}}</td>
@@ -1431,7 +1421,7 @@
     {{----------------------------------- TABEL J -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h5><b>J. Menulis Jurnal Ilmiah</b></h5>
+            <h6><b>J. Menulis Jurnal Ilmiah</b></h6>
             <hr />
 
             <div class="row justify-content-end mr-0">
@@ -1588,8 +1578,8 @@
     {{----------------------------------- TABEL K -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h5><b>K. Memperoleh hak paten</b>
-            </h5>
+            <h6><b>K. Memperoleh hak paten</b>
+            </h6>
             <hr />
 
             <div class="row justify-content-end mr-0">
@@ -1636,6 +1626,7 @@
                                         data-bs-target="#modalDeleteConfirm-{{ $counter }}">
                                         <i class="bi bi-trash3"></i></button>
 
+                                    {{-- MODAL DELETE CONFIRM --}}
                                     <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1672,14 +1663,14 @@
                                     </div>
                                 </td>
                             </tr>
-                            {{-- MULAI MODAL K --}}
+                            {{-- MODAL EDIT K --}}
                             <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}"
                                 tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="exampleModalLabel">K. Memperoleh hak paten</h6>
+                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
                                             <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -1723,10 +1714,11 @@
     </div>
     {{--------------------------------- AKHIR TABEL K ---------------------------------}}
 
+    {{------------------------------------ TABEL L ------------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h5><b>L. Menulis di media massa</b>
-            </h5>
+            <h6><b>L. Menulis di media massa</b>
+            </h6>
             <hr />
 
             <div class="row justify-content-end mr-0">
@@ -1808,13 +1800,15 @@
                                     </div>
                                 </td>
                             </tr>
+
+                            {{-- MODAL EDIT L --}}
                             <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}"
                                 tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="exampleModalLabel">L. Menulis di media massa
+                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
                                             </h6>
                                             <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
@@ -1848,7 +1842,7 @@
             </table>
         </div>
     </div>
-
+    {{--------------------------------- AKHIR TABEL L ---------------------------------}}
 
     {{----------------------------------- TABEL M -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -1946,9 +1940,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">M. Menyampaikan orasi
-                                                    ilmiah,
-                                                    pembicara dalam seminar, nara sumber terkait dengan bidang keilmuannya
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
                                                 </h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
@@ -2108,9 +2100,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">N. Penyaji makalah dalam
-                                                    seminar atau
-                                                    pertemuan ilmiah terkait dengan bidang ilmu
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
                                                 </h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
@@ -2421,8 +2411,8 @@
                                 {{---<input name="posisi" type="text" class="form-control">--}}
                                 <select name="peran" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
                                     <option disabled selected value>Pilih Peran</option>
-                                    <option value="Ketua">Editor</option>
-                                    <option value="Anggota">Kontributor</option>
+                                    <option value="Editor">Editor</option>
+                                    <option value="Kontributor">Kontributor</option>
                                 </select>
                             </div>
                         </div>
