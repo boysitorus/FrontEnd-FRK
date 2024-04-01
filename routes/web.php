@@ -33,7 +33,6 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::get('/pendidikan', [PendidikanController::class, 'getAll'])->name('rk-pendidikan.all');
 
     // Rute untuk data teori
-    Route::get('/pendidikan/teori', [PendidikanController::class, 'getTeori'])->name('rk-pendidikan.teori');
     Route::post('/pendidikan/teori-tambah', [PendidikanController::class, 'postTeori'])->name('rk-pendidikan.teori.create');
     Route::delete('/pendidikan/teori/{id}', [PendidikanController::class, 'deleteTeori'])->name('rk-pendidikan.teori.destroy');
     Route::post('/pendidikan/edit/teori', [PendidikanController::class, 'editTeori'])->name('rk-pendidikan.teori.update');
@@ -91,19 +90,31 @@ Route::prefix('/formRencanaKerja')->group(function () {
     Route::post('/pendidikan/proposal', [PendidikanController::class, 'postProposal'])->name('rk-pendidikan.proposal.create');
     Route::post('/pendidikan/edit/proposal', [PendidikanController::class, 'editProposal'])->name('rk-pendidikan.proposal.update');
     Route::delete('/pendidikan/proposal/{id}', [PendidikanController::class, 'deleteProposal'])->name('rk-pendidikan.proposal.destroy');
-    
-    // Rute untuk data penunjang
-    Route::get('/penunjang', [PenunjangController::class, 'getAll'])->name('rk-penunjang.all');
 
-    // C.
-    Route::post('/penunjang/ukm', [PenunjangController::class, 'postUkm'])->name('rk-penunjang.ukm.create');
-    Route::post('/penunjang/edit/ukm', [PenunjangController::class, 'editUkm'])->name('rk-penunjang.ukm.update');
-    Route::delete('/penunjang/ukm/{id}', [PenunjangController::class, 'deleteUkm'])->name('rk-penunjang.ukm.destroy');
+    Route::prefix('/penunjang')->group(function () {
+        // Rute untuk data penunjang
+        Route::get('/', [PenunjangController::class, 'getAll'])->name('rk-penunjang.all');
 
-    // C.
-    Route::post('/penunjang/sosial', [PenunjangController::class, 'postSosial'])->name('rk-penunjang.sosial.create');
-    Route::post('/penunjang/edit/sosial', [PenunjangController::class, 'editSosial'])->name('rk-penunjang.sosial.update');
-    Route::delete('/penunjang/sosial/{id}', [PenunjangController::class, 'deleteSosial'])->name('rk-penunjang.sosial.destroy');
+        // A.
+        Route::post('/akademik', [PenunjangController::class, 'postAkademik'])->name('rk-penunjang.akademik.create');
+        Route::post('/edit/akademik', [PenunjangController::class, 'postAkademik'])->name('rk-penunjang.akademik.update');
+        Route::delete('/akademik/{id}', [PenunjangController::class, 'deleteAkademik'])->name('rk-penunjang.akademik.destroy');
+
+        // B.
+        Route::post('/bimbingan', [PenunjangController::class, 'postBimbingan'])->name('rk-penunjang.bimbingan.create');
+        Route::post('/edit/bimbingan', [PenunjangController::class, 'postBimbingan'])->name('rk-penunjang.bimbingan.update');
+        Route::post('/bimbingan/{id}', [PenunjangController::class, 'deleteBimbingan'])->name('rk-penunjang.bimbingan.destroy');
+
+        // C.
+        Route::post('/ukm', [PenunjangController::class, 'postUkm'])->name('rk-penunjang.ukm.create');
+        Route::post('/edit/ukm', [PenunjangController::class, 'editUkm'])->name('rk-penunjang.ukm.update');
+        Route::delete('/ukm/{id}', [PenunjangController::class, 'deleteUkm'])->name('rk-penunjang.ukm.destroy');
+
+        // D.
+        Route::post('/sosial', [PenunjangController::class, 'postSosial'])->name('rk-penunjang.sosial.create');
+        Route::post('/edit/sosial', [PenunjangController::class, 'editSosial'])->name('rk-penunjang.sosial.update');
+        Route::delete('/sosial/{id}', [PenunjangController::class, 'deleteSosial'])->name('rk-penunjang.sosial.destroy');
+    });
 
     Route::get('/simpulan', function () {
         return view('App.Rencana.simpulan');
@@ -115,13 +126,13 @@ Route::prefix('/formRencanaKerja')->group(function () {
 });
 
 Route::prefix('/formEvaluasiDiri')->group(function () {
-    Route::get('/penelitian', function() {
-       return view('App.Evaluasi.penelitian'); 
+    Route::get('/penelitian', function () {
+        return view('App.Evaluasi.penelitian');
     });
 });
 
 Route::prefix('/formEvaluasiDiri')->group(function () {
-    Route::get('/pengabdian', function() {
-       return view('App.Evaluasi.pengabdian'); 
+    Route::get('/pengabdian', function () {
+        return view('App.Evaluasi.pengabdian');
     });
 });
