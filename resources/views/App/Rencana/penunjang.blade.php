@@ -1452,8 +1452,8 @@
                                 <div class="mb-3">
                                     <label class="form-label">Tingkatan:</label>
                                     <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan">
-                                        <option value="regional">Regional</option>
-                                        <option value="Nasional">Nasional</option>
+                                        <option value="nasional">Nasional</option>
+                                        <option value="Internasional">Internasional</option>
                                     </select>
                                 </div>
                             </form>
