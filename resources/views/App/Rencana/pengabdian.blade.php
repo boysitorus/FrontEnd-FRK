@@ -410,6 +410,7 @@
                 <tr>
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Kategori</th>
                     <th scope="col" rowspan="2" class="align-middle">Tahapan</th>
                     <th scope="col" rowspan="2" class="align-middle">Posisi (Penulis Utama/Penulis Lainnya)</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
@@ -464,6 +465,15 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Kategori</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option value=""></option>
+                            <option value="">A</option>
+                            <option value="">B</option>
+                            <option value="">C</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="nama" class="form-label">Tahapan</label>
                         <input type="text" class="form-control" id="nama">
                     </div>
@@ -508,6 +518,15 @@
                         <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Kategori</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option value=""></option>
+                            <option value="">A</option>
+                            <option value="">B</option>
+                            <option value="">C</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="nama" class="form-label">Tahapan</label>
                         <input type="text" class="form-control" id="nama">
                     </div>
@@ -530,279 +549,6 @@
     </div>
 </div>
 {{-- AKHIR MODAL D --}}
-
-
-
-{{-- Mulai E --}}
-<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-    <div class="card-body">
-        <h6>
-            <b>E. Membuat/menulis karya pengabdian kepada masyarakat dengan menulis 1 judul, ada editor, tiap chapter
-                ada kontributor</b>
-        </h6>
-        <hr />
-
-        <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianE" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
-                data-bs-toggle="modal" data-bs-target="#modalpengabdian_E">Tambah
-                Kegiatan</button>
-
-        </div>
-        <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-            <thead>
-                <tr>
-                    <th scope="col" rowspan="2" class="align-middle">No.</th>
-                    <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                    <th scope="col" rowspan="2" class="align-middle">Tahapan</th>
-                    <th scope="col" rowspan="2" class="align-middle">Posisi (Editor/Kontributor)</th>
-                    <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                    <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                </tr>
-                <tr>
-                    <th scope="col">Asesor 1</th>
-                    <th scope="col">Asesor 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPengabdian_E"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-{{-- Akhir D --}}
-
-{{-- TEMPAT MODAL TAMBAH KEGIATAN --}}
-{{-- MULAI MODAL E --}}
-<div class="modal fade modal-lg" id="modalpengabdian_E" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">E. Membuat/menulis karya pengabdian kepada masyarakat
-                    dengan menulis 1 judul, ada editor, tiap chapter ada kontributor
-                </h6>
-                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Tahapan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Posisi</label>
-                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                            <option value=""></option>
-                            <option value="">Editor</option>
-                            <option value="">Kontributor</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- AKHIR MODAL E --}}
-
-
-{{-- TEMPAT MODAL EDIT --}}
-{{-- MULAI MODAL E --}}
-<div class="modal fade modal-lg" id="modalEditPengabdian_E" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">E. Membuat/menulis karya pengabdian kepada masyarakat
-                    dengan menulis 1 judul, ada editor, tiap chapter ada kontributor
-                </h6>
-                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Tahapan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Posisi</label>
-                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                            <option value=""></option>
-                            <option value="">Editor</option>
-                            <option value="">Kontributor</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- AKHIR MODAL E --}}
-
-
-
-{{-- Mulai F --}}
-<div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-    <div class="card-body">
-        <h6>
-            <b>F. Membuat/menulis karya pengabdian kepada masyarakat dengan menulis karya pengabdian yang dipakai
-                sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa
-                mahasiswa)</b>
-        </h6>
-        <hr />
-
-        <div class="row justify-content-end mr-0">
-            <button id="btnFrkPenelitianF" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
-                data-bs-toggle="modal" data-bs-target="#modalpengabdian_F">Tambah
-                Kegiatan</button>
-
-        </div>
-        <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
-            <thead>
-                <tr>
-                    <th scope="col" rowspan="2" class="align-middle">No.</th>
-                    <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                    <th scope="col" rowspan="2" class="align-middle">Tahapan</th>
-                    <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                    <th scope="col" colspan="2">Status</th>
-                    <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                </tr>
-                <tr>
-                    <th scope="col">Asesor 1</th>
-                    <th scope="col">Asesor 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPengabdian_F"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-{{-- Akhir F --}}
-
-{{-- TEMPAT MODAL TAMBAH KEGIATAN --}}
-{{-- MULAI MODAL F --}}
-<div class="modal fade modal-lg" id="modalpengabdian_F" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">F. Membuat/menulis karya pengabdian kepada masyarakat
-                    dengan menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak
-                    diterbitkan, tetapi digunakan oleh siswa mahasiswa)
-                </h6>
-                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Tahapan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- AKHIR MODAL F --}}
-
-
-{{-- TEMPAT MODAL EDIT --}}
-{{-- MULAI MODAL F --}}
-<div class="modal fade modal-lg" id="modalEditPengabdian_F" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">F. Membuat/menulis karya pengabdian kepada masyarakat
-                    dengan menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak
-                    diterbitkan, tetapi digunakan oleh siswa mahasiswa
-                </h6>
-                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Tahapan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- AKHIR MODAL F --}}
-
-
-
-
-
-
 
 
 {{-- TEMPAT MODAL EDIT CONFIRM --}}
