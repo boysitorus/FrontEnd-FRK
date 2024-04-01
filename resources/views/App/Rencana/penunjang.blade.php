@@ -1485,9 +1485,9 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Tingkatan:</label>
-                                    <select class="form-control" id="jenis_kegiatan" name="jenis_kegiatan">
-                                        <option value="regional">Regional</option>
-                                        <option value="nasional">Nasional</option>
+                                    <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan">
+                                        <option value="regional">Regional/Nasional</option>
+                                        <option value="internasional">Internasional</option>
                                     </select>
                                 </div>
                             </form>
