@@ -44,8 +44,8 @@ class AuthenticationController extends Controller
 
 //            dd(Tools::getAuth($request));
         } catch (\Exception $err) {
-            dd($err);
-//            return back()->with('error', "Silahkan coba lagi!");
+//            dd($err);
+            return back()->with('error', "Silahkan coba lagi!");
         }
 //        try {
 //            $response =  Http::asForm()->post(env('API_USER_SERVICE', false) . 'login', [
