@@ -192,9 +192,10 @@ class PenunjangController extends Controller
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jabatan' => $request->get('jabatan'),
+                'jenis_tingkatan' => $request->get('jenis_tingkatan'),
             ]
         );
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Item berhasil ditambahkan');
     }
 
     public function editAsosiasi(Request $request)
@@ -205,17 +206,18 @@ class PenunjangController extends Controller
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jabatan' => $request->get('jabatan'),
+                'jenis_tingkatan' => $request->get('jenis_tingkatan'),
             ]
         );
 
-        return redirect()->back()->with('success', 'Item updated successfully');
+        return redirect()->back()->with('success', 'Item berhasil diperbaharui');
     }
 
     public function deleteAsosiasi($id)
     {
         Http::delete("http://localhost:9000/api/penunjang/asosiasi/{$id}");
 
-        return redirect()->back()->with('success', 'Item deleted successfully');
+        return redirect()->back()->with('success', 'Item berhasil dihapus');
     }
 
     // BAGIAN M. Peserta seminar/workshop/kursus berdasar penugasan pimpinan
@@ -229,7 +231,7 @@ class PenunjangController extends Controller
                 'jenis_tingkatan' => $request->get('jenis_tingkatan'),
             ]
         );
-        return redirect()->back()->with('success', 'Item added successfully');
+        return redirect()->back()->with('success', 'Item berhasil ditambahkan');
     }
 
     public function editSeminar(Request $request)
@@ -243,14 +245,14 @@ class PenunjangController extends Controller
             ]
         );
 
-        return redirect()->back()->with('success', 'Item updated successfully');
+        return redirect()->back()->with('success', 'Item berhasil diperbaharui');
     }
 
     public function deleteSeminar($id)
     {
         Http::delete("http://localhost:9000/api/penunjang/seminar/{$id}");
 
-        return redirect()->back()->with('success', 'Item deleted successfully');
+        return redirect()->back()->with('success', 'Item berhasil dihapus');
     }
 
     // BAGIAN N. Reviewer jurnal ilmiah , proposal Hibah dll
@@ -263,7 +265,7 @@ class PenunjangController extends Controller
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
             ]
         );
-        return redirect()->back()->with('success', 'Item added successfully');
+        return redirect()->back()->with('success', 'Item berhasil ditambahkan');
     }
 
     public function editReviewer(Request $request)
@@ -276,13 +278,13 @@ class PenunjangController extends Controller
             ]
         );
 
-        return redirect()->back()->with('success', 'Item updated successfully');
+        return redirect()->back()->with('success', 'Item berhasil diperbaharui');
     }
 
     public function deleteReviewer($id)
     {
         Http::delete("http://localhost:9000/api/penunjang/reviewer/{$id}");
 
-        return redirect()->back()->with('success', 'Item deleted successfully');
+        return redirect()->back()->with('success', 'Item berhasil dihapus');
     }
 }
