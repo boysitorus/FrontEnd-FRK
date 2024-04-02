@@ -2841,7 +2841,7 @@
                         terkait dengan bidang ilmu</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('rk-penelitian.penyjajian_makalah.create') }}" method="POST">
+                <form action="{{ route('rk-penelitian.penyajian_makalah.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value="1">
