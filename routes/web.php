@@ -114,6 +114,11 @@ Route::prefix('/formRencanaKerja')->group(function () {
         Route::post('/sosial', [PenunjangController::class, 'postSosial'])->name('rk-penunjang.sosial.create');
         Route::post('/edit/sosial', [PenunjangController::class, 'editSosial'])->name('rk-penunjang.sosial.update');
         Route::delete('/sosial/{id}', [PenunjangController::class, 'deleteSosial'])->name('rk-penunjang.sosial.destroy');
+
+        // E.
+        Route::post('/struktural', [PenunjangController::class, 'postStruktural'])->name('rk-penunjang.struktural.create');
+        Route::post('/edit/struktural', [PenunjangController::class, 'editStruktural'])->name('rk-penunjang.struktural.update');
+        Route::delete('/struktural/{id}', [PenunjangController::class, 'deleteStruktural'])->name('rk-penunjang.struktural.destroy');
         
 
 

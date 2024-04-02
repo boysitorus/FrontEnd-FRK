@@ -22,6 +22,9 @@ class PenunjangController extends Controller
             $responseSosial = Http::get('http://localhost:9000/api/penunjang/sosial');
             $sosial = $responseSosial->json();
 
+            $responseSturuktural = Http::get('http://localhost:9000/api/penunjang/struktural');
+            $struktural = $responseSturuktural->json();
+
             $responseAsosiasi = Http::get('http://localhost:9000/api/penunjang/asosiasi');
             $asosiasi = $responseAsosiasi->json();
 
@@ -36,6 +39,7 @@ class PenunjangController extends Controller
                 'bimbingan' => $bimbingan,
                 'ukm' => $ukm,
                 'sosial' => $sosial,
+                'struktural' => $struktural,
                 'asosiasi' => $asosiasi,
                 'seminar' => $seminar,
                 'reviewer' => $reviewer
@@ -179,6 +183,41 @@ class PenunjangController extends Controller
     public function deleteSosial($id)
     {
         Http::delete("http://localhost:9000/api/penunjang/sosial/{$id}");
+
+        return redirect()->back();
+    }
+
+    // BAGIAN E. Jabatan struktural (berdasarkan beban/semester)
+    public function postStruktural(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/struktural',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_jabatan_struktural' => $request->get('jenis_jabatan_struktural'),
+            ]
+            );
+            return redirect()->back();
+    }
+
+    public function editStruktural(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/struktural",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_jabatan_struktural' => $request->get('jenis_jabatan_struktural'),
+
+            ]
+        );
+        return redirect()->back();
+    }
+
+    public function deleteStruktural($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/struktural/{$id}");
 
         return redirect()->back();
     }
