@@ -43,7 +43,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2023/2024</strong></td>
                         <td>3.5</td>
                         <td style="color: green">M</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -54,7 +54,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2023/2024</strong></td>
                         <td>0</td>
                         <td style="color: green">M</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -65,7 +65,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: green">M</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -76,7 +76,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -87,7 +87,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -98,7 +98,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -109,7 +109,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -120,7 +120,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -131,7 +131,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -142,7 +142,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -153,7 +153,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -164,7 +164,7 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -175,12 +175,13 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff;">Lihat</button></td>
+                        <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 10px;">Lihat</button></td>
+
                     </tr>
                 </tbody>
-</table>
-<table id="simpulan2" class="table table-borderless">
-<!-- <table class="table table-striped table-bordered mt-2 text-center table-bordered" style="border: 2px;"> -->
+    </table>
+    <table id="simpulan2" class="table table-borderless">
+    <!-- <table class="table table-striped table-bordered mt-2 text-center table-bordered" style="border: 2px;"> -->
                 <tbody class="align-middle">
                 <tr>
                 <td colspan="2" style="text-align: left;"><i><strong>Kriteria Pelaksanaan Pendidikan dan Pelaksanaan Penelitian</strong></i></td>
@@ -221,32 +222,35 @@
     </div>
 
     
-</div>
+    </div>
 
 
         <div style="margin-top: 150px; border-bottom: 2px solid black; "></div>
         </div>
 
       <!-- Kembali button with back icon -->
-<div class="container">
+    <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: gray; color: #fff;" class = "ml-3">
+            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: gray; color: #fff;" >
                 <i class="fas fa-arrow-left"></i> Kembali
             </button>
         </div>
         <div class="col-md-6 text-md-end">
             <!-- Simpan Permanen button with save icon -->
-            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: #063F78;  color: #fff;" class = "mr-3" >
+            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: #005b96;  color: #fff;" >
                 <i class="fas fa-save"></i> Simpan Permanen
             </button>
         </div>
     </div>
-</div>
+    </div>
 
-</div>
+    <div style="margin-top: 30px; "></div>
+        </div>
 
-</div>
+    </div>
+
+    </div>
 
 
 
