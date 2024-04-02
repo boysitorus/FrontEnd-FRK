@@ -32,19 +32,19 @@
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link " href="#"><b>Rencana Pendidikan</b></a>
+                        <a class="nav-link {{ Request::is('formRencanaKerja/pendidikan') ? ' active' : '' }}" href="{{ route('rk-pendidikan') }}" ><b>Rencana Pendidikan</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link active" href="#"><b>Rencana Penelitian</b></a>
+                        <a class="nav-link {{ Request::is('formRencanaKerja/penelitian') ? ' active' : '' }}" href="{{ route('rk-penelitian') }} " ><b>Rencana Penelitian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link" href="#"><b>Rencana Pengabdian</b></a>
+                        <a class="nav-link{{ Request::is('formRencanaKerja/pengabdian') ? ' active' : '' }}" href="{{ route('rk-pengabdian') }} "><b>Rencana Pengabdian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link" href="#"><b>Tunjangan Lainnya</b></a>
+                        <a class="nav-link"><b>Tunjangan Lainnya</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link" href="#"><b>Simpulan</b></a>
+                        <a class="nav-link{{ Request::is('formRencanaKerja/simpulan') ? ' active' : '' }}" href="{{ route('rk-simpulan') }}"><b>Simpulan</b></a>
                     </li>
                 </ul>
             </div>

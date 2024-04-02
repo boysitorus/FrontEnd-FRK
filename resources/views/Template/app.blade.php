@@ -71,7 +71,7 @@
                             <div class="collapse" id="frk-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
-                                        <a href="#"
+                                        <a href="{{ route('rk-penelitian') }}"
                                             class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                             Rekap Kegiatan
                                         </a>
