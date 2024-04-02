@@ -37,7 +37,7 @@ Route::group(['middleware' => ['check.token']], function() {
 
    Route::prefix('/formRencanaKerja')->group(function () {
        Route::get('/pendidikan', [RencanaKerjaController::class, 'getPendidikanPanel'])->name('rk-pendidikkan');
-       Route::get('/penelitian', [PenelitianController::class, 'getAll'])->name('rk-penelitian');
+       Route::get('/penelitian', [PenelitianController::class, 'getPenelitianPanel'])->name('rk-penelitian');
        Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
 
        // Rute untuk data tabel a. penelitian kelompok

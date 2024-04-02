@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 class PenelitianController extends Controller
 {
     //
-    public function getAll()
+    public function getPenelitianPanel()
     {
         try {
             // Mengambil data a. penelitian kelompok dari Lumen
