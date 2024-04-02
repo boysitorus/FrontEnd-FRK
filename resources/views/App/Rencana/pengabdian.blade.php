@@ -415,24 +415,155 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPengabdian_D"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
+                @if (isset($karya) && sizeof($karya) > 0)
+                    @php
+                        $counter = 1;
+                    @endphp
+                    @foreach ($karya as $item)
+                        <tr>
+                            <td scope="row">{{ $counter }}</td>
+                            <td>{{ $item['nama_kegiatan'] }}</td>
+                            <td>{{ $item['jenis_terbit'] }}</td>
+                            <td>{{ $item['status_tahapan'] }}</td>
+                            <td>{{ $item['jenis_pengerjaan'] }}</td>
+                            <td>{{ $item['peran'] }}</td>
+                            <td>{{ $item['jumlah_anggota'] }}</td>
+                            <td>{{ $item['sks_terhitung'] }}</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditPengabdian-{{ $item['id_rencana'] }}"><i
+                                        class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
+                                        class="bi bi-trash3"></i></button>
+
+                                {{-- MODAL DELETE D --}}
+                                <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body text-center">
+                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                    anda sudah menekan tombol 'Yakin'
+                                                </p>
+                                            </div>
+
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">
+                                                    Batalkan
+                                                </button>
+                                                <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                    href="{{ route('rk-pengabdian.karya.destroy', ['id' => $item['id_rencana']]) }}"
+                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
+                                                </a>
+                                                <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                    action="{{ route('rk-pengabdian.karya.destroy', ['id' => $item['id_rencana']]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- AKHIR MODAL DELETE D --}}
+                            </td>
+                        </tr>
+
+                        {{-- MODAL EDIT D --}}
+                        <div class="modal fade modal-lg" id="modalEditPengabdian-{{ $item['id_rencana'] }}"
+                            tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
+                                            {{ $item['nama_kegiatan'] }}
+                                        </h6>
+                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <form action="{{ route('rk-pengabdian.karya.update') }}"
+                                            method="POST">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <input type="hidden" name="id_rencana"
+                                                    value="{{ $item['id_rencana'] }}" />
+                                                <div class="mb-3">
+                                                    <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                    <input 
+                                                        name="nama_kegiatan" type="text" class="form-control"
+                                                        id="nama_kegiatan"
+                                                        value="{{ $item['nama_kegiatan'] }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="jenis_terbit" class="form-label">Kategori</label>
+                                                    <select name="jenis_terbit" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                                        <option disabled selected value>Pilih kategori</option>
+                                                        <option value="Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN" {{ $item['jenis_terbit'] == 'Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN' ? 'selected' : '' }}>Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN</option>
+                                                        <option value="Menulis 1 judul, ada editor, tiap chapter ada Kontributor" {{ $item['jenis_terbit'] == 'Menulis 1 judul, ada editor, tiap chapter ada Kontributor' ? 'selected' : '' }}>Menulis 1 judul, ada editor, tiap chapter ada Kontributor</option>
+                                                        <option value="Menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)" {{ $item['jenis_terbit'] == 'Menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)' ? 'selected' : '' }}>Menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="status_tahapan" class="form-label">Tahapan</label>
+                                                    <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                                        <option disabled selected value>Pilih tahapan</option>
+                                                        <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
+                                                        <option value="50 % dari isi buku" {{ $item['status_tahapan'] == '50 % dari isi buku' ? 'selected' : '' }}>50 % dari isi buku</option>
+                                                        <option value="Buku jadi" {{ $item['status_tahapan'] == 'Buku jadi' ? 'selected' : '' }}>Buku jadi</option>
+                                                        <option value="Persetujuan Penerbit" {{ $item['status_tahapan'] == 'Persetujuan Penerbit' ? 'selected' : '' }}>Persetujuan Penerbit</option>
+                                                        <option value="Buku selesai dicetak" {{ $item['status_tahapan'] == 'Buku selesai dicetak' ? 'selected' : '' }}>Buku selesai dicetak</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
+                                                    <select name="jenis_pengerjaan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                                        <option disabled selected value>Pilih jenis pengerjaan</option>
+                                                        <option value="Mandiri" {{ $item['jenis_pengerjaan'] == 'Mandiri' ? 'selected' : '' }}>Mandiri</option>
+                                                        <option value="Kelompok" {{ $item['jenis_pengerjaan'] == 'Kelompok' ? 'selected' : '' }}>Kelompok</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="peran" class="form-label">Peran</label>
+                                                    <select name="peran" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                                        <option disabled selected value>Pilih peran</option>
+                                                        <option value="Editor" {{ $item['peran'] == 'Editor' ? 'selected' : '' }}>Editor</option>
+                                                        <option value="Kontributor" {{ $item['peran'] == 'Kontributor' ? 'selected' : '' }}>Kontributor</option>
+                                                        <option value="Penulis Utama" {{ $item['peran'] == 'Penulis Utama' ? 'selected' : '' }}>Penulis Utama</option>
+                                                        <option value="Penulis Lainnya" {{ $item['peran'] == 'Penulis Lainnya' ? 'selected' : '' }}>Penulis Lainnya</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
+                                                    <input name="jumlah_anggota" type="number" class="form-control" id="nama" value={{ $item['jumlah_anggota'] }}>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Simpan Perubahan
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- AKHIR MODAL EDIT D --}}
+                    @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -444,68 +575,73 @@
 <div class="modal fade modal-lg" id="modalpengabdian_D" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">D. Membuat/menulis karya pengabdian kepada masyarakat
-                    dengan menulis 1 judul, direncanakan terbit ber ISBN, ada kontrak penerbitan dan atau sudah
-                    diterbitkan dan ber – ISBN
-                </h6>
-                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+        <form action="{{ route('rk-pengabdian.karya.create') }}" method = "POST">
+        @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel">D. Membuat/menulis karya pengabdian kepada masyarakat
+                        dengan menulis 1 judul, direncanakan terbit ber ISBN, ada kontrak penerbitan dan atau sudah
+                        diterbitkan dan ber – ISBN
+                    </h6>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
 
-            <div class="modal-body">
-                <form>
+                <div class="modal-body">  
+                    <input type="hidden" name="id_dosen" value="1">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input 
+                            name="nama_kegiatan" type="text" class="form-control"
+                            id="nama_kegiatan">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Kategori</label>
-                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                            <option value=""></option>
-                            <option value="">Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN</option>
-                            <option value="">Menulis 1 judul, ada editor, tiap chapter ada Kontributor</option>
-                            <option value="">Menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)</option>
+                        <label for="jenis_terbit" class="form-label">Kategori</label>
+                        <select name="jenis_terbit" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option disabled selected value>Pilih kategori</option>
+                            <option value="Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN">Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN</option>
+                            <option value="Menulis 1 judul, ada editor, tiap chapter ada Kontributor">Menulis 1 judul, ada editor, tiap chapter ada Kontributor</option>
+                            <option value="Menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)">Menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tahapan</label>
-                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                            <option value=""></option>
-                            <option value="">Pendahuluan</option>
-                            <option value="">50 % dari isi buku</option>
-                            <option value="">Buku jadi</option>
+                        <label for="status_tahapan" class="form-label">Tahapan</label>
+                        <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option disabled selected value>Pilih tahapan</option>
+                            <option value="Pendahuluan">Pendahuluan</option>
+                            <option value="50 % dari isi buku">50 % dari isi buku</option>
+                            <option value="Buku jadi">Buku jadi</option>
+                            <option value="Persetujuan Penerbit">Persetujuan Penerbit</option>
+                            <option value="Buku selesai dicetak">Buku selesai dicetak</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Jenis Pengerjaan</label>
-                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                            <option value=""></option>
-                            <option value="">Mandiri</option>
-                            <option value="">Kelompok</option>
+                        <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
+                        <select name="jenis_pengerjaan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option disabled selected value>Pilih jenis pengerjaan</option>
+                            <option value="Mandiri">Mandiri</option>
+                            <option value="Kelompok">Kelompok</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Peran</label>
-                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                            <option value=""></option>
-                            <option value="">Editor</option>
-                            <option value="">Kontributor</option>
-                            <option value="">Penulis Utama</option>
-                            <option value="">Penulis Lainnya</option>
+                        <label for="peran" class="form-label">Peran</label>
+                        <select name="peran" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option disabled selected value>Pilih peran</option>
+                            <option value="Editor">Editor</option>
+                            <option value="Kontributor">Kontributor</option>
+                            <option value="Penulis Utama">Penulis Utama</option>
+                            <option value="Penulis Lainnya">Penulis Lainnya</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Jumlah Anggpta</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
+                        <input name="jumlah_anggota" type="number" class="form-control" id="nama">
                     </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
             </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 {{-- AKHIR MODAL D--}}
@@ -513,7 +649,8 @@
 
 {{-- TEMPAT MODAL EDIT --}}
 {{-- MULAI MODAL D --}}
-<div class="modal fade modal-lg" id="modalEditPengabdian_D" tabindex="-1" role="dialog"
+{{-- PINDAH KE ATAS (FOREACH) -}}
+{{--<div class="modal fade modal-lg" id="modalEditPengabdian_D" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -580,7 +717,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}}
 {{-- AKHIR MODAL D --}}
 
 

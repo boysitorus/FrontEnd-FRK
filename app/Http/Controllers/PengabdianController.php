@@ -3,10 +3,118 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class PengabdianController extends Controller
 {
-    public function getAllPengabdian(){
-        return view('App.Rencana.pengabdian');
+    public function getPengabdianPanel(){
+
+        try{
+            // Mengambil data a. kegiatan dari lumen
+
+
+            // Mengambil data b. penyuluhan dari lumen
+
+
+            // Mengambil data c. konsultan dari lumen
+
+
+            // Mengambil data d. karya dari lumen
+            $responseKarya = Http::get('http://localhost:8001/api/pengabdian/karya');
+            $Karya = $responseKarya->json();
+
+
+            // Menggabungkan data
+            $data = [
+                //data a
+
+                //data b
+
+                //data c
+
+                //data d
+                'karya' => $Karya,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.pengabdian', $data);
+        }catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
     }
+
+    // CRUD Tabel B.Penyuluhan // CRUD Tabel B.Penyuluhan // CRUD B.Penyuluhan
+
+    // END CRUD Tabel B.Penyuluhan // END CRUD Tabel B.Penyuluhan
+
+
+    // CRUD Tabel C.Konsultan // CRUD Tabel C.Konsultan // CRUD Tabel C.Konsultan
+
+    // END CRUD Tabel C.Konsultan // END CRUD Tabel C.Konsultan // END CRUD Tabel C.Konsultan 
+
+
+    // CRUD Tabel D.Karya // CRUD Tabel D.Karya // CRUD Tabel D.Karya
+    public function getKarya()
+    {
+        try {
+            // Mengambil data karya dari Lumen
+            $responseKarya = Http::get('http://localhost:8001/api/pengabdian/karya');
+            $Karya = $responseKarya->json();
+
+            $data = [
+                'karya' => $Karya,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.pengabdian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postKarya(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/pengabdian/karya',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_terbit' => $request->get('jenis_terbit'),
+                'status_tahapan' => $request->get('status_tahapan'),
+                'peran' => $request->get('peran'),
+                'jumlah_anggota' => $request->get('jumlah_anggota'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pengabdian karya added successfully');
+    }
+
+    public function editKarya(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/pengabdian/edit/karya',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_terbit' => $request->get('jenis_terbit'),
+                'status_tahapan' => $request->get('status_tahapan'),
+                'peran' => $request->get('peran'),
+                'jumlah_anggota' => $request->get('jumlah_anggota'),
+                'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pengabdian karya updated successfully');
+    }
+
+    public function deleteKarya($id)
+    {
+        Http::delete("http://localhost:8001/api/pengabdian/karya/{$id}");
+
+        return redirect()->back()->with('success', 'Item in pengabdian karya successfully deleted');
+    }
+    // END CRUD Tabel D.Karya // END CRUD Tabel D.Karya // END CRUD Tabel D.Karya 
 }
