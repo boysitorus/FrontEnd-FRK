@@ -269,8 +269,7 @@
                 <tr>
                     <th scope="col" rowspan="2" class="align-middle">No.</th>
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                    <th scope="col" rowspan="2" class="align-middle">Jabatan (Ketua / Anggota)</th>
-                    <th scope="col" rowspan="2" class="align-middle">Jumlah Proyek</th>
+                    <th scope="col" rowspan="2" class="align-middle">Jabatan</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
                     <th scope="col" rowspan="2" class="align-middle">Aksi</th>
@@ -283,7 +282,6 @@
             <tbody>
                 <tr>
                     <td scope="row">1</td>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -329,10 +327,6 @@
                             <option value="">Anggota</option>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Jumlah Proyek</label>
-                        <input type="number" class="form-control">
-                    </div>
                 </form>
             </div>
 
@@ -372,10 +366,6 @@
                             <option value="">Anggota</option>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Jumlah Proyek</label>
-                        <input type="number" class="form-control">
-                    </div>
                 </form>
             </div>
 
@@ -412,7 +402,9 @@
                     <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
                     <th scope="col" rowspan="2" class="align-middle">Kategori</th>
                     <th scope="col" rowspan="2" class="align-middle">Tahapan</th>
-                    <th scope="col" rowspan="2" class="align-middle">Posisi (Penulis Utama/Penulis Lainnya)</th>
+                    <th scope="col" rowspan="2" class="align-middle">Jenis Pengerjaan</th>
+                    <th scope="col" rowspan="2" class="align-middle">Peran</th>
+                    <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota</th>
                     <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
                     <th scope="col" colspan="2">Status</th>
                     <th scope="col" rowspan="2" class="align-middle">Aksi</th>
@@ -425,6 +417,8 @@
             <tbody>
                 <tr>
                     <td scope="row">1</td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -469,22 +463,41 @@
                         <label class="form-label">Kategori</label>
                         <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
                             <option value=""></option>
-                            <option value="">A</option>
-                            <option value="">B</option>
-                            <option value="">C</option>
+                            <option value="">Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN</option>
+                            <option value="">Menulis 1 judul, ada editor, tiap chapter ada Kontributor</option>
+                            <option value="">Menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Tahapan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Posisi</label>
+                        <label class="form-label">Tahapan</label>
                         <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
                             <option value=""></option>
+                            <option value="">Pendahuluan</option>
+                            <option value="">50 % dari isi buku</option>
+                            <option value="">Buku jadi</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jenis Pengerjaan</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option value=""></option>
+                            <option value="">Mandiri</option>
+                            <option value="">Kelompok</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Peran</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option value=""></option>
+                            <option value="">Editor</option>
+                            <option value="">Kontributor</option>
                             <option value="">Penulis Utama</option>
                             <option value="">Penulis Lainnya</option>
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Jumlah Anggpta</label>
+                        <input type="text" class="form-control" id="nama">
                     </div>
                 </form>
             </div>
@@ -522,22 +535,41 @@
                         <label class="form-label">Kategori</label>
                         <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
                             <option value=""></option>
-                            <option value="">A</option>
-                            <option value="">B</option>
-                            <option value="">C</option>
+                            <option value="">Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN</option>
+                            <option value="">Menulis 1 judul, ada editor, tiap chapter ada Kontributor</option>
+                            <option value="">Menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Tahapan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Posisi</label>
+                        <label class="form-label">Tahapan</label>
                         <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
                             <option value=""></option>
+                            <option value="">Pendahuluan</option>
+                            <option value="">50 % dari isi buku</option>
+                            <option value="">Buku jadi</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jenis Pengerjaan</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option value=""></option>
+                            <option value="">Mandiri</option>
+                            <option value="">Kelompok</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Peran</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                            <option value=""></option>
+                            <option value="">Editor</option>
+                            <option value="">Kontributor</option>
                             <option value="">Penulis Utama</option>
                             <option value="">Penulis Lainnya</option>
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Jumlah Anggpta</label>
+                        <input type="text" class="form-control" id="nama">
                     </div>
                 </form>
             </div>

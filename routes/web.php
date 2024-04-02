@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RencanaKerjaController;
 use App\Http\Controllers\PenelitianController;
+use App\Http\Controllers\PengabdianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::post('/', [AuthenticationController::class, 'post'])->name('user.login.po
 Route::get('/', [AuthenticationController::class, 'get'])->name('user.login.get');
 Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout.get');
 
+
 Route::group(['middleware' => ['check.token']], function() {
     Route::get('/dashboard', [UserController::class, 'userDashboard'])->name('home');
 
@@ -31,14 +33,11 @@ Route::group(['middleware' => ['check.token']], function() {
         return view('App.Rencana.penelitian');
     });
 
-    Route::get('/formPengabdian', function() {
-        return view('App.Rencana.pengabdian');
-    });
-
    Route::prefix('/formRencanaKerja')->group(function () {
        Route::get('/pendidikan', [RencanaKerjaController::class, 'getPendidikanPanel'])->name('rk-pendidikkan');
        Route::get('/penelitian', [PenelitianController::class, 'getAll'])->name('rk-penelitian');
        Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
+       Route::get('/pengabdian', [PengabdianController::class, 'getAllPengabdian'])->name('rk-pengabdian');
 
        // Rute untuk data tabel a. penelitian kelompok
        Route::get('/penelitian/penelitian_kelompok', [PenelitianController::class, 'getPenelitianKelompok'])->name('rk-penelitian.penelitian_kelompok');
