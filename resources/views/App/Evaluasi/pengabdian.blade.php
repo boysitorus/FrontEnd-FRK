@@ -1,4 +1,4 @@
-@extends('Template.rencana')
+@extends('Template.evaluasi')
 
 @section('content-kegiatan')
 
@@ -84,7 +84,7 @@
             <h6><b>B. Memberikan penyuluhan/penataran kepada masyarakat</b></h6>
             <hr />
             <div class="text-sm">
-                <table id="tablePenunjang-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePenunjang-B" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -389,25 +389,18 @@
     {{-- TEMPAT MODAL EDIT CONFIRM A--}}
         <div class="modal fade" id="modalEditPengabdian_A" tabindex="-1" aria-labelledby="modalEditPengabdianALabel"
             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+            <div class="modal-dialog modal-dialog-centered" style="width: 200%;">
+            <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3>Choose a file or drag it here</h3>
-                                    <!-- File input -->
-                                    <input type="file" id="fileInput" multiple>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="container">
+                    <div class="modal-body text-center" style="height: 200px; margin-top: 100px;"> 
+                        <b><h5>Choose a file here</b></h5>
+                        
+                        <input type="file" id="fileInput" multiple>
                     </div>
-
-                    <div class="modal-footer justify-content-center">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -418,29 +411,22 @@
     {{-- AKHIR MODAL EDIT --}}
 
     {{-- TEMPAT MODAL EDIT CONFIRM B--}}
-        <div class="modal fade" id="modalEditPengabdian_B" tabindex="-1" aria-labelledby="modalEditPangabdianBLabel"
+        <div class="modal fade" id="modalEditPengabdian_B" tabindex="-1" aria-labelledby="modalEditPengabdianBLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+            <div class="modal-dialog modal-dialog-centered" style="width: 200%;">
+            <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPengabdianBLabel">Edit Kegiatan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="container">
+                    <div class="modal-body text-center" style="height: 200px; margin-top: 100px;"> 
+                        <b><h5>Choose a file here</b></h5>
                         
-                    <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
+                        <input type="file" id="fileInput" multiple>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
                 </div>
             </div>
@@ -448,29 +434,22 @@
     {{-- AKHIR MODAL EDIT --}}
 
     {{-- TEMPAT MODAL EDIT CONFIRM C--}}
-        <div class="modal fade" id="modalEditPengabdian_C" tabindex="-1" aria-labelledby="modalEditPengabdianCLabel"
+    <div class="modal fade" id="modalEditPengabdian_C" tabindex="-1" aria-labelledby="modalEditPengabdianCLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+            <div class="modal-dialog modal-dialog-centered" style="width: 200%;">
+            <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPengabdianCLabel">Edit Kegiatan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="container">
+                    <div class="modal-body text-center" style="height: 200px; margin-top: 100px;"> 
+                        <b><h5>Choose a file here</b></h5>
                         
-                    <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Kegiatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
+                        <input type="file" id="fileInput" multiple>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
                 </div>
             </div>
