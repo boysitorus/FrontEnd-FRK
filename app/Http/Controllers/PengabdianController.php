@@ -18,7 +18,8 @@ class PengabdianController extends Controller
             $Penyuluhan = $responsePenyuluhan->json();
 
             // Mengambil data c. konsultan dari lumen
-
+            $responsekonsultan = Http::get('http://localhost:8001/api/pengabdian/konsultan');
+            $konsultan = $responsekonsultan->json();
 
             // Mengambil data d. karya dari lumen
             $responseKarya = Http::get('http://localhost:8001/api/pengabdian/karya');
@@ -33,7 +34,7 @@ class PengabdianController extends Controller
                 'penyuluhan' => $Penyuluhan,
 
                 //data c
-
+                'konsultan' => $konsultan,
                 //data d
                 'karya' => $Karya,
             ];
@@ -103,7 +104,59 @@ class PengabdianController extends Controller
     // END CRUD Tabel B.Penyuluhan // END CRUD Tabel B.Penyuluhan
 
     // CRUD Tabel C.Konsultan // CRUD Tabel C.Konsultan // CRUD Tabel C.Konsultan
+    public function getKonsultan()
+    {
+        try {
+            // Mengambil data konsultan dari Lumen
+            $responseKonsultan = Http::get('http://localhost:8001/api/pengabdian/konsultan');
+            $Konsultan = $responseKonsultan->json();
 
+            $data = [
+                'konsultan' => $Konsultan,
+            ];
+
+            // Mengirim data ke view
+            return view('App.Rencana.pengabdian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postKonsultan(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/pengabdian/konsultan',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'posisi' => $request->get('posisi'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pengabdian konsultan added successfully');
+    }
+
+    public function editKonsultan(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/pengabdian/edit/konsultan',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'posisi' => $request->get('posisi'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pengabdian konsultan updated successfully');
+    }
+
+    public function deleteKonsultan($id)
+    {
+        Http::delete("http://localhost:8001/api/pengabdian/konsultan/{$id}");
+
+        return redirect()->back()->with('success', 'Item in pengabdian konsultan successfully deleted');
+    }
     // END CRUD Tabel C.Konsultan // END CRUD Tabel C.Konsultan // END CRUD Tabel C.Konsultan
 
 

@@ -297,8 +297,7 @@
     </div>
 </div>
 {{-- AKHIR MODAL B --}}
-
-{{-- Mulai C --}}
+{{-- Awal C --}}
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
         <h6>
@@ -328,20 +327,118 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                            data-bs-target="#modalEditPengabdian_C"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                    </td>
-                </tr>
+                @if (isset($konsultan) && sizeof($konsultan) > 0)
+                    @php
+                        $counter = 1;
+                    @endphp
+                    @foreach ($konsultan as $item)
+                        <tr>
+                            <td scope="row">{{ $counter }}</td>
+                            <td>{{ $item['nama_kegiatan'] }}</td>
+                            <td>{{ $item['posisi'] }}</td>
+                            <td>{{ $item['sks_terhitung'] }}</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditPengabdian-{{ $item['id_rencana'] }}"><i
+                                        class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
+                                        class="bi bi-trash3"></i></button>
+
+                                {{-- MODAL DELETE C --}}
+                                <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body text-center">
+                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                    anda sudah menekan tombol 'Yakin'
+                                                </p>
+                                            </div>
+
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">
+                                                    Batalkan
+                                                </button>
+                                                <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                    href="{{ route('rk-pengabdian.konsultan.destroy', ['id' => $item['id_rencana']]) }}"
+                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
+                                                </a>
+                                                <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                    action="{{ route('rk-pengabdian.konsultan.destroy', ['id' => $item['id_rencana']]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- AKHIR MODAL DELETE C --}}
+                            </td>
+                        </tr>
+                        <div class="modal fade modal-lg" id="modalEditPengabdian-{{ $item['id_rencana'] }}"
+                            tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
+                                            {{ $item['nama_kegiatan'] }}
+                                        </h6>
+                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <form action="{{ route('rk-pengabdian.konsultan.update') }}" method="POST">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <input type="hidden" name="id_rencana"
+                                                    value="{{ $item['id_rencana'] }}" />
+                                                <div class="mb-3">
+                                                    <label for="nama_kegiatan" class="form-label">Nama
+                                                        Kegiatan</label>
+                                                    <input name="nama_kegiatan" type="text" class="form-control"
+                                                        id="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="posisi" class="form-label">Jabatan</label>
+                                                    <select name="posisi" class="form-select form-select-md mb-3"
+                                                        aria-label=".form-select-md example">
+                                                        <option disabled selected value>Pilih Jabatan</option>
+                                                        <option value="Ketua"
+                                                            {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua
+                                                        </option>
+                                                        <option value="Anggota"
+                                                            {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>
+                                                            Anggota</option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Simpan Perubahan
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -350,83 +447,43 @@
 
 {{-- TEMPAT MODAL TAMBAH KEGIATAN --}}
 {{-- MULAI MODAL C --}}
-<div class="modal fade modal-lg" id="modalpengabdian_C" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">C. Memberikan jasa konsultan yang relevan dengan
-                    kepakarannya atas persetujuan/penugasan pimpinan PT
-                </h6>
-                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Jabatan</label>
-                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                            <option value=""></option>
-                            <option value="">Ketua</option>
-                            <option value="">Anggota</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- AKHIR MODAL C--}}
-
-
-{{-- TEMPAT MODAL EDIT --}}
-{{-- MULAI MODAL C --}}
-<div class="modal fade modal-lg" id="modalEditPengabdian_C" tabindex="-1" role="dialog"
+<div class="modal fade modal-lg" id="modalpengabdian_C" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">C. Memberikan jasa konsultan yang relevan dengan
-                    kepakarannya atas persetujuan/penugasan pimpinan PT
-                </h6>
-                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+        <form action="{{ route('rk-pengabdian.konsultan.create') }}" method = "POST">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel">C. Memberikan jasa konsultan yang relevan dengan kepakarannya atas persetujuan/penugasan pimpinan PT
+                    </h6>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
 
-            <div class="modal-body">
-                <form>
+                <div class="modal-body">
+                    <input type="hidden" name="id_dosen" value="1">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                        <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Jabatan</label>
-                        <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                            <option value=""></option>
-                            <option value="">Ketua</option>
-                            <option value="">Anggota</option>
+                        <label for="posisi" class="form-label">Jabatan</label>
+                        <select name="posisi" class="form-select form-select-md mb-3"
+                            aria-label=".form-select-md example">
+                            <option disabled selected value>Pilih Jabatan</option>
+                            <option value="Ketua">Ketua</option>
+                            <option value="Anggota">Anggota</option>
                         </select>
                     </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
             </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
-{{-- AKHIR MODAL C --}}
 
-
+{{-- Akhir C --}}
 
 {{-- Mulai D --}}
 <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">

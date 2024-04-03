@@ -138,6 +138,10 @@ Route::group(['middleware' => ['check.token']], function() {
             Route::post('/edit/penyuluhan', [PengabdianController::class, 'editPenyuluhan'])->name('rk-pengabdian.penyuluhan.update');
 
             // Rute untuk data tabel c. konsultan
+            Route::get('/konsultan', [PengabdianController::class, 'getKonsultan'])->name('rk-pengabdian.konsultan');
+            Route::post('/konsultan-tambah', [PengabdianController::class, 'postKonsultan'])->name('rk-pengabdian.konsultan.create');
+            Route::delete('/konsultan/{id}', [PengabdianController::class, 'deleteKonsultan'])->name('rk-pengabdian.konsultan.destroy');
+            Route::post('/edit/konsultan', [PengabdianController::class, 'editKonsultan'])->name('rk-pengabdian.konsultan.update');
 
 
             // Rute untuk data tabel d. karya
