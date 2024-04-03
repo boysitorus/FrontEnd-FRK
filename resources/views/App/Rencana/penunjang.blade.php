@@ -1372,8 +1372,8 @@
                                                             Tingkatan:
                                                         </label>
                                                         <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
-                                                            <option value="Regional/Nasional">Regional/Nasional</option>
-                                                            <option value="Internasional">Internasional</option>
+                                                            <option value="Regional/Nasional" {{ $item["jenis_tingkatan"]=="Regional/Nasional" ? "selected" : "" }}>Regional/Nasional</option>
+                                                            <option value="Internasional" {{ $item["jenis_tingkatan"]=="Internasional" ? "selected" : "" }}>Internasional</option>
                                                         </select>
                                                     </div>
                                                 </div>
