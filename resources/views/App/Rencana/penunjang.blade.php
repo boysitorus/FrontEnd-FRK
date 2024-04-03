@@ -1212,23 +1212,25 @@
 
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
-                                                            Kegiatan</label>
+                                                            Kegiatan:</label>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jabatan" class="form-label">
-                                                            Jabatan                                                            
-                                                        </label>
-                                                        <input placeholder="{{ $item['jabatan'] }}" type="text"
-                                                            class="form-control" id="jabatan" name="jabatan">
+                                                        <label for="jabatan" class="form-label">Jabatan:</label>
+                                                        <select class="form-control" id="jenis_jabatan" name="jenis_jabatan">
+                                                            <option value="anggota">Anggota</option>
+                                                            <option value="ketua">Ketua</option>
+                                                        </select>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jenis_tingkatan" class="form-label">
-                                                            Tingkatan                                                            
+                                                            Tingkatan:                                                            
                                                         </label>
-                                                        <input placeholder="{{ $item['jenis_tingkatan'] }}" type="text"
-                                                            class="form-control" id="jenis_tingkatan" name="jenis_tingkatan">
+                                                        <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
+                                                            <option value="nasional">Nasional</option>
+                                                            <option value="internasional">Internasional</option>
+                                                        </select>
                                                     </div>
                                                 </div>
 
@@ -1369,8 +1371,10 @@
                                                         <label for="jenis_tingkatan" class="form-label">
                                                             Tingkatan:
                                                         </label>
-                                                        <input placeholder="{{ $item['jenis_tingkatan'] }}" type="text"
-                                                            class="form-control" name="jenis_tingkatan" min="1">
+                                                        <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
+                                                            <option value="regional/nasional">Regional/Nasional</option>
+                                                            <option value="internasional">Internasional</option>
+                                                        </select>
                                                     </div>
                                                 </div>
 
@@ -1957,7 +1961,7 @@
                         <label class="form-label">Tingkatan:</label>
                             <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
                                 <option value="nasional">Nasional</option>
-                                <option value="Internasional">Internasional</option>
+                                <option value="internasional">Internasional</option>
                             </select>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1976,8 +1980,9 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">M. Peserta Seminar/Workshop/Kursus Berdasar Penugasan
-                        Pimpinan</h6>
+                    <h6 class="modal-title" id="exampleModalLabel">
+                        M. Peserta Seminar/Workshop/Kursus Berdasar Penugasan Pimpinan
+                    </h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -1991,8 +1996,8 @@
                         <div class="mb-3">
                             <label for="jenis_tingkatan" class="form-label">Tingkatan:</label>
                             <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
-                                <option value="nasional">Nasional</option>
-                                <option value="Internasional">Internasional</option>
+                                <option value="regional/nasional">Regional/Nasional</option>
+                                <option value="internasional">Internasional</option>
                             </select>
                         </div>
                         <div class="modal-footer">
