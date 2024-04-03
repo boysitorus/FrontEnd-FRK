@@ -1990,7 +1990,10 @@
                         </div>
                         <div class="mb-3">
                             <label for="jenis_tingkatan" class="form-label">Tingkatan:</label>
-                            <input name="jenis_tingkatan" class="form-control" type="text" required>
+                            <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
+                                <option value="nasional">Nasional</option>
+                                <option value="Internasional">Internasional</option>
+                            </select>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
