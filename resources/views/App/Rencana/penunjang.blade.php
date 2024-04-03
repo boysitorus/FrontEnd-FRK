@@ -1219,8 +1219,8 @@
                                                     <div class="mb-3">
                                                         <label for="jabatan" class="form-label">Jabatan:</label>
                                                         <select class="form-control" id="jenis_jabatan" name="jenis_jabatan">
-                                                            <option value="anggota">Anggota</option>
-                                                            <option value="ketua">Ketua</option>
+                                                            <option value="Anggota">Anggota</option>
+                                                            <option value="Ketua">Ketua</option>
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
@@ -1228,8 +1228,8 @@
                                                             Tingkatan:                                                            
                                                         </label>
                                                         <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
-                                                            <option value="nasional">Nasional</option>
-                                                            <option value="internasional">Internasional</option>
+                                                            <option value="Nasional">Nasional</option>
+                                                            <option value="Internasional">Internasional</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -1372,8 +1372,8 @@
                                                             Tingkatan:
                                                         </label>
                                                         <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
-                                                            <option value="regional/nasional">Regional/Nasional</option>
-                                                            <option value="internasional">Internasional</option>
+                                                            <option value="Regional/Nasional">Regional/Nasional</option>
+                                                            <option value="Internasional">Internasional</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -1954,14 +1954,14 @@
                         <div class="mb-3">
                             <label for="jabatan" class="form-label">Jabatan:</label>
                             <select class="form-control" id="jenis_jabatan" name="jenis_jabatan">
-                                <option value="anggota">Anggota</option>
-                                <option value="ketua">Ketua</option>
+                                <option value="Anggota">Anggota</option>
+                                <option value="Ketua">Ketua</option>
                             </select>
                         </div>
                         <label class="form-label">Tingkatan:</label>
                             <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
-                                <option value="nasional">Nasional</option>
-                                <option value="internasional">Internasional</option>
+                                <option value="Nasional">Nasional</option>
+                                <option value="Internasional">Internasional</option>
                             </select>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -1996,8 +1996,8 @@
                         <div class="mb-3">
                             <label for="jenis_tingkatan" class="form-label">Tingkatan:</label>
                             <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
-                                <option value="regional/nasional">Regional/Nasional</option>
-                                <option value="internasional">Internasional</option>
+                                <option value="Regional/Nasional">Regional/Nasional</option>
+                                <option value="Internasional">Internasional</option>
                             </select>
                         </div>
                         <div class="modal-footer">
