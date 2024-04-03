@@ -1170,12 +1170,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (isset($akademik) && sizeof($akademik) > 0)
+                        @if (isset($asosiasi) && sizeof($asosiasi) > 0)
                             @php
                                 $counter = 1;
                             @endphp
 
-                            @foreach ($akademik as $item)
+                            @foreach ($asosiasi as $item)
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
@@ -1320,12 +1320,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (isset($akademik) && sizeof($akademik) > 0)
+                        @if (isset($seminar) && sizeof($seminar) > 0)
                             @php
                                 $counter = 1;
                             @endphp
 
-                            @foreach ($akademik as $item)
+                            @foreach ($seminar as $item)
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
@@ -1462,12 +1462,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (isset($akademik) && sizeof($akademik) > 0)
+                        @if (isset($reviewer) && sizeof($reviewer) > 0)
                             @php
                                 $counter = 1;
                             @endphp
 
-                            @foreach ($akademik as $item)
+                            @foreach ($reviewer as $item)
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
