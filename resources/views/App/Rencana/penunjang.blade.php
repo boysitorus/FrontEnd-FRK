@@ -1838,22 +1838,24 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">M. Peserta Meminar/Workshop/Kursus Berdasar Penugasan
+                    <h6 class="modal-title" id="exampleModalLabel">M. Peserta Seminar/Workshop/Kursus Berdasar Penugasan
                         Pimpinan</h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="{{ route('rk-penunjang.seminar.create') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Tingkatan:</label>
-                            <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan">
-                                <option value="regional">Regional/Nasional</option>
-                                <option value="internasional">Internasional</option>
-                            </select>
+                            <label for="jenis_tingkatan" class="form-label">Tingkatan:</label>
+                            <input name="jenis_tingkatan" class="form-control" type="text" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -1875,10 +1877,15 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="{{ route('rk-penunjang.reviewer.create') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
