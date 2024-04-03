@@ -125,14 +125,17 @@ Route::group(['middleware' => ['check.token']], function() {
             Route::delete('/penyajian_makalah/{id}', [PenelitianController::class, 'deletePenyajianMakalah'])->name('rk-penelitian.penyajian_makalah.destroy');
             Route::post('/edit/penyajian_makalah', [PenelitianController::class, 'editPenyajianMakalah'])->name('rk-penelitian.penyajian_makalah.update');
        });
-       
+
        // Kelompok rute untuk bagian pengabdian
        Route::prefix('/pengabdian')->group(function () {
             // Rute untuk data tabel a. kegiatan
 
 
             // Rute untuk data tabel b. penyuluhan
-
+            Route::get('/penyuluhan', [PengabdianController::class, 'getPenyuluhan'])->name('rk-pengabdian.penyuluhan');
+            Route::post('/penyuluhan-tambah', [PengabdianController::class, 'postPenyuluhan'])->name('rk-pengabdian.penyuluhan.create');
+            Route::delete('/penyuluhan/{id}', [PengabdianController::class, 'deletePenyuluhan'])->name('rk-pengabdian.penyuluhan.destroy');
+            Route::post('/edit/penyuluhan', [PengabdianController::class, 'editPenyuluhan'])->name('rk-pengabdian.penyuluhan.update');
 
             // Rute untuk data tabel c. konsultan
 
