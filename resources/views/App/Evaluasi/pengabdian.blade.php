@@ -8,26 +8,17 @@
             <h6><b>A. Satu kegiatan yang setara dengan 50 jam kerja</b></h6>
             <hr />
 
-            <!-- <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenunjangA" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPenunjang_A">
-                    Tambah Kegiatan
-                </button>
-            </div> -->
-
             <div class="text-sm">
-                <table id="tablePenunjang-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePengabdian-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jumlah Kelas Tatap Muka</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jumlah Kelas Evaluasi</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Mata Kuliah</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Durasi Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Aksi</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                         </tr>
                         <tr>
                             <th scope="col" class="fw-bold">Asesor 1</th>
@@ -38,8 +29,6 @@
                         <tr>
                             <td scope="row">1</td>
                             <td>Lorem ipsum dolor sit amet consectetur.</td>
-                            <td></td>
-                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -61,8 +50,6 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_A"><i class="bi bi-pencil-square"></i></button>
@@ -78,22 +65,22 @@
     </div>
     {{-- AKHIR BAGIAN A --}}
 
-    {{-- BAGIAN B --}}
-    <div id="pengabdian-b" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+{{-- BAGIAN B --}}
+    <div id="pengabdian-B" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>B. Memberikan penyuluhan/penataran kepada masyarakat</b></h6>
             <hr />
             <div class="text-sm">
-                <table id="tablePenunjang-B" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePengabdian-B" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jumlah Mahasiswa Bimbingan </th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">SKS Terhitung</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Durasi Kegiatan </th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">SKS Jumlah</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                         </tr>
                         <tr>
                             <th scope="col" class="fw-bold">Asesor 1</th>
@@ -140,20 +127,21 @@
     </div>
     {{-- AKHIR BAGIAN B --}}
 
-    {{-- BAGIAN C --}}
+{{-- BAGIAN C --}}
     <div id="pengabdian-C" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>C. Memberikan jasa konsultan yang relevan dengan  kepakarannya atas persetujuan/penugasan pimpinan PT</b></h6>
             <hr />
             <div class="text-sm">
-                <table id="tablePenunjang-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePengabdian-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jumlah Mahasiswa Bimbingan </th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">SKS Terhitung</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan(Ketua/Anggota) </th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jumlah Proyek</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">SKS Jumlah</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                         </tr>
@@ -170,6 +158,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_C"><i class="bi bi-pencil-square"></i></button>
@@ -182,6 +171,7 @@
                             <td scope="row">2</td>
                             <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
                                 arcu pharetra.</td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -207,13 +197,14 @@
             <h6><b>D. Membuat/menulis karya pengabdian kepada masyarakat dengan menulis 1 judul, direncanakan terbit ber ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber – ISBN</b></h6>
             <hr />
             <div class="text-sm">
-                <table id="tablePenunjang-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePengabdian-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jumlah Kelompok</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Tahapan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Posisi(Penulis Utama/Penulis lainnya)</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -231,6 +222,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_D"><i class="bi bi-pencil-square"></i></button>
@@ -243,6 +235,7 @@
                             <td scope="row">2</td>
                             <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
                                 arcu pharetra.</td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -262,19 +255,20 @@
     </div>
     {{-- AKHIR BAGIAN D --}}
 
-    {{-- BAGIAN E --}}
+{{-- BAGIAN E --}}
     <div id="pengabdian-E" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>E. Membuat/menulis karya pengabdian kepada masyarakat dengan menulis 1 judul, ada editor, tiap chapter ada kontributor</b></h6>
             <hr />
             <div class="text-sm">
-                <table id="tablePenunjang-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePengabdian-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jumlah Kelompok Dibimbing</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Tahapan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Posisi(Editor/Kontributor)</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -292,6 +286,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPengabdian_E"><i class="bi bi-pencil-square"></i></button>
@@ -304,6 +299,7 @@
                             <td scope="row">2</td>
                             <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
                                 arcu pharetra.</td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -329,13 +325,13 @@
             <h6><b>F. Membuat/menulis karya pengabdian kepada masyarakat dengan menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)</b></h6>
             <hr />
             <div class="text-sm">
-                <table id="tablePenunjang-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePengabdian-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jumlah Mahasiswa Dibimbing</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Tahapan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
