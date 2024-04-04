@@ -11,7 +11,8 @@ class PengabdianController extends Controller
 
         try{
             // Mengambil data a. kegiatan dari lumen
-
+            $responsKegiatan = Http::get('http://localhost:8001/api/pengabdian/kegiatan');
+            $Kegiatan = $responsKegiatan->json();
 
             // Mengambil data b. penyuluhan dari lumen
             $responsePenyuluhan = Http::get('http://localhost:8001/api/pengabdian/penyuluhan');
@@ -29,7 +30,7 @@ class PengabdianController extends Controller
             // Menggabungkan data
             $data = [
                 //data a
-
+                'kegiatan' => $Kegiatan,
                 //data b
                 'penyuluhan' => $Penyuluhan,
 
@@ -46,6 +47,58 @@ class PengabdianController extends Controller
             return response()->json(['error' => 'Failed to retrieve data from API'], 500);
         }
     }
+
+    // CRUD Tabel A. Kegiatan Setara // CRUD A. Kegiatan Setara
+    public function getKegiatan(Request $request){
+        try{
+            $responsKegiatan = Http::get('http://localhost:8001/api/pengabdian/kegiatan');
+            $Kegiatan = $responsKegiatan->json();
+
+            $data = [
+                'kegiatan' => $Kegiatan,
+            ];
+        }catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function postKegiatan(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/pengabdian/kegiatan',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_durasi' => $request->get('jumlah_durasi'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pengabdian kegiatan setara added successfully');
+    }
+
+    public function editKegiatan(Request $request)
+    {
+        Http::post(
+            'http://localhost:8001/api/pengabdian/edit/kegiatan',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_durasi' => $request->get('jumlah_durasi'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pengabdian kegiatan setara updated successfully');
+    }
+
+    public function deleteKegiatan($id)
+    {
+        Http::delete("http://localhost:8001/api/pengabdian/kegiatan/{$id}");
+
+        return redirect()->back()->with('success', 'Item in pengabdian kegiatan setara successfully deleted');
+    }
+    // END CRUD Tabel A. Kegiatan Setara // END CRUD Tabel A. Kegiatan Setara
+
 
     // CRUD Tabel B.Penyuluhan // CRUD Tabel B.Penyuluhan // CRUD B.Penyuluhan
     public function getPenyuluhan()

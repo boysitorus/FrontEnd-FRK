@@ -138,7 +138,10 @@ Route::group(['middleware' => ['check.token']], function() {
        // Kelompok rute untuk bagian pengabdian
        Route::prefix('/pengabdian')->group(function () {
             // Rute untuk data tabel a. kegiatan
-
+            Route::get('/kegiatan',[PengabdianController::class, 'getKegiatan'] )->name('rk-pengabdian.kegiatan');
+            Route::post('/kegiatan-tambah', [PengabdianController::class, 'postKegiatan'])->name('rk-pengabdian.kegiatan.create');
+            Route::delete('/kegiatan/{id}', [PengabdianController::class, 'deleteKegiatan'])->name('rk-pengabdian.kegiatan.destroy');
+            Route::post('/edit/kegiatan', [PengabdianController::class, 'editKegiatan'])->name('rk-pengabdian.kegiatan.update');
 
             // Rute untuk data tabel b. penyuluhan
             Route::get('/penyuluhan', [PengabdianController::class, 'getPenyuluhan'])->name('rk-pengabdian.penyuluhan');
@@ -168,50 +171,50 @@ Route::group(['middleware' => ['check.token']], function() {
         Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
         Route::get('/simpulan', [EvaluasiDiriController::class, 'getsimpulanPanel'])->name('ed-simpulan');
         Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
-   
+
         // Kelompok rute untuk bagian pendidikan
         Route::prefix('/pendidikan')->group(function () {
-            
-            // Rute untuk data tabel a. 
 
-            // Rute untuk data tabel b. 
+            // Rute untuk data tabel a.
 
-            // Rute untuk data tabel c. 
+            // Rute untuk data tabel b.
 
-            // Rute untuk data tabel d. 
+            // Rute untuk data tabel c.
 
-            // Rute untuk data tabel e. 
+            // Rute untuk data tabel d.
 
-            // Rute untuk data tabel f. 
+            // Rute untuk data tabel e.
 
-            // Rute untuk data tabel g. 
+            // Rute untuk data tabel f.
 
-            // Rute untuk data tabel h. 
+            // Rute untuk data tabel g.
 
-            // Rute untuk data tabel i. 
+            // Rute untuk data tabel h.
 
-            // Rute untuk data tabel j. 
+            // Rute untuk data tabel i.
+
+            // Rute untuk data tabel j.
         });
 
         // Kelompok rute untuk bagian penunjang
         Route::prefix('/penunjang')->group(function () {
-            // Rute untuk data tabel a. 
+            // Rute untuk data tabel a.
 
-            // Rute untuk data tabel b. 
+            // Rute untuk data tabel b.
 
-            // Rute untuk data tabel c. 
+            // Rute untuk data tabel c.
 
-            // Rute untuk data tabel d. 
+            // Rute untuk data tabel d.
 
-            // Rute untuk data tabel e. 
+            // Rute untuk data tabel e.
 
-            // Rute untuk data tabel f. 
+            // Rute untuk data tabel f.
 
-            // Rute untuk data tabel g. 
+            // Rute untuk data tabel g.
 
-            // Rute untuk data tabel h. 
+            // Rute untuk data tabel h.
 
-            // Rute untuk data tabel i. 
+            // Rute untuk data tabel i.
 
             // Rute untuk data tabel j.
 
