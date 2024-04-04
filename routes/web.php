@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RencanaKerjaController;
 use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PengabdianController;
+use App\Http\Controllers\EvaluasiDiriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,14 @@ Route::group(['middleware' => ['check.token']], function() {
 
     Route::get('/formRencanaKerja', function() {
         return view('App.Rencana.penelitian');
+    });
+
+    Route::get('/formEvaluasiDiri', function() {
+        return view('App.Evaluasi.pendidikan');
+    });
+
+    Route::get('/formEvaluasiDiri', function() {
+        return view('App.Evaluasi.penunjang');
     });
 
    Route::prefix('/formRencanaKerja')->group(function () {
@@ -152,4 +161,41 @@ Route::group(['middleware' => ['check.token']], function() {
 
        });
    });
+
+    Route::prefix('/formEvaluasiDiri')->group(function () {
+        Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanPanel'])->name('ed-pendidikan');
+        Route::get('/penelitian', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
+        Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
+        Route::get('/simpulan', [EvaluasiDiriController::class, 'getsimpulanPanel'])->name('ed-simpulan');
+        Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
+   
+        // Kelompok rute untuk bagian pendidikan
+        Route::prefix('/pendidikan')->group(function () {
+            
+            // Rute untuk data tabel a. 
+
+            // Rute untuk data tabel b. 
+
+            // Rute untuk data tabel c. 
+
+            // Rute untuk data tabel d. 
+
+            // Rute untuk data tabel e. 
+
+            // Rute untuk data tabel f. 
+
+            // Rute untuk data tabel g. 
+
+            // Rute untuk data tabel h. 
+
+            // Rute untuk data tabel i. 
+
+            // Rute untuk data tabel j. 
+        });
+
+        // Kelompok rute untuk bagian pendidikan
+        Route::prefix('/penunjang')->group(function () {
+
+        });
+    });
 });
