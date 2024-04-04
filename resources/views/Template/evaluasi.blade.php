@@ -40,7 +40,7 @@
                         <a class="nav-link{{ Request::is('formEvaluasiDiri/pengabdian') ? ' active' : '' }}" href="{{ route('ed-pengabdian') }} "><b>Evaluasi Pengabdian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link"><b>Evaluasi Penunjang Lainnya</b></a>
+                        <a class="nav-link{{ Request::is('formEvaluasiDiri/penunjang') ? ' active' : '' }}" href="{{ route('ed-penunjang') }} "><b>Evaluasi Penunjang Lainnya</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link{{ Request::is('formEvaluasiDiri/simpulan') ? ' active' : '' }}" href="{{ route('ed-simpulan') }}"><b>Simpulan</b></a>

@@ -11,4 +11,8 @@ class EvaluasiDiriController extends Controller
     public function getPendidikanPanel(){
         return view('App.Evaluasi.pendidikan');
     }
+
+    public function getPenunjangPanel(){
+        return view('App.Evaluasi.penunjang');
+    }
 }

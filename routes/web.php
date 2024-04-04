@@ -193,9 +193,35 @@ Route::group(['middleware' => ['check.token']], function() {
             // Rute untuk data tabel j. 
         });
 
-        // Kelompok rute untuk bagian pendidikan
+        // Kelompok rute untuk bagian penunjang
         Route::prefix('/penunjang')->group(function () {
+            // Rute untuk data tabel a. 
 
+            // Rute untuk data tabel b. 
+
+            // Rute untuk data tabel c. 
+
+            // Rute untuk data tabel d. 
+
+            // Rute untuk data tabel e. 
+
+            // Rute untuk data tabel f. 
+
+            // Rute untuk data tabel g. 
+
+            // Rute untuk data tabel h. 
+
+            // Rute untuk data tabel i. 
+
+            // Rute untuk data tabel j.
+
+            // Rute untuk data tabel k.
+
+            // Rute untuk data tabel l.
+
+            // Rute untuk data tabel m.
+
+            // Rute untuk data tabel n.
         });
     });
 });

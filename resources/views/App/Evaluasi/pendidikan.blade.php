@@ -60,7 +60,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel">A. Kuliah (Teori) pada tingkat Diploma dan S1 terhadap setiap kelompok</h5>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">A. Kuliah (Teori) pada tingkat Diploma dan S1 terhadap setiap kelompok</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -135,7 +135,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanBLabel">B. Asistensi tugas atau praktikum terhadap setiap kelompok</h5>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanBLabel">B. Asistensi tugas atau praktikum terhadap setiap kelompok</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -212,8 +212,8 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanCLabel">C. Bimbingan kuliah kerja yang terprogram terhadap setiap kelompok, Pembimbingan Praktek Klinik/Lapangan,
-                    dan DPL (Dosen Pembimbing lapangan)</h5>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanCLabel">C. Bimbingan kuliah kerja yang terprogram terhadap setiap kelompok, Pembimbingan Praktek Klinik/Lapangan,
+                    dan DPL (Dosen Pembimbing lapangan)</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -234,7 +234,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL ADD FILE A--}}
+    {{-- AKHIR MODAL ADD FILE C--}}
 
     {{-- BAGIAN D --}}
     <div id="ed-pendidikan-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -293,8 +293,8 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanDLabel">D. Menulis satu judul naskah buku internasional  
-                        (berbahasa dan diedarkan secara internasional minimal  tiga negara), disetujui oleh pimpinan dan tercatat</h5>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanDLabel">D. Menulis satu judul naskah buku internasional  
+                        (berbahasa dan diedarkan secara internasional minimal  tiga negara), disetujui oleh pimpinan dan tercatat</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -370,8 +370,8 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanELabel">E. Bimbingan dan tugas akhir/Skripsi/Karya Tulis Ilmiah SO (Diploma) dan S1 Dosen Pembimbing utama dan
-                    pembimbing penyerta dinilai sama</h5>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanELabel">E. Bimbingan dan tugas akhir/Skripsi/Karya Tulis Ilmiah SO (Diploma) dan S1 Dosen Pembimbing utama dan
+                    pembimbing penyerta dinilai sama</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -446,7 +446,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanFLabel">F. Menguji proposal S1, S2, S3, Kualifikasi</h5>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanFLabel">F. Menguji proposal S1, S2, S3, Kualifikasi</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -525,7 +525,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanGLabel">G. Membimbing dosen yang lebih rendah Jenjang Jabatan Akademiknya</h5>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanGLabel">G. Membimbing dosen yang lebih rendah Jenjang Jabatan Akademiknya</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -601,8 +601,8 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanHLabel">H. Mengembangkan program perkuliahan/pengajaran (Silabus, SAP/RPP, GBPP, dll) dalam kelompok atau mandiri
-                    yang hasilnya dipakai untuk kegiatan perkuliahan</h5>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanHLabel">H. Mengembangkan program perkuliahan/pengajaran (Silabus, SAP/RPP, GBPP, dll) dalam kelompok atau mandiri
+                    yang hasilnya dipakai untuk kegiatan perkuliahan</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -676,8 +676,8 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanILabel">I. Melaksanakan kegiatan detasering dan pencangkokan 
-                        dosen dalam 1 semester</h5>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanILabel">I. Melaksanakan kegiatan detasering dan pencangkokan 
+                        dosen dalam 1 semester</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -750,7 +750,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanJLabel">J. Koordinator Tugas Akhir/Skripsi, Proyek Akhir atau KP</h5>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanJLabel">J. Koordinator Tugas Akhir/Skripsi, Proyek Akhir atau KP</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
