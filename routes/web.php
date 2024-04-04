@@ -7,6 +7,7 @@ use App\Http\Controllers\RencanaKerjaController;
 use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PengabdianController;
 use App\Http\Controllers\EvaluasiDiriController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,10 @@ Route::post('/', [AuthenticationController::class, 'post'])->name('user.login.po
 Route::get('/', [AuthenticationController::class, 'get'])->name('user.login.get');
 Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout.get');
 
-
+Route::prefix('/admin')->group(function () {
+    Route::get('/generateFRK', [AdminController::class, 'getGenerateFRK'])->name('admin.generate_frk');
+    Route::get('/generateFED', [AdminController::class, 'getGenerateFED'])->name('admin.generate_fed');
+});
 Route::group(['middleware' => ['check.token']], function() {
     Route::get('/dashboard', [UserController::class, 'userDashboard'])->name('home');
 
