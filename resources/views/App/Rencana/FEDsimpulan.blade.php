@@ -22,7 +22,7 @@
         </div>
 
         <div class="text-sm">
-            <table id="simpulan" class="table table-striped mt-2 text-center outer-border-only-table" style="border: 2px;">
+            <table id="simpulan" class="table table-striped mt-2 text-center outer-border-only-table">
             <!-- <table id="simpulan" class="table table-striped mt-2 text-center" style="border: 2px;"> -->
                 <thead>
                     <tr>
@@ -43,7 +43,8 @@
                         <td style=" text-align: middle;"><strong>T.A 2023/2024</strong></td>
                         <td>3.5</td>
                         <td style="color: green">M</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
+                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;" data-bs-toggle="modal"
+                                    data-bs-target="#liha">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -54,7 +55,8 @@
                         <td style=" text-align: middle;"><strong>T.A 2023/2024</strong></td>
                         <td>0</td>
                         <td style="color: green">M</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
+                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;" data-bs-toggle="modal"
+                                    data-bs-target="#liha">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -65,7 +67,8 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: green">M</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
+                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;" data-bs-toggle="modal"
+                                    data-bs-target="#liha">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -76,109 +79,9 @@
                         <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
                         <td>0</td>
                         <td style="color: red">TM</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
+                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;" data-bs-toggle="modal"
+                                    data-bs-target="#liha">Lihat</button></td>
                     </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">5</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penunjang </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
-                        <td style="color: red">TM</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">6</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penunjang </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
-                        <td style="color: red">TM</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">7</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penunjang </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
-                        <td style="color: red">TM</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">8</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penunjang </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
-                        <td style="color: red">TM</td>
-                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">9</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penunjang </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
-                        <td style="color: red">TM</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">10</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penunjang</td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
-                        <td style="color: red">TM</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">11</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penunjang </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
-                        <td style="color: red">TM</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">12</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penunjang </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
-                        <td style="color: red">TM</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">13</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penunjang </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
-                        <td style="color: red">TM</td>
-                         <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;">Lihat</button></td>
-
-                    </tr>
-                </tbody>
     </table>
     <table id="simpulan2" class="table table-borderless">
     <!-- <table class="table table-striped table-bordered mt-2 text-center table-bordered" style="border: 2px;"> -->
@@ -256,6 +159,7 @@
 
 </div>
 
+
 @endsection
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -322,6 +226,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 });
+
 
 </script>
 

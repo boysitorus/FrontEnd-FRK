@@ -608,9 +608,7 @@
                     $('#editToast').removeClass('show');
                 }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
             }
-        </script>
 
-        <script>
             document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
                 showDeleteToast();
             });
@@ -627,9 +625,9 @@
                     $('#deleteToast').removeClass('show');
                 }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
             }
-        </script>
+  
 
-    <script>
+
         // Fungsi untuk mencegah perilaku default saat drag dan drop
         function preventDefaults(e) {
             e.preventDefault();
