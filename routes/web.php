@@ -114,6 +114,30 @@ Route::prefix('/formRencanaKerja')->group(function () {
         Route::post('/sosial', [PenunjangController::class, 'postSosial'])->name('rk-penunjang.sosial.create');
         Route::post('/edit/sosial', [PenunjangController::class, 'editSosial'])->name('rk-penunjang.sosial.update');
         Route::delete('/sosial/{id}', [PenunjangController::class, 'deleteSosial'])->name('rk-penunjang.sosial.destroy');
+
+        // E.
+        Route::post('/struktural', [PenunjangController::class, 'postStruktural'])->name('rk-penunjang.struktural.create');
+        Route::post('/edit/struktural', [PenunjangController::class, 'editStruktural'])->name('rk-penunjang.struktural.update');
+        Route::delete('/struktural/{id}', [PenunjangController::class, 'deleteStruktural'])->name('rk-penunjang.struktural.destroy');
+
+        // F
+        Route::post('/nonstruktural', [PenunjangController::class, 'postNonstruktural'])->name('rk-penunjang.nonstruktural.create');
+        Route::post('/edit/nonstruktural', [PenunjangController::class, 'editNonstruktural'])->name('rk-penunjang.nonstruktural.update');
+        Route::delete('/nonstruktural/{id}', [PenunjangController::class, 'deleteNonstruktural'])->name('rk-penunjang.nonstruktural.destroy');
+
+        // G
+        Route::post('/redaksi', [PenunjangController::class, 'postRedaksi'])->name('rk-penunjang.redaksi.create');
+        Route::post('/edit/redaksi', [PenunjangController::class, 'editRedaksi'])->name('rk-penunjang.redaksi.update');
+        Route::delete('/redaksi/{id}', [PenunjangController::class, 'deleteRedaksi'])->name('rk-penunjang.redaksi.destroy');
+
+        // H
+        Route::post('/adhoc', [PenunjangController::class, 'postAdhoc'])->name('rk-penunjang.adhoc.create');
+        Route::post('/edit/adhoc', [PenunjangController::class, 'editAdhoc'])->name('rk-penunjang.adhoc.update');
+        Route::delete('/adhoc/{id}', [PenunjangController::class, 'deleteAdhoc'])->name('rk-penunjang.adhoc.destroy');
+
+        // L.
+        Route::post('/asosiasi', [PenunjangController::class, 'postAsosiasi'])->name('rk-penunjang.asosiasi.create');
+        Route::post('/edit/asosiasi', [PenunjangController::class, 'editAsosiasi'])->name('rk-penunjang.asosiasi.update');
         
         // I.
         Route::post('/ketuapanitia', [PenunjangController::class, 'postKetuaPanitia'])->name('rk-penunjang.ketuapanitia.create');

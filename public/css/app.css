@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
 
 * {
     font-family: "Inter", sans-serif;
@@ -33,8 +34,6 @@ body {
         padding-left: 240px;
     }
 }
-
-
 
 /* Sidebar */
 .sidebar {
@@ -171,7 +170,6 @@ body {
     width: 150px;
 }
 
-
 .dropdown-menu {
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 0;
@@ -180,7 +178,7 @@ body {
 
 .dropdown-submenu:hover > .dropdown-menu {
     display: block !important;
-    
+
     margin-top: -37px;
 }
 
@@ -201,7 +199,7 @@ body {
     line-height: 12px;
 }
 
-.sub-menu{
+.sub-menu {
     position: relative;
     display: block;
     margin-bottom: -4px;
@@ -210,7 +208,7 @@ body {
     font-size: 16px;
 }
 
-.list-group-item{
+.list-group-item {
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -224,7 +222,7 @@ body {
     display: none;
 }
 
-#sidebarMenu.active .bi-chevron-down{
+#sidebarMenu.active .bi-chevron-down {
     display: none;
 }
 

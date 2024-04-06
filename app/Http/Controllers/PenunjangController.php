@@ -22,6 +22,18 @@ class PenunjangController extends Controller
             $responseSosial = Http::get('http://localhost:9000/api/penunjang/sosial');
             $sosial = $responseSosial->json();
 
+            $responseSturuktural = Http::get('http://localhost:9000/api/penunjang/struktural');
+            $struktural = $responseSturuktural->json();
+
+            $responsenonSturuktural = Http::get('http://localhost:9000/api/penunjang/nonstruktural');
+            $nonstruktural = $responsenonSturuktural->json();
+
+            $responseRedaksi = Http::get('http://localhost:9000/api/penunjang/redaksi');
+            $redaksi = $responseRedaksi->json();
+
+            $responseAdhoc = Http::get('http://localhost:9000/api/penunjang/adhoc');
+            $adhoc = $responseAdhoc->json();
+
             $responseAsosiasi = Http::get('http://localhost:9000/api/penunjang/asosiasi');
             $asosiasi = $responseAsosiasi->json();
 
@@ -45,6 +57,10 @@ class PenunjangController extends Controller
                 'bimbingan' => $bimbingan,
                 'ukm' => $ukm,
                 'sosial' => $sosial,
+                'struktural' => $struktural,
+                'nonstruktural' => $nonstruktural,
+                'redaksi' => $redaksi,
+                'adhoc' => $adhoc,
                 'asosiasi' => $asosiasi,
                 'seminar' => $seminar,
                 'reviewer' => $reviewer,
@@ -191,6 +207,146 @@ class PenunjangController extends Controller
     public function deleteSosial($id)
     {
         Http::delete("http://localhost:9000/api/penunjang/sosial/{$id}");
+
+        return redirect()->back();
+    }
+
+    // BAGIAN E. Jabatan struktural (berdasarkan beban/semester)
+    public function postStruktural(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/struktural',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_jabatan_struktural' => $request->get('jenis_jabatan_struktural'),
+            ]
+        );
+        return redirect()->back();
+    }
+
+    public function editStruktural(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/struktural",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_jabatan_struktural' => $request->get('jenis_jabatan_struktural'),
+
+            ]
+        );
+        return redirect()->back();
+    }
+
+    public function deleteStruktural($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/struktural/{$id}");
+
+        return redirect()->back();
+    }
+
+    // BAGIAN F. Jabatan non struktural
+    public function postNonstruktural(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/nonstruktural',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_jabatan_nonstruktural' => $request->get('jenis_jabatan_nonstruktural'),
+            ]
+        );
+        return redirect()->back();
+    }
+
+    public function editNonstruktural(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/nonstruktural",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_jabatan_nonstruktural' => $request->get('jenis_jabatan_nonstruktural'),
+
+            ]
+        );
+        return redirect()->back();
+    }
+
+    public function deleteNonstruktural($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/nonstruktural/{$id}");
+
+        return redirect()->back();
+    }
+
+    // BAGIAN G. Redaksi
+    public function postRedaksi(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/redaksi',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jabatan' => $request->get('jabatan'),
+            ]
+        );
+        return redirect()->back();
+    }
+
+    public function editRedaksi(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/redaksi",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jabatan' => $request->get('jabatan'),
+
+            ]
+        );
+        return redirect()->back();
+    }
+
+    public function deleteRedaksi($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/redaksi/{$id}");
+
+        return redirect()->back();
+    }
+
+    // BAGIAN G. Ad Hoc
+    public function postAdhoc(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/adhoc',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jabatan' => $request->get('jabatan'),
+            ]
+        );
+        return redirect()->back();
+    }
+
+    public function editAdhoc(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/adhoc",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jabatan' => $request->get('jabatan'),
+
+            ]
+        );
+        return redirect()->back();
+    }
+
+    public function deleteAdhoc($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/adhoc/{$id}");
 
         return redirect()->back();
     }

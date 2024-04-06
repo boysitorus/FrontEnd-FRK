@@ -5,6 +5,7 @@
     {{-- TAMPILAN BAGIAN EVALUASI PENELITIAN --}}
 
     {{-- BAGIAN A --}}
+    
     <div id="penelitian-A" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya 
@@ -42,25 +43,7 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_A"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_A"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -72,6 +55,70 @@
         </div>
     </div>
     {{-- AKHIR BAGIAN A --}}
+
+    {{-- MODAL UPLOAD A --}}
+    <div class="modal fade" id="modalEditPenelitian_A" tabindex="-1" aria-labelledby="modalEditPenelitian_A_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_A_label"><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan 
+                    karya seni atau teknologi yang dilakukan oleh kelompok (disetujui oleh pimpinan dan tercapai)</h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan dari Pimpinan 
+                                    / Ka LPPM atau Surat Kontrak Penelitian</b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Proposal</b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Laporan progress report bila belum selesai</b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat pernyataan dari Ka LPPM 
+                                bahwa penelitian sudah selesai</b></h6> </label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Laporan akhir penelitian (termasuk 
+                                log book)</b></h6> </label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Foto karya seni / bukti lain yang 
+                                relevan jika terkait dengan pengembangan teknologi</b></h6> </label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD A --}}
+
+
+{{--AKHIR BAGIAN MODAL BATAL UPLOAD A}}
 
     {{-- BAGIAN B --}}
     <div id="penelitian-B" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -106,23 +153,7 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_B"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_B"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -134,6 +165,67 @@
         </div>
     </div>
     {{-- AKHIR BAGIAN B --}}
+
+    {{-- MODAL UPLOAD B--}}
+    <div class="modal fade" id="modalEditPenelitian_B" tabindex="-1" aria-labelledby="modalEditPenelitian_B_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_B_label"><b>B. Pelaksanaan penelitian mandiri atau pembuatan 
+                karya seni atau teknologi (disetujui oleh pimpinan dan tercatat) </h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan dari Pimpinan 
+                                    / Ka LPPM atau Surat Kontrak Penelitian</b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Proposal</b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Laporan progress report bila belum selesai</b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat pernyataan dari Ka LPPM 
+                                bahwa penelitian sudah selesai</b></h6> </label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Laporan akhir penelitian (termasuk 
+                                log book)</b></h6> </label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Foto karya seni / bukti lain yang 
+                                relevan jika terkait dengan pengembangan teknologi</b></h6> </label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD B --}}
 
     {{-- BAGIAN C --}}
     <div id="penelitian-C" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -173,25 +265,7 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_C"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_C"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_C"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -203,6 +277,55 @@
         </div>
     </div>
     {{--AKHIR BAGIAN C --}}
+
+    {{-- MODAL UPLOAD C--}}
+    <div class="modal fade" id="modalEditPenelitian_C" tabindex="-1" aria-labelledby="modalEditPenelitian_C_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_C_label"><b>C.Menulis 1 judul naskah buku yang akan diterbitkan dalam 
+                    waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat) sama dengan 3 sks.  </h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Buku yang sudah terbit </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Bukti kontrak penerbitan jika 
+                                masih naik cetak </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan Sedang Menulis 
+                                Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam 
+                                berapa lama, bagi yang sedang menulis. </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Progres penulisan buku dll., bagi 
+                                yang sedang dalam proses </b></h6> </label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD C --}}
 
     {{-- BAGIAN D --}}
     <div id="penelitian-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -242,26 +365,10 @@
                         <td></td>
                         <td></td>
                         <td>
-                            <button type="button" class="btn btn-warning mr-1" 
-                                data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_D"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" 
-                                data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-warning mr-1" 
-                                data-bs-toggle="modal" data-bs-target="#modalEditPenelitian_D"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger" 
-                                data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditPenelitian_D"><i class="bi bi-plus-square"></i></button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -270,6 +377,55 @@
         </div>
     </div>
     {{-- AKHIR BAGIAN D --}}
+
+    {{-- MODAL UPLOAD D --}}
+    <div class="modal fade" id="modalEditPenelitian_D" tabindex="-1" aria-labelledby="modalEditPenelitian_D_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_D_label"><b>D.Menulis satu judul naskah buku internasional 
+                (berbahasa dan diedarkan secara internasional minimal tiga negara), disetujui oleh pimpinan dan tercatat </h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Buku yang sudah terbit </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Bukti kontrak penerbitan jika 
+                                masih naik cetak </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan Sedang Menulis 
+                                Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam 
+                                berapa lama, bagi yang sedang menulis. </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Progres penulisan buku dll., bagi 
+                                yang sedang dalam proses </b></h6> </label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD D --}}
 
     {{-- BAGIAN E --}}
     <div id="penelitian-E" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -309,25 +465,7 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_E"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_E"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_E"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -339,6 +477,55 @@
         </div>
     </div>
     {{-- AKHIR BAGIAN E --}}
+
+    {{-- MODAL UPLOAD E --}}
+    <div class="modal fade" id="modalEditPenelitian_E" tabindex="-1" aria-labelledby="modalEditPenelitian_E_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_E_label"><b>E.Menterjemahkan atau menyadur naskah buku teks yang 
+                akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks  </h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Buku yang sudah terbit </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Bukti kontrak penerbitan jika 
+                                masih naik cetak </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan Sedang Menulis 
+                                Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam 
+                                berapa lama, bagi yang sedang menulis. </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Progres penulisan buku dll., bagi 
+                                yang sedang dalam proses </b></h6> </label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD E --}}
 
     {{-- BAGIAN F --}}
     <div id="penelitian-F" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -378,25 +565,7 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_F"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_F"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_F"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -408,6 +577,52 @@
         </div>
     </div>
     {{-- AKHIR BAGIAN F --}}
+
+    {{-- MODAL UPLOAD F --}}
+    <div class="modal fade" id="modalEditPenelitian_F" tabindex="-1" aria-labelledby="modalEditPenelitian_F_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_F_label"><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu 
+                sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat) sama dengan 2 sks </h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat Tugas atau Surat Keterangan Telah Menyunting Buku dari Pimpinan dengan 
+                                mencantumkan akan selesai dalam berapa lama. </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Buku yang sudah terbit </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>bukti kontrak penerbitan jika masih naik cetak  </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Progres penyuntingan naskah buku </b></h6> </label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD F --}}
 
     {{-- BAGIAN G --}}
     <div id="penelitian-G" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -447,27 +662,10 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_G"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_G"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_G"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
                             </td>
                         </tr>
@@ -477,6 +675,47 @@
         </div>
     </div>
     {{-- AKHIR BAGIAN G --}}
+
+    {{-- MODAL UPLOAD G --}}
+    <div class="modal fade" id="modalEditPenelitian_G" tabindex="-1" aria-labelledby="modalEditPenelitian_G_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_G_label"><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen  yang sesuai dengan 
+                bidang ilmu dan tidak diterbitkan,  tetapi digunakan oleh mahasiswa</h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat Tugas atau Surat Keputusan Mengajar (mata 
+                                kuliah yang dimodulkan) dari Pimpinan  </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Modul/Diktat/Bahan Ajar yang sudah jadi</b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Bukti lain yang menunjukkan bahwa modul/diktat/bahan ajar 
+                                sudah dipergunakan oleh mahasiswa.  </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD G --}}
 
     {{-- BAGIAN H --}}
     <div id="penelitian-H" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -509,22 +748,7 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_H"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -536,6 +760,45 @@
         </div>
     </div>
     {{-- AKHIR BAGIAN H --}}
+
+    {{-- MODAL UPLOAD H --}}
+    <div class="modal fade" id="modalEditPenelitian_H" tabindex="-1" aria-labelledby="modalEditPenelitian_H_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_H_label"><b>H. PEKERTI/AA</h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat Tugas Mengikuti Program Pekerti dari Pimpinan </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Sertifikat </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Tugas yang diselesaikan selama pelatihan seperti RKPSS yang 
+                                sudah siap dll.  </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD H --}}
 
     {{-- BAGIAN I --}}
     <div id="penelitian-I" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -569,23 +832,7 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_H"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                arcu pharetra.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_I"><i class="bi bi-pencil-square"></i></button>
+                                    data-bs-target="#modalEditPenelitian_I"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -598,7 +845,45 @@
     </div>
     {{-- AKHIR BAGIAN I --}}
 
-    {{-- BAGIAN J--}}
+    {{-- MODAL UPLOAD I --}}
+    <div class="modal fade" id="modalEditPenelitian_I" tabindex="-1" aria-labelledby="modalEditPenelitian_I_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_I_label"><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat Tugas Mengikuti Program Pekerti dari Pimpinan </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>vSurat permohonan dari institusi lain </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Lembar Pengesahan/bukti kegiatan yg disahkan atasan </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD I --}}
+
+        {{-- BAGIAN J--}}
         <div id="penelitian-J" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
             <div class="card-body">
                 <h6><b>J. Menulis jurnal ilmiah</b></h6>
@@ -637,29 +922,9 @@
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_J"><i class="bi bi-pencil-square"></i></button>
+                                        data-bs-target="#modalEditPenelitian_J"><i class="bi bi-plus-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                    arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenunjang_J"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
                                 </td>
                             </tr>
                         </tbody>
@@ -668,6 +933,33 @@
             </div>
         </div>
     {{-- AKHIR BAGIAN J --}}
+
+    {{-- MODAL UPLOAD J --}}
+    <div class="modal fade" id="modalEditPenelitian_J" tabindex="-1" aria-labelledby="modalEditPenelitian_J_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_J_label"><b>J. Menulis jurnal ilmiah</h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Jurnal yang sudah diterbitkan atau surat 
+                                keterangan/penerimaan dr redaksi & naskah, bagi yang belum diterbitkan. </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD J --}}
 
     {{-- BAGIAN K --}}
         <div id="penelitian-K" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -702,23 +994,7 @@
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_K"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                    arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_K"><i class="bi bi-pencil-square"></i></button>
+                                        data-bs-target="#modalEditPenelitian_K"><i class="bi bi-plus-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -730,6 +1006,33 @@
             </div>
         </div>
     {{-- AKHIR BAGIAN K --}}
+
+    {{-- MODAL UPLOAD K --}}
+    <div class="modal fade" id="modalEditPenelitian_K" tabindex="-1" aria-labelledby="modalEditPenelitian_K_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_K_label"><b>K. Memperoleh hak paten</h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat/sertifikat paten atau surat 
+                                keterangan dari Pimpinan  </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD K --}}
 
     {{-- BAGIAN L --}}
         <div id="penelitian-L" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -763,22 +1066,7 @@
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_L"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                    arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_L"><i class="bi bi-pencil-square"></i></button>
+                                        data-bs-target="#modalEditPenelitian_L"><i class="bi bi-plus-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -790,6 +1078,34 @@
             </div>
         </div>
     {{-- AKHIR BAGIAN L --}}
+
+    {{-- MODAL UPLOAD L --}}
+    <div class="modal fade" id="modalEditPenelitian_L" tabindex="-1" aria-labelledby="modalEditPenelitian_L_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_L_label"><b>L. Menulis di media massa (Koran/majalah: tulisan berupa opini, 
+                    form diskusi, kritik, kajian ilmiah, ulasan ahli/pakar yang terkait dengan keahlian bidang ilmunya)</h5></b>
+                    </div>
+                    <div class="modal-body">
+                        
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6> Foto kopi tulisan yang dimuat di 
+                                Koran/majalah</b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD L --}}
 
     {{-- BAGIAN M --}}
         <div id="penelitian-M" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -824,23 +1140,7 @@
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_M"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                    arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_M"><i class="bi bi-pencil-square"></i></button>
+                                        data-bs-target="#modalEditPenelitian_M"><i class="bi bi-plus-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -852,6 +1152,62 @@
             </div>
         </div>
     {{-- AKHIR BAGIAN M --}}
+
+    {{-- MODAL UPLOAD M --}}
+    <div class="modal fade" id="modalEditPenelitian_M" tabindex="-1" aria-labelledby="modalEditPenelitian_M_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditPenelitian_M_label"><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar, 
+                    narasumber terkait dengan bidang keilmuannya</h5></b>
+                    </div>
+                    <div class="modal-body">
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>SuratPermohonan sebagai </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Pembicara/Narasumber </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Surat tugas/ijin/persetujuan dari </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Pimpinan </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Naskah/ materi yang diberikan </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    <form>
+                                <div class="mb-3">
+                                <label for="formFile" class="form-label"><b><h6>Sertifikat (jika ada) </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
+                                </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- AKHIR MODAL UPLOAD M --}}
 
     {{-- BAGIAN N --}}
         <div id="penelitian-N" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -892,26 +1248,7 @@
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_N"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td>Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit
-                                    arcu pharetra.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_N"><i class="bi bi-pencil-square"></i></button>
+                                        data-bs-target="#modalEditPenelitian_N"><i class="bi bi-plus-square"></i></button>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
 
@@ -924,847 +1261,49 @@
         </div>
     {{-- AKHIR BAGIAN N --}}
 
-    <!-- {{-- TEMPAT MODAL TAMBAH KEGIATAN A--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_A" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">A. Bimbingan Akademik 
-                                (perwalian/penasehat akademik)</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN A}}
-
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN B--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_B" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">B. Bimbingan dan Konseling</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN B}}
-
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN C--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_C" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">C. Pimpinan Pembina Unit Kegiatan Mahasiswa</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Kegiatan</label>
-                                    <label class="form-label">Jumlah Kegiatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN C}}
-
-    
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN D--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_D" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">D. Pimpinan organisasi sosial intern sebagai hanya Ketua/Wakil yang dibina Ketua, misal a. Koperasi fakultas, b. Dharma wanita, c. Takmir Masjid/Pastoran</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN D}}
-    
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN E--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_E" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">E. Jabatan struktural (berdasarkan beban/semester)</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan</label>
-
-                                    <label class="form-label">Jabatan:</label>
-
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN E}}
-
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN F--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_F" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">F. Jabatan non struktural</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan</label>
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN F}}
-
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN G--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_G" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">G. Ketua Redaksi Jurnal ber-ISSN / Anggota Redaksi Jurnal ber-ISSN</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN G}}
-
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN H--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_H" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-
-                            <h6 class="modal-title" id="exampleModalLabel">H. Ketua Panitia Ad Hoc</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN H}}
-
-   {{-- TEMPAT MODAL TAMBAH KEGIATAN I--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_I" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">I. Ketua Panitia Tetap</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tingkat Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN I}}
-
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN J--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_J" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">J. Anggota Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tingkat Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN J}}
-
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN K--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_K" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI, assesor BAN-PT</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN K}}
-
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN L--}}
-    <div class="modal fade modal-lg" id="modalPenunjang_L" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">L. Menjadi Pengurus/Anggota Asosiasi Profesi</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tingkatan</label>
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN L}}
-
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN M--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_M" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">M. Peserta seminar/workshop/kursus berdasar penugasan pimpinan</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tingkatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN M}}
-
-    {{-- TEMPAT MODAL TAMBAH KEGIATAN N--}}
-            <div class="modal fade modal-lg" id="modalPenunjang_N" tabindex="-1" role="dialog" 
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">N. Reviewer jurnal ilmiah , proposal Hibah dll</h6>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN N}} -->
-
-    {{-- TEMPAT MODAL EDIT CONFIRM A--}}
-    <div class="modal fade" id="modalEditPenelitian_A" tabindex="-1" aria-labelledby="modalEditPenelitianALabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
+    {{-- MODAL UPLOAD N --}}
+    <div class="modal fade" id="modalEditPenelitian_N" tabindex="-1" aria-labelledby="modalEditPenelitian_N_label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitianALabel">Edit Penelitian A</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>Choose a file or drag it here</h3>
-                            <!-- File input -->
-                            <input type="file" id="fileInput" multiple>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Attachment</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM B--}}
-        <div class="modal fade" id="modalEditPenunjang_B" tabindex="-1" aria-labelledby="modalEditPenunjangBLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangBLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="modalEditPenelitian_N_label"><b>N. Penyaji makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</h5></b>
                     </div>
                     <div class="modal-body">
-                        
                     <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
+                                <label for="formFile" class="form-label"><b><h6>Surat penerimaan untuk disajikan dari Panitia </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Mahasiswa:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM C--}}
-        <div class="modal fade" id="modalEditPenunjang_C" tabindex="-1" aria-labelledby="modalEditPenunjangCLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangCLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
+                    </form>
                     <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
+                                <label for="formFile" class="form-label"><b><h6>Surat tugas/ijin/persetujuan dari Pimpinan </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah Kegiatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM D--}}
-        <div class="modal fade" id="modalEditPenunjang_D" tabindex="-1" aria-labelledby="modalEditPenunjangDLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangDLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Nama Kegiatan:</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM E--}}
-        <div class="modal fade" id="modalEditPenunjang_E" tabindex="-1" aria-labelledby="modalEditPenunjangELabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangELabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
+                    </form>
                     <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
+                                <label for="formFile" class="form-label"><b><h6>Naskah/ materi yang diberikan </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM F--}}
-        <div class="modal fade" id="modalEditPenunjang_F" tabindex="-1" aria-labelledby="modalEditPenunjangFLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangFLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM G--}}
-        <div class="modal fade" id="modalEditPenunjang_G" tabindex="-1" aria-labelledby="modalEditPenunjangGLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangGLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM H--}}
-        <div class="modal fade" id="modalEditPenunjang_H" tabindex="-1" aria-labelledby="modalEditPenunjangHLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangHLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM I--}}
-        <div class="modal fade" id="modalEditPenunjang_I" tabindex="-1" aria-labelledby="modalEditPenunjangILabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangILabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tingkat Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM J--}}
-        <div class="modal fade" id="modalEditPenunjang_J" tabindex="-1" aria-labelledby="modalEditPenunjangJLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangJLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tingkat Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM K--}}
-        <div class="modal fade" id="modalEditPenunjang_K" tabindex="-1" aria-labelledby="modalEditPenunjangKLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangKLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM L--}}
-        <div class="modal fade" id="modalEditPenunjang_L" tabindex="-1" aria-labelledby="modalEditPenunjangLLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangLLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Jabatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM M--}}
-        <div class="modal fade" id="modalEditPenunjang_M" tabindex="-1" aria-labelledby="modalEditPenunjangMLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangMLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
+                    </form>
                     <form>
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Kegiatan:</label>
-                                    <input type="text" class="form-control" id="nama">
+                                <label for="formFile" class="form-label"><b><h6>Sertifikat (jika ada) </b></h6></label>
+                                <input class="form-control" type="file" id="formFile">
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tingkatan:</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </form>
+                    </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                    <div class="modal-footer py-4">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
                 </div>
             </div>
         </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM N--}}
-        <div class="modal fade" id="modalEditPenunjang_N" tabindex="-1" aria-labelledby="modalEditPenunjangNLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalEditPenunjangNLabel">Edit Kegiatan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                        <form>
-                            <div class="mb-3">
-                                <label for="editKegiatan" class="form-label">Nama Kegiatan:</label>
-                                <input type="text" class="form-control" id="editKegiatan">
-                            </div>
-                            
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR MODAL EDIT --}}
+        {{-- AKHIR MODAL UPLOAD N --}}
+        
 
         {{-- TEMPAT MODAL DELETE CONFIRM --}}
         <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
@@ -1789,7 +1328,23 @@
                 </div>
             </div>
         </div>
+       
+        {{-- MODAL BATAL UPLOAD --}}
+        <div class="modal fade" id="modalBatal" tabindex="-1" aria-labelledby="modalBatal_label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body text-center" style="padding: 8%;">
+                        <h5 class="modal-title" id="modalBatal_label py-5">Apakah anda yakin untuk membatalkan pengumpulan lampiran?</h5>
+                        <div class="my-4">
+                            <button type="button" class="btn btn-primary mx-3" data-bs-dismiss="modal">Yakin</button>
+                            <button type="button" class="btn btn-secondary mx-3">Tidak</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        {{-- AKHIR BAGIAN MODAL BATAL UPLOAD --}}
 
         {{-- TEMPAT TOAST --}}
 
@@ -1854,7 +1409,15 @@
             }
         </script>
 
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var editButton = document.querySelector("#modalEditButton");
 
-
+        editButton.addEventListener("click", function() {
+            var modalEdit = new bootstrap.Modal(document.querySelector("#modalEditPenelitian_A"));
+        modalEdit.show();
+            });
+        });
+        </script>
 
 @endsection

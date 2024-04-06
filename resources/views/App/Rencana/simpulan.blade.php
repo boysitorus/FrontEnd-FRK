@@ -143,7 +143,7 @@
         </div>
         <!-- Add a red-colored sentence -->
         <div style="margin-top: 10px; text-align: center; color: blue;">
-        <strong>Memenuhi ketentuan Perundan-undang beban kerja dosen mengenai Kewajiban Khusus Dosen.</strong>
+        <strong>Memenuhi ketentuan Perundang-undang beban kerja dosen mengenai Kewajiban Khusus Dosen.</strong>
         </div>
 
         <!-- Add some distance from the table -->
@@ -156,7 +156,7 @@
             <strong>Hasil Penilaian Laporan BKD.</strong>
         </div>
         <div style="margin-top: 10px; text-align: center; color: red;">
-            <strong>Belum memenuhi ketentuan Perundan-undang beban kerja dosen mengenai Kewajiban Khusus Dosen.</strong>
+            <strong>Belum memenuhi ketentuan Perundang-undang beban kerja dosen mengenai Kewajiban Khusus Dosen.</strong>
         </div>
         <div style="margin-top: 150px; border-bottom: 2px solid black; " class="ml-1 mr-1"></div>
         </div>
@@ -171,13 +171,14 @@
         </div>
         <div class="col-md-6 text-md-end">
             <!-- Simpan Permanen button with save icon -->
-            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: #063F78;  color: #fff;" class = "mr-4" >
+            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#005b96;  color: #fff;" class = "mr-4" >
                 <i class="fas fa-save"></i> Simpan Permanen
             </button>
         </div>
     </div>
 </div>
-
+<div style="margin-top: 30px; "></div>
+        </div>
 </div>
 
 </div>
