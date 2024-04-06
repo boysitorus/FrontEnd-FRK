@@ -154,21 +154,20 @@ Route::prefix('/formRencanaKerja')->group(function () {
 
     Route::get('/simpulan', function () {
         return view('App.Rencana.simpulan');
-    });
+    })->name('rk-simpulan');
 
-    Route::get('/FEDsimpulan', function () {
-        return view('App.Rencana.FEDsimpulan');
-    });
 });
 
 Route::prefix('/formEvaluasiDiri')->group(function () {
     Route::get('/penelitian', function () {
         return view('App.Evaluasi.penelitian');
     });
-});
-
-Route::prefix('/formEvaluasiDiri')->group(function () {
+    
     Route::get('/pengabdian', function () {
         return view('App.Evaluasi.pengabdian');
+    });
+
+    Route::get('/simpulan', function () {
+        return view('App.Rencana.FEDsimpulan');
     });
 });
