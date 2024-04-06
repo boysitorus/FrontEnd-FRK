@@ -43,6 +43,15 @@ class PenunjangController extends Controller
             $responseReviewer = Http::get('http://localhost:9000/api/penunjang/reviewer');
             $reviewer = $responseReviewer->json();
 
+            $responseKetuaPanitia = Http::get('http://localhost:9000/api/penunjang/ketuapanitia');
+            $ketuapanitia = $responseKetuaPanitia->json();
+
+            $responseAnggotaPanitia = Http::get('http://localhost:9000/api/penunjang/anggotapanitia');
+            $anggotapanitia = $responseAnggotaPanitia->json();
+
+            $responsePengurusYayasan = Http::get('http://localhost:9000/api/penunjang/pengurusyayasan');
+            $pengurusyayasan = $responsePengurusYayasan->json();
+
             $data = [
                 'akademik' => $akademik,
                 'bimbingan' => $bimbingan,
@@ -54,7 +63,10 @@ class PenunjangController extends Controller
                 'adhoc' => $adhoc,
                 'asosiasi' => $asosiasi,
                 'seminar' => $seminar,
-                'reviewer' => $reviewer
+                'reviewer' => $reviewer,
+                'ketuapanitia' => $ketuapanitia,
+                'anggotapanitia' => $anggotapanitia,
+                'pengurusyayasan' => $pengurusyayasan
             ];
 
             return view('App.Rencana.penunjang', $data);
@@ -339,6 +351,111 @@ class PenunjangController extends Controller
         return redirect()->back();
     }
 
+    // BAGIAN I
+    public function postKetuaPanitia(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/ketuapanitia',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_tingkatan' => $request->get('jenis_tingkatan'),
+            ]
+        );
+        return redirect()->back()->with('success', 'Item berhasil ditambahkan');
+    }
+
+    public function editKetuaPanitia(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/ketuapanitia",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_tingkatan' => $request->get('jenis_tingkatan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item berhasil diperbaharui');
+    }
+
+    public function deleteKetuaPanitia($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/ketuapanitia/{$id}");
+
+        return redirect()->back()->with('success', 'Item berhasil dihapus');
+    }
+    
+    // BAGIAN J
+    public function postAnggotaPanitia(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/anggotapanitia',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_tingkatan' => $request->get('jenis_tingkatan'),
+            ]
+        );
+        return redirect()->back()->with('success', 'Item berhasil ditambahkan');
+    }
+
+    public function editAnggotaPanitia(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/anggotapanitia",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jenis_tingkatan' => $request->get('jenis_tingkatan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item berhasil diperbaharui');
+    }
+
+    public function deleteAnggotaPanitia($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/anggotapanitia/{$id}");
+
+        return redirect()->back()->with('success', 'Item berhasil dihapus');
+    }
+
+    // BAGIAN I
+    public function postPengurusYayasan(Request $request)
+    {
+        Http::post(
+            'http://localhost:9000/api/penunjang/pengurusyayasan',
+            [
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jabatan' => $request->get('jabatan'),
+            ]
+        );
+        return redirect()->back()->with('success', 'Item berhasil ditambahkan');
+    }
+
+    public function editPengurusYayasan(Request $request)
+    {
+        Http::post(
+            "http://localhost:9000/api/penunjang/edit/pengurusyayasan",
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jabatan' => $request->get('jabatan'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Item berhasil diperbaharui');
+    }
+
+    public function deletePengurusYayasan($id)
+    {
+        Http::delete("http://localhost:9000/api/penunjang/pengurusyayasan/{$id}");
+
+        return redirect()->back()->with('success', 'Item berhasil dihapus');
+    }
+
     // BAGIAN L. Menjadi Pengurus/Anggota Asosiasi Profesi
     public function postAsosiasi(Request $request)
     {
@@ -443,4 +560,6 @@ class PenunjangController extends Controller
 
         return redirect()->back()->with('success', 'Item berhasil dihapus');
     }
+
+    
 }
