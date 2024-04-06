@@ -134,10 +134,6 @@ Route::prefix('/formRencanaKerja')->group(function () {
         Route::post('/adhoc', [PenunjangController::class, 'postAdhoc'])->name('rk-penunjang.adhoc.create');
         Route::post('/edit/adhoc', [PenunjangController::class, 'editAdhoc'])->name('rk-penunjang.adhoc.update');
         Route::delete('/adhoc/{id}', [PenunjangController::class, 'deleteAdhoc'])->name('rk-penunjang.adhoc.destroy');
-
-        // L.
-        Route::post('/asosiasi', [PenunjangController::class, 'postAsosiasi'])->name('rk-penunjang.asosiasi.create');
-        Route::post('/edit/asosiasi', [PenunjangController::class, 'editAsosiasi'])->name('rk-penunjang.asosiasi.update');
         
         // I.
         Route::post('/ketuapanitia', [PenunjangController::class, 'postKetuaPanitia'])->name('rk-penunjang.ketuapanitia.create');
@@ -153,7 +149,6 @@ Route::prefix('/formRencanaKerja')->group(function () {
         Route::post('/pengurusyayasan', [PenunjangController::class, 'postPengurusYayasan'])->name('rk-penunjang.pengurusyayasan.create');
         Route::post('/edit/pengurusyayasan', [PenunjangController::class, 'editPengurusYayasan'])->name('rk-penunjang.pengurusyayasan.update');
         Route::delete('/pengurusyayasan/{id}', [PenunjangController::class, 'deletePengurusYayasan'])->name('rk-penunjang.pengurusyayasan.destroy');
-
 
         // L.
         Route::post('/asosiasi', [PenunjangController::class, 'postAsosiasi'])->name('rk-penunjang.asosasi.create');
