@@ -115,7 +115,20 @@ Route::prefix('/formRencanaKerja')->group(function () {
         Route::post('/edit/sosial', [PenunjangController::class, 'editSosial'])->name('rk-penunjang.sosial.update');
         Route::delete('/sosial/{id}', [PenunjangController::class, 'deleteSosial'])->name('rk-penunjang.sosial.destroy');
         
+        // I.
+        Route::post('/ketuapanitia', [PenunjangController::class, 'postKetuaPanitia'])->name('rk-penunjang.ketuapanitia.create');
+        Route::post('/edit/ketuapanitia', [PenunjangController::class, 'editKetuaPanitia'])->name('rk-penunjang.ketuapanitia.update');
+        Route::delete('/ketuapanitia/{id}', [PenunjangController::class, 'deleteKetuaPanitia'])->name('rk-penunjang.ketuapanitia.destroy');
 
+        // J.
+        Route::post('/anggotapanitia', [PenunjangController::class, 'postAnggotaPanitia'])->name('rk-penunjang.anggotapanitia.create');
+        Route::post('/edit/anggotapanitia', [PenunjangController::class, 'editAnggotaPanitia'])->name('rk-penunjang.anggotapanitia.update');
+        Route::delete('/anggotapanitia/{id}', [PenunjangController::class, 'deleteAnggotaPanitia'])->name('rk-penunjang.anggotapanitia.destroy');
+
+        // K.
+        Route::post('/pengurusyayasan', [PenunjangController::class, 'postPengurusYayasan'])->name('rk-penunjang.pengurusyayasan.create');
+        Route::post('/edit/pengurusyayasan', [PenunjangController::class, 'editPengurusYayasan'])->name('rk-penunjang.pengurusyayasan.update');
+        Route::delete('/pengurusyayasan/{id}', [PenunjangController::class, 'deletePengurusYayasan'])->name('rk-penunjang.pengurusyayasan.destroy');
 
 
         // L.
