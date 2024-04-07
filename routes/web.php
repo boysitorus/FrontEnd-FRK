@@ -182,7 +182,11 @@ Route::prefix('/formEvaluasiDiri')->group(function () {
         return view('App.Evaluasi.pengabdian');
     });
 
-    Route::get('/simpulan', function () {
+    Route::get('/FEDsimpulan', function () {
         return view('App.Evaluasi.FEDsimpulan');
+    });
+
+    Route::get('/simpulanPengabdian', function () {
+        return view('App.Evaluasi.simpulanPengabdian');
     });
 });
