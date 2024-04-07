@@ -183,6 +183,6 @@ Route::prefix('/formEvaluasiDiri')->group(function () {
     });
 
     Route::get('/simpulan', function () {
-        return view('App.Rencana.FEDsimpulan');
+        return view('App.Evaluasi.FEDsimpulan');
     });
 });

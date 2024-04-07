@@ -29,8 +29,8 @@
                         <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: middle;" >No.</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  style=" text-align: middle;" >Jenis Kinerja</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: middle;" >Syarat</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: middle;" >Filter By<select class="sort-option"><option value="">Show All</option></select></th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">sks Lebih</th>
+                        <!-- <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: middle;" >Filter By<select class="sort-option"><option value="">Show All</option></select></th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">sks Lebih</th> -->
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Status</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Lampiran</th>
                     </tr>
@@ -40,11 +40,10 @@
                         <td scope="row"  >1</td>
                         <td  style=" text-align: middle;">Pelaksanaan Pendidikan </td>
                         <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2023/2024</strong></td>
-                        <td>3.5</td>
+                        <!-- <td style=" text-align: middle;"><strong>T.A 2023/2024</strong></td>
+                        <td>3.5</td> -->
                         <td style="color: green">M</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;" data-bs-toggle="modal"
-                                    data-bs-target="#liha">Lihat</button></td>
+                          <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -52,11 +51,10 @@
                         <td scope="row"  style=" text-align: middle;">2</td>
                         <td  style=" text-align: middle;">Pelaksanaan Penelitian </td>
                         <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2023/2024</strong></td>
-                        <td>0</td>
+                        <!-- <td style=" text-align: middle;"><strong>T.A 2023/2024</strong></td>
+                        <td>0</td> -->
                         <td style="color: green">M</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;" data-bs-toggle="modal"
-                                    data-bs-target="#liha">Lihat</button></td>
+                          <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -64,11 +62,10 @@
                         <td scope="row"  style=" text-align: middle;">3</td>
                         <td  style=" text-align: middle;">Pelaksanaan Pengabdian </td>
                         <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
+                        <!-- <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
+                        <td>0</td> -->
                         <td style="color: green">M</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;" data-bs-toggle="modal"
-                                    data-bs-target="#liha">Lihat</button></td>
+                          <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
                     </tr>
                 </tbody>
                 <tbody class="align-middle">
@@ -76,59 +73,19 @@
                         <td scope="row"  style=" text-align: middle;">4</td>
                         <td  style=" text-align: middle;">Pelaksanaan Penunjang</td>
                         <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td>
+                        <!-- <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
+                        <td>0</td> -->
                         <td style="color: red">TM</td>
-                          <td><button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color:#008DDA; color: #fff; border-radius: 5px;" data-bs-toggle="modal"
-                                    data-bs-target="#liha">Lihat</button></td>
+                          <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
                     </tr>
     </table>
-    <table id="simpulan2" class="table table-borderless">
-    <!-- <table class="table table-striped table-bordered mt-2 text-center table-bordered" style="border: 2px;"> -->
-                <tbody class="align-middle">
-                <tr>
-                <td colspan="2" style="text-align: left;"><i><strong>Kriteria Pelaksanaan Pendidikan dan Pelaksanaan Penelitian</strong></i></td>
-                        <td style=" text-align: left;"><i><strong>Minimal 9 sks</strong></i></td>
-                        <td><i>3.5</i></td>
-                        <td style="color: green"><i>M</i></td>
-
-                    </tr>
-                </tbody>
-
-                <tbody class="align-middle" >
-                <tr >
-                <td colspan="2" style="text-align: left;"><i><strong>Kriteria Pelaksanaan Pendidikan dan Pelaksanaan Penelitian</i></strong></td>
-                        <td style="text-align: left;"><i><strong>Minimal 9 sks</i></strong></td>
-                        <td><i>0</i></td>
-                        <td style="color: green"><i>M</i></td>
-
-                    </tr>
-                </tbody>
-                <tbody class="align-middle" >
-                <tr style="border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;">
-                <td colspan="2" style="text-align: left; background-color: #DFF5FF;" ><strong>Total Kinerja</strong></td>
-                        <td style=" text-align: left; background-color: #DFF5FF;">Minimal 12 sks dan maksimal 16 sks</td>
-                        <td style="background-color: #DFF5FF; ">0</td>
-                        <td style="color: red; background-color: #DFF5FF;">TM</td>
-                            
-                    </tr>
-                </tbody>
-            </table>
-            
-
-            
-            
-            <!-- Add some distance from the table -->
-            <div style="margin-top: 100px;"></div>
-        </div>
+    </div>
 
     </div>
 
     
     </div>
-
-
-        <div style="margin-top: 150px; border-bottom: 2px solid black; "></div>
+        <div style="margin-top: 100px; border-bottom: 2px solid black; "></div>
         </div>
 
       <!-- Kembali button with back icon -->
@@ -148,92 +105,13 @@
     </div>
     </div>
 
-    <div style="margin-top: 30px; "></div>
+    <div style="margin-top: 20px; "></div>
         </div>
 
-    </div>
-
-    </div>
-
-
-
+    
+      </div>
+  </div>
 </div>
 
 
 @endsection
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const sortOptions = document.querySelectorAll("#simpulan .sort-option");
-
-  sortOptions.forEach(select => {
-    select.addEventListener("change", filterTable);
-    updateOptions(select);
-    // Set default option to "Descending" and trigger the change event
-    select.value = "desc";
-    select.dispatchEvent(new Event("change"));
-  });
-
-  function filterTable(event) {
-    const column = event.target.closest("th").cellIndex;
-    const value = event.target.value;
-
-    const rows = document.querySelectorAll("#simpulan tbody tr");
-
-    rows.forEach(row => {
-      const cellValue = row.cells[column].innerText.trim();
-      if (value === "" || cellValue === value) {
-        row.style.display = "";
-      } else {
-        row.style.display = "none";
-      }
-    });
-  }
-
-  function updateOptions(select) {
-    const columnIndex = select.parentElement.cellIndex;
-    const values = new Set();
-    const rows = document.querySelectorAll("#simpulan tbody tr");
-
-    rows.forEach(row => {
-      const value = row.cells[columnIndex].innerText.trim();
-      values.add(value);
-    });
-
-    // Clear previous options
-    select.innerHTML = '';
-
-    // Add the special option to show all options
-    const allOption = document.createElement('option');
-    allOption.value = "";
-    allOption.textContent = "Show All";
-    select.appendChild(allOption);
-
-    // Add unique values as options
-    values.forEach(value => {
-      if (value !== "") { // Skip empty values
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = value;
-        select.appendChild(option);
-      }
-    });
-
-    // Ensure the initially selected option exists in the updated options
-    const selectedValue = select.value;
-    if (!values.has(selectedValue)) {
-      // If the selected value is not present anymore, select the empty option to show all
-      select.value = '';
-    }
-  }
-});
-
-
-</script>
-
-
-
-
-
-
-
-
