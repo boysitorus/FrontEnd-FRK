@@ -50,7 +50,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: middle;"><strong>Kriteria Pelaksanaan Pendidikan dan Pelaksanaan Penelitian</strong></td>
-                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
+                        <td style=" text-align: left;">Minimal 9 SKS</td>
                         <td></td>
                         <td style="color: green">M</td>
                         
@@ -73,7 +73,7 @@
 
                     <tr>
                         <td colspan="2" style="text-align: middle;"><strong>Kriteria Pelaksanaan Pengabdian dan Pelaksanaan Penunjang</strong></td>
-                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
+                        <td style=" text-align: left;">Wajib 3 SKS</td>
                         <td></td>
                         <td style="color: green">M</td>
                         
