@@ -24,9 +24,9 @@
             <table id="simpulan" class="table table-striped mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: left;" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  style=" text-align: left;" >Jenis Kinerja</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: left;" >Syarat</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: left; width: 5%;"  >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3" style=" text-align: left; width: 40%;">Jenis Kinerja</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: left; width: 30%;">Syarat</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-1">sks BKD</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Status</th>
                     </tr>
@@ -34,7 +34,7 @@
                 <tbody class="align-middle">
                     <tr>
                         <td scope="row"  style=" text-align: left;">1</td>
-                        <td  style=" text-align: left;">Pelaksanaan Pendidikan </td>
+                        <td style=" text-align: left;">Pelaksanaan Pendidikan </td>
                         <td style=" text-align: left;">Tidak Boleh Kosong</td>
                         <td style="color: green">12.5</td>
                         <td style="color: green">M</td>
@@ -49,8 +49,15 @@
     
                     </tr>
                     <tr>
+                        <td colspan="2" style="text-align: middle;"><strong>Kriteria Pelaksanaan Pendidikan dan Pelaksanaan Penelitian</strong></td>
+                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
+                        <td></td>
+                        <td style="color: green">M</td>
+                        
+                    </tr>
+                    <tr>
                         <td scope="row" style=" text-align: left;">3</td>
-                        <td style=" text-align: left;" >Pelaksanaan Pengabdian </td>
+                        <td style=" text-align: left;">Pelaksanaan Pengabdian </td>
                         <td style=" text-align: left;">Tidak Boleh Kosong</td>
                         <td style="color: green">0.5</td>
                         <td style="color: green">M</td>
@@ -59,13 +66,21 @@
                     <tr>
                         <td scope="row" style=" text-align: left;">4</td>
                         <td style=" text-align: left;">Pelaksanaan Penunjang</td>
-                        <td style=" text-align: left  ;">Tidak Boleh Kosong</td>
+                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
                         <td style="color: red">0</td>
                         <td style="color: red">TM</td>
                     </tr>
+
                     <tr>
-                        <td colspan="5" class="pt-5"></td>
+                        <td colspan="2" style="text-align: middle;"><strong>Kriteria Pelaksanaan Pengabdian dan Pelaksanaan Penunjang</strong></td>
+                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
+                        <td></td>
+                        <td style="color: green">M</td>
+                        
                     </tr>
+                    <!-- <tr>
+                        <td colspan="5" class="pt-5"></td>
+                    </tr> -->
                     <tr style="border-bottom: 2px solid black;">
                         <td colspan="2" style="text-align: center; background-color: #DFF5FF;" ><strong>Total Kinerja</strong></td>
                         <td style=" text-align: left ; background-color: #DFF5FF;">Minimal 12 sks dan maksimal 16 sks</td>

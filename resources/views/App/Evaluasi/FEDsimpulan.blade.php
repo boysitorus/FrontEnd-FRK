@@ -6,7 +6,7 @@
     <button class="btn btn-danger">Download PDF</button>
 </div>
 
-<div id="simpulan-card" class="card border-primary shadow-sm mt-5 ml-1 mr-1 bg-card ">
+<div id="simpulan-card" class="card border-primary mt-5 ml-1 mr-1">
     <div class="card-header bg-primary">
         <h6 style="color: white"><b>Simpulan rencana kerja</b></h6>
     </div>
@@ -22,72 +22,60 @@
         </div>
 
         <div class="text-sm">
-            <table id="simpulan" class="table table-striped mt-2 text-center outer-border-only-table">
-            <!-- <table id="simpulan" class="table table-striped mt-2 text-center" style="border: 2px;"> -->
+            <table id="simpulan" class="table table-striped mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: middle;" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  style=" text-align: middle;" >Jenis Kinerja</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: middle;" >Syarat</th>
-                        <!-- <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: middle;" >Filter By<select class="sort-option"><option value="">Show All</option></select></th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">sks Lebih</th> -->
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: left;" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  style=" text-align: left;" >Jenis Kinerja</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: left;" >Syarat</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Status</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Lampiran</th>
                     </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
-                        <td scope="row"  >1</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Pendidikan </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <!-- <td style=" text-align: middle;"><strong>T.A 2023/2024</strong></td>
-                        <td>3.5</td> -->
+                        <td scope="row"  style=" text-align: left;">1</td>
+                        <td  style=" text-align: left;">Pelaksanaan Pendidikan </td>
+                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
                         <td style="color: green">M</td>
-                          <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">2</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penelitian </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <!-- <td style=" text-align: middle;"><strong>T.A 2023/2024</strong></td>
-                        <td>0</td> -->
-                        <td style="color: green">M</td>
-                          <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">3</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Pengabdian </td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <!-- <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td> -->
-                        <td style="color: green">M</td>
-                          <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
-                    </tr>
-                </tbody>
-                <tbody class="align-middle">
-                    <tr>
-                        <td scope="row"  style=" text-align: middle;">4</td>
-                        <td  style=" text-align: middle;">Pelaksanaan Penunjang</td>
-                        <td style=" text-align: middle;">Tidak Boleh Kosong</td>
-                        <!-- <td style=" text-align: middle;"><strong>T.A 2022/2023</strong></td>
-                        <td>0</td> -->
-                        <td style="color: red">TM</td>
-                          <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
-                    </tr>
-    </table>
-    </div>
-
-    </div>
+                        <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Lihat</button></td>
 
     
-    </div>
-        <div style="margin-top: 100px; border-bottom: 2px solid black; "></div>
+                    </tr>
+                    <tr>
+                        <td scope="row" style=" text-align: left;">2</td>
+                        <td style=" text-align: left;">Pelaksanaan Penelitian </td>
+                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
+                        <td style="color: green">M</td>
+                        <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Lihat</button></td>
+    
+                    </tr>
+                    <tr>
+                        <td scope="row" style=" text-align: left;">3</td>
+                        <td style=" text-align: left;" >Pelaksanaan Pengabdian </td>
+                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
+                        <td style="color: green">M</td>
+                        <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
+    
+                    </tr>
+                    <tr>
+                        <td scope="row" style=" text-align: left;">4</td>
+                        <td style=" text-align: left;">Pelaksanaan Penunjang</td>
+                        <td style=" text-align: left  ;">Tidak Boleh Kosong</td>
+                        <td style="color: red">TM</td>
+                        <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
+                    </tr>
+                    <!-- <tr>
+                        <td colspan="5" class="pt-5"></td>
+                    </tr> -->
+                <tbody>
+            </table>
         </div>
-
+      </div>
+    </div>
+        
+    <div style="margin-top: 20px; "></div>
+    
       <!-- Kembali button with back icon -->
     <div class="container">
     <div class="row">
@@ -110,7 +98,6 @@
 
     
       </div>
-  </div>
 </div>
 
 
