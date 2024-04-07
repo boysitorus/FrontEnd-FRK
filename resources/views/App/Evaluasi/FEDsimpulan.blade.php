@@ -75,20 +75,16 @@
     </div>
         
     <div style="margin-top: 20px; "></div>
-    
+
       <!-- Kembali button with back icon -->
     <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: gray; color: #fff;" >
-                <i class="fas fa-arrow-left"></i> Kembali
-            </button>
+        <button class="btn btn-secondary mt-3 justify-content-end mr-1"><i class="fas fa-arrow-left"></i> Kembali</button>
         </div>
         <div class="col-md-6 text-md-end">
             <!-- Simpan Permanen button with save icon -->
-            <button style="margin-top: 10px; font-size: 16px; font-weight: bold; background-color: #005b96;  color: #fff;" >
-                <i class="fas fa-save"></i> Simpan Permanen
-            </button>
+            <button class="btn btn-primary mt-3 justify-content-end mr-1"><i class="fas fa-save"></i> Simpan Permanen</button>
         </div>
     </div>
     </div>
