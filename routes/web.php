@@ -189,7 +189,13 @@ Route::prefix('/formEvaluasiDiri')->group(function () {
     Route::get('/simpulanPengabdian', function () {
         return view('App.Evaluasi.simpulanPengabdian');
     });
+<<<<<<< HEAD
     Route::get('/simpulanPenelitian', function () {
         return view('App.Evaluasi.simpulanPenelitian');
+=======
+
+    Route::get('/simpulanPenunjang', function () {
+        return view('App.Evaluasi.simpulanPenunjang');
+>>>>>>> 94e93e5cc728e3818f1e6a45ba3f691f051d7e8b
     });
 });
