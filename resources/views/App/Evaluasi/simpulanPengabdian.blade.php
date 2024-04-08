@@ -25,7 +25,8 @@
                 <tbody class="align-middle">
                     <tr>
                         <td scope="row"  >1</td>
-                        <td  >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
 
@@ -33,49 +34,56 @@
                     </tr>
                     <tr>
                         <td scope="row" >2</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >3</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >4</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >5</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >6</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >7</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >8</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
@@ -104,7 +112,8 @@
                 <tbody class="align-middle">
                     <tr>
                         <td scope="row"  >1</td>
-                        <td  >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
 
@@ -112,14 +121,16 @@
                     </tr>
                     <tr>
                         <td scope="row" >2</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >3</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
@@ -148,7 +159,8 @@
                 <tbody class="align-middle">
                     <tr>
                         <td scope="row"  >1</td>
-                        <td  >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
 
@@ -156,14 +168,16 @@
                     </tr>
                     <tr>
                         <td scope="row" >2</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >3</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
@@ -192,7 +206,8 @@
                 <tbody class="align-middle">
                     <tr>
                         <td scope="row"  >1</td>
-                        <td  >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
 
@@ -200,14 +215,16 @@
                     </tr>
                     <tr>
                         <td scope="row" >2</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >3</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
@@ -236,7 +253,8 @@
                 <tbody class="align-middle">
                     <tr>
                         <td scope="row"  >1</td>
-                        <td  >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
 
@@ -244,14 +262,16 @@
                     </tr>
                     <tr>
                         <td scope="row" >2</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >3</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
@@ -280,7 +300,8 @@
                 <tbody class="align-middle">
                     <tr>
                         <td scope="row"  >1</td>
-                        <td  >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
 
@@ -288,14 +309,16 @@
                     </tr>
                     <tr>
                         <td scope="row" >2</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
     
                     </tr>
                     <tr>
                         <td scope="row" >3</td>
-                        <td >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
+                        <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra.</td>
+
 
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
     
