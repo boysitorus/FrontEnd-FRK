@@ -2,7 +2,7 @@
 
 @section('content-kegiatan')
 
-    {{-- TAMPILAN BAGIAN EVALUASI PENGABDIAN--}}
+    {{-- TAMPILAN BAGIAN EVALUASI PENGABDIAN --}}
 
     {{-- BAGIAN A --}}
     

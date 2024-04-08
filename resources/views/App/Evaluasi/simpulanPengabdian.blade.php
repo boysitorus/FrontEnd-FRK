@@ -278,7 +278,7 @@
                     </tr>
                 </thead>
                 <tbody class="align-middle">
-                    <tr>
+                <tr>
                         <td scope="row"  >1</td>
                         <td  >Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
 
