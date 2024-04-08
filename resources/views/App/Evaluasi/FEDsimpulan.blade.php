@@ -73,27 +73,19 @@
         </div>
       </div>
     </div>
-        
-    <div style="margin-top: 20px; "></div>
+    <div style="margin-top: 30px; margin-bottom: 25px; text-align: center; color: red;">
+        <strong>Tidak memenuhi ketentuan Perundang-undang beban kerja dosen, pelaksanaan kegiatan yang Tidak Memenuhi</strong>
+    </div>
+    <div style="padding: 8px; "></div>
+</div>
+</div>
+
 
       <!-- Kembali button with back icon -->
-    <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-        <button class="btn btn-secondary mt-3 justify-content-end mr-1"><i class="fas fa-arrow-left"></i> Kembali</button>
-        </div>
-        <div class="col-md-6 text-md-end">
-            <!-- Simpan Permanen button with save icon -->
-            <button class="btn btn-primary mt-3 justify-content-end mr-1"><i class="fas fa-save"></i> Simpan Permanen</button>
-        </div>
+<div class="container">
+    <div class="container d-flex justify-content-end mr-1">
+        <button class="btn btn-primary mt-3 justify-content-end mr-1" style="margin-bottom: 30px; "><i class="fas fa-save"></i> Simpan Permanen</button>
     </div>
-    </div>
-
-    <div style="margin-top: 20px; "></div>
-        </div>
-
-    
-      </div>
 </div>
 
 
