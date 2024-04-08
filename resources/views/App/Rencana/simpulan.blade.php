@@ -24,10 +24,10 @@
             <table id="simpulan" class="table table-striped mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: left; width: 5%;"  >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: left; width: 5%;"  >No</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-3" style=" text-align: left; width: 40%;">Jenis Kinerja</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: left; width: 30%;">Syarat</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">sks BKD</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">sks Terhitung</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Status</th>
                     </tr>
                 </thead>
@@ -35,7 +35,7 @@
                     <tr>
                         <td scope="row"  style=" text-align: left;">1</td>
                         <td style=" text-align: left;">Pelaksanaan Pendidikan </td>
-                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
+                        <td style=" text-align: left;">Minimal 9 sks</td>
                         <td style="color: green">12.5</td>
                         <td style="color: green">M</td>
     
@@ -43,22 +43,15 @@
                     <tr>
                         <td scope="row" style=" text-align: left;">2</td>
                         <td style=" text-align: left;">Pelaksanaan Penelitian </td>
-                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
+                        <td style=" text-align: left;">Minimal 1 sks</td>
                         <td style="color: green">2.5</td>
                         <td style="color: green">M</td>
     
                     </tr>
                     <tr>
-                        <td colspan="2" style="text-align: middle;"><strong>Kriteria Pelaksanaan Pendidikan dan Pelaksanaan Penelitian</strong></td>
-                        <td style=" text-align: left;">Minimal 9 SKS</td>
-                        <td></td>
-                        <td style="color: green">M</td>
-                        
-                    </tr>
-                    <tr>
                         <td scope="row" style=" text-align: left;">3</td>
                         <td style=" text-align: left;">Pelaksanaan Pengabdian </td>
-                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
+                        <td style=" text-align: left;">Maksimal 3 sks</td>
                         <td style="color: green">0.5</td>
                         <td style="color: green">M</td>
     
@@ -66,29 +59,51 @@
                     <tr>
                         <td scope="row" style=" text-align: left;">4</td>
                         <td style=" text-align: left;">Pelaksanaan Penunjang</td>
-                        <td style=" text-align: left;">Tidak Boleh Kosong</td>
+                        <td style=" text-align: left;">Maksimal 3 sks</td>
                         <td style="color: red">0</td>
                         <td style="color: red">TM</td>
                     </tr>
 
-                    <tr>
-                        <td colspan="2" style="text-align: middle;"><strong>Kriteria Pelaksanaan Pengabdian dan Pelaksanaan Penunjang</strong></td>
-                        <td style=" text-align: left;">Wajib 3 SKS</td>
-                        <td></td>
-                        <td style="color: green">M</td>
-                        
-                    </tr>
                     <!-- <tr>
                         <td colspan="5" class="pt-5"></td>
                     </tr> -->
                     <tr style="border-bottom: 2px solid black;">
                         <td colspan="2" style="text-align: center; background-color: #DFF5FF;" ><strong>Total Kinerja</strong></td>
-                        <td style=" text-align: left ; background-color: #DFF5FF;">Minimal 12 sks dan maksimal 16 sks</td>
+                        <td style=" text-align: left ; background-color: #DFF5FF;"></td>
                         <td style="color: green; background-color: #DFF5FF; text-align: center">15.5</td>
                         <td style="color: red; background-color: #DFF5FF; text-align: center">TM</td>
                     </tr>
+
+                    <tr>
+                        <td colspan="5" class="pt-5"></td>
+                    </tr>
+
+                    <tr>
+                        <td scope="row"  style=" text-align: left;"></td>
+                        <td style="text-align: left;"><em>Kriteria Pelaksanaan Pendidikan dan pelaksanaan Penelitian</em></td>
+                        <td style=" text-align: left;"><em>Minimal 9 sks<em></td>
+                        <td style="color: green">13</td>
+                        <td style="color: green">M</td>
+    
+                    </tr>
+                    <tr>
+                        <td scope="row"  style=" text-align: left;"></td>
+                        <td style=" text-align: left;"><em>Kriteria Pelaksanaan Pengabdian dan pelaksanaan Penunjang</em></td>
+                        <td style=" text-align: left;"><em>Wajib 3 sks<em></td>
+                        <td style="color: green">0.5</td>
+                        <td style="color: red">TM</td>
+                    </tr>
+                    <tr style="border-bottom: 2px solid black;">
+                        <td colspan="2" style="text-align: center; background-color: #DFF5FF;" ><strong>Kesimpulan Akhir</strong></td>
+                        <td style=" text-align: left ; background-color: #DFF5FF;"></td>
+                        <td style="color: green; background-color: #DFF5FF; text-align: center"></td>
+                        <td style="color: red; background-color: #DFF5FF; text-align: center">TM</td>
+                    </tr>
+
+
                 <tbody>
             </table>
+                
         </div>
 
         <!-- Add a red-colored sentence -->
