@@ -17,10 +17,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -104,10 +104,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -151,10 +151,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -198,10 +198,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -245,10 +245,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -292,10 +292,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -339,10 +339,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -386,10 +386,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -434,10 +434,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -482,10 +482,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -530,10 +530,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -576,10 +576,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -622,10 +622,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
@@ -668,10 +668,10 @@
         <table id="simpulan" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1" >No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  >Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold "  >Bukti Kegiatan</th>
-                    </tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold-1" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " >Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
+                    </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr>
