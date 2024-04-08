@@ -79,16 +79,14 @@
                     </tr>
 
                     <tr>
-                        <td scope="row"  style=" text-align: left;"></td>
-                        <td style="text-align: left;"><em>Kriteria Pelaksanaan Pendidikan dan pelaksanaan Penelitian</em></td>
+                        <td style="text-align: left;" colspan="2"><strong><i>Kriteria Pelaksanaan Pendidikan dan pelaksanaan Penelitian</i></strong></td>
                         <td style=" text-align: left;"><em>Minimal 9 sks<em></td>
                         <td style="color: green">13</td>
                         <td style="color: green">M</td>
     
                     </tr>
                     <tr>
-                        <td scope="row"  style=" text-align: left;"></td>
-                        <td style=" text-align: left;"><em>Kriteria Pelaksanaan Pengabdian dan pelaksanaan Penunjang</em></td>
+                        <td style="text-align: left;" colspan="2"><strong><i>Kriteria Pelaksanaan Pendidikan dan pelaksanaan Penelitian</i></strong></td>
                         <td style=" text-align: left;"><em>Wajib 3 sks<em></td>
                         <td style="color: green">0.5</td>
                         <td style="color: red">TM</td>
