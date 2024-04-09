@@ -11,7 +11,6 @@
         <h6 style="color: white"><b>Simpulan rencana kerja</b></h6>
     </div>
     <div class="card-body">
-
         <div style="border: 1px solid black; padding: 10px; background-color: #DFF5FF; color: #008DDA; margin-bottom:50px">
             <p><strong>Keterangan:</strong></p>
             <ul>
@@ -94,17 +93,11 @@
             </table>
 
             <table class="table table-striped mt-5 text-center">
-                <thead>
-                    <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: left;" >Kriteria</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  style=" text-align: left;" >Syarat</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: center;" >Status</th>
-                    </tr>
-                </thead>
                 <tbody class="align-middle">
                     <tr>
-                        <td scope="row" style=" text-align: left;">Kriteria Pelaksanaan Pendidikan dan Pelaksanaan Penelitian</td>
+                        <td scope="row" style=" text-align: left;" class="fw-bold">Kriteria Pelaksanaan Pendidikan dan Pelaksanaan Penelitian</td>
                         <td style=" text-align: left;">Minimal 9 SKS</td>
+                        <td>{{ $pendidikanSks + $penelitianSks }}</td>
                         @if($pendidikanSks + $penelitianSks < 9)
                             <td style="color: red;text-align: center">TM</td>
                         @else
@@ -113,8 +106,9 @@
                     </tr>
 
                     <tr>
-                        <td scope="row" style=" text-align: left;">Kriteria Pelaksanaan Penggabdian dan pelaksanaan Penunjang</td>
+                        <td scope="row" style=" text-align: left;" class="fw-bold">Kriteria Pelaksanaan Penggabdian dan pelaksanaan Penunjang</td>
                         <td style=" text-align: left;">Wajib 3 sks</td>
+                        <td>{{ $pengabdianSks + $penunjangSks }}</td>
                         @if($penunjangSks > 3 || $pengabdianSks > 3)
                             <td style="color: red;text-align: center">TM</td>
                         @else
@@ -122,8 +116,8 @@
                         @endif
                     </tr>
 
-                    <tr>
-                        <td colspan="2" style=" text-align: center; background-color: #DFF5FF;" class="fw-bold">Kesimpulan Akhir</td>
+                    <tr style="border-bottom: 2px solid black;">
+                        <td colspan="3" style=" text-align: center; background-color: #DFF5FF;" class="fw-bold">Kesimpulan Akhir</td>
                         @if($pendidikanSks + $penelitianSks < 9 || $penunjangSks > 3 || $pengabdianSks > 3)
                             <td style="color: red;text-align: center; background-color: #DFF5FF;">TM</td>
                         @else
@@ -134,11 +128,10 @@
                 </tbody>
             </table>
         </div>
+    </div>
+</div>
 
         <!-- Add a red-colored sentence -->
-        <div style="margin-top: 25px; text-align: center; color: grey;">
-            <strong>Laporan BKD Diajukan Dosen</strong>
-        </div>
         <div style="margin-top: 25px; margin-bottom: 25px; text-align: center;">
         @if($totalSks < 12 || $totalSks > 16 || $pendidikanSks + $penelitianSks < 9 || $penunjangSks > 3 || $pengabdianSks > 3)
             <strong style="color: red;">Tidak memenuhi ketentuan Perundang-undang beban kerja dosen, pelaksanaan kegiatan yang Tidak Memenuhi</strong>
@@ -149,14 +142,12 @@
 
         
         
-    </div>
 
-    <!-- Kembali button with back icon -->
+        <!-- Kembali button with back icon -->
         <div class="container d-flex justify-content-end mr-0 mb-2">
             <button class="btn btn-primary mt-3 justify-content-end mr-1" type="button" data-bs-toggle="modal" data-bs-target="#modalSubmitConfirm"><i class="fas fa-save"></i> Simpan Permanen</button>
         </div>
 
-</div>
 
 {{-- TEMPAT MODAL SUBMIT CONFIRM --}}
         <div class="modal fade" id="modalSubmitConfirm" tabindex="-1" role="dialog"
