@@ -24,10 +24,10 @@
             <table id="simpulan" class="table table-striped mt-2 text-center">
                 <thead>
                     <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: left; width: 5%;"  >No</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3" style=" text-align: left; width: 40%;">Jenis Kinerja</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: left; width: 30%;">Syarat</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">sks Terhitung</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold " style=" text-align: left;" >No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-3"  style=" text-align: left;" >Jenis Kinerja</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold" style=" text-align: left;" >Syarat</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">sks BKD</th>
                         <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Status</th>
                     </tr>
                 </thead>
@@ -63,42 +63,15 @@
                         <td style="color: red">0</td>
                         <td style="color: red">TM</td>
                     </tr>
-
-                    <!-- <tr>
+                    <tr>
                         <td colspan="5" class="pt-5"></td>
-                    </tr> -->
+                    </tr>
                     <tr style="border-bottom: 2px solid black;">
                         <td colspan="2" style="text-align: center; background-color: #DFF5FF;" ><strong>Total Kinerja</strong></td>
                         <td style=" text-align: left ; background-color: #DFF5FF;"></td>
                         <td style="color: green; background-color: #DFF5FF; text-align: center">15.5</td>
                         <td style="color: red; background-color: #DFF5FF; text-align: center">TM</td>
                     </tr>
-
-                    <tr>
-                        <td colspan="5" class="pt-5"></td>
-                    </tr>
-
-                    <tr>
-                        <td style="text-align: left;" colspan="2"><strong><i>Kriteria Pelaksanaan Pendidikan dan pelaksanaan Penelitian</i></strong></td>
-                        <td style=" text-align: left;"><em>Minimal 9 sks<em></td>
-                        <td style="color: green">13</td>
-                        <td style="color: green">M</td>
-    
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;" colspan="2"><strong><i>Kriteria Pelaksanaan Pendidikan dan pelaksanaan Penelitian</i></strong></td>
-                        <td style=" text-align: left;"><em>Wajib 3 sks<em></td>
-                        <td style="color: green">0.5</td>
-                        <td style="color: red">TM</td>
-                    </tr>
-                    <tr style="border-bottom: 2px solid black;">
-                        <td colspan="2" style="text-align: center; background-color: #DFF5FF;" ><strong>Kesimpulan Akhir</strong></td>
-                        <td style=" text-align: left ; background-color: #DFF5FF;"></td>
-                        <td style="color: green; background-color: #DFF5FF; text-align: center"></td>
-                        <td style="color: red; background-color: #DFF5FF; text-align: center">TM</td>
-                    </tr>
-
-
                 <tbody>
             </table>
                 
