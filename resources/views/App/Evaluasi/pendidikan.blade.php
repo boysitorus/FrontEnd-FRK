@@ -67,9 +67,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                    <li>Bukti pembimbingan</li>
+                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Daftar Nilai</li>
+                                </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
                     </div>
@@ -96,9 +106,8 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah K (*K=30 orang mhs selama 1 semester)</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jumlah kelompok yang dibimbing</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Matakuliah (1 SKS = 2 jam)</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelas</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Praktikum (1 SKS = 2 jam)</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -143,10 +152,20 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                        <div class="col-md-12">
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                    <li>Bukti pembimbingan</li>
+                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Daftar Nilai</li>
+                                </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
                     </div>
@@ -222,9 +241,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                    <li>Bukti pembimbingan</li>
+                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Daftar Nilai</li>
+                                </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
                     </div>
@@ -303,9 +332,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                    <li>Bukti pembimbingan</li>
+                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Daftar Nilai</li>
+                                </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
                     </div>
@@ -380,9 +419,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                    <li>Bukti pembimbingan</li>
+                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Daftar Nilai</li>
+                                </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
                     </div>
@@ -455,9 +504,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                    <li>Bukti pembimbingan</li>
+                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Daftar Nilai</li>
+                                </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
                     </div>
@@ -534,9 +593,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                    <li>Bukti pembimbingan</li>
+                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Daftar Nilai</li>
+                                </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
                     </div>
@@ -611,9 +680,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                    <li>Bukti pembimbingan</li>
+                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Daftar Nilai</li>
+                                </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
                     </div>
@@ -686,9 +765,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                    <li>Bukti pembimbingan</li>
+                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Daftar Nilai</li>
+                                </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
                     </div>
@@ -758,10 +847,20 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                        <div class="col-md-12">
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                    <li>Bukti pembimbingan</li>
+                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Daftar Nilai</li>
+                                </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
                     </div>
