@@ -36,32 +36,48 @@
                         <td scope="row"  style=" text-align: left;">1</td>
                         <td style=" text-align: left;">Pelaksanaan Pendidikan </td>
                         <td style=" text-align: left;">Minimal 9 sks</td>
-                        <td style="color: green">12.5</td>
-                        <td style="color: green">M</td>
+                        <td style="color: {{ $pendidikanSks == 0 ? 'red' : 'green' }}">{{ $pendidikanSks }}</td>
+                        @if($pendidikanSks == 0)
+                            <td style="color: red;text-align: center">TM</td>
+                        @else
+                            <td style="color: green;text-align: center">M</td>
+                        @endif
     
                     </tr>
                     <tr>
                         <td scope="row" style=" text-align: left;">2</td>
                         <td style=" text-align: left;">Pelaksanaan Penelitian </td>
                         <td style=" text-align: left;">Minimal 1 sks</td>
-                        <td style="color: green">2.5</td>
-                        <td style="color: green">M</td>
+                        <td style="color: {{ $penelitianSks == 0 ? 'red' : 'green' }}">{{ $penelitianSks }}</td>
+                        @if($penelitianSks == 0)
+                            <td style="color: red;text-align: center">TM</td>
+                        @else
+                            <td style="color: green;text-align: center">M</td>
+                        @endif
     
                     </tr>
                     <tr>
                         <td scope="row" style=" text-align: left;">3</td>
                         <td style=" text-align: left;">Pelaksanaan Pengabdian </td>
                         <td style=" text-align: left;">Maksimal 3 sks</td>
-                        <td style="color: green">0.5</td>
-                        <td style="color: green">M</td>
+                        <td style="color: {{ $pengabdianSks == 0 || $pengabdianSks > 3 ? 'red' : 'green' }}">{{ $pengabdianSks }}</td>
+                        @if($pengabdianSks == 0 || $pengabdianSks > 3)
+                            <td style="color: red;text-align: center">TM</td>
+                        @else
+                            <td style="color: green;text-align: center">M</td>
+                        @endif
     
                     </tr>
                     <tr>
                         <td scope="row" style=" text-align: left;">4</td>
                         <td style=" text-align: left;">Pelaksanaan Penunjang</td>
                         <td style=" text-align: left;">Maksimal 3 sks</td>
-                        <td style="color: red">0</td>
-                        <td style="color: red">TM</td>
+                        <td style="color: {{ $penunjangSks == 0 ? 'red' : 'green' }}">{{ $penunjangSks }}</td>
+                        @if($penunjangSks == 0)
+                            <td style="color: red;text-align: center">TM</td>
+                        @else
+                            <td style="color: green;text-align: center">M</td>
+                        @endif
                     </tr>
 
                     <!-- <tr>
@@ -70,8 +86,12 @@
                     <tr style="border-bottom: 2px solid black;">
                         <td colspan="2" style="text-align: center; background-color: #DFF5FF;" ><strong>Total Kinerja</strong></td>
                         <td style=" text-align: left ; background-color: #DFF5FF;"></td>
-                        <td style="color: green; background-color: #DFF5FF; text-align: center">15.5</td>
-                        <td style="color: red; background-color: #DFF5FF; text-align: center">TM</td>
+                        <td style="color: {{ $totalSks < 12 || $totalSks > 16 ? 'red' : 'green' }}; background-color: #DFF5FF; text-align: center">{{ $totalSks }}</td>
+                        @if($totalSks < 12 || $totalSks > 16)
+                            <td style="color: red;background-color: #DFF5FF;text-align: center">TM</td>
+                        @else
+                            <td style="color: green;background-color: #DFF5FF;text-align: center">M</td>
+                        @endif
                     </tr>
 
                     <tr>
@@ -81,21 +101,35 @@
                     <tr>
                         <td style="text-align: left;" colspan="2"><strong><i>Kriteria Pelaksanaan Pendidikan dan pelaksanaan Penelitian</i></strong></td>
                         <td style=" text-align: left;"><em>Minimal 9 sks<em></td>
-                        <td style="color: green">13</td>
-                        <td style="color: green">M</td>
+                        <td style="color: green">{{ $pendidikanSks + $penelitianSks }}</td>
+                        @if($pendidikanSks + $penelitianSks < 9)
+                            <td style="color: red;text-align: center">TM</td>
+                        @else
+                            <td style="color: green;text-align: center">M</td>
+                        @endif
+                    </tr>
     
                     </tr>
                     <tr>
                         <td style="text-align: left;" colspan="2"><strong><i>Kriteria Pelaksanaan Pendidikan dan pelaksanaan Penelitian</i></strong></td>
                         <td style=" text-align: left;"><em>Wajib 3 sks<em></td>
-                        <td style="color: green">0.5</td>
-                        <td style="color: red">TM</td>
+                        <td style="color: green">{{ $penunjangSks + $pengabdianSks }}</td>
+                        @if($pendidikanSks + $penelitianSks < 9)
+                            <td style="color: red;text-align: center">TM</td>
+                        @else
+                            <td style="color: green;text-align: center">M</td>
+                        @endif
+                    </tr>
                     </tr>
                     <tr style="border-bottom: 2px solid black;">
                         <td colspan="2" style="text-align: center; background-color: #DFF5FF;" ><strong>Kesimpulan Akhir</strong></td>
                         <td style=" text-align: left ; background-color: #DFF5FF;"></td>
                         <td style="color: green; background-color: #DFF5FF; text-align: center"></td>
-                        <td style="color: red; background-color: #DFF5FF; text-align: center">TM</td>
+                        @if($pendidikanSks + $penelitianSks < 9 || $penunjangSks > 3 || $pengabdianSks > 3)
+                            <td style="color: red;text-align: center; background-color: #DFF5FF;">TM</td>
+                        @else
+                            <td style="color: green;background-color: #DFF5FF;text-align: center">M</td>
+                        @endif
                     </tr>
 
 
@@ -118,8 +152,8 @@
 
       <!-- Kembali button with back icon -->
 <div class="container">
-    <div class="container d-flex justify-content-end mr-1">
-        <button class="btn btn-primary mt-3 justify-content-end mr-1"><i class="fas fa-save"></i> Simpan Permanen</button>
+    <div class="container d-flex justify-content-end mr-1 mb-3">
+        <button class="btn btn-primary"><i class="fas fa-save"></i> Simpan Permanen</button>
     </div>
 </div>
 <div style="margin-top: 30px; "></div>
