@@ -2,10 +2,6 @@
 
 @section('content-simpulan')
 
-<div class="container d-flex justify-content-end mr-1 ">
-    <button class="btn btn-danger">Download PDF</button>
-</div>
-
 <div id="simpulan" class="card border-primary mt-5 ml-1 mr-1">
     <div class="card-header bg-primary">
         <h6 style="color: white"><b>Simpulan rencana kerja</b></h6>
@@ -108,8 +104,7 @@
                             <td style="color: green;text-align: center">M</td>
                         @endif
                     </tr>
-    
-                    </tr>
+
                     <tr>
                         <td style="text-align: left;" colspan="2"><strong><i>Kriteria Pelaksanaan Pendidikan dan pelaksanaan Penelitian</i></strong></td>
                         <td style=" text-align: left;"><em>Wajib 3 sks<em></td>
@@ -120,7 +115,7 @@
                             <td style="color: green;text-align: center">M</td>
                         @endif
                     </tr>
-                    </tr>
+                    
                     <tr style="border-bottom: 2px solid black;">
                         <td colspan="2" style="text-align: center; background-color: #DFF5FF;" ><strong>Kesimpulan Akhir</strong></td>
                         <td style=" text-align: left ; background-color: #DFF5FF;"></td>
@@ -152,8 +147,8 @@
 
       <!-- Kembali button with back icon -->
 <div class="container">
-    <div class="container d-flex justify-content-end mr-1 mb-3">
-        <button class="btn btn-primary"><i class="fas fa-save"></i> Simpan Permanen</button>
+    <div class="container d-flex justify-content-end mr-0 mb-2">
+        <button class="btn btn-primary mt-3 justify-content-end mr-1" type="button" data-bs-toggle="modal" data-bs-target="#modalSubmitConfirm"><i class="fas fa-save"></i> Simpan Permanen</button>
     </div>
 </div>
 <div style="margin-top: 30px; "></div>
@@ -165,5 +160,6 @@
 
 
 </div>
+
 
 @endsection

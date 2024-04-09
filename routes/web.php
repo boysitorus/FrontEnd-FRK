@@ -169,6 +169,7 @@ Route::prefix('/formRencanaKerja')->group(function () {
     });
 
     Route::get('/simpulan', [SimpulanController::class, 'getAll'])->name('rk-simpulan');
+    Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
 
 });
 
