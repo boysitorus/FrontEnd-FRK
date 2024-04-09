@@ -69,11 +69,11 @@
                             <div class="col-md-12">
                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                 <ol>
-                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Surat Tugas atau Surat Keputusan Mengajar dari Pimpinan</li>
+                                    <li>BAP/Berita Acara Perkuliahan (presensi/jurnal kehadiran dosen)</li>
                                     <li>Presensi Mahasiswa</li>
-                                    <li>Bukti pembimbingan</li>
-                                    <li>Berita acara ujian skripsi</li>
-                                    <li>Daftar Nilai</li>
+                                    <li>Daftar Nilai UAS Mahasiswa</li>
+                                    <li>Daftar Nilai Akhir Mahasiswa</li>
                                 </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
@@ -155,10 +155,9 @@
                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                 <ol>
                                     <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Berita Acara Praktikum atau Asistensi</li>
                                     <li>Presensi Mahasiswa</li>
-                                    <li>Bukti pembimbingan</li>
-                                    <li>Berita acara ujian skripsi</li>
-                                    <li>Daftar Nilai</li>
+                                    <li>Daftar Nilai tugas</li>
                                 </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
@@ -242,11 +241,13 @@
                             <div class="col-md-12">
                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                 <ol>
-                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Surat  Tugas atau  Surat  Keputusan  Mengajar  dari  Pimpinan</li>
                                     <li>Presensi Mahasiswa</li>
-                                    <li>Bukti pembimbingan</li>
-                                    <li>Berita acara ujian skripsi</li>
-                                    <li>Daftar Nilai</li>
+                                    <li>Berita Acara  bimbingan</li> 
+                                    <li>Daftar Nilai  tugas atau  laporan hasil  praktek</li>
+                                    <li>Berita Acara  bimbingan</li>
+                                    <li>Daftar Nilai  tugas atau  laporan hasil  praktek</li>
+                                    <li>Daftar nilai atau  laporan KKN</li>
                                 </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
@@ -334,10 +335,10 @@
                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                 <ol>
                                     <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Membimbing Seminar dan Pimpinan</li>
                                     <li>Presensi Mahasiswa</li>
-                                    <li>Bukti pembimbingan</li>
-                                    <li>Berita acara ujian skripsi</li>
-                                    <li>Daftar Nilai</li>
+                                    <li>Berita acara bimbingan</li>
+                                    <li>Daftar Nilai Akhir</li>
                                 </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
@@ -682,10 +683,7 @@
                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                 <ol>
                                     <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
-                                    <li>Presensi Mahasiswa</li>
-                                    <li>Bukti pembimbingan</li>
-                                    <li>Berita acara ujian skripsi</li>
-                                    <li>Daftar Nilai</li>
+                                    <li>Bukti hasil(Silabus,  SAP/RKPSS,  GBPP) yang baru  dan silabus,  SAP/RKPSS. GBPP  yang sebelumnya</li>
                                 </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
@@ -767,10 +765,7 @@
                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                 <ol>
                                     <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
-                                    <li>Presensi Mahasiswa</li>
-                                    <li>Bukti pembimbingan</li>
-                                    <li>Berita acara ujian skripsi</li>
-                                    <li>Daftar Nilai</li>
+                                    <li>Bukti yang  relevan  (laporan  kegiatan)</li>
                                 </ol>
                                 <!-- File input -->
                                 <input type="file" id="fileInput" multiple>
@@ -849,10 +844,7 @@
                         <div class="col-md-12">
                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                 <ol>
-                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
-                                    <li>Presensi Mahasiswa</li>
-                                    <li>Bukti pembimbingan</li>
-                                    <li>Berita acara ujian skripsi</li>
+                                    <li>Surat Tugas</li>
                                     <li>Daftar Nilai</li>
                                 </ol>
                                 <!-- File input -->
