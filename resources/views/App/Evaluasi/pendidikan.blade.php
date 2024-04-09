@@ -126,7 +126,6 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditEvaluasiPendidikan_B"><i class="bi bi-plus-square"></i></button>
@@ -152,7 +151,7 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                        <div class="col-md-12">
+                            <div class="col-md-12">
                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                 <ol>
                                     <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
