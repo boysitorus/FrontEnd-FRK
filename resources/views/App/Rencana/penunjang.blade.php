@@ -1596,8 +1596,7 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jabatan(Ketua/Anggota)
-                            </th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jabatan(Ketua/Anggota)</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
@@ -1639,8 +1638,8 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
-                                                    {{ $item['nama_kegiatan'] }}</h6>
+                                                <h5 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
+                                                    {{ $item['nama_kegiatan'] }}</h5>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
@@ -1657,7 +1656,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jabatan" class="form-label">Jabatan:</label>
-                                                        <select class="form-control" id="jenis_jabatan" name="jenis_jabatan">
+                                                        <select class="form-control" aria-label="Default select example" id="jabatan" name="jabatan">
                                                             <option value="Anggota">Anggota</option>
                                                             <option value="Ketua">Ketua</option>
                                                         </select>
@@ -1666,7 +1665,7 @@
                                                         <label for="jenis_tingkatan" class="form-label">
                                                             Tingkatan:
                                                         </label>
-                                                        <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
+                                                        <select class="form-control" aria-label="Default select example" id="jenis_tingkatan" name="jenis_tingkatan">
                                                             <option value="Nasional">Nasional</option>
                                                             <option value="Internasional">Internasional</option>
                                                         </select>
@@ -2302,6 +2301,7 @@
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
+                </div>
             </div>
         </div>
     </div>

@@ -181,7 +181,23 @@ Route::prefix('/formEvaluasiDiri')->group(function () {
         return view('App.Evaluasi.pengabdian');
     });
 
-    Route::get('/simpulan', function () {
-        return view('App.Rencana.FEDsimpulan');
+    Route::get('/FEDsimpulan', function () {
+        return view('App.Evaluasi.FEDsimpulan');
+    });
+
+    Route::get('/simpulanPendidikan', function () {
+        return view('App.Evaluasi.simpulanPendidikan');
+    });
+
+    Route::get('/simpulanPengabdian', function () {
+        return view('App.Evaluasi.simpulanPengabdian');
+    });
+
+    Route::get('/simpulanPenelitian', function () {
+        return view('App.Evaluasi.simpulanPenelitian');
+    });
+
+    Route::get('/simpulanPenunjang', function () {
+        return view('App.Evaluasi.simpulanPenunjang');
     });
 });
