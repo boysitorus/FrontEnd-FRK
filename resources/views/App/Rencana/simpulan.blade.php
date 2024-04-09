@@ -104,45 +104,17 @@
                 
         </div>
 
-        <!-- Add a red-colored sentence -->
-        <div style="margin-top: 25px; margin-bottom: 25px; text-align: center; color: red;">
-        <strong>Tidak memenuhi ketentuan Perundang-undang beban kerja dosen, pelaksanaan kegiatan yang Tidak Memenuhi</strong>
-        </div>
-
     </div>
 
     
 </div>
 
-<div style="margin-top: 100px;"> </div>
+<!-- <div style="margin-top: 100px;"> </div> -->
 
-
-<!-- Add some distance from the table -->
-<div style="margin-top: 50px; border-bottom: 2px solid black; " class="ml-1 mr-1"></div>
-        </div>
-
-        <div style="margin-top: 25px; text-align: center; color: grey;">
-            <strong>Laporan BKD Diajukan Dosen</strong>
-        </div>
-        <!-- Add a red-colored sentence -->
-        <div style="margin-top: 10px; text-align: center; color: blue;">
-        <strong>Memenuhi ketentuan Perundang-undang beban kerja dosen mengenai Kewajiban Khusus Dosen.</strong>
-        </div>
-
-        <!-- Add some distance from the table -->
- <div style="margin-top: 50px; border-bottom: 2px solid black; " class="ml-1 mr-1"></div>
-        </div>
-
-        <!-- Add a red-colored sentence -->
-
-        <div style="margin-top: 25px; text-align: center; color: grey;">
-            <strong>Hasil Penilaian Laporan BKD.</strong>
-        </div>
-        <div style="margin-top: 10px; text-align: center; color: red;">
-            <strong>Belum memenuhi ketentuan Perundang-undang beban kerja dosen mengenai Kewajiban Khusus Dosen.</strong>
-        </div>
-        <div style="margin-top: 150px; border-bottom: 2px solid black; " class="ml-1 mr-1"></div>
-        </div>
+<div style="margin-top: 30px; margin-bottom: 25px; text-align: center; color: red;">
+        <strong>Tidak memenuhi ketentuan Perundang-undang beban kerja dosen, pelaksanaan kegiatan yang Tidak Memenuhi</strong>
+    </div>
+    <div style="padding: 8px; "></div>
 
       <!-- Kembali button with back icon -->
 <div class="container">
