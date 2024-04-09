@@ -4,6 +4,7 @@ use App\Http\Controllers\PendidikanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RencanaKerjaController;
 use App\Http\Controllers\PenunjangController;
+use App\Http\Controllers\SimpulanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -167,9 +168,7 @@ Route::prefix('/formRencanaKerja')->group(function () {
 
     });
 
-    Route::get('/simpulan', function () {
-        return view('App.Rencana.simpulan');
-    })->name('rk-simpulan');
+    Route::get('/simpulan', [SimpulanController::class, 'getAll'])->name('rk-simpulan');
 
 });
 
