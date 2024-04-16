@@ -2278,7 +2278,7 @@
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
                         </div>
                     </div>
                     <div class="modal-footer">

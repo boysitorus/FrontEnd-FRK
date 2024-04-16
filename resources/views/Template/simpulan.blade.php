@@ -35,10 +35,10 @@
                         <a class="nav-link " href="{{ route('rk-pendidikan') }} "><b>Rencana Pendidikan</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link" href="#"><b>Rencana Penelitian</b></a>
+                        <a class="nav-link" href="{{ route('rk-penelitian') }} "><b>Rencana Penelitian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link" href="#"><b>Rencana Pengabdian</b></a>
+                        <a class="nav-link" href="{{ route('rk-pengabdian') }} "><b>Rencana Pengabdian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link" href="{{ route('rk-penunjang') }} "><b>Tunjangan Lainnya</b></a>
