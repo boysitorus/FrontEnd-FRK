@@ -1,13 +1,12 @@
 @extends('Template.app')
 
-
 @section('content')
-    
-    <div class = "mt-5 flex-wrap ml-4 mr-4">
+
+    <div class = "mt-5 flex-wrap ml-4 mr-4 ">
         <div class = "row">
             <div class = "col">
                 <h3 class = "font-weight-bold">Rekap Kegiatan</h3>
-                <p class = "breadcrumbs">Evaluasi Diri / Rekap Kegiatan</p>
+                <p class = "breadcrumbs">Rencana Kerja / Rekap Kegiatan</p>
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
@@ -31,29 +30,26 @@
 
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
-                    <li class="nav-item nav-item-150">
-                        <a class="nav-link active fw-bold" href="#">Evaluasi Pendidikan</a>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link {{ Request::is('formEvaluasiDiri/pendidikan') ? ' active' : '' }}" href="{{ route('ed-pendidikan') }}" ><b>Evaluasi Pendidikan</b></a>
                     </li>
-                    <li class="nav-item nav-item-150">
-                        <a class="nav-link fw-bold" href="#">Evaluasi Penelitian</a>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link {{ Request::is('formEvaluasiDiri/penelitian') ? ' active' : '' }}" href="{{ route('ed-penelitian') }} " ><b>Evaluasi Penelitian</b></a>
                     </li>
-                    <li class="nav-item nav-item-150">
-                        <a class="nav-link fw-bold" href="#">Evaluasi Pengabdian</a>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link{{ Request::is('formEvaluasiDiri/pengabdian') ? ' active' : '' }}" href="{{ route('ed-pengabdian') }} "><b>Evaluasi Pengabdian</b></a>
                     </li>
-                    <li class="nav-item nav-item-150">
-                        <a class="nav-link fw-bold" href="#">Evaluasi Penunjang</a>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link{{ Request::is('formEvaluasiDiri/penunjang') ? ' active' : '' }}" href="{{ route('ed-penunjang') }} "><b>Evaluasi Penunjang Lainnya</b></a>
                     </li>
-                    <li class="nav-item nav-item-150">
-                        <a class="nav-link fw-bold" href="#">Simpulan</a>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link{{ Request::is('formEvaluasiDiri/simpulan') ? ' active' : '' }}" href="{{ route('ed-simpulan') }}"><b>Simpulan</b></a>
                     </li>
                 </ul>
             </div>
-            
-            @yield('content-kegiatan')
 
+            @yield('content-kegiatan')
         </div>
     <div>
-    
-    
-
+        
 @endsection

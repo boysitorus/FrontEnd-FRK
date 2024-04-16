@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Utils\Tools;
 
 class PendidikanController extends Controller
 {
-    public function getAll()
+    public function getAll(Request $request)
     {
+        $auth = Tools::getAuth($request);
+
         try {
             // Mengambil data teori dari Lumen
             $responseTeori = Http::get(env('API_FRK_SERVICE') . '/pendidikan/teori');
@@ -59,7 +62,8 @@ class PendidikanController extends Controller
                 'tugasAkhir' => $tugasAkhir,
                 'cangkok' => $cangkok,
                 'koordinator' => $koordinator,
-                'proposal' => $proposal
+                'proposal' => $proposal,
+                'auth' => $auth
             ];
 
             // Mengirim data ke view

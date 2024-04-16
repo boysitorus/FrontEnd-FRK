@@ -11,7 +11,7 @@
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
-                    <p class = "mb-0 font-weight-bold"> Peran saat ini  : Dosen Program Studi S1 Informatika </p>
+                    <p class = "mb-0 font-weight-bold"> Peran saat ini  : {{ json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['posisi '] }} Program Studi {{ $auth->user->data_lengkap->dosen->prodi }} </p>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link " href="#"><b>Rencana Pendidikan</b></a>
+                        <a class="nav-link " href="{{ route('rk-pendidikan') }} "><b>Rencana Pendidikan</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link" href="#"><b>Rencana Penelitian</b></a>
@@ -41,7 +41,7 @@
                         <a class="nav-link" href="#"><b>Rencana Pengabdian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link" href="#"><b>Tunjangan Lainnya</b></a>
+                        <a class="nav-link" href="{{ route('rk-penunjang') }} "><b>Tunjangan Lainnya</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link active" href="#"><b>Simpulan</b></a>

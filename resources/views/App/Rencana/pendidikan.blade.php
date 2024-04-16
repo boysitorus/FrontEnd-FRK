@@ -1,7 +1,7 @@
 @extends('Template.rencana')
 
-
 @section('content-kegiatan')
+
 <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- TAMPILAN BAGIAN PENDIDIKAN --}}
 
@@ -1852,3 +1852,4 @@
     </script>
 
 @endsection
+

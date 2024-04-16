@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Utils\Tools;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class SimpulanController extends Controller
 {
-    public function getAll()
+    
+    public function getAll(Request $request)
     {
+        $auth = Tools::getAuth($request);
         try {
             $responsePendidikan = Http::get(env('API_FRK_SERVICE') . '/simpulan-pendidikan');
             $totalSksPendidikan = $responsePendidikan->json();
@@ -34,6 +37,7 @@ class SimpulanController extends Controller
                 'pengabdianSks' => $totalSksPengabdian,
                 'penunjangSks' => $totalSksPenunjang,
                 'totalSks' => $totalSksTotal,
+                'auth' => $auth
             ]
             );
 

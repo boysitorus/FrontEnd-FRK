@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Utils\Tools;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class PenunjangController extends Controller
 {
-    public function getAll()
+    public function getAll(Request $request)
     {
+        $auth = Tools::getAuth($request);
         try {
             $responseAkademik = Http::get(env('API_FRK_SERVICE') . '/penunjang/akademik');
             $akademik = $responseAkademik->json();
@@ -66,7 +68,8 @@ class PenunjangController extends Controller
                 'reviewer' => $reviewer,
                 'ketuapanitia' => $ketuapanitia,
                 'anggotapanitia' => $anggotapanitia,
-                'pengurusyayasan' => $pengurusyayasan
+                'pengurusyayasan' => $pengurusyayasan,
+                'auth' => $auth
             ];
 
             return view('App.Rencana.penunjang', $data);

@@ -10,6 +10,31 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    <style>
+        /* Remove inner borders */
+        table.outer-border-only-table td,
+        table.outer-border-only-table th {
+            border: none;
+        }
+
+        /* Add outer border */
+        table.outer-border-only-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid black; /* Adjust the border style as needed */
+        }
+        table.outer-border-only-table th,
+        table.outer-border-only-table td {
+            border-left: none;
+            border-right: none;
+            border-top: none;
+        }
+        table.outer-border-only-table thead th,
+        table.outer-border-only-table tbody tr:last-child td {
+            border-bottom: 1px solid black;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,7 +53,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" class="list-group-item bg-abu list-group-item-action py-2 ripple">
+                            <a href="{{route('profile')}}" class="{{ request()->routeIs('profile') ? 'active' : '' }} list-group-item bg-abu list-group-item-action py-2 ripple">
                                 <i class="bi bi-person-fill me-1"></i>
                                 <span>Profile</span>
                             </a>
@@ -36,19 +61,19 @@
 
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed 
-                                {{ request()->routeIs('rk-pendidikan') ? 'active' : '' }}
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
+                                {{Str::startsWith(request()->path(), 'formRencanaKerja') ? 'active' : ''}}
                                 d-flex justify-content-between align-items-center"
+                                
                                 data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
                                 <i class="bi bi-person-workspace me-2"></i>
                                 <div class="me-auto"><span>Rencana Kerja</span></div>
                                 <i class="bi bi-chevron-down"></i>
                             </a>
                             <div class="collapse" id="frk-collapse">
-                                <ul
-                                    class="btn-toggle-nav list-unstyled fw-normal pb-1 small {{ request()->routeIs('rk-pendidikan') ? 'active' : '' }}">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
-                                        <a href="{{ route('rk-pendidikan.all') }}"
+                                        <a href="{{ route('rk-pendidikan') }}"
                                             class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                             Rekap Kegiatan
                                         </a>
@@ -187,16 +212,13 @@
                 </span>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Right elements -->
-                    {{-- <div class="ms-auto d-flex align-items-center justify-content-start">
+
+                     <div class="ms-auto d-flex align-items-center justify-content-start">
                         <img class="d-inline" src="{{ asset('assets/icon/Logout.svg') }}" alt="">
-                        <a class="text-reset me-3 text-decoration-none" href="#">
+                        <a class="text-reset me-3 text-decoration-none" href="{{ route('logout.get') }}">
                             <h5 class="ms-2 pt-2 " style="font-weight: 700;">Keluar</h5>
                         </a>
-
-                        
-                    </div> --}}
-                    <!-- Right elements -->
+                    </div>
 
                 </div>
             </div>
@@ -208,7 +230,7 @@
 
     <!--Main layout-->
     <main id="contentPage" style="margin-top: 74px;">
-        <div class="bg-abu container-fluid pt-4">
+        <div class="bg-abu container-fluid pt-4 ">
             @yield('content')
         </div>
     </main>
@@ -223,13 +245,7 @@
             $('#sidebarCollapse').on('click', function() {
                 $('#sidebarMenu').toggleClass('active');
                 $('#contentPage').toggleClass('active');
-                $('li > div.collapse').removeClass('show');
             });
-
-            $('.btn-toggle').on('click', function() {
-                $('#sidebarMenu').removeClass('active');
-                $('#contentPage').removeClass('active');
-            })
 
         });
     </script>
