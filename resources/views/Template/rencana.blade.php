@@ -49,6 +49,7 @@
                 </ul>
             </div>
 
+
             @yield('content-kegiatan')
         </div>
     <div>
@@ -57,7 +58,8 @@
 
         </div>
     <div>
-    
-    
+
+
 
 @endsection
+
