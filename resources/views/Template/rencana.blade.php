@@ -2,7 +2,7 @@
 
 
 @section('content')
-    
+
     <div class = "mt-5 flex-wrap ml-4 mr-4">
         <div class = "row">
             <div class = "col">
@@ -32,7 +32,7 @@
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link active fw-bold" href="{{ route('rk-pendidikan.all') }}">Rencana Pendidikan</a>
+                        <a class="nav-link fw-bold {{ request()->routeIs('rk-pendidikan.all') ? 'active' : '' }}" href="{{ route('rk-pendidikan.all') }}">Rencana Pendidikan</a>
                     </li>
                     <li class="nav-item nav-item-150">
                         <a class="nav-link fw-bold" href="#">Rencana Penelitian</a>
@@ -41,19 +41,19 @@
                         <a class="nav-link fw-bold" href="#">Rencana Pengabdian</a>
                     </li>
                     <li class="nav-item nav-item-150">
-                        <a class="nav-link fw-bold" href="{{ route('rk-penunjang.all') }}">Tunjangan Lainnya</a>
+                        <a class="nav-link fw-bold {{ request()->routeIs('rk-penunjang.all') ? 'active' : '' }}" href="{{ route('rk-penunjang.all') }}">Tunjangan Lainnya</a>
                     </li>
                     <li class="nav-item nav-item-150">
                         <a class="nav-link fw-bold" href="{{ route('rk-simpulan') }}">Simpulan</a>
                     </li>
                 </ul>
             </div>
-            
+
             @yield('content-kegiatan')
 
         </div>
     <div>
-    
-    
+
+
 
 @endsection

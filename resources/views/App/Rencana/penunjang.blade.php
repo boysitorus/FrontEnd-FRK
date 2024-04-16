@@ -1792,8 +1792,8 @@
                                                         <label for="jabatan" class="form-label">Jabatan:</label>
                                                         <select class="form-control" aria-label="Default select example"
                                                             id="jabatan" name="jabatan">
-                                                            <option value="Anggota">Anggota</option>
-                                                            <option value="Ketua">Ketua</option>
+                                                            <option value="Anggota" {{ $item['jabatan'] === 'Anggota' ? 'selected' : '' }}>Anggota</option>
+                                                            <option value="Ketua" {{ $item['jabatan'] === 'Ketua' ? 'selected' : '' }}>Ketua</option>
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
@@ -1802,8 +1802,8 @@
                                                         </label>
                                                         <select class="form-control" aria-label="Default select example"
                                                             id="jenis_tingkatan" name="jenis_tingkatan">
-                                                            <option value="Nasional">Nasional</option>
-                                                            <option value="Internasional">Internasional</option>
+                                                            <option value="Nasional" {{ $item['jenis_tingkatan'] === 'Nasional' ? 'selected' : '' }} >Nasional</option>
+                                                            <option value="Internasional" {{ $item['jenis_tingkatan'] === 'Internasional' ? 'selected' : '' }}>Internasional</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -2588,7 +2588,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jabatan" class="form-label">Jabatan:</label>
-                            <select class="form-control" id="jenis_jabatan" name="jenis_jabatan">
+                            <select class="form-control" id="jenis_jabatan" name="jabatan">
                                 <option value="Anggota">Anggota</option>
                                 <option value="Ketua">Ketua</option>
                             </select>
