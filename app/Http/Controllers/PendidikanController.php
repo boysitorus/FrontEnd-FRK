@@ -11,40 +11,40 @@ class PendidikanController extends Controller
     {
         try {
             // Mengambil data teori dari Lumen
-            $responseTeori = Http::get('http://localhost:9000/api/pendidikan/teori');
+            $responseTeori = Http::get(env('API_FRK_SERVICE') . '/pendidikan/teori');
             $teori = $responseTeori->json();
 
-            $responsePraktikum = Http::get('http://localhost:9000/api/pendidikan/praktikum');
+            $responsePraktikum = Http::get(env('API_FRK_SERVICE') . '/pendidikan/praktikum');
             $praktikum = $responsePraktikum->json();
 
             // Mengambil data bimbingan dari Lumen
-            $responseBimbingan = Http::get('http://localhost:9000/api/pendidikan/bimbingan');
+            $responseBimbingan = Http::get(env('API_FRK_SERVICE') . '/pendidikan/bimbingan');
             $bimbingan = $responseBimbingan->json();
 
             //Mengambil data seminar dari Lumen
-            $responseSeminar = Http::get('http://localhost:9000/api/pendidikan/seminar');
+            $responseSeminar = Http::get(env('API_FRK_SERVICE') . '/pendidikan/seminar');
             $seminar = $responseSeminar->json();
 
             //Mengambil data rendah dari Lumen
-            $responseRendah = Http::get('http://localhost:9000/api/pendidikan/rendah');
+            $responseRendah = Http::get(env('API_FRK_SERVICE') . '/pendidikan/rendah');
             $rendah = $responseRendah->json();
 
             //Mengambil data kembang dari Lumen
-            $responseKembang = Http::get('http://localhost:9000/api/pendidikan/kembang');
+            $responseKembang = Http::get(env('API_FRK_SERVICE') . '/pendidikan/kembang');
             $kembang = $responseKembang->json();
 
-            $responseTugasAkhir = Http::get('http://localhost:9000/api/pendidikan/tugasAkhir');
+            $responseTugasAkhir = Http::get(env('API_FRK_SERVICE') . '/pendidikan/tugasAkhir');
             $tugasAkhir = $responseTugasAkhir->json();
 
             //Mengambil data cangkok dari Lumen
-            $responseCangkok = Http::get('http://localhost:9000/api/pendidikan/cangkok');
+            $responseCangkok = Http::get(env('API_FRK_SERVICE') . '/pendidikan/cangkok');
             $cangkok = $responseCangkok->json();
 
             //Mengambil data koordinator dari Lumen
-            $responseKoordinator = Http::get('http://localhost:9000/api/pendidikan/koordinator');
+            $responseKoordinator = Http::get(env('API_FRK_SERVICE') . '/pendidikan/koordinator');
             $koordinator = $responseKoordinator->json();
 
-            $responseProposal = Http::get('http://localhost:9000/api/pendidikan/proposal');
+            $responseProposal = Http::get(env('API_FRK_SERVICE') . '/pendidikan/proposal');
             $proposal = $responseProposal->json();
 
 
@@ -66,14 +66,14 @@ class PendidikanController extends Controller
             return view('App.Rencana.pendidikan', $data);
         } catch (\Throwable $th) {
             // Tangani error jika terjadi
-            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+            return response()->json(['error' => 'Failed to retrieve data from API',], 500);
         }
     }
 
     public function postTeori(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/teori',
+            env('API_FRK_SERVICE') . '/pendidikan/teori',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -89,7 +89,7 @@ class PendidikanController extends Controller
     public function editTeori(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/edit/teori',
+            env('API_FRK_SERVICE') . '/pendidikan/edit/teori',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -104,7 +104,7 @@ class PendidikanController extends Controller
 
     public function deleteTeori($id)
     {
-        Http::delete("http://localhost:9000/api/pendidikan/teori/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/pendidikan/teori/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -114,7 +114,7 @@ class PendidikanController extends Controller
     public function postPraktikum(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/praktikum',
+            env('API_FRK_SERVICE') . '/pendidikan/praktikum',
             $request->all()
         );
 
@@ -124,7 +124,7 @@ class PendidikanController extends Controller
     public function editPraktikum(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/edit/praktikum',
+            env('API_FRK_SERVICE') . '/pendidikan/edit/praktikum',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -138,7 +138,7 @@ class PendidikanController extends Controller
 
     public function deletePraktikum($id)
     {
-        Http::delete("http://localhost:9000/api/pendidikan/praktikum/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/pendidikan/praktikum/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -149,7 +149,7 @@ class PendidikanController extends Controller
     public function postBimbingan(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/bimbingan',
+            env('API_FRK_SERVICE') . '/pendidikan/bimbingan',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -163,7 +163,7 @@ class PendidikanController extends Controller
     public function editBimbingan(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/edit/bimbingan',
+            env('API_FRK_SERVICE') . '/pendidikan/edit/bimbingan',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -176,7 +176,7 @@ class PendidikanController extends Controller
 
     public function deleteBimbingan($id)
     {
-        Http::delete("http://localhost:9000/api/pendidikan/bimbingan/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/pendidikan/bimbingan/{$id}");
 
         return redirect()->back();
     }
@@ -184,7 +184,7 @@ class PendidikanController extends Controller
     public function postSeminar(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/seminar',
+            env('API_FRK_SERVICE') . '/pendidikan/seminar',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -198,7 +198,7 @@ class PendidikanController extends Controller
     public function editSeminar(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/edit/seminar',
+            env('API_FRK_SERVICE') . '/pendidikan/edit/seminar',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -211,7 +211,7 @@ class PendidikanController extends Controller
 
     public function deleteSeminar($id)
     {
-        Http::delete("http://localhost:9000/api/pendidikan/seminar/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/pendidikan/seminar/{$id}");
 
 
         return redirect()->back();
@@ -220,7 +220,7 @@ class PendidikanController extends Controller
     public function postRendah(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/rendah',
+            env('API_FRK_SERVICE') . '/pendidikan/rendah',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -234,7 +234,7 @@ class PendidikanController extends Controller
     public function editRendah(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/edit/rendah',
+            env('API_FRK_SERVICE') . '/pendidikan/edit/rendah',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -247,7 +247,7 @@ class PendidikanController extends Controller
 
     public function deleteRendah($id)
     {
-        Http::delete("http://localhost:9000/api/pendidikan/rendah/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/pendidikan/rendah/{$id}");
 
 
         return redirect()->back();
@@ -255,7 +255,7 @@ class PendidikanController extends Controller
     public function postKembang(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/kembang',
+            env('API_FRK_SERVICE') . '/pendidikan/kembang',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -269,7 +269,7 @@ class PendidikanController extends Controller
     public function editKembang(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/edit/kembang',
+            env('API_FRK_SERVICE') . '/pendidikan/edit/kembang',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -282,7 +282,7 @@ class PendidikanController extends Controller
 
     public function deleteKembang($id)
     {
-        Http::delete("http://localhost:9000/api/pendidikan/kembang/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/pendidikan/kembang/{$id}");
 
 
         return redirect()->back();
@@ -291,7 +291,7 @@ class PendidikanController extends Controller
     public function postCangkok(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/cangkok',
+            env('API_FRK_SERVICE') . '/pendidikan/cangkok',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -308,7 +308,7 @@ class PendidikanController extends Controller
 
         // Pastikan URL API benar dan sesuai dengan konfigurasi server Anda
         $response = Http::post(
-            "http://localhost:9000/api/pendidikan/edit/cangkok/{$id_rencana}",
+            env('API_FRK_SERVICE') . "/pendidikan/edit/cangkok/{$id_rencana}",
             [
                 'id_rencana' => $id_rencana,
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -329,7 +329,7 @@ class PendidikanController extends Controller
 
     public function deleteCangkok($id)
     {
-        Http::delete("http://localhost:9000/api/pendidikan/cangkok/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/pendidikan/cangkok/{$id}");
 
 
         return redirect()->back();
@@ -340,7 +340,7 @@ class PendidikanController extends Controller
     public function postKoordinator(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/koordinator',
+            env('API_FRK_SERVICE') . '/pendidikan/koordinator',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan')
@@ -353,7 +353,7 @@ class PendidikanController extends Controller
     public function editKoordinator(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/edit/koordinator',
+            env('API_FRK_SERVICE') . '/pendidikan/edit/koordinator',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan')
@@ -365,7 +365,7 @@ class PendidikanController extends Controller
 
     public function deleteKoordinator($id)
     {
-        Http::delete("http://localhost:9000/api/pendidikan/koordinator/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/pendidikan/koordinator/{$id}");
 
 
         return redirect()->back();
@@ -375,7 +375,7 @@ class PendidikanController extends Controller
     public function postTugasAkhir(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/tugasAkhir',
+            env('API_FRK_SERVICE') . '/pendidikan/tugasAkhir',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -389,7 +389,7 @@ class PendidikanController extends Controller
     public function editTugasAkhir(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/edit/tugasAkhir',
+            env('API_FRK_SERVICE') . '/pendidikan/edit/tugasAkhir',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -402,14 +402,14 @@ class PendidikanController extends Controller
 
     public function deleteTugasAkhir($id)
     {
-        Http::delete("http://localhost:9000/api/pendidikan/tugasAkhir/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/pendidikan/tugasAkhir/{$id}");
         return redirect()->back()->with('success', 'Item deleted');
     }
 
     public function postProposal(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/proposal',
+            env('API_FRK_SERVICE') . '/pendidikan/proposal',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -423,7 +423,7 @@ class PendidikanController extends Controller
     public function editProposal(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/pendidikan/edit/proposal',
+            env('API_FRK_SERVICE') . '/pendidikan/edit/proposal',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -436,7 +436,7 @@ class PendidikanController extends Controller
 
     public function deleteProposal($id)
     {
-        Http::delete("http://localhost:9000/api/pendidikan/proposal/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/pendidikan/proposal/{$id}");
         return redirect()->back()->with('success', 'Item deleted');
     }
 }
