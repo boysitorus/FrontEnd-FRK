@@ -11,23 +11,23 @@ class SimpulanController extends Controller
     public function getAll()
     {
         try {
-            $responsePendidikan = Http::get('http://localhost:9000/api/simpulan-pendidikan');
+            $responsePendidikan = Http::get(env('API_FRK_SERVICE') . '/simpulan-pendidikan');
             $totalSksPendidikan = $responsePendidikan->json();
 
-            $responsePenelitian = Http::get('http://localhost:9000/api/simpulan-penelitian');
+            $responsePenelitian = Http::get(env('API_FRK_SERVICE') . '/simpulan-penelitian');
             $totalSksPenelitian = $responsePenelitian->json();
 
-            $responsePengabdian = Http::get('http://localhost:9000/api/simpulan-pengabdian');
+            $responsePengabdian = Http::get(env('API_FRK_SERVICE') . '/simpulan-pengabdian');
             $totalSksPengabdian = $responsePengabdian->json();
 
-            $responsePenunjang = Http::get('http://localhost:9000/api/simpulan-penunjang');
+            $responsePenunjang = Http::get(env('API_FRK_SERVICE') . '/simpulan-penunjang');
             $totalSksPenunjang = $responsePenunjang->json();
 
-            $responseTotal = Http::get('http://localhost:9000/api/simpulan-total');
+            $responseTotal = Http::get(env('API_FRK_SERVICE') . '/simpulan-total');
             $totalSksTotal = $responseTotal->json();
 
 
-            return view('App.Rencana.simpulan', 
+            return view('App.Rencana.simpulan',
             [
                 'pendidikanSks' => $totalSksPendidikan,
                 'penelitianSks' => $totalSksPenelitian,
@@ -46,19 +46,19 @@ class SimpulanController extends Controller
     {
         try {
             // Ambil data dari API untuk setiap jenis sks
-            $responsePendidikan = Http::get('http://localhost:9000/api/simpulan-pendidikan');
+            $responsePendidikan = Http::get(env('API_FRK_SERVICE') . '/simpulan-pendidikan');
             $totalSksPendidikan = $responsePendidikan->json();
 
-            $responsePenelitian = Http::get('http://localhost:9000/api/simpulan-penelitian');
+            $responsePenelitian = Http::get(env('API_FRK_SERVICE') . '/simpulan-penelitian');
             $totalSksPenelitian = $responsePenelitian->json();
 
-            $responsePengabdian = Http::get('http://localhost:9000/api/simpulan-pengabdian');
+            $responsePengabdian = Http::get(env('API_FRK_SERVICE') . '/simpulan-pengabdian');
             $totalSksPengabdian = $responsePengabdian->json();
 
-            $responsePenunjang = Http::get('http://localhost:9000/api/simpulan-penunjang');
+            $responsePenunjang = Http::get(env('API_FRK_SERVICE') . '/simpulan-penunjang');
             $totalSksPenunjang = $responsePenunjang->json();
 
-            $responseTotal = Http::get('http://localhost:9000/api/simpulan-total');
+            $responseTotal = Http::get(env('API_FRK_SERVICE') . '/simpulan-total');
             $totalSksTotal = $responseTotal->json();
 
             $data = [
@@ -71,7 +71,7 @@ class SimpulanController extends Controller
 
             $pdf = Pdf::loadView('App.Rencana.pdf', $data);
             return $pdf->download('coba.pdf');
-        
+
 
         } catch(\Throwable $th) {
             return response()->json(['error' => 'Failed to generate PDF'], 500);

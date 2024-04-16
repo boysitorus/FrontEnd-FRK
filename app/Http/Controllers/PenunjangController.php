@@ -10,46 +10,46 @@ class PenunjangController extends Controller
     public function getAll()
     {
         try {
-            $responseAkademik = Http::get('http://localhost:9000/api/penunjang/akademik');
+            $responseAkademik = Http::get(env('API_FRK_SERVICE') . '/penunjang/akademik');
             $akademik = $responseAkademik->json();
 
-            $responseBimbingan = Http::get('http://localhost:9000/api/penunjang/bimbingan');
+            $responseBimbingan = Http::get(env('API_FRK_SERVICE') . '/penunjang/bimbingan');
             $bimbingan = $responseBimbingan->json();
 
-            $responseUkm = Http::get('http://localhost:9000/api/penunjang/ukm');
+            $responseUkm = Http::get(env('API_FRK_SERVICE') . '/penunjang/ukm');
             $ukm = $responseUkm->json();
 
-            $responseSosial = Http::get('http://localhost:9000/api/penunjang/sosial');
+            $responseSosial = Http::get(env('API_FRK_SERVICE') . '/penunjang/sosial');
             $sosial = $responseSosial->json();
 
-            $responseSturuktural = Http::get('http://localhost:9000/api/penunjang/struktural');
+            $responseSturuktural = Http::get(env('API_FRK_SERVICE') . '/penunjang/struktural');
             $struktural = $responseSturuktural->json();
 
-            $responsenonSturuktural = Http::get('http://localhost:9000/api/penunjang/nonstruktural');
+            $responsenonSturuktural = Http::get(env('API_FRK_SERVICE') . '/penunjang/nonstruktural');
             $nonstruktural = $responsenonSturuktural->json();
 
-            $responseRedaksi = Http::get('http://localhost:9000/api/penunjang/redaksi');
+            $responseRedaksi = Http::get(env('API_FRK_SERVICE') . '/penunjang/redaksi');
             $redaksi = $responseRedaksi->json();
 
-            $responseAdhoc = Http::get('http://localhost:9000/api/penunjang/adhoc');
+            $responseAdhoc = Http::get(env('API_FRK_SERVICE') . '/penunjang/adhoc');
             $adhoc = $responseAdhoc->json();
 
-            $responseAsosiasi = Http::get('http://localhost:9000/api/penunjang/asosiasi');
+            $responseAsosiasi = Http::get(env('API_FRK_SERVICE') . '/penunjang/asosiasi');
             $asosiasi = $responseAsosiasi->json();
 
-            $responseSeminar = Http::get('http://localhost:9000/api/penunjang/seminar');
+            $responseSeminar = Http::get(env('API_FRK_SERVICE') . '/penunjang/seminar');
             $seminar = $responseSeminar->json();
 
-            $responseReviewer = Http::get('http://localhost:9000/api/penunjang/reviewer');
+            $responseReviewer = Http::get(env('API_FRK_SERVICE') . '/penunjang/reviewer');
             $reviewer = $responseReviewer->json();
 
-            $responseKetuaPanitia = Http::get('http://localhost:9000/api/penunjang/ketuapanitia');
+            $responseKetuaPanitia = Http::get(env('API_FRK_SERVICE') . '/penunjang/ketuapanitia');
             $ketuapanitia = $responseKetuaPanitia->json();
 
-            $responseAnggotaPanitia = Http::get('http://localhost:9000/api/penunjang/anggotapanitia');
+            $responseAnggotaPanitia = Http::get(env('API_FRK_SERVICE') . '/penunjang/anggotapanitia');
             $anggotapanitia = $responseAnggotaPanitia->json();
 
-            $responsePengurusYayasan = Http::get('http://localhost:9000/api/penunjang/pengurusyayasan');
+            $responsePengurusYayasan = Http::get(env('API_FRK_SERVICE') . '/penunjang/pengurusyayasan');
             $pengurusyayasan = $responsePengurusYayasan->json();
 
             $data = [
@@ -81,7 +81,7 @@ class PenunjangController extends Controller
     public function postAkademik(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/akademik',
+            env('API_FRK_SERVICE') . '/penunjang/akademik',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -93,7 +93,7 @@ class PenunjangController extends Controller
     public function editAkademik(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/edit/akademik',
+            env('API_FRK_SERVICE') . '/penunjang/edit/akademik',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -104,7 +104,7 @@ class PenunjangController extends Controller
     }
     public function deleteAkademik($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/akademik/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/akademik/{$id}");
 
         return redirect()->back();
     }
@@ -113,7 +113,7 @@ class PenunjangController extends Controller
     public function postBimbingan(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/bimbingan',
+            env('API_FRK_SERVICE') . '/penunjang/bimbingan',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -125,7 +125,7 @@ class PenunjangController extends Controller
     public function editBimbingan(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/edit/bimbingan',
+            env('API_FRK_SERVICE') . '/penunjang/edit/bimbingan',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -136,7 +136,7 @@ class PenunjangController extends Controller
     }
     public function deleteBimbingan($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/bimbingan/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/bimbingan/{$id}");
 
         return redirect()->back();
     }
@@ -146,7 +146,7 @@ class PenunjangController extends Controller
     public function postUkm(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/ukm',
+            env('API_FRK_SERVICE') . '/penunjang/ukm',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -159,7 +159,7 @@ class PenunjangController extends Controller
     public function editUkm(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/ukm",
+            env('API_FRK_SERVICE') . "/penunjang/edit/ukm",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -171,7 +171,7 @@ class PenunjangController extends Controller
 
     public function deleteUkm($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/ukm/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/ukm/{$id}");
 
         return redirect()->back();
     }
@@ -181,7 +181,7 @@ class PenunjangController extends Controller
     public function postSosial(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/sosial',
+            env('API_FRK_SERVICE') . '/penunjang/sosial',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -194,7 +194,7 @@ class PenunjangController extends Controller
     public function editSosial(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/sosial",
+            env('API_FRK_SERVICE') . "/penunjang/edit/sosial",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -206,7 +206,7 @@ class PenunjangController extends Controller
 
     public function deleteSosial($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/sosial/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/sosial/{$id}");
 
         return redirect()->back();
     }
@@ -215,7 +215,7 @@ class PenunjangController extends Controller
     public function postStruktural(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/struktural',
+            env('API_FRK_SERVICE') . '/penunjang/struktural',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -228,7 +228,7 @@ class PenunjangController extends Controller
     public function editStruktural(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/struktural",
+            env('API_FRK_SERVICE') . "/penunjang/edit/struktural",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -241,7 +241,7 @@ class PenunjangController extends Controller
 
     public function deleteStruktural($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/struktural/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/struktural/{$id}");
 
         return redirect()->back();
     }
@@ -250,7 +250,7 @@ class PenunjangController extends Controller
     public function postNonstruktural(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/nonstruktural',
+            env('API_FRK_SERVICE') . '/penunjang/nonstruktural',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -263,7 +263,7 @@ class PenunjangController extends Controller
     public function editNonstruktural(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/nonstruktural",
+            env('API_FRK_SERVICE') . "/penunjang/edit/nonstruktural",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -276,7 +276,7 @@ class PenunjangController extends Controller
 
     public function deleteNonstruktural($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/nonstruktural/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/nonstruktural/{$id}");
 
         return redirect()->back();
     }
@@ -285,7 +285,7 @@ class PenunjangController extends Controller
     public function postRedaksi(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/redaksi',
+            env('API_FRK_SERVICE') . '/penunjang/redaksi',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -298,7 +298,7 @@ class PenunjangController extends Controller
     public function editRedaksi(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/redaksi",
+            env('API_FRK_SERVICE') . "/penunjang/edit/redaksi",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -311,7 +311,7 @@ class PenunjangController extends Controller
 
     public function deleteRedaksi($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/redaksi/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/redaksi/{$id}");
 
         return redirect()->back();
     }
@@ -320,7 +320,7 @@ class PenunjangController extends Controller
     public function postAdhoc(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/adhoc',
+            env('API_FRK_SERVICE') . '/penunjang/adhoc',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -333,7 +333,7 @@ class PenunjangController extends Controller
     public function editAdhoc(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/adhoc",
+            env('API_FRK_SERVICE') . "/penunjang/edit/adhoc",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -346,7 +346,7 @@ class PenunjangController extends Controller
 
     public function deleteAdhoc($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/adhoc/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/adhoc/{$id}");
 
         return redirect()->back();
     }
@@ -355,7 +355,7 @@ class PenunjangController extends Controller
     public function postKetuaPanitia(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/ketuapanitia',
+            env('API_FRK_SERVICE') . '/penunjang/ketuapanitia',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -368,7 +368,7 @@ class PenunjangController extends Controller
     public function editKetuaPanitia(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/ketuapanitia",
+            env('API_FRK_SERVICE') . "/penunjang/edit/ketuapanitia",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -381,16 +381,16 @@ class PenunjangController extends Controller
 
     public function deleteKetuaPanitia($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/ketuapanitia/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/ketuapanitia/{$id}");
 
         return redirect()->back()->with('success', 'Item berhasil dihapus');
     }
-    
+
     // BAGIAN J
     public function postAnggotaPanitia(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/anggotapanitia',
+            env('API_FRK_SERVICE') . '/penunjang/anggotapanitia',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -403,7 +403,7 @@ class PenunjangController extends Controller
     public function editAnggotaPanitia(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/anggotapanitia",
+            env('API_FRK_SERVICE') . "/penunjang/edit/anggotapanitia",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -416,7 +416,7 @@ class PenunjangController extends Controller
 
     public function deleteAnggotaPanitia($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/anggotapanitia/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/anggotapanitia/{$id}");
 
         return redirect()->back()->with('success', 'Item berhasil dihapus');
     }
@@ -425,7 +425,7 @@ class PenunjangController extends Controller
     public function postPengurusYayasan(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/pengurusyayasan',
+            env('API_FRK_SERVICE') . '/penunjang/pengurusyayasan',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -438,7 +438,7 @@ class PenunjangController extends Controller
     public function editPengurusYayasan(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/pengurusyayasan",
+            env('API_FRK_SERVICE') . "/penunjang/edit/pengurusyayasan",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -451,7 +451,7 @@ class PenunjangController extends Controller
 
     public function deletePengurusYayasan($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/pengurusyayasan/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/pengurusyayasan/{$id}");
 
         return redirect()->back()->with('success', 'Item berhasil dihapus');
     }
@@ -460,7 +460,7 @@ class PenunjangController extends Controller
     public function postAsosiasi(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/asosiasi',
+            env('API_FRK_SERVICE') . '/penunjang/asosiasi',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -474,7 +474,7 @@ class PenunjangController extends Controller
     public function editAsosiasi(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/asosiasi",
+            env('API_FRK_SERVICE') . "/penunjang/edit/asosiasi",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -488,7 +488,7 @@ class PenunjangController extends Controller
 
     public function deleteAsosiasi($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/asosiasi/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/asosiasi/{$id}");
 
         return redirect()->back()->with('success', 'Item berhasil dihapus');
     }
@@ -497,7 +497,7 @@ class PenunjangController extends Controller
     public function postSeminar(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/seminar',
+            env('API_FRK_SERVICE') . '/penunjang/seminar',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -510,7 +510,7 @@ class PenunjangController extends Controller
     public function editSeminar(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/seminar",
+            env('API_FRK_SERVICE') . "/penunjang/edit/seminar",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -523,7 +523,7 @@ class PenunjangController extends Controller
 
     public function deleteSeminar($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/seminar/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/seminar/{$id}");
 
         return redirect()->back()->with('success', 'Item berhasil dihapus');
     }
@@ -532,7 +532,7 @@ class PenunjangController extends Controller
     public function postReviewer(Request $request)
     {
         Http::post(
-            'http://localhost:9000/api/penunjang/reviewer',
+            env('API_FRK_SERVICE') . '/penunjang/reviewer',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -544,7 +544,7 @@ class PenunjangController extends Controller
     public function editReviewer(Request $request)
     {
         Http::post(
-            "http://localhost:9000/api/penunjang/edit/reviewer",
+            env('API_FRK_SERVICE') . "/penunjang/edit/reviewer",
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -556,10 +556,10 @@ class PenunjangController extends Controller
 
     public function deleteReviewer($id)
     {
-        Http::delete("http://localhost:9000/api/penunjang/reviewer/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penunjang/reviewer/{$id}");
 
         return redirect()->back()->with('success', 'Item berhasil dihapus');
     }
 
-    
+
 }
