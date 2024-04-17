@@ -46,14 +46,10 @@ Route::group(['middleware' => ['check.token']], function() {
         return view('App.Evaluasi.pendidikan');
     });
 
-    Route::get('/formEvaluasiDiri', function() {
-        return view('App.Evaluasi.penunjang');
-    });
-
-   Route::prefix('/formRencanaKerja')->group(function () {
+    Route::prefix('/formRencanaKerja')->group(function () {
        Route::get('/pendidikan', [PendidikanController::class, 'getAll'])->name('rk-pendidikan');
        Route::get('/penelitian', [PenelitianController::class, 'getPenelitianPanel'])->name('rk-penelitian');
-       Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
+    // Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
        Route::get('/pengabdian', [PengabdianController::class, 'getPengabdianPanel'])->name('rk-pengabdian');
        Route::get('/penunjang', [PenunjangController::class, 'getAll'])->name('rk-penunjang');
        Route::get('/simpulan', [SimpulanController::class, 'getAll'])->name('rk-simpulan');
@@ -316,9 +312,12 @@ Route::group(['middleware' => ['check.token']], function() {
     Route::prefix('/formEvaluasiDiri')->group(function () {
         Route::get('/penelitian', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
         Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
+        Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanPanel'])->name('ed-pendidikan');
+        Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
+        Route::get('/simpulan', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
     });
 
-    
+
     Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
 });
 
