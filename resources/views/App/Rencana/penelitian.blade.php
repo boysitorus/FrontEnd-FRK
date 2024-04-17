@@ -119,7 +119,7 @@
                                                         value="{{ $item['id_rencana'] }}" />
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                        <input 
+                                                        <input
                                                             name="nama_kegiatan" type="text" class="form-control"
                                                             id="nama_kegiatan"
                                                             value="{{ $item['nama_kegiatan'] }}">
@@ -291,7 +291,7 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input 
+                                                        <input
                                                             name="nama_kegiatan" type="text" class="form-control"
                                                             id="nama_kegiatan"
                                                             value="{{ $item['nama_kegiatan'] }}">
@@ -1358,7 +1358,7 @@
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                                     Batalkan
                                                 </button>
-                                                <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.penelitian_tridharma.destroy', ['id' => $item['id_rencana']]) }}" 
+                                                <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.penelitian_tridharma.destroy', ['id' => $item['id_rencana']]) }}"
                                                     onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
                                                 </a>
                                                 <form id="delete-form-{{ $item['id_rencana'] }}"
@@ -1492,7 +1492,7 @@
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                                     Batalkan
                                                 </button>
-                                                <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.jurnal_ilmiah.destroy', ['id' => $item['id_rencana']]) }}" 
+                                                <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.jurnal_ilmiah.destroy', ['id' => $item['id_rencana']]) }}"
                                                     onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
                                                 </a>
                                                 <form id="delete-form-{{ $item['id_rencana'] }}"
@@ -1509,7 +1509,7 @@
 
                                 </td>
                             </tr>
-                            
+
                             {{-- MODAL EDIT J --}}
                             <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1533,7 +1533,7 @@
                                                         <label for="lingkup_penerbit" class="form-label">Kategori</label>
                                                         <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
                                                             <option selected>Pilih Kategori</option>
-                                                            <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
+                                                            <option value="1">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi
                                                                 atau proceedings seminar nasional maupun internasional</option>
                                                             <option value="2">Diterbitkan oleh Jurnal terakreditasi</option>
                                                             <option value="3">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
@@ -2210,7 +2210,7 @@
                 <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" method = "POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
@@ -2270,7 +2270,7 @@
                 <form action="{{ route('rk-penelitian.penelitian_mandiri.create') }}" method = "POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
@@ -2316,7 +2316,7 @@
                     <form action="{{ route('rk-penelitian.buku_terbit.create') }}" method="POST">
                     @csrf
                         <div class="modal-body">
-                            <input type="hidden" name="id_dosen" value="1" />
+                            <input type="hidden" name="id_dosen" value={{$id_dosen}} />
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                 <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
@@ -2381,7 +2381,7 @@
                     <form action="{{ route('rk-penelitian.buku_internasional.create') }}" method="POST">
                     @csrf
                         <div class="modal-body">
-                            <input type="hidden" name="id_dosen" value=1 />
+                            <input type="hidden" name="id_dosen" value={{$id_dosen}} />
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                 <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
@@ -2448,7 +2448,7 @@
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                            <input type="hidden" name="id_dosen" value="1">
+                            <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                         </div>
@@ -2500,7 +2500,7 @@
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                            <input type="hidden" name="id_dosen" value="1">
+                            <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                         </div>
@@ -2551,7 +2551,7 @@
                 <form action="{{ route('rk-penelitian.penelitian_modul.create') }}" method = "POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
@@ -2613,7 +2613,7 @@
                 <form action="{{ route('rk-penelitian.penelitian_pekerti.create') }}" method = "POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
@@ -2639,11 +2639,11 @@
                         Pelaksanaan Tridharma Perguruan Tinggi</h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                
+
                 <div class="modal-body">
                     <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name ="nama_kegiatan"type="text" class="form-control" id="nama_kegiatan">
@@ -2675,7 +2675,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" name="nama_kegiatan" id="nama_kegiatan">
@@ -2684,8 +2684,8 @@
                             <label for="lingkup_penerbit" class="form-label">Kategori</label>
                             <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
                                 <option disabled selected value>Pilih Kategori</option>
-                                <option value="Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
-                                    atau proceedings seminar nasional maupun internasional">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi 
+                                <option value="Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi
+                                    atau proceedings seminar nasional maupun internasional">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi
                                     atau proceedings seminar nasional maupun internasional</option>
                                 <option value="Diterbitkan oleh Jurnal terakreditasi">Diterbitkan oleh Jurnal terakreditasi</option>
                                 <option value="Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
@@ -2731,7 +2731,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penelitian.hak_paten.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" for="nama" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama">
@@ -2769,7 +2769,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penelitian.media_massa.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" for="nama" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama">
@@ -2803,7 +2803,7 @@
                     <form action="{{ route('rk-penelitian.pembicara_seminar.create') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <input type="hidden" name="id_dosen" value="1">
+                            <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                             <label for="nama" class="form-label">Nama Kegiatan</label>
                             <input type="text" name="nama_kegiatan" class="form-control" id="nama">
                         </div>
@@ -2844,7 +2844,7 @@
                 <form action="{{ route('rk-penelitian.penyajian_makalah.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama" name="nama_kegiatan">

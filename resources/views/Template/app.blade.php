@@ -64,7 +64,7 @@
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
                                 {{Str::startsWith(request()->path(), 'formRencanaKerja') ? 'active' : ''}}
                                 d-flex justify-content-between align-items-center"
-                                
+
                                 data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
                                 <i class="bi bi-person-workspace me-2"></i>
                                 <div class="me-auto"><span>Rencana Kerja</span></div>

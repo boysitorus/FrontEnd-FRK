@@ -53,7 +53,7 @@ Route::group(['middleware' => ['check.token']], function() {
    Route::prefix('/formRencanaKerja')->group(function () {
        Route::get('/pendidikan', [PendidikanController::class, 'getAll'])->name('rk-pendidikan');
        Route::get('/penelitian', [PenelitianController::class, 'getPenelitianPanel'])->name('rk-penelitian');
-       Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
+    //    Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
        Route::get('/pengabdian', [PengabdianController::class, 'getPengabdianPanel'])->name('rk-pengabdian');
        Route::get('/penunjang', [PenunjangController::class, 'getAll'])->name('rk-penunjang');
        Route::get('/simpulan', [SimpulanController::class, 'getAll'])->name('rk-simpulan');
@@ -318,7 +318,7 @@ Route::group(['middleware' => ['check.token']], function() {
         Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
     });
 
-    
+
     Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
 });
 
