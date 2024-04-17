@@ -11,47 +11,48 @@ class PenunjangController extends Controller
     public function getAll(Request $request)
     {
         $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try {
-            $responseAkademik = Http::get(env('API_FRK_SERVICE') . '/penunjang/akademik');
+            $responseAkademik = Http::get(env('API_FRK_SERVICE') . '/penunjang/akademik/' . $id_dosen);
             $akademik = $responseAkademik->json();
 
-            $responseBimbingan = Http::get(env('API_FRK_SERVICE') . '/penunjang/bimbingan');
+            $responseBimbingan = Http::get(env('API_FRK_SERVICE') . '/penunjang/bimbingan/' . $id_dosen);
             $bimbingan = $responseBimbingan->json();
 
-            $responseUkm = Http::get(env('API_FRK_SERVICE') . '/penunjang/ukm');
+            $responseUkm = Http::get(env('API_FRK_SERVICE') . '/penunjang/ukm/' . $id_dosen);
             $ukm = $responseUkm->json();
 
-            $responseSosial = Http::get(env('API_FRK_SERVICE') . '/penunjang/sosial');
+            $responseSosial = Http::get(env('API_FRK_SERVICE') . '/penunjang/sosial/' . $id_dosen);
             $sosial = $responseSosial->json();
 
-            $responseSturuktural = Http::get(env('API_FRK_SERVICE') . '/penunjang/struktural');
+            $responseSturuktural = Http::get(env('API_FRK_SERVICE') . '/penunjang/struktural/' . $id_dosen);
             $struktural = $responseSturuktural->json();
 
-            $responsenonSturuktural = Http::get(env('API_FRK_SERVICE') . '/penunjang/nonstruktural');
+            $responsenonSturuktural = Http::get(env('API_FRK_SERVICE') . '/penunjang/nonstruktural/' . $id_dosen);
             $nonstruktural = $responsenonSturuktural->json();
 
-            $responseRedaksi = Http::get(env('API_FRK_SERVICE') . '/penunjang/redaksi');
+            $responseRedaksi = Http::get(env('API_FRK_SERVICE') . '/penunjang/redaksi/' . $id_dosen);
             $redaksi = $responseRedaksi->json();
 
-            $responseAdhoc = Http::get(env('API_FRK_SERVICE') . '/penunjang/adhoc');
+            $responseAdhoc = Http::get(env('API_FRK_SERVICE') . '/penunjang/adhoc/' . $id_dosen);
             $adhoc = $responseAdhoc->json();
 
-            $responseAsosiasi = Http::get(env('API_FRK_SERVICE') . '/penunjang/asosiasi');
+            $responseAsosiasi = Http::get(env('API_FRK_SERVICE') . '/penunjang/asosiasi/' . $id_dosen);
             $asosiasi = $responseAsosiasi->json();
 
-            $responseSeminar = Http::get(env('API_FRK_SERVICE') . '/penunjang/seminar');
+            $responseSeminar = Http::get(env('API_FRK_SERVICE') . '/penunjang/seminar/' . $id_dosen);
             $seminar = $responseSeminar->json();
 
-            $responseReviewer = Http::get(env('API_FRK_SERVICE') . '/penunjang/reviewer');
+            $responseReviewer = Http::get(env('API_FRK_SERVICE') . '/penunjang/reviewer/' . $id_dosen);
             $reviewer = $responseReviewer->json();
 
-            $responseKetuaPanitia = Http::get(env('API_FRK_SERVICE') . '/penunjang/ketuapanitia');
+            $responseKetuaPanitia = Http::get(env('API_FRK_SERVICE') . '/penunjang/ketuapanitia/' . $id_dosen);
             $ketuapanitia = $responseKetuaPanitia->json();
 
-            $responseAnggotaPanitia = Http::get(env('API_FRK_SERVICE') . '/penunjang/anggotapanitia');
+            $responseAnggotaPanitia = Http::get(env('API_FRK_SERVICE') . '/penunjang/anggotapanitia/' . $id_dosen);
             $anggotapanitia = $responseAnggotaPanitia->json();
 
-            $responsePengurusYayasan = Http::get(env('API_FRK_SERVICE') . '/penunjang/pengurusyayasan');
+            $responsePengurusYayasan = Http::get(env('API_FRK_SERVICE') . '/penunjang/pengurusyayasan/' . $id_dosen);
             $pengurusyayasan = $responsePengurusYayasan->json();
 
             $data = [
@@ -69,7 +70,8 @@ class PenunjangController extends Controller
                 'ketuapanitia' => $ketuapanitia,
                 'anggotapanitia' => $anggotapanitia,
                 'pengurusyayasan' => $pengurusyayasan,
-                'auth' => $auth
+                'auth' => $auth,
+                'id_dosen' => $id_dosen
             ];
 
             return view('App.Rencana.penunjang', $data);
