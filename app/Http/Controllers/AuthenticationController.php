@@ -20,7 +20,7 @@ class AuthenticationController extends Controller
             'password' => 'required',
         ]);
 
-//        dd($request);
+    //    dd($request);
 
         $parseResponse = null;
 
@@ -40,9 +40,11 @@ class AuthenticationController extends Controller
             Tools::setAuth($request, $parseData['data']);
             Tools::setToken($request, $parseData['token']);
             Tools::setTokenRefresh($request, $parseData['refresh_token']);
+
+        //    dd(Tools::getAuth($request));
+
             return redirect()->route('home');
 
-//            dd(Tools::getAuth($request));
         } catch (\Exception $err) {
 //            dd($err);
             return back()->with('error', "Silahkan coba lagi!");

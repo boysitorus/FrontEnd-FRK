@@ -17,4 +17,8 @@ class RencanaKerjaController extends Controller
     public function getSimpulanPanel(){
         return view('App.Rencana.simpulan');
     }
+
+    public function getFEDSimpulanPanel(){
+        return view('App.Rencana.FEDsimpulan');
+    }
 }

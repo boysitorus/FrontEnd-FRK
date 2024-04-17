@@ -1,6 +1,6 @@
 @extends('Template.rencana')
 
-@section('content-penelitian')
+@section('content-kegiatan')
 
     {{----------------------------------- TABEL A -----------------------------------}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">

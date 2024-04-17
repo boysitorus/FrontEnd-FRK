@@ -2,28 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Utils\Tools;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class PengabdianController extends Controller
 {
-    public function getPengabdianPanel(){
+    public function getPengabdianPanel(Request $request){
+        $auth = Tools::getAuth($request);
 
         try{
             // Mengambil data a. kegiatan dari lumen
-            $responsKegiatan = Http::get('http://localhost:8001/api/pengabdian/kegiatan');
+            $responsKegiatan = Http::get(env('API_FRK_SERVICE') .'/api/pengabdian/kegiatan');
             $Kegiatan = $responsKegiatan->json();
 
             // Mengambil data b. penyuluhan dari lumen
-            $responsePenyuluhan = Http::get('http://localhost:8001/api/pengabdian/penyuluhan');
+            $responsePenyuluhan = Http::get(env('API_FRK_SERVICE') .'/api/pengabdian/penyuluhan');
             $Penyuluhan = $responsePenyuluhan->json();
 
             // Mengambil data c. konsultan dari lumen
-            $responsekonsultan = Http::get('http://localhost:8001/api/pengabdian/konsultan');
+            $responsekonsultan = Http::get(env('API_FRK_SERVICE') .'/api/pengabdian/konsultan');
             $konsultan = $responsekonsultan->json();
 
             // Mengambil data d. karya dari lumen
-            $responseKarya = Http::get('http://localhost:8001/api/pengabdian/karya');
+            $responseKarya = Http::get(env('API_FRK_SERVICE') .'/api/pengabdian/karya');
             $Karya = $responseKarya->json();
 
 
@@ -38,6 +40,7 @@ class PengabdianController extends Controller
                 'konsultan' => $konsultan,
                 //data d
                 'karya' => $Karya,
+                'auth' => $auth
             ];
 
             // Mengirim data ke view
@@ -51,7 +54,7 @@ class PengabdianController extends Controller
     // CRUD Tabel A. Kegiatan Setara // CRUD A. Kegiatan Setara
     public function getKegiatan(Request $request){
         try{
-            $responsKegiatan = Http::get('http://localhost:8001/api/pengabdian/kegiatan');
+            $responsKegiatan = Http::get(env('API_FRK_SERVICE') .'/api/pengabdian/kegiatan');
             $Kegiatan = $responsKegiatan->json();
 
             $data = [
@@ -66,7 +69,7 @@ class PengabdianController extends Controller
     public function postKegiatan(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/pengabdian/kegiatan',
+            env('API_FRK_SERVICE') .'/api/pengabdian/kegiatan',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -80,7 +83,7 @@ class PengabdianController extends Controller
     public function editKegiatan(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/pengabdian/edit/kegiatan',
+            env('API_FRK_SERVICE') .'/api/pengabdian/edit/kegiatan',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -93,7 +96,7 @@ class PengabdianController extends Controller
 
     public function deleteKegiatan($id)
     {
-        Http::delete("http://localhost:8001/api/pengabdian/kegiatan/{$id}");
+        Http::delete(env('API_FRK_SERVICE') ."/api/pengabdian/kegiatan/{$id}");
 
         return redirect()->back()->with('success', 'Item in pengabdian kegiatan setara successfully deleted');
     }
@@ -105,7 +108,7 @@ class PengabdianController extends Controller
     {
         try {
             // Mengambil data Penyuluhan dari Lumen
-            $responsePenyuluhan = Http::get('http://localhost:8001/api/pengabdian/penyuluhan');
+            $responsePenyuluhan = Http::get(env('API_FRK_SERVICE') .'/api/pengabdian/penyuluhan');
             $Penyuluhan = $responsePenyuluhan->json();
 
             $data = [
@@ -123,7 +126,7 @@ class PengabdianController extends Controller
     public function postPenyuluhan(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/pengabdian/penyuluhan',
+            env('API_FRK_SERVICE') .'/api/pengabdian/penyuluhan',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -137,7 +140,7 @@ class PengabdianController extends Controller
     public function editPenyuluhan(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/pengabdian/edit/penyuluhan',
+            env('API_FRK_SERVICE') .'/api/pengabdian/edit/penyuluhan',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -150,7 +153,7 @@ class PengabdianController extends Controller
 
     public function deletePenyuluhan($id)
     {
-        Http::delete("http://localhost:8001/api/pengabdian/penyuluhan/{$id}");
+        Http::delete(env('API_FRK_SERVICE') ."/api/pengabdian/penyuluhan/{$id}");
 
         return redirect()->back()->with('success', 'Item in pengabdian penyuluhan successfully deleted');
     }
@@ -161,7 +164,7 @@ class PengabdianController extends Controller
     {
         try {
             // Mengambil data konsultan dari Lumen
-            $responseKonsultan = Http::get('http://localhost:8001/api/pengabdian/konsultan');
+            $responseKonsultan = Http::get(env('API_FRK_SERVICE') .'/api/pengabdian/konsultan');
             $Konsultan = $responseKonsultan->json();
 
             $data = [
@@ -179,7 +182,7 @@ class PengabdianController extends Controller
     public function postKonsultan(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/pengabdian/konsultan',
+            env('API_FRK_SERVICE') .'/api/pengabdian/konsultan',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -193,7 +196,7 @@ class PengabdianController extends Controller
     public function editKonsultan(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/pengabdian/edit/konsultan',
+            env('API_FRK_SERVICE') .'/api/pengabdian/edit/konsultan',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -206,7 +209,7 @@ class PengabdianController extends Controller
 
     public function deleteKonsultan($id)
     {
-        Http::delete("http://localhost:8001/api/pengabdian/konsultan/{$id}");
+        Http::delete(env('API_FRK_SERVICE') ."/api/pengabdian/konsultan/{$id}");
 
         return redirect()->back()->with('success', 'Item in pengabdian konsultan successfully deleted');
     }
@@ -218,7 +221,7 @@ class PengabdianController extends Controller
     {
         try {
             // Mengambil data karya dari Lumen
-            $responseKarya = Http::get('http://localhost:8001/api/pengabdian/karya');
+            $responseKarya = Http::get(env('API_FRK_SERVICE') .'/api/pengabdian/karya');
             $Karya = $responseKarya->json();
 
             $data = [
@@ -236,7 +239,7 @@ class PengabdianController extends Controller
     public function postKarya(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/pengabdian/karya',
+            env('API_FRK_SERVICE') .'/api/pengabdian/karya',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -254,7 +257,7 @@ class PengabdianController extends Controller
     public function editKarya(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/pengabdian/edit/karya',
+            env('API_FRK_SERVICE') .'/api/pengabdian/edit/karya',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -271,7 +274,7 @@ class PengabdianController extends Controller
 
     public function deleteKarya($id)
     {
-        Http::delete("http://localhost:8001/api/pengabdian/karya/{$id}");
+        Http::delete(env('API_FRK_SERVICE') ."/api/pengabdian/karya/{$id}");
 
         return redirect()->back()->with('success', 'Item in pengabdian karya successfully deleted');
     }

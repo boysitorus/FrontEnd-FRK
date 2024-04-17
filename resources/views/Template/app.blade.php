@@ -53,7 +53,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('profile')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple">
+                            <a href="{{route('profile')}}" class="{{ request()->routeIs('profile') ? 'active' : '' }} list-group-item bg-abu list-group-item-action py-2 ripple">
                                 <i class="bi bi-person-fill me-1"></i>
                                 <span>Profile</span>
                             </a>
@@ -61,8 +61,10 @@
 
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed active
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
+                                {{Str::startsWith(request()->path(), 'formRencanaKerja') ? 'active' : ''}}
                                 d-flex justify-content-between align-items-center"
+                                
                                 data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
                                 <i class="bi bi-person-workspace me-2"></i>
                                 <div class="me-auto"><span>Rencana Kerja</span></div>
@@ -71,7 +73,7 @@
                             <div class="collapse" id="frk-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
-                                        <a href="{{ route('rk-penelitian') }}"
+                                        <a href="{{ route('rk-pendidikan') }}"
                                             class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                             Rekap Kegiatan
                                         </a>

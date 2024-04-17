@@ -11,7 +11,7 @@
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
-                    <p class = "mb-0 font-weight-bold"> Peran saat ini  : Dosen Program Studi S1 Informatika </p>
+                    <p class = "mb-0 font-weight-bold"> Peran saat ini  : {{ json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['posisi '] }} Program Studi {{ $auth->user->data_lengkap->dosen->prodi }} </p>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                         <a class="nav-link{{ Request::is('formRencanaKerja/pengabdian') ? ' active' : '' }}" href="{{ route('rk-pengabdian') }} "><b>Rencana Pengabdian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link"><b>Tunjangan Lainnya</b></a>
+                        <a class="nav-link{{ Request::is('formRencanaKerja/penunjang') ? ' active' : '' }}" href="{{ route('rk-penunjang') }} "><b>Tunjangan Lainnya</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link{{ Request::is('formRencanaKerja/simpulan') ? ' active' : '' }}" href="{{ route('rk-simpulan') }}"><b>Simpulan</b></a>
@@ -49,10 +49,17 @@
                 </ul>
             </div>
 
-            @yield('content-penelitian')
+
+            @yield('content-kegiatan')
+        </div>
+    <div>
+
+
+
         </div>
     <div>
 
 
 
 @endsection
+

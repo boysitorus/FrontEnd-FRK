@@ -2,69 +2,72 @@
 
 namespace App\Http\Controllers;
 
+use App\Utils\Tools;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Http;
 class PenelitianController extends Controller
 {
     //
-    public function getPenelitianPanel()
+    public function getPenelitianPanel(Request $request)
     {
+
+        $auth = Tools::getAuth($request);
         try {
             // Mengambil data a. penelitian kelompok dari Lumen
-            $responsePenelitianKelompok = Http::get('http://localhost:8001/api/penelitian/penelitian_kelompok');
+            $responsePenelitianKelompok = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok');
             $PenelitianKelompok = $responsePenelitianKelompok->json();
 
             // Mengambil data b. penelitian mandiri dari Lumen
-            $responsePenelitianMandiri = Http::get('http://localhost:8001/api/penelitian/penelitian_mandiri');
+            $responsePenelitianMandiri = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_mandiri');
             $PenelitianMandiri = $responsePenelitianMandiri->json();
 
             // Mengambil data c. buku terbit dari Lumen
-            $responseBukuTerbit = Http::get('http://localhost:8001/api/penelitian/buku_terbit');
+            $responseBukuTerbit = Http::get(env('API_FRK_SERVICE') . '/penelitian/buku_terbit');
             $BukuTerbit = $responseBukuTerbit->json();
 
             //Mengambil data d. buku internasional dari Lumen
-            $responseBukuInternasional = Http::get('http://localhost:8001/api/penelitian/buku_internasional');
+            $responseBukuInternasional = Http::get(env('API_FRK_SERVICE') . '/penelitian/buku_internasional');
             $BukuInternasional = $responseBukuInternasional->json();
 
             //Mengambil data e. menydur dari Lumen
-            $responseMenyadur = Http::get('http://localhost:8001/api/penelitian/menyadur');
+            $responseMenyadur = Http::get(env('API_FRK_SERVICE') . '/penelitian/menyadur');
             $Menyadur = $responseMenyadur->json();
 
             //Mengambil data f. menyunting dari Lumen
-            $responseMenyunting = Http::get('http://localhost:8001/api/penelitian/menyunting');
+            $responseMenyunting = Http::get(env('API_FRK_SERVICE') . '/penelitian/menyunting');
             $Menyunting = $responseMenyunting->json();
 
             //Mengambil data g. penelitian dari Lumen
-            $responsePenelitianModul = Http::get('http://localhost:8001/api/penelitian/penelitian_modul');
+            $responsePenelitianModul = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_modul');
             $PenelitianModul = $responsePenelitianModul->json();
 
             //Mengambil data h. pekerti dari Lumen
-            $responsePenelitianPekerti = Http::get('http://localhost:8001/api/penelitian/penelitian_pekerti');
+            $responsePenelitianPekerti = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_pekerti');
             $PenelitianPekerti = $responsePenelitianPekerti->json();
 
             //Mengambil data i. tridharma dari Lumen
-            $responsePenelitianTridharma = Http::get('http://localhost:8001/api/penelitian/penelitian_tridharma');
+            $responsePenelitianTridharma = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_tridharma');
             $PenelitianTridharma = $responsePenelitianTridharma->json();
 
             //Mengambil data j. jurnal ilmiah dari Lumen
-            $responseJurnalIlmiah = Http::get('http://localhost:8001/api/penelitian/jurnal_ilmiah');
+            $responseJurnalIlmiah = Http::get(env('API_FRK_SERVICE') . '/penelitian/jurnal_ilmiah');
             $JurnalIlmiah = $responseJurnalIlmiah->json();
 
             //Mengambil data k. hak paten dari Lumen
-            $responseHakPaten = Http::get('http://localhost:8001/api/penelitian/hak_paten');
+            $responseHakPaten = Http::get(env('API_FRK_SERVICE') . '/penelitian/hak_paten');
             $HakPaten = $responseHakPaten->json();
 
             //Mengambil data l. media massa dari Lumen
-            $responseMediaMassa = Http::get('http://localhost:8001/api/penelitian/media_massa');
+            $responseMediaMassa = Http::get(env('API_FRK_SERVICE') . '/penelitian/media_massa');
             $MediaMassa = $responseMediaMassa->json();
 
             //Mengambil data m. pembicara seminar dari Lumen
-            $responsePembicaraSeminar = Http::get('http://localhost:8001/api/penelitian/pembicara_seminar');
+            $responsePembicaraSeminar = Http::get(env('API_FRK_SERVICE') . '/penelitian/pembicara_seminar');
             $PembicaraSeminar = $responsePembicaraSeminar->json();
 
             //Mengambil data n. penyajian makalah  dari Lumen
-            $responsePenyajianMakalah = Http::get('http://localhost:8001/api/penelitian/penyajian_makalah');
+            $responsePenyajianMakalah = Http::get(env('API_FRK_SERVICE') . '/penelitian/penyajian_makalah');
             $PenyajianMakalah = $responsePenyajianMakalah->json();
 
 
@@ -83,7 +86,8 @@ class PenelitianController extends Controller
                 'pembicara_seminar'=>$PembicaraSeminar,
                 'penyajian_makalah'=>$PenyajianMakalah,
                 'hak_paten'=>$HakPaten,
-                'media_massa'=>$MediaMassa
+                'media_massa'=>$MediaMassa,
+                'auth' => $auth
             ];
 
             // Mengirim data ke view
@@ -99,7 +103,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data penelitian kelompok dari Lumen
-            $responsePenelitianKelompok = Http::get('http://localhost:8001/api/penelitian/penelitian_kelompok');
+            $responsePenelitianKelompok = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok');
             $PenelitianKelompok = $responsePenelitianKelompok->json();
 
             $data = [
@@ -117,7 +121,7 @@ class PenelitianController extends Controller
     public function postPenelitianKelompok(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/penelitian_kelompok',
+            env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -133,7 +137,7 @@ class PenelitianController extends Controller
     public function editPenelitianKelompok(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/penelitian_kelompok',
+            env('API_FRK_SERVICE') . '/penelitian/edit/penelitian_kelompok',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -148,7 +152,7 @@ class PenelitianController extends Controller
 
     public function deletePenelitianKelompok($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/penelitian_kelompok/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/penelitian_kelompok/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -161,7 +165,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data penelitian mandiri dari Lumen
-            $responsePenelitianMandiri = Http::get('http://localhost:8001/api/penelitian/penelitian_mandiri');
+            $responsePenelitianMandiri = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_mandiri');
             $PenelitianMandiri = $responsePenelitianMandiri->json();
 
             $data = [
@@ -179,7 +183,7 @@ class PenelitianController extends Controller
     public function postPenelitianMandiri(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/penelitian_mandiri',
+            env('API_FRK_SERVICE') . '/penelitian/penelitian_mandiri',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -193,7 +197,7 @@ class PenelitianController extends Controller
     public function editPenelitianMandiri(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/penelitian_mandiri',
+            env('API_FRK_SERVICE') . '/penelitian/edit/penelitian_mandiri',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -206,7 +210,7 @@ class PenelitianController extends Controller
 
     public function deletePenelitianMandiri($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/penelitian_mandiri/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/penelitian_mandiri/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -218,7 +222,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data penelitian kelompok dari Lumen
-            $responseBukuTerbit = Http::get('http://localhost:8001/api/penelitian/buku_terbit');
+            $responseBukuTerbit = Http::get(env('API_FRK_SERVICE') . '/penelitian/buku_terbit');
             $BukuTerbit = $responseBukuTerbit->json();
 
             $data = [
@@ -236,7 +240,7 @@ class PenelitianController extends Controller
     public function postBukuTerbit(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/buku_terbit',
+            env('API_FRK_SERVICE') . '/penelitian/buku_terbit',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -252,7 +256,7 @@ class PenelitianController extends Controller
     public function editBukuTerbit(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/buku_terbit',
+            env('API_FRK_SERVICE') . '/penelitian/edit/buku_terbit',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -267,7 +271,7 @@ class PenelitianController extends Controller
 
     public function deleteBukuTerbit($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/buku_terbit/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/buku_terbit/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -278,7 +282,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data penelitian kelompok dari Lumen
-            $responseBukuInternasional = Http::get('http://localhost:8001/api/penelitian/buku_internasional');
+            $responseBukuInternasional = Http::get(env('API_FRK_SERVICE') . '/penelitian/buku_internasional');
             $BukuInternasional = $responseBukuInternasional->json();
 
             $data = [
@@ -296,7 +300,7 @@ class PenelitianController extends Controller
     public function postBukuInternasional(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/buku_internasional',
+            env('API_FRK_SERVICE') . '/penelitian/buku_internasional',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -312,7 +316,7 @@ class PenelitianController extends Controller
     public function editBukuInternasional(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/buku_internasional',
+            env('API_FRK_SERVICE') . '/penelitian/edit/buku_internasional',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -327,7 +331,7 @@ class PenelitianController extends Controller
 
     public function deleteBukuInternasional($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/buku_internasional/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/buku_internasional/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -338,7 +342,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data Menyadur naskah dari Lumen
-            $responseMenyadur = Http::get('http://localhost:8001/api/penelitian/menyadur');
+            $responseMenyadur = Http::get(env('API_FRK_SERVICE') . '/penelitian/menyadur');
             $Menyadur= $responseMenyadur->json();
 
             $data = [
@@ -356,7 +360,7 @@ class PenelitianController extends Controller
     public function postMenyadur(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/menyadur',
+            env('API_FRK_SERVICE') . '/penelitian/menyadur',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -371,7 +375,7 @@ class PenelitianController extends Controller
     public function editMenyadur(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/menyadur',
+            env('API_FRK_SERVICE') . '/penelitian/edit/menyadur',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -385,7 +389,7 @@ class PenelitianController extends Controller
 
     public function deleteMenyadur($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/menyadur/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/menyadur/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -396,7 +400,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data Menyunting naskah dari Lumen
-            $responseMenyunting = Http::get('http://localhost:8001/api/penelitian/menyunting');
+            $responseMenyunting = Http::get(env('API_FRK_SERVICE') . '/penelitian/menyunting');
             $Menyunting= $responseMenyunting->json();
 
             $data = [
@@ -414,7 +418,7 @@ class PenelitianController extends Controller
     public function postMenyunting(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/menyunting',
+            env('API_FRK_SERVICE') . '/penelitian/menyunting',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -429,7 +433,7 @@ class PenelitianController extends Controller
     public function editMenyunting(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/menyunting',
+            env('API_FRK_SERVICE') . '/penelitian/edit/menyunting',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -443,7 +447,7 @@ class PenelitianController extends Controller
 
     public function deleteMenyunting($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/menyunting/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/menyunting/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -454,7 +458,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data penelitian modul dari Lumen
-            $responsePenelitianModul = Http::get('http://localhost:8001/api/penelitian/penelitian_modul');
+            $responsePenelitianModul = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_modul');
             $PenelitianModul = $responsePenelitianModul->json();
 
             $data = [
@@ -472,7 +476,7 @@ class PenelitianController extends Controller
     public function postPenelitianModul(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/penelitian_modul',
+            env('API_FRK_SERVICE') . '/penelitian/penelitian_modul',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -488,7 +492,7 @@ class PenelitianController extends Controller
     public function editPenelitianModul(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/penelitian_modul',
+            env('API_FRK_SERVICE') . '/penelitian/edit/penelitian_modul',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -503,7 +507,7 @@ class PenelitianController extends Controller
 
     public function deletePenelitianModul($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/penelitian_modul/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/penelitian_modul/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -514,7 +518,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data penelitian modul dari Lumen
-            $responsePenelitianPekerti = Http::get('http://localhost:8001/api/penelitian/penelitian_pekerti');
+            $responsePenelitianPekerti = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_pekerti');
             $PenelitianPekerti = $responsePenelitianPekerti->json();
 
             $data = [
@@ -532,7 +536,7 @@ class PenelitianController extends Controller
     public function postPenelitianPekerti(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/penelitian_pekerti',
+            env('API_FRK_SERVICE') . '/penelitian/penelitian_pekerti',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -545,7 +549,7 @@ class PenelitianController extends Controller
     public function editPenelitianPekerti(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/penelitian_pekerti',
+            env('API_FRK_SERVICE') . '/penelitian/edit/penelitian_pekerti',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan')
@@ -557,7 +561,7 @@ class PenelitianController extends Controller
 
     public function deletePenelitianPekerti($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/penelitian_pekerti/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/penelitian_pekerti/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -569,7 +573,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data penelitian kelompok dari Lumen
-            $responsePenelitianTridharma = Http::get('http://localhost:8001/api/penelitian/penelitian_tridharma');
+            $responsePenelitianTridharma = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_tridharma');
             $PenelitianTridharma = $responsePenelitianTridharma->json();
 
             $data = [
@@ -587,7 +591,7 @@ class PenelitianController extends Controller
     public function postPenelitianTridharma(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/penelitian_tridharma',
+            env('API_FRK_SERVICE') . '/penelitian/penelitian_tridharma',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -601,7 +605,7 @@ class PenelitianController extends Controller
     public function editPenelitianTridharma(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/penelitian_tridharma',
+            env('API_FRK_SERVICE') . '/penelitian/edit/penelitian_tridharma',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -613,7 +617,7 @@ class PenelitianController extends Controller
     }
 
     public function deletePenelitianTridharma($id){
-        Http::delete("http://localhost:8001/api/penelitian/penelitian_tridharma/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/penelitian_tridharma/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -623,7 +627,7 @@ class PenelitianController extends Controller
     public function getJurnalIlmiah(){
          try{
             //Mengambil data j dari Lumen
-         $responseJurnalIlmiah = Http::get('http://localhost:8001/api/penelitian/jurnal_ilmiah');
+         $responseJurnalIlmiah = Http::get(env('API_FRK_SERVICE') . '/penelitian/jurnal_ilmiah');
          $JurnalIlmiah = $responseJurnalIlmiah->json();
 
             $data = [
@@ -649,7 +653,7 @@ class PenelitianController extends Controller
         ]);
 
         Http::post(
-            'http://localhost:8001/api/penelitian/jurnal_ilmiah',
+            env('API_FRK_SERVICE') . '/penelitian/jurnal_ilmiah',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -666,7 +670,7 @@ class PenelitianController extends Controller
     public function editJurnalIlmiah(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/jurnal_ilmiah',
+            env('API_FRK_SERVICE') . '/penelitian/edit/jurnal_ilmiah',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -680,7 +684,7 @@ class PenelitianController extends Controller
     }
 
     public function deleteJurnalIlmiah($id){
-        Http::delete("http://localhost:8001/api/penelitian/jurnal_ilmiah/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/jurnal_ilmiah/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -691,7 +695,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data Hak Paten naskah dari Lumen
-            $responseHakPaten = Http::get('http://localhost:8001/api/penelitian/hak_paten');
+            $responseHakPaten = Http::get(env('API_FRK_SERVICE') . '/penelitian/hak_paten');
             $HakPaten= $responseHakPaten->json();
 
             $data = [
@@ -707,7 +711,7 @@ class PenelitianController extends Controller
     }
 
     public function postHakPaten(Request $request){
-        Http::post("http://localhost:8001/api/penelitian/hak_paten",
+        Http::post(env('API_FRK_SERVICE') . "/penelitian/hak_paten",
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -721,7 +725,7 @@ class PenelitianController extends Controller
     public function editHakPaten(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/hak_paten',
+            env('API_FRK_SERVICE') . '/penelitian/edit/hak_paten',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -735,7 +739,7 @@ class PenelitianController extends Controller
 
     public function deleteHakPaten($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/hak_paten/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/hak_paten/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -747,7 +751,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data Media Massa naskah dari Lumen
-            $responseMediaMassa = Http::get('http://localhost:8001/api/penelitian/media_massa');
+            $responseMediaMassa = Http::get(env('API_FRK_SERVICE') . '/penelitian/media_massa');
             $MediaMassa= $responseMediaMassa->json();
 
             $data = [
@@ -763,7 +767,7 @@ class PenelitianController extends Controller
     }
 
     public function postMediaMassa(Request $request){
-        Http::post("http://localhost:8001/api/penelitian/media_massa",
+        Http::post(env('API_FRK_SERVICE') . "/penelitian/media_massa",
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -776,7 +780,7 @@ class PenelitianController extends Controller
     public function editMediaMassa(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/media_massa',
+            env('API_FRK_SERVICE') . '/penelitian/edit/media_massa',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -789,7 +793,7 @@ class PenelitianController extends Controller
 
     public function deleteMediaMassa($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/media_massa/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/media_massa/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
@@ -799,7 +803,7 @@ class PenelitianController extends Controller
     public function getPembicaraSeminar()
     {
         try { 
-            $responsePembicaraSeminar = Http::get('http://localhost:8001/api/penelitian/pembicara_seminar');
+            $responsePembicaraSeminar = Http::get(env('API_FRK_SERVICE') . '/penelitian/pembicara_seminar');
             $PembicaraSeminar= $responsePembicaraSeminar->json();
             
             $data = [
@@ -815,7 +819,7 @@ class PenelitianController extends Controller
     public function postPembicaraSeminar(Request $request)
     {
         Http::post(
-            'http://localhost:8001/api/penelitian/pembicara_seminar',
+            env('API_FRK_SERVICE') . '/penelitian/pembicara_seminar',
             [
             'id_dosen' => $request->get('id_dosen'),
             'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -829,7 +833,7 @@ class PenelitianController extends Controller
     public function editPembicaraSeminar(Request $request)
     {  
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/pembicara_seminar',
+            env('API_FRK_SERVICE') . '/penelitian/edit/pembicara_seminar',
             [
             'id_rencana' => $request->get('id_rencana'),
             'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -842,7 +846,7 @@ class PenelitianController extends Controller
             
     public function deletePembicaraSeminar($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/pembicara_seminar/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/pembicara_seminar/{$id}");
             
     return redirect()->back()->with('success', 'Item deleted');
     }
@@ -853,7 +857,7 @@ class PenelitianController extends Controller
     {
         try {
             // Mengambil data penelitian kelompok dari Lumen
-            $responsePenyajianMakalah = Http::get('http://localhost:8001/api/penelitian/penyajian_makalah');
+            $responsePenyajianMakalah = Http::get(env('API_FRK_SERVICE') . '/penelitian/penyajian_makalah');
             $PenyajianMakalah = $responsePenyajianMakalah->json();
 
             $data = [
@@ -871,7 +875,7 @@ class PenelitianController extends Controller
     public function postPenyajianMakalah(Request $request)
     { 
         Http::post(
-            'http://localhost:8001/api/penelitian/penyajian_makalah',
+            env('API_FRK_SERVICE') . '/penelitian/penyajian_makalah',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -889,7 +893,7 @@ class PenelitianController extends Controller
     public function editPenyajianMakalah(Request $request)
     { 
         Http::post(
-            'http://localhost:8001/api/penelitian/edit/penyajian_makalah',
+            env('API_FRK_SERVICE') . '/penelitian/edit/penyajian_makalah',
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -905,7 +909,7 @@ class PenelitianController extends Controller
 
     public function deletePenyajianMakalah($id)
     {
-        Http::delete("http://localhost:8001/api/penelitian/penyajian_makalah/{$id}");
+        Http::delete(env('API_FRK_SERVICE') . "/penelitian/penyajian_makalah/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
     }
