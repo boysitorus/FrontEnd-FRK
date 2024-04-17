@@ -11,43 +11,43 @@ class PendidikanController extends Controller
     public function getAll(Request $request)
     {
         $auth = Tools::getAuth($request);
-
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try {
             // Mengambil data teori dari Lumen
-            $responseTeori = Http::get(env('API_FRK_SERVICE') . '/pendidikan/teori');
+            $responseTeori = Http::get(env('API_FRK_SERVICE') . '/pendidikan/teori/' . $id_dosen);
             $teori = $responseTeori->json();
 
-            $responsePraktikum = Http::get(env('API_FRK_SERVICE') . '/pendidikan/praktikum');
+            $responsePraktikum = Http::get(env('API_FRK_SERVICE') . '/pendidikan/praktikum/' . $id_dosen);
             $praktikum = $responsePraktikum->json();
 
             // Mengambil data bimbingan dari Lumen
-            $responseBimbingan = Http::get(env('API_FRK_SERVICE') . '/pendidikan/bimbingan');
+            $responseBimbingan = Http::get(env('API_FRK_SERVICE') . '/pendidikan/bimbingan/' . $id_dosen);
             $bimbingan = $responseBimbingan->json();
 
             //Mengambil data seminar dari Lumen
-            $responseSeminar = Http::get(env('API_FRK_SERVICE') . '/pendidikan/seminar');
+            $responseSeminar = Http::get(env('API_FRK_SERVICE') . '/pendidikan/seminar/' . $id_dosen);
             $seminar = $responseSeminar->json();
 
             //Mengambil data rendah dari Lumen
-            $responseRendah = Http::get(env('API_FRK_SERVICE') . '/pendidikan/rendah');
+            $responseRendah = Http::get(env('API_FRK_SERVICE') . '/pendidikan/rendah/' . $id_dosen);
             $rendah = $responseRendah->json();
 
             //Mengambil data kembang dari Lumen
-            $responseKembang = Http::get(env('API_FRK_SERVICE') . '/pendidikan/kembang');
+            $responseKembang = Http::get(env('API_FRK_SERVICE') . '/pendidikan/kembang/' . $id_dosen);
             $kembang = $responseKembang->json();
 
-            $responseTugasAkhir = Http::get(env('API_FRK_SERVICE') . '/pendidikan/tugasAkhir');
+            $responseTugasAkhir = Http::get(env('API_FRK_SERVICE') . '/pendidikan/tugasAkhir/' . $id_dosen);
             $tugasAkhir = $responseTugasAkhir->json();
 
             //Mengambil data cangkok dari Lumen
-            $responseCangkok = Http::get(env('API_FRK_SERVICE') . '/pendidikan/cangkok');
+            $responseCangkok = Http::get(env('API_FRK_SERVICE') . '/pendidikan/cangkok/' . $id_dosen);
             $cangkok = $responseCangkok->json();
 
             //Mengambil data koordinator dari Lumen
-            $responseKoordinator = Http::get(env('API_FRK_SERVICE') . '/pendidikan/koordinator');
+            $responseKoordinator = Http::get(env('API_FRK_SERVICE') . '/pendidikan/koordinator/' . $id_dosen);
             $koordinator = $responseKoordinator->json();
 
-            $responseProposal = Http::get(env('API_FRK_SERVICE') . '/pendidikan/proposal');
+            $responseProposal = Http::get(env('API_FRK_SERVICE') . '/pendidikan/proposal/' . $id_dosen);
             $proposal = $responseProposal->json();
 
 
@@ -63,7 +63,8 @@ class PendidikanController extends Controller
                 'cangkok' => $cangkok,
                 'koordinator' => $koordinator,
                 'proposal' => $proposal,
-                'auth' => $auth
+                'auth' => $auth,
+                'id_dosen' => $id_dosen
             ];
 
             // Mengirim data ke view

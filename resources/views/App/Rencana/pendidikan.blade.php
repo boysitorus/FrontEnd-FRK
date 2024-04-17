@@ -1400,26 +1400,26 @@
                 <form action="{{ route('rk-pendidikan.teori.create') }}" method="POST" class="needs-validation">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            
+
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas Tatap Muka</label>
                             <input type="number" class="form-control" name="jumlah_kelas" required min="1" step="any">
-                            
+
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas Evaluasi</label>
                             <input type="number" class="form-control" name="jumlah_evaluasi" required min="1" step="any">
-                            
+
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Mata Kuliah</label>
                             <input type="number" class="form-control" name="sks_matakuliah" required min="1" step="any">
-                            
+
                         </div>
                     </div>
 
@@ -1447,21 +1447,21 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-pendidikan.praktikum.create') }}" method="POST" class="needs-validation">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1" />
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}} />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                        
+
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
                             <input name="jumlah_kelas" type="number" class="form-control" required min="1" step="any">
-                        
+
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Praktikum (1 SKS = 2 jam)</label>
                             <input name="sks_matakuliah" type="number" class="form-control" required min="1" step="any">
-                        
+
                         </div>
 
                         <div class="modal-footer">
@@ -1490,7 +1490,7 @@
                 <form action="{{ route('rk-pendidikan.bimbingan.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
@@ -1522,7 +1522,7 @@
                 <form action="{{ route('rk-pendidikan.seminar.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
@@ -1556,7 +1556,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-pendidikan.tugasAkhir.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1" />
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}} />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
@@ -1590,7 +1590,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-pendidikan.proposal.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1" />
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}} />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
@@ -1625,7 +1625,7 @@
                     <form action="{{ route('rk-pendidikan.rendah.create') }}" method="POST">
                         @csrf
                         @method('POST')
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
@@ -1662,7 +1662,7 @@
                     <form action="{{ route('rk-pendidikan.kembang.create') }}" method="POST">
                         @csrf
                         @method('POST')
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
@@ -1696,7 +1696,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-pendidikan.cangkok.create') }}" method="POST">
                         @csrf
-                            <input type="hidden" name="id_dosen" value="1"/>
+                            <input type="hidden" name="id_dosen" value={{$id_dosen}}/>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                 <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
@@ -1733,7 +1733,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-pendidikan.koordinator.create') }}" method="POST">
                         @csrf
-                            <input type="hidden" name="id_dosen" value="1"/>
+                            <input type="hidden" name="id_dosen" value={{$id_dosen}}/>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                 <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>

@@ -2171,7 +2171,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.akademik.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
@@ -2204,7 +2204,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.bimbingan.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
@@ -2238,7 +2238,7 @@
                 <form action="{{ route('rk-penunjang.ukm.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
@@ -2275,7 +2275,7 @@
                 <form action="{{ route('rk-penunjang.sosial.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
@@ -2303,7 +2303,7 @@
                 <form action="{{ route('rk-penunjang.struktural.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
@@ -2355,7 +2355,7 @@
                 <form action="{{ route('rk-penunjang.nonstruktural.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
@@ -2400,7 +2400,7 @@
                 <form action="{{ route('rk-penunjang.redaksi.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
@@ -2437,7 +2437,7 @@
                     <form action="{{ route('rk-penunjang.adhoc.create') }}" method="POST">
                         @csrf
                         <div class="modal-body">
-                            <input type="hidden" name="id_dosen" value="1">
+                            <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                 <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
@@ -2475,7 +2475,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.ketuapanitia.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama">
@@ -2511,7 +2511,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.anggotapanitia.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama">
@@ -2547,7 +2547,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.pengurusyayasan.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama">
@@ -2581,7 +2581,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.asosiasi.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
@@ -2623,7 +2623,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.seminar.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
@@ -2657,7 +2657,7 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.reviewer.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>

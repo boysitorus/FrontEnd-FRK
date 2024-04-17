@@ -164,7 +164,7 @@
                 <form action="{{ route('rk-pengabdian.kegiatan.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
@@ -383,7 +383,7 @@
                     </div>
 
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input
@@ -570,7 +570,7 @@
                     </div>
 
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
@@ -859,7 +859,7 @@
                     </div>
 
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value="1">
+                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input
