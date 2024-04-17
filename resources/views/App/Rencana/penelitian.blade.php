@@ -1954,17 +1954,16 @@
                                                         <input type="hidden" name="id_rencana"
                                                             value="{{ $item['id_rencana'] }}" />
                                                         <div class="mb-3">
-                                                            <label for="nama_kegiatan" class="form-label">Nama
-                                                                Kegiatan</label>
+                                                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                                             <input value="{{ $item['nama_kegiatan'] }}"
                                                                 name="nama_kegiatan" type="text"
-                                                                class="form-control" id="nama_kegiatan">
+                                                                class="form-control" id="nama_kegiatan" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="tingkatan" class="form-label">Tingkatan</label>
                                                             <select name="tingkatan"
                                                                 class="form-select form-select-md mb-3"
-                                                                aria-label=".form-select-md example">
+                                                                aria-label=".form-select-md example" required>
                                                                 <option
                                                                     value="Tingkat Regional/minimal fakultas">
                                                                     Tingkat Regional/minimal
@@ -2114,16 +2113,15 @@
                                                         <input type="hidden" name="id_rencana"
                                                             value="{{ $item['id_rencana'] }}">
                                                         <div class="mb-3">
-                                                            <label for="nama" class="form-label">Nama
-                                                                Kegiatan</label>
+                                                            <label for="nama" class="form-label">Nama Kegiatan</label>
                                                             <input type="text" class="form-control" id="nama"
                                                                 name="nama_kegiatan"
-                                                                value="{{ $item['nama_kegiatan'] }}">
+                                                                value="{{ $item['nama_kegiatan'] }}" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="tingkatan" class="form-label">Tingkatan:</label>
                                                             <select name="tingkatan" class="form-control"
-                                                                id="tingkatan">
+                                                                id="tingkatan" required>
                                                                 <option
                                                                     value="Tingkat regional daerah, institusional(minimum fakultas)"
                                                                     {{ $item['lingkup_wilayah'] == 'Tingkat regional daerah, institusional(minimum fakultas)' ? 'selected' : '' }}>
@@ -2143,7 +2141,7 @@
                                                             <label for="posisi" class="form-label">Posisi</label>
                                                             <select name="posisi"
                                                                 class="form-select form-select-md mb-3"
-                                                                aria-label=".form-select-md example">
+                                                                aria-label=".form-select-md example" required>
                                                                 <option value="Ketua"
                                                                     {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua
                                                                 </option>
@@ -2153,18 +2151,16 @@
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="jumlah_anggota" class="form-label">Jumlah
-                                                                Anggota</label>
+                                                            <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
                                                             <input name="jumlah_anggota" type="number"
                                                                 class="form-control" id="jumlah_anggota"
-                                                                value="{{ $item['jumlah_anggota'] }}">
+                                                                value="{{ $item['jumlah_anggota'] }}" required min="0">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="jenis_pengerjaan" class="form-label">Jenis
-                                                                Pengerjaan</label>
+                                                            <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                                                             <select name="jenis_pengerjaan"
                                                                 class="form-select form-select-md mb-3"
-                                                                aria-label=".form-select-md example">
+                                                                aria-label=".form-select-md example" required>
                                                                 <option value="Individual"
                                                                     {{ $item['jenis_pengerjaan'] == 'Individual' ? 'selected' : '' }}>
                                                                     Individual</option>
@@ -2175,8 +2171,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary">Simpan
-                                                            Perubahan</button>
+                                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -2805,11 +2800,11 @@
                         <div class="mb-3">
                             <input type="hidden" name="id_dosen" value="1">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" name="nama_kegiatan" class="form-control" id="nama">
+                            <input type="text" name="nama_kegiatan" class="form-control" id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label for="tingkatan">Tingkatan:</label>
-                            <select name="tingkatan" class="form-control" id="tingkatan">
+                            <select name="tingkatan" class="form-control" id="tingkatan" required>
                                 <option disabled selected value>Pilih tingkatan</option>
                                 <option value="Tingkat Regional/minimal fakultas">Tingkat Regional/minimal fakultas
                                 </option>
@@ -2847,11 +2842,11 @@
                         <input type="hidden" name="id_dosen" value="1">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama" name="nama_kegiatan">
+                            <input type="text" class="form-control" id="nama" name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="tingkatan" class="form-label">Tingkatan:</label>
-                            <select name="tingkatan" class="form-control" id="tingkatan">
+                            <select name="tingkatan" class="form-control" id="tingkatan" required>
                                 <option disabled selected value>Pilih tingkatan</option>
                                 <option value="Tingkat regional daerah, institusional(minimum fakultas)">Tingkat regional
                                     daerah, institusional(minimum fakultas)</option>
@@ -2864,7 +2859,7 @@
                         <div class="mb-3">
                             <label for="posisi" class="form-label">Posisi</label>
                             <select name="posisi" class="form-select form-select-md mb-3"
-                                aria-label=".form-select-md example">
+                                aria-label=".form-select-md example" required>
                                 <option disabled selected value>Pilih posisi</option>
                                 <option value="Ketua">Ketua</option>
                                 <option value="Anggota">Anggota</option>
@@ -2872,12 +2867,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
-                            <input name="jumlah_anggota" type="number" class="form-control" id="jumlah_anggota">
-                        </div>
+                            <input name="jumlah_anggota" type="number" class="form-control" id="jumlah_anggota" required min="0">
+                        </div> 
                         <div class="mb-3">
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                             <select name="jenis_pengerjaan" class="form-select form-select-md mb-3"
-                                aria-label=".form-select-md example">
+                                aria-label=".form-select-md example" required>
                                 <option disabled selected value>Pilih jenis pengerjaan</option>
                                 <option value="Individual">Individual</option>
                                 <option value="Kelompok">Kelompok</option>
