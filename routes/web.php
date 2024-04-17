@@ -11,6 +11,7 @@ use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PengabdianController;
 use App\Http\Controllers\EvaluasiDiriController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AsesorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -317,8 +318,17 @@ Route::group(['middleware' => ['check.token']], function() {
         Route::get('/penelitian', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
         Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
     });
-
     
     Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
+
+    Route::prefix('/Asesor')->group(function () {
+        Route::get('/Rekap-Kegiatan', [AsesorController::class, 'getRencanaKegiatan'])->name('rk-asesor');
+        Route::get('/Rekap-Kegiatan-Setuju', [AsesorController::class, 'getRencanaKegiatanSetuju'])->name('rk-asesor-setuju');
+        Route::get('/Rekap-Kegiatan-Asesor-pendidikan', [AsesorController::class, 'getRencanaPendidikan'])->name('rk-asesor-detail');
+        Route::get('/Rekap-Kegiatan-Asesor-penelitian', [AsesorController::class, 'getRencanaPenelitian'])->name('rk-asesor-detail-penelitian');
+        Route::get('/Rekap-Kegiatan-Asesor-pengabdian', [AsesorController::class, 'getRencanaPengabdian'])->name('rk-asesor-detail-pengabdian');
+        Route::get('/Rekap-Kegiatan-Asesor-penunjang', [AsesorController::class, 'getRencanaPenunjang'])->name('rk-asesor-detail-penunjang');
+    });
 });
+
 

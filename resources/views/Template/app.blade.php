@@ -133,7 +133,7 @@
                                         <div class="collapse" id="asesor-frk-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="{{ route('rk-asesor') }}"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple"
                                                         style="margin-bottom:0.1px">
                                                         Rekap Kegiatan
@@ -141,7 +141,7 @@
                                                 </li>
 
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="{{ route('rk-asesor-setuju') }}"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                                         Rekap Kegiatan yang Disetujui
                                                     </a>
