@@ -30,23 +30,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_A"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                    @if (isset($teori) && sizeof($teori) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($teori as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['jumlah_kelas'] }}</td>
+                                    <td>{{ $item['jumlah_evaluasi'] }}</td>
+                                    <td>{{ $item['sks_matakuliah'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_A"><i class="bi bi-plus-square"></i></button>
 
-                            </td>
-                        </tr>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -76,10 +83,13 @@
                                     <li>Daftar Nilai Akhir Mahasiswa</li>
                                 </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <button id="addFilesBtn" class="btn btn-primary">Add Files</button>
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <h6>File yang Dipilih:</h6> <!-- tambahkan label -->
+                                    <div id="selectedFiles"></div>
+                                </div>
+                                <input type="file" id="fileInput" style="display: none;" multiple>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
                             </div>
                         </div>
                     </div>
@@ -950,6 +960,96 @@
                     $('#deleteToast').removeClass('show');
                 }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
             }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya
+            function displayFilesWithIcons(files) {
+                var selectedFilesDiv = document.getElementById('selectedFiles');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFiles = selectedFiles.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFiles.length; i++) {
+                    var file = selectedFiles[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFiles.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFiles.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk mendapatkan gambar/logo berdasarkan ekstensi file
+            function getFileIcon(extension) {
+                switch (extension.toLowerCase()) {
+                    case 'pdf':
+                        return 'pdf.png';
+                    case 'doc':
+                    case 'docx':
+                        return 'word.png';
+                    case 'xls':
+                    case 'xlsx':
+                        return 'sheets.png';
+                    case 'png':
+                    case 'jpg':
+                    case 'jpeg':
+                        return 'photo.png';
+                    default:
+                        return 'document.png';
+                }
+            }
+
+            // Gunakan fungsi displayFilesWithIcons untuk menampilkan file dengan gambar/logo
+            document.getElementById('fileInput').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIcons(files);
+            });
+
+            // Fungsi untuk menambah file
+            document.getElementById('addFilesBtn').addEventListener('click', function() {
+                var fileInput = document.getElementById('fileInput');
+                fileInput.click();
+            });
+
+            // Variabel global untuk menyimpan file-file yang dipilih
+            var selectedFiles = [];
+
         </script>
 
 @endsection
