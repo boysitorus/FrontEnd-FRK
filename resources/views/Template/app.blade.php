@@ -94,7 +94,7 @@
                             <div class="collapse" id="fed-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
-                                        <a href="#"
+                                        <a href="{{ route('ed-pendidikan') }}"
                                             class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                             Rekap Kegiatan
                                         </a>
