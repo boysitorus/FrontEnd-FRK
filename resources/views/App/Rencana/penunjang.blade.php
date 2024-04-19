@@ -640,7 +640,7 @@
 
                                                             <div class="mb-3">
                                                                 <label for="nama_kegiatan" class="form-label">Nama
-                                                                    Kegiatan</label>
+                                                                    Kegiatan: </label>
                                                                 <input value="{{ $item['nama_kegiatan'] }}"
                                                                     type="text" class="form-control"
                                                                     id="nama_kegiatan" name="nama_kegiatan">
@@ -650,7 +650,7 @@
                                                                     class="form-label">Jabatan</label>
                                                                 <select class="form-select"
                                                                     aria-label="Default select example"
-                                                                    name="jenis_jabatan_struktural">
+                                                                    name="jenis_jabatan_struktural" required>
                                                                     <option selected>
                                                                         {{ $item['jenis_jabatan_struktural'] }}</option>
                                                                     <option value="Rektor"
@@ -2306,12 +2306,12 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"required>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_jabatan_struktural" class="form-label">Jabatan</label>
                             <select class="form-select" aria-label="Default select example"
-                                name="jenis_jabatan_struktural">
+                                name="jenis_jabatan_struktural"required>
                                 <option selected>Open this select menu</option>
                                 <option value="Rektor">Rektor</option>
                                 <option value="Wakil Rektor">Wakil Rektor</option>
@@ -2358,12 +2358,12 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"required>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_jabatan_nonstruktural" class="form-label">Jabatan</label>
                             <select class="form-select" aria-label="Default select example"
-                                name="jenis_jabatan_nonstruktural">
+                                name="jenis_jabatan_nonstruktural"required>
                                 <option selected>Open this select menu</option>
                                 <option value="Ketua Senat Akademik Institut">Ketua Senat Akademik Institut</option>
                                 <option value="Sekretaris Senat Akademik Institut">Sekretaris Senat Akademik Institut
@@ -2403,11 +2403,11 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"required>
                         </div>
                         <div class="mb-3">
                             <label for="jabatan" class="form-label">Jabatan</label>
-                            <select class="form-select" aria-label="Default select example" name="jabatan">
+                            <select class="form-select" aria-label="Default select example" name="jabatan"required>
                                 <option selected>Open this select menu</option>
                                 <option value="Ketua Redaksi Jurnal ber-ISSN">Ketua Redaksi Jurnal ber-ISSN</option>
                                 <option value="Anggota Redaksi Jurnal ber-ISSN">Anggota Redaksi Jurnal ber-ISSN</option>
@@ -2440,11 +2440,11 @@
                             <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
+                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"required>
                             </div>
                             <div class="mb-3">
                                 <label for="jabatan" class="form-label">Jabatan</label>
-                                <select class="form-select" aria-label="Default select example" name="jabatan">
+                                <select class="form-select" aria-label="Default select example" name="jabatan"required>
                                     <option selected>Open this select menu</option>
                                     <option value="Ketua Panitia Ad Hoc">Ketua Panitia Ad Hoc</option>
                                     <option value="Anggota Panitia Ad Hoc">Anggota Panitia Ad Hoc</option>
@@ -2478,11 +2478,12 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama"required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
-                            <select name="jenis_tingkatan" class="form-control">
+                            <select name="jenis_tingkatan" class="form-control"required>
+                                <option selected>Open this select menu</option>
                                 <option value="1">Universitas</option>
                                 <option value="2">Fakultas</option>
                                 <option value="3">Program Studi</option>
@@ -2514,11 +2515,12 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama"required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
-                            <select name="jenis_tingkatan" class="form-control">
+                            <select name="jenis_tingkatan" class="form-control"required>
+                                <option selected>Open this select menu</option>
                                 <option value="1">Universitas</option>
                                 <option value="2">Fakultas</option>
                                 <option value="3">Program Studi</option>
@@ -2550,11 +2552,12 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama"required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jabatan:</label>
                             <select name="jabatan" class="form-control">
+                                <option selected>Open this select menu</option>
                                 <option value="1">Ketua Yayasan</option>
                                 <option value="2">Anggota Yayasan</option>
                             </select>
@@ -2589,12 +2592,14 @@
                         <div class="mb-3">
                             <label for="jabatan" class="form-label">Jabatan:</label>
                             <select class="form-control" id="jenis_jabatan" name="jabatan">
+                                <option selected>Open this select menu</option>
                                 <option value="Anggota">Anggota</option>
                                 <option value="Ketua">Ketua</option>
                             </select>
                         </div>
                         <label class="form-label">Tingkatan:</label>
                         <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
+                            <option selected>Open this select menu</option>
                             <option value="Nasional">Nasional</option>
                             <option value="Internasional">Internasional</option>
                         </select>
@@ -2631,6 +2636,7 @@
                         <div class="mb-3">
                             <label for="jenis_tingkatan" class="form-label">Tingkatan:</label>
                             <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
+                                <option selected>Open this select menu</option>
                                 <option value="Regional/Nasional">Regional/Nasional</option>
                                 <option value="Internasional">Internasional</option>
                             </select>
