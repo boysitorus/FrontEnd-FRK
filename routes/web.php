@@ -58,6 +58,7 @@ Route::group(['middleware' => ['check.token']], function() {
        Route::get('/pengabdian', [PengabdianController::class, 'getPengabdianPanel'])->name('rk-pengabdian');
        Route::get('/penunjang', [PenunjangController::class, 'getAll'])->name('rk-penunjang');
        Route::get('/simpulan', [SimpulanController::class, 'getAll'])->name('rk-simpulan');
+       Route::post('/simpanRencana', [SimpulanController::class, 'simpanRencana'])->name('rk-simpan-rencana');
 
        // Kelompok rute untuk form penelitian
        Route::prefix('/penelitian')->group(function () {
@@ -318,7 +319,7 @@ Route::group(['middleware' => ['check.token']], function() {
         Route::get('/penelitian', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
         Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
     });
-    
+
     Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
 
     Route::prefix('/Asesor')->group(function () {

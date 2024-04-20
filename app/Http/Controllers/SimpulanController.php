@@ -6,13 +6,17 @@ use App\Utils\Tools;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\Client\RequestException;
+
+use function PHPUnit\Framework\throwException;
 
 class SimpulanController extends Controller
 {
-    
+
     public function getAll(Request $request)
     {
         $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try {
             $responsePendidikan = Http::get(env('API_FRK_SERVICE') . '/simpulan-pendidikan');
             $totalSksPendidikan = $responsePendidikan->json();
@@ -37,7 +41,8 @@ class SimpulanController extends Controller
                 'pengabdianSks' => $totalSksPengabdian,
                 'penunjangSks' => $totalSksPenunjang,
                 'totalSks' => $totalSksTotal,
-                'auth' => $auth
+                'auth' => $auth,
+                'id_dosen' => $id_dosen
             ]
             );
 
@@ -81,4 +86,19 @@ class SimpulanController extends Controller
             return response()->json(['error' => 'Failed to generate PDF'], 500);
         }
     }
+
+    public function simpanRencana(Request $request){
+        $id_dosen = $request->get('id_dosen');
+        try {
+            $response = Http::post(env('API_FRK_SERVICE') . '/simpulan-simpan-rencana/' . $id_dosen);
+            if($response->status() === 200){
+                return back()->with('message', 'Berhasil menyimpan rencana kerja');
+            } else {
+                throw new RequestException($response);
+            }
+        } catch (RequestException $e) {
+            return back()->with('message', 'Gagal menyimpan rencana kerja');
+        }
+    }
+
 }

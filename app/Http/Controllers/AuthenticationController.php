@@ -43,7 +43,7 @@ class AuthenticationController extends Controller
 
         //    dd(Tools::getAuth($request));
 
-            return redirect()->route('home');
+            return redirect()->route('profile');
 
         } catch (\Exception $err) {
 //            dd($err);

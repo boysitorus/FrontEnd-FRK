@@ -10,6 +10,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         /* Remove inner borders */
@@ -22,14 +23,17 @@
         table.outer-border-only-table {
             border-collapse: separate;
             border-spacing: 0;
-            border: 1px solid black; /* Adjust the border style as needed */
+            border: 1px solid black;
+            /* Adjust the border style as needed */
         }
+
         table.outer-border-only-table th,
         table.outer-border-only-table td {
             border-left: none;
             border-right: none;
             border-top: none;
         }
+
         table.outer-border-only-table thead th,
         table.outer-border-only-table tbody tr:last-child td {
             border-bottom: 1px solid black;
@@ -53,7 +57,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('profile')}}" class="{{ request()->routeIs('profile') ? 'active' : '' }} list-group-item bg-abu list-group-item-action py-2 ripple">
+                            <a href="{{ route('profile') }}"
+                                class="{{ request()->routeIs('profile') ? 'active' : '' }} list-group-item bg-abu list-group-item-action py-2 ripple">
                                 <i class="bi bi-person-fill me-1"></i>
                                 <span>Profile</span>
                             </a>
@@ -62,9 +67,8 @@
                         <li>
                             <a type="button"
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
-                                {{Str::startsWith(request()->path(), 'formRencanaKerja') ? 'active' : ''}}
+                                {{ Str::startsWith(request()->path(), 'formRencanaKerja') ? 'active' : '' }}
                                 d-flex justify-content-between align-items-center"
-
                                 data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
                                 <i class="bi bi-person-workspace me-2"></i>
                                 <div class="me-auto"><span>Rencana Kerja</span></div>
@@ -213,7 +217,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                     <div class="ms-auto d-flex align-items-center justify-content-start">
+                    <div class="ms-auto d-flex align-items-center justify-content-start">
                         <img class="d-inline" src="{{ asset('assets/icon/Logout.svg') }}" alt="">
                         <a class="text-reset me-3 text-decoration-none" href="{{ route('logout.get') }}">
                             <h5 class="ms-2 pt-2 " style="font-weight: 700;">Keluar</h5>
@@ -236,8 +240,7 @@
     </main>
     <!--Main layout-->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </script>
     <script>
         $(document).ready(function() {
@@ -256,7 +259,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    @if (Session::has('message'))
+        <script>
+            toastr.option = {
+                "closeButton" : true,
+            }
+            toastr.success("{{ Session::get('message') }}")
+        </script>
+    @endif
 
 </body>
 
