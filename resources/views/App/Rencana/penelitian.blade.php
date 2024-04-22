@@ -112,7 +112,7 @@
 
                                         <div class="modal-body">
                                             <form action="{{ route('rk-penelitian.penelitian_kelompok.update') }}"
-                                                method="POST">
+                                                method="POST" class="needs-validation" novalidate>
                                                 @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana"
@@ -122,14 +122,17 @@
                                                         <input
                                                             name="nama_kegiatan" type="text" class="form-control"
                                                             id="nama_kegiatan"
-                                                            value="{{ $item['nama_kegiatan'] }}">
+                                                            value="{{ $item['nama_kegiatan'] }}" required />
+                                                        <div class="invalid-feedback">
+                                                            Nama kegiatan tidak boleh kosong !
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="status_tahapan" class="form-label">Tahap
                                                             Pencapaian</label>
                                                         <select name="status_tahapan"
                                                             class="form-select form-select-md mb-3"
-                                                            aria-label=".form-select-md example">
+                                                            aria-label=".form-select-md example" required>
                                                             <option value="Proposal" {{ $item['status_tahapan'] == 'Proposal' ? 'selected' : '' }}>Proposal</option>
                                                             <option value="Pengumpulan data /sebar kuesioner" {{ $item['status_tahapan'] == 'Pengumpulan data /sebar kuesioner' ? 'selected' : '' }}>Pengumpulan
                                                                 data /sebar kuesioner</option>
@@ -143,7 +146,7 @@
                                                     <div class="mb-3">
                                                         <label for="posisi" class="form-label">Posisi</label>
                                                         <select name="posisi" class="form-select form-select-md mb-3"
-                                                            aria-label=".form-select-lg example">
+                                                            aria-label=".form-select-lg example" required>
                                                             <option value="Ketua" {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua</option>
                                                             <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
                                                         </select>
@@ -152,7 +155,10 @@
                                                         <label for="jumlah_anggota" class="form-label">Jumlah
                                                             Anggota</label>
                                                         <input name="jumlah_anggota" type="number" class="form-control"
-                                                            value="{{ $item['jumlah_anggota'] }}">
+                                                            value="{{ $item['jumlah_anggota'] }}" min="1" required >
+                                                        <div class="invalid-feedback">
+                                                            Jumlah anggota tidak valid!
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -2202,20 +2208,23 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" method = "POST">
+                <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" method = "POST" class="needs-validation" novalidate>
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
-                                placeholder="isi nama kegiatan">
+                                placeholder="isi nama kegiatan" required>
+                            <div class="invalid-feedback">
+                                Nama kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
-                                aria-label=".form-select-md example">
-                                <option disabled selected value>Pilih tahapan</option>
+                                aria-label=".form-select-md example" required>
+                                <option disabled selected value="">Pilih tahapan</option>
                                 <option value="Proposal">Proposal</option>
                                 <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner
                                 </option>
@@ -2225,19 +2234,28 @@
                                 <option value="50% dari Karya">50% dari Karya:</option>
                                 <option value="Hasil akhir">Hasil akhir</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Tahap kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="posisi" class="form-label">Posisi</label>
                             <select name="posisi" class="form-select form-select-md mb-3"
-                                aria-label=".form-select-lg example">
-                                <option disabled selected value>Pilih posisi</option>
+                                aria-label=".form-select-lg example" required>
+                                <option disabled selected value="">Pilih posisi</option>
                                 <option value="Ketua">Ketua</option>
                                 <option value="Anggota">Anggota</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Posisi tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
-                            <input name="jumlah_anggota" type="number" class="form-control" placeholder=1>
+                            <input name="jumlah_anggota" type="number" class="form-control" min="1" required>
+                            <div class="invalid-feedback">
+                                Jumlah anggota tidak valid!
+                            </div>
                         </div>
                     </div>
 
@@ -2954,5 +2972,46 @@
         }
     </script>
 
+    <!-- JavaScript untuk aktivasi validasi form Bootstrap -->
+    <script>
+        // Mendapatkan semua form yang perlu divalidasi
+        var forms = document.querySelectorAll('.needs-validation');
+
+        // Loop melalui setiap form dan mencegah pengiriman jika tidak valid
+        Array.prototype.slice.call(forms)
+        .forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+            }, false);
+        });
+    </script>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 
 @endsection
