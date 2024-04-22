@@ -3,6 +3,24 @@
 @section('content-kegiatan')
 
     {{-- TAMPILAN BAGIAN EVALUASI PENUNJANG --}}
+<style>
+  .border-hijau {
+    border: 2px solid #008000; /* Border berwarna hijau */
+    padding: 3px; /* Padding untuk memberi ruang di sekitar teks */
+    border-radius: 5px; /* Untuk memberikan sudut-sudut yang melengkung pada border */
+    display: inline-block; /* Mengatur agar border memenuhi ruang yang tersedia */
+    background-color: #008000;
+    color: #FFFFFF;
+  }
+
+  .border-kuning {
+    border: 2px solid #FFFF00; 
+    padding: 3px;
+    border-radius: 5px; 
+    display: inline-block; 
+    background-color: #FFD700;
+  }
+</style>
 
     {{-- BAGIAN A --}}
     <div id="ed-penunjang-A" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -30,7 +48,11 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-kuning">
+                                    <p>Lampiran belum di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -115,7 +137,11 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -201,7 +227,11 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -288,7 +318,11 @@
                 <tbody>
                     <tr>
                         <td scope="row1">1</td>
-                        <td></td>
+                        <td>
+                            <div class="border-hijau">
+                                <p>Lampiran sudah di upload</p>
+                            </div>
+                        </td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -370,7 +404,11 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -453,7 +491,11 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -536,7 +578,11 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -621,7 +667,11 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -703,7 +753,11 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -785,7 +839,11 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td></td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -869,7 +927,11 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td></td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -953,7 +1015,11 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td></td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -1036,7 +1102,11 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td></td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -1116,7 +1186,11 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td></td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
