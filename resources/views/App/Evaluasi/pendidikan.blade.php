@@ -100,10 +100,10 @@
                                 <!-- File input -->
                                 <button id="addFilesBtn" class="btn btn-secondary">Add Files</button>
                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <h6>File yang Dipilih:</h6> <!-- tambahkan label -->
                                     <div id="selectedFiles"></div>
                                 </div>
                                 <input type="file" id="fileInput" style="display: none;" multiple>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                 <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
                             </div>
                         </div>
@@ -187,10 +187,13 @@
                                     <li>Daftar Nilai tugas</li>
                                 </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <button id="addFilesBtn" class="btn btn-secondary">Add Files</button>
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFiles"></div>
+                                </div>
+                                <input type="file" id="fileInput" style="display: none;" multiple>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
                             </div>
                         </div>
                     </div>
@@ -281,6 +284,7 @@
                                 <input type="file" id="fileInput" multiple>
                             </br>
                             </br>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                 <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
@@ -370,10 +374,11 @@
                                     <li>Berita acara bimbingan</li>
                                     <li>Daftar Nilai Akhir</li>
                                 </ol>
-                                <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                 <!-- File input -->
+                                 <input type="file" id="fileInput" multiple>
                             </br>
                             </br>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                 <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
@@ -458,10 +463,11 @@
                                     <li>Berita acara ujian skripsi</li>
                                     <li>Daftar Nilai</li>
                                 </ol>
-                                <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                 <!-- File input -->
+                                 <input type="file" id="fileInput" multiple>
                             </br>
                             </br>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                 <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
@@ -544,10 +550,11 @@
                                     <li>Berita acara ujian skripsi</li>
                                     <li>Daftar Nilai</li>
                                 </ol>
-                                <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                 <!-- File input -->
+                                 <input type="file" id="fileInput" multiple>
                             </br>
                             </br>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                 <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
@@ -634,10 +641,11 @@
                                     <li>Berita acara ujian skripsi</li>
                                     <li>Daftar Nilai</li>
                                 </ol>
-                                <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                 <!-- File input -->
+                                 <input type="file" id="fileInput" multiple>
                             </br>
                             </br>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                 <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
@@ -719,10 +727,11 @@
                                     <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
                                     <li>Bukti hasil(Silabus,  SAP/RKPSS,  GBPP) yang baru  dan silabus,  SAP/RKPSS. GBPP  yang sebelumnya</li>
                                 </ol>
-                                <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                 <!-- File input -->
+                                 <input type="file" id="fileInput" multiple>
                             </br>
                             </br>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                 <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
@@ -802,10 +811,11 @@
                                     <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
                                     <li>Bukti yang  relevan  (laporan  kegiatan)</li>
                                 </ol>
-                                <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                 <!-- File input -->
+                                 <input type="file" id="fileInput" multiple>
                             </br>
                             </br>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                 <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
@@ -883,10 +893,11 @@
                                     <li>Surat Tugas</li>
                                     <li>Daftar Nilai</li>
                                 </ol>
-                                <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                 <!-- File input -->
+                                 <input type="file" id="fileInput" multiple>
                             </br>
                             </br>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                 <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                             </div>
                         </div>
