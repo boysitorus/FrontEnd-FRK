@@ -63,11 +63,8 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPendidikan_A"><i class="bi bi-plus-square"></i></button>
-
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_A">Tambah Lampiran</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -101,7 +98,7 @@
                                     <li>Daftar Nilai Akhir Mahasiswa</li>
                                 </ol>
                                 <!-- File input -->
-                                <button id="addFilesBtn" class="btn btn-primary">Add Files</button>
+                                <button id="addFilesBtn" class="btn btn-secondary">Add Files</button>
                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                     <h6>File yang Dipilih:</h6> <!-- tambahkan label -->
                                     <div id="selectedFiles"></div>
@@ -159,10 +156,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_B"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button></td>
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_B">Tambah Lampiran</button>
                         </tr>
                     </tbody>
                 </table>
@@ -247,11 +242,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_C"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_C">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -345,10 +337,8 @@
                         <td></td>
                         <td></td>
                         <td>
-                            <button type="button" class="btn btn-warning mr-1" 
-                                data-bs-toggle="modal" data-bs-target="#modalEditEvaluasiPendidikan_D"><i class="bi bi-plus-square"></i></button>
-                            <button type="button" class="btn btn-danger" 
-                                data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_D">Tambah Lampiran</button>
                         </td>
                     </tr>
                 </tbody>
@@ -435,11 +425,8 @@
                             <td></td>
                             <td></td>   
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_E"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_E">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -525,11 +512,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_F"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_F">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -618,11 +602,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_G"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_G">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -708,11 +689,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_H"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_H">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -794,11 +772,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_H"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_I">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -879,11 +854,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPendidikan_J"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPendidikan_J">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -1050,7 +1022,7 @@
 
                     // Tambahkan tombol hapus
                     var deleteBtn = document.createElement('button');
-                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'ms-2');
+                    deleteBtn.classList.add('btn', 'btn-secondary', 'btn-sm', 'btn-circle', 'ms-2');
                     deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
                     deleteBtn.addEventListener('click', (function(fileToRemove) {
                         return function() {
@@ -1103,6 +1075,45 @@
 
             // Variabel global untuk menyimpan file-file yang dipilih
             var selectedFiles = [];
+        </script>
+
+        <script>
+            //fileInput.addEventListener('change', function() {
+            
+                // Bersihkan konten sebelumnya dari div yang menampilkan file yang dipilih
+            //selectedFilesDiv.innerHTML = '';
+
+            // Periksa apakah pengguna sudah memilih file atau belum
+            //if (fileInput.files.length > 0) {
+                
+                // Jika pengguna sudah memilih file, tampilkan file yang dipilih
+                //for (let i = 0; i < fileInput.files.length; i++) {
+                    //const file = fileInput.files[i];
+                    //const fileName = file.name;
+                    //const fileListItem = document.createElement('div');
+                    //fileListItem.textContent = fileName;
+                    //fileListItem.classList.add('border-hijau', 'p-1', 'mb-1'); // Tambahkan kelas CSS untuk border hijau
+                    //selectedFilesDiv.appendChild(fileListItem);
+                //}
+                
+                // Tambahkan kelas CSS untuk border hijau pada tabel kegiatan
+                //document.querySelectorAll('#tableEvaluasiPendidikan-A tbody td:nth-child(2)').forEach(function(td) {
+                    //td.classList.add('border-hijau');
+                //});
+            //} else {
+                
+                // Jika pengguna belum memilih file, tampilkan pesan bahwa belum ada file yang dipilih
+                //const noFilesMessage = document.createElement('p');
+                //noFilesMessage.textContent = 'Belum ada file yang dipilih';
+                //noFilesMessage.classList.add('border-kuning', 'p-1', 'mb-1'); // Tambahkan kelas CSS untuk border kuning
+                //selectedFilesDiv.appendChild(noFilesMessage);
+                
+                // Hapus kelas CSS untuk border hijau dari tabel kegiatan
+                //document.querySelectorAll('#tableEvaluasiPendidikan-A tbody td:nth-child(2)').forEach(function(td) {
+                    //td.classList.remove('border-hijau');
+                //});
+            //}
+        //});
 
         </script>
 

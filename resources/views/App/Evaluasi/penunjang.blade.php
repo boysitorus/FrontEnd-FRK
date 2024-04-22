@@ -58,11 +58,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_A"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_A">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -147,10 +144,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_B"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button></td>
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_B">Tambah Lampiran</button>
                         </tr>
                     </tbody>
                 </table>
@@ -237,11 +232,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_C"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_C">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -327,10 +319,8 @@
                         <td></td>
                         <td></td>
                         <td>
-                            <button type="button" class="btn btn-warning mr-1" 
-                                data-bs-toggle="modal" data-bs-target="#modalEditEvaluasiPenunjang_D"><i class="bi bi-plus-square"></i></button>
-                            <button type="button" class="btn btn-danger" 
-                                data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditEvaluasiPenunjang_D">Tambah Lampiran</button>
                         </td>
                     </tr>
                 </tbody>
@@ -414,11 +404,8 @@
                             <td></td>
                             <td></td>   
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_E"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_E">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -501,11 +488,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_F"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_F">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -588,11 +572,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_G"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_G">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -677,11 +658,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_H"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_H">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -763,11 +741,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_I"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_I">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -849,11 +824,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_J"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_J">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -937,10 +909,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_K"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_K">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -1026,10 +996,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_L"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_L">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -1112,10 +1080,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_M"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_M">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -1195,10 +1161,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_N"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_N">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
