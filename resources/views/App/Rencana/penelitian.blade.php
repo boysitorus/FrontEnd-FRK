@@ -1382,27 +1382,41 @@
                             </tr>
 
                             {{-- MODAL EDIT I --}}
-                            <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" 
+                            tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
+                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. 
+                                            {{ $item['nama_kegiatan'] }}
                                             </h6>
-                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
+                                            aria-label="Close"></button>
                                         </div>
 
                                         <div class="modal-body">
-                                            <form action="{{ route('rk-penelitian.penelitian_tridharma.update') }}" method="POST">
+                                            <form action="{{ route('rk-penelitian.penelitian_tridharma.update') }}" 
+                                            method="POST" class="needs-validation" novalidate>
                                             @csrf
                                                 <div class="modal-body">
-                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
+                                                    <input type="hidden" name="id_rencana" 
+                                                        value="{{ $item['id_rencana'] }}" />
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                    <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                        <input
+                                                            name="nama_kegiatan" type="text" class="form-control"
+                                                            id="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}" required />
+                                                        <div class="invalid-feedback">
+                                                            Nama kegiatan tidak boleh kosong !
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_bkd" class="form-label">Banyaknya BKD yang dievaluasi</label>
-                                                        <input placeholder="{{ $item['jumlah_bkd'] }}" name="jumlah_bkd" type="number" class="form-control">
+                                                        <input placeholder="{{ $item['jumlah_bkd'] }}" min="1" name="jumlah_bkd" type="number" class="form-control" required>
+                                                        <div class="invalid-feedback">
+                                                            Jumlah anggota tidak valid!
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -2654,16 +2668,24 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST">
+                    <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST" class="needs-validation" novalidate>
                         @csrf
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
-                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name ="nama_kegiatan"type="text" class="form-control" id="nama_kegiatan">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
+                                placeholder="isi nama kegiatan" required>
+                            <div class="invalid-feedback">
+                                Nama kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for = "jumlah_bkd" class="form-label">Banyaknya BKD yang Dievaluasi</label>
-                            <input name="jumlah_bkd" type="number" class="form-control" id="jumlah_bkd">
+                            <input name="jumlah_bkd" type="number" class="form-control" id="jumlah_bkd" min="1" 
+                            placeholder="isi banyak BKD" required>
+                            <div class="invalid-feedback">
+                                BKD tidak valid
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -2686,16 +2708,21 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST">
+                    <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST" class="needs-validation" novalidate>
                         @csrf
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" name="nama_kegiatan" id="nama_kegiatan">
+                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
+                                placeholder="isi nama kegiatan" required>
+                            <div class="invalid-feedback">
+                                Nama kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="lingkup_penerbit" class="form-label">Kategori</label>
-                            <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
+                            <select name="lingkup_penerbit"class="form-select form-select-md mb-3" 
+                            aria-label="Default select example" required>
                                 <option disabled selected value>Pilih Kategori</option>
                                 <option value="Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi
                                     atau proceedings seminar nasional maupun internasional">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi
@@ -2703,22 +2730,30 @@
                                 <option value="Diterbitkan oleh Jurnal terakreditasi">Diterbitkan oleh Jurnal terakreditasi</option>
                                 <option value="Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Kategori tidak boleh kosong!
                         </div>
                         <div class="mb-3">
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
-                            <select name="jenis_pengerjaan" class="form-select" aria-label="Default select example">
+                            <select name="jenis_pengerjaan" class="form-select" aria-label="Default select example" required>
                                 <option disabled selected value>Pilih Jenis Pengerjaan</option>
                                 <option value="Mandiri">Mandiri</option>
                                 <option value="Kelompok">Kelompok</option>
+                            </div>
                             </select>
+                            <div class="invalid-feedback">
+                                Jenis Pengerjaan tidak boleh kosong!
                         </div>
                         <div class="mb-3">
                             <label for="peran" class="form-label">Jenis Peran</label>
-                            <select name ="peran" class="form-select" aria-label="Default select example">
+                            <select name ="peran" class="form-select" aria-label="Default select example" required>
                                 <option disabled selected value>Pilih Peran</option>
                                 <option value="Penulis Utama">Penulis Utama</option>
                                 <option value="Penulis Lainnya">Penulis Lainnya</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Jenis Peran tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
