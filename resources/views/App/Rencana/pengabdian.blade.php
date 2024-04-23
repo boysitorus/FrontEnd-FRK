@@ -712,7 +712,7 @@
 
                                     <div class="modal-body">
                                         <form action="{{ route('rk-pengabdian.karya.update') }}"
-                                              method="POST">
+                                              method="POST" class="needs-validation" novalidate>
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id_rencana"
@@ -722,13 +722,16 @@
                                                     <input
                                                         name="nama_kegiatan" type="text" class="form-control"
                                                         id="nama_kegiatan"
-                                                        value="{{ $item['nama_kegiatan'] }}">
+                                                        value="{{ $item['nama_kegiatan'] }}" required>
+                                                    <div class="invalid-feedback">
+                                                        Nama kegiatan tidak boleh kosong!
+                                                    </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jenis_terbit" class="form-label">Kategori</label>
                                                     <select name="jenis_terbit" class="form-select form-select-md mb-3"
-                                                            aria-label=".form-select-md example">
-                                                        <option disabled selected value>Pilih kategori</option>
+                                                            aria-label=".form-select-md example" required>
+                                                        <option disabled selected value="">Pilih kategori</option>
                                                         <option
                                                             value="Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN" {{ $item['jenis_terbit'] == 'Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN' ? 'selected' : '' }}>
                                                             Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak
@@ -745,13 +748,16 @@
                                                             digunakan oleh siswa mahasiswa)
                                                         </option>
                                                     </select>
+                                                    <div clas="invalid-feedback">
+                                                        Kategori tidak boleh kosong!
+                                                    </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="status_tahapan" class="form-label">Tahapan</label>
                                                     <select name="status_tahapan"
                                                             class="form-select form-select-md mb-3"
-                                                            aria-label=".form-select-md example">
-                                                        <option disabled selected value>Pilih tahapan</option>
+                                                            aria-label=".form-select-md example" required>
+                                                        <option disabled selected value="">Pilih tahapan</option>
                                                         <option
                                                             value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>
                                                             Pendahuluan
@@ -773,6 +779,9 @@
                                                             Buku selesai dicetak
                                                         </option>
                                                     </select>
+                                                    <div class = "needs-validation">
+                                                        Tahapan tidak boleh kosong!
+                                                    </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jenis_pengerjaan" class="form-label">Jenis
@@ -794,8 +803,8 @@
                                                 <div class="mb-3">
                                                     <label for="peran" class="form-label">Peran</label>
                                                     <select name="peran" class="form-select form-select-md mb-3"
-                                                            aria-label=".form-select-md example">
-                                                        <option disabled selected value>Pilih peran</option>
+                                                            aria-label=".form-select-md example" required>
+                                                        <option disabled selected value="">Pilih peran</option>
                                                         <option
                                                             value="Editor" {{ $item['peran'] == 'Editor' ? 'selected' : '' }}>
                                                             Editor
@@ -813,12 +822,18 @@
                                                             Penulis Lainnya
                                                         </option>
                                                     </select>
+                                                    <div class = "invalid-feedback">
+                                                        Peran tidak boleh kosong!
+                                                    </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jumlah_anggota" class="form-label">Jumlah
                                                         Anggota</label>
                                                     <input name="jumlah_anggota" type="number" class="form-control"
-                                                           id="nama" value={{ $item['jumlah_anggota'] }}>
+                                                    id="nama" value={{ $item['jumlah_anggota'] }} min="0" required>
+                                                    <div class="invalid-feedback">
+                                                        Jumlah anggota tidak valid
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -846,7 +861,8 @@
          aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{ route('rk-pengabdian.karya.create') }}" method="POST">
+            <form action="{{ route('rk-pengabdian.karya.create') }}" method="POST"
+            class="needs-validation" novalidate>
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -864,13 +880,16 @@
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input
                                 name="nama_kegiatan" type="text" class="form-control"
-                                id="nama_kegiatan">
+                                id="nama_kegiatan" required>
+                            <div class="invalid-feedback">
+                                Nama kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_terbit" class="form-label">Kategori</label>
                             <select name="jenis_terbit" class="form-select form-select-md mb-3"
-                                    aria-label=".form-select-md example">
-                                <option disabled selected value>Pilih kategori</option>
+                                    aria-label=".form-select-md example" required>
+                                <option disabled selected value="">Pilih kategori</option>
                                 <option
                                     value="Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN">
                                     Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah
@@ -885,42 +904,57 @@
                                     (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)
                                 </option>
                             </select>
+                            <div class="invalid-feedback">
+                                Jenis kategori tidak boleh kosong
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahapan</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
-                                    aria-label=".form-select-md example">
-                                <option disabled selected value>Pilih tahapan</option>
+                                    aria-label=".form-select-md example" required>
+                                <option disabled selected value="">Pilih tahapan</option>
                                 <option value="Pendahuluan">Pendahuluan</option>
                                 <option value="50 % dari isi buku">50 % dari isi buku</option>
                                 <option value="Buku jadi">Buku jadi</option>
                                 <option value="Persetujuan Penerbit">Persetujuan Penerbit</option>
                                 <option value="Buku selesai dicetak">Buku selesai dicetak</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Tahap Pencapaian tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                             <select name="jenis_pengerjaan" class="form-select form-select-md mb-3"
-                                    aria-label=".form-select-md example">
+                                    aria-label=".form-select-md example" required>
                                 <option disabled selected value>Pilih jenis pengerjaan</option>
                                 <option value="Mandiri">Mandiri</option>
                                 <option value="Kelompok">Kelompok</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Jenis pengerjaan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="peran" class="form-label">Peran</label>
                             <select name="peran" class="form-select form-select-md mb-3"
-                                    aria-label=".form-select-md example">
-                                <option disabled selected value>Pilih peran</option>
+                                    aria-label=".form-select-md example" required>
+                                <option disabled selected value="">Pilih peran</option>
                                 <option value="Editor">Editor</option>
                                 <option value="Kontributor">Kontributor</option>
                                 <option value="Penulis Utama">Penulis Utama</option>
                                 <option value="Penulis Lainnya">Penulis Lainnya</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Peran tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
-                            <input name="jumlah_anggota" type="number" class="form-control" id="nama">
+                            <input name="jumlah_anggota" type="number" class="form-control" min="0" required>
+                            <div class="invalid-feedback">
+                                Jumlah anggota tidak valid
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -931,80 +965,6 @@
         </div>
     </div>
     {{-- AKHIR MODAL D--}}
-
-
-    {{-- TEMPAT MODAL EDIT --}}
-    {{-- MULAI MODAL D --}}
-    {{-- PINDAH KE ATAS (FOREACH) -}}
-    {{--<div class="modal fade modal-lg" id="modalEditPengabdian_D" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">D. Membuat/menulis karya pengabdian kepada masyarakat
-                        dengan menulis 1 judul, direncanakan terbit ber ISBN, ada kontrak penerbitan dan atau sudah
-                        diterbitkan dan ber – ISBN
-                    </h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Kategori</label>
-                            <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                                <option value=""></option>
-                                <option value="">Menulis 1 judul, direncanakan terbit ber-ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISN</option>
-                                <option value="">Menulis 1 judul, ada editor, tiap chapter ada Kontributor</option>
-                                <option value="">Menulis karya pengabdian yang dipakai sebagai Modul Pelatihan oleh seorang Dosen (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tahapan</label>
-                            <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                                <option value=""></option>
-                                <option value="">Pendahuluan</option>
-                                <option value="">50 % dari isi buku</option>
-                                <option value="">Buku jadi</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jenis Pengerjaan</label>
-                            <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                                <option value=""></option>
-                                <option value="">Mandiri</option>
-                                <option value="">Kelompok</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Peran</label>
-                            <select class="form-select form-select-md mb-3" aria-label=".form-select-md example">
-                                <option value=""></option>
-                                <option value="">Editor</option>
-                                <option value="">Kontributor</option>
-                                <option value="">Penulis Utama</option>
-                                <option value="">Penulis Lainnya</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Jumlah Anggpta</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>--}}
-    {{-- AKHIR MODAL D --}}
 
 
     {{-- TEMPAT MODAL EDIT CONFIRM --}}
@@ -1116,6 +1076,29 @@
                 $('#deleteToast').removeClass('show');
             }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
         }
+    </script>
+
+    <!-- JavaScript untuk aktivasi validasi form Bootstrap -->
+    <script>
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
     </script>
 
 @endsection
