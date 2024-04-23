@@ -124,7 +124,7 @@
                                                             id="nama_kegiatan"
                                                             value="{{ $item['nama_kegiatan'] }}" required />
                                                         <div class="invalid-feedback">
-                                                            Nama kegiatan tidak boleh kosong !
+                                                            Nama kegiatan tidak boleh kosong!
                                                         </div>
                                                     </div>
                                                     <div class="mb-3">
@@ -142,6 +142,9 @@
                                                             <option value="50% dari Karya" {{ $item['status_tahapan'] == '50% dari Karya' ? 'selected' : '' }}>50% dari Karya</option>
                                                             <option value="Hasil akhir" {{ $item['status_tahapan'] == 'Hasil akhir' ? 'selected' : '' }}>Hasil akhir</option>
                                                         </select>
+                                                        <div class="invalid-feedback">
+                                                            Tahap kegiatan tidak boleh kosong!
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="posisi" class="form-label">Posisi</label>
@@ -150,6 +153,9 @@
                                                             <option value="Ketua" {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua</option>
                                                             <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
                                                         </select>
+                                                        <div class="invalid-feedback">
+                                                            Posisi tidak boleh kosong!
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_anggota" class="form-label">Jumlah
@@ -162,7 +168,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button type="submit" class="btn btn-primary" onclick="editFormSubmit(event, {{ $item['id_rencana'] }})">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -2208,7 +2214,8 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" method = "POST" class="needs-validation" novalidate>
+                <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" 
+                    method = "POST" class="needs-validation" novalidate>
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
@@ -2919,6 +2926,16 @@
             </div>
         </div>
     </div>
+    {{-- TOAS EDIT --}}
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="editToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-body">
+                <i class="bi bi-check2-circle"></i>
+                Berhasil Mengubah Kegiatan
+            </div>
+        </div>
+    </div>
 
     {{-- TOAST DELETE --}}
     <div class="toast-container position-fixed top-0 end-0 p-3">
@@ -2974,25 +2991,6 @@
 
     <!-- JavaScript untuk aktivasi validasi form Bootstrap -->
     <script>
-        // Mendapatkan semua form yang perlu divalidasi
-        var forms = document.querySelectorAll('.needs-validation');
-
-        // Loop melalui setiap form dan mencegah pengiriman jika tidak valid
-        Array.prototype.slice.call(forms)
-        .forEach(function(form) {
-            form.addEventListener('submit', function(event) {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-
-            form.classList.add('was-validated');
-            }, false);
-        });
-    </script>
-
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict'
 
@@ -3012,6 +3010,42 @@
                     }, false)
                 })
         })()
+    </script>
+
+    <script>
+        // Event listener untuk menampilkan pesan toast setelah form disubmit
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('.needs-validation');
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    // Jika form valid, tampilkan pesan toast
+                    showSuccessToast('Kegiatan berhasil diperbarui.');
+                }
+                form.classList.add('was-validated');
+            });
+        });
+
+        // Fungsi untuk menampilkan pesan toast
+        function showSuccessToast(message) {
+            var toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.setAttribute('role', 'alert');
+            toast.setAttribute('aria-live', 'assertive');
+            toast.setAttribute('aria-atomic', 'true');
+            var toastHeader = document.createElement('div');
+            toastHeader.className = 'toast-header';
+            var toastBody = document.createElement('div');
+            toastBody.className = 'toast-body';
+            toastBody.innerText = message;
+            toast.appendChild(toastHeader);
+            toast.appendChild(toastBody);
+            document.body.appendChild(toast);
+            var bsToast = new bootstrap.Toast(toast);
+            bsToast.show();
+        }
     </script>
 
 @endsection
