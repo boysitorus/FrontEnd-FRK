@@ -711,7 +711,7 @@
                                             class="bi bi-trash3"></i></button>
 
                                     <!-- modal delete E -->
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter++ }}" tabindex="-1"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -761,7 +761,7 @@
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST">
+                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST" class="needs-validation" novalidate>
                                                     @csrf
                                                         <div class="modal-body">
                                                         <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
@@ -770,29 +770,33 @@
                                                                 Kegiatan</label>
                                                             <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                                 name="nama_kegiatan" type="text"
-                                                                class="form-control" id="nama_kegiatan">
+                                                                class="form-control" id="nama_kegiatan"
+                                                                value="{{ $item['nama_kegiatan'] }}" required />
+                                                            <div class="invalid-feedback">
+                                                                Nama kegiatan tidak boleh kosong !
+                                                            </div>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                                                            <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
+                                                            <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example" required>
                                                                 <option selected>Pilih tahapan</option>
-                                                                <option value="Pendahuluan">Pendahuluan</option>
-                                                                <option value="50% dari isi buku">50% dari isi buku
-                                                                </option>
-                                                                <option value="sks buku jadi">sks buku jadi</option>
-                                                                <option value="persetujuan penerbit">persetujuan penerbit</option>
-                                                                <option value="sks buku selesai dicetak">sks bukuselesai dicetak</option>
+                                                                <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
+                                                                <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
+                                                                </option> 
+                                                                <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
+                                                                <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit</option>
+                                                                <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks bukuselesai dicetak</option>
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="posisi" class="form-label">Posisi</label>
                                                             <select name="posisi"
                                                                 class="form-select form-select-md mb-3"
-                                                                aria-label=".form-select-lg example">
+                                                                aria-label=".form-select-lg example" required>
                                                                 <option selected>Pilih posisi</option>
-                                                                <option value="Ketua">Ketua</option>
-                                                                <option value="Editor">Editor</option>
-                                                                <option value="Anggota">Anggota</option>
+                                                                <option value="Ketua" {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua</option>
+                                                                <option value="Editor" {{ $item['posisi'] == 'Editor' ? 'selected' : '' }}>Editor</option>
+                                                                <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
                                                             </select>
                                                         </div>
                                                         <div class="modal-footer">
@@ -929,7 +933,11 @@
                                                                 Kegiatan</label>
                                                             <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                                 name="nama_kegiatan" type="text" class="form-control"
-                                                                id="nama_kegiatan">
+                                                                id="nama_kegiatan"
+                                                                value="{{ $item['nama_kegiatan'] }}" required />
+                                                            <div class="invalid-feedback">
+                                                                Nama kegiatan tidak boleh kosong !
+                                                            </div>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap
@@ -938,13 +946,13 @@
                                                                 class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-md example">
                                                                 <option selected>Pilih tahapan</option>
-                                                                <option value="Pendahuluan">Pendahuluan</option>
-                                                                <option value="50% dari isi buku">50% dari isi buku
+                                                                <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
+                                                                <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
                                                                 </option>
-                                                                <option value="sks buku jadi">sks buku jadi</option>
-                                                                <option value="persetujuan penerbit">persetujuan penerbit
+                                                                <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
+                                                                <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit
                                                                 </option>
-                                                                <option value="sks buku selesai dicetak">sks buku selesai
+                                                                <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks buku selesai
                                                                     dicetak</option>
                                                             </select>
                                                         </div>
@@ -953,8 +961,8 @@
                                                             <select name="posisi" class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-lg example">
                                                                 <option selected>Pilih posisi</option>
-                                                                <option value="Ketua">Ketua</option>
-                                                                <option value="Anggota">Anggota</option>
+                                                                <option value="Ketua" {{ $item['posisi'] == 'Editor' ? 'selected' : '' }}>Ketua</option>
+                                                                <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
                                                             </select>
                                                         </div>
                                                     </div>
