@@ -977,6 +977,22 @@
                 showEditToast();
             });
 
+            // document.getElementById('confirmEditBtnB').addEventListener('click', function() {
+            //     showEditToast();
+            // });
+
+            // document.getElementById('confirmEditBtnC').addEventListener('click', function() {
+            //     showEditToast();
+            // });
+
+            // document.getElementById('confirmEditBtnD').addEventListener('click', function() {
+            //     showEditToast();
+            // });
+
+            // document.getElementById('confirmEditBtnE').addEventListener('click', function() {
+            //     showEditToast();
+            // });
+
             function showEditToast() {
                 // Menutup modal
                 $('#modalEditConfirm').modal('hide');
@@ -995,6 +1011,22 @@
             document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
                 showDeleteToast();
             });
+
+            // document.getElementById('confirmDeleteBtnB').addEventListener('click', function() {
+            //     showDeleteToast();
+            // });
+
+            // document.getElementById('confirmDeleteBtnC').addEventListener('click', function() {
+            //     showDeleteToast();
+            // });
+
+            // document.getElementById('confirmDeleteBtnD').addEventListener('click', function() {
+            //     showDeleteToast();
+            // });
+
+            // document.getElementById('confirmDeleteBtnE').addEventListener('click', function() {
+            //     showDeleteToast();
+            // });
 
             function showDeleteToast() {
                 // Menutup modal
@@ -1089,11 +1121,51 @@
                 displayFilesWithIcons(files);
             });
 
+            // document.getElementById('fileInputB').addEventListener('change', function() {
+            //     var files = this.files;
+            //     displayFilesWithIcons(files);
+            // });
+
+            // document.getElementById('fileInputC').addEventListener('change', function() {
+            //     var files = this.files;
+            //     displayFilesWithIcons(files);
+            // });
+
+            // document.getElementById('fileInputD').addEventListener('change', function() {
+            //     var files = this.files;
+            //     displayFilesWithIcons(files);
+            // });
+
+            // document.getElementById('fileInputE').addEventListener('change', function() {
+            //     var files = this.files;
+            //     displayFilesWithIcons(files);
+            // });
+
             // Fungsi untuk menambah file
             document.getElementById('addFilesBtn').addEventListener('click', function() {
                 var fileInput = document.getElementById('fileInput');
                 fileInput.click();
             });
+
+            // document.getElementById('addFilesBtnB').addEventListener('click', function() {
+            //     var fileInput = document.getElementById('fileInput');
+            //     fileInput.click();
+            // });
+
+            // document.getElementById('addFilesBtnC').addEventListener('click', function() {
+            //     var fileInput = document.getElementById('fileInput');
+            //     fileInput.click();
+            // });
+
+            // document.getElementById('addFilesBtnD').addEventListener('click', function() {
+            //     var fileInput = document.getElementById('fileInput');
+            //     fileInput.click();
+            // });
+
+            // document.getElementById('addFilesBtnE').addEventListener('click', function() {
+            //     var fileInput = document.getElementById('fileInput');
+            //     fileInput.click();
+            // });
 
             // Variabel global untuk menyimpan file-file yang dipilih
             var selectedFiles = [];
