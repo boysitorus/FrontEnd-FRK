@@ -295,7 +295,7 @@
 
                                         <div class="modal-body">
                                             <form action="{{ route('rk-penelitian.penelitian_mandiri.update') }}"
-                                                method="POST">
+                                                method="POST" class="needs-validation" novalidate>
                                                 @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana"
@@ -306,14 +306,17 @@
                                                         <input
                                                             name="nama_kegiatan" type="text" class="form-control"
                                                             id="nama_kegiatan"
-                                                            value="{{ $item['nama_kegiatan'] }}">
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
+                                                        <div class="invalid-feedback">
+                                                            Nama kegiatan tidak boleh kosong!
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="status_tahapan" class="form-label">Tahap
                                                             Pencapaian</label>
                                                         <select name="status_tahapan"
                                                             class="form-select form-select-md mb-3"
-                                                            aria-label=".form-select-md example">
+                                                            aria-label=".form-select-md example" required>
                                                             <option value="Proposal" {{ $item['status_tahapan'] == 'Proposal' ? 'selected' : '' }}>Proposal</option>
                                                             <option value="Pengumpulan data /sebar kuesioner" {{ $item['status_tahapan'] == 'Pengumpulan data /sebar kuesioner' ? 'selected' : '' }}>Pengumpulan
                                                                 data /sebar kuesioner</option>
@@ -323,6 +326,9 @@
                                                             <option value="50% dari Karya" {{ $item['status_tahapan'] == '50% dari Karya' ? 'selected' : '' }}>50% dari Karya</option>
                                                             <option value="Hasil akhir" {{ $item['status_tahapan'] == 'Hasil akhir' ? 'selected' : '' }}>Hasil akhir</option>
                                                         </select>
+                                                        <div class="invalid-feedback">
+                                                            Tahap kegiatan tidak boleh kosong!
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -717,7 +723,7 @@
                                             class="bi bi-trash3"></i></button>
 
                                     <!-- modal delete E -->
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter++ }}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -767,7 +773,7 @@
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST" class="needs-validation" novalidate>
+                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST">
                                                     @csrf
                                                         <div class="modal-body">
                                                         <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
@@ -776,33 +782,29 @@
                                                                 Kegiatan</label>
                                                             <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                                 name="nama_kegiatan" type="text"
-                                                                class="form-control" id="nama_kegiatan"
-                                                                value="{{ $item['nama_kegiatan'] }}" required />
-                                                            <div class="invalid-feedback">
-                                                                Nama kegiatan tidak boleh kosong !
-                                                            </div>
+                                                                class="form-control" id="nama_kegiatan">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                                                            <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example" required>
+                                                            <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
                                                                 <option selected>Pilih tahapan</option>
-                                                                <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
-                                                                <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
-                                                                </option> 
-                                                                <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
-                                                                <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit</option>
-                                                                <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks bukuselesai dicetak</option>
+                                                                <option value="Pendahuluan">Pendahuluan</option>
+                                                                <option value="50% dari isi buku">50% dari isi buku
+                                                                </option>
+                                                                <option value="sks buku jadi">sks buku jadi</option>
+                                                                <option value="persetujuan penerbit">persetujuan penerbit</option>
+                                                                <option value="sks buku selesai dicetak">sks bukuselesai dicetak</option>
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="posisi" class="form-label">Posisi</label>
                                                             <select name="posisi"
                                                                 class="form-select form-select-md mb-3"
-                                                                aria-label=".form-select-lg example" required>
+                                                                aria-label=".form-select-lg example">
                                                                 <option selected>Pilih posisi</option>
-                                                                <option value="Ketua" {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua</option>
-                                                                <option value="Editor" {{ $item['posisi'] == 'Editor' ? 'selected' : '' }}>Editor</option>
-                                                                <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
+                                                                <option value="Ketua">Ketua</option>
+                                                                <option value="Editor">Editor</option>
+                                                                <option value="Anggota">Anggota</option>
                                                             </select>
                                                         </div>
                                                         <div class="modal-footer">
@@ -939,11 +941,7 @@
                                                                 Kegiatan</label>
                                                             <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                                 name="nama_kegiatan" type="text" class="form-control"
-                                                                id="nama_kegiatan"
-                                                                value="{{ $item['nama_kegiatan'] }}" required />
-                                                            <div class="invalid-feedback">
-                                                                Nama kegiatan tidak boleh kosong !
-                                                            </div>
+                                                                id="nama_kegiatan">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap
@@ -952,13 +950,13 @@
                                                                 class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-md example">
                                                                 <option selected>Pilih tahapan</option>
-                                                                <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
-                                                                <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
+                                                                <option value="Pendahuluan">Pendahuluan</option>
+                                                                <option value="50% dari isi buku">50% dari isi buku
                                                                 </option>
-                                                                <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
-                                                                <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit
+                                                                <option value="sks buku jadi">sks buku jadi</option>
+                                                                <option value="persetujuan penerbit">persetujuan penerbit
                                                                 </option>
-                                                                <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks buku selesai
+                                                                <option value="sks buku selesai dicetak">sks buku selesai
                                                                     dicetak</option>
                                                             </select>
                                                         </div>
@@ -967,8 +965,8 @@
                                                             <select name="posisi" class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-lg example">
                                                                 <option selected>Pilih posisi</option>
-                                                                <option value="Ketua" {{ $item['posisi'] == 'Editor' ? 'selected' : '' }}>Ketua</option>
-                                                                <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
+                                                                <option value="Ketua">Ketua</option>
+                                                                <option value="Anggota">Anggota</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -1396,41 +1394,27 @@
                             </tr>
 
                             {{-- MODAL EDIT I --}}
-                            <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" 
-                            tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. 
-                                            {{ $item['nama_kegiatan'] }}
+                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
                                             </h6>
-                                            <button class="btn-close" type="button" data-bs-dismiss="modal" 
-                                            aria-label="Close"></button>
+                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
 
                                         <div class="modal-body">
-                                            <form action="{{ route('rk-penelitian.penelitian_tridharma.update') }}" 
-                                            method="POST" class="needs-validation" novalidate>
+                                            <form action="{{ route('rk-penelitian.penelitian_tridharma.update') }}" method="POST">
                                             @csrf
                                                 <div class="modal-body">
-                                                    <input type="hidden" name="id_rencana" 
-                                                        value="{{ $item['id_rencana'] }}" />
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
                                                     <div class="mb-3">
-                                                    <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                        <input
-                                                            name="nama_kegiatan" type="text" class="form-control"
-                                                            id="nama_kegiatan"
-                                                            value="{{ $item['nama_kegiatan'] }}" required />
-                                                        <div class="invalid-feedback">
-                                                            Nama kegiatan tidak boleh kosong !
-                                                        </div>
+                                                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_bkd" class="form-label">Banyaknya BKD yang dievaluasi</label>
-                                                        <input placeholder="{{ $item['jumlah_bkd'] }}" min="1" name="jumlah_bkd" type="number" class="form-control" required>
-                                                        <div class="invalid-feedback">
-                                                            Jumlah anggota tidak valid!
-                                                        </div>
+                                                        <input placeholder="{{ $item['jumlah_bkd'] }}" name="jumlah_bkd" type="number" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -2309,19 +2293,23 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-penelitian.penelitian_mandiri.create') }}" method = "POST">
+                <form action="{{ route('rk-penelitian.penelitian_mandiri.create') }}" method = "POST"
+                class="needs-validation" novalidate>
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
-                                placeholder="isi nama kegiatan">
+                                placeholder="isi nama kegiatan" required>
+                            <div class="invalid-feedback">
+                                Nama kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
-                                aria-label=".form-select-md example">
+                                aria-label=".form-select-md example" required>
                                 <option disabled selected value>Pilih tahapan</option>
                                 <option value="Proposal">Proposal</option>
                                 <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner
@@ -2332,6 +2320,9 @@
                                 <option value="50% dari Karya">50% dari Karya:</option>
                                 <option value="Hasil akhir">Hasil akhir</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Tahap kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                     </div>
 
@@ -2683,24 +2674,16 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST" class="needs-validation" novalidate>
+                    <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST">
                         @csrf
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
-                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
-                                placeholder="isi nama kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan tidak boleh kosong!
-                            </div>
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input name ="nama_kegiatan"type="text" class="form-control" id="nama_kegiatan">
                         </div>
                         <div class="mb-3">
                             <label for = "jumlah_bkd" class="form-label">Banyaknya BKD yang Dievaluasi</label>
-                            <input name="jumlah_bkd" type="number" class="form-control" id="jumlah_bkd" min="1" 
-                            placeholder="isi banyak BKD" required>
-                            <div class="invalid-feedback">
-                                BKD tidak valid
-                            </div>
+                            <input name="jumlah_bkd" type="number" class="form-control" id="jumlah_bkd">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -2723,21 +2706,16 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST" class="needs-validation" novalidate>
+                    <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST">
                         @csrf
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
-                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
-                                placeholder="isi nama kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan tidak boleh kosong!
-                            </div>
+                            <label for="nama" class="form-label">Nama Kegiatan</label>
+                            <input type="text" class="form-control" name="nama_kegiatan" id="nama_kegiatan">
                         </div>
                         <div class="mb-3">
                             <label for="lingkup_penerbit" class="form-label">Kategori</label>
-                            <select name="lingkup_penerbit"class="form-select form-select-md mb-3" 
-                            aria-label="Default select example" required>
+                            <select name="lingkup_penerbit"class="form-select" aria-label="Default select example">
                                 <option disabled selected value>Pilih Kategori</option>
                                 <option value="Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi
                                     atau proceedings seminar nasional maupun internasional">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi
@@ -2745,30 +2723,22 @@
                                 <option value="Diterbitkan oleh Jurnal terakreditasi">Diterbitkan oleh Jurnal terakreditasi</option>
                                 <option value="Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Kategori tidak boleh kosong!
                         </div>
                         <div class="mb-3">
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
-                            <select name="jenis_pengerjaan" class="form-select" aria-label="Default select example" required>
+                            <select name="jenis_pengerjaan" class="form-select" aria-label="Default select example">
                                 <option disabled selected value>Pilih Jenis Pengerjaan</option>
                                 <option value="Mandiri">Mandiri</option>
                                 <option value="Kelompok">Kelompok</option>
-                            </div>
                             </select>
-                            <div class="invalid-feedback">
-                                Jenis Pengerjaan tidak boleh kosong!
                         </div>
                         <div class="mb-3">
                             <label for="peran" class="form-label">Jenis Peran</label>
-                            <select name ="peran" class="form-select" aria-label="Default select example" required>
+                            <select name ="peran" class="form-select" aria-label="Default select example">
                                 <option disabled selected value>Pilih Peran</option>
                                 <option value="Penulis Utama">Penulis Utama</option>
                                 <option value="Penulis Lainnya">Penulis Lainnya</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Jenis Peran tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -2959,16 +2929,17 @@
 
     {{-- TEMPAT TOAST --}}
 
-    {{-- TOAS EDIT --}}
+    {{-- TOAST TAMBAH --}}
     <div class="toast-container position-fixed top-0 end-0 p-3">
-        <div id="editToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
+        <div id="addToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
             aria-atomic="true">
             <div class="toast-body">
                 <i class="bi bi-check2-circle"></i>
-                Berhasil Mengubah Kegiatan
+                Berhasil Menambah Kegiatan
             </div>
         </div>
     </div>
+
     {{-- TOAS EDIT --}}
     <div class="toast-container position-fixed top-0 end-0 p-3">
         <div id="editToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
