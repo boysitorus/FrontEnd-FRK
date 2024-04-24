@@ -156,7 +156,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary" onclick="editFormSubmit(event, {{ $item['id_rencana'] }})">
+                                                    <button type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -301,7 +301,7 @@
                                                             Pencapaian</label>
                                                         <select name="status_tahapan"
                                                             class="form-select form-select-md mb-3"
-                                                            aria-label=".form-select-md example" required>
+                                                            aria-label=".form-select-md example">
                                                             <option value="Proposal" {{ $item['status_tahapan'] == 'Proposal' ? 'selected' : '' }}>Proposal</option>
                                                             <option value="Pengumpulan data /sebar kuesioner" {{ $item['status_tahapan'] == 'Pengumpulan data /sebar kuesioner' ? 'selected' : '' }}>Pengumpulan
                                                                 data /sebar kuesioner</option>
@@ -693,7 +693,7 @@
                                             class="bi bi-trash3"></i></button>
 
                                     <!-- modal delete E -->
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter++ }}" tabindex="-1"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -743,7 +743,7 @@
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST">
+                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST" class="needs-validation" novalidate>
                                                     @csrf
                                                         <div class="modal-body">
                                                         <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
@@ -758,12 +758,12 @@
                                                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                                                             <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example" required>
                                                                 <option selected>Pilih tahapan</option>
-                                                                <option value="Pendahuluan">Pendahuluan</option>
-                                                                <option value="50% dari isi buku">50% dari isi buku
-                                                                </option>
-                                                                <option value="sks buku jadi">sks buku jadi</option>
-                                                                <option value="persetujuan penerbit">persetujuan penerbit</option>
-                                                                <option value="sks buku selesai dicetak">sks bukuselesai dicetak</option>
+                                                                <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
+                                                                <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
+                                                                </option> 
+                                                                <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
+                                                                <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit</option>
+                                                                <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks bukuselesai dicetak</option>
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
@@ -807,7 +807,8 @@
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianF" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
-                    data-bs-toggle="modal" data-bs-target="#modalPenelitian_F">Tambah Kegiatan
+                    data-bs-toggle="modal" data-bs-target="#modalPenelitian_F">
+                    Tambah Kegiatan
                 </button>
 
             </div>
@@ -870,12 +871,10 @@
 
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Batalkan
-                                                    </button>
+                                                        data-bs-dismiss="modal">Batalkan</button>
                                                     <a id="confirmDeleteBtn" class="btn btn-primary"
                                                         href="{{ route('rk-penelitian.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                    </a>
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
                                                     <form id="delete-form-{{ $item['id_rencana'] }}"
                                                         action="{{ route('rk-penelitian.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
                                                         method="POST" style="display: none;">
@@ -914,17 +913,18 @@
                                                                 id="nama_kegiatan" required>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
+                                                            <label for="status_tahapan" class="form-label">Tahap
+                                                                Pencapaian</label>
                                                             <select name="status_tahapan"
                                                                 class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-md example" required>
                                                                 <option value="Pendahuluan">Pendahuluan</option>
                                                                 <option value="50% dari isi buku">50% dari isi buku
                                                                 </option>
-                                                                <option value="sks buku jadi">sks buku jadi</option>
-                                                                <option value="persetujuan penerbit">persetujuan penerbit
+                                                                <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
+                                                                <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit
                                                                 </option>
-                                                                <option value="sks buku selesai dicetak">sks buku selesai
+                                                                <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks buku selesai
                                                                     dicetak</option>
                                                             </select>
                                                         </div>
@@ -933,8 +933,8 @@
                                                             <select name="posisi" class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-lg example">
                                                                 <option selected>Pilih posisi</option>
-                                                                <option value="Ketua">Ketua</option>
-                                                                <option value="Anggota">Anggota</option>
+                                                                <option value="Ketua" {{ $item['posisi'] == 'Editor' ? 'selected' : '' }}>Ketua</option>
+                                                                <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -2254,7 +2254,7 @@
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
-                                aria-label=".form-select-md example" required>
+                                aria-label=".form-select-md example">
                                 <option disabled selected value>Pilih tahapan</option>
                                 <option value="Proposal">Proposal</option>
                                 <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner
@@ -2429,9 +2429,6 @@
                                 <option value="persetujuan penerbit">persetujuan penerbit</option>
                                 <option value="sks buku selesai dicetak">sks buku selesai dicetak</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Tahap Pencapaian tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
@@ -2442,9 +2439,6 @@
                                 <option value="Editor">Editor</option>
                                 <option value="Anggota">Anggota</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Posisi tidak boleh kosong!
-                            </div>
                         </div>
                     </div>
 
@@ -2487,9 +2481,6 @@
                                 <option value="persetujuan penerbit">persetujuan penerbit</option>
                                 <option value="sks buku selesai dicetak">sks buku selesai dicetak</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Tahap Pencapaian tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="posisi" class="form-label">Posisi</label>
@@ -2499,9 +2490,6 @@
                                 <option value="Ketua">Ketua</option>
                                 <option value="Anggota">Anggota</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Posisi tidak boleh kosong!
-                            </div>
                         </div>
                     </div>
 
@@ -2873,17 +2861,6 @@
 
 
     {{-- TEMPAT TOAST --}}
-
-    {{-- TOAST TAMBAH --}}
-    <div class="toast-container position-fixed top-0 end-0 p-3">
-        <div id="addToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
-            aria-atomic="true">
-            <div class="toast-body">
-                <i class="bi bi-check2-circle"></i>
-                Berhasil Menambah Kegiatan
-            </div>
-        </div>
-    </div>
 
     {{-- TOAS EDIT --}}
     <div class="toast-container position-fixed top-0 end-0 p-3">
