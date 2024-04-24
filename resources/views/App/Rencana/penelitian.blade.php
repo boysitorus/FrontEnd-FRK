@@ -112,7 +112,7 @@
 
                                         <div class="modal-body">
                                             <form action="{{ route('rk-penelitian.penelitian_kelompok.update') }}"
-                                                method="POST" >
+                                                method="POST" class="formEditData">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana"
@@ -2183,7 +2183,7 @@
                 </div>
 
                 <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" 
-                    method = "POST">
+                    method = "POST" class="formTambahData">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
@@ -2910,6 +2910,36 @@
 
 
     {{-- TEMPAT JAVASCRIPT --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var formTambahDataList = document.querySelectorAll('.formTambahData');
+            var toastBerhasil = new bootstrap.Toast(document.getElementById('addToast'));
+
+            formTambahDataList.forEach(function(formTambahData) {
+                formTambahData.addEventListener('submit', function (event) {
+                    // Lakukan pengiriman formulir ke server secara normal
+                    // Tampilkan toast setelah formulir berhasil dikirim
+                    toastBerhasil.show();
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var formEditDataList = document.querySelectorAll('.formEditData');
+            var toastBerhasil = new bootstrap.Toast(document.getElementById('editToast'));
+
+            formEditDataList.forEach(function(formEditData) {
+                formEditData.addEventListener('submit', function (event) {
+                    // Lakukan pengiriman formulir ke server secara normal
+                    // Tampilkan toast setelah formulir berhasil dikirim
+                    toastBerhasil.show();
+                });
+            });
+        });
+    </script>
+
     <script>
         document.getElementById('confirmEditBtn').addEventListener('click', function() {
             showEditToast();
