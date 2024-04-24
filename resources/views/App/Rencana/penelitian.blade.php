@@ -830,8 +830,7 @@
 
             <div class="row justify-content-end mr-0">
                 <button id="btnFrkPenelitianF" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
-                    data-bs-toggle="modal" data-bs-target="#modalPenelitian_F">
-                    Tambah Kegiatan
+                    data-bs-toggle="modal" data-bs-target="#modalPenelitian_F">Tambah Kegiatan
                 </button>
 
             </div>
@@ -894,10 +893,12 @@
 
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Batalkan</button>
+                                                        data-bs-dismiss="modal">Batalkan
+                                                    </button>
                                                     <a id="confirmDeleteBtn" class="btn btn-primary"
                                                         href="{{ route('rk-penelitian.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
+                                                    </a>
                                                     <form id="delete-form-{{ $item['id_rencana'] }}"
                                                         action="{{ route('rk-penelitian.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
                                                         method="POST" style="display: none;">
@@ -940,11 +941,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="status_tahapan" class="form-label">Tahap
-                                                                Pencapaian</label>
+                                                            <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                                                             <select name="status_tahapan"
                                                                 class="form-select form-select-md mb-3"
-                                                                aria-label=".form-select-md example">
+                                                                aria-label=".form-select-md example" required>
                                                                 <option selected>Pilih tahapan</option>
                                                                 <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
                                                                 <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
@@ -959,7 +959,7 @@
                                                         <div class="mb-3">
                                                             <label for="posisi" class="form-label">Posisi</label>
                                                             <select name="posisi" class="form-select form-select-md mb-3"
-                                                                aria-label=".form-select-lg example">
+                                                                aria-label=".form-select-lg example" required>
                                                                 <option selected>Pilih posisi</option>
                                                                 <option value="Ketua" {{ $item['posisi'] == 'Editor' ? 'selected' : '' }}>Ketua</option>
                                                                 <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
@@ -2471,7 +2471,10 @@
                         <div class="mb-3">
                             <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" placeholder="isi nama kegiatan" required>
+                            <div class="invalid-feedback">
+                                Nama kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
@@ -2484,6 +2487,9 @@
                                 <option value="persetujuan penerbit">persetujuan penerbit</option>
                                 <option value="sks buku selesai dicetak">sks buku selesai dicetak</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Tahap Pencapaian tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="posisi" class="form-label">Posisi (Ketua/Editor/Anggota)</label>
@@ -2494,6 +2500,9 @@
                                 <option value="Editor">Editor</option>
                                 <option value="Anggota">Anggota</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Posisi tidak boleh kosong!
+                            </div>
                         </div>
                     </div>
 
@@ -2523,7 +2532,11 @@
                         <div class="mb-3">
                             <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
+                            placeholder="isi nama kegiatan" required>
+                            <div class="invalid-feedback">
+                                Nama kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
@@ -2536,6 +2549,9 @@
                                 <option value="persetujuan penerbit">persetujuan penerbit</option>
                                 <option value="sks buku selesai dicetak">sks buku selesai dicetak</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Tahap Pencapaian tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="posisi" class="form-label">Posisi</label>
@@ -2545,6 +2561,9 @@
                                 <option value="Ketua">Ketua</option>
                                 <option value="Anggota">Anggota</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Posisi tidak boleh kosong!
+                            </div>
                         </div>
                     </div>
 
