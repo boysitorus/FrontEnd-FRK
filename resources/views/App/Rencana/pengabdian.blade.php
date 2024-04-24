@@ -127,7 +127,7 @@
                                                     <label for="jumlah_durasi" class="form-label">Durasi
                                                         Kegiatan</label>
                                                     <input name="jumlah_durasi" type="number" class="form-control"
-                                                           id="nama" value={{ $item['jumlah_durasi'] }} required>
+                                                           id="nama" value={{ $item['jumlah_durasi'] }} min="1" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -172,7 +172,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_durasi" class="form-label">Durasi Kegiatan</label>
-                            <input type="number" id="jumlah_durasi" name="jumlah_durasi" class="form-control" required>
+                            <input type="number" id="jumlah_durasi" name="jumlah_durasi" class="form-control" min="1" required>
                         </div>
 
                     </div>
@@ -312,7 +312,7 @@
                                                     <label for="jumlah_durasi" class="form-label">Durasi
                                                         Kegiatan</label>
                                                     <input name="jumlah_durasi" type="number" class="form-control"
-                                                           id="nama" value={{ $item['jumlah_durasi'] }} required>
+                                                           id="nama" value={{ $item['jumlah_durasi'] }} min="1" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -359,7 +359,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_durasi" class="form-label">Durasi Kegiatan</label>
-                            <input name="jumlah_durasi" type="number" class="form-control" id="nama" required>
+                            <input name="jumlah_durasi" type="number" class="form-control" id="nama" min="1" required>
                         </div>
                     </div>
                     <div class="modal-footer">
