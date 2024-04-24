@@ -283,7 +283,7 @@
 
                                         <div class="modal-body">
                                             <form action="{{ route('rk-penelitian.penelitian_mandiri.update') }}"
-                                                method="POST">
+                                                method="POST" class="formEditData">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana"
@@ -434,7 +434,7 @@
                                         </div>
 
                                         <div class="modal-body">
-                                            <form action="{{ route('rk-penelitian.buku_terbit.update') }}" method="POST">
+                                            <form action="{{ route('rk-penelitian.buku_terbit.update') }}" method="POST" class="formEditData">
                                             @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
@@ -589,7 +589,7 @@
                                         </div>
 
                                         <div class="modal-body">
-                                            <form action="{{ route('rk-penelitian.buku_internasional.update') }}" method="POST">
+                                            <form action="{{ route('rk-penelitian.buku_internasional.update') }}" method="POST" class="formEditData">
                                             @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
@@ -743,7 +743,7 @@
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST" class="needs-validation" novalidate>
+                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST" class="formEditData">
                                                     @csrf
                                                         <div class="modal-body">
                                                         <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
@@ -900,7 +900,7 @@
                                                 </div>
 
                                                 <form action="{{ route('rk-penelitian.menyunting.update') }}"
-                                                    method="POST">
+                                                    method="POST" class="formEditData">
                                                     @csrf
                                                     <div class="modal-body">
                                                         <div class="mb-3">
@@ -1071,7 +1071,7 @@
 
                                         <div class="modal-body">
                                             <form action="{{ route('rk-penelitian.penelitian_modul.update') }}"
-                                                method="POST">
+                                                method="POST" class="formEditData">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana"
@@ -1241,7 +1241,7 @@
 
                                         <div class="modal-body">
                                             <form action="{{ route('rk-penelitian.penelitian_pekerti.update') }}"
-                                                method="POST">
+                                                method="POST" class="formEditData">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana"
@@ -1369,7 +1369,7 @@
                                         </div>
 
                                         <div class="modal-body">
-                                            <form action="{{ route('rk-penelitian.penelitian_tridharma.update') }}" method="POST">
+                                            <form action="{{ route('rk-penelitian.penelitian_tridharma.update') }}" method="POST" class="formEditData">
                                             @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
@@ -1504,7 +1504,7 @@
                                         </div>
 
                                         <div class="modal-body">
-                                            <form action="{{ route('rk-penelitian.jurnal_ilmiah.update') }}" method="POST">
+                                            <form action="{{ route('rk-penelitian.jurnal_ilmiah.update') }}" method="POST" class="formEditData">
                                             @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
@@ -1657,7 +1657,7 @@
 
                                         <div class=" modal-body">
                                             <form action="{{ route('rk-penelitian.hak_paten.update') }}"
-                                                method="POST">
+                                                method="POST" class="formEditData">
                                                 @csrf
                                                 <input type="hidden" name="id_rencana"
                                                     value="{{ $item['id_rencana'] }}">
@@ -1796,7 +1796,7 @@
 
                                         <div class=" modal-body">
                                             <form action="{{ route('rk-penelitian.media_massa.update') }}"
-                                                method="POST">
+                                                method="POST" class="formEditData">
                                                 @csrf
                                                 <input type="hidden" name="id_rencana"
                                                     value="{{ $item['id_rencana'] }}" required>
@@ -1928,7 +1928,7 @@
 
                                             <div class="modal-body">
                                                 <form action="{{ route('rk-penelitian.pembicara_seminar.update') }}"
-                                                    method="POST">
+                                                    method="POST" class="formEditData">
                                                     @csrf
                                                     <div class="modal-body">
                                                         <input type="hidden" name="id_rencana"
@@ -2087,7 +2087,7 @@
 
                                             <div class="modal-body">
                                                 <form action="{{ route('rk-penelitian.penyajian_makalah.update') }}"
-                                                    method="POST">
+                                                    method="POST" class="formEditData">
                                                     @csrf
                                                     <div class="modal-body">
                                                         <input type="hidden" name="id_rencana"
@@ -2242,7 +2242,7 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-penelitian.penelitian_mandiri.create') }}" method = "POST">
+                <form action="{{ route('rk-penelitian.penelitian_mandiri.create') }}" method = "POST" class="formTambahData">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
@@ -2254,7 +2254,7 @@
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
-                                aria-label=".form-select-md example">
+                                aria-label=".form-select-md example" required>
                                 <option disabled selected value>Pilih tahapan</option>
                                 <option value="Proposal">Proposal</option>
                                 <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner
@@ -2288,7 +2288,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.buku_terbit.create') }}" method="POST">
+                    <form action="{{ route('rk-penelitian.buku_terbit.create') }}" method="POST" class="formTambahData">
                     @csrf
                         <div class="modal-body">
                             <input type="hidden" name="id_dosen" value={{$id_dosen}} />
@@ -2299,7 +2299,7 @@
                             <div class="mb-3">
                                 <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                                 <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example" required>
-                                    <option disabled selected value>Pilih tahapan</option>
+                                    <option disabled selected value="">Pilih tahapan</option>
                                     <option value="Pendahuluan">Pendahuluan</option>
                                     <option value="50% dari isi buku">50% dari isi buku</option>
                                     <option value="Buku Jadi ">Buku Jadi</option>
@@ -2348,7 +2348,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.buku_internasional.create') }}" method="POST">
+                    <form action="{{ route('rk-penelitian.buku_internasional.create') }}" method="POST" class="formTambahData">
                     @csrf
                         <div class="modal-body">
                             <input type="hidden" name="id_dosen" value={{$id_dosen}} />
@@ -2410,7 +2410,7 @@
                 </div>
 
 
-                <form action="{{ route('rk-penelitian.menyadur.create') }}" method= "POST">
+                <form action="{{ route('rk-penelitian.menyadur.create') }}" method= "POST" class="formTambahData">
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
@@ -2462,7 +2462,7 @@
                         sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat), sama dengan 2 sks </h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('rk-penelitian.menyunting.create') }}" method= "POST">
+                <form action="{{ route('rk-penelitian.menyunting.create') }}" method= "POST" class="formTambahData">
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
@@ -2514,7 +2514,7 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-penelitian.penelitian_modul.create') }}" method = "POST">
+                <form action="{{ route('rk-penelitian.penelitian_modul.create') }}" method = "POST" class="formTambahData">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
@@ -2575,7 +2575,7 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-penelitian.penelitian_pekerti.create') }}" method = "POST">
+                <form action="{{ route('rk-penelitian.penelitian_pekerti.create') }}" method = "POST" class="formTambahData">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
@@ -2606,7 +2606,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST">
+                    <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST" class="formTambahData">
                         @csrf
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
@@ -2638,7 +2638,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST">
+                    <form action="{{ route('rk-penelitian.jurnal_ilmiah.create') }}" method = "POST" class="formTambahData">
                         @csrf
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
@@ -2694,7 +2694,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.hak_paten.create') }}" method="POST">
+                    <form action="{{ route('rk-penelitian.hak_paten.create') }}" method="POST" class="formTambahData">
                         @csrf
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
@@ -2733,7 +2733,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.media_massa.create') }}" method="POST">
+                    <form action="{{ route('rk-penelitian.media_massa.create') }}" method="POST" class="formTambahData">
                         @csrf
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
@@ -2766,7 +2766,7 @@
 
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.pembicara_seminar.create') }}" method="POST">
+                    <form action="{{ route('rk-penelitian.pembicara_seminar.create') }}" method="POST" class="formTambahData">
                         @csrf
                         <div class="mb-3">
                             <input type="hidden" name="id_dosen" value={{$id_dosen}}>
@@ -2807,7 +2807,7 @@
                         terkait dengan bidang ilmu</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('rk-penelitian.penyajian_makalah.create') }}" method="POST">
+                <form action="{{ route('rk-penelitian.penyajian_makalah.create') }}" method="POST" class="formTambahData">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
@@ -2861,8 +2861,18 @@
 
 
     {{-- TEMPAT TOAST --}}
+    {{-- TOAST TAMBAH --}}
+      <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="addToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-body">
+                <i class="bi bi-check2-circle"></i>
+                Berhasil Menambah Kegiatan
+            </div>
+        </div>
+    </div>
 
-    {{-- TOAS EDIT --}}
+    {{-- TOAST EDIT --}}
     <div class="toast-container position-fixed top-0 end-0 p-3">
         <div id="editToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
             aria-atomic="true">

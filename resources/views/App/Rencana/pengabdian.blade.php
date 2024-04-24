@@ -111,7 +111,7 @@
 
                                     <div class="modal-body">
                                         <form action="{{ route('rk-pengabdian.kegiatan.update') }}"
-                                              method="POST">
+                                              method="POST" class="formEditData">
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id_rencana"
@@ -162,7 +162,7 @@
                     </h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('rk-pengabdian.kegiatan.create') }}" method="POST">
+                <form action="{{ route('rk-pengabdian.kegiatan.create') }}" method="POST" class="formTambahData">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
@@ -296,7 +296,7 @@
 
                                     <div class="modal-body">
                                         <form action="{{ route('rk-pengabdian.penyuluhan.update') }}"
-                                              method="POST">
+                                              method="POST" class="formEditData">
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id_rencana"
@@ -340,7 +340,7 @@
          aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{ route('rk-pengabdian.penyuluhan.create') }}" method="POST">
+            <form action="{{ route('rk-pengabdian.penyuluhan.create') }}" method="POST" class="formTambahData">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -476,7 +476,7 @@
                                     </div>
 
                                     <div class="modal-body">
-                                        <form action="{{ route('rk-pengabdian.konsultan.update') }}" method="POST">
+                                        <form action="{{ route('rk-pengabdian.konsultan.update') }}" method="POST" class="formEditData">
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id_rencana"
@@ -525,7 +525,7 @@
     <div class="modal fade modal-lg" id="modalpengabdian_C" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{ route('rk-pengabdian.konsultan.create') }}" method="POST">
+            <form action="{{ route('rk-pengabdian.konsultan.create') }}" method="POST" class="formTambahData">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -678,7 +678,7 @@
 
                                     <div class="modal-body">
                                         <form action="{{ route('rk-pengabdian.karya.update') }}"
-                                              method="POST">
+                                              method="POST" class="formEditData">
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id_rencana"
@@ -815,7 +815,7 @@
          aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{ route('rk-pengabdian.karya.create') }}" method="POST">
+            <form action="{{ route('rk-pengabdian.karya.create') }}" method="POST" class="formTambahData">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -951,6 +951,16 @@
 
 
     {{-- TEMPAT TOAST --}}
+    {{-- TOAST TAMBAH --}}
+      <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="addToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-body">
+                <i class="bi bi-check2-circle"></i>
+                Berhasil Menambah Kegiatan
+            </div>
+        </div>
+    </div>
 
     {{-- TOAS EDIT --}}
     <div class="toast-container position-fixed top-0 end-0 p-3">
@@ -975,6 +985,37 @@
 
 
     {{-- TEMPAT JAVASCRIPT --}}
+    {{-- TEMPAT JAVASCRIPT --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var formTambahDataList = document.querySelectorAll('.formTambahData');
+            var toastBerhasil = new bootstrap.Toast(document.getElementById('addToast'));
+
+            formTambahDataList.forEach(function(formTambahData) {
+                formTambahData.addEventListener('submit', function (event) {
+                    // Lakukan pengiriman formulir ke server secara normal
+                    // Tampilkan toast setelah formulir berhasil dikirim
+                    toastBerhasil.show();
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var formEditDataList = document.querySelectorAll('.formEditData');
+            var toastBerhasil = new bootstrap.Toast(document.getElementById('editToast'));
+
+            formEditDataList.forEach(function(formEditData) {
+                formEditData.addEventListener('submit', function (event) {
+                    // Lakukan pengiriman formulir ke server secara normal
+                    // Tampilkan toast setelah formulir berhasil dikirim
+                    toastBerhasil.show();
+                });
+            });
+        });
+    </script>
+
     <script>
         document.getElementById('confirmEditBtn').addEventListener('click', function () {
             showEditToast();
