@@ -124,7 +124,7 @@
                                                             id="nama_kegiatan"
                                                             value="{{ $item['nama_kegiatan'] }}" required />
                                                         <div class="invalid-feedback">
-                                                            Nama kegiatan tidak boleh kosong !
+                                                            Nama kegiatan tidak boleh kosong!
                                                         </div>
                                                     </div>
                                                     <div class="mb-3">
@@ -142,6 +142,9 @@
                                                             <option value="50% dari Karya" {{ $item['status_tahapan'] == '50% dari Karya' ? 'selected' : '' }}>50% dari Karya</option>
                                                             <option value="Hasil akhir" {{ $item['status_tahapan'] == 'Hasil akhir' ? 'selected' : '' }}>Hasil akhir</option>
                                                         </select>
+                                                        <div class="invalid-feedback">
+                                                            Tahap kegiatan tidak boleh kosong!
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="posisi" class="form-label">Posisi</label>
@@ -150,6 +153,9 @@
                                                             <option value="Ketua" {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua</option>
                                                             <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
                                                         </select>
+                                                        <div class="invalid-feedback">
+                                                            Posisi tidak boleh kosong!
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_anggota" class="form-label">Jumlah
@@ -162,7 +168,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button type="submit" class="btn btn-primary" onclick="editFormSubmit(event, {{ $item['id_rencana'] }})">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -289,7 +295,7 @@
 
                                         <div class="modal-body">
                                             <form action="{{ route('rk-penelitian.penelitian_mandiri.update') }}"
-                                                method="POST">
+                                                method="POST" class="needs-validation" novalidate>
                                                 @csrf
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id_rencana"
@@ -300,14 +306,17 @@
                                                         <input
                                                             name="nama_kegiatan" type="text" class="form-control"
                                                             id="nama_kegiatan"
-                                                            value="{{ $item['nama_kegiatan'] }}">
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
+                                                        <div class="invalid-feedback">
+                                                            Nama kegiatan tidak boleh kosong!
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="status_tahapan" class="form-label">Tahap
                                                             Pencapaian</label>
                                                         <select name="status_tahapan"
                                                             class="form-select form-select-md mb-3"
-                                                            aria-label=".form-select-md example">
+                                                            aria-label=".form-select-md example" required>
                                                             <option value="Proposal" {{ $item['status_tahapan'] == 'Proposal' ? 'selected' : '' }}>Proposal</option>
                                                             <option value="Pengumpulan data /sebar kuesioner" {{ $item['status_tahapan'] == 'Pengumpulan data /sebar kuesioner' ? 'selected' : '' }}>Pengumpulan
                                                                 data /sebar kuesioner</option>
@@ -317,6 +326,9 @@
                                                             <option value="50% dari Karya" {{ $item['status_tahapan'] == '50% dari Karya' ? 'selected' : '' }}>50% dari Karya</option>
                                                             <option value="Hasil akhir" {{ $item['status_tahapan'] == 'Hasil akhir' ? 'selected' : '' }}>Hasil akhir</option>
                                                         </select>
+                                                        <div class="invalid-feedback">
+                                                            Tahap kegiatan tidak boleh kosong!
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -711,7 +723,7 @@
                                             class="bi bi-trash3"></i></button>
 
                                     <!-- modal delete E -->
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter++ }}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -761,7 +773,7 @@
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST" class="needs-validation" novalidate>
+                                                    <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST">
                                                     @csrf
                                                         <div class="modal-body">
                                                         <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
@@ -770,33 +782,29 @@
                                                                 Kegiatan</label>
                                                             <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                                 name="nama_kegiatan" type="text"
-                                                                class="form-control" id="nama_kegiatan"
-                                                                value="{{ $item['nama_kegiatan'] }}" required />
-                                                            <div class="invalid-feedback">
-                                                                Nama kegiatan tidak boleh kosong !
-                                                            </div>
+                                                                class="form-control" id="nama_kegiatan">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                                                            <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example" required>
+                                                            <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example">
                                                                 <option selected>Pilih tahapan</option>
-                                                                <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
-                                                                <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
-                                                                </option> 
-                                                                <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
-                                                                <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit</option>
-                                                                <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks bukuselesai dicetak</option>
+                                                                <option value="Pendahuluan">Pendahuluan</option>
+                                                                <option value="50% dari isi buku">50% dari isi buku
+                                                                </option>
+                                                                <option value="sks buku jadi">sks buku jadi</option>
+                                                                <option value="persetujuan penerbit">persetujuan penerbit</option>
+                                                                <option value="sks buku selesai dicetak">sks bukuselesai dicetak</option>
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="posisi" class="form-label">Posisi</label>
                                                             <select name="posisi"
                                                                 class="form-select form-select-md mb-3"
-                                                                aria-label=".form-select-lg example" required>
+                                                                aria-label=".form-select-lg example">
                                                                 <option selected>Pilih posisi</option>
-                                                                <option value="Ketua" {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua</option>
-                                                                <option value="Editor" {{ $item['posisi'] == 'Editor' ? 'selected' : '' }}>Editor</option>
-                                                                <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
+                                                                <option value="Ketua">Ketua</option>
+                                                                <option value="Editor">Editor</option>
+                                                                <option value="Anggota">Anggota</option>
                                                             </select>
                                                         </div>
                                                         <div class="modal-footer">
@@ -934,11 +942,7 @@
                                                                 Kegiatan</label>
                                                             <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                                 name="nama_kegiatan" type="text" class="form-control"
-                                                                id="nama_kegiatan"
-                                                                value="{{ $item['nama_kegiatan'] }}" required />
-                                                            <div class="invalid-feedback">
-                                                                Nama kegiatan tidak boleh kosong !
-                                                            </div>
+                                                                id="nama_kegiatan">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
@@ -946,13 +950,13 @@
                                                                 class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-md example" required>
                                                                 <option selected>Pilih tahapan</option>
-                                                                <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
-                                                                <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
+                                                                <option value="Pendahuluan">Pendahuluan</option>
+                                                                <option value="50% dari isi buku">50% dari isi buku
                                                                 </option>
-                                                                <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
-                                                                <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit
+                                                                <option value="sks buku jadi">sks buku jadi</option>
+                                                                <option value="persetujuan penerbit">persetujuan penerbit
                                                                 </option>
-                                                                <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks buku selesai
+                                                                <option value="sks buku selesai dicetak">sks buku selesai
                                                                     dicetak</option>
                                                             </select>
                                                         </div>
@@ -961,8 +965,8 @@
                                                             <select name="posisi" class="form-select form-select-md mb-3"
                                                                 aria-label=".form-select-lg example" required>
                                                                 <option selected>Pilih posisi</option>
-                                                                <option value="Ketua" {{ $item['posisi'] == 'Editor' ? 'selected' : '' }}>Ketua</option>
-                                                                <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
+                                                                <option value="Ketua">Ketua</option>
+                                                                <option value="Anggota">Anggota</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -2216,7 +2220,8 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" method = "POST" class="needs-validation" novalidate>
+                <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" 
+                    method = "POST" class="needs-validation" novalidate>
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
@@ -2288,19 +2293,23 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-penelitian.penelitian_mandiri.create') }}" method = "POST">
+                <form action="{{ route('rk-penelitian.penelitian_mandiri.create') }}" method = "POST"
+                class="needs-validation" novalidate>
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
-                                placeholder="isi nama kegiatan">
+                                placeholder="isi nama kegiatan" required>
+                            <div class="invalid-feedback">
+                                Nama kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
                             <select name="status_tahapan" class="form-select form-select-md mb-3"
-                                aria-label=".form-select-md example">
+                                aria-label=".form-select-md example" required>
                                 <option disabled selected value>Pilih tahapan</option>
                                 <option value="Proposal">Proposal</option>
                                 <option value="Pengumpulan data /sebar kuesioner">Pengumpulan data /sebar kuesioner
@@ -2311,6 +2320,9 @@
                                 <option value="50% dari Karya">50% dari Karya:</option>
                                 <option value="Hasil akhir">Hasil akhir</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Tahap kegiatan tidak boleh kosong!
+                            </div>
                         </div>
                     </div>
 
@@ -2936,6 +2948,17 @@
 
     {{-- TEMPAT TOAST --}}
 
+    {{-- TOAST TAMBAH --}}
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="addToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-body">
+                <i class="bi bi-check2-circle"></i>
+                Berhasil Menambah Kegiatan
+            </div>
+        </div>
+    </div>
+
     {{-- TOAS EDIT --}}
     <div class="toast-container position-fixed top-0 end-0 p-3">
         <div id="editToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
@@ -3001,25 +3024,6 @@
 
     <!-- JavaScript untuk aktivasi validasi form Bootstrap -->
     <script>
-        // Mendapatkan semua form yang perlu divalidasi
-        var forms = document.querySelectorAll('.needs-validation');
-
-        // Loop melalui setiap form dan mencegah pengiriman jika tidak valid
-        Array.prototype.slice.call(forms)
-        .forEach(function(form) {
-            form.addEventListener('submit', function(event) {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-
-            form.classList.add('was-validated');
-            }, false);
-        });
-    </script>
-
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict'
 
@@ -3039,6 +3043,42 @@
                     }, false)
                 })
         })()
+    </script>
+
+    <script>
+        // Event listener untuk menampilkan pesan toast setelah form disubmit
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('.needs-validation');
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    // Jika form valid, tampilkan pesan toast
+                    showSuccessToast('Kegiatan berhasil diperbarui.');
+                }
+                form.classList.add('was-validated');
+            });
+        });
+
+        // Fungsi untuk menampilkan pesan toast
+        function showSuccessToast(message) {
+            var toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.setAttribute('role', 'alert');
+            toast.setAttribute('aria-live', 'assertive');
+            toast.setAttribute('aria-atomic', 'true');
+            var toastHeader = document.createElement('div');
+            toastHeader.className = 'toast-header';
+            var toastBody = document.createElement('div');
+            toastBody.className = 'toast-body';
+            toastBody.innerText = message;
+            toast.appendChild(toastHeader);
+            toast.appendChild(toastBody);
+            document.body.appendChild(toast);
+            var bsToast = new bootstrap.Toast(toast);
+            bsToast.show();
+        }
     </script>
 
 @endsection

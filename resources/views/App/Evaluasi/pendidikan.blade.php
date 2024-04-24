@@ -143,22 +143,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-kuning">
-                                    <p>Lampiran belum di upload</p>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                        @if (isset($praktikum) && sizeof($praktikum) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($praktikum as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['jumlah_kelas'] }}</td>
+                                    <td>{{ $item['sks_matakuliah'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPendidikan_B">Tambah Lampiran</button>
-                        </tr>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -233,22 +237,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                        @if (isset($bimbingan) && sizeof($bimbingan) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($bimbingan as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['jumlah_mahasiswa'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPendidikan_C">Tambah Lampiran</button>
-                            </td>
-                        </tr>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -327,24 +334,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td scope="row1">1</td>
-                        <td>
-                            <div class="border-hijau">
-                                <p>Lampiran sudah di upload</p>
-                            </div>
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                    @if (isset($seminar) && sizeof($seminar) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($seminar as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['jumlah_kelompak'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPendidikan_D">Tambah Lampiran</button>
-                        </td>
-                    </tr>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                 </tbody>
             </table>
             </div>
@@ -418,22 +426,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>   
-                            <td>
-                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPendidikan_E">Tambah Lampiran</button>
-                            </td>
-                        </tr>
+                        @if (isset($tugasAkhir) && sizeof($tugasAkhir) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($tugasAkhir as $item)
+                            <tr>
+                                <td scope="row">{{ $counter }}</td>
+                                <td>{{ $item['nama_kegiatan'] }}</td>
+                                <td>{{ $item['jumlah_kelompok'] }}</td>
+                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditEvaluasiPendidikan_E">Tambah Lampiran</button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
@@ -966,6 +977,22 @@
                 showEditToast();
             });
 
+            // document.getElementById('confirmEditBtnB').addEventListener('click', function() {
+            //     showEditToast();
+            // });
+
+            // document.getElementById('confirmEditBtnC').addEventListener('click', function() {
+            //     showEditToast();
+            // });
+
+            // document.getElementById('confirmEditBtnD').addEventListener('click', function() {
+            //     showEditToast();
+            // });
+
+            // document.getElementById('confirmEditBtnE').addEventListener('click', function() {
+            //     showEditToast();
+            // });
+
             function showEditToast() {
                 // Menutup modal
                 $('#modalEditConfirm').modal('hide');
@@ -984,6 +1011,22 @@
             document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
                 showDeleteToast();
             });
+
+            // document.getElementById('confirmDeleteBtnB').addEventListener('click', function() {
+            //     showDeleteToast();
+            // });
+
+            // document.getElementById('confirmDeleteBtnC').addEventListener('click', function() {
+            //     showDeleteToast();
+            // });
+
+            // document.getElementById('confirmDeleteBtnD').addEventListener('click', function() {
+            //     showDeleteToast();
+            // });
+
+            // document.getElementById('confirmDeleteBtnE').addEventListener('click', function() {
+            //     showDeleteToast();
+            // });
 
             function showDeleteToast() {
                 // Menutup modal
@@ -1078,11 +1121,51 @@
                 displayFilesWithIcons(files);
             });
 
+            // document.getElementById('fileInputB').addEventListener('change', function() {
+            //     var files = this.files;
+            //     displayFilesWithIcons(files);
+            // });
+
+            // document.getElementById('fileInputC').addEventListener('change', function() {
+            //     var files = this.files;
+            //     displayFilesWithIcons(files);
+            // });
+
+            // document.getElementById('fileInputD').addEventListener('change', function() {
+            //     var files = this.files;
+            //     displayFilesWithIcons(files);
+            // });
+
+            // document.getElementById('fileInputE').addEventListener('change', function() {
+            //     var files = this.files;
+            //     displayFilesWithIcons(files);
+            // });
+
             // Fungsi untuk menambah file
             document.getElementById('addFilesBtn').addEventListener('click', function() {
                 var fileInput = document.getElementById('fileInput');
                 fileInput.click();
             });
+
+            // document.getElementById('addFilesBtnB').addEventListener('click', function() {
+            //     var fileInput = document.getElementById('fileInput');
+            //     fileInput.click();
+            // });
+
+            // document.getElementById('addFilesBtnC').addEventListener('click', function() {
+            //     var fileInput = document.getElementById('fileInput');
+            //     fileInput.click();
+            // });
+
+            // document.getElementById('addFilesBtnD').addEventListener('click', function() {
+            //     var fileInput = document.getElementById('fileInput');
+            //     fileInput.click();
+            // });
+
+            // document.getElementById('addFilesBtnE').addEventListener('click', function() {
+            //     var fileInput = document.getElementById('fileInput');
+            //     fileInput.click();
+            // });
 
             // Variabel global untuk menyimpan file-file yang dipilih
             var selectedFiles = [];
