@@ -871,7 +871,7 @@
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                             <select name="jenis_pengerjaan" class="form-select form-select-md mb-3"
                                     aria-label=".form-select-md example" required>
-                                <option disabled selected value>Pilih jenis pengerjaan</option>
+                                <option disabled selected value ="">Pilih jenis pengerjaan</option>
                                 <option value="Mandiri">Mandiri</option>
                                 <option value="Kelompok">Kelompok</option>
                             </select>
@@ -983,8 +983,6 @@
     </div>
 
 
-
-    {{-- TEMPAT JAVASCRIPT --}}
     {{-- TEMPAT JAVASCRIPT --}}
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1035,23 +1033,28 @@
         }
     </script>
 
+    <!-- Letakkan skrip JavaScript ini setelah formulir modal -->
     <script>
-        document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
-            showDeleteToast();
+        // Mendengarkan perubahan pada pilihan jenis pengerjaan di dalam modal Pengabdian D
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById('modalpengabdian_D');
+            var jenisPengerjaan = modal.querySelector('select[name="jenis_pengerjaan"]');
+            var peran = modal.querySelector('select[name="peran"]');
+            var jumlahAnggota = modal.querySelector('input[name="jumlah_anggota"]');
+
+            // Mendengarkan perubahan pada pilihan jenis pengerjaan
+            jenisPengerjaan.addEventListener('change', function() {
+                // Jika jenis pengerjaan adalah Mandiri, menghapus kewajiban required pada peran dan jumlah anggota
+                if (jenisPengerjaan.value === 'Mandiri') {
+                    peran.removeAttribute('required');
+                    jumlahAnggota.removeAttribute('required');
+                } else {
+                    // Jika jenis pengerjaan bukan Mandiri, membuat input peran dan jumlah anggota menjadi required
+                    peran.setAttribute('required', 'required');
+                    jumlahAnggota.setAttribute('required', 'required');
+                }
+            });
         });
-
-        function showDeleteToast() {
-            // Menutup modal
-            $('#modalDeleteConfirm').modal('hide');
-
-            // Menambahkan kelas 'show' ke elemen toast
-            $('#deleteToast').addClass('show');
-
-            // Menghapus kelas 'show' setelah beberapa detik (sesuaikan dengan durasi animasi toast)
-            setTimeout(function () {
-                $('#deleteToast').removeClass('show');
-            }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
-        }
     </script>
 
 @endsection
