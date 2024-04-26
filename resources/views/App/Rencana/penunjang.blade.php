@@ -387,7 +387,7 @@
                                 </tr>
 
                                 {{-- MODAL EDIT --}}
-                                <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}" tabindex="-1"
+                                <div class="modal fade modal-lg" id="modalEditPenunjang-{{ $item['id_rencana'] }}" tabindex="-1"
                                     aria-labelledby="modalEditPenunjangCLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -404,13 +404,13 @@
                                                     <input type="hidden" name="id_rencana"
                                                         value ="{{ $item['id_rencana'] }}" />
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
+                                                        <label for="nama_kegiatan" class="form-label" style="text-align: left;">Nama
                                                             Kegiatan</label>
                                                         <input type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jumlah_kegiatan" class="form-label">Jumlah
+                                                        <label for="jumlah_kegiatan" class="form-label" style="text-align: left;">Jumlah
                                                             Kegiatan</label>
                                                         <input class="form-control" type="number" name="jumlah_kegiatan"
                                                             value="{{ $item['jumlah_kegiatan'] }}" min="1"
@@ -526,7 +526,7 @@
                                 </tr>
 
                                 {{-- MODAL EDIT --}}
-                                <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}" tabindex="-1"
+                                <div class="modal fade modal-lg" id="modalEditPenunjang-{{ $item['id_rencana'] }}" tabindex="-1"
                                     aria-labelledby="modalEditPenunjangDLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -620,7 +620,7 @@
                                                 class="bi bi-trash3-fill"></i></i></button>
 
                                         {{-- TEMPAT MODAL EDIT CONFIRM E --}}
-                                        <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
+                                        <div class="modal fade modal-lg" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
                                             tabindex="-1" aria-labelledby="modalEditPenunjangELabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -639,19 +639,23 @@
                                                                 value="{{ $item['id_rencana'] }}" />
 
                                                             <div class="mb-3">
-                                                                <label for="nama_kegiatan" class="form-label">Nama
+                                                                <div style="text-align: left;">
+                                                                <label for="nama_kegiatan" class="form-label" style="text-align: left;"> Nama
                                                                     Kegiatan</label>
+                                                                </div>
                                                                 <input value="{{ $item['nama_kegiatan'] }}"
                                                                     type="text" class="form-control"
-                                                                    id="nama_kegiatan" name="nama_kegiatan">
+                                                                    id="nama_kegiatan" name="nama_kegiatan" required>
                                                             </div>
                                                             <div class="mb-3">
+                                                            <div style="text-align: left;">
                                                                 <label for="jenis_jabatan_struktural"
-                                                                    class="form-label">Jabatan</label>
+                                                                    class="form-label" style="text-align: left;"> Jabatan</label>
+                                                            </div>
                                                                 <select class="form-select"
                                                                     aria-label="Default select example"
-                                                                    name="jenis_jabatan_struktural">
-                                                                    <option selected>
+                                                                    name="jenis_jabatan_struktural" required>
+                                                                    <option value="" selected disabled hidden>
                                                                         {{ $item['jenis_jabatan_struktural'] }}</option>
                                                                     <option value="Rektor"
                                                                         {{ $item['jenis_jabatan_struktural'] == 'Rektor' ? 'selected' : '' }}>
@@ -820,7 +824,7 @@
                                                 class="bi bi-trash3-fill"></i></i></button>
 
                                         {{-- TEMPAT MODAL EDIT CONFIRM F --}}
-                                        <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
+                                        <div class="modal fade modal-lg" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
                                             tabindex="-1" aria-labelledby="modalEditPenunjangFLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -839,19 +843,23 @@
                                                                 value="{{ $item['id_rencana'] }}" />
 
                                                             <div class="mb-3">
-                                                                <label for="nama_kegiatan" class="form-label">Nama
+                                                            <div style="text-align: left;">
+                                                                <label for="nama_kegiatan" class="form-label" style="text-align: left;">Nama
                                                                     Kegiatan</label>
+                                                                </div>
                                                                 <input value="{{ $item['nama_kegiatan'] }}"
                                                                     type="text" class="form-control"
                                                                     id="nama_kegiatan" name="nama_kegiatan">
                                                             </div>
                                                             <div class="mb-3">
+                                                            <div style="text-align: left;">
                                                                 <label for="jenis_jabatan_nonstruktural"
-                                                                    class="form-label">Jabatan</label>
+                                                                    class="form-label" style="text-align: left;">Jabatan</label>
+                                                            </div>
                                                                 <select class="form-select"
                                                                     aria-label="Default select example"
-                                                                    name="jenis_jabatan_nonstruktural">
-                                                                    <option selected>
+                                                                    name="jenis_jabatan_nonstruktural" required>
+                                                                    <option value="" selected disabled hidden>
                                                                         {{ $item['jenis_jabatan_nonstruktural'] }}
                                                                     </option>
                                                                     <option value="Ketua Senat Akademik Institut"
@@ -994,7 +1002,7 @@
                                                 class="bi bi-trash3-fill"></i></i></button>
 
                                         {{-- TEMPAT MODAL EDIT CONFIRM G --}}
-                                        <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
+                                        <div class="modal fade modal-lg" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
                                             tabindex="-1" aria-labelledby="modalEditPenunjangGLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -1013,17 +1021,21 @@
                                                                 value="{{ $item['id_rencana'] }}" />
 
                                                             <div class="mb-3">
-                                                                <label for="nama_kegiatan" class="form-label">Nama
+                                                            <div style="text-align: left;">
+                                                                <label for="nama_kegiatan" class="form-label" style="text-align: left;">Nama
                                                                     Kegiatan</label>
+                                                            </div>
                                                                 <input value="{{ $item['nama_kegiatan'] }}"
                                                                     type="text" class="form-control"
                                                                     id="nama_kegiatan" name="nama_kegiatan">
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="jabatan" class="form-label">Jabatan</label>
+                                                            <div style="text-align: left;">
+                                                                <label for="jabatan" class="form-label" style="text-align: left;">Jabatan</label>
+                                                            </div>
                                                                 <select class="form-select"
-                                                                    aria-label="Default select example" name="jabatan">
-                                                                    <option selected>{{ $item['jabatan'] }}</option>
+                                                                    aria-label="Default select example" name="jabatan" required>
+                                                                    <option value="" selected disabled hidden>{{ $item['jabatan'] }}</option>
                                                                     <option value="Ketua Redaksi Jurnal ber-ISSN"
                                                                         {{ $item['jabatan'] == 'Ketua Redaksi Jurnal ber-ISSN' ? 'selected' : '' }}>
                                                                         Ketua Redaksi Jurnal ber-ISSN</option>
@@ -1143,7 +1155,7 @@
                                                 class="bi bi-trash3-fill"></i></i></button>
 
                                         {{-- TEMPAT MODAL EDIT CONFIRM H --}}
-                                        <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
+                                        <div class="modal fade modal-lg" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
                                             tabindex="-1" aria-labelledby="modalEditPenunjangHLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -1162,17 +1174,23 @@
                                                                 value="{{ $item['id_rencana'] }}" />
 
                                                             <div class="mb-3">
-                                                                <label for="nama_kegiatan" class="form-label">Nama
+                                                            <div style="text-align: left;">
+                                                                <label for="nama_kegiatan" class="form-label" style="text-align: left;">Nama
                                                                     Kegiatan</label>
+                                                                </div>
+
                                                                 <input value="{{ $item['nama_kegiatan'] }}"
                                                                     type="text" class="form-control"
                                                                     id="nama_kegiatan" name="nama_kegiatan">
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="jabatan" class="form-label">Jabatan</label>
+                                                            <div style="text-align: left;">
+                                                                <label for="jabatan" class="form-label" style="text-align: left;">Jabatan</label>
+                                                            </div>
+
                                                                 <select class="form-select"
-                                                                    aria-label="Default select example" name="jabatan">
-                                                                    <option selected>{{ $item['jabatan'] }}</option>
+                                                                    aria-label="Default select example" name="jabatan" required>
+                                                                    <option value="" selected disabled hidden>{{ $item['jabatan'] }}</option>
                                                                     <option value="Ketua Panitia Ad Hoc"
                                                                         {{ $item['jabatan'] == 'Ketua Panitia Ad Hoc' ? 'selected' : '' }}>
                                                                         Ketua Panitia Ad Hoc</option>
@@ -1321,16 +1339,20 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
+                                                    <div style="text-align: left;">
+                                                        <label for="nama_kegiatan" class="form-label" style="text-align: left;">Nama
                                                             Kegiatan</label>
+                                                        </div>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jenis_tingkatan" class="form-label">
-                                                            Tingkat Jabatan</label>
-                                                        <select name="jenis_tingkatan" class="form-control">
+                                                    <div style="text-align: left;">
+                                                        <label for="jenis_tingkatan" class="form-label" style="text-align: left;">
+                                                            Tingkat Jabatan</label></div>
+                                                        <select name="jenis_tingkatan" class="form-control" required>
+                                                            <option value="" selected disabled hidden>Open this select menu</option>
                                                             <option value="1">Universitas</option>
                                                             <option value="2">Fakultas</option>
                                                             <option value="3">Program Studi</option>
@@ -1474,16 +1496,21 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
+                                                    <div style="text-align: left;">
+                                                        <label for="nama_kegiatan" class="form-label" style="text-align: left;">Nama
                                                             Kegiatan</label>
+                                                        </div>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jenis_tingkatan" class="form-label">
+                                                    <div style="text-align: left;">
+                                                        <label for="jenis_tingkatan" class="form-label" style="text-align: left;">
                                                             Tingkat Jabatan</label>
-                                                        <select name="jenis_tingkatan" class="form-control">
+                                                        </div>
+                                                        <select name="jenis_tingkatan" class="form-control" required>
+                                                            <option value="" selected disabled hidden>Open this select menu</option>
                                                             <option value="1">Universitas</option>
                                                             <option value="2">Fakultas</option>
                                                             <option value="3">Program Studi</option>
@@ -1631,16 +1658,21 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
+                                                    <div style="text-align: left;">
+                                                        <label for="nama_kegiatan" class="form-label" style="text-align: left;">Nama
                                                             Kegiatan</label>
+                                                        </div>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jabatan" class="form-label">
+                                                    <div style="text-align: left;">
+                                                        <label for="jabatan" class="form-label" style="text-align: left;">
                                                             Jabatan</label>
-                                                        <select name="jabatan" class="form-control">
+                                                        </div>
+                                                        <select name="jabatan" class="form-control" required>
+                                                            <option value="" selected disabled hidden>Open this select menu</option>
                                                             <option value="1">Ketua Yayasan</option>
                                                             <option value="2">Anggota Yayasan</option>
                                                         </select>
@@ -1782,16 +1814,21 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
+                                                    <div style="text-align: left;">
+                                                        <label for="nama_kegiatan" class="form-label" style="text-align: left;">Nama
                                                             Kegiatan:</label>
+                                                        </div>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jabatan" class="form-label">Jabatan:</label>
+                                                    <div style="text-align: left;">
+                                                        <label for="jabatan" class="form-label" style="text-align: left;">Jabatan:</label>
+                                                    </div>
                                                         <select class="form-control" aria-label="Default select example"
-                                                            id="jabatan" name="jabatan">
+                                                            id="jabatan" name="jabatan" required>
+                                                            <option value="" selected disabled hidden>Open this select menu</option>
                                                             <option value="Anggota" {{ $item['jabatan'] === 'Anggota' ? 'selected' : '' }}>Anggota</option>
                                                             <option value="Ketua" {{ $item['jabatan'] === 'Ketua' ? 'selected' : '' }}>Ketua</option>
                                                         </select>
@@ -1801,7 +1838,8 @@
                                                             Tingkatan:
                                                         </label>
                                                         <select class="form-control" aria-label="Default select example"
-                                                            id="jenis_tingkatan" name="jenis_tingkatan">
+                                                            id="jenis_tingkatan" name="jenis_tingkatan" required>
+                                                            <option value="" selected disabled hidden>Open this select menu</option>
                                                             <option value="Nasional" {{ $item['jenis_tingkatan'] === 'Nasional' ? 'selected' : '' }} >Nasional</option>
                                                             <option value="Internasional" {{ $item['jenis_tingkatan'] === 'Internasional' ? 'selected' : '' }}>Internasional</option>
                                                         </select>
@@ -1939,18 +1977,23 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
+                                                    <div style="text-align: left;">
+                                                        <label for="nama_kegiatan" class="form-label" style="text-align: left;">Nama
                                                             Kegiatan:</label>
+                                                            </div>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jenis_tingkatan" class="form-label">
+                                                    <div style="text-align: left;">
+                                                        <label for="jenis_tingkatan" class="form-label" style="text-align: left;">
                                                             Tingkatan:
                                                         </label>
+                                                    </div>
                                                         <select class="form-control" id="jenis_tingkatan"
                                                             name="jenis_tingkatan" required>
+                                                            <option value="" selected disabled hidden>Open this select menu</option>
                                                             <option value="Regional/Nasional"
                                                                 {{ $item['jenis_tingkatan'] == 'Regional/Nasional' ? 'selected' : '' }}>
                                                                 Regional/Nasional</option>
@@ -2091,7 +2134,7 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">
+                                                        <label for="nama_kegiatan" class="form-label" style="text-align: left;" >
                                                             Nama Kegiatan:
                                                         </label>
                                                         <input placeholder="{{ $item['nama_kegiatan'] }}"
@@ -2306,13 +2349,13 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"required>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_jabatan_struktural" class="form-label">Jabatan</label>
                             <select class="form-select" aria-label="Default select example"
-                                name="jenis_jabatan_struktural">
-                                <option selected>Open this select menu</option>
+                                name="jenis_jabatan_struktural" required>
+                                <option value="" selected disabled hidden>Open this select menu</option>
                                 <option value="Rektor">Rektor</option>
                                 <option value="Wakil Rektor">Wakil Rektor</option>
                                 <option value="Dekan">Dekan</option>
@@ -2363,8 +2406,8 @@
                         <div class="mb-3">
                             <label for="jenis_jabatan_nonstruktural" class="form-label">Jabatan</label>
                             <select class="form-select" aria-label="Default select example"
-                                name="jenis_jabatan_nonstruktural">
-                                <option selected>Open this select menu</option>
+                                name="jenis_jabatan_nonstruktural" required>
+                                <option value="" selected disabled hidden>Open this select menu</option>
                                 <option value="Ketua Senat Akademik Institut">Ketua Senat Akademik Institut</option>
                                 <option value="Sekretaris Senat Akademik Institut">Sekretaris Senat Akademik Institut
                                 </option>
@@ -2407,8 +2450,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="jabatan" class="form-label">Jabatan</label>
-                            <select class="form-select" aria-label="Default select example" name="jabatan">
-                                <option selected>Open this select menu</option>
+                            <select class="form-select" aria-label="Default select example" name="jabatan" required>
+                            <option value="" selected disabled hidden>Open this select menu</option>
                                 <option value="Ketua Redaksi Jurnal ber-ISSN">Ketua Redaksi Jurnal ber-ISSN</option>
                                 <option value="Anggota Redaksi Jurnal ber-ISSN">Anggota Redaksi Jurnal ber-ISSN</option>
                             </select>
@@ -2444,8 +2487,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="jabatan" class="form-label">Jabatan</label>
-                                <select class="form-select" aria-label="Default select example" name="jabatan">
-                                    <option selected>Open this select menu</option>
+                                <select class="form-select" aria-label="Default select example" name="jabatan" required>
+                                <option value="" selected disabled hidden>Open this select menu</option>
                                     <option value="Ketua Panitia Ad Hoc">Ketua Panitia Ad Hoc</option>
                                     <option value="Anggota Panitia Ad Hoc">Anggota Panitia Ad Hoc</option>
                                 </select>
@@ -2482,7 +2525,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
-                            <select name="jenis_tingkatan" class="form-control">
+                            <select name="jenis_tingkatan" class="form-control" required>
+                            <option value="" selected disabled hidden>Open this select menu</option>
                                 <option value="1">Universitas</option>
                                 <option value="2">Fakultas</option>
                                 <option value="3">Program Studi</option>
@@ -2514,11 +2558,12 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
-                            <select name="jenis_tingkatan" class="form-control">
+                            <select name="jenis_tingkatan" class="form-control" required>
+                            <option value="" selected disabled hidden>Open this select menu</option>
                                 <option value="1">Universitas</option>
                                 <option value="2">Fakultas</option>
                                 <option value="3">Program Studi</option>
@@ -2550,11 +2595,12 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama"required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jabatan:</label>
-                            <select name="jabatan" class="form-control">
+                            <select name="jabatan" class="form-control"required>
+                            <option value="" selected disabled hidden>Open this select menu</option>
                                 <option value="1">Ketua Yayasan</option>
                                 <option value="2">Anggota Yayasan</option>
                             </select>
@@ -2595,6 +2641,7 @@
                         </div>
                         <label class="form-label">Tingkatan:</label>
                         <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
+                            <option value="" selected disabled hidden>Open this select menu</option>
                             <option value="Nasional">Nasional</option>
                             <option value="Internasional">Internasional</option>
                         </select>
@@ -2631,6 +2678,7 @@
                         <div class="mb-3">
                             <label for="jenis_tingkatan" class="form-label">Tingkatan:</label>
                             <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
+                                <option value="" selected disabled hidden>Open this select menu</option>
                                 <option value="Regional/Nasional">Regional/Nasional</option>
                                 <option value="Internasional">Internasional</option>
                             </select>
@@ -2673,444 +2721,6 @@
 
     {{-- AKHIR TEMPAT MENAMBAH KEGIATAN N}}
 
-    {{-- TEMPAT MODAL EDIT CONFIRM A --}}
-    <div class="modal fade" id="modalEditPenunjang_A" tabindex="-1" aria-labelledby="modalEditPenunjangALabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangALabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Mahasiswa:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM B --}}
-    <div class="modal fade" id="modalEditPenunjang_B" tabindex="-1" aria-labelledby="modalEditPenunjangBLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangBLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Mahasiswa:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM C --}}
-    <div class="modal fade" id="modalEditPenunjang_C" tabindex="-1" aria-labelledby="modalEditPenunjangCLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangCLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Kegiatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM D --}}
-    <div class="modal fade" id="modalEditPenunjang_D" tabindex="-1" aria-labelledby="modalEditPenunjangDLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangDLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="editKegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="editKegiatan">
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM E --}}
-    <div class="modal fade" id="modalEditPenunjang_E" tabindex="-1" aria-labelledby="modalEditPenunjangELabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangELabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM F --}}
-    <div class="modal fade" id="modalEditPenunjang_F" tabindex="-1" aria-labelledby="modalEditPenunjangFLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangFLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM G --}}
-    <div class="modal fade" id="modalEditPenunjang_G" tabindex="-1" aria-labelledby="modalEditPenunjangGLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangGLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM H --}}
-    <div class="modal fade" id="modalEditPenunjang_H" tabindex="-1" aria-labelledby="modalEditPenunjangHLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangHLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM I --}}
-    <div class="modal fade" id="modalEditPenunjang_I" tabindex="-1" aria-labelledby="modalEditPenunjangILabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangILabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tingkat Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM J --}}
-    <div class="modal fade" id="modalEditPenunjang_J" tabindex="-1" aria-labelledby="modalEditPenunjangJLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangJLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tingkat Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM K --}}
-    <div class="modal fade" id="modalEditPenunjang_K" tabindex="-1" aria-labelledby="modalEditPenunjangKLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangKLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM L --}}
-    <div class="modal fade" id="modalEditPenunjang_L" tabindex="-1" aria-labelledby="modalEditPenunjangLLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangLLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM M --}}
-    <div class="modal fade" id="modalEditPenunjang_M" tabindex="-1" aria-labelledby="modalEditPenunjangMLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangMLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tingkatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM N --}}
-    <div class="modal fade" id="modalEditPenunjang_N" tabindex="-1" aria-labelledby="modalEditPenunjangNLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangNLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="editKegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="editKegiatan">
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL DELETE CONFIRM --}}
-    <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body text-center">
-                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                    <p class="text-muted small">proses ini tidak dapat diurungkan bila anda sudah menekan tombol 'Yakin'
-                    </p>
-                </div>
-
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                    <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Yakin</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     {{-- TEMPAT TOAST --}}
