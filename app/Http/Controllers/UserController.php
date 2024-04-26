@@ -18,6 +18,9 @@ class UserController extends Controller
     public function userProfile(Request $request)
     {
         $auth = Tools::getAuth($request);
-        return view('App.Profile.profile', ['auth' => $auth, 'keanggotaan' => json_decode(json_encode($auth->user->jabatan), true)[3]['jabatan']]);
+        return view('App.Profile.profile', ['auth' => $auth,
+        // 'keanggotaan' => json_decode(json_encode($auth->user->jabatan), true)[3]['jabatan']
+        // 'keanggotaan' => "Testing Role"
+    ]);
     }
 }

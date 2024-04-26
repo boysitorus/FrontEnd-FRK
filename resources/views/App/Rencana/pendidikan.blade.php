@@ -1408,23 +1408,23 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas Tatap Muka</label>
-                            <input type="number" class="form-control" name="jumlah_kelas" required min="1" step="any">
+                            <input id="jumlah_kelas" type="number" class="form-control" name="jumlah_kelas" required min="1" step="any">
 
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas Evaluasi</label>
-                            <input type="number" class="form-control" name="jumlah_evaluasi" required min="1" step="any">
+                            <input id="jumlah_evaluasi" type="number" class="form-control" name="jumlah_evaluasi" required min="1" step="any">
 
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Mata Kuliah</label>
-                            <input type="number" class="form-control" name="sks_matakuliah" required min="1" step="any">
+                            <input id="sks_matakuliah" type="number" class="form-control" name="sks_matakuliah" required min="1" step="any">
 
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button id="btn_simpan_A" type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
 

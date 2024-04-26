@@ -32,16 +32,28 @@
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link {{ Request::is('Asesor/Rekap-Kegiatan-Asesor-pendidikan') ? ' active' : '' }}" href="{{ route('rk-asesor-detail') }}" ><b>Rencana Pendidikan</b></a>
+                        <a class="nav-link
+                        {{ Str::startsWith(request()->path(), 'Asesor/Rekap-Kegiatan-Asesor-pendidikan') ? 'active' : '' }}"
+                        href="{{ route('rk-asesor-detail-pendidikan', ['id' => $id]) }}"
+                        ><b>Rencana Pendidikan</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link {{ Request::is('Asesor/Rekap-Kegiatan-Asesor-penelitian') ? ' active' : '' }}" href="{{ route('rk-asesor-detail-penelitian') }} " ><b>Rencana Penelitian</b></a>
+                        <a class="nav-link
+                        {{ Str::startsWith(request()->path(), 'Asesor/Rekap-Kegiatan-Asesor-penelitian') ? 'active' : '' }}"
+                        href="{{ route('rk-asesor-detail-penelitian', ['id' => $id]) }} "
+                        ><b>Rencana Penelitian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link{{ Request::is('Asesor/Rekap-Kegiatan-Asesor-pengabdian') ? ' active' : '' }}" href="{{ route('rk-asesor-detail-pengabdian') }} "><b>Rencana Pengabdian</b></a>
+                        <a class="nav-link
+                        {{ Str::startsWith(request()->path(), 'Asesor/Rekap-Kegiatan-Asesor-pengabdian') ? 'active' : '' }}"
+                        href="{{ route('rk-asesor-detail-pengabdian', ['id' => $id]) }} "
+                        ><b>Rencana Pengabdian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link{{ Request::is('Asesor/Rekap-Kegiatan-Asesor-penunjang') ? ' active' : '' }}" href="{{ route('rk-asesor-detail-penunjang') }} "><b>Tunjangan Lainnya</b></a>
+                        <a class="nav-link
+                        {{ Str::startsWith(request()->path(), 'Asesor/Rekap-Kegiatan-Asesor-penunjang') ? 'active' : '' }}"
+                        href="{{ route('rk-asesor-detail-penunjang', ['id' => $id]) }} "
+                        ><b>Tunjangan Lainnya</b></a>
                     </li>
                 </ul>
             </div>

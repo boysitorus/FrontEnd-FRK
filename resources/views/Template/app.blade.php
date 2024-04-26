@@ -124,7 +124,8 @@
 
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center
+                                {{ Str::startsWith(request()->path(), 'Asesor') ? 'active' : '' }}"
                                 data-bs-toggle="collapse" data-bs-target="#asesor-collapse" aria-expanded="false">
                                 <i class="bi bi-people-fill me-2"></i>
                                 <div class="me-auto"><span>Asesor</span></div>
