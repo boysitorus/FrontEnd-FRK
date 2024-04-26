@@ -678,7 +678,7 @@
 
                                     <div class="modal-body">
                                         <form action="{{ route('rk-pengabdian.karya.update') }}"
-                                              method="POST" class="formEditData">
+                                              method="POST" class="formEditData" class="validatePengabdianD">
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id_rencana"
@@ -812,10 +812,10 @@
     {{-- TEMPAT MODAL TAMBAH KEGIATAN --}}
     {{-- MULAI MODAL D --}}
     <div class="modal fade modal-lg" id="modalpengabdian_D" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalLabel"
+         aria-labelledby="exampleModalLabel" class = "validatePengabdianD"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{ route('rk-pengabdian.karya.create') }}" method="POST" class="formTambahData">
+            <form action="{{ route('rk-pengabdian.karya.create') }}" method="POST" class="formTambahData" >
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -1037,7 +1037,7 @@
     <script>
         // Mendengarkan perubahan pada pilihan jenis pengerjaan di dalam modal Pengabdian D
         document.addEventListener('DOMContentLoaded', function() {
-            var modal = document.getElementById('modalpengabdian_D');
+            var modal = document.querySelector('.validatePengabdianD');
             var jenisPengerjaan = modal.querySelector('select[name="jenis_pengerjaan"]');
             var peran = modal.querySelector('select[name="peran"]');
             var jumlahAnggota = modal.querySelector('input[name="jumlah_anggota"]');
