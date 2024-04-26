@@ -325,10 +325,10 @@ Route::group(['middleware' => ['check.token']], function() {
     Route::prefix('/Asesor')->group(function () {
         Route::get('/Rekap-Kegiatan', [AsesorController::class, 'getRencanaKegiatan'])->name('rk-asesor');
         Route::get('/Rekap-Kegiatan-Setuju', [AsesorController::class, 'getRencanaKegiatanSetuju'])->name('rk-asesor-setuju');
-        Route::get('/Rekap-Kegiatan-Asesor-pendidikan', [AsesorController::class, 'getRencanaPendidikan'])->name('rk-asesor-detail');
-        Route::get('/Rekap-Kegiatan-Asesor-penelitian', [AsesorController::class, 'getRencanaPenelitian'])->name('rk-asesor-detail-penelitian');
-        Route::get('/Rekap-Kegiatan-Asesor-pengabdian', [AsesorController::class, 'getRencanaPengabdian'])->name('rk-asesor-detail-pengabdian');
-        Route::get('/Rekap-Kegiatan-Asesor-penunjang', [AsesorController::class, 'getRencanaPenunjang'])->name('rk-asesor-detail-penunjang');
+        Route::get('/Rekap-Kegiatan-Asesor-pendidikan/{id}', [AsesorController::class, 'getRencanaPendidikan'])->name('rk-asesor-detail-pendidikan');
+        Route::get('/Rekap-Kegiatan-Asesor-penelitian/{id}', [AsesorController::class, 'getRencanaPenelitian'])->name('rk-asesor-detail-penelitian');
+        Route::get('/Rekap-Kegiatan-Asesor-pengabdian/{id}', [AsesorController::class, 'getRencanaPengabdian'])->name('rk-asesor-detail-pengabdian');
+        Route::get('/Rekap-Kegiatan-Asesor-penunjang/{id}', [AsesorController::class, 'getRencanaPenunjang'])->name('rk-asesor-detail-penunjang');
     });
 });
 
