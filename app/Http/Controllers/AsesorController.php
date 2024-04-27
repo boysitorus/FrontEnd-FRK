@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Utils\Tools;
+use Illuminate\Http\Client\RequestException;
 
 class AsesorController extends Controller
 {
@@ -302,6 +303,30 @@ class AsesorController extends Controller
         } catch (\Throwable $th) {
             // Tangani error jika terjadi
             return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function reviewRencana(Request $request){
+        $id_rencana = $request->get('id_rencana');
+        $komentar = $request->get('komentar');
+        $toastMsg = "";
+        if($komentar == "setuju"){
+            $toastMsg = "Berhasil mengapprove rencana kerja";
+        } else{
+            $toastMsg = "Berhasil menolak rencana kerja";
+        }
+        try {
+            $response = Http::post(env('API_FRK_SERVICE') . '/asesor-frk/reviewRencana', [
+               "id_rencana" => $id_rencana,
+               "komentar" => $komentar
+            ]);
+            if($response->status() === 200){
+                return back()->with('message', $toastMsg);
+            } else {
+                throw new RequestException($response);
+            }
+        } catch (RequestException $e) {
+            return back()->with('message', 'Gagal approve rencana kerja');
         }
     }
 }

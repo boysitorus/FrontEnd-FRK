@@ -329,6 +329,7 @@ Route::group(['middleware' => ['check.token']], function() {
         Route::get('/Rekap-Kegiatan-Asesor-penelitian/{id}', [AsesorController::class, 'getRencanaPenelitian'])->name('rk-asesor-detail-penelitian');
         Route::get('/Rekap-Kegiatan-Asesor-pengabdian/{id}', [AsesorController::class, 'getRencanaPengabdian'])->name('rk-asesor-detail-pengabdian');
         Route::get('/Rekap-Kegiatan-Asesor-penunjang/{id}', [AsesorController::class, 'getRencanaPenunjang'])->name('rk-asesor-detail-penunjang');
+        Route::post('/review-rencana-kerja', [AsesorController::class, 'reviewRencana'])->name('rk-asesor-review-rencana');
     });
 });
 

@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class = "mt-5 flex-wrap ml-4 mr-4 ">
+    <div class = "mt-5 flex-wrap ml-4 mr-4 pb-3">
         <div class = "row">
             <div class = "col">
                 <h3 class = "font-weight-bold">Rekap Kegiatan</h3>
@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <div class = "bg-white mt-2">
+        <div class = "bg-white mt-2 pb-4">
             <div class = "ml-2 mr-2 pt-4">
                 <h4 class = "font-weight-bold">Rekap Kerja - Semester 2023/2024 Genap</h4>
             </div>

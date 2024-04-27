@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <div class = "bg-white mt-2">
+        <div class = "bg-white mt-2 mb-5">
             <div class = "ml-2 mr-2 pt-4">
                 <h4 class = "font-weight-bold">Rekap Kerja - Semester 2023/2024 Genap</h4>
             </div>

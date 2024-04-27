@@ -54,16 +54,19 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
 
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></button>
 
-                                        <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                            tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                            aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -120,26 +123,26 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas
                                                             Tatap Muka</label>
-                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="number"
+                                                        <input value="{{ $item['jumlah_kelas'] }}" type="number"
                                                             class="form-control" name="jumlah_kelas" min="1">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas
                                                             Evaluasi</label>
-                                                        <input placeholder="{{ $item['jumlah_evaluasi'] }}"
+                                                        <input value="{{ $item['jumlah_evaluasi'] }}"
                                                             type="number" class="form-control" name="jumlah_evaluasi"
                                                             min="1">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Mata
                                                             Kuliah</label>
-                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="number"
+                                                        <input value="{{ $item['sks_matakuliah'] }}" type="number"
                                                             class="form-control" name="sks_matakuliah" min="1">
                                                     </div>
 
@@ -217,10 +220,12 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></i></button>
                                     </td>
@@ -248,18 +253,18 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
-                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="number"
+                                                        <input value="{{ $item['jumlah_kelas'] }}" type="number"
                                                             class="form-control" name="jumlah_kelas" min="1">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Praktikum (1
                                                             SKS = 2 jam)</label>
-                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="number"
+                                                        <input value="{{ $item['sks_matakuliah'] }}" type="number"
                                                             class="form-control" name="sks_matakuliah" min="1">
                                                     </div>
 
@@ -373,12 +378,14 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
 
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i>
                                         </button>
@@ -439,13 +446,13 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa
                                                             Bimbingan</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}"
+                                                        <input value="{{ $item['jumlah_mahasiswa'] }}"
                                                             class="form-control" type="number" name="jumlah_mahasiswa"
                                                             min="1" step="any">
                                                     </div>
@@ -508,18 +515,20 @@
                             @endphp
                             @foreach ($seminar as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_kelompok'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i></i>
                                         </button>
@@ -566,7 +575,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter }}.
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
                                                     {{ $item['nama_kegiatan'] }}
                                                 </h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal"
@@ -581,13 +590,13 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelompok" class="form-label">Jumlah
                                                             kelompok</label>
-                                                        <input placeholder="{{ $item['jumlah_kelompok'] }}"
+                                                        <input value="{{ $item['jumlah_kelompok'] }}"
                                                             class="form-control" type="number" name="jumlah_kelompok"
                                                             min="1" step="any">
                                                     </div>
@@ -657,11 +666,13 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i></button>
 
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
                                                 class="bi bi-trash3-fill"></i></button>
 
@@ -723,14 +734,14 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan"
                                                             required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Kelompok</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}"
+                                                        <input value="{{ $item['jumlah_mahasiswa'] }}"
                                                             type="number" class="form-control" name="jumlah_mahasiswa"
                                                             required>
                                                     </div>
@@ -801,10 +812,12 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
                                                 class="bi bi-trash3-fill"></i></button>
 
@@ -866,13 +879,13 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Kelompok</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}"
+                                                        <input value="{{ $item['jumlah_mahasiswa'] }}"
                                                             type="number" class="form-control" name="jumlah_mahasiswa"
                                                             required>
                                                     </div>
@@ -936,69 +949,23 @@
                             @endphp
                             @foreach ($rendah as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_dosen'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i></i>
                                         </button>
-
-                                        {{-- MULAI MODAL G --}}
-                                        <div class="modal fade modal-lg"
-                                            id="modalEditPendidikan_{{ $item['id_rencana'] }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h6 class="modal-title" id="exampleModalLabel">G. Membimbing dosen
-                                                            yang lebih rendah Jenjang Jabatan
-                                                            Akademiknya</h6>
-                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-
-                                                    <div class="modal-body">
-                                                        <form action="{{ route('rk-pendidikan.rendah.update') }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="id_rencana"
-                                                                value="{{ $item['id_rencana'] }}">
-                                                            <div class="mb-3">
-                                                                <label for="nama" class="form-label">Nama
-                                                                    Kegiatan</label>
-                                                                <input name="nama_kegiatan" type="text"
-                                                                    class="form-control" id="nama"
-                                                                    placeholder="{{ $item['nama_kegiatan'] }}"
-                                                                    value="{{ $item['nama_kegiatan'] }}" required>
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Jumlah Dosen Dibimbing</label>
-                                                                <input name="jumlah_dosen" class="form-control"
-                                                                    type="text"
-                                                                    placeholder="{{ $item['jumlah_dosen'] }}"
-                                                                    value="{{ $item['jumlah_dosen'] }}" required>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#modalEditConfirm">Simpan
-                                                                    Perubahan</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- AKHIR MODAL G --}}
 
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -1034,6 +1001,50 @@
                                         </div>
                                     </td>
                                 </tr>
+                                {{-- MULAI MODAL G --}}
+                                <div class="modal fade modal-lg" id="modalEditPendidikan_{{ $item['id_rencana'] }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}.
+                                                    {{ $item['nama_kegiatan'] }}</h6>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <form action="{{ route('rk-pendidikan.rendah.update') }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <div class="mb-3">
+                                                        <label for="nama" class="form-label">Nama
+                                                            Kegiatan</label>
+                                                        <input name="nama_kegiatan" type="text" class="form-control"
+                                                            id="nama" placeholder="{{ $item['nama_kegiatan'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Jumlah Dosen Dibimbing</label>
+                                                        <input name="jumlah_dosen" class="form-control" type="text"
+                                                            placeholder="{{ $item['jumlah_dosen'] }}"
+                                                            value="{{ $item['jumlah_dosen'] }}" required>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#modalEditConfirm">Simpan
+                                                            Perubahan</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- AKHIR MODAL G --}}
                             @endforeach
                         @endif
 
@@ -1084,72 +1095,23 @@
                             @endphp
                             @foreach ($kembang as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_sap'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i></i>
                                         </button>
-
-                                        {{-- MULAI MODAL G --}}
-                                        <div class="modal fade modal-lg"
-                                            id="modalEditPendidikan_{{ $item['id_rencana'] }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h6 class="modal-title" id="exampleModalLabel">H. Mengembangkan
-                                                            program perkuliahan/pengajaran (Silabus, SAP/RPP, GBPP, dll)
-                                                            dalam kelompok atau mandiri yang hasilnya dipakai untuk kegiatan
-                                                            perkuliahan
-                                                            Akademiknya</h6>
-                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-
-                                                    <div class="modal-body">
-                                                        <form action="{{ route('rk-pendidikan.kembang.update') }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="id_rencana"
-                                                                value="{{ $item['id_rencana'] }}">
-                                                            <div class="mb-3">
-                                                                <label for="nama" class="form-label">Nama
-                                                                    Kegiatan</label>
-                                                                <input name="nama_kegiatan" type="text"
-                                                                    class="form-control" id="nama"
-                                                                    placeholder="{{ $item['nama_kegiatan'] }}"
-                                                                    value="{{ $item['nama_kegiatan'] }}" required>
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Jumlah SAP</label>
-                                                                <input name="jumlah_sap" class="form-control"
-                                                                    type="text"
-                                                                    placeholder="{{ $item['jumlah_sap'] }}"
-                                                                    value="{{ $item['jumlah_sap'] }}" required>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#modalEditConfirm">Simpan
-                                                                    Perubahan</button>
-                                                            </div>
-                                                        </form>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- AKHIR MODAL G --}}
 
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -1185,6 +1147,51 @@
                                         </div>
                                     </td>
                                 </tr>
+                                {{-- MULAI MODAL EDIT F --}}
+                                <div class="modal fade modal-lg" id="modalEditPendidikan_{{ $item['id_rencana'] }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter }}.
+                                                    {{ $item['nama_kegiatan'] }}</h6>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <form action="{{ route('rk-pendidikan.kembang.update') }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <div class="mb-3">
+                                                        <label for="nama" class="form-label">Nama
+                                                            Kegiatan</label>
+                                                        <input name="nama_kegiatan" type="text" class="form-control"
+                                                            id="nama" placeholder="{{ $item['nama_kegiatan'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Jumlah SAP</label>
+                                                        <input name="jumlah_sap" class="form-control" type="text"
+                                                            placeholder="{{ $item['jumlah_sap'] }}"
+                                                            value="{{ $item['jumlah_sap'] }}" required>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#modalEditConfirm">Simpan
+                                                            Perubahan</button>
+                                                    </div>
+                                                </form>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- AKHIR MODAL EDIT F --}}
                             @endforeach
                         @endif
                     </tbody>
@@ -1241,15 +1248,17 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i></button>
 
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}">
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3"></i></button>
 
-                                        <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1312,7 +1321,7 @@
                                                         <label for="nama_kegiatan" class="form-label">
                                                             Nama Kegiatan
                                                         </label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}"
+                                                        <input value="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan" required>
                                                     </div>
@@ -1396,15 +1405,17 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i></button>
 
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}">
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3"></i></button>
 
-                                        <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1467,7 +1478,7 @@
                                                         <label for="nama_kegiatan" class="form-label">
                                                             Nama Kegiatan
                                                         </label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}"
+                                                        <input value="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan" required>
                                                     </div>
@@ -1516,25 +1527,25 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
+                            <input id="pend_nama_kegiatan_A" type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
                                 required>
 
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas Tatap Muka</label>
-                            <input type="number" class="form-control" name="jumlah_kelas" required min="1"
+                            <input id="pend_jumlah_kelas_A" type="number" class="form-control" name="jumlah_kelas" required min="1"
                                 step="any">
 
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas Evaluasi</label>
-                            <input type="number" class="form-control" name="jumlah_evaluasi" required
+                            <input id="pend_jumlah_evaluasi_A" type="number" class="form-control" name="jumlah_evaluasi" required
                                 min="1" step="any">
 
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Mata Kuliah</label>
-                            <input type="number" class="form-control" name="sks_matakuliah" required min="1"
+                            <input id="pend_sks_A" type="number" class="form-control" name="sks_matakuliah" required min="1"
                                 step="any">
 
                         </div>
@@ -1568,25 +1579,25 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }} />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
+                            <input id="pend_nama_kegiatan_B" type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
                                 required>
 
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
-                            <input name="jumlah_kelas" type="number" class="form-control" required min="1"
+                            <input id="pend_jumlah_kelas_B" name="jumlah_kelas" type="number" class="form-control" required min="1"
                                 step="any">
 
                         </div>
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Praktikum (1 SKS = 2 jam)</label>
-                            <input name="sks_matakuliah" type="number" class="form-control" required min="1"
+                            <input id="pend_sks_B" name="sks_matakuliah" type="number" class="form-control" required min="1"
                                 step="any">
 
                         </div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="pend_simpan_B" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -1614,17 +1625,17 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
+                            <input id="pend_nama_kegitan_C" type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
                                 required>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                            <input type="number" class="form-control" name="jumlah_mahasiswa" required
+                            <input id="pend_mahasiswa_C" type="number" class="form-control" name="jumlah_mahasiswa" required
                                 min="1" step="any">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button id="pend_simpan_C" type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -1649,18 +1660,18 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
+                            <input id="pend_nama_D" type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
                                 required>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kelompok" class="form-label">Jumlah Kelompok</label>
-                            <input type="number" class="form-control" name="jumlah_kelompok" required
+                            <input id="pend_kelompok_D" type="number" class="form-control" name="jumlah_kelompok" required
                                 min="1" step="any">
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button id="pend_simpan_D" type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -1685,15 +1696,15 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }} />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
+                            <input id="pend_nama_E" type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
                                 required>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="number">
+                            <input id="pend_mahasiswa_E" name="jumlah_mahasiswa" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="pend_simpan_E" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -1720,15 +1731,15 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }} />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
+                            <input id="pend_nama_F" type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
                                 required>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="number" required>
+                            <input id="pend_kelompok_F" name="jumlah_mahasiswa" class="form-control" type="number" required>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="pend_simpan_F" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -1756,16 +1767,16 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
+                            <input id="pend_nama_G" type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
                                 required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah Dosen Bimbingan</label>
-                            <input name="jumlah_dosen" class="form-control" type="number" required min="1"
+                            <input id="pend_dosen_G" name="jumlah_dosen" class="form-control" type="number" required min="1"
                                 step="any">
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="pend_simpan_G" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
 
@@ -1795,16 +1806,16 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
+                            <input id="pend_nama_H" type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
                                 required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jumlah SAP</label>
-                            <input name="jumlah_sap" class="form-control" type="number" required min="1"
+                            <input id="pend_sap_H" name="jumlah_sap" class="form-control" type="number" required min="1"
                                 step="any">
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="pend_simpan_H" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -1831,7 +1842,7 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }} />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
+                            <input id="pend_nama_I" type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
                                 required>
                         </div>
                         <div class="mb-3">
@@ -1842,7 +1853,7 @@
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="pend_simpan_I" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -1869,11 +1880,11 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }} />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
+                            <input id="pend_nama_J" type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
                                 required>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="pend_simpan_J" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -1881,31 +1892,6 @@
         </div>
     </div>
     {{-- AKHIR MODAL J --}}
-
-    {{-- TEMPAT MODAL DELETE CONFIRM --}}
-    <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body text-center">
-                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                    <p class="text-muted small">proses ini tidak dapat diurungkan bila anda sudah menekan tombol 'Yakin'
-                    </p>
-                </div>
-
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                    <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Yakin</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     {{-- TEMPAT TOAST --}}
 

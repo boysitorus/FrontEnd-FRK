@@ -269,7 +269,7 @@
                             <tr>
                                 <td scope="row">{{ $counter++ }}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_kelompok'] }}</td>
+                                <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1"
@@ -325,7 +325,7 @@
                             <tr>
                                 <td scope="row">{{ $counter++ }}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_kelompok'] }}</td>
+                                <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1"
@@ -380,7 +380,7 @@
                             <tr>
                                 <td scope="row">{{ $counter++ }}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_dosen'] }}</td>
+                                <td>{{ $item['jumlah_kelompok'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1"
