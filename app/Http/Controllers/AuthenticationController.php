@@ -20,8 +20,6 @@ class AuthenticationController extends Controller
             'password' => 'required',
         ]);
 
-    //    dd($request);
-
         $parseResponse = null;
 
         try {
@@ -41,40 +39,11 @@ class AuthenticationController extends Controller
             Tools::setToken($request, $parseData['token']);
             Tools::setTokenRefresh($request, $parseData['refresh_token']);
 
-        //    dd(Tools::getAuth($request));
-
             return redirect()->route('home');
 
         } catch (\Exception $err) {
-//            dd($err);
             return back()->with('error', "Silahkan coba lagi!");
         }
-//        try {
-//            $response =  Http::asForm()->post(env('API_USER_SERVICE', false) . 'login', [
-//                'username' => $request->username,
-//                'password' => $request->password
-//            ]);
-//
-//            $parseResponse = json_decode($response->body(), true);
-//
-//            if ($response->status() == 405) {
-//                return back()->with('error', 'Terdapat kesalahan, silahkan hubungi Developer! [1]');
-//            } else if ($response->status() >= 200) {
-//                return back()->with('error', 'Terdapat kesalahan, silahkan hubungi Developer! [2]');
-//            }
-//
-//            if(!$parseResponse['result'])
-//            {
-//                return back()->with('error', 'Error, silahkan hubungi Developer! [3]');
-//            }
-//
-//            Tools::setAuth($request, $parseResponse['data']);
-//            Tools::setToken($request, $parseResponse['token']);
-//            Tools::setTokenRefresh($request, $parseResponse['refresh_token']);
-//        } catch (\Exception $err) {
-//            return back()->with('error', "Silahkan coba lagi!");
-//        }
-
     }
 
     public function  logout(Request $request){
