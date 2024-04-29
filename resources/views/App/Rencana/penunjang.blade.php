@@ -1480,7 +1480,7 @@
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
-                                    @if ($item['jenis_tingkatan'] == 1 || $item['jenit_tingkatan'] == 2)
+                                    @if ($item['jenis_tingkatan'] == 1 || $item['jenis_tingkatan'] == 2)
                                         @if ($item['jenis_tingkatan'] == 1)
                                             <td>Universitas</td>
                                         @else
