@@ -1362,7 +1362,7 @@
                                                                 style="text-align: left;">Nama
                                                                 Kegiatan</label>
                                                         </div>
-                                                        <input value="{{ $item['nama_kegiatan'] }}"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
@@ -1372,7 +1372,7 @@
                                                                 style="text-align: left;">
                                                                 Tingkat Jabatan</label>
                                                         </div>
-                                                        <select name="jenis_tingkatan" class="form-control" required>
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}" name="jenis_tingkatan" class="form-control" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
                                                             <option value="1">Universitas</option>
@@ -1382,7 +1382,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -1523,7 +1523,7 @@
                                                                 style="text-align: left;">Nama
                                                                 Kegiatan</label>
                                                         </div>
-                                                        <input value="{{ $item['nama_kegiatan'] }}"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
@@ -1533,7 +1533,7 @@
                                                                 style="text-align: left;">
                                                                 Tingkat Jabatan</label>
                                                         </div>
-                                                        <select name="jenis_tingkatan" class="form-control" required>
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}" name="jenis_tingkatan" class="form-control" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
                                                             <option value="1">Universitas</option>
@@ -1688,7 +1688,7 @@
                                                                 style="text-align: left;">Nama
                                                                 Kegiatan</label>
                                                         </div>
-                                                        <input value="{{ $item['nama_kegiatan'] }}"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
@@ -1698,7 +1698,7 @@
                                                                 style="text-align: left;">
                                                                 Jabatan</label>
                                                         </div>
-                                                        <select name="jabatan" class="form-control" required>
+                                                        <select id="jabatan-{{ $item['id_rencana'] }}" name="jabatan" class="form-control" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
                                                             <option value="1">Ketua Yayasan</option>
@@ -1708,7 +1708,7 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -1847,7 +1847,7 @@
                                                                 style="text-align: left;">Nama
                                                                 Kegiatan:</label>
                                                         </div>
-                                                        <input value="{{ $item['nama_kegiatan'] }}"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan">
                                                     </div>
@@ -1856,7 +1856,7 @@
                                                             <label for="jabatan" class="form-label"
                                                                 style="text-align: left;">Jabatan:</label>
                                                         </div>
-                                                        <select class="form-control" aria-label="Default select example"
+                                                        <select id="jabatan-{{ $item['id_rencana'] }}" class="form-control" aria-label="Default select example"
                                                             id="jabatan" name="jabatan" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
@@ -1872,7 +1872,7 @@
                                                         <label for="jenis_tingkatan" class="form-label">
                                                             Tingkatan:
                                                         </label>
-                                                        <select class="form-control" aria-label="Default select example"
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}" class="form-control" aria-label="Default select example"
                                                             id="jenis_tingkatan" name="jenis_tingkatan" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
@@ -1887,7 +1887,7 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -2022,7 +2022,7 @@
                                                                 style="text-align: left;">Nama
                                                                 Kegiatan:</label>
                                                         </div>
-                                                        <input value="{{ $item['nama_kegiatan'] }}"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan">
                                                     </div>
@@ -2033,7 +2033,7 @@
                                                                 Tingkatan:
                                                             </label>
                                                         </div>
-                                                        <select class="form-control" id="jenis_tingkatan"
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}" class="form-control" id="jenis_tingkatan"
                                                             name="jenis_tingkatan" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
@@ -2181,14 +2181,14 @@
                                                             style="text-align: left;">
                                                             Nama Kegiatan:
                                                         </label>
-                                                        <input value="{{ $item['nama_kegiatan'] }}"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
                                                             type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan">
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
