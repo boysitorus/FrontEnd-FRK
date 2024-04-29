@@ -157,7 +157,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Durasi Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -300,7 +300,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan(Ketua/Anggota)</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>

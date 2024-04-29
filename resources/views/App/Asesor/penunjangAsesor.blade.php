@@ -158,7 +158,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -304,7 +304,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -587,7 +587,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -728,7 +728,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jabatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -868,7 +868,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -1009,7 +1009,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jabatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -1149,7 +1149,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkat Jabatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -1298,7 +1298,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Tingkat Jabatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -1449,7 +1449,7 @@
                                 (Ketua/Anggota)
                             </th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -1603,7 +1603,7 @@
                             </th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Tingkatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -1748,7 +1748,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Tingkatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
@@ -1891,7 +1891,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="allign-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>

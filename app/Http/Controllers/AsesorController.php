@@ -63,7 +63,8 @@ class AsesorController extends Controller
     public function getRencanaPendidikan(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-
+        $token = json_decode(json_encode($auth->user),true)['token'];
+        $dataDosen = $this->getDosen($id, $token);
         try {
             // Mengambil data teori dari Lumen
             $responseTeori = Http::get(env('API_FRK_SERVICE') . '/pendidikan/teori/' . $id);
@@ -117,6 +118,7 @@ class AsesorController extends Controller
                 'koordinator' => $koordinator,
                 'proposal' => $proposal,
                 'auth' => $auth,
+                'dataDosen' => $dataDosen
             ];
 
             // Mengirim data ke view
@@ -130,7 +132,8 @@ class AsesorController extends Controller
     public function getRencanaPenelitian(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-
+        $token = json_decode(json_encode($auth->user),true)['token'];
+        $dataDosen = $this->getDosen($id, $token);
         try {
             // Mengambil data a. penelitian kelompok dari Lumen
             $responsePenelitianKelompok = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok/' . $id);
@@ -207,6 +210,7 @@ class AsesorController extends Controller
                 'media_massa'=>$MediaMassa,
                 'auth' => $auth,
                 'id' => $id,
+                'dataDosen' => $dataDosen
             ];
 
             // Mengirim data ke view
@@ -220,7 +224,8 @@ class AsesorController extends Controller
     public function getRencanaPengabdian(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-
+        $token = json_decode(json_encode($auth->user),true)['token'];
+        $dataDosen = $this->getDosen($id, $token);
         try{
             // Mengambil data a. kegiatan dari lumen
             $responsKegiatan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/kegiatan/' . $id);
@@ -251,7 +256,8 @@ class AsesorController extends Controller
                 //data d
                 'karya' => $Karya,
                 'auth' => $auth,
-                'id' => $id
+                'id' => $id,
+                'dataDosen' => $dataDosen
             ];
 
             // Mengirim data ke view
@@ -264,6 +270,8 @@ class AsesorController extends Controller
     public function getRencanaPenunjang(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
+        $token = json_decode(json_encode($auth->user),true)['token'];
+        $dataDosen = $this->getDosen($id, $token);
 
         try {
             $responseAkademik = Http::get(env('API_FRK_SERVICE') . '/penunjang/akademik/' . $id);
@@ -324,7 +332,8 @@ class AsesorController extends Controller
                 'anggotapanitia' => $anggotapanitia,
                 'pengurusyayasan' => $pengurusyayasan,
                 'auth' => $auth,
-                'id' => $id
+                'id' => $id,
+                'dataDosen' => $dataDosen
             ];
 
             return view('App.Asesor.penunjangAsesor', $data);

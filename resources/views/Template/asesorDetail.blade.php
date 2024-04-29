@@ -24,8 +24,8 @@
 
             <div class="alert alert-info mt-2 ml-1 mr-1 mb-6 bg-alert-info" role="alert">
                 <h5> <b> <u> Info untuk dosen </u> </b> </h5>
-                <p><b>Nama Dosen</b></p>
-                <p><b>NIDN</b></p>
+                <p><b>Nama : {{ $dataDosen["nama"] }}</b></p>
+                <p><b>NIDN : {{ $dataDosen["nidn"] }}</b></p>
                 <p><b>Jabatan</b></p>
             </div>
 
