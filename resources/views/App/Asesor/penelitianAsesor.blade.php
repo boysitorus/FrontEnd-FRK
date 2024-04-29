@@ -1921,11 +1921,14 @@
                         @php
                             $counter = 1;
                         @endphp
-                        @foreach ($pembicara_seminar as $item)
+                        @foreach ($penyajian_makalah as $item)
                             <tr>
                                 <td scope="row">{{ $counter++ }}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
                                 <td>{{ $item['lingkup_wilayah'] }}</td>
+                                <td>{{ $item['jenis_pengerjaan'] }}</td>
+                                <td>{{ $item['posisi'] }}</td>
+                                <td>{{ $item['jumlah_anggota'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
