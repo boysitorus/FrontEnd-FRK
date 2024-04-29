@@ -13,13 +13,41 @@ class AsesorController extends Controller
     public function getRencanaKegiatan(Request $request)
     {
         $auth = Tools::getAuth($request);
-        $data_dosen = Http::get(env('API_FRK_SERVICE') . '/asesor-frk/getAllDosen');
+        $token = json_decode(json_encode($auth->user),true)['token'];
+        $response_dosen = Http::get(env('API_FRK_SERVICE') . '/asesor-frk/getAllDosen');
+
+
+        $data_dosen = [];
+        if(sizeof($response_dosen->json()) > 0){
+            foreach($response_dosen->json() as $item){
+                $res = $this->getDosen($item["id_dosen"], $token);
+
+                array_push($data_dosen, $res);
+            }
+        }
+
+
+
 
         return view('App.Asesor.rekapKegiatan',
         [
             'auth' => $auth,
-            'data_dosen' => $data_dosen->json(),
+            'data_dosen' => $data_dosen,
         ]);
+    }
+
+    public function getDosen($uid, $token){
+        $requestDataDosen = Http::withToken($token)->asForm()->post(env('API_DATA_DOSEN') . $uid)->body();
+        $jsonDataDosen = json_decode($requestDataDosen, true);
+
+        $data = [
+            "id_dosen" => $uid,
+            "nidn" => $jsonDataDosen['data']['dosen'][0]['nidn'],
+            "nama" => $jsonDataDosen['data']['dosen'][0]['nama'],
+            "prodi" => $jsonDataDosen['data']['dosen'][0]['prodi'],
+        ];
+
+        return $data;
     }
 
     public function getRencanaKegiatanSetuju(Request $request)

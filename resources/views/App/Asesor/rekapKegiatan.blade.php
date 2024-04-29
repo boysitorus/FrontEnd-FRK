@@ -29,11 +29,11 @@
                         @foreach ($data_dosen as $item)
                             <tr>
                                 <td>{{ $counter++ }}</td>
-                                <td>NAMA_DOSEN</td>
-                                <td>{{ $item["id_dosen"] }}</td>
-                                <td>PROGRAM_STUDI_DOSEN</td>
-                                <td><a href="{{ route('rk-asesor-detail-pendidikan', ['id' => $item["id_dosen"]]) }}"><button type="button"
-                                            class="btn btn-primary mr-1">View Detail</button></a></td>
+                                <td>{{ $item["nama"] }}</td>
+                                <td>{{ $item["nidn"] }}</td>
+                                <td>{{ $item["prodi"] }}</td>
+                                <td><a href="{{ route('rk-asesor-detail-pendidikan', ['id' => $item["id_dosen"]]) }}"><button
+                                            type="button" class="btn btn-primary mr-1">View Detail</button></a></td>
                             </tr>
                         @endforeach
                     @endif
