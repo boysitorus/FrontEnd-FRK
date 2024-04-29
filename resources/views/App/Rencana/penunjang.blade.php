@@ -1480,10 +1480,14 @@
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
-                                    @if ($item['jenis_tingkatan'] == 1)
-                                        <td>Ketua</td>
+                                    @if ($item['jenis_tingkatan'] == 1 || $item['jenit_tingkatan'] == 2)
+                                        @if ($item['jenis_tingkatan'] == 1)
+                                            <td>Universitas</td>
+                                        @else
+                                            <td>Fakultas</td>
+                                        @endif
                                     @else
-                                        <td>Anggota</td>
+                                        <td>Program Studi</td>
                                     @endif
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
