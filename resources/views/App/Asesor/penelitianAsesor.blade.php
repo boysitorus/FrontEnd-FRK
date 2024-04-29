@@ -118,7 +118,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -262,7 +262,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -410,7 +410,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -559,7 +559,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -705,7 +705,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -851,7 +851,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -999,7 +999,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -1138,7 +1138,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -1280,7 +1280,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -1426,7 +1426,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -1571,7 +1571,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -1716,7 +1716,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -1862,7 +1862,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -2009,7 +2009,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="">
+                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"

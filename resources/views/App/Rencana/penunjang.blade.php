@@ -79,19 +79,19 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Mahasiswa</label>
-                                                        <input value="{{ $item['jumlah_mahasiswa'] }}" type="number"
+                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa" min="1">
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -223,20 +223,20 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Mahasiswa</label>
-                                                        <input value="{{ $item['jumlah_mahasiswa'] }}"
+                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_mahasiswa'] }}"
                                                             type="number" class="form-control" name="jumlah_mahasiswa"
                                                             min="1">
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -407,20 +407,20 @@
                                                         <label for="nama_kegiatan" class="form-label"
                                                             style="text-align: left;">Nama
                                                             Kegiatan</label>
-                                                        <input type="text" class="form-control" id="nama"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kegiatan" class="form-label"
                                                             style="text-align: left;">Jumlah
                                                             Kegiatan</label>
-                                                        <input class="form-control" type="number" name="jumlah_kegiatan"
+                                                        <input id="jumlah-{{ $item['id_rencana'] }}" class="form-control" type="number" name="jumlah_kegiatan"
                                                             value="{{ $item['jumlah_kegiatan'] }}" min="1"
                                                             step="any">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Simpan
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">Simpan
                                                         Perubahan</button>
                                                 </div>
                                             </form>
@@ -546,13 +546,13 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input type="text" class="form-control" name="nama_kegiatan"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" type="text" class="form-control" name="nama_kegiatan"
                                                             value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
 
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Simpan
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">Simpan
                                                         Perubahan</button>
                                                 </div>
                                             </form>
@@ -647,7 +647,7 @@
                                                                         style="text-align: left;"> Nama
                                                                         Kegiatan</label>
                                                                 </div>
-                                                                <input value="{{ $item['nama_kegiatan'] }}"
+                                                                <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
                                                                     type="text" class="form-control"
                                                                     id="nama_kegiatan" name="nama_kegiatan" required>
                                                             </div>
@@ -657,7 +657,7 @@
                                                                         class="form-label" style="text-align: left;">
                                                                         Jabatan</label>
                                                                 </div>
-                                                                <select class="form-select"
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}" class="form-select"
                                                                     aria-label="Default select example"
                                                                     name="jenis_jabatan_struktural" required>
                                                                     <option value="" selected disabled hidden>
@@ -720,7 +720,7 @@
 
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary">Simpan
+                                                                <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">Simpan
                                                                     Perubahan</button>
                                                             </div>
                                                     </form>
@@ -854,7 +854,7 @@
                                                                         style="text-align: left;">Nama
                                                                         Kegiatan</label>
                                                                 </div>
-                                                                <input value="{{ $item['nama_kegiatan'] }}"
+                                                                <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
                                                                     type="text" class="form-control"
                                                                     id="nama_kegiatan" name="nama_kegiatan">
                                                             </div>
@@ -864,7 +864,7 @@
                                                                         class="form-label"
                                                                         style="text-align: left;">Jabatan</label>
                                                                 </div>
-                                                                <select class="form-select"
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}" class="form-select"
                                                                     aria-label="Default select example"
                                                                     name="jenis_jabatan_nonstruktural" required>
                                                                     <option value="" selected disabled hidden>
@@ -901,7 +901,7 @@
 
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary">Simpan
+                                                                <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">Simpan
                                                                     Perubahan</button>
                                                             </div>
                                                     </form>
@@ -1035,7 +1035,7 @@
                                                                         style="text-align: left;">Nama
                                                                         Kegiatan</label>
                                                                 </div>
-                                                                <input value="{{ $item['nama_kegiatan'] }}"
+                                                                <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
                                                                     type="text" class="form-control"
                                                                     id="nama_kegiatan" name="nama_kegiatan">
                                                             </div>
@@ -1044,7 +1044,7 @@
                                                                     <label for="jabatan" class="form-label"
                                                                         style="text-align: left;">Jabatan</label>
                                                                 </div>
-                                                                <select class="form-select"
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}" class="form-select"
                                                                     aria-label="Default select example" name="jabatan"
                                                                     required>
                                                                     <option value="" selected disabled hidden>
@@ -1194,7 +1194,7 @@
                                                                         Kegiatan</label>
                                                                 </div>
 
-                                                                <input value="{{ $item['nama_kegiatan'] }}"
+                                                                <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
                                                                     type="text" class="form-control"
                                                                     id="nama_kegiatan" name="nama_kegiatan">
                                                             </div>
@@ -1204,7 +1204,7 @@
                                                                         style="text-align: left;">Jabatan</label>
                                                                 </div>
 
-                                                                <select class="form-select"
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}" class="form-select"
                                                                     aria-label="Default select example" name="jabatan"
                                                                     required>
                                                                     <option value="" selected disabled hidden>

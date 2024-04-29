@@ -123,24 +123,24 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text" class="form-control" id="nama"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}" type="text" class="form-control" id="nama"
                                                             name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas
                                                             Tatap Muka</label>
-                                                        <input value="{{ $item['jumlah_kelas'] }}" type="number" class="form-control" name="jumlah_kelas" min="1">
+                                                        <input id="kelas-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_kelas'] }}" type="number" class="form-control" name="jumlah_kelas" min="1">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas
                                                             Evaluasi</label>
-                                                        <input value="{{ $item['jumlah_evaluasi'] }}" type="number" class="form-control"
+                                                        <input id="evaluasi-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_evaluasi'] }}" type="number" class="form-control"
                                                             name="jumlah_evaluasi" min="1">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Mata
                                                             Kuliah</label>
-                                                        <input value="{{ $item['sks_matakuliah'] }}" type="number" class="form-control" name="sks_matakuliah" min="1">
+                                                        <input id="sks-{{ $item['id_rencana'] }}" value="{{ $item['sks_matakuliah'] }}" type="number" class="form-control" name="sks_matakuliah" min="1">
                                                     </div>
 
                                                 </div>
@@ -148,7 +148,7 @@
                                                 <div class="modal-footer">
                                                     {{-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#modalEditConfirm">Simpan Perubahan</button> --}}
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -250,17 +250,17 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
-                                                        <input value="{{ $item['jumlah_kelas'] }}" type="number"
+                                                        <input id="kelas-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_kelas'] }}" type="number"
                                                             class="form-control" name="jumlah_kelas" min="1">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Praktikum (1 SKS = 2 jam)</label>
-                                                        <input value="{{ $item['sks_matakuliah'] }}" type="number"
+                                                        <input id="sks-{{ $item['id_rencana'] }}" value="{{ $item['sks_matakuliah'] }}" type="number"
                                                             class="form-control" name="sks_matakuliah" min="1">
                                                     </div>
 
@@ -269,7 +269,7 @@
                                                 <div class="modal-footer">
                                                     {{-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#modalEditConfirm">Simpan Perubahan</button> --}}
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -441,16 +441,16 @@
                                                         value ="{{ $item['id_rencana'] }}" />
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                        <input value="{{ $item['nama_kegiatan']}}" type="text" class="form-control" id="nama" name="nama_kegiatan">
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan']}}" type="text" class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa Bimbingan</label>
-                                                        <input value="{{ $item['jumlah_mahasiswa'] }}" class="form-control" type="number" name="jumlah_mahasiswa" min="1" step="any">
+                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_mahasiswa'] }}" class="form-control" type="number" name="jumlah_mahasiswa" min="1" step="any">
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Simpan
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">Simpan
                                                         Perubahan</button>
                                                 </div>
                                             </form>
@@ -580,16 +580,16 @@
                                                         value="{{ $item['id_rencana'] }}" />
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                        <input value="{{ $item['nama_kegiatan']}}" type="text" class="form-control" id="nama" name="nama_kegiatan">
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan']}}" type="text" class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelompok" class="form-label">Jumlah kelompok</label>
-                                                        <input value="{{ $item['jumlah_kelompok'] }}" class="form-control" type="number" name="jumlah_kelompok" min="1" step="any">
+                                                        <input id="kelompok-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_kelompok'] }}" class="form-control" type="number" name="jumlah_kelompok" min="1" step="any">
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Simpan
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">Simpan
                                                         Perubahan</button>
                                                 </div>
                                             </form>
@@ -720,19 +720,19 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
-                                                        <input value="{{ $item['jumlah_mahasiswa'] }}" type="number"
+                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa" required>
                                                     </div>
 
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -862,19 +862,19 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
-                                                        <input value="{{ $item['jumlah_mahasiswa'] }}" type="number"
+                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa" required>
                                                     </div>
 
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -1001,14 +1001,14 @@
                                                                 <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
                                                                 <div class="mb-3">
                                                                     <label for="nama" class="form-label">Nama Kegiatan</label>
-                                                                    <input name="nama_kegiatan" type="text" class="form-control" id="nama" value="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}" required>
+                                                                    <input id="nama-{{ $item['id_rencana'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama" value="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}" required>
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Jumlah Dosen Dibimbing</label>
-                                                                    <input name="jumlah_dosen" class="form-control" type="text" value="{{$item['jumlah_dosen']}}" value="{{$item['jumlah_dosen']}}" required>
+                                                                    <input id="dosen-{{ $item['id_rencana'] }}" name="jumlah_dosen" class="form-control" type="text" value="{{$item['jumlah_dosen']}}" value="{{$item['jumlah_dosen']}}" required>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary" data-bs-toggle="modal"
                                                                         data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
                                                                 </div>
                                                             </form>
@@ -1173,14 +1173,14 @@
                                                                 <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
                                                                 <div class="mb-3">
                                                                     <label for="nama" class="form-label">Nama Kegiatan</label>
-                                                                    <input name="nama_kegiatan" type="text" class="form-control" id="nama" value="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}" required>
+                                                                    <input id="nama-{{ $item['id_rencana'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama" value="{{$item['nama_kegiatan']}}" value="{{$item['nama_kegiatan']}}" required>
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Jumlah SAP</label>
-                                                                    <input name="jumlah_sap" class="form-control" type="text" value="{{$item['jumlah_sap']}}" value="{{$item['jumlah_sap']}}" required>
+                                                                    <input id="sap-{{ $item['id_rencana'] }}" name="jumlah_sap" class="form-control" type="text" value="{{$item['jumlah_sap']}}" value="{{$item['jumlah_sap']}}" required>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary" data-bs-toggle="modal"
                                                                         data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
                                                                 </div>
                                                             </form>
@@ -1354,14 +1354,14 @@
                                                         <label for="nama_kegiatan" class="form-label">
                                                             Nama Kegiatan
                                                         </label>
-                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_dosen" class="form-label">
                                                             Jumlah Dosen (Maks. 2/smt)
                                                         </label>
-                                                        <select class="form-control" name="jumlah_dosen"
+                                                        <select id="dosen-{{ $item['id_rencana'] }}" class="form-control" name="jumlah_dosen"
                                                             id="jumlah_dosen">
                                                             <option value="1"
                                                                 {{ $item['jumlah_dosen'] == 1 ? 'selected' : '' }}>1
@@ -1376,7 +1376,7 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -1510,7 +1510,7 @@
                                                         <label for="nama_kegiatan" class="form-label">
                                                             Nama Kegiatan
                                                         </label>
-                                                        <input value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
 
@@ -1519,7 +1519,7 @@
                                                 <div class="modal-footer">
                                                     {{-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#modalEditConfirm">Simpan Perubahan</button> --}}
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
