@@ -1732,7 +1732,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
-                            <input id="pend_mahasiswa_E" name="jumlah_mahasiswa" class="form-control" type="number">
+                            <input id="pend_mahasiswa_E" name="jumlah_mahasiswa" class="form-control" type="number" min="1" required>
                         </div>
                         <div class="modal-footer">
                             <button id="pend_simpan_E" type="submit" class="btn btn-primary">Simpan</button>
