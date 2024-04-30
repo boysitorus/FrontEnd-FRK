@@ -260,6 +260,10 @@
                 $('#contentPage').toggleClass('active');
             });
 
+            $('.btn-toggle').on('click', function() {
+                $('#sidebarMenu').removeClass('active');
+                $('#contentPage').removeClass('active');
+            })
         });
     </script>
 
