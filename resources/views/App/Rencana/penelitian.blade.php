@@ -2674,16 +2674,23 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST">
+                    <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST"
+                    class="needs-validation" novalidate>
                         @csrf
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name ="nama_kegiatan"type="text" class="form-control" id="nama_kegiatan">
-                        </div>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
+                                placeholder="isi nama kegiatan" required>
+                            <div class="invalid-feedback">
+                                Nama kegiatan tidak boleh kosong!
+                            </div>
                         <div class="mb-3">
                             <label for = "jumlah_bkd" class="form-label">Banyaknya BKD yang Dievaluasi</label>
-                            <input name="jumlah_bkd" type="number" class="form-control" id="jumlah_bkd">
+                            <input name="jumlah_bkd" type="number" class="form-control" id="jumlah_bkd" required>
+                            <div class="invalid-feedback">
+                                Banyak BKD tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -2723,6 +2730,9 @@
                                 <option value="Diterbitkan oleh Jurnal terakreditasi">Diterbitkan oleh Jurnal terakreditasi</option>
                                 <option value="Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Kategori tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
@@ -2731,6 +2741,9 @@
                                 <option value="Mandiri">Mandiri</option>
                                 <option value="Kelompok">Kelompok</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Jenis pengerjaan tidak boleh kosong!
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="peran" class="form-label">Jenis Peran</label>
