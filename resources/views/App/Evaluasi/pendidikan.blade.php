@@ -99,12 +99,12 @@
                                 </ol>
                                 <!-- File input -->
                                 <button id="addFilesBtn" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                     <div id="selectedFiles"></div>
                                 </div>
                                 <input type="file" id="fileInput" style="display: none;" multiple>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
                             </div>
                         </div>
                     </div>
@@ -191,13 +191,13 @@
                                     <li>Daftar Nilai tugas</li>
                                 </ol>
                                 <!-- File input -->
-                                <button id="addFilesBtn" class="btn btn-secondary">Add Files</button>
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFiles"></div>
-                                </div>
-                                <input type="file" id="fileInput" style="display: none;" multiple>
+                                <button id="addFilesBtnB" class="btn btn-secondary">Add Files</button>
                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                 <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesB"></div>
+                                </div>
+                                <input type="file" id="fileInputB" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -288,11 +288,13 @@
                                     <li>Daftar nilai atau  laporan KKN</li>
                                 </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
+                                <button id="addFilesBtnC" class="btn btn-secondary">Add Files</button>
                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesC"></div>
+                                </div>
+                                <input type="file" id="fileInputC" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -309,9 +311,7 @@
     {{-- BAGIAN D --}}
     <div id="ed-pendidikan-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>D. Menulis satu judul naskah buku internasional  
-                (berbahasa dan diedarkan secara internasional minimal  tiga negara), 
-                disetujui oleh pimpinan dan tercatat</b></h6>
+            <h6><b>D. Seminar yang terjadwal terhadap setiap kelompok</b></b></h6>
             <hr />
 
             <div class="text-sm">
@@ -319,14 +319,12 @@
                 style="border: 2px;">
                 <thead>
                      <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Tahap Pencapaian</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Pengerjaan</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Peran</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                        <th scope="col" colspan="2" class="align-middle fw-bold col-2">Status</th>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                     <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelompok</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                            <th scope="col" colspan="2" class="align-middle fw-bold col-2">Status</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                     </tr>
                     <tr>
                         <th scope="col" class="fw-bold col-1">Asesor 1</th>
@@ -342,7 +340,7 @@
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
-                                    <td>{{ $item['jumlah_kelompak'] }}</td>
+                                    <td>{{ $item['jumlah_kelompok'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
@@ -366,8 +364,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanDLabel">D. Menulis satu judul naskah buku internasional  
-                        (berbahasa dan diedarkan secara internasional minimal  tiga negara), disetujui oleh pimpinan dan tercatat</h6>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanDLabel">D. Seminar yang terjadwal terhadap setiap kelompok</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -383,11 +380,13 @@
                                     <li>Daftar Nilai Akhir</li>
                                 </ol>
                                  <!-- File input -->
-                                 <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <button id="addFilesBtnD" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50 </p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> 
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesD"></div>
+                                </div>
+                                <input type="file" id="fileInputD" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -475,11 +474,13 @@
                                     <li>Daftar Nilai</li>
                                 </ol>
                                  <!-- File input -->
-                                 <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
+                                <button id="addFilesBtnE" class="btn btn-secondary">Add Files</button>
                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesE"></div>
+                                </div>
+                                <input type="file" id="fileInputE" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -562,11 +563,13 @@
                                     <li>Daftar Nilai</li>
                                 </ol>
                                  <!-- File input -->
-                                 <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
+                                <button id="addFilesBtnF" class="btn btn-secondary">Add Files</button>
                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesF"></div>
+                                </div>
+                                <input type="file" id="fileInputF" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -653,11 +656,13 @@
                                     <li>Daftar Nilai</li>
                                 </ol>
                                  <!-- File input -->
-                                 <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
+                                <button id="addFilesBtnG" class="btn btn-secondary">Add Files</button>
                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesG"></div>
+                                </div>
+                                <input type="file" id="fileInputG" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -739,11 +744,13 @@
                                     <li>Bukti hasil(Silabus,  SAP/RKPSS,  GBPP) yang baru  dan silabus,  SAP/RKPSS. GBPP  yang sebelumnya</li>
                                 </ol>
                                  <!-- File input -->
-                                 <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
+                                <button id="addFilesBtnH" class="btn btn-secondary">Add Files</button>
                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesH"></div>
+                                </div>
+                                <input type="file" id="fileInputH" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -823,11 +830,13 @@
                                     <li>Bukti yang  relevan  (laporan  kegiatan)</li>
                                 </ol>
                                  <!-- File input -->
-                                 <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
+                                <button id="addFilesBtnI" class="btn btn-secondary">Add Files</button>
                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesI"></div>
+                                </div>
+                                <input type="file" id="fileInputI" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -905,11 +914,13 @@
                                     <li>Daftar Nilai</li>
                                 </ol>
                                  <!-- File input -->
-                                 <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
+                                <button id="addFilesBtnJ" class="btn btn-secondary">Add Files</button>
                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesJ"></div>
+                                </div>
+                                <input type="file" id="fileInputJ" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -977,22 +988,6 @@
                 showEditToast();
             });
 
-            // document.getElementById('confirmEditBtnB').addEventListener('click', function() {
-            //     showEditToast();
-            // });
-
-            // document.getElementById('confirmEditBtnC').addEventListener('click', function() {
-            //     showEditToast();
-            // });
-
-            // document.getElementById('confirmEditBtnD').addEventListener('click', function() {
-            //     showEditToast();
-            // });
-
-            // document.getElementById('confirmEditBtnE').addEventListener('click', function() {
-            //     showEditToast();
-            // });
-
             function showEditToast() {
                 // Menutup modal
                 $('#modalEditConfirm').modal('hide');
@@ -1012,22 +1007,6 @@
                 showDeleteToast();
             });
 
-            // document.getElementById('confirmDeleteBtnB').addEventListener('click', function() {
-            //     showDeleteToast();
-            // });
-
-            // document.getElementById('confirmDeleteBtnC').addEventListener('click', function() {
-            //     showDeleteToast();
-            // });
-
-            // document.getElementById('confirmDeleteBtnD').addEventListener('click', function() {
-            //     showDeleteToast();
-            // });
-
-            // document.getElementById('confirmDeleteBtnE').addEventListener('click', function() {
-            //     showDeleteToast();
-            // });
-
             function showDeleteToast() {
                 // Menutup modal
                 $('#modalDeleteConfirm').modal('hide');
@@ -1041,7 +1020,7 @@
                 }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
             }
 
-            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya A
             function displayFilesWithIcons(files) {
                 var selectedFilesDiv = document.getElementById('selectedFiles');
                 // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
@@ -1076,7 +1055,7 @@
 
                     // Tambahkan tombol hapus
                     var deleteBtn = document.createElement('button');
-                    deleteBtn.classList.add('btn', 'btn-secondary', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
                     deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
                     deleteBtn.addEventListener('click', (function(fileToRemove) {
                         return function() {
@@ -1084,6 +1063,60 @@
                             var index = selectedFiles.indexOf(fileToRemove);
                             if (index > -1) {
                                 selectedFiles.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya B
+            function displayFilesWithIconsB(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesB');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesB = selectedFilesB.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesB.length; i++) {
+                    var file = selectedFilesB[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesB.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesB.splice(index, 1);
                             }
                             // Hapus elemen file dari tampilan
                             this.parentElement.remove();
@@ -1121,94 +1154,88 @@
                 displayFilesWithIcons(files);
             });
 
-            // document.getElementById('fileInputB').addEventListener('change', function() {
-            //     var files = this.files;
-            //     displayFilesWithIcons(files);
-            // });
+            document.getElementById('fileInputB').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIconsB(files);
+            });
 
-            // document.getElementById('fileInputC').addEventListener('change', function() {
-            //     var files = this.files;
-            //     displayFilesWithIcons(files);
-            // });
+             document.getElementById('fileInputC').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIconsC(files);
+            });
 
-            // document.getElementById('fileInputD').addEventListener('change', function() {
-            //     var files = this.files;
-            //     displayFilesWithIcons(files);
-            // });
+            document.getElementById('fileInputD').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIconsD(files);
+            });
 
-            // document.getElementById('fileInputE').addEventListener('change', function() {
-            //     var files = this.files;
-            //     displayFilesWithIcons(files);
-            // });
+            document.getElementById('fileInputE').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIconsE(files);
+            });
 
-            // Fungsi untuk menambah file
+            // Fungsi untuk menambah file A
             document.getElementById('addFilesBtn').addEventListener('click', function() {
                 var fileInput = document.getElementById('fileInput');
                 fileInput.click();
             });
 
-            // document.getElementById('addFilesBtnB').addEventListener('click', function() {
-            //     var fileInput = document.getElementById('fileInput');
-            //     fileInput.click();
-            // });
+            // Fungsi untuk menambah file B
+            document.getElementById('addFilesBtnB').addEventListener('click', function() {
+                 var fileInputB = document.getElementById('fileInputB');
+                 fileInputB.click();
+            });
 
-            // document.getElementById('addFilesBtnC').addEventListener('click', function() {
-            //     var fileInput = document.getElementById('fileInput');
-            //     fileInput.click();
-            // });
+            // Fungsi untuk menambah file C
+             document.getElementById('addFilesBtnC').addEventListener('click', function() {
+                 var fileInput = document.getElementById('fileInputC');
+                 fileInput.click();
+            });
 
-            // document.getElementById('addFilesBtnD').addEventListener('click', function() {
-            //     var fileInput = document.getElementById('fileInput');
-            //     fileInput.click();
-            // });
+            // Fungsi untuk menambah file D
+             document.getElementById('addFilesBtnD').addEventListener('click', function() {
+                 var fileInput = document.getElementById('fileInputD');
+                 fileInput.click();
+            });
 
-            // document.getElementById('addFilesBtnE').addEventListener('click', function() {
-            //     var fileInput = document.getElementById('fileInput');
-            //     fileInput.click();
-            // });
+            // Fungsi untuk menambah file E
+             document.getElementById('addFilesBtnE').addEventListener('click', function() {
+                 var fileInput = document.getElementById('fileInputE');
+                 fileInput.click();
+            });
+
+            // Fungsi untuk menambah file F
+            document.getElementById('addFilesBtnF').addEventListener('click', function() {
+                 var fileInput = document.getElementById('fileInputF');
+                 fileInput.click();
+            });
+
+            // Fungsi untuk menambah file G
+            document.getElementById('addFilesBtnG').addEventListener('click', function() {
+                 var fileInput = document.getElementById('fileInputG');
+                 fileInput.click();
+            });
+
+            // Fungsi untuk menambah file H
+            document.getElementById('addFilesBtnH').addEventListener('click', function() {
+                 var fileInput = document.getElementById('fileInputH');
+                 fileInput.click();
+            });
+
+            // Fungsi untuk menambah file I
+            document.getElementById('addFilesBtnI').addEventListener('click', function() {
+                 var fileInput = document.getElementById('fileInputI');
+                 fileInput.click();
+            });
+
+            // Fungsi untuk menambah file J
+            document.getElementById('addFilesBtnJ').addEventListener('click', function() {
+                 var fileInput = document.getElementById('fileInputJ');
+                 fileInput.click();
+            });
 
             // Variabel global untuk menyimpan file-file yang dipilih
             var selectedFiles = [];
+            var selectedFilesB = [];
         </script>
-
-        <script>
-            //fileInput.addEventListener('change', function() {
-            
-                // Bersihkan konten sebelumnya dari div yang menampilkan file yang dipilih
-            //selectedFilesDiv.innerHTML = '';
-
-            // Periksa apakah pengguna sudah memilih file atau belum
-            //if (fileInput.files.length > 0) {
-                
-                // Jika pengguna sudah memilih file, tampilkan file yang dipilih
-                //for (let i = 0; i < fileInput.files.length; i++) {
-                    //const file = fileInput.files[i];
-                    //const fileName = file.name;
-                    //const fileListItem = document.createElement('div');
-                    //fileListItem.textContent = fileName;
-                    //fileListItem.classList.add('border-hijau', 'p-1', 'mb-1'); // Tambahkan kelas CSS untuk border hijau
-                    //selectedFilesDiv.appendChild(fileListItem);
-                //}
-                
-                // Tambahkan kelas CSS untuk border hijau pada tabel kegiatan
-                //document.querySelectorAll('#tableEvaluasiPendidikan-A tbody td:nth-child(2)').forEach(function(td) {
-                    //td.classList.add('border-hijau');
-                //});
-            //} else {
-                
-                // Jika pengguna belum memilih file, tampilkan pesan bahwa belum ada file yang dipilih
-                //const noFilesMessage = document.createElement('p');
-                //noFilesMessage.textContent = 'Belum ada file yang dipilih';
-                //noFilesMessage.classList.add('border-kuning', 'p-1', 'mb-1'); // Tambahkan kelas CSS untuk border kuning
-                //selectedFilesDiv.appendChild(noFilesMessage);
-                
-                // Hapus kelas CSS untuk border hijau dari tabel kegiatan
-                //document.querySelectorAll('#tableEvaluasiPendidikan-A tbody td:nth-child(2)').forEach(function(td) {
-                    //td.classList.remove('border-hijau');
-                //});
-            //}
-        //});
-
-        </script>
-
 @endsection

@@ -621,7 +621,7 @@
                             <tr>
                                 <td scope="row">{{ $counter }}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_mahasiswa'] }}</td>
+                                <td>{{ $item['jumlah_kelompok'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
                                 <td></td>
                                 <td></td>
@@ -692,9 +692,9 @@
                                                             class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
-                                                            class="form-control" name="jumlah_mahasiswa" required>
+                                                        <label for="jumlah_kelompok" class="form-label">Jumlah Kelompok</label>
+                                                        <input placeholder="{{ $item['jumlah_kelompok'] }}" type="number"
+                                                            class="form-control" name="jumlah_kelompok" required>
                                                     </div>
 
                                                 </div>
@@ -1562,8 +1562,8 @@
                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
-                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="number">
+                            <label for="jumlah_kelompok" class="form-label">Jumlah Kelompok</label>
+                            <input name="jumlah_kelompok" class="form-control" type="number">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>

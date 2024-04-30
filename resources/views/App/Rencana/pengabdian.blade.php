@@ -105,28 +105,29 @@
                                             {{ $item['nama_kegiatan'] }}
                                         </h6>
                                         <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                            aria-label="Close">
+                                        </button>
                                     </div>
 
                                     <div class="modal-body">
                                         <form action="{{ route('rk-pengabdian.kegiatan.update') }}"
-                                              method="POST">
+                                              method="POST" class="formEditData">
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id_rencana"
-                                                       value="{{ $item['id_rencana'] }}"/>
+                                                       value="{{ $item['id_rencana'] }}" required/>
                                                 <div class="mb-3">
                                                     <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                                     <input
                                                         name="nama_kegiatan" type="text" class="form-control"
                                                         id="nama_kegiatan"
-                                                        value="{{ $item['nama_kegiatan'] }}">
+                                                        value="{{ $item['nama_kegiatan'] }}" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jumlah_durasi" class="form-label">Durasi
                                                         Kegiatan</label>
                                                     <input name="jumlah_durasi" type="number" class="form-control"
-                                                           id="nama" value={{ $item['jumlah_durasi'] }}>
+                                                           id="nama" value={{ $item['jumlah_durasi'] }} min="1" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -139,7 +140,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- AKHIR MODAL EDIT B --}}
+                        {{-- AKHIR MODAL EDIT A --}}
                     @endforeach
                 @endif
                 </tbody>
@@ -161,17 +162,17 @@
                     </h6>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('rk-pengabdian.kegiatan.create') }}" method="POST">
+                <form action="{{ route('rk-pengabdian.kegiatan.create') }}" method="POST" class="formTambahData">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_durasi" class="form-label">Durasi Kegiatan</label>
-                            <input type="number" id="jumlah_durasi" name="jumlah_durasi" class="form-control">
+                            <input type="number" id="jumlah_durasi" name="jumlah_durasi" class="form-control" min="1" required>
                         </div>
 
                     </div>
@@ -186,40 +187,6 @@
     {{-- AKHIR MODAL A --}}
 
 
-    {{-- TEMPAT MODAL EDIT --}}
-    {{-- MULAI MODAL A --}}
-    <div class="modal fade modal-lg" id="modalEditPengabdian_A" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">A. Satu kegiatan yang setara dengan 50 jam kerja
-                    </h6>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Durasi Kegiatan</label>
-                            <input type="number" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#modalEditConfirm">Simpan Perubahan
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL A --}}
 
     {{-- Mulai B --}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -329,7 +296,7 @@
 
                                     <div class="modal-body">
                                         <form action="{{ route('rk-pengabdian.penyuluhan.update') }}"
-                                              method="POST">
+                                              method="POST" class="formEditData">
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id_rencana"
@@ -339,13 +306,13 @@
                                                     <input
                                                         name="nama_kegiatan" type="text" class="form-control"
                                                         id="nama_kegiatan"
-                                                        value="{{ $item['nama_kegiatan'] }}">
+                                                        value="{{ $item['nama_kegiatan'] }}" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jumlah_durasi" class="form-label">Durasi
                                                         Kegiatan</label>
                                                     <input name="jumlah_durasi" type="number" class="form-control"
-                                                           id="nama" value={{ $item['jumlah_durasi'] }}>
+                                                           id="nama" value={{ $item['jumlah_durasi'] }} min="1" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -373,7 +340,7 @@
          aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{ route('rk-pengabdian.penyuluhan.create') }}" method="POST">
+            <form action="{{ route('rk-pengabdian.penyuluhan.create') }}" method="POST" class="formTambahData">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -388,11 +355,11 @@
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input
                                 name="nama_kegiatan" type="text" class="form-control"
-                                id="nama_kegiatan">
+                                id="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_durasi" class="form-label">Durasi Kegiatan</label>
-                            <input name="jumlah_durasi" type="number" class="form-control" id="nama">
+                            <input name="jumlah_durasi" type="number" class="form-control" id="nama" min="1" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -509,7 +476,7 @@
                                     </div>
 
                                     <div class="modal-body">
-                                        <form action="{{ route('rk-pengabdian.konsultan.update') }}" method="POST">
+                                        <form action="{{ route('rk-pengabdian.konsultan.update') }}" method="POST" class="formEditData">
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id_rencana"
@@ -518,13 +485,12 @@
                                                     <label for="nama_kegiatan" class="form-label">Nama
                                                         Kegiatan</label>
                                                     <input name="nama_kegiatan" type="text" class="form-control"
-                                                           id="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
+                                                           id="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="posisi" class="form-label">Jabatan</label>
                                                     <select name="posisi" class="form-select form-select-md mb-3"
-                                                            aria-label=".form-select-md example">
-                                                        <option disabled selected value>Pilih Jabatan</option>
+                                                            aria-label=".form-select-md example" required>
                                                         <option value="Ketua"
                                                             {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua
                                                         </option>
@@ -559,7 +525,7 @@
     <div class="modal fade modal-lg" id="modalpengabdian_C" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{ route('rk-pengabdian.konsultan.create') }}" method="POST">
+            <form action="{{ route('rk-pengabdian.konsultan.create') }}" method="POST" class="formTambahData">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -573,13 +539,13 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="posisi" class="form-label">Jabatan</label>
                             <select name="posisi" class="form-select form-select-md mb-3"
-                                    aria-label=".form-select-md example">
-                                <option disabled selected value>Pilih Jabatan</option>
+                                    aria-label=".form-select-md example" required>
+                                <option disabled selected value="">Pilih Jabatan</option>
                                 <option value="Ketua">Ketua</option>
                                 <option value="Anggota">Anggota</option>
                             </select>
@@ -712,7 +678,7 @@
 
                                     <div class="modal-body">
                                         <form action="{{ route('rk-pengabdian.karya.update') }}"
-                                              method="POST" class="needs-validation" novalidate>
+                                              method="POST" class="formEditData" class="validatePengabdianD">
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id_rencana"
@@ -723,9 +689,6 @@
                                                         name="nama_kegiatan" type="text" class="form-control"
                                                         id="nama_kegiatan"
                                                         value="{{ $item['nama_kegiatan'] }}" required>
-                                                    <div class="invalid-feedback">
-                                                        Nama kegiatan tidak boleh kosong!
-                                                    </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jenis_terbit" class="form-label">Kategori</label>
@@ -748,9 +711,6 @@
                                                             digunakan oleh siswa mahasiswa)
                                                         </option>
                                                     </select>
-                                                    <div clas="invalid-feedback">
-                                                        Kategori tidak boleh kosong!
-                                                    </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="status_tahapan" class="form-label">Tahapan</label>
@@ -779,9 +739,6 @@
                                                             Buku selesai dicetak
                                                         </option>
                                                     </select>
-                                                    <div class = "needs-validation">
-                                                        Tahapan tidak boleh kosong!
-                                                    </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jenis_pengerjaan" class="form-label">Jenis
@@ -822,9 +779,6 @@
                                                             Penulis Lainnya
                                                         </option>
                                                     </select>
-                                                    <div class = "invalid-feedback">
-                                                        Peran tidak boleh kosong!
-                                                    </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jumlah_anggota" class="form-label">Jumlah
@@ -858,11 +812,10 @@
     {{-- TEMPAT MODAL TAMBAH KEGIATAN --}}
     {{-- MULAI MODAL D --}}
     <div class="modal fade modal-lg" id="modalpengabdian_D" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalLabel"
+         aria-labelledby="exampleModalLabel" class = "validatePengabdianD"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{ route('rk-pengabdian.karya.create') }}" method="POST"
-            class="needs-validation" novalidate>
+            <form action="{{ route('rk-pengabdian.karya.create') }}" method="POST" class="formTambahData" >
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -881,9 +834,6 @@
                             <input
                                 name="nama_kegiatan" type="text" class="form-control"
                                 id="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_terbit" class="form-label">Kategori</label>
@@ -904,9 +854,6 @@
                                     (Tidak diterbitkan, tetapi digunakan oleh siswa mahasiswa)
                                 </option>
                             </select>
-                            <div class="invalid-feedback">
-                                Jenis kategori tidak boleh kosong
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahapan</label>
@@ -919,21 +866,15 @@
                                 <option value="Persetujuan Penerbit">Persetujuan Penerbit</option>
                                 <option value="Buku selesai dicetak">Buku selesai dicetak</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Tahap Pencapaian tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                             <select name="jenis_pengerjaan" class="form-select form-select-md mb-3"
                                     aria-label=".form-select-md example" required>
-                                <option disabled selected value>Pilih jenis pengerjaan</option>
+                                <option disabled selected value ="">Pilih jenis pengerjaan</option>
                                 <option value="Mandiri">Mandiri</option>
                                 <option value="Kelompok">Kelompok</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Jenis pengerjaan tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="peran" class="form-label">Peran</label>
@@ -945,16 +886,10 @@
                                 <option value="Penulis Utama">Penulis Utama</option>
                                 <option value="Penulis Lainnya">Penulis Lainnya</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Peran tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
                             <input name="jumlah_anggota" type="number" class="form-control" min="0" required>
-                            <div class="invalid-feedback">
-                                Jumlah anggota tidak valid
-                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -1016,6 +951,16 @@
 
 
     {{-- TEMPAT TOAST --}}
+    {{-- TOAST TAMBAH --}}
+      <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="addToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-body">
+                <i class="bi bi-check2-circle"></i>
+                Berhasil Menambah Kegiatan
+            </div>
+        </div>
+    </div>
 
     {{-- TOAS EDIT --}}
     <div class="toast-container position-fixed top-0 end-0 p-3">
@@ -1038,8 +983,37 @@
     </div>
 
 
-
     {{-- TEMPAT JAVASCRIPT --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var formTambahDataList = document.querySelectorAll('.formTambahData');
+            var toastBerhasil = new bootstrap.Toast(document.getElementById('addToast'));
+
+            formTambahDataList.forEach(function(formTambahData) {
+                formTambahData.addEventListener('submit', function (event) {
+                    // Lakukan pengiriman formulir ke server secara normal
+                    // Tampilkan toast setelah formulir berhasil dikirim
+                    toastBerhasil.show();
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var formEditDataList = document.querySelectorAll('.formEditData');
+            var toastBerhasil = new bootstrap.Toast(document.getElementById('editToast'));
+
+            formEditDataList.forEach(function(formEditData) {
+                formEditData.addEventListener('submit', function (event) {
+                    // Lakukan pengiriman formulir ke server secara normal
+                    // Tampilkan toast setelah formulir berhasil dikirim
+                    toastBerhasil.show();
+                });
+            });
+        });
+    </script>
+
     <script>
         document.getElementById('confirmEditBtn').addEventListener('click', function () {
             showEditToast();
@@ -1059,46 +1033,28 @@
         }
     </script>
 
+    <!-- Letakkan skrip JavaScript ini setelah formulir modal -->
     <script>
-        document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
-            showDeleteToast();
+        // Mendengarkan perubahan pada pilihan jenis pengerjaan di dalam modal Pengabdian D
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.querySelector('.validatePengabdianD');
+            var jenisPengerjaan = modal.querySelector('select[name="jenis_pengerjaan"]');
+            var peran = modal.querySelector('select[name="peran"]');
+            var jumlahAnggota = modal.querySelector('input[name="jumlah_anggota"]');
+
+            // Mendengarkan perubahan pada pilihan jenis pengerjaan
+            jenisPengerjaan.addEventListener('change', function() {
+                // Jika jenis pengerjaan adalah Mandiri, menghapus kewajiban required pada peran dan jumlah anggota
+                if (jenisPengerjaan.value === 'Mandiri') {
+                    peran.removeAttribute('required');
+                    jumlahAnggota.removeAttribute('required');
+                } else {
+                    // Jika jenis pengerjaan bukan Mandiri, membuat input peran dan jumlah anggota menjadi required
+                    peran.setAttribute('required', 'required');
+                    jumlahAnggota.setAttribute('required', 'required');
+                }
+            });
         });
-
-        function showDeleteToast() {
-            // Menutup modal
-            $('#modalDeleteConfirm').modal('hide');
-
-            // Menambahkan kelas 'show' ke elemen toast
-            $('#deleteToast').addClass('show');
-
-            // Menghapus kelas 'show' setelah beberapa detik (sesuaikan dengan durasi animasi toast)
-            setTimeout(function () {
-                $('#deleteToast').removeClass('show');
-            }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
-        }
-    </script>
-
-    <!-- JavaScript untuk aktivasi validasi form Bootstrap -->
-    <script>
-        (function () {
-            'use strict'
-
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.querySelectorAll('.needs-validation')
-
-            // Loop over them and prevent submission
-            Array.prototype.slice.call(forms)
-                .forEach(function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
-
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-        })()
     </script>
 
 @endsection
