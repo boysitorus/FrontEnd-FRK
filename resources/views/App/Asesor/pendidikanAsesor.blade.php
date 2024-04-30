@@ -123,7 +123,7 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -268,12 +268,10 @@
                                         <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana"
-                                                    value={{ $item['id_rencana'] }}>
+                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
-                                                    name="komentar" class="form-control"
-                                                    placeholder="Tambahkan Komentar" aria-label="Recipient's username"
-                                                    aria-describedby="button-addon2">
+                                                    name="komentar" class="form-control" placeholder="Tambahkan Komentar"
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -417,12 +415,10 @@
                                         <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana"
-                                                    value={{ $item['id_rencana'] }}>
+                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
-                                                    name="komentar" class="form-control"
-                                                    placeholder="Tambahkan Komentar" aria-label="Recipient's username"
-                                                    aria-describedby="button-addon2">
+                                                    name="komentar" class="form-control" placeholder="Tambahkan Komentar"
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -563,12 +559,10 @@
                                         <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana"
-                                                    value={{ $item['id_rencana'] }}>
+                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
-                                                    name="komentar" class="form-control"
-                                                    placeholder="Tambahkan Komentar" aria-label="Recipient's username"
-                                                    aria-describedby="button-addon2">
+                                                    name="komentar" class="form-control" placeholder="Tambahkan Komentar"
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -709,12 +703,10 @@
                                         <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana"
-                                                    value={{ $item['id_rencana'] }}>
+                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
-                                                    name="komentar" class="form-control"
-                                                    placeholder="Tambahkan Komentar" aria-label="Recipient's username"
-                                                    aria-describedby="button-addon2">
+                                                    name="komentar" class="form-control" placeholder="Tambahkan Komentar"
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -854,12 +846,10 @@
                                         <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana"
-                                                    value={{ $item['id_rencana'] }}>
+                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
-                                                    name="komentar" class="form-control"
-                                                    placeholder="Tambahkan Komentar" aria-label="Recipient's username"
-                                                    aria-describedby="button-addon2">
+                                                    name="komentar" class="form-control" placeholder="Tambahkan Komentar"
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -998,12 +988,10 @@
                                         <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana"
-                                                    value={{ $item['id_rencana'] }}>
+                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
-                                                    name="komentar" class="form-control"
-                                                    placeholder="Tambahkan Komentar" aria-label="Recipient's username"
-                                                    aria-describedby="button-addon2">
+                                                    name="komentar" class="form-control" placeholder="Tambahkan Komentar"
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -1143,12 +1131,10 @@
                                         <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana"
-                                                    value={{ $item['id_rencana'] }}>
+                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
-                                                    name="komentar" class="form-control"
-                                                    placeholder="Tambahkan Komentar" aria-label="Recipient's username"
-                                                    aria-describedby="button-addon2">
+                                                    name="komentar" class="form-control" placeholder="Tambahkan Komentar"
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -1288,12 +1274,10 @@
                                         <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana"
-                                                    value={{ $item['id_rencana'] }}>
+                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
-                                                    name="komentar" class="form-control"
-                                                    placeholder="Tambahkan Komentar" aria-label="Recipient's username"
-                                                    aria-describedby="button-addon2">
+                                                    name="komentar" class="form-control" placeholder="Tambahkan Komentar"
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -1343,8 +1327,8 @@
                         @foreach ($koordinator as $item)
                             <tr>
                                 <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item["nama_kegiatan"] }}</td>
-                                <td>{{ $item["sks_terhitung"] }}</td>
+                                <td>{{ $item['nama_kegiatan'] }}</td>
+                                <td>{{ $item['sks_terhitung'] }}</td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i

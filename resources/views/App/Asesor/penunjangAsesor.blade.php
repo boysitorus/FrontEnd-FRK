@@ -118,7 +118,7 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -261,7 +261,7 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -406,7 +406,7 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -547,7 +547,7 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -688,7 +688,7 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -829,7 +829,7 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -969,7 +969,7 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -1110,7 +1110,7 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -1259,7 +1259,7 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
