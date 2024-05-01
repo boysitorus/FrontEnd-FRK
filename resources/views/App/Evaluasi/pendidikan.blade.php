@@ -597,12 +597,10 @@
                     style="border: 2px;">
                     <thead>
                         <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Tahap Pencapaian</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Pengerjaan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Peran</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Dosen Bimbingan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                         </tr>
@@ -619,8 +617,6 @@
                                     <p>Lampiran sudah di upload</p>
                                 </div>
                             </td>
-                            <td></td>
-                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
