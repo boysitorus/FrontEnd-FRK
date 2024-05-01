@@ -518,22 +518,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPendidikan_F">Tambah Lampiran</button>
-                            </td>
-                        </tr>
+                        @if (isset($proposal) && sizeof($proposal) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($proposal as $item)
+                            <tr>
+                                <td scope="row">{{ $counter }}</td>
+                                <td>{{ $item['nama_kegiatan'] }}</td>
+                                <td>{{ $item['jumlah_mahasiswa'] }}</td>
+                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditEvaluasiPendidikan_F">Tambah Lampiran</button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
@@ -1174,6 +1177,34 @@
                 displayFilesWithIconsE(files);
             });
 
+            //bagian f hingga j
+
+            document.getElementById('fileInputF').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIconsE(files);
+            });
+
+            document.getElementById('fileInputG').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIconsE(files);
+            });
+
+            document.getElementById('fileInputH').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIconsE(files);
+            });
+
+            document.getElementById('fileInputI').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIconsE(files);
+            });
+
+            document.getElementById('fileInputJ').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIconsE(files);
+            });
+
+
             // Fungsi untuk menambah file A
             document.getElementById('addFilesBtn').addEventListener('click', function() {
                 var fileInput = document.getElementById('fileInput');
@@ -1188,54 +1219,62 @@
 
             // Fungsi untuk menambah file C
              document.getElementById('addFilesBtnC').addEventListener('click', function() {
-                 var fileInput = document.getElementById('fileInputC');
-                 fileInput.click();
+                 var fileInputC = document.getElementById('fileInputC');
+                 fileInputC.click();
             });
 
             // Fungsi untuk menambah file D
              document.getElementById('addFilesBtnD').addEventListener('click', function() {
-                 var fileInput = document.getElementById('fileInputD');
-                 fileInput.click();
+                 var fileInputD = document.getElementById('fileInputD');
+                 fileInputD.click();
             });
 
             // Fungsi untuk menambah file E
              document.getElementById('addFilesBtnE').addEventListener('click', function() {
-                 var fileInput = document.getElementById('fileInputE');
-                 fileInput.click();
+                 var fileInputE = document.getElementById('fileInputE');
+                 fileInputE.click();
             });
 
             // Fungsi untuk menambah file F
             document.getElementById('addFilesBtnF').addEventListener('click', function() {
-                 var fileInput = document.getElementById('fileInputF');
-                 fileInput.click();
+                 var fileInputF = document.getElementById('fileInputF');
+                 fileInputF.click();
             });
 
             // Fungsi untuk menambah file G
             document.getElementById('addFilesBtnG').addEventListener('click', function() {
-                 var fileInput = document.getElementById('fileInputG');
-                 fileInput.click();
+                 var fileInputG = document.getElementById('fileInputG');
+                 fileInputG.click();
             });
 
             // Fungsi untuk menambah file H
             document.getElementById('addFilesBtnH').addEventListener('click', function() {
-                 var fileInput = document.getElementById('fileInputH');
-                 fileInput.click();
+                 var fileInputH = document.getElementById('fileInputH');
+                 fileInputH.click();
             });
 
             // Fungsi untuk menambah file I
             document.getElementById('addFilesBtnI').addEventListener('click', function() {
-                 var fileInput = document.getElementById('fileInputI');
-                 fileInput.click();
+                 var fileInputI = document.getElementById('fileInputI');
+                 fileInputI.click();
             });
 
             // Fungsi untuk menambah file J
             document.getElementById('addFilesBtnJ').addEventListener('click', function() {
-                 var fileInput = document.getElementById('fileInputJ');
-                 fileInput.click();
+                 var fileInputJ = document.getElementById('fileInputJ');
+                 fileInputJ.click();
             });
 
             // Variabel global untuk menyimpan file-file yang dipilih
             var selectedFiles = [];
             var selectedFilesB = [];
+            var selectedFilesC = [];
+            var selectedFilesD = [];
+            var selectedFilesE = [];
+            var selectedFilesF = [];
+            var selectedFilesG = [];
+            var selectedFilesH = [];
+            var selectedFilesI = [];
+            var selectedFilesJ = [];
         </script>
 @endsection
