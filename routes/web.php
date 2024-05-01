@@ -200,13 +200,21 @@ Route::group(['middleware' => ['check.token']], function () {
             Route::delete('/seminar/{id}', [PendidikanController::class, 'deleteSeminar'])->name('rk-pendidikan.seminar.destroy');
             Route::post('/edit/seminar', [PendidikanController::class, 'editSeminar'])->name('rk-pendidikan.seminar.update');
 
+        
+
+
+            //Rute Untuk Proposal
+
+            Route::post('/proposal', [PendidikanController::class, 'postProposal'])->name('rk-pendidikan.proposal.create');
+            Route::post('/edit/proposal', [PendidikanController::class, 'editProposal'])->name('rk-pendidikan.proposal.update');
+            Route::delete('/proposal/{id}', [PendidikanController::class, 'deleteProposal'])->name('rk-pendidikan.proposal.destroy');
+
             // Rute untuk data rendah
-            // Route::get('/rendah', [PendidikanController::class, 'getRendah'])->name('rk-pendidikan.rendah');
+           
             Route::post('/rendah-tambah', [PendidikanController::class, 'postRendah'])->name('rk-pendidikan.rendah.create');
             Route::post('/edit/rendah', [PendidikanController::class, 'editRendah'])->name('rk-pendidikan.rendah.update');
             Route::delete('/rendah/{id}', [PendidikanController::class, 'deleteRendah'])->name('rk-pendidikan.rendah.destroy');
 
-            //bagian F - G 
             // Rute untuk data kembang
             // Route::get('/kembang', [PendidikanController::class, 'getKembang'])->name('rk-pendidikan.kembang');
             Route::post('/kembang-tambah', [PendidikanController::class, 'postKembang'])->name('rk-pendidikan.kembang.create');
@@ -214,13 +222,13 @@ Route::group(['middleware' => ['check.token']], function () {
             Route::delete('/kembang/{id}', [PendidikanController::class, 'deleteKembang'])->name('rk-pendidikan.kembang.destroy');
 
             // Rute untuk data cangkok
-            // Route::get('/rendah', [PendidikanController::class, 'getRendah'])->name('rk-pendidikan.rendah');
+           
             Route::post('/cangkok-tambah', [PendidikanController::class, 'postCangkok'])->name('rk-pendidikan.cangkok.create');
             Route::post('/edit/cangkok', [PendidikanController::class, 'editCangkok'])->name('rk-pendidikan.cangkok.update');
             Route::delete('/cangkok/{id}', [PendidikanController::class, 'deleteCangkok'])->name('rk-pendidikan.cangkok.destroy');
 
             // Rute untuk data koordinator
-            // Route::get('/rendah', [PendidikanController::class, 'getRendah'])->name('rk-pendidikan.rendah');
+            
             Route::post('/koordinator-tambah', [PendidikanController::class, 'postKoordinator'])->name('rk-pendidikan.koordinator.create');
             Route::post('/edit/koordinator', [PendidikanController::class, 'editKoordinator'])->name('rk-pendidikan.koordinator.update');
             Route::delete('/koordinator/{id}', [PendidikanController::class, 'deleteKoordinator'])->name('rk-pendidikan.koordinator.destroy');
@@ -232,11 +240,7 @@ Route::group(['middleware' => ['check.token']], function () {
             Route::delete('/tugasAkhir/{id}', [PendidikanController::class, 'deleteTugasAkhir'])->name('rk-pendidikan.tugasAkhir.destroy');
 
 
-            //Rute Untuk Proposal
-
-            Route::post('/proposal', [PendidikanController::class, 'postProposal'])->name('rk-pendidikan.proposal.create');
-            Route::post('/edit/proposal', [PendidikanController::class, 'editProposal'])->name('rk-pendidikan.proposal.update');
-            Route::delete('/proposal/{id}', [PendidikanController::class, 'deleteProposal'])->name('rk-pendidikan.proposal.destroy');
+      
         });
         //END OF ROUTE PENDIDIKAN
 

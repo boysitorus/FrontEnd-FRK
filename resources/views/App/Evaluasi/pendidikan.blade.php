@@ -527,8 +527,7 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Dibimbing
-                            </th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Dibimbing</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -634,22 +633,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                    @if (isset($rendah) && sizeof($rendah) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($rendah as $item)
+                            <tr>
+                                <td scope="row">{{ $counter }}</td>
+                                <td>{{ $item['nama_kegiatan'] }}</td>
+                                <td>{{ $item['jumlah_dosen'] }}</td>
+                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPendidikan_G">Tambah Lampiran</button>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
@@ -727,23 +729,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_H">Tambah Lampiran</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                        @if (isset($kembang) && sizeof($kembang) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($kembang as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['jumlah_sap'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPendidikan_H">Tambah Lampiran</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
                 </table>
             </div>
         </div>
@@ -820,23 +825,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_I">Tambah Lampiran</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                        @if (isset($cangkok) && sizeof($cangkok) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($cangkok as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['jumlah_dosen'] }}</td>    
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPendidikan_I">Tambah Lampiran</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
                 </table>
             </div>
         </div>
@@ -909,22 +917,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPendidikan_J">Tambah Lampiran</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                        @if (isset($cangkok) && sizeof($cangkok) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($cangkok as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>  
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPendidikan_J">Tambah Lampiran</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
                 </table>
             </div>
         </div>
