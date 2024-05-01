@@ -2612,11 +2612,11 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan"
-                                placeholder="isi nama kegiatan" required>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" required>
                             <div class="invalid-feedback">
                                 Nama kegiatan tidak boleh kosong!
                             </div>
+                        </div>
                         <div class="mb-3">
                             <label for = "jumlah_bkd" class="form-label">Banyaknya BKD yang Dievaluasi</label>
                             <input name="jumlah_bkd" type="number" class="form-control" id="jumlah_bkd" required>
