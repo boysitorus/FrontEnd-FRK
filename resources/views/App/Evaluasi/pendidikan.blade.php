@@ -1128,6 +1128,492 @@
                 }
             }
 
+// Fungsi untuk menampilkan file yang dipilih beserta ikonnya B
+            function displayFilesWithIconsB(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesB');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesB = selectedFilesB.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesB.length; i++) {
+                    var file = selectedFilesB[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesB.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesB.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya C
+            function displayFilesWithIconsC(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesC');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesC = selectedFilesC.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesC.length; i++) {
+                    var file = selectedFilesC[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesC.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesC.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya D
+            function displayFilesWithIconsD(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesD');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesD = selectedFilesD.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesD.length; i++) {
+                    var file = selectedFilesD[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesD.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesD.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya E
+            function displayFilesWithIconsE(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesE');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesE = selectedFilesE.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesE.length; i++) {
+                    var file = selectedFilesE[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesE.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesE.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya F
+            function displayFilesWithIconsF(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesF');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesF = selectedFilesF.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesF.length; i++) {
+                    var file = selectedFilesF[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesF.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesF.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya G
+            function displayFilesWithIconsG(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesG');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesG = selectedFilesG.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesG.length; i++) {
+                    var file = selectedFilesG[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesG.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesG.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya H
+            function displayFilesWithIconsH(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesH');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesH = selectedFilesH.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesH.length; i++) {
+                    var file = selectedFilesH[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesH.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesH.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya I
+            function displayFilesWithIconsI(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesI');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesI = selectedFilesI.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesI.length; i++) {
+                    var file = selectedFilesI[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesI.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesI.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya J
+            function displayFilesWithIconsJ(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesJ');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesJ = selectedFilesJ.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesJ.length; i++) {
+                    var file = selectedFilesJ[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesJ.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesJ.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
             // Fungsi untuk mendapatkan gambar/logo berdasarkan ekstensi file
             function getFileIcon(extension) {
                 switch (extension.toLowerCase()) {
@@ -1237,5 +1723,13 @@
             // Variabel global untuk menyimpan file-file yang dipilih
             var selectedFiles = [];
             var selectedFilesB = [];
+            var selectedFilesC = [];
+            var selectedFilesD = [];
+            var selectedFilesE = [];
+            var selectedFilesF = [];
+            var selectedFilesG = [];
+            var selectedFilesH = [];
+            var selectedFilesI = [];
+            var selectedFilesJ = [];
         </script>
 @endsection
