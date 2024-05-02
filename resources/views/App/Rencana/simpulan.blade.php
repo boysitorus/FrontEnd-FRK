@@ -33,7 +33,7 @@
                         <td style=" text-align: left;">Pelaksanaan Pendidikan </td>
                         <td style=" text-align: left;">Minimal 9 sks</td>
                         <td style="color: {{ $pendidikanSks == 0 ? 'red' : 'green' }}">{{ $pendidikanSks }}</td>
-                        @if($pendidikanSks == 0)
+                        @if($pendidikanSks == 0 || $pendidikanSks < 9)
                             <td style="color: red;text-align: center">TM</td>
                         @else
                             <td style="color: green;text-align: center">M</td>
@@ -45,7 +45,7 @@
                         <td style=" text-align: left;">Pelaksanaan Penelitian </td>
                         <td style=" text-align: left;">Minimal 1 sks</td>
                         <td style="color: {{ $penelitianSks == 0 ? 'red' : 'green' }}">{{ $penelitianSks }}</td>
-                        @if($penelitianSks == 0)
+                        @if($penelitianSks == 0 || $penelitianSks < 1)
                             <td style="color: red;text-align: center">TM</td>
                         @else
                             <td style="color: green;text-align: center">M</td>
@@ -69,7 +69,7 @@
                         <td style=" text-align: left;">Pelaksanaan Penunjang</td>
                         <td style=" text-align: left;">Maksimal 3 sks</td>
                         <td style="color: {{ $penunjangSks == 0 ? 'red' : 'green' }}">{{ $penunjangSks }}</td>
-                        @if($penunjangSks == 0)
+                        @if($penunjangSks == 0 || $penunjangSks > 3)
                             <td style="color: red;text-align: center">TM</td>
                         @else
                             <td style="color: green;text-align: center">M</td>

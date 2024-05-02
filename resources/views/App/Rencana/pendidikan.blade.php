@@ -51,8 +51,24 @@
                                     <td>{{ $item['jumlah_evaluasi'] }}</td>
                                     <td>{{ $item['sks_matakuliah'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -214,8 +230,24 @@
                                     <td>{{ $item['jumlah_kelas'] }}</td>
                                     <td>{{ $item['sks_matakuliah'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -371,8 +403,24 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -510,8 +558,24 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_kelompok'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -649,8 +713,24 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -792,8 +872,24 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -934,8 +1030,24 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_dosen'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1106,8 +1218,24 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_sap'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1278,8 +1406,24 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_dosen'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1434,8 +1578,24 @@
                                     <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
