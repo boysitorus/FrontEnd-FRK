@@ -56,66 +56,46 @@
     </div>
     {{-- AKHIR BAGIAN A --}}
 
-    {{-- MODAL UPLOAD A --}}
-    <div class="modal fade" id="modalEditPenelitian_A" tabindex="-1" aria-labelledby="modalEditPenelitian_A_label" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_A_label"><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan 
-                    karya seni atau teknologi yang dilakukan oleh kelompok (disetujui oleh pimpinan dan tercapai)</h5></b>
+
+    {{-- TEMPAT MODAL ADD FILE A--}}
+    <div class="modal fade" id="modalEditPenelitian_A" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
+    aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">A. Kuliah (Teori) pada tingkat Diploma dan S1 terhadap setiap kelompok</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat Kontrak Penelitian</li>
+                                    <li>Proposal</li>
+                                    <li>Laporan progress report bila belum selesai</li>
+                                    <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah selesai</li>
+                                    <li>Laporan akhir penelitian (termasuklog book)</li>
+                                    <li>Foto karya seni / bukti lain yang relevan jika terkait dengan pengembangan teknologi</li>
+                                </ol>
+                                <!-- File input -->
+                                <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan dari Pimpinan 
-                                    / Ka LPPM atau Surat Kontrak Penelitian</b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Proposal</b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Laporan progress report bila belum selesai</b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat pernyataan dari Ka LPPM 
-                                bahwa penelitian sudah selesai</b></h6> </label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Laporan akhir penelitian (termasuk 
-                                log book)</b></h6> </label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Foto karya seni / bukti lain yang 
-                                relevan jika terkait dengan pengembangan teknologi</b></h6> </label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    </div>
-                    <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
-                    data-bs-target="#modalBatal">Batal</button>
-                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                 </div>
             </div>
         </div>
-        {{-- AKHIR MODAL UPLOAD A --}}
+    </div>
+    {{-- AKHIR MODAL ADD FILE A--}}
 
 
 {{--AKHIR BAGIAN MODAL BATAL UPLOAD A}}
@@ -278,54 +258,45 @@
     </div>
     {{--AKHIR BAGIAN C --}}
 
-    {{-- MODAL UPLOAD C--}}
-    <div class="modal fade" id="modalEditPenelitian_C" tabindex="-1" aria-labelledby="modalEditPenelitian_C_label" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_C_label"><b>C.Menulis 1 judul naskah buku yang akan diterbitkan dalam 
-                    waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat) sama dengan 3 sks.  </h5></b>
+    {{-- TEMPAT MODAL ADD FILE C--}}
+    <div class="modal fade" id="modalEditPenelitian_C" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
+    aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">A. Kuliah (Teori) pada tingkat Diploma dan S1 terhadap setiap kelompok</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Buku yang sudah terbit</li>
+                                    <li>Bukti kontrak penerbitan jika masih naik cetak</li>
+                                    <li>Surat Keterangan Sedang Menulis 
+                                    Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam 
+                                    berapa lama, bagi yang sedang menulis.</li>
+                                    <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
+                                </ol>
+                                <!-- File input -->
+                                <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Buku yang sudah terbit </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Bukti kontrak penerbitan jika 
-                                masih naik cetak </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan Sedang Menulis 
-                                Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam 
-                                berapa lama, bagi yang sedang menulis. </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Progres penulisan buku dll., bagi 
-                                yang sedang dalam proses </b></h6> </label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    </div>
-                    <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
-                    data-bs-target="#modalBatal">Batal</button>
-                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                 </div>
             </div>
         </div>
-        {{-- AKHIR MODAL UPLOAD C --}}
+    </div>
+    {{-- AKHIR MODAL ADD FILE C--}}
 
     {{-- BAGIAN D --}}
     <div id="penelitian-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -378,54 +349,45 @@
     </div>
     {{-- AKHIR BAGIAN D --}}
 
-    {{-- MODAL UPLOAD D --}}
-    <div class="modal fade" id="modalEditPenelitian_D" tabindex="-1" aria-labelledby="modalEditPenelitian_D_label" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_D_label"><b>D.Menulis satu judul naskah buku internasional 
-                (berbahasa dan diedarkan secara internasional minimal tiga negara), disetujui oleh pimpinan dan tercatat </h5></b>
+    {{-- TEMPAT MODAL ADD FILE D--}}
+    <div class="modal fade" id="modalEditPenelitian_D" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
+    aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">A. Kuliah (Teori) pada tingkat Diploma dan S1 terhadap setiap kelompok</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Buku yang sudah terbit</li>
+                                    <li>Bukti kontrak penerbitan jika masih naik cetak</li>
+                                    <li>Surat Keterangan Sedang Menulis 
+                                    Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam 
+                                    berapa lama, bagi yang sedang menulis.</li>
+                                    <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
+                                </ol>
+                                <!-- File input -->
+                                <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Buku yang sudah terbit </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Bukti kontrak penerbitan jika 
-                                masih naik cetak </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan Sedang Menulis 
-                                Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam 
-                                berapa lama, bagi yang sedang menulis. </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Progres penulisan buku dll., bagi 
-                                yang sedang dalam proses </b></h6> </label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    </div>
-                    <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
-                    data-bs-target="#modalBatal">Batal</button>
-                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                 </div>
             </div>
         </div>
-        {{-- AKHIR MODAL UPLOAD D --}}
+    </div>
+    {{-- AKHIR MODAL ADD FILE D--}}
 
     {{-- BAGIAN E --}}
     <div id="penelitian-E" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
