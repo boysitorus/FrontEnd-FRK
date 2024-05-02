@@ -748,11 +748,8 @@
                                                         <div class="modal-body">
                                                         <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
                                                         <div class="mb-3">
-                                                            <label for="nama_kegiatan" class="form-label">Nama
-                                                                Kegiatan</label>
-                                                            <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                                name="nama_kegiatan" type="text"
-                                                                class="form-control" id="nama_kegiatan" required>
+                                                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                            <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>

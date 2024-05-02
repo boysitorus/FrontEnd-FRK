@@ -444,4 +444,6 @@ class PendidikanController extends Controller
         Http::delete(env('API_FRK_SERVICE') . "/pendidikan/proposal/{$id}");
         return redirect()->back()->with('success', 'Item deleted');
     }
+
+    
 }
