@@ -38,7 +38,7 @@
                         <td  style=" text-align: left;">Pelaksanaan Pendidikan </td>
                         <td style=" text-align: left;">Tidak Boleh Kosong</td>
                         <td style="color: green">M</td>
-                        <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Lihat</button></td>
+                        <td><a href="{{ route ('ed-simpulan-pendidikan') }}" ><button class="btn btn-primary btn-sm" data-bs-target="#lihat">Lihat</button></a></td>
 
     
                     </tr>
@@ -47,7 +47,7 @@
                         <td style=" text-align: left;">Pelaksanaan Penelitian </td>
                         <td style=" text-align: left;">Tidak Boleh Kosong</td>
                         <td style="color: green">M</td>
-                        <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Lihat</button></td>
+                        <td><a href="{{ route ('ed-simpulan-penelitian') }}" ><button class="btn btn-primary btn-sm" data-bs-target="#lihat">Lihat</button></a></td>
     
                     </tr>
                     <tr>
@@ -55,15 +55,14 @@
                         <td style=" text-align: left;" >Pelaksanaan Pengabdian </td>
                         <td style=" text-align: left;">Tidak Boleh Kosong</td>
                         <td style="color: green">M</td>
-                        <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
-    
+                        <td><a href="{{ route ('ed-simpulan-pengabdian') }}" ><button class="btn btn-primary btn-sm" data-bs-target="#lihat">Lihat</button></a></td>
                     </tr>
                     <tr>
                         <td scope="row" style=" text-align: left;">4</td>
                         <td style=" text-align: left;">Pelaksanaan Penunjang</td>
                         <td style=" text-align: left  ;">Tidak Boleh Kosong</td>
                         <td style="color: red">TM</td>
-                        <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Lihat</button></td>
+                        <td><a href="{{ route ('ed-simpulan-penunjang') }}" ><button class="btn btn-primary btn-sm" data-bs-target="#lihat">Lihat</button></a></td>
                     </tr>
                     <!-- <tr>
                         <td colspan="5" class="pt-5"></td>

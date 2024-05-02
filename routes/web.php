@@ -318,6 +318,15 @@ Route::group(['middleware' => ['check.token']], function() {
     Route::prefix('/formEvaluasiDiri')->group(function () {
         Route::get('/penelitian', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
         Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
+        Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanPanel'])->name('ed-pendidikan');
+        Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
+        Route::prefix('/simpulan')->group(function () {
+            Route::get('/', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
+            Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanSimpulanPanel'])->name('ed-simpulan-pendidikan');
+            Route::get('/penelitian', [EvaluasiDiriController::class, 'getPenelitianSimpulanPanel'])->name('ed-simpulan-penelitian');
+            Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianSimpulanPanel'])->name('ed-simpulan-pengabdian');
+            Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangSimpulanPanel'])->name('ed-simpulan-penunjang');
+        });
     });
 
     Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
