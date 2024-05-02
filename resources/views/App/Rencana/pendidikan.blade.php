@@ -711,7 +711,7 @@
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
-                                    <td>{{ $item['jumlah_mahasiswa'] }}</td>
+                                    <td>{{ $item['jumlah_kelompok'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
                                         @if ($item['asesor1_frk'] === null)
@@ -804,9 +804,9 @@
                                                             class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
-                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_mahasiswa'] }}" type="number"
-                                                            class="form-control" name="jumlah_mahasiswa" required>
+                                                        <label for="jumlah_kelompok" class="form-label">Jumlah Kelompok</label>
+                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_kelompok'] }}" type="number"
+                                                            class="form-control" name="jumlah_kelompok" required>
                                                     </div>
 
                                                 </div>
@@ -1891,8 +1891,8 @@
                                 required>
                         </div>
                         <div class="mb-3">
-                            <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
-                            <input id="pend_mahasiswa_E" name="jumlah_mahasiswa" class="form-control" type="number" min="1" required>
+                            <label for="jumlah_kelompok" class="form-label">Jumlah Kelompok</label>
+                            <input id="pend_mahasiswa_E" name="jumlah_kelompok" class="form-control" type="number" min="1" required>
                         </div>
                         <div class="modal-footer">
                             <button id="pend_simpan_E" type="submit" class="btn btn-primary">Simpan</button>

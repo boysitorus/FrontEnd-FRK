@@ -384,7 +384,7 @@ class PendidikanController extends Controller
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
+                'jumlah_kelompok' => $request->get('jumlah_kelompok'),
             ]
         );
 
@@ -398,7 +398,7 @@ class PendidikanController extends Controller
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
+                'jumlah_kelompok' => $request->get('jumlah_kelompok'),
             ]
         );
 
