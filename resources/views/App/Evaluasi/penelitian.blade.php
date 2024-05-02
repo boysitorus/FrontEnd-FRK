@@ -5,10 +5,10 @@
     {{-- TAMPILAN BAGIAN EVALUASI PENELITIAN --}}
 
     {{-- BAGIAN A --}}
-    
+
     <div id="penelitian-A" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya 
+            <h6><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya
                 seni atau teknologi yang dilakukan oleh kelompok (disetujui oleh pimpinan dan tercapai)</b></h6>
             <hr />
 
@@ -151,14 +151,14 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_B_label"><b>B. Pelaksanaan penelitian mandiri atau pembuatan 
+                <h5 class="modal-title" id="modalEditPenelitian_B_label"><b>B. Pelaksanaan penelitian mandiri atau pembuatan
                 karya seni atau teknologi (disetujui oleh pimpinan dan tercatat) </h5></b>
                     </div>
                     <div class="modal-body">
-                        
+
                     <form>
                                 <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan dari Pimpinan 
+                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan dari Pimpinan
                                     / Ka LPPM atau Surat Kontrak Penelitian</b></h6></label>
                                 <input class="form-control" type="file" id="formFile">
                                 </div>
@@ -177,28 +177,28 @@
                     </form>
                     <form>
                                 <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat pernyataan dari Ka LPPM 
+                                <label for="formFile" class="form-label"><b><h6>Surat pernyataan dari Ka LPPM
                                 bahwa penelitian sudah selesai</b></h6> </label>
                                 <input class="form-control" type="file" id="formFile">
                                 </div>
                     </form>
                     <form>
                                 <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Laporan akhir penelitian (termasuk 
+                                <label for="formFile" class="form-label"><b><h6>Laporan akhir penelitian (termasuk
                                 log book)</b></h6> </label>
                                 <input class="form-control" type="file" id="formFile">
                                 </div>
                     </form>
                     <form>
                                 <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Foto karya seni / bukti lain yang 
+                                <label for="formFile" class="form-label"><b><h6>Foto karya seni / bukti lain yang
                                 relevan jika terkait dengan pengembangan teknologi</b></h6> </label>
                                 <input class="form-control" type="file" id="formFile">
                                 </div>
                     </form>
                     </div>
                     <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -275,8 +275,8 @@
                                 <ol>
                                     <li>Buku yang sudah terbit</li>
                                     <li>Bukti kontrak penerbitan jika masih naik cetak</li>
-                                    <li>Surat Keterangan Sedang Menulis 
-                                    Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam 
+                                    <li>Surat Keterangan Sedang Menulis
+                                    Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam
                                     berapa lama, bagi yang sedang menulis.</li>
                                     <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
                                 </ol>
@@ -301,13 +301,13 @@
     {{-- BAGIAN D --}}
     <div id="penelitian-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>D. Menulis satu judul naskah buku internasional  
-                (berbahasa dan diedarkan secara internasional minimal  tiga negara), 
+            <h6><b>D. Menulis satu judul naskah buku internasional
+                (berbahasa dan diedarkan secara internasional minimal  tiga negara),
                 disetujui oleh pimpinan dan tercatat</b></h6>
             <hr />
 
             <div class="text-sm">
-                <table id="tablePenelitian-D" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle" 
+                <table id="tablePenelitian-D" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                 style="border: 2px;">
                 <thead>
                      <tr>
@@ -366,8 +366,8 @@
                                 <ol>
                                     <li>Buku yang sudah terbit</li>
                                     <li>Bukti kontrak penerbitan jika masih naik cetak</li>
-                                    <li>Surat Keterangan Sedang Menulis 
-                                    Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam 
+                                    <li>Surat Keterangan Sedang Menulis
+                                    Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam
                                     berapa lama, bagi yang sedang menulis.</li>
                                     <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
                                 </ol>
@@ -392,7 +392,7 @@
     {{-- BAGIAN E --}}
     <div id="penelitian-E" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan 
+            <h6><b>E. Menterjemahkan atau menyadur naskah buku teks yang akan diterbitkan
                 dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama  dengan 2 sks</b></h6>
             <hr />
 
@@ -422,7 +422,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>   
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td>
@@ -445,42 +445,32 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_E_label"><b>E.Menterjemahkan atau menyadur naskah buku teks yang 
-                akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks  </h5></b>
+                <h6 class="modal-title" id="modalEditPenelitian_E_label">E.Menterjemahkan atau menyadur naskah buku teks yang
+                akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui oleh pimpinan dan tercatat), sama dengan 2 sks </h6>
+                </div>
+                  <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Buku yang sudah terbit</li>
+                                    <li>Bukti kontrak penerbitan jika masih naik cetak</li>
+                                    <li>Surat Keterangan Sedang Menulis Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam
+                                        berapa lama, bagi yang sedang menulis</li>
+                                    <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
+                                </ol>
+                                <!-- File input -->
+                                <input type="file" id="fileInput" multiple>
+                            </br>
+                            </br>
+                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Buku yang sudah terbit </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Bukti kontrak penerbitan jika 
-                                masih naik cetak </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat Keterangan Sedang Menulis 
-                                Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam 
-                                berapa lama, bagi yang sedang menulis. </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Progres penulisan buku dll., bagi 
-                                yang sedang dalam proses </b></h6> </label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    </div>
-                    <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                </div>
+                    <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -492,7 +482,7 @@
     {{-- BAGIAN F --}}
     <div id="penelitian-F" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu 
+            <h6><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu
                 sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat) sama dengan 2 sks</b></h6>
             <hr />
 
@@ -545,39 +535,32 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_F_label"><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu 
+                <h5 class="modal-title" id="modalEditPenelitian_F_label"><b>F. Menyunting satu judul naskah buku yang akan diterbitkan dalam waktu
                 sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat) sama dengan 2 sks </h5></b>
                     </div>
                     <div class="modal-body">
-                        
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat Tugas atau Surat Keterangan Telah Menyunting Buku dari Pimpinan dengan 
-                                mencantumkan akan selesai dalam berapa lama. </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                    <ol>
+                                        <li>Surat Tugas atau Surat Keterangan Telah Menyunting Buku dari Pimpinan dengan
+                                            mencantumkan akan selesai dalam berapa lama.</li>
+                                        <li>Buku yang sudah terbit</li>
+                                        <li>bukti kontrak penerbitan jika masih naik cetak</li>
+                                        <li>Progres penyuntingan naskah buku</li>
+                                    </ol>
+                                    <!-- File input -->
+                                    <input type="file" id="fileInput" multiple>
+                                </br>
+                                </br>
+                                    <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                                 </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Buku yang sudah terbit </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>bukti kontrak penerbitan jika masih naik cetak  </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Progres penyuntingan naskah buku </b></h6> </label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -589,7 +572,7 @@
     {{-- BAGIAN G --}}
     <div id="penelitian-G" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen  yang sesuai dengan 
+            <h6><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen  yang sesuai dengan
                 bidang ilmu dan tidak diterbitkan,  tetapi digunakan oleh mahasiswa</b></h6>
             <hr />
 
@@ -643,34 +626,31 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_G_label"><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen  yang sesuai dengan 
+                <h5 class="modal-title" id="modalEditPenelitian_G_label"><b>G. Menulis Modul/Diktat/Bahan Ajar oleh seorang Dosen  yang sesuai dengan
                 bidang ilmu dan tidak diterbitkan,  tetapi digunakan oleh mahasiswa</h5></b>
                     </div>
                     <div class="modal-body">
-                        
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat Tugas atau Surat Keputusan Mengajar (mata 
-                                kuliah yang dimodulkan) dari Pimpinan  </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                    <ol>
+                                        <li>Surat Tugas atau Surat Keputusan Mengajar (mata kuliah yang dimodulkan) dari Pimpinan</li>
+                                        <li>Modul/Diktat/Bahan Ajar yang sudah jadi</li>
+                                        <li>Bukti lain yang menunjukkan bahwa modul/diktat/bahan ajar
+                                            sudah dipergunakan oleh mahasiswa</li>
+                                    </ol>
+                                    <!-- File input -->
+                                    <input type="file" id="fileInput" multiple>
+                                </br>
+                                </br>
+                                    <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                                 </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Modul/Diktat/Bahan Ajar yang sudah jadi</b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Bukti lain yang menunjukkan bahwa modul/diktat/bahan ajar 
-                                sudah dipergunakan oleh mahasiswa.  </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -731,7 +711,7 @@
                 <h5 class="modal-title" id="modalEditPenelitian_H_label"><b>H. PEKERTI/AA</h5></b>
                     </div>
                     <div class="modal-body">
-                        
+
                     <form>
                                 <div class="mb-3">
                                 <label for="formFile" class="form-label"><b><h6>Surat Tugas Mengikuti Program Pekerti dari Pimpinan </b></h6></label>
@@ -746,14 +726,14 @@
                     </form>
                     <form>
                                 <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Tugas yang diselesaikan selama pelatihan seperti RKPSS yang 
+                                <label for="formFile" class="form-label"><b><h6>Tugas yang diselesaikan selama pelatihan seperti RKPSS yang
                                 sudah siap dll.  </b></h6></label>
                                 <input class="form-control" type="file" id="formFile">
                                 </div>
                     </form>
                     </div>
                     <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -815,7 +795,7 @@
                 <h5 class="modal-title" id="modalEditPenelitian_I_label"><b>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</h5></b>
                     </div>
                     <div class="modal-body">
-                        
+
                     <form>
                                 <div class="mb-3">
                                 <label for="formFile" class="form-label"><b><h6>Surat Tugas Mengikuti Program Pekerti dari Pimpinan </b></h6></label>
@@ -836,7 +816,7 @@
                     </form>
                     </div>
                     <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -904,17 +884,17 @@
                 <h5 class="modal-title" id="modalEditPenelitian_J_label"><b>J. Menulis jurnal ilmiah</h5></b>
                     </div>
                     <div class="modal-body">
-                        
+
                     <form>
                                 <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Jurnal yang sudah diterbitkan atau surat 
+                                <label for="formFile" class="form-label"><b><h6>Jurnal yang sudah diterbitkan atau surat
                                 keterangan/penerimaan dr redaksi & naskah, bagi yang belum diterbitkan. </b></h6></label>
                                 <input class="form-control" type="file" id="formFile">
                                 </div>
                     </form>
                     </div>
                     <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -977,17 +957,17 @@
                 <h5 class="modal-title" id="modalEditPenelitian_K_label"><b>K. Memperoleh hak paten</h5></b>
                     </div>
                     <div class="modal-body">
-                        
+
                     <form>
                                 <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat/sertifikat paten atau surat 
+                                <label for="formFile" class="form-label"><b><h6>Surat/sertifikat paten atau surat
                                 keterangan dari Pimpinan  </b></h6></label>
                                 <input class="form-control" type="file" id="formFile">
                                 </div>
                     </form>
                     </div>
                     <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -999,7 +979,7 @@
     {{-- BAGIAN L --}}
         <div id="penelitian-L" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
             <div class="card-body">
-                <h6><b>L. Menulis di media massa (Koran/majalah: tulisan berupa opini, 
+                <h6><b>L. Menulis di media massa (Koran/majalah: tulisan berupa opini,
                     form diskusi, kritik, kajian ilmiah, ulasan ahli/pakar yang terkait dengan keahlian bidang ilmunya)</b></h6>
                 <hr />
 
@@ -1046,21 +1026,21 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_L_label"><b>L. Menulis di media massa (Koran/majalah: tulisan berupa opini, 
+                <h5 class="modal-title" id="modalEditPenelitian_L_label"><b>L. Menulis di media massa (Koran/majalah: tulisan berupa opini,
                     form diskusi, kritik, kajian ilmiah, ulasan ahli/pakar yang terkait dengan keahlian bidang ilmunya)</h5></b>
                     </div>
                     <div class="modal-body">
-                        
+
                     <form>
                                 <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6> Foto kopi tulisan yang dimuat di 
+                                <label for="formFile" class="form-label"><b><h6> Foto kopi tulisan yang dimuat di
                                 Koran/majalah</b></h6></label>
                                 <input class="form-control" type="file" id="formFile">
                                 </div>
                     </form>
                     </div>
                     <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -1120,7 +1100,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_M_label"><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar, 
+                <h5 class="modal-title" id="modalEditPenelitian_M_label"><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar,
                     narasumber terkait dengan bidang keilmuannya</h5></b>
                     </div>
                     <div class="modal-body">
@@ -1162,7 +1142,7 @@
                     </form>
                     </div>
                     <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -1257,7 +1237,7 @@
                     </form>
                     </div>
                     <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#modalBatal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
@@ -1265,7 +1245,7 @@
             </div>
         </div>
         {{-- AKHIR MODAL UPLOAD N --}}
-        
+
 
         {{-- TEMPAT MODAL DELETE CONFIRM --}}
         <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
@@ -1290,7 +1270,7 @@
                 </div>
             </div>
         </div>
-       
+
         {{-- MODAL BATAL UPLOAD --}}
         <div class="modal fade" id="modalBatal" tabindex="-1" aria-labelledby="modalBatal_label" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
