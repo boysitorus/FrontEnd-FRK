@@ -127,15 +127,15 @@
                         <td style="text-align: left; padding: 5mm; border: 1px solid black;">Pelaksanaan Pendidikan</td>
                         <td style="text-align: left; padding: 5mm; border: 1px solid black;">Minimal 9 sks</td>
                         <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $pendidikanSks == 0 ? 'red' : 'green' }}">{{ $pendidikanSks }}</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $pendidikanSks == 0 ? 'red' : 'green' }}">{{ $pendidikanSks == 0 ? 'TM' : 'M' }}</td>
+                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $pendidikanSks == 0 ? 'red' : 'green' }}">{{ $pendidikanSks == 0 || $pendidikanSks < 9 ? 'TM' : 'M' }}</td>
                     </tr>
 
                     <tr>
                         <td style="text-align: left; padding: 5mm; border: 1px solid black;">2</td>
                         <td style="text-align: left; padding: 5mm; border: 1px solid black;">Pelaksanaan Penelitian</td>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">Minimal 9 sks</td>
+                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">Minimal 1 sks</td>
                         <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $penelitianSks == 0 ? 'red' : 'green' }}">{{ $penelitianSks }}</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $penelitianSks == 0 ? 'red' : 'green' }}">{{ $penelitianSks == 0 ? 'TM' : 'M' }}</td>
+                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $penelitianSks == 0 ? 'red' : 'green' }}">{{ $penelitianSks == 0  || $penelitianSks < 1 ? 'TM' : 'M' }}</td>
                     </tr>
 
                     <tr>
@@ -143,7 +143,7 @@
                         <td style="text-align: left; padding: 5mm; border: 1px solid black;">Pelaksanaan Pengabdian</td>
                         <td style="text-align: left; padding: 5mm; border: 1px solid black;">Maksimal 3 sks</td>
                         <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $pengabdianSks == 0 ? 'red' : 'green' }}">{{ $pengabdianSks }}</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $pengabdianSks == 0 ? 'red' : 'green' }}">{{ $pengabdianSks == 0 ? 'TM' : 'M' }}</td>
+                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $pengabdianSks == 0 ? 'red' : 'green' }}">{{ $pengabdianSks == 0 || $pengabdianSks > 3 ? 'TM' : 'M' }}</td>
                     </tr>
 
                     <tr>
@@ -151,7 +151,7 @@
                         <td style="text-align: left; padding: 5mm; border: 1px solid black;">Pelaksanaan Penunjang</td>
                         <td style="text-align: left; padding: 5mm; border: 1px solid black;">Maksimal 3 sks</td>
                         <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $penunjangSks == 0 ? 'red' : 'green' }}">{{ $penunjangSks }}</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $penunjangSks == 0 ? 'red' : 'green' }}">{{ $penunjangSks == 0 ? 'TM' : 'M' }}</td>
+                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $penunjangSks == 0 ? 'red' : 'green' }}">{{ $penunjangSks == 0 || $penunjangSks > 3? 'TM' : 'M' }}</td>
                     </tr>
 
                     <tr style="border-bottom: 2px solid black;">
