@@ -42,11 +42,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_A"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                data-bs-target="#modalEditEvaluasiPenelitian_A">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -58,7 +55,7 @@
 
 
     {{-- TEMPAT MODAL ADD FILE A--}}
-    <div class="modal fade" id="modalEditPenelitian_A" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
+    <div class="modal fade" id="modalEditEvaluasiPenelitian_A" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
     aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -80,10 +77,14 @@
                                     <li>Foto karya seni / bukti lain yang relevan jika terkait dengan pengembangan teknologi</li>
                                 </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <button id="addFilesBtn" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFiles"></div>
+                                </div>
+                                <input type="file" id="fileInput" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -244,11 +245,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_C"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                data-bs-target="#modalEditEvaluasiPenelitian_C">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -259,12 +257,12 @@
     {{--AKHIR BAGIAN C --}}
 
     {{-- TEMPAT MODAL ADD FILE C--}}
-    <div class="modal fade" id="modalEditPenelitian_C" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
+    <div class="modal fade" id="modalEditEvaluasiPenelitian_C" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
     aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">A. Kuliah (Teori) pada tingkat Diploma dan S1 terhadap setiap kelompok</h6>
+                    <h6 class="modal-title" id="modalEditEvaluasiPenelitianCLabel">C. Menulis 1 judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya \ 4 semester (disetujui oleh pimpinan dan tercatat)sama dengan 3 sks.</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -281,10 +279,14 @@
                                     <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
                                 </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <button id="addFilesBtnC" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesC"></div>
+                                </div>
+                                <input type="file" id="fileInputC" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -336,10 +338,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_D"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                            data-bs-target="#modalEditEvaluasiPenelitian_D">Tambah Lampiran</button>
+                               
                         </td>
                     </tr>
                 </tbody>
@@ -350,12 +351,14 @@
     {{-- AKHIR BAGIAN D --}}
 
     {{-- TEMPAT MODAL ADD FILE D--}}
-    <div class="modal fade" id="modalEditPenelitian_D" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
+    <div class="modal fade" id="modalEditEvaluasiPenelitian_D" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
     aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">A. Kuliah (Teori) pada tingkat Diploma dan S1 terhadap setiap kelompok</h6>
+                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">D. Menulis satu judul naskah buku internasional
+                (berbahasa dan diedarkan secara internasional minimal  tiga negara),
+                disetujui oleh pimpinan dan tercatat</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -372,10 +375,14 @@
                                     <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
                                 </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <button id="addFilesBtnD" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesD"></div>
+                                </div>
+                                <input type="file" id="fileInputD" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -1333,6 +1340,221 @@
                     $('#deleteToast').removeClass('show');
                 }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
             }
+
+            
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya A
+            function displayFilesWithIcons(files) {
+            var selectedFilesDiv = document.getElementById('selectedFiles');
+            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+            selectedFiles = selectedFiles.concat(Array.from(files));
+
+            // Menghapus konten sebelumnya
+            selectedFilesDiv.innerHTML = '';
+
+            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+            for (var i = 0; i < selectedFiles.length; i++) {
+                var file = selectedFiles[i];
+                if (!file) continue; // Lewati file yang telah dihapus
+
+                var fileName = file.name;
+                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                var fileListItem = document.createElement('div');
+                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                // Tambahkan ikon/gambar
+                var fileIconImg = document.createElement('img');
+                fileIconImg.src = '/assets/img/' + fileIcon;
+                fileIconImg.alt = 'File Icon';
+                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                fileListItem.appendChild(fileIconImg);
+
+                // Tambahkan nama file
+                var fileNameSpan = document.createElement('span');
+                fileNameSpan.textContent = fileName;
+                fileListItem.appendChild(fileNameSpan);
+
+                // Tambahkan tombol hapus
+                var deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                deleteBtn.addEventListener('click', (function(fileToRemove) {
+                    return function() {
+                        // Hapus file dari array file-file yang dipilih
+                        var index = selectedFiles.indexOf(fileToRemove);
+                        if (index > -1) {
+                            selectedFiles.splice(index, 1);
+                        }
+                        // Hapus elemen file dari tampilan
+                        this.parentElement.remove();
+                    };
+                })(file)); // Closure untuk menyimpan file yang benar
+                fileListItem.appendChild(deleteBtn);
+
+                selectedFilesDiv.appendChild(fileListItem);
+            }
+        }
+
+        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya C
+        function displayFilesWithIcons(files) {
+            var selectedFilesDiv = document.getElementById('selectedFilesC');
+            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+            selectedFiles = selectedFiles.concat(Array.from(files));
+
+            // Menghapus konten sebelumnya
+            selectedFilesDiv.innerHTML = '';
+
+            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+            for (var i = 0; i < selectedFiles.length; i++) {
+                var file = selectedFiles[i];
+                if (!file) continue; // Lewati file yang telah dihapus
+
+                var fileName = file.name;
+                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                var fileListItem = document.createElement('div');
+                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                // Tambahkan ikon/gambar
+                var fileIconImg = document.createElement('img');
+                fileIconImg.src = '/assets/img/' + fileIcon;
+                fileIconImg.alt = 'File Icon';
+                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                fileListItem.appendChild(fileIconImg);
+
+                // Tambahkan nama file
+                var fileNameSpan = document.createElement('span');
+                fileNameSpan.textContent = fileName;
+                fileListItem.appendChild(fileNameSpan);
+
+                // Tambahkan tombol hapus
+                var deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                deleteBtn.addEventListener('click', (function(fileToRemove) {
+                    return function() {
+                        // Hapus file dari array file-file yang dipilih
+                        var index = selectedFiles.indexOf(fileToRemove);
+                        if (index > -1) {
+                            selectedFiles.splice(index, 1);
+                        }
+                        // Hapus elemen file dari tampilan
+                        this.parentElement.remove();
+                    };
+                })(file)); // Closure untuk menyimpan file yang benar
+                fileListItem.appendChild(deleteBtn);
+
+                selectedFilesDiv.appendChild(fileListItem);
+            }
+        }
+
+        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya D
+        function displayFilesWithIcons(files) {
+            var selectedFilesDiv = document.getElementById('selectedFilesD');
+            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+            selectedFiles = selectedFiles.concat(Array.from(files));
+
+            // Menghapus konten sebelumnya
+            selectedFilesDiv.innerHTML = '';
+
+            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+            for (var i = 0; i < selectedFiles.length; i++) {
+                var file = selectedFiles[i];
+                if (!file) continue; // Lewati file yang telah dihapus
+
+                var fileName = file.name;
+                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                var fileListItem = document.createElement('div');
+                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                // Tambahkan ikon/gambar
+                var fileIconImg = document.createElement('img');
+                fileIconImg.src = '/assets/img/' + fileIcon;
+                fileIconImg.alt = 'File Icon';
+                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                fileListItem.appendChild(fileIconImg);
+
+                // Tambahkan nama file
+                var fileNameSpan = document.createElement('span');
+                fileNameSpan.textContent = fileName;
+                fileListItem.appendChild(fileNameSpan);
+
+                // Tambahkan tombol hapus
+                var deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                deleteBtn.addEventListener('click', (function(fileToRemove) {
+                    return function() {
+                        // Hapus file dari array file-file yang dipilih
+                        var index = selectedFiles.indexOf(fileToRemove);
+                        if (index > -1) {
+                            selectedFiles.splice(index, 1);
+                        }
+                        // Hapus elemen file dari tampilan
+                        this.parentElement.remove();
+                    };
+                })(file)); // Closure untuk menyimpan file yang benar
+                fileListItem.appendChild(deleteBtn);
+
+                selectedFilesDiv.appendChild(fileListItem);
+            }
+        }
+
+        function getFileIcon(extension) {
+            switch (extension.toLowerCase()) {
+                case 'pdf':
+                    return 'pdf.png';
+                case 'doc':
+                case 'docx':
+                    return 'word.png';
+                case 'xls':
+                case 'xlsx':
+                    return 'sheets.png';
+                case 'png':
+                case 'jpg':
+                case 'jpeg':
+                    return 'photo.png';
+                default:
+                    return 'document.png';
+            }
+        }
+
+        // Gunakan fungsi displayFilesWithIcons untuk menampilkan file dengan gambar/logo
+        document.getElementById('fileInput').addEventListener('change', function() {
+            var files = this.files;
+            displayFilesWithIcons(files);
+        });
+        document.getElementById('fileInputC').addEventListener('change', function() {
+            var files = this.files;
+            displayFilesWithIcons(files);
+        });
+        document.getElementById('fileInputD').addEventListener('change', function() {
+            var files = this.files;
+            displayFilesWithIcons(files);
+        });
+
+        // Fungsi untuk menambah file A
+        document.getElementById('addFilesBtn').addEventListener('click', function() {
+            var fileInput = document.getElementById('fileInput');
+            fileInput.click();
+        });
+        document.getElementById('addFilesBtnC').addEventListener('click', function() {
+            var fileInput = document.getElementById('fileInput');
+            fileInput.click();
+        });
+        document.getElementById('addFilesBtnD').addEventListener('click', function() {
+            var fileInput = document.getElementById('fileInput');
+            fileInput.click();
+        });
+
+        var selectedFiles = [];
+        var selectedFilesC = [];
+        var selectedFilesD = [];
         </script>
 
         <script>
