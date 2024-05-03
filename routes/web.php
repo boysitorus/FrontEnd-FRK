@@ -321,11 +321,17 @@ Route::group(['middleware' => ['check.token']], function () {
     });
 
     Route::prefix('/formEvaluasiDiri')->group(function () {
+        // Rute untuk data teori
         Route::get('/penelitian', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
         Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
         Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanPanel'])->name('ed-pendidikan');
         Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
         Route::get('/simpulan', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
+
+        Route::prefix('/pendidikan')->group(function () {
+            Route::post('/teori-upload', [EvaluasiDiriController::class, 'postTeori'])->name('ed-pendidikan.teori.upload');
+        });
+
     });
 
 

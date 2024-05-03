@@ -91,4 +91,16 @@ class EvaluasiDiriController extends Controller
         return view('App.Evaluasi.simpulanPendidikan');
     }
 
+    public function postTeori(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/pendidikan/teori',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput')
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pendidikan teori upload successfully');
+    }
 }
