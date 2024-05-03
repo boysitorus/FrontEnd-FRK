@@ -1104,46 +1104,30 @@
                     narasumber terkait dengan bidang keilmuannya</h5></b>
                     </div>
                     <div class="modal-body">
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>SuratPermohonan sebagai </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6>*Jenis Dokumen yang harus dilengkapi: </h6>
+                                    <ol>
+                                        <li>Surat Permohonan sebagai  Pembicara/Nara Sumber</li>
+                                        <li>Surat tugas/ijin/persetujuan dari  Pimpinan</li>
+                                        <li>Naskah/ materi yang diberikan</li>
+                                        <li>Sertifikat (jika ada)</li>
+                                    </ol>
+                                    <!-- File Input -->
+                                    <button id="addFileBtn" class="btn btn-secondary">Add</button>
+                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                    <div class="mt-3 mb-3">
+                                        <div id="selecteedFiles"></div>
+                                    </div>
+                                    <input type="file" id="fileInput" style="display: none;" multiple>
                                 </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Pembicara/Narasumber </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat tugas/ijin/persetujuan dari </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Pimpinan </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Naskah/ materi yang diberikan </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Sertifikat (jika ada) </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
-                    data-bs-target="#modalBatal">Batal</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
                 </div>
