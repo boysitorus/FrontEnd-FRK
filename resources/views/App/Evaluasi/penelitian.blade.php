@@ -340,7 +340,7 @@
                         <td>
                             <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                             data-bs-target="#modalEditEvaluasiPenelitian_D">Tambah Lampiran</button>
-                               
+
                         </td>
                     </tr>
                 </tbody>
@@ -433,10 +433,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_E"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditPenelitian_E">Tambah Lampiran</button>
 
                             </td>
                         </tr>
@@ -467,18 +465,20 @@
                                         berapa lama, bagi yang sedang menulis</li>
                                     <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
                                 </ol>
-                                <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
-                            </br>
-                            </br>
-                                <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                 <!-- File input -->
+                                 <button id="addFilesBtnE" class="btn btn-secondary">Add Files</button>
+                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                 <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                 <div class="mt-3 mb-3">
+                                     <div id="selectedFilesE"></div>
+                                 </div>
+                                 <input type="file" id="fileInputE" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
                 </div>
                     <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
-                    data-bs-target="#modalBatal">Batal</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
                 </div>
@@ -523,10 +523,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_F"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditPenelitian_F">Tambah Lampiran</button>
 
                             </td>
                         </tr>
@@ -558,17 +556,19 @@
                                         <li>Progres penyuntingan naskah buku</li>
                                     </ol>
                                     <!-- File input -->
-                                    <input type="file" id="fileInput" multiple>
-                                </br>
-                                </br>
-                                    <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                 <button id="addFilesBtnF" class="btn btn-secondary">Add Files</button>
+                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                 <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                 <div class="mt-3 mb-3">
+                                     <div id="selectedFilesF"></div>
+                                 </div>
+                                 <input type="file" id="fileInputF" style="display: none;" multiple>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
-                    data-bs-target="#modalBatal">Batal</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
                 </div>
@@ -613,12 +613,8 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_G"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditPenelitian_G">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -647,18 +643,20 @@
                                         <li>Bukti lain yang menunjukkan bahwa modul/diktat/bahan ajar
                                             sudah dipergunakan oleh mahasiswa</li>
                                     </ol>
-                                    <!-- File input -->
-                                    <input type="file" id="fileInput" multiple>
-                                </br>
-                                </br>
-                                    <p>*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                     <!-- File input -->
+                                 <button id="addFilesBtnG" class="btn btn-secondary">Add Files</button>
+                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                 <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                 <div class="mt-3 mb-3">
+                                     <div id="selectedFilesG"></div>
+                                 </div>
+                                 <input type="file" id="fileInputG" style="display: none;" multiple>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
-                    data-bs-target="#modalBatal">Batal</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
                 </div>
@@ -1341,7 +1339,7 @@
                 }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
             }
 
-            
+
 
             // Fungsi untuk menampilkan file yang dipilih beserta ikonnya A
             function displayFilesWithIcons(files) {
