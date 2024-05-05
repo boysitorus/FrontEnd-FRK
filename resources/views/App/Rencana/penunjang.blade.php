@@ -52,8 +52,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -214,8 +215,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -379,8 +381,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -539,7 +542,7 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
                                         @endif
                                     </td>
@@ -690,7 +693,7 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
                                         @endif
                                     </td>
@@ -916,8 +919,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -1116,8 +1120,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -1292,8 +1297,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -1377,8 +1383,8 @@
             {{-- AKHIR MODAL EDIT --}}
 
             {{-- MODAL DELETE --}}
-            <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1"
+                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -1478,8 +1484,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -1662,8 +1669,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -1844,8 +1852,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -2024,8 +2033,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -2218,8 +2228,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -2395,8 +2406,9 @@
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor1_frk'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        @else
                                             <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
