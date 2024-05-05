@@ -1067,7 +1067,7 @@
                             <tr>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">Kategori</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkatan</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                                 <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -1078,6 +1078,25 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if (isset($teori) && sizeof($teori) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($teori as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['tingkat'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPenelitian_M">Tambah Lampiran</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                             <tr>
                                 <td scope="row">1</td>
                                 <td>Lorem ipsum dolor sit amet consectetur.</td>
@@ -1152,8 +1171,8 @@
                             <tr>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Kategori</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Kegiatan</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Tingkatan</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Pengerjaan</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Posisi</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jumlah Anggota</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
@@ -1498,17 +1517,17 @@
         }
 
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya M
-        function displayFilesWithIcons(files) {
+        function displayFilesWithIconsM(files) {
             var selectedFilesDiv = document.getElementById('selectedFilesM');
             // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFiles = selectedFiles.concat(Array.from(files));
+            selectedFilesM = selectedFilesM.concat(Array.from(files));
 
             // Menghapus konten sebelumnya
             selectedFilesDiv.innerHTML = '';
 
             // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFiles.length; i++) {
-                var file = selectedFiles[i];
+            for (var i = 0; i < selectedFilesM.length; i++) {
+                var file = selectedFilesM[i];
                 if (!file) continue; // Lewati file yang telah dihapus
 
                 var fileName = file.name;
@@ -1537,9 +1556,9 @@
                 deleteBtn.addEventListener('click', (function(fileToRemove) {
                     return function() {
                         // Hapus file dari array file-file yang dipilih
-                        var index = selectedFiles.indexOf(fileToRemove);
+                        var index = selectedFilesM.indexOf(fileToRemove);
                         if (index > -1) {
-                            selectedFiles.splice(index, 1);
+                            selectedFilesM.splice(index, 1);
                         }
                         // Hapus elemen file dari tampilan
                         this.parentElement.remove();
@@ -1586,11 +1605,11 @@
         });
         document.getElementById('fileInputM').addEventListener('change', function() {
             var files = this.files;
-            displayFilesWithIcons(files);
+            displayFilesWithIconsM(files);
         });
         document.getElementById('fileInputN').addEventListener('change', function() {
             var files = this.files;
-            displayFilesWithIcons(files);
+            displayFilesWithIconsN(files);
         });
 
         // Fungsi untuk menambah file A
@@ -1607,12 +1626,12 @@
             fileInput.click();
         });
         document.getElementById('addFilesBtnM').addEventListener('click', function() {
-            var fileInput = document.getElementById('fileInput');
-            fileInput.click();
+            var fileInputM = document.getElementById('fileInputM');
+            fileInputM.click();
         });
         document.getElementById('addFilesBtnN').addEventListener('click', function() {
-            var fileInput = document.getElementById('fileInput');
-            fileInput.click();
+            var fileInputN = document.getElementById('fileInputN');
+            fileInputN.click();
         });
 
         var selectedFiles = [];
