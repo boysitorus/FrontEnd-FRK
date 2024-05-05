@@ -1086,10 +1086,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_M"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenelitian_M">Tambah Lampiran</button>
 
                                 </td>
                             </tr>
@@ -1101,11 +1099,11 @@
     {{-- AKHIR BAGIAN M --}}
 
     {{-- MODAL UPLOAD M --}}
-    <div class="modal fade" id="modalEditPenelitian_M" tabindex="-1" aria-labelledby="modalEditPenelitian_M_label" aria-hidden="true">
+    <div class="modal fade" id="modalEditEvaluasiPenelitian_M" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_M_label"><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar,
+                <h5 class="modal-title" id="modalEditEvaluasiPendidikanMLabel"><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar,
                     narasumber terkait dengan bidang keilmuannya</h5></b>
                     </div>
                     <div class="modal-body">
@@ -1120,7 +1118,7 @@
                                         <li>Sertifikat (jika ada)</li>
                                     </ol>
                                     <!-- File Input -->
-                                    <button id="addFileBtn" class="btn btn-secondary">Add</button>
+                                    <button id="addFileBtn" class="btn btn-secondary">Add Files</button>
                                     <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                     <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
                                     <div class="mt-3 mb-3">
@@ -1178,10 +1176,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian_N"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenelitian_N">Tambah Lampiran</button>
 
                                 </td>
                             </tr>
@@ -1193,41 +1189,38 @@
     {{-- AKHIR BAGIAN N --}}
 
     {{-- MODAL UPLOAD N --}}
-    <div class="modal fade" id="modalEditPenelitian_N" tabindex="-1" aria-labelledby="modalEditPenelitian_N_label" aria-hidden="true">
+    <div class="modal fade" id="modalEditEvaluasiPenelitian_N" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditPenelitian_N_label"><b>N. Penyaji makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</h5></b>
+                <h5 class="modal-title" id="modalEditEvaluasiPendidikanNLabel"><b>N. Penyaji makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</h5></b>
                     </div>
                     <div class="modal-body">
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat penerimaan untuk disajikan dari Panitia </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
+                        <div class="container">
+                            <div class="row">
+                                <div class="mol-md-12">
+                                    <h6>*Jenis Dokumen yang harus dilengkapi: </h6>
+                                    <ol>
+                                        <li>Surat Penerimaan untuk disajkina dari Panitia</li>
+                                        <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
+                                        <li>Naskah/materi yang diberikan</li>
+                                        <li>Sertifikat (jika ada)</li>
+                                    </ol>
+                                    <!-- File Input -->
+                                    <button id="addFilesBtnN" class="btn btn-secondary">Add Files</button>
+                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                    <!-- Tambahkan jarak bawah -->
+                                    <div class="mt-3 mb-3">
+                                        <div id="selectedFilesN"></div>
+                                    </div>
+                                    <input type="file" id="fileInputD" style="display: none;" multiple>
                                 </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Surat tugas/ijin/persetujuan dari Pimpinan </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Naskah/ materi yang diberikan </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
-                    <form>
-                                <div class="mb-3">
-                                <label for="formFile" class="form-label"><b><h6>Sertifikat (jika ada) </b></h6></label>
-                                <input class="form-control" type="file" id="formFile">
-                                </div>
-                    </form>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
-                    data-bs-target="#modalBatal">Batal</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
                 </div>
