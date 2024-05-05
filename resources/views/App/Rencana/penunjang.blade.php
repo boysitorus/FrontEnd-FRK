@@ -48,22 +48,22 @@
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -95,19 +95,22 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Mahasiswa</label>
-                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_mahasiswa'] }}" type="number"
+                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['jumlah_mahasiswa'] }}" type="number"
                                                             class="form-control" name="jumlah_mahasiswa" min="1">
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -207,22 +210,22 @@
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -255,20 +258,22 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Mahasiswa</label>
-                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}" value="{{ $item['jumlah_mahasiswa'] }}"
-                                                            type="number" class="form-control" name="jumlah_mahasiswa"
-                                                            min="1">
+                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['jumlah_mahasiswa'] }}" type="number"
+                                                            class="form-control" name="jumlah_mahasiswa" min="1">
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -370,22 +375,22 @@
                                     <td>{{ $item['jumlah_kegiatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -455,20 +460,23 @@
                                                         <label for="nama_kegiatan" class="form-label"
                                                             style="text-align: left;">Nama
                                                             Kegiatan</label>
-                                                        <input id="nama-{{ $item['id_rencana'] }}" type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
+                                                        <input id="nama-{{ $item['id_rencana'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kegiatan" class="form-label"
                                                             style="text-align: left;">Jumlah
                                                             Kegiatan</label>
-                                                        <input id="jumlah-{{ $item['id_rencana'] }}" class="form-control" type="number" name="jumlah_kegiatan"
+                                                        <input id="jumlah-{{ $item['id_rencana'] }}" class="form-control"
+                                                            type="number" name="jumlah_kegiatan"
                                                             value="{{ $item['jumlah_kegiatan'] }}" min="1"
                                                             step="any">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">Simpan
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">Simpan
                                                         Perubahan</button>
                                                 </div>
                                             </form>
@@ -536,13 +544,13 @@
                                         @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -610,13 +618,15 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input id="nama-{{ $item['id_rencana'] }}" type="text" class="form-control" name="nama_kegiatan"
+                                                        <input id="nama-{{ $item['id_rencana'] }}" type="text"
+                                                            class="form-control" name="nama_kegiatan"
                                                             value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
 
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">Simpan
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">Simpan
                                                         Perubahan</button>
                                                 </div>
                                             </form>
@@ -685,13 +695,13 @@
                                         @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -727,9 +737,10 @@
                                                                         style="text-align: left;"> Nama
                                                                         Kegiatan</label>
                                                                 </div>
-                                                                <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
-                                                                    type="text" class="form-control"
-                                                                    id="nama_kegiatan" name="nama_kegiatan" required>
+                                                                <input id="nama-{{ $item['id_rencana'] }}"
+                                                                    value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                                    class="form-control" id="nama_kegiatan"
+                                                                    name="nama_kegiatan" required>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <div style="text-align: left;">
@@ -737,7 +748,8 @@
                                                                         class="form-label" style="text-align: left;">
                                                                         Jabatan</label>
                                                                 </div>
-                                                                <select id="jabatan-{{ $item['id_rencana'] }}" class="form-select"
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}"
+                                                                    class="form-select"
                                                                     aria-label="Default select example"
                                                                     name="jenis_jabatan_struktural" required>
                                                                     <option value="" selected disabled hidden>
@@ -800,7 +812,8 @@
 
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">Simpan
+                                                                <button id="edit-{{ $item['id_rencana'] }}"
+                                                                    type="submit" class="btn btn-primary">Simpan
                                                                     Perubahan</button>
                                                             </div>
                                                     </form>
@@ -899,22 +912,22 @@
                                     <td>{{ $item['jenis_jabatan_nonstruktural'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -950,9 +963,10 @@
                                                                         style="text-align: left;">Nama
                                                                         Kegiatan</label>
                                                                 </div>
-                                                                <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
-                                                                    type="text" class="form-control"
-                                                                    id="nama_kegiatan" name="nama_kegiatan">
+                                                                <input id="nama-{{ $item['id_rencana'] }}"
+                                                                    value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                                    class="form-control" id="nama_kegiatan"
+                                                                    name="nama_kegiatan">
                                                             </div>
                                                             <div class="mb-3">
                                                                 <div style="text-align: left;">
@@ -960,7 +974,8 @@
                                                                         class="form-label"
                                                                         style="text-align: left;">Jabatan</label>
                                                                 </div>
-                                                                <select id="jabatan-{{ $item['id_rencana'] }}" class="form-select"
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}"
+                                                                    class="form-select"
                                                                     aria-label="Default select example"
                                                                     name="jenis_jabatan_nonstruktural" required>
                                                                     <option value="" selected disabled hidden>
@@ -997,7 +1012,8 @@
 
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">Simpan
+                                                                <button id="edit-{{ $item['id_rencana'] }}"
+                                                                    type="submit" class="btn btn-primary">Simpan
                                                                     Perubahan</button>
                                                             </div>
                                                     </form>
@@ -1096,22 +1112,22 @@
                                     <td>{{ $item['jabatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1147,16 +1163,18 @@
                                                                         style="text-align: left;">Nama
                                                                         Kegiatan</label>
                                                                 </div>
-                                                                <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
-                                                                    type="text" class="form-control"
-                                                                    id="nama_kegiatan" name="nama_kegiatan">
+                                                                <input id="nama-{{ $item['id_rencana'] }}"
+                                                                    value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                                    class="form-control" id="nama_kegiatan"
+                                                                    name="nama_kegiatan">
                                                             </div>
                                                             <div class="mb-3">
                                                                 <div style="text-align: left;">
                                                                     <label for="jabatan" class="form-label"
                                                                         style="text-align: left;">Jabatan</label>
                                                                 </div>
-                                                                <select id="jabatan-{{ $item['id_rencana'] }}" class="form-select"
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}"
+                                                                    class="form-select"
                                                                     aria-label="Default select example" name="jabatan"
                                                                     required>
                                                                     <option value="" selected disabled hidden>
@@ -1270,22 +1288,22 @@
                                     <td>{{ $item['jabatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1322,9 +1340,10 @@
                                                                         Kegiatan</label>
                                                                 </div>
 
-                                                                <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
-                                                                    type="text" class="form-control"
-                                                                    id="nama_kegiatan" name="nama_kegiatan">
+                                                                <input id="nama-{{ $item['id_rencana'] }}"
+                                                                    value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                                    class="form-control" id="nama_kegiatan"
+                                                                    name="nama_kegiatan">
                                                             </div>
                                                             <div class="mb-3">
                                                                 <div style="text-align: left;">
@@ -1332,7 +1351,8 @@
                                                                         style="text-align: left;">Jabatan</label>
                                                                 </div>
 
-                                                                <select id="jabatan-{{ $item['id_rencana'] }}" class="form-select"
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}"
+                                                                    class="form-select"
                                                                     aria-label="Default select example" name="jabatan"
                                                                     required>
                                                                     <option value="" selected disabled hidden>
@@ -1454,22 +1474,22 @@
                                     @endif
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1506,9 +1526,10 @@
                                                                 style="text-align: left;">Nama
                                                                 Kegiatan</label>
                                                         </div>
-                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -1516,7 +1537,8 @@
                                                                 style="text-align: left;">
                                                                 Tingkat Jabatan</label>
                                                         </div>
-                                                        <select id="tingkatan-{{ $item['id_rencana'] }}" name="jenis_tingkatan" class="form-control" required>
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}"
+                                                            name="jenis_tingkatan" class="form-control" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
                                                             <option value="1">Universitas</option>
@@ -1526,7 +1548,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -1635,22 +1658,22 @@
                                     @endif
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1687,9 +1710,10 @@
                                                                 style="text-align: left;">Nama
                                                                 Kegiatan</label>
                                                         </div>
-                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -1697,7 +1721,8 @@
                                                                 style="text-align: left;">
                                                                 Tingkat Jabatan</label>
                                                         </div>
-                                                        <select id="tingkatan-{{ $item['id_rencana'] }}" name="jenis_tingkatan" class="form-control" required>
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}"
+                                                            name="jenis_tingkatan" class="form-control" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
                                                             <option value="1">Universitas</option>
@@ -1815,22 +1840,22 @@
                                     @endif
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1868,9 +1893,10 @@
                                                                 style="text-align: left;">Nama
                                                                 Kegiatan</label>
                                                         </div>
-                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -1878,7 +1904,8 @@
                                                                 style="text-align: left;">
                                                                 Jabatan</label>
                                                         </div>
-                                                        <select id="jabatan-{{ $item['id_rencana'] }}" name="jabatan" class="form-control" required>
+                                                        <select id="jabatan-{{ $item['id_rencana'] }}" name="jabatan"
+                                                            class="form-control" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
                                                             <option value="1">Ketua Yayasan</option>
@@ -1888,7 +1915,8 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -1992,22 +2020,22 @@
                                     <td>{{ $item['jenis_tingkatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -2043,17 +2071,18 @@
                                                                 style="text-align: left;">Nama
                                                                 Kegiatan:</label>
                                                         </div>
-                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan">
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
                                                             <label for="jabatan" class="form-label"
                                                                 style="text-align: left;">Jabatan:</label>
                                                         </div>
-                                                        <select id="jabatan-{{ $item['id_rencana'] }}" class="form-control" aria-label="Default select example"
-                                                            id="jabatan" name="jabatan" required>
+                                                        <select id="jabatan-{{ $item['id_rencana'] }}"
+                                                            class="form-control" aria-label="Default select example"
+                                                            name="jabatan" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
                                                             <option value="Anggota"
@@ -2068,8 +2097,9 @@
                                                         <label for="jenis_tingkatan" class="form-label">
                                                             Tingkatan:
                                                         </label>
-                                                        <select id="tingkatan-{{ $item['id_rencana'] }}" class="form-control" aria-label="Default select example"
-                                                            id="jenis_tingkatan" name="jenis_tingkatan" required>
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}"
+                                                            class="form-control" aria-label="Default select example"
+                                                            name="jenis_tingkatan" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
                                                             <option value="Nasional"
@@ -2083,7 +2113,8 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -2183,22 +2214,22 @@
                                     <td>{{ $item['jenis_tingkatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -2234,9 +2265,9 @@
                                                                 style="text-align: left;">Nama
                                                                 Kegiatan:</label>
                                                         </div>
-                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan">
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -2245,7 +2276,8 @@
                                                                 Tingkatan:
                                                             </label>
                                                         </div>
-                                                        <select id="tingkatan-{{ $item['id_rencana'] }}" class="form-control" id="jenis_tingkatan"
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}"
+                                                            class="form-control" id="jenis_tingkatan"
                                                             name="jenis_tingkatan" required>
                                                             <option value="" selected disabled hidden>Open this
                                                                 select menu</option>
@@ -2359,22 +2391,22 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor1_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor1_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_frk'] === null)
-                                        <span class="badge bg-secondary">Menunggu</span>
-                                    @elseif ($item['asesor2_frk'] === 'setuju')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor2_frk'] === 'ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -2409,14 +2441,15 @@
                                                             style="text-align: left;">
                                                             Nama Kegiatan:
                                                         </label>
-                                                        <input id="nama-{{ $item['id_rencana'] }}" value="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan">
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan">
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -2802,7 +2835,8 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input id="penunjang_nama_I" name="nama_kegiatan" type="text" class="form-control" id="nama">
+                            <input id="penunjang_nama_I" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
@@ -2839,7 +2873,8 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input id="penunjnag_nama_J" name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                            <input id="penunjnag_nama_J" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
@@ -2876,7 +2911,8 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input id="penunjang_nama_K" name="nama_kegiatan" type="text" class="form-control" id="nama"required>
+                            <input id="penunjang_nama_K" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama"required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jabatan:</label>
@@ -2911,7 +2947,8 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input id="penunjang_nama_L" name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                            <input id="penunjang_nama_L" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label for="jabatan" class="form-label">Jabatan:</label>
@@ -2921,7 +2958,8 @@
                             </select>
                         </div>
                         <label class="form-label">Tingkatan:</label>
-                        <select id="penunjang_tingkatan_L" class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
+                        <select id="penunjang_tingkatan_L" class="form-control" id="jenis_tingkatan"
+                            name="jenis_tingkatan" required>
                             <option value="" selected disabled hidden>Open this select menu</option>
                             <option value="Nasional">Nasional</option>
                             <option value="Internasional">Internasional</option>
@@ -2954,11 +2992,13 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input id="penunjang_nama_M" name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                            <input id="penunjang_nama_M" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_tingkatan" class="form-label">Tingkatan:</label>
-                            <select id="penunjang_tingkatan_M" class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
+                            <select id="penunjang_tingkatan_M" class="form-control" id="jenis_tingkatan"
+                                name="jenis_tingkatan" required>
                                 <option value="" selected disabled hidden>Open this select menu</option>
                                 <option value="Regional/Nasional">Regional/Nasional</option>
                                 <option value="Internasional">Internasional</option>
@@ -2989,7 +3029,8 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input id="penunjang_nama_N" name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                            <input id="penunjang_nama_N" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="modal-footer">
                             <button id="penunjang_simpan_N" type="submit" class="btn btn-primary">Simpan</button>
