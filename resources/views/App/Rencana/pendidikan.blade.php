@@ -58,7 +58,7 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span class="bg-alert-info mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
                                         @endif
                                     </td>
                                     <td>
