@@ -1092,18 +1092,25 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="row">1</td>
-                                <td>Lorem ipsum dolor sit amet consectetur.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenelitian_M">Tambah Lampiran</button>
-
-                                </td>
-                            </tr>
+                            @if (isset($pembicara_seminar) && sizeof($pembicara_seminar) > 0)
+                                @php
+                                    $counter = 1;
+                                @endphp
+                                @foreach ($pembicara_seminar as $item)
+                                    <tr>
+                                        <td scope="row">{{ $counter }}</td>
+                                        <td>{{ $item['nama_kegiatan'] }}</td>
+                                        <td>{{ $item['lingkup_wilayah'] }}</td>
+                                        <td>{{ $item['sks_terhitung'] }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPenelitian_M">Tambah Lampiran</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -1119,6 +1126,8 @@
                 <h5 class="modal-title" id="modalEditEvaluasiPendidikanMLabel"><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar,
                     narasumber terkait dengan bidang keilmuannya</h5></b>
                     </div>
+
+                    <form action="{{ route('ed-add-pembicara-seminar') }}" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="container">
                             <div class="row">
@@ -1131,7 +1140,7 @@
                                         <li>Sertifikat (jika ada)</li>
                                     </ol>
                                     <!-- File Input -->
-                                    <button id="addFilesBtnM" class="btn btn-secondary">Add Files</button>
+                                    <button type="button" id="addFilesBtnM" class="btn btn-secondary">Add Files</button>
                                     <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                     <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
                                     <div class="mt-3 mb-3">
@@ -1146,6 +1155,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
