@@ -113,17 +113,40 @@ class EvaluasiDiriController extends Controller
     }
 
     public function postBukuInternasional(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penelitian/buku-internasional',
-            [
-                'id_rencana' => $request->input('id_rencana'),
-                'files' => $request->file('fileInput')
-            ]
-        );
+{
+    try {
+        $files = $request->file('fileInputD');
+        $id_rencana = $request->input('id_rencana');
+        
+        // Create a new Guzzle HTTP client instance
+        $client = new \GuzzleHttp\Client();
 
-        return redirect()->back()->with('success', 'Penelitian buku_innternasional added successfully');
+        // Prepare the form data
+        $formData = [
+            'id_rencana' => $id_rencana,
+        ];
+
+        // Prepare the files to be attached
+        foreach ($files as $file) {
+            $formData['files[]'] = fopen($file->getRealPath(), 'r');
+        }
+
+        // Send the HTTP request with the form data and files attached
+        $response = $client->request('POST', env('API_FED_SERVICE') . '/penelitian/buku-internasional', [
+            'multipart' => $formData,
+        ]);
+
+        // Check the response status code and handle it accordingly
+        if ($response->getStatusCode() == 200) {
+            return redirect()->back()->with('success', 'Penelitian buku_internasional added successfully');
+        } else {
+            return redirect()->back()->with('error', 'Failed to add penelitian buku_internasional');
+        }
+    } catch (\Exception $e) {
+        // Handle the exception, log it, or return an error response
+        return redirect()->back()->with('error', 'An error occurred while adding penelitian buku_internasional');
     }
+}
 
     public function getSimpulanPanel(){
         return view('App.Evaluasi.FEDsimpulan');
