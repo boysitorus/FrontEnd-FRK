@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="{{ asset('assets/bootstrap-icons-1.11.2/font/bootstrap-icons.min.css') }}"> --}} --}}
 
     <link rel="stylesheet" href="{{ asset('dist/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/toastr.min.js') }}">
     <link rel="stylesheet" href="{{ asset('dist/bs/bootstrap-5.3.3-dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/toastr.min.css') }}">
 
 
     <style>
@@ -44,7 +44,7 @@
 
         .toast-top-right {
             top: 130px;
-            right: 12px
+            right: 12px;
         }
     </style>
 </head>
@@ -269,12 +269,24 @@
     <script src="{{ asset('dist/bs/bootstrap-5.3.3-dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('dist/toastr.min.js') }}"></script>
 
+
     @if (Session::has('message'))
         <script>
             toastr.options = {
                 "closeButton": true,
             }
             toastr.success("{{ Session::get('message') }}", 'Success!', {
+                timeOut: 12000
+            })
+        </script>
+    @endif
+
+    @if (Session::has('error'))
+        <script>
+            toastr.options = {
+                "closeButton": true,
+            }
+            toastr.error("{{ Session::get('error') }}", 'Error!', {
                 timeOut: 12000
             })
         </script>

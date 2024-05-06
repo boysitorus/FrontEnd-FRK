@@ -92,12 +92,13 @@ class SimpulanController extends Controller
         try {
             $response = Http::post(env('API_FRK_SERVICE') . '/simpulan-simpan-rencana/' . $id_dosen);
             if($response->status() === 200){
-                return back()->with('message', 'Berhasil menyimpan rencana kerja');
+                return back()->with('message', $response["message"]);
             } else {
                 throw new RequestException($response);
             }
         } catch (RequestException $e) {
-            return back()->with('message', 'Gagal menyimpan rencana kerja');
+            $message = $response['message'];
+            return back()->with('error', $message);
         }
     }
 
