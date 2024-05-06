@@ -49,7 +49,7 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -189,7 +189,7 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -332,7 +332,7 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -483,7 +483,7 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
                                         </td>
                                     @endif
                                 @endif
