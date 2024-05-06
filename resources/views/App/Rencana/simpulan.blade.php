@@ -68,7 +68,7 @@
                         <td scope="row" style=" text-align: left;">4</td>
                         <td style=" text-align: left;">Pelaksanaan Penunjang</td>
                         <td style=" text-align: left;">Maksimal 3 sks</td>
-                        <td style="color: {{ $penunjangSks == 0 ? 'red' : 'green' }}">{{ $penunjangSks }}</td>
+                        <td style="color: {{ $penunjangSks == 0 || $penunjangSks > 3? 'red' : 'green' }}">{{ $penunjangSks }}</td>
                         @if($penunjangSks == 0 || $penunjangSks > 3)
                             <td style="color: red;text-align: center">TM</td>
                         @else

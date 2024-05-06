@@ -393,7 +393,7 @@
                                     <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                         <div id="selectedFilesD"></div>
                                     </div>
-                                    <input type="file" id="fileInputD" name="fileInput[]" style="display: none;" multiple>
+                                    <input type="file" id="fileInputD" name="fileInputD[]" style="display: none;" multiple>
                                 </div>
                             </div>
                         </div>
