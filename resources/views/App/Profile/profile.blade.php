@@ -4,7 +4,7 @@
     <!-- ROLE -->
 
     <div class="mt-3 d-flex align-items-center justify-content-end">
-        <span class="role">Peran Saat ini : Dosen Program Studi S1 Informatika</span>
+        <span class="role">Peran Saat ini : {{ json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['posisi '] }} Program Studi {{ $auth->user->data_lengkap->dosen->prodi }}</span>
     </div>
 
     <!-- END OF ROLE -->
@@ -40,8 +40,43 @@
                 {{$auth->user->data_lengkap->dosen->nama}}
             </h3>
             <span class="d-block">
-                {{ $keanggotaan }}
-{{--                Fakultas Informatika dan Teknik Elektro - Informatika--}}
+                {{-- untuk fakultas --}}
+                @switch($auth->user->data_lengkap->dosen->prodi)
+                    {{-- FITE --}}
+                    @case('S1 Informatika')
+                        Fakultas Informatika dan Teknik Elektro & Informatika
+                        @break
+                    @case('S1 Sistem Informasi')
+                        Fakultas Informatika dan Teknik Elektro & Informatika
+                        @break
+                    @case('S1 Teknik Elektro')
+                        Fakultas Informatika dan Teknik Elektro & Informatika
+                        @break
+
+                        {{-- Vokasi --}}
+                    @case('D3 Teknologi Informasi')
+                        Fakultas Vokasi
+                        @break
+                    @case('D3 Teknologi Komputer')
+                        Fakultas Vokasi
+                        @break
+                    @case('D4 (Sarjana Terapan) Teknologi Rekayasa Perangkat Lunak')
+                        Fakultas Vokasi
+                        @break
+
+                        {{-- FTI --}}
+                    @case('S1 Manajemen Rekayasa')
+                        Fakultas Teknologi Industri
+                        @break
+                    @case('S1 Teknik Metalurgi')
+                        Fakultas Teknologi Industri
+                        @break
+
+                        {{-- FB --}}
+                    @case('S1 Teknik Bioproses')
+                        Fakultas Bioteknologi
+                        @break
+                @endswitch
             </span>
         </span>
     </div>

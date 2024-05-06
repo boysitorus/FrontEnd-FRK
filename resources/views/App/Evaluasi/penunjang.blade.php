@@ -3,6 +3,24 @@
 @section('content-kegiatan')
 
     {{-- TAMPILAN BAGIAN EVALUASI PENUNJANG --}}
+<style>
+  .border-hijau {
+    border: 2px solid #008000; /* Border berwarna hijau */
+    padding: 3px; /* Padding untuk memberi ruang di sekitar teks */
+    border-radius: 5px; /* Untuk memberikan sudut-sudut yang melengkung pada border */
+    display: inline-block; /* Mengatur agar border memenuhi ruang yang tersedia */
+    background-color: #008000;
+    color: #FFFFFF;
+  }
+
+  .border-kuning {
+    border: 2px solid #FFFF00; 
+    padding: 3px;
+    border-radius: 5px; 
+    display: inline-block; 
+    background-color: #FFD700;
+  }
+</style>
 
     {{-- BAGIAN A --}}
     <div id="ed-penunjang-A" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -30,17 +48,18 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-kuning">
+                                    <p>Lampiran belum di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_A"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_A">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -65,9 +84,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Bukti Bimbingan</li>
+                                    <li>Presensi Mahasiswa</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvA" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvA"></div>
+                                </div>
+                                <input type="file" id="fileInputEvA" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -107,16 +137,18 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_B"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button></td>
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_B">Tambah Lampiran</button>
                         </tr>
                     </tbody>
                 </table>
@@ -140,9 +172,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                    <li>Bukti Bimbingan</li>
+                                    <li>Presensi mahasiswa yang memperoleh bimbingan dan konseling</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvB" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvB"></div>
+                                </div>
+                                <input type="file" id="fileInputEvB" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -185,17 +228,18 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_C"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_C">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -223,9 +267,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
-                                <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas/Surat  Keputusan/ Surat  Pengangkatan dari  Pimpinan</li>
+                                    <li>Bukti pembinaan,  misal; kehadiran  dalam kegiatan  organisasi mahasiswa</li>
+                                </ol>
+                               <!-- File input -->
+                               <button id="addFilesBtnEvC" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvC"></div>
+                                </div>
+                                <input type="file" id="fileInputEvC" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -265,15 +319,17 @@
                 <tbody>
                     <tr>
                         <td scope="row1">1</td>
-                        <td></td>
+                        <td>
+                            <div class="border-hijau">
+                                <p>Lampiran sudah di upload</p>
+                            </div>
+                        </td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td>
-                            <button type="button" class="btn btn-warning mr-1" 
-                                data-bs-toggle="modal" data-bs-target="#modalEditEvaluasiPenunjang_D"><i class="bi bi-plus-square"></i></button>
-                            <button type="button" class="btn btn-danger" 
-                                data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
+                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditEvaluasiPenunjang_D">Tambah Lampiran</button>
                         </td>
                     </tr>
                 </tbody>
@@ -298,9 +354,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas/ Surat Keputusan  Pimpinan</li> 
+                                    <li>Laporan kegiatan atau  daftar hadir rapat  organisasi internal  tersebut</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvD" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvD"></div>
+                                </div>
+                                <input type="file" id="fileInputEvD" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -340,17 +406,18 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>   
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_E"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_E">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -375,9 +442,18 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>SK Pengangkatan / Surat  Tugas dari Pejabat yang  berwenang</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvE" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvE"></div>
+                                </div>
+                                <input type="file" id="fileInputEvE" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -417,17 +493,18 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_F"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_F">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -452,9 +529,18 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>SK Pengangkatan / Surat  Tugas dari Pejabat yang  berwenang</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvF" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvF"></div>
+                                </div>
+                                <input type="file" id="fileInputEvF" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -494,17 +580,18 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_G"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_G">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -529,9 +616,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas/Surat Keputusan  Pimpinan</li> 
+                                    <li>Bukti jurnal yang sudah  terbit</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvG" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvG"></div>
+                                </div>
+                                <input type="file" id="fileInputEvG" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -572,17 +669,18 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_H"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_H">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -606,9 +704,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                    <li>Laporan Kegiatan</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvH" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvH"></div>
+                                </div>
+                                <input type="file" id="fileInputEvH" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -647,17 +755,18 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td></td>
+                            <td>
+                                <div class="border-hijau">
+                                    <p>Lampiran sudah di upload</p>
+                                </div>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenunjang_I"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_I">Tambah Lampiran</button>
                             </td>
                         </tr>
                     </tbody>
@@ -680,9 +789,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                    <li>Laporan Kegiatan</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvI" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvI"></div>
+                                </div>
+                                <input type="file" id="fileInputEvI" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -722,17 +841,18 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td></td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_J"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
-
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_J">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -757,9 +877,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                    <li>Laporan Kegiatan</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvJ" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvJ"></div>
+                                </div>
+                                <input type="file" id="fileInputEvJ" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -799,16 +929,18 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td></td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_K"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_K">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -833,9 +965,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                    <li>Laporan Kegiatan</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvK" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvK"></div>
+                                </div>
+                                <input type="file" id="fileInputEvK" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -876,17 +1018,19 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td></td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_L"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_L">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -909,9 +1053,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                    <li>Kartu Anggota</li>
+                                    <li>Laporan Kegiatan</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvL" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvL"></div>
+                                </div>
+                                <input type="file" id="fileInputEvL" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -951,16 +1106,18 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td></td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_M"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_M">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -983,9 +1140,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                    <li>Sertifikasi atau bukti lain kehadiran di kegiatan tersebut</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvM" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvM"></div>
+                                </div>
+                                <input type="file" id="fileInputEvM" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -1024,15 +1191,17 @@
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
-                                <td></td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_N"><i class="bi bi-plus-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjang_N">Tambah Lampiran</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -1055,9 +1224,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Choose a file or drag it here</h4>
+                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                <ol>
+                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                    <li>Bukti hasil telaah artikel/proposal yang direview</li>
+                                </ol>
                                 <!-- File input -->
-                                <input type="file" id="fileInput" multiple>
+                                <button id="addFilesBtnEvN" class="btn btn-secondary">Add Files</button>
+                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                    <div id="selectedFilesEvN"></div>
+                                </div>
+                                <input type="file" id="fileInputEvN" style="display: none;" multiple>
                             </div>
                         </div>
                     </div>
@@ -1156,6 +1335,168 @@
                     $('#deleteToast').removeClass('show');
                 }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
             }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya A
+            function displayFilesWithIconsA(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesEvA');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesEvA = selectedFilesEvA.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesEvA.length; i++) {
+                    var file = selectedFilesEvA[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesEvA.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesEvA.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            // Fungsi untuk menampilkan file yang dipilih beserta ikonnya B
+            function displayFilesWithIconsB(files) {
+                var selectedFilesDiv = document.getElementById('selectedFilesEvB');
+                // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+                selectedFilesEvB = selectedFilesEvB.concat(Array.from(files));
+
+                // Menghapus konten sebelumnya
+                selectedFilesDiv.innerHTML = '';
+
+                // Membuat elemen ul untuk daftar file
+                var fileList = document.createElement('ul');
+                fileList.classList.add('file-list');
+
+                // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+                for (var i = 0; i < selectedFilesEvB.length; i++) {
+                    var file = selectedFilesEvB[i];
+                    if (!file) continue; // Lewati file yang telah dihapus
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                    var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                    var fileListItem = document.createElement('li');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    // Tambahkan ikon/gambar
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                    fileListItem.appendChild(fileIconImg);
+
+                    // Tambahkan nama file
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    // Tambahkan tombol hapus
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            // Hapus file dari array file-file yang dipilih
+                            var index = selectedFilesEvB.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFilesEvB.splice(index, 1);
+                            }
+                            // Hapus elemen file dari tampilan
+                            this.parentElement.remove();
+                        };
+                    })(file)); // Closure untuk menyimpan file yang benar
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+                // Menambahkan elemen ul ke dalam selectedFilesDiv
+                selectedFilesDiv.appendChild(fileList);
+            }
+
+            // Fungsi untuk mendapatkan gambar/logo berdasarkan ekstensi file
+            function getFileIcon(extension) {
+                switch (extension.toLowerCase()) {
+                    case 'pdf':
+                        return 'pdf.png';
+                    case 'doc':
+                    case 'docx':
+                        return 'word.png';
+                    case 'xls':
+                    case 'xlsx':
+                        return 'sheets.png';
+                    case 'png':
+                    case 'jpg':
+                    case 'jpeg':
+                        return 'photo.png';
+                    default:
+                        return 'document.png';
+                }
+            }
+
+            // Gunakan fungsi displayFilesWithIcons untuk menampilkan file dengan gambar/logo
+            document.getElementById('fileInputEvA').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIcons(files);
+            });
+
+            document.getElementById('fileInputEvB').addEventListener('change', function() {
+                var files = this.files;
+                displayFilesWithIconsB(files);
+            });
+
+            // Fungsi untuk menambah file A
+            document.getElementById('addFilesBtnEvA').addEventListener('click', function() {
+                var fileInputEvA = document.getElementById('fileInputEvA');
+                fileInputEvA.click();
+            });
+
+            // Fungsi untuk menambah file B
+            document.getElementById('addFilesBtnEvB').addEventListener('click', function() {
+                 var fileInputEvB = document.getElementById('fileInputEvB');
+                 fileInputEvB.click();
+            });
+
+            // Variabel global untuk menyimpan file-file yang dipilih
+            var selectedFilesEvA = [];
+            var selectedFilesEvB = [];
+
         </script>
 
 @endsection
