@@ -320,6 +320,7 @@ Route::group(['middleware' => ['check.token']], function() {
             Route::get('/', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
             
             Route::post('buku-internasional', [EvaluasiDiriController::class, 'postBukuInternasional'])->name('ed-add-buku-internasional');
+            Route::post('pembicara-seminar', [EvaluasiDiriController::class, 'postPembicaraSeminar'])->name('ed-add-pembicara-seminar');
         });
         Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
         Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanPanel'])->name('ed-pendidikan');
