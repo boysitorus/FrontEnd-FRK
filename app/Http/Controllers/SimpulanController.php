@@ -16,37 +16,29 @@ class SimpulanController extends Controller
     public function getAll(Request $request)
     {
         $auth = Tools::getAuth($request);
-        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         try {
-            $responsePendidikan = Http::get(env('API_FRK_SERVICE') . '/simpulan-pendidikan');
-            $totalSksPendidikan = $responsePendidikan->json();
+            $dataSks = Http::get(env("API_FRK_SERVICE") . '/simpulan/' . $id_dosen);
 
-            $responsePenelitian = Http::get(env('API_FRK_SERVICE') . '/simpulan-penelitian');
-            $totalSksPenelitian = $responsePenelitian->json();
+            $totalSksPendidikan = $dataSks["sks_pendidikan"];
+            $totalSksPenelitian = $dataSks["sks_penelitian"];
+            $totalSksPengabdian = $dataSks["sks_pengabdian"];
+            $totalSksPenunjang = $dataSks["sks_penunjang"];
+            $totalSks = $dataSks["sks_total"];
 
-            $responsePengabdian = Http::get(env('API_FRK_SERVICE') . '/simpulan-pengabdian');
-            $totalSksPengabdian = $responsePengabdian->json();
-
-            $responsePenunjang = Http::get(env('API_FRK_SERVICE') . '/simpulan-penunjang');
-            $totalSksPenunjang = $responsePenunjang->json();
-
-            $responseTotal = Http::get(env('API_FRK_SERVICE') . '/simpulan-total');
-            $totalSksTotal = $responseTotal->json();
-
-
-            return view('App.Rencana.simpulan',
-            [
-                'pendidikanSks' => $totalSksPendidikan,
-                'penelitianSks' => $totalSksPenelitian,
-                'pengabdianSks' => $totalSksPengabdian,
-                'penunjangSks' => $totalSksPenunjang,
-                'totalSks' => $totalSksTotal,
-                'auth' => $auth,
-                'id_dosen' => $id_dosen
-            ]
+            return view(
+                'App.Rencana.simpulan',
+                [
+                    'pendidikanSks' => $totalSksPendidikan,
+                    'penelitianSks' => $totalSksPenelitian,
+                    'pengabdianSks' => $totalSksPengabdian,
+                    'penunjangSks' => $totalSksPenunjang,
+                    'totalSks' => $totalSks,
+                    'auth' => $auth,
+                    'id_dosen' => $id_dosen
+                ]
             );
-
-        } catch(\Throwable $th) {
+        } catch (\Throwable $th) {
             return response()->json(['error' => 'Failed to retrieve data from API'], 500);
         }
     }
@@ -80,18 +72,17 @@ class SimpulanController extends Controller
 
             $pdf = Pdf::loadView('App.Rencana.pdf', $data);
             return $pdf->download('coba.pdf');
-
-
-        } catch(\Throwable $th) {
+        } catch (\Throwable $th) {
             return response()->json(['error' => 'Failed to generate PDF'], 500);
         }
     }
 
-    public function simpanRencana(Request $request){
+    public function simpanRencana(Request $request)
+    {
         $id_dosen = $request->get('id_dosen');
         try {
             $response = Http::post(env('API_FRK_SERVICE') . '/simpulan-simpan-rencana/' . $id_dosen);
-            if($response->status() === 200){
+            if ($response->status() === 200) {
                 return back()->with('message', $response["message"]);
             } else {
                 throw new RequestException($response);
@@ -101,5 +92,4 @@ class SimpulanController extends Controller
             return back()->with('error', $message);
         }
     }
-
 }
