@@ -372,7 +372,6 @@
                 <form action="{{ route('ed-add-buku-internasional') }}" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         @csrf
-                        <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -1092,18 +1091,25 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="row">1</td>
-                                <td>Lorem ipsum dolor sit amet consectetur.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenelitian_M">Tambah Lampiran</button>
-
-                                </td>
-                            </tr>
+                            @if (isset($pembicara_seminar) && sizeof($pembicara_seminar) > 0)
+                                @php
+                                    $counter = 1;
+                                @endphp
+                                @foreach ($pembicara_seminar as $item)
+                                    <tr>
+                                        <td scope="row">{{ $counter }}</td>
+                                        <td>{{$item['nama_kegiatan']}}</td>
+                                        <td>{{ $item['lingkup_wilayah'] }}</td>
+                                        <td>{{ $item['sks_terhitung'] }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPenelitian_D">Tambah Lampiran</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -1116,10 +1122,13 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditEvaluasiPendidikanMLabel"><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar,
+                <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar,
                     narasumber terkait dengan bidang keilmuannya</h5></b>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <form action="{{ route('ed-add-pembicara-seminar') }}" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                        @csrf
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -1131,20 +1140,20 @@
                                         <li>Sertifikat (jika ada)</li>
                                     </ol>
                                     <!-- File Input -->
-                                    <button id="addFileBtn" class="btn btn-secondary">Add Files</button>
+                                    <button type="button" id="addFileBtnM" class="btn btn-secondary">Add Files</button>
                                     <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                     <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
                                     <div class="mt-3 mb-3">
-                                        <div id="selecteedFiles"></div>
+                                        <div id="selectedFilesM"></div>
                                     </div>
-                                    <input type="file" id="fileInput" style="display: none;" multiple>
+                                    <input type="file" id="fileInputM" name="fileInput[]" style="display: none;" multiple>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                        <button type="submit" class="btn btn-primary">Upload Lampiran</button>
                     </div>
                 </div>
             </div>
@@ -1509,6 +1518,61 @@
             }
         }
 
+        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya M
+        function displayFilesWithIcons(files) {
+            var selectedFilesDiv = document.getElementById('selectedFilesM');
+            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+            selectedFiles = selectedFiles.concat(Array.from(files));
+
+            // Menghapus konten sebelumnya
+            selectedFilesDiv.innerHTML = '';
+
+            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+            for (var i = 0; i < selectedFiles.length; i++) {
+                var file = selectedFiles[i];
+                if (!file) continue; // Lewati file yang telah dihapus
+
+                var fileName = file.name;
+                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                var fileListItem = document.createElement('div');
+                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                // Tambahkan ikon/gambar
+                var fileIconImg = document.createElement('img');
+                fileIconImg.src = '/assets/img/' + fileIcon;
+                fileIconImg.alt = 'File Icon';
+                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                fileListItem.appendChild(fileIconImg);
+
+                // Tambahkan nama file
+                var fileNameSpan = document.createElement('span');
+                fileNameSpan.textContent = fileName;
+                fileListItem.appendChild(fileNameSpan);
+
+                // Tambahkan tombol hapus
+                var deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                deleteBtn.addEventListener('click', (function(fileToRemove) {
+                    return function() {
+                        // Hapus file dari array file-file yang dipilih
+                        var index = selectedFiles.indexOf(fileToRemove);
+                        if (index > -1) {
+                            selectedFiles.splice(index, 1);
+                        }
+                        // Hapus elemen file dari tampilan
+                        this.parentElement.remove();
+                    };
+                })(file)); // Closure untuk menyimpan file yang benar
+                fileListItem.appendChild(deleteBtn);
+
+                selectedFilesDiv.appendChild(fileListItem);
+            }
+        }
+
+
         function getFileIcon(extension) {
             switch (extension.toLowerCase()) {
                 case 'pdf':
@@ -1541,6 +1605,10 @@
             var files = this.files;
             displayFilesWithIcons(files);
         });
+        document.getElementById('fileInputM').addEventListener('change', function() {
+            var files = this.files;
+            displayFilesWithIcons(files);
+        });
 
         // Fungsi untuk menambah file A
         document.getElementById('addFilesBtn').addEventListener('click', function() {
@@ -1555,10 +1623,15 @@
             var fileInput = document.getElementById('fileInputD');
             fileInput.click();
         });
+        document.getElementById('addFilesBtnM').addEventListener('click', function() {
+            var fileInput = document.getElementById('fileInputM');
+            fileInput.click();
+        });
 
         var selectedFiles = [];
         var selectedFilesC = [];
         var selectedFilesD = [];
+        var selectedFilesM = [];
         </script>
 
         <script>
