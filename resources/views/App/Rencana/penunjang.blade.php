@@ -98,14 +98,14 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Mahasiswa</label>
                                                         <input id="mahasiswa-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_mahasiswa'] }}" type="number"
-                                                            class="form-control" name="jumlah_mahasiswa" min="1">
+                                                            class="form-control" name="jumlah_mahasiswa" min="1" required>
                                                     </div>
                                                 </div>
 
@@ -262,14 +262,14 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Mahasiswa</label>
                                                         <input id="mahasiswa-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_mahasiswa'] }}" type="number"
-                                                            class="form-control" name="jumlah_mahasiswa" min="1">
+                                                            class="form-control" name="jumlah_mahasiswa" min="1" required>
                                                     </div>
                                                 </div>
 
@@ -465,7 +465,7 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan"
-                                                            value="{{ $item['nama_kegiatan'] }}">
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kegiatan" class="form-label"
@@ -474,7 +474,7 @@
                                                         <input id="jumlah-{{ $item['id_rencana'] }}" class="form-control"
                                                             type="number" name="jumlah_kegiatan"
                                                             value="{{ $item['jumlah_kegiatan'] }}" min="1"
-                                                            step="any">
+                                                            step="any" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -623,7 +623,7 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}" type="text"
                                                             class="form-control" name="nama_kegiatan"
-                                                            value="{{ $item['nama_kegiatan'] }}">
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
                                                     </div>
 
                                                 </div>
@@ -970,7 +970,7 @@
                                                                 <input id="nama-{{ $item['id_rencana'] }}"
                                                                     value="{{ $item['nama_kegiatan'] }}" type="text"
                                                                     class="form-control" id="nama_kegiatan"
-                                                                    name="nama_kegiatan">
+                                                                    name="nama_kegiatan" required>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <div style="text-align: left;">
@@ -1171,7 +1171,7 @@
                                                                 <input id="nama-{{ $item['id_rencana'] }}"
                                                                     value="{{ $item['nama_kegiatan'] }}" type="text"
                                                                     class="form-control" id="nama_kegiatan"
-                                                                    name="nama_kegiatan">
+                                                                    name="nama_kegiatan" required>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <div style="text-align: left;">
@@ -1349,7 +1349,7 @@
                                                                 <input id="nama-{{ $item['id_rencana'] }}"
                                                                     value="{{ $item['nama_kegiatan'] }}" type="text"
                                                                     class="form-control" id="nama_kegiatan"
-                                                                    name="nama_kegiatan">
+                                                                    name="nama_kegiatan" required>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <div style="text-align: left;">
@@ -1536,7 +1536,7 @@
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan"
-                                                            value="{{ $item['nama_kegiatan'] }}">
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -1721,7 +1721,7 @@
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan"
-                                                            value="{{ $item['nama_kegiatan'] }}">
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -1905,7 +1905,7 @@
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
                                                             class="form-control" id="nama" name="nama_kegiatan"
-                                                            value="{{ $item['nama_kegiatan'] }}">
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -2083,7 +2083,7 @@
                                                         </div>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -2278,7 +2278,7 @@
                                                         </div>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -2455,7 +2455,7 @@
                                                         </label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                 </div>
 

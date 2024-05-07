@@ -142,28 +142,28 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas
                                                             Tatap Muka</label>
                                                         <input id="kelas-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_kelas'] }}" type="number"
-                                                            class="form-control" name="jumlah_kelas" min="1">
+                                                            class="form-control" name="jumlah_kelas" min="1" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas
                                                             Evaluasi</label>
                                                         <input id="evaluasi-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_evaluasi'] }}" type="number"
-                                                            class="form-control" name="jumlah_evaluasi" min="1">
+                                                            class="form-control" name="jumlah_evaluasi" min="1" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Mata
                                                             Kuliah</label>
                                                         <input id="sks-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['sks_matakuliah'] }}" type="number"
-                                                            class="form-control" name="sks_matakuliah" min="1">
+                                                            class="form-control" name="sks_matakuliah" min="1" required>
                                                     </div>
 
                                                 </div>
@@ -293,20 +293,20 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
                                                         <input id="kelas-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_kelas'] }}" type="number"
-                                                            class="form-control" name="jumlah_kelas" min="1">
+                                                            class="form-control" name="jumlah_kelas" min="1" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Praktikum (1
                                                             SKS = 2 jam)</label>
                                                         <input id="sks-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['sks_matakuliah'] }}" type="number"
-                                                            class="form-control" name="sks_matakuliah" min="1">
+                                                            class="form-control" name="sks_matakuliah" min="1" required>
                                                     </div>
 
                                                 </div>
@@ -507,7 +507,7 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa
@@ -515,7 +515,7 @@
                                                         <input id="mahasiswa-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_mahasiswa'] }}" class="form-control"
                                                             type="number" name="jumlah_mahasiswa" min="1"
-                                                            step="any">
+                                                            step="any" required>
                                                     </div>
                                                 </div>
 
@@ -671,7 +671,7 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelompok" class="form-label">Jumlah
@@ -679,7 +679,7 @@
                                                         <input id="kelompok-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_kelompok'] }}" class="form-control"
                                                             type="number" name="jumlah_kelompok" min="1"
-                                                            step="any">
+                                                            step="any" required>
                                                     </div>
                                                 </div>
 
@@ -1000,7 +1000,7 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                            class="form-control" id="nama" name="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
