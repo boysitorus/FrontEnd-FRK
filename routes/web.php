@@ -332,6 +332,10 @@ Route::group(['middleware' => ['check.token']], function () {
             Route::post('/teori-upload', [EvaluasiDiriController::class, 'postTeori'])->name('ed-pendidikan.teori.upload');
         });
 
+        Route::prefix('/penunjang')->group(function () {
+            Route::post('/akademik-upload', [EvaluasiDiriController::class, 'postAkademik'])->name('ed-penunjang.akademik.upload');
+        });
+
     });
 
 
