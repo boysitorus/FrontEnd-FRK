@@ -729,18 +729,14 @@
                                     </div>
 
                                     <!-- MODAL Edit E -->
-                                    <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}"
-                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                        aria-hidden="true">
-
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
-                                                    </h6>
-                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
+                                    <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
+                                            </h6>
+                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
 
                                                 <div class="modal-body">
                                                     <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST" class="formEditData">
@@ -748,11 +744,8 @@
                                                         <div class="modal-body">
                                                         <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
                                                         <div class="mb-3">
-                                                            <label for="nama_kegiatan" class="form-label">Nama
-                                                                Kegiatan</label>
-                                                            <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                                name="nama_kegiatan" type="text"
-                                                                class="form-control" id="nama_kegiatan" required>
+                                                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                            <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
@@ -1375,11 +1368,11 @@
                                                     <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" required>
+                                                        <input value="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_bkd" class="form-label">Banyaknya BKD yang dievaluasi</label>
-                                                        <input placeholder="{{ $item['jumlah_bkd'] }}" name="jumlah_bkd" type="number" class="form-control" min="1" required>
+                                                        <input value="{{ $item['jumlah_bkd'] }}" name="jumlah_bkd" type="number" class="form-control" min="1" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -1591,7 +1584,7 @@
                         @endphp
                         @foreach ($hak_paten as $item)
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
+                                <td scope="row">{{ $counter }}</td>
                                 <td> {{ $item['nama_kegiatan'] }} </td>
                                 <td> {{ $item['lingkup_wilayah'] }} </td>
                                 <td> {{ $item['sks_terhitung'] }} </td>
@@ -1665,15 +1658,15 @@
                                                     <label for="nama_kegiatan" for="nama" class="form-label">Nama
                                                         Kegiatan</label>
                                                     <input name="nama_kegiatan" type="text" class="form-control"
-                                                        id="nama" required>
+                                                        id="nama" value="{{ $item['nama_kegiatan'] }}" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="lingkup_wilayah" class="form-label">Kategori</label>
                                                     <select name="lingkup_wilayah" class="form-select"
                                                         aria-label="Default select example" required>
-                                                        <option value="Paten Sederhana" selected>Paten Sederhana</option>
-                                                        <option value="Paten Biasa">Paten Biasa</option>
-                                                        <option value="Paten internasional(minimal tiga negara)">Paten
+                                                        <option value="Paten Sederhana" {{ $item['lingkup_wilayah'] == 'Paten Sederhana' ? 'selected' : '' }}>Paten Sederhana</option>
+                                                        <option value="Paten Biasa" {{ $item['lingkup_wilayah'] == 'Paten Biasa' ? 'selected' : '' }}>Paten Biasa</option>
+                                                        <option value="Paten internasional(minimal tiga negara)" {{ $item['lingkup_wilayah'] == 'Paten internasional(minimal tiga negara)' ? 'selected' : '' }}>Paten
                                                             internasional(minimal tiga negara)</option>
                                                     </select>
                                                 </div>
@@ -1729,7 +1722,7 @@
                         @endphp
                         @foreach ($media_massa as $item)
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
+                                <td scope="row">{{ $counter }}</td>
                                 <td> {{ $item['nama_kegiatan'] }} </td>
                                 <td> {{ $item['sks_terhitung'] }} </td>
                                 <td></td>
@@ -1799,12 +1792,12 @@
                                                 method="POST" class="formEditData">
                                                 @csrf
                                                 <input type="hidden" name="id_rencana"
-                                                    value="{{ $item['id_rencana'] }}" required>
+                                                    value="{{ $item['id_rencana'] }}">
                                                 <div class="mb-3">
                                                     <label for="nama_kegiatan" for="nama" class="form-label">Nama
                                                         Kegiatan</label>
                                                     <input name="nama_kegiatan" type="text" class="form-control"
-                                                        id="nama" required>
+                                                        id="nama" value="{{ $item['nama_kegiatan'] }}" required>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -2416,7 +2409,7 @@
                         <div class="mb-3">
                             <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
@@ -2605,24 +2598,19 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <div class="modal-body">
+                
                     <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST"
-                    class="needs-validation" novalidate>
+                    class="formTambahData">
                         @csrf
+                        <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" required>
-                            <div class="invalid-feedback">
-                                Nama kegiatan tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for = "jumlah_bkd" class="form-label">Banyaknya BKD yang Dievaluasi</label>
                             <input name="jumlah_bkd" type="number" class="form-control" id="jumlah_bkd" required>
-                            <div class="invalid-feedback">
-                                Banyak BKD tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -2662,9 +2650,6 @@
                                 <option value="Diterbitkan oleh Jurnal terakreditasi">Diterbitkan oleh Jurnal terakreditasi</option>
                                 <option value="Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Kategori tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
@@ -2673,9 +2658,6 @@
                                 <option value="Mandiri">Mandiri</option>
                                 <option value="Kelompok">Kelompok</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Jenis pengerjaan tidak boleh kosong!
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="peran" class="form-label">Jenis Peran</label>
@@ -2712,12 +2694,12 @@
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" for="nama" class="form-label">Nama Kegiatan</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                            <input name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" required>
 
                             <label for="lingkup_wilayah" class="form-label">Kategori</label>
                             <select name="lingkup_wilayah" class="form-select" aria-label="Default select example" required>
                                 <option disabled selected value="">Pilih Kategori</option>
-                                <option value="Paten Sederhana" selected>Paten Sederhana</option>
+                                <option value="Paten Sederhana">Paten Sederhana</option>
                                 <option value="Paten Biasa">Paten Biasa</option>
                                 <option value="Paten internasional(minimal tiga negara)">Paten internasional(minimal tiga
                                     negara)</option>

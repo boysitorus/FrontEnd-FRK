@@ -1,4 +1,4 @@
-@extends('Template.admin')
+@extends('Template.app')
 
 
 @section('content')
@@ -7,29 +7,32 @@
         <div class = "row">
             <div class = "col">
                 <h3 class = "font-weight-bold">Rekap Kegiatan</h3>
-                <p class = "breadcrumbs">Administrator</p>
+                <p class = "breadcrumbs">Rencana Kerja / Rekap Kegiatan</p>
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
-                    <p class = "mb-0 font-weight-bold"> Peran saat ini  : Administrator </p>
+                    <p class = "mb-0 font-weight-bold"> Peran saat ini  : {{ json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['posisi '] }} Program Studi {{ $auth->user->data_lengkap->dosen->prodi }} </p>
                 </div>
             </div>
         </div>
 
-        <div class = "bg-white mt-2" style="border-top: 1px solid black; border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;">
-<<<<<<< HEAD
+        <div class = "bg-white mt-2 mb-5">
             <div class = "ml-2 mr-2 pt-4">
-=======
-            <div class = "ml-1 mr-2 pt-4">
->>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
                 <h4 class = "font-weight-bold">Rekap Kerja - Semester 2023/2024 Genap</h4>
             </div>
             <hr/>
 
-            @yield('content-generate')
+            @yield('content-kegiatan')
+
+        </div>
+    <div>
+
+
+
         </div>
     <div>
 
 
 
 @endsection
+

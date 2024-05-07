@@ -333,42 +333,42 @@
         </div>
     </div>
     {{-- Akhir B --}}
-
     {{-- TEMPAT MODAL TAMBAH KEGIATAN --}}
-    {{-- MULAI MODAL B --}}
+    {{-- MULAI MODAL B --}} 
     <div class="modal fade modal-lg" id="modalpengabdian_B" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{ route('rk-pengabdian.penyuluhan.create') }}" method="POST" class="formTambahData">
-                @csrf
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title" id="exampleModalLabel">B. Memberikan penyuluhan/penataran kepada
-                            masyarakat</h6>
-                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel">B. Memberikan Penyuluhan/Penataran Kepada Masyarakat
+                    </h6>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('rk-pengabdian.penyuluhan.create') }}" method="POST" class="formTambahData">
+                    @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input
-                                name="nama_kegiatan" type="text" class="form-control"
-                                id="nama_kegiatan" required>
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_durasi" class="form-label">Durasi Kegiatan</label>
-                            <input name="jumlah_durasi" type="number" class="form-control" id="nama" min="1" required>
+                            <input type="number" id="jumlah_durasi" name="jumlah_durasi" class="form-control" min="1" required>
                         </div>
+
                     </div>
+
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
+
+    
     {{-- AKHIR MODAL B --}}
     {{-- Awal C --}}
     <div class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
