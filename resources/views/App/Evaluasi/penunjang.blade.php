@@ -1371,8 +1371,7 @@
 
                     // Tambahkan tombol hapus
                     var deleteBtn = document.createElement('button');
-                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
-                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
                     deleteBtn.addEventListener('click', (function(fileToRemove) {
                         return function() {
                             // Hapus file dari array file-file yang dipilih
@@ -1429,8 +1428,7 @@
 
                     // Tambahkan tombol hapus
                     var deleteBtn = document.createElement('button');
-                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
-                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
                     deleteBtn.addEventListener('click', (function(fileToRemove) {
                         return function() {
                             // Hapus file dari array file-file yang dipilih
