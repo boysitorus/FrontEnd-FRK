@@ -58,7 +58,8 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="bg-alert-info mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -142,28 +143,32 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan" required>
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas
                                                             Tatap Muka</label>
                                                         <input id="kelas-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_kelas'] }}" type="number"
-                                                            class="form-control" name="jumlah_kelas" min="1" required>
+                                                            class="form-control" name="jumlah_kelas" min="1"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas
                                                             Evaluasi</label>
                                                         <input id="evaluasi-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_evaluasi'] }}" type="number"
-                                                            class="form-control" name="jumlah_evaluasi" min="1" required>
+                                                            class="form-control" name="jumlah_evaluasi" min="1"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Mata
                                                             Kuliah</label>
                                                         <input id="sks-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['sks_matakuliah'] }}" type="number"
-                                                            class="form-control" name="sks_matakuliah" min="1" required>
+                                                            class="form-control" name="sks_matakuliah" min="1"
+                                                            required>
                                                     </div>
 
                                                 </div>
@@ -245,7 +250,7 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -293,20 +298,23 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan" required>
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelas" class="form-label">Jumlah Kelas</label>
                                                         <input id="kelas-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_kelas'] }}" type="number"
-                                                            class="form-control" name="jumlah_kelas" min="1" required>
+                                                            class="form-control" name="jumlah_kelas" min="1"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="sks_matakuliah" class="form-label">SKS Praktikum (1
                                                             SKS = 2 jam)</label>
                                                         <input id="sks-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['sks_matakuliah'] }}" type="number"
-                                                            class="form-control" name="sks_matakuliah" min="1" required>
+                                                            class="form-control" name="sks_matakuliah" min="1"
+                                                            required>
                                                     </div>
 
                                                 </div>
@@ -424,7 +432,7 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -507,7 +515,8 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan" required>
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa
@@ -588,7 +597,7 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -671,7 +680,8 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan" required>
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_kelompok" class="form-label">Jumlah
@@ -752,7 +762,7 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -918,7 +928,7 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -1000,7 +1010,8 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan" required>
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
@@ -1081,7 +1092,7 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -1104,39 +1115,6 @@
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i></i>
                                         </button>
-
-                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
-                                            tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-
-                                                    <div class="modal-body text-center">
-                                                        <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                                                        <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                                                        <p class="text-muted small">Proses ini tidak dapat diurungkan bila
-                                                            Anda sudah menekan tombol 'Yakin'.</p>
-                                                    </div>
-
-                                                    <div class="modal-footer justify-content-center">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Batalkan</button>
-                                                        <form
-                                                            action="{{ route('rk-pendidikan.rendah.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            method="POST" style="display: inline;">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button id="confirmDeleteBtn" type="submit"
-                                                                class="btn btn-primary">Yakin</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </td>
                                 </tr>
                                 {{-- MULAI MODAL G --}}
@@ -1161,21 +1139,20 @@
                                                     <div class="mb-3">
                                                         <label for="nama" class="form-label">Nama Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}" name="nama_kegiatan"
-                                                            type="text" class="form-control" id="nama"
-                                                            value="{{ $item['nama_kegiatan'] }}"
-                                                            value="{{ $item['nama_kegiatan'] }}" required>
+                                                            type="text" class="form-control"
+                                                            value="{{ $item['nama_kegiatan'] }}" required />
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="form-label">Jumlah Dosen Dibimbing</label>
                                                         <input id="dosen-{{ $item['id_rencana'] }}" name="jumlah_dosen"
                                                             class="form-control" type="text"
-                                                            value="{{ $item['jumlah_dosen'] }}"
                                                             value="{{ $item['jumlah_dosen'] }}" required>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button id="edit-{{ $item['id_rencana'] }}" type="submit"
-                                                            class="btn btn-primary" data-bs-toggle="modal"
-                                                            data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                                                            class="btn btn-primary">
+                                                            Simpan Perubahan
+                                                        </button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -1279,7 +1256,7 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -1309,8 +1286,8 @@
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <button class="btn-close" type="button"
-                                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
                                                     </div>
 
                                                     <div class="modal-body text-center">
@@ -1361,19 +1338,19 @@
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             name="nama_kegiatan" type="text" class="form-control"
                                                             id="nama" value="{{ $item['nama_kegiatan'] }}"
-                                                            value="{{ $item['nama_kegiatan'] }}" required>
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="form-label">Jumlah SAP</label>
                                                         <input id="sap-{{ $item['id_rencana'] }}" name="jumlah_sap"
                                                             class="form-control" type="text"
-                                                            value="{{ $item['jumlah_sap'] }}"
                                                             value="{{ $item['jumlah_sap'] }}" required>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button id="edit-{{ $item['id_rencana'] }}" type="submit"
-                                                            class="btn btn-primary" data-bs-toggle="modal"
-                                                            data-bs-target="#modalEditConfirm">Simpan Perubahan</button>
+                                                            class="btn btn-primary">
+                                                            Simpan Perubahan
+                                                        </button>
                                                     </div>
                                                 </form>
                                                 </form>
@@ -1381,7 +1358,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- AKHIR MODAL G --}}
+                                {{-- AKHIR MODAL EDIT F --}}
 
                                 <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                     tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -1477,7 +1454,7 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -1654,7 +1631,7 @@
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
-                                            <span class="mt-1 d-block text-komentar">{{ $item["asesor1_frk"] }}</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
                                         @endif
                                     </td>
                                     <td>
