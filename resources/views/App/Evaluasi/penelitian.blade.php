@@ -371,8 +371,7 @@
 
                 <form action="{{ route('ed-add-buku-internasional') }}" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
-                        @csrf
-                        <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
+                    
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -1123,8 +1122,9 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditEvaluasiPendidikanMLabel"><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar,
+                <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>M. Menyampaikan orasi ilmiah, pembicara dalam seminar,
                     narasumber terkait dengan bidang keilmuannya</h5></b>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <form action="{{ route('ed-add-pembicara-seminar') }}" method="post" enctype="multipart/form-data">
@@ -1146,14 +1146,14 @@
                                     <div class="mt-3 mb-3">
                                         <div id="selectedFilesM"></div>
                                     </div>
-                                    <input type="file" id="fileInputM" style="display: none;" multiple>
+                                    <input type="file" id="fileInputM" name="fileInputM[]" style="display: none;" multiple>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                        <button type="submit" class="btn btn-primary">Upload Lampiran</button>
                     </div>
                 </form>
                 </div>
@@ -1227,6 +1227,8 @@
                 <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>N. Penyaji makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</h5></b>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+
+                    <form action="{{ route('ed-add-penyajian-makalah') }}" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="container">
                             <div class="row">
@@ -1253,7 +1255,7 @@
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary">Upload Lampiran</button>
+                        <button type="submit" class="btn btn-primary">Upload Lampiran</button>
                     </div>
                 </div>
             </div>
@@ -1421,17 +1423,17 @@
         }
 
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya C
-        function displayFilesWithIcons(files) {
+        function displayFilesWithIconsC(files) {
             var selectedFilesDiv = document.getElementById('selectedFilesC');
             // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFiles = selectedFiles.concat(Array.from(files));
+            selectedFilesA = selectedFilesA.concat(Array.from(files));
 
             // Menghapus konten sebelumnya
             selectedFilesDiv.innerHTML = '';
 
             // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFiles.length; i++) {
-                var file = selectedFiles[i];
+            for (var i = 0; i < selectedFilesA.length; i++) {
+                var file = selectedFilesC[i];
                 if (!file) continue; // Lewati file yang telah dihapus
 
                 var fileName = file.name;
@@ -1460,9 +1462,9 @@
                 deleteBtn.addEventListener('click', (function(fileToRemove) {
                     return function() {
                         // Hapus file dari array file-file yang dipilih
-                        var index = selectedFiles.indexOf(fileToRemove);
+                        var index = selectedFilesC.indexOf(fileToRemove);
                         if (index > -1) {
-                            selectedFiles.splice(index, 1);
+                            selectedFilesC.splice(index, 1);
                         }
                         // Hapus elemen file dari tampilan
                         this.parentElement.remove();
@@ -1475,17 +1477,17 @@
         }
 
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya D
-        function displayFilesWithIcons(files) {
+        function displayFilesWithIconsD(files) {
             var selectedFilesDiv = document.getElementById('selectedFilesD');
             // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFiles = selectedFiles.concat(Array.from(files));
+            selectedFilesD = selectedFilesD.concat(Array.from(files));
 
             // Menghapus konten sebelumnya
             selectedFilesDiv.innerHTML = '';
 
             // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFiles.length; i++) {
-                var file = selectedFiles[i];
+            for (var i = 0; i < selectedFilesD.length; i++) {
+                var file = selectedFilesD[i];
                 if (!file) continue; // Lewati file yang telah dihapus
 
                 var fileName = file.name;
@@ -1514,9 +1516,9 @@
                 deleteBtn.addEventListener('click', (function(fileToRemove) {
                     return function() {
                         // Hapus file dari array file-file yang dipilih
-                        var index = selectedFiles.indexOf(fileToRemove);
+                        var index = selectedFilesD.indexOf(fileToRemove);
                         if (index > -1) {
-                            selectedFiles.splice(index, 1);
+                            selectedFilesD.splice(index, 1);
                         }
                         // Hapus elemen file dari tampilan
                         this.parentElement.remove();
@@ -1528,17 +1530,17 @@
             }
         }
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya D
-        function displayFilesWithIcons(files) {
+        function displayFilesWithIconsD(files) {
             var selectedFilesDiv = document.getElementById('selectedFilesD');
             // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFiles = selectedFiles.concat(Array.from(files));
+            selectedFilesD = selectedFilesD.concat(Array.from(files));
 
             // Menghapus konten sebelumnya
             selectedFilesDiv.innerHTML = '';
 
             // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFiles.length; i++) {
-                var file = selectedFiles[i];
+            for (var i = 0; i < selectedFilesD.length; i++) {
+                var file = selectedFilesD[i];
                 if (!file) continue; // Lewati file yang telah dihapus
 
                 var fileName = file.name;
@@ -1567,9 +1569,9 @@
                 deleteBtn.addEventListener('click', (function(fileToRemove) {
                     return function() {
                         // Hapus file dari array file-file yang dipilih
-                        var index = selectedFiles.indexOf(fileToRemove);
+                        var index = selectedFilesD.indexOf(fileToRemove);
                         if (index > -1) {
-                            selectedFiles.splice(index, 1);
+                            selectedFilesD.splice(index, 1);
                         }
                         // Hapus elemen file dari tampilan
                         this.parentElement.remove();
@@ -1582,17 +1584,17 @@
         }
 
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya M
-        function displayFilesWithIcons(files) {
+        function displayFilesWithIconsM(files) {
             var selectedFilesDiv = document.getElementById('selectedFilesM');
             // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFiles = selectedFiles.concat(Array.from(files));
+            selectedFilesM = selectedFilesM.concat(Array.from(files));
 
             // Menghapus konten sebelumnya
             selectedFilesDiv.innerHTML = '';
 
             // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFiles.length; i++) {
-                var file = selectedFiles[i];
+            for (var i = 0; i < selectedFilesM.length; i++) {
+                var file = selectedFilesM[i];
                 if (!file) continue; // Lewati file yang telah dihapus
 
                 var fileName = file.name;
@@ -1621,9 +1623,9 @@
                 deleteBtn.addEventListener('click', (function(fileToRemove) {
                     return function() {
                         // Hapus file dari array file-file yang dipilih
-                        var index = selectedFiles.indexOf(fileToRemove);
+                        var index = selectedFilesM.indexOf(fileToRemove);
                         if (index > -1) {
-                            selectedFiles.splice(index, 1);
+                            selectedFilesM.splice(index, 1);
                         }
                         // Hapus elemen file dari tampilan
                         this.parentElement.remove();
@@ -1636,17 +1638,17 @@
         }
 
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya N
-        function displayFilesWithIcons(files) {
+        function displayFilesWithIconsN(files) {
             var selectedFilesDiv = document.getElementById('selectedFilesN');
             // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFiles = selectedFiles.concat(Array.from(files));
+            selectedFilesN = selectedFilesN.concat(Array.from(files));
 
             // Menghapus konten sebelumnya
             selectedFilesDiv.innerHTML = '';
 
             // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFiles.length; i++) {
-                var file = selectedFiles[i];
+            for (var i = 0; i < selectedFilesN.length; i++) {
+                var file = selectedFilesN[i];
                 if (!file) continue; // Lewati file yang telah dihapus
 
                 var fileName = file.name;
@@ -1675,9 +1677,9 @@
                 deleteBtn.addEventListener('click', (function(fileToRemove) {
                     return function() {
                         // Hapus file dari array file-file yang dipilih
-                        var index = selectedFiles.indexOf(fileToRemove);
+                        var index = selectedFilesN.indexOf(fileToRemove);
                         if (index > -1) {
-                            selectedFiles.splice(index, 1);
+                            selectedFilesN.splice(index, 1);
                         }
                         // Hapus elemen file dari tampilan
                         this.parentElement.remove();
@@ -1716,19 +1718,19 @@
         });
         document.getElementById('fileInputC').addEventListener('change', function() {
             var files = this.files;
-            displayFilesWithIcons(files);
+            displayFilesWithIconsC(files);
         });
         document.getElementById('fileInputD').addEventListener('change', function() {
             var files = this.files;
-            displayFilesWithIcons(files);
+            displayFilesWithIconsD(files);
         });
         document.getElementById('fileInputM').addEventListener('change', function() {
             var files = this.files;
-            displayFilesWithIcons(files);
+            displayFilesWithIconsM(files);
         });
         document.getElementById('fileInputN').addEventListener('change', function() {
             var files = this.files;
-            displayFilesWithIcons(files);
+            displayFilesWithIconsN(files);
         });
 
         // Fungsi untuk menambah file A
@@ -1737,25 +1739,26 @@
             fileInput.click();
         });
         document.getElementById('addFilesBtnC').addEventListener('click', function() {
-            var fileInput = document.getElementById('fileInputC');
-            fileInput.click();
+            var fileInputC = document.getElementById('fileInputC');
+            fileInputC.click();
         });
         document.getElementById('addFilesBtnD').addEventListener('click', function() {
-            var fileInput = document.getElementById('fileInputD');
-            fileInput.click();
+            var fileInputD = document.getElementById('fileInputD');
+            fileInputD.click();
         });
         document.getElementById('addFilesBtnM').addEventListener('click', function() {
-            var fileInput = document.getElementById('fileInputM');
-            fileInput.click();
+            var fileInputM = document.getElementById('fileInputM');
+            fileInputM.click();
         });
         document.getElementById('addFilesBtnN').addEventListener('click', function() {
-            var fileInput = document.getElementById('fileInputN');
-            fileInput.click();
+            var fileInputN = document.getElementById('fileInputN');
+            fileInputN.click();
         });
 
         var selectedFiles = [];
         var selectedFilesC = [];
         var selectedFilesD = [];
+        var selectedFilesM = [];
         var selectedFilesN = [];
         </script>
 
