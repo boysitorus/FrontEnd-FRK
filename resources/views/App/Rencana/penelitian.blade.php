@@ -2598,10 +2598,11 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <div class="modal-body">
+                
                     <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST"
-                    class="needs-validation" novalidate>
+                    class="formTambahData">
                         @csrf
+                        <div class="modal-body">
                         <input type="hidden" name="id_dosen" value={{$id_dosen}}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
