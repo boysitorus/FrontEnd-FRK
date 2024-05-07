@@ -729,18 +729,14 @@
                                     </div>
 
                                     <!-- MODAL Edit E -->
-                                    <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}"
-                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                        aria-hidden="true">
-
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
-                                                    </h6>
-                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
+                                    <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
+                                            </h6>
+                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
 
                                                 <div class="modal-body">
                                                     <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST" class="formEditData">
@@ -749,7 +745,7 @@
                                                         <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
                                                         <div class="mb-3">
                                                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                            <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" required>
+                                                            <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
