@@ -82,15 +82,15 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan_A">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE A --}}
-                                <div class="modal fade" id="modalEditEvaluasiPendidikan_A" tabindex="-1"
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
                                     aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-pendidikan.teori.upload') }}" method="POST">
+                                            <form action="{{ route('ed-pendidikan.teori.upload') }}" method="POST" enctype = "multipart/form-data">
                                             @csrf
                                             @method('POST')
                                                 <div class="modal-header">
@@ -110,14 +110,14 @@
                                                                     <li>Daftar Nilai Akhir Mahasiswa</li>
                                                                 </ol>
                                                                 <!-- File input -->
-                                                                <button type="button" id="addFilesBtn" class="btn btn-secondary">Add Files</button>
+                                                                <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                                                 <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                    <div id="selectedFiles"></div>
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
                                                                 </div>
-                                                                <input type="file" id="fileInput" style="display: none;" multiple>
+                                                                <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -139,54 +139,6 @@
         </div>
     </div>
     {{-- AKHIR BAGIAN A --}}
-
-    {{-- TEMPAT MODAL ADD FILE A --}}
-    <div class="modal fade" id="modalEditEvaluasiPendidikan_A" tabindex="-1"
-        aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <form action="{{ route('ed-pendidikan.teori.upload') }}" method="POST">
-                @csrf
-                @method('POST')
-                    <div class="modal-header">
-                        <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">A. Kuliah (Teori) pada tingkat Diploma
-                            dan S1 terhadap setiap kelompok</h6>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                    <ol>
-                                        <li>Surat Tugas atau Surat Keputusan Mengajar dari Pimpinan</li>
-                                        <li>BAP/Berita Acara Perkuliahan (presensi/jurnal kehadiran dosen)</li>
-                                        <li>Presensi Mahasiswa</li>
-                                        <li>Daftar Nilai UAS Mahasiswa</li>
-                                        <li>Daftar Nilai Akhir Mahasiswa</li>
-                                    </ol>
-                                    <!-- File input -->
-                                    <button type="button" id="addFilesBtn" class="btn btn-secondary">Add Files</button>
-                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                    <!-- tambahkan jarak bawah -->
-                                    <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                        <div id="selectedFiles"></div>
-                                    </div>
-                                    <input type="file" name="fileInput[]" id="fileInput" style="display: none;" multiple>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button class="btn btn-primary" type="submit">Upload Lampiran</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL ADD FILE A --}}
 
     {{-- BAGIAN B --}}
     <div id="ed-pendidikan-B" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -1131,58 +1083,58 @@
         }
 
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya A
-        function displayFilesWithIcons(files) {
-            var selectedFilesDiv = document.getElementById('selectedFiles');
-            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFiles = selectedFiles.concat(Array.from(files));
+        // function displayFilesWithIcons(files) {
+        //     var selectedFilesDiv = document.getElementById('selectedFiles');
+        //     // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+        //     selectedFiles = selectedFiles.concat(Array.from(files));
 
-            // Menghapus konten sebelumnya
-            selectedFilesDiv.innerHTML = '';
+        //     // Menghapus konten sebelumnya
+        //     selectedFilesDiv.innerHTML = '';
 
-            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFiles.length; i++) {
-                var file = selectedFiles[i];
-                if (!file) continue; // Lewati file yang telah dihapus
+        //     // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+        //     for (var i = 0; i < selectedFiles.length; i++) {
+        //         var file = selectedFiles[i];
+        //         if (!file) continue; // Lewati file yang telah dihapus
 
-                var fileName = file.name;
-                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+        //         var fileName = file.name;
+        //         var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+        //         var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
 
-                var fileListItem = document.createElement('div');
-                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+        //         var fileListItem = document.createElement('div');
+        //         fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
 
-                // Tambahkan ikon/gambar
-                var fileIconImg = document.createElement('img');
-                fileIconImg.src = '/assets/img/' + fileIcon;
-                fileIconImg.alt = 'File Icon';
-                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-                fileListItem.appendChild(fileIconImg);
+        //         // Tambahkan ikon/gambar
+        //         var fileIconImg = document.createElement('img');
+        //         fileIconImg.src = '/assets/img/' + fileIcon;
+        //         fileIconImg.alt = 'File Icon';
+        //         fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+        //         fileListItem.appendChild(fileIconImg);
 
-                // Tambahkan nama file
-                var fileNameSpan = document.createElement('span');
-                fileNameSpan.textContent = fileName;
-                fileListItem.appendChild(fileNameSpan);
+        //         // Tambahkan nama file
+        //         var fileNameSpan = document.createElement('span');
+        //         fileNameSpan.textContent = fileName;
+        //         fileListItem.appendChild(fileNameSpan);
 
-                // Tambahkan tombol hapus
-                var deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
-                deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
-                deleteBtn.addEventListener('click', (function(fileToRemove) {
-                    return function() {
-                        // Hapus file dari array file-file yang dipilih
-                        var index = selectedFiles.indexOf(fileToRemove);
-                        if (index > -1) {
-                            selectedFiles.splice(index, 1);
-                        }
-                        // Hapus elemen file dari tampilan
-                        this.parentElement.remove();
-                    };
-                })(file)); // Closure untuk menyimpan file yang benar
-                fileListItem.appendChild(deleteBtn);
+        //         // Tambahkan tombol hapus
+        //         var deleteBtn = document.createElement('button');
+        //         deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+        //         deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+        //         deleteBtn.addEventListener('click', (function(fileToRemove) {
+        //             return function() {
+        //                 // Hapus file dari array file-file yang dipilih
+        //                 var index = selectedFiles.indexOf(fileToRemove);
+        //                 if (index > -1) {
+        //                     selectedFiles.splice(index, 1);
+        //                 }
+        //                 // Hapus elemen file dari tampilan
+        //                 this.parentElement.remove();
+        //             };
+        //         })(file)); // Closure untuk menyimpan file yang benar
+        //         fileListItem.appendChild(deleteBtn);
 
-                selectedFilesDiv.appendChild(fileListItem);
-            }
-        }
+        //         selectedFilesDiv.appendChild(fileListItem);
+        //     }
+        // }
 
 
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya B
@@ -1692,10 +1644,10 @@
         }
 
         // Gunakan fungsi displayFilesWithIcons untuk menampilkan file dengan gambar/logo
-        document.getElementById('fileInput').addEventListener('change', function() {
-            var files = this.files;
-            displayFilesWithIcons(files);
-        });
+        // document.getElementById('fileInput').addEventListener('change', function() {
+        //     var files = this.files;
+        //     displayFilesWithIcons(files);
+        // });
 
         document.getElementById('fileInputB').addEventListener('change', function() {
             var files = this.files;
@@ -1746,10 +1698,10 @@
 
 
         // Fungsi untuk menambah file A
-        document.getElementById('addFilesBtn').addEventListener('click', function() {
-            var fileInput = document.getElementById('fileInput');
-            fileInput.click();
-        });
+        // document.getElementById('addFilesBtn').addEventListener('click', function() {
+        //     var fileInput = document.getElementById('fileInput');
+        //     fileInput.click();
+        // });
 
         // Fungsi untuk menambah file B
         document.getElementById('addFilesBtnB').addEventListener('click', function() {
@@ -1806,7 +1758,7 @@
         });
 
         // Variabel global untuk menyimpan file-file yang dipilih
-        var selectedFiles = [];
+        // var selectedFiles = [];
         var selectedFilesB = [];
         var selectedFilesC = [];
         var selectedFilesD = [];
@@ -1816,5 +1768,91 @@
         var selectedFilesH = [];
         var selectedFilesI = [];
         var selectedFilesJ = [];
+    </script>
+
+    <script>
+        @if (isset($teori) && sizeof($teori) > 0)
+            @foreach ($teori as $item)
+                (function() {
+                    var itemId = {{ $item['id_rencana'] }};
+
+                    var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
+                    var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
+                    var fileInput = document.getElementById('fileInput-' + itemId);
+
+                    addFilesBtn.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener('change', function() {
+                        var files = this.files;
+                        displayFilesWithIcons(files, selectedFilesDiv);
+                    });
+                })();
+            @endforeach
+        @endif
+        function displayFilesWithIcons(files, selectedFilesDiv) {
+                var selectedFiles = [];
+                selectedFiles = selectedFiles.concat(Array.from(files));
+
+                selectedFilesDiv.innerHTML = '';
+
+                for (var i = 0; i < selectedFiles.length; i++) {
+                    var file = selectedFiles[i];
+                        if (!file) continue; 
+
+                    var fileName = file.name;
+                    var fileExtension = fileName.split('.').pop();
+                    var fileIcon = getFileIcon(fileExtension);
+
+                    var fileListItem = document.createElement('div');
+                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                    var fileIconImg = document.createElement('img');
+                    fileIconImg.src = '/assets/img/' + fileIcon;
+                    fileIconImg.alt = 'File Icon';
+                    fileIconImg.width = 20;
+                    fileListItem.appendChild(fileIconImg);
+
+                    var fileNameSpan = document.createElement('span');
+                    fileNameSpan.textContent = fileName;
+                    fileListItem.appendChild(fileNameSpan);
+
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
+                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                    deleteBtn.addEventListener('click', (function(fileToRemove) {
+                        return function() {
+                            var index = selectedFiles.indexOf(fileToRemove);
+                            if (index > -1) {
+                                selectedFiles.splice(index, 1);
+                            }
+                            this.parentElement.remove();
+                        };
+                    })(file));
+                    fileListItem.appendChild(deleteBtn);
+
+                    selectedFilesDiv.appendChild(fileListItem);
+                }
+            }
+
+            function getFileIcon(extension) {
+                switch (extension.toLowerCase()) {
+                    case 'pdf':
+                        return 'pdf.png';
+                    case 'doc':
+                    case 'docx':
+                        return 'word.png';
+                    case 'xls':
+                    case 'xlsx':
+                        return 'sheets.png';
+                    case 'png':
+                    case 'jpg':
+                    case 'jpeg':
+                        return 'photo.png';
+                    default:
+                        return 'document.png';
+                }
+            }
     </script>
 @endsection
