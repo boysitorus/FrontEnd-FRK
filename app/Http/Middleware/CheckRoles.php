@@ -23,7 +23,7 @@ class CheckRoles
             return redirect()->route('logout.get');
         }
 
-        if ($auth->user->role != "Dosen")
+        if (json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '] != "Staf Human Resources")
         {
             return redirect()->route('home');
         }
