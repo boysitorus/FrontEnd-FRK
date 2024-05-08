@@ -23,26 +23,24 @@
 
                     <tbody class="align-middle">
 
-                        @php
+                        {{-- @php
                             $counter = 1;
                         @endphp
-                        @foreach ($teori as $item)
+                        @foreach ($teori as $item) --}}
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_kelas'] }}</td>
-                                <td>{{ $item['jumlah_evaluasi'] }}</td>
-                                <td>{{ $item['sks_matakuliah'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td scope="row">{{-- $counter++ --}}</td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i
+                                        data-bs-target="#modalSetuju-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-check-lg"></i></button>
                                     <button type="button" class="btn btn-danger mr-1"
-                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
+                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                <td></td>
+                                {{-- @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
                                     @if ($item['asesor1_fed'] == 'setuju')
@@ -51,14 +49,13 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark">{{-- $item['asesor1_frk'] --}}</span>
                                         </td>
-                                    @endif
-                                @endif
+                                    {{-- @endif --}}
                             </tr>
 
                             {{-- MODAL SETUJU --}}
-                            <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalSetuju-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -68,9 +65,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
+                                            <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
                                                 <h1><i class="bi bi-check-circle text-success"></i></h1>
@@ -94,7 +91,7 @@
 
                             {{-- MODAL TOLAK --}}
 
-                            <div class="modal fade text-center" id="modalTolak-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalTolak-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -114,11 +111,11 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
-                                                <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
+                                                <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
+                                                <input id="input_komentar_{{-- $item['id_rencana'] --}}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
                                                     aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
@@ -136,7 +133,7 @@
                             </div>
 
                             {{-- END OF MODAL TOLAK --}}
-                        @endforeach
+                        {{-- @endforeach --}}
                 </table>
             </div>
         </div>
@@ -155,56 +152,49 @@
                     style="border: 2px;">
                     <thead>
                         <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelas
-                            </th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Praktikum (1 SKS =
-                                2
-                                jam)</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Bukti Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
 
                     <tbody>
-
+{{-- 
                         @php
                             $counter = 1;
                         @endphp
-                        @foreach ($praktikum as $item)
-                            <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_kelas'] }}</td>
-                                <td>{{ $item['sks_matakuliah'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
+                        @foreach ($praktikum as $item) --}}
+                        <tr>
+                                <td scope="row">{{-- $counter++ --}}</td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i
+                                        data-bs-target="#modalSetuju-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-check-lg"></i></button>
                                     <button type="button" class="btn btn-danger mr-1"
-                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
+                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                <td></td>
+                                {{-- @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark">{{-- $item['asesor1_frk'] --}}</span>
                                         </td>
-                                    @endif
-                                @endif
+                                    {{-- @endif --}}
                             </tr>
 
                             {{-- MODAL SETUJU --}}
-                            <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalSetuju-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -215,9 +205,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
+                                            <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
                                                 <h1><i class="bi bi-check-circle text-success"></i></h1>
@@ -241,7 +231,7 @@
 
                             {{-- MODAL TOLAK --}}
 
-                            <div class="modal fade text-center" id="modalTolak-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalTolak-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -262,11 +252,11 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
-                                                <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
+                                                <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
+                                                <input id="input_komentar_{{-- $item['id_rencana'] --}}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
                                                     aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
@@ -284,7 +274,7 @@
                             </div>
 
                             {{-- END OF MODAL TOLAK --}}
-                        @endforeach
+                        {{-- @endforeach --}}
 
 
                     </tbody>
@@ -309,49 +299,46 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan
-                            </th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Bukti Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @php
+                        {{-- @php
                             $counter = 1;
                         @endphp
-                        @foreach ($bimbingan as $item)
-                            <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_mahasiswa'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
+                        @foreach ($bimbingan as $item) --}}
+                        <tr>
+                                <td scope="row">{{-- $counter++ --}}</td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i
+                                        data-bs-target="#modalSetuju-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-check-lg"></i></button>
                                     <button type="button" class="btn btn-danger mr-1"
-                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
+                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                <td></td>
+                                {{-- @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark">{{-- $item['asesor1_frk'] --}}</span>
                                         </td>
-                                    @endif
-                                @endif
+                                    {{-- @endif --}}
                             </tr>
 
                             {{-- MODAL SETUJU --}}
-                            <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalSetuju-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -362,9 +349,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
+                                            <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
                                                 <h1><i class="bi bi-check-circle text-success"></i></h1>
@@ -388,7 +375,7 @@
 
                             {{-- MODAL TOLAK --}}
 
-                            <div class="modal fade text-center" id="modalTolak-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalTolak-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -409,11 +396,11 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
-                                                <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
+                                                <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
+                                                <input id="input_komentar_{{-- $item['id_rencana'] --}}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
                                                     aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
@@ -431,7 +418,7 @@
                             </div>
 
                             {{-- END OF MODAL TOLAK --}}
-                        @endforeach
+                        {{-- @endforeach --}}
 
                     </tbody>
                 </table>
@@ -453,33 +440,32 @@
                     style="border: 2px;">
                     <thead>
                         <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelompok</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Bukti Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @php
+                        {{-- @php
                             $counter = 1;
                         @endphp
-                        @foreach ($seminar as $item)
+                        @foreach ($seminar as $item) --}}
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_kelompok'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td scope="row">{{-- $counter++ --}}</td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i
+                                        data-bs-target="#modalSetuju-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-check-lg"></i></button>
                                     <button type="button" class="btn btn-danger mr-1"
-                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
+                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                <td></td>
+                                {{-- @if ($item['asesor1_frk'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
                                     @if ($item['asesor1_frk'] == 'setuju')
@@ -488,14 +474,14 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark">{{-- $item['asesor1_frk'] --}}</span>
                                         </td>
-                                    @endif
-                                @endif
+                                    {{-- @endif
+                                @endif --}}
                             </tr>
 
                             {{-- MODAL SETUJU --}}
-                            <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalSetuju-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -506,9 +492,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
+                                            <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
                                                 <h1><i class="bi bi-check-circle text-success"></i></h1>
@@ -532,7 +518,7 @@
 
                             {{-- MODAL TOLAK --}}
 
-                            <div class="modal fade text-center" id="modalTolak-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalTolak-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -553,11 +539,11 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
-                                                <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
+                                                <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
+                                                <input id="input_komentar_{{-- $item['id_rencana'] --}}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
                                                     aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
@@ -575,7 +561,7 @@
                             </div>
 
                             {{-- END OF MODAL TOLAK --}}
-                        @endforeach
+                        {{-- @endforeach --}}
 
                     </tbody>
                 </table>
@@ -597,33 +583,32 @@
                     style="border: 2px;">
                     <thead>
                         <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelompok</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Bukti Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @php
+                        {{-- @php
                             $counter = 1;
                         @endphp
-                        @foreach ($tugasAkhir as $item)
+                        @foreach ($tugasAkhir as $item) --}}
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_mahasiswa'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
+                            <td scope="row">{{-- $counter++ --}}</td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i
+                                        data-bs-target="#modalSetuju-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-check-lg"></i></button>
                                     <button type="button" class="btn btn-danger mr-1"
-                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
+                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                <td></td>
+                                {{-- @if ($item['asesor1_frk'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
                                     @if ($item['asesor1_frk'] == 'setuju')
@@ -632,14 +617,14 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark">{{-- $item['asesor1_frk'] --}}</span>
                                         </td>
-                                    @endif
-                                @endif
+                                    {{-- @endif
+                                @endif --}}
                             </tr>
 
                             {{-- MODAL SETUJU --}}
-                            <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalSetuju-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -650,9 +635,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
+                                            <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
                                                 <h1><i class="bi bi-check-circle text-success"></i></h1>
@@ -676,7 +661,7 @@
 
                             {{-- MODAL TOLAK --}}
 
-                            <div class="modal fade text-center" id="modalTolak-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalTolak-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -697,11 +682,11 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
-                                                <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
+                                                <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
+                                                <input id="input_komentar_{{-- $item['id_rencana'] --}}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
                                                     aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
@@ -719,7 +704,7 @@
                             </div>
 
                             {{-- END OF MODAL TOLAK --}}
-                        @endforeach
+                        {{-- @endforeach --}}
 
                     </tbody>
                 </table>
@@ -742,31 +727,30 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelompok</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Bukti Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @php
+                        {{-- @php
                             $counter = 1;
                         @endphp
-                        @foreach ($proposal as $item)
+                        @foreach ($proposal as $item) --}}
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_mahasiswa'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
+                            <td scope="row">{{-- $counter++ --}}</td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i
+                                        data-bs-target="#modalSetuju-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-check-lg"></i></button>
                                     <button type="button" class="btn btn-danger mr-1"
-                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
+                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                <td></td>
+                                {{-- @if ($item['asesor1_frk'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
                                     @if ($item['asesor1_frk'] == 'setuju')
@@ -775,14 +759,14 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark">{{-- $item['asesor1_frk'] --}}</span>
                                         </td>
-                                    @endif
-                                @endif
+                                    {{-- @endif
+                                @endif --}}
                             </tr>
 
                             {{-- MODAL SETUJU --}}
-                            <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalSetuju-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -793,9 +777,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
+                                            <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
                                                 <h1><i class="bi bi-check-circle text-success"></i></h1>
@@ -819,7 +803,7 @@
 
                             {{-- MODAL TOLAK --}}
 
-                            <div class="modal fade text-center" id="modalTolak-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalTolak-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -840,11 +824,11 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
-                                                <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
+                                                <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
+                                                <input id="input_komentar_{{-- $item['id_rencana'] --}}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
                                                     aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
@@ -862,7 +846,7 @@
                             </div>
 
                             {{-- END OF MODAL TOLAK --}}
-                        @endforeach
+                        {{-- @endforeach --}}
 
                     </tbody>
                 </table>
@@ -884,31 +868,30 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Dosen Bimbingan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Bukti Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @php
+                        {{-- @php
                             $counter = 1;
                         @endphp
-                        @foreach ($seminar as $item)
+                        @foreach ($seminar as $item) --}}
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_kelompok'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td scope="row">{{-- $counter++ --}}</td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i
+                                        data-bs-target="#modalSetuju-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-check-lg"></i></button>
                                     <button type="button" class="btn btn-danger mr-1"
-                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
+                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                <td></td>
+                                {{-- @if ($item['asesor1_frk'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
                                     @if ($item['asesor1_frk'] == 'setuju')
@@ -917,14 +900,14 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
-                                        </td>
-                                    @endif
-                                @endif
+                                            <span class="badge bg-warning text-dark">{{-- $item['asesor1_frk'] --}}</span>
+                                        {{--</td>--}}
+                                    {{--@endif --}}
+                                {{--@endif --}}
                             </tr>
 
                             {{-- MODAL SETUJU --}}
-                            <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalSetuju-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -935,9 +918,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
+                                            <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
                                                 <h1><i class="bi bi-check-circle text-success"></i></h1>
@@ -961,7 +944,7 @@
 
                             {{-- MODAL TOLAK --}}
 
-                            <div class="modal fade text-center" id="modalTolak-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalTolak-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -982,11 +965,11 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
-                                                <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
+                                                <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
+                                                <input id="input_komentar_{{-- $item['id_rencana'] --}}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
                                                     aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
@@ -1004,7 +987,7 @@
                             </div>
 
                             {{-- END OF MODAL TOLAK --}}
-                        @endforeach
+                        {{-- @endforeach --}}
 
                     </tbody>
                 </table>
@@ -1025,33 +1008,33 @@
                     style="border: 2px;">
                     <thead>
                         <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah SAP</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Bukti Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                        </tr>
                         </tr>
                     </thead>
                     <tbody>
-                        @php
+                        {{-- @php
                             $counter = 1;
                         @endphp
-                        @foreach ($kembang as $item)
+                        @foreach ($kembang as $item) --}}
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_sap'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td scope="row">{{-- $counter++ --}}</td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i
+                                        data-bs-target="#modalSetuju-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-check-lg"></i></button>
                                     <button type="button" class="btn btn-danger mr-1"
-                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
+                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                <td></td>
+                                {{-- @if ($item['asesor1_frk'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
                                     @if ($item['asesor1_frk'] == 'setuju')
@@ -1060,14 +1043,14 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark">{{-- $item['asesor1_frk'] --}}</span>
                                         </td>
-                                    @endif
-                                @endif
+                                    {{-- @endif
+                                @endif --}}
                             </tr>
 
                             {{-- MODAL SETUJU --}}
-                            <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalSetuju-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -1078,9 +1061,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
+                                            <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
                                                 <h1><i class="bi bi-check-circle text-success"></i></h1>
@@ -1104,7 +1087,7 @@
 
                             {{-- MODAL TOLAK --}}
 
-                            <div class="modal fade text-center" id="modalTolak-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalTolak-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -1125,11 +1108,11 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
-                                                <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
+                                                <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
+                                                <input id="input_komentar_{{-- $item['id_rencana'] --}}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
                                                     aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
@@ -1147,7 +1130,7 @@
                             </div>
 
                             {{-- END OF MODAL TOLAK --}}
-                        @endforeach
+                        {{-- @endforeach --}}
 
                     </tbody>
                 </table>
@@ -1169,32 +1152,30 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Dosen (Maks. 2/smt)
-                            </th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Bukti Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @php
+                        {{-- @php
                             $counter = 1;
                         @endphp
-                        @foreach ($cangkok as $item)
+                        @foreach ($cangkok as $item) --}}
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['jumlah_dosen'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td scope="row">{{-- $counter++ --}}</td>
+                                <td>{{-- $item['nama_kegiatan'] --}}</td>
+                                <td>{{-- $item['jumlah_dosen'] --}}</td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i
+                                        data-bs-target="#modalSetuju-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-check-lg"></i></button>
                                     <button type="button" class="btn btn-danger mr-1"
-                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
+                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                <td>
+                                {{-- @if ($item['asesor1_frk'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
                                     @if ($item['asesor1_frk'] == 'setuju')
@@ -1203,14 +1184,14 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark">{{-- $item['asesor1_frk'] --}}</span>
                                         </td>
-                                    @endif
-                                @endif
+                                  {{-- @endif
+                                @endif --}}
                             </tr>
 
                             {{-- MODAL SETUJU --}}
-                            <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalSetuju-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -1221,9 +1202,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
+                                            <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
                                                 <h1><i class="bi bi-check-circle text-success"></i></h1>
@@ -1247,7 +1228,7 @@
 
                             {{-- MODAL TOLAK --}}
 
-                            <div class="modal fade text-center" id="modalTolak-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalTolak-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -1268,11 +1249,11 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
-                                                <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
+                                                <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
+                                                <input id="input_komentar_{{-- $item['id_rencana'] --}}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
                                                     aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                             </div>
@@ -1290,7 +1271,7 @@
                             </div>
 
                             {{-- END OF MODAL TOLAK --}}
-                        @endforeach
+                        {{-- @endforeach --}}
 
                     </tbody>
                 </table>
@@ -1310,31 +1291,32 @@
                     style="border: 2px;">
                     <thead>
                         <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                            <th scope="col" rowspan="2 " class="align-middle fw-bold col-3">Aksi</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Bukti Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @php
+                        {{-- @php
                             $counter = 1;
                         @endphp
-                        @foreach ($koordinator as $item)
+                        @foreach ($koordinator as $item) --}}
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td scope="row">{{-- $counter++ --}}</td>
+                                <td>{{-- $item['nama_kegiatan'] --}}</td>
+                                <td>{{-- $item['sks_terhitung'] --}}</td>
                                 <td>
                                     <button type="button" class="btn btn-success mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalSetuju-{{ $item['id_rencana'] }}"><i
+                                        data-bs-target="#modalSetuju-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-check-lg"></i></button>
                                     <button type="button" class="btn btn-danger mr-1"
-                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
+                                        data-bs-toggle="modal"data-bs-target="#modalTolak-{{-- $item['id_rencana'] --}}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                <td></td>
+                                {{-- @if ($item['asesor1_frk'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
                                     @if ($item['asesor1_frk'] == 'setuju')
@@ -1343,14 +1325,14 @@
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark">{{ $item['asesor1_frk'] }}</span>
+                                            <span class="badge bg-warning text-dark">{{-- $item['asesor1_frk'] --}}</span>
                                         </td>
-                                    @endif
-                                @endif
+                                    {{-- @endif
+                                @endif--}}
                             </tr>
 
                             {{-- MODAL SETUJU --}}
-                            <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalSetuju-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -1361,9 +1343,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
+                                            <input type="hidden" name="id_rencana" value={{-- $item['id_rencana'] --}}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
                                                 <h1><i class="bi bi-check-circle text-success"></i></h1>
@@ -1387,7 +1369,7 @@
 
                             {{-- MODAL TOLAK --}}
 
-                            <div class="modal fade text-center" id="modalTolak-{{ $item['id_rencana'] }}"
+                            <div class="modal fade text-center" id="modalTolak-{{-- $item['id_rencana'] --}}"
                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -1408,12 +1390,12 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{-- route('rk-asesor-review-rencana') --}}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
-                                                    value={{ $item['id_rencana'] }}>
-                                                <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
+                                                    value={{-- $item['id_rencana'] --}}>
+                                                <input id="input_komentar_{{-- $item['id_rencana'] --}}" type="text"
                                                     name="komentar" class="form-control"
                                                     placeholder="Tambahkan Komentar" aria-label="Recipient's username"
                                                     aria-describedby="button-addon2">
@@ -1432,7 +1414,7 @@
                             </div>
 
                             {{-- END OF MODAL TOLAK --}}
-                        @endforeach
+                        {{-- @endforeach --}}
 
                     </tbody>
                 </table>
@@ -1441,4 +1423,4 @@
     </div>
 
     {{-- AKHIR BAGIAN J --}}
-@endsection
+@endsection 

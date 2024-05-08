@@ -7,7 +7,7 @@
         <div class = "row">
             <div class = "col">
                 <h3 class = "font-weight-bold">Rekap Kegiatan</h3>
-                <p class = "breadcrumbs">Asesor</p>
+                <p class = "breadcrumbs">Asesor / Rencana Kerja / Rekap Kegiatan</p>
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
