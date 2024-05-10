@@ -89,7 +89,7 @@
                                             @method('POST')
                                             <div class="modal-header">
                                                 <h6
-                                                class="modal-title" id="modalEditEvaluasiPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6
+                                                class="modal-title" id="modalEditEvaluasiPenunjangALabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                                 >
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
@@ -104,7 +104,7 @@
                                                                 <li>Presensi Mahasiswa</li>
                                                             </ol>
                                                             <!-- File input -->
-                                                            <button id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                            <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                             <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                                             <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
                                                             <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
@@ -117,7 +117,7 @@
                                             </div>
                                             <div class="modal-footer justify-content-center">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                                                <button type="submit" class="btn btn-primary">Upload Lampiran</button>
                                             </div>
                                         </form>
                                     </div>
