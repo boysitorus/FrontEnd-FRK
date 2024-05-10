@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('dist/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/bs/bootstrap-5.3.3-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/toastr.min.css') }}">
-
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <style>
         /* Remove inner borders */
@@ -291,6 +291,7 @@
             })
         </script>
     @endif
+
 
 </body>
 
