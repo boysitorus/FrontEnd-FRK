@@ -187,7 +187,7 @@ class EvaluasiDiriController extends Controller
             env('API_FED_SERVICE') . '/penunjang/akademik',
             [
                 'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput'),
+                'fileInput[]' => $request->file('fileInput[]'),
             ]
         );
 

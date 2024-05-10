@@ -110,7 +110,7 @@
                                                             <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                                 <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
                                                             </div>
-                                                            <input type="file" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                            <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                         </div>
                                                     </div>
                                                 </div>
