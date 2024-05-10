@@ -159,6 +159,8 @@ class EvaluasiDiriController extends Controller
         return view('App.Evaluasi.simpulanPendidikan');
     }
 
+    // METHOD FOR PENDIDIKAN // METHOD FOR PENDIDIKAN // METHOD FOR PENDIDIKAN 
+    // Tabel A. Teori
     public function postTeori(Request $request)
     {
         Http::post(
@@ -172,6 +174,13 @@ class EvaluasiDiriController extends Controller
         return redirect()->back()->with('success', 'Pendidikan teori upload successfully');
     }
 
+    // >>lanjut
+
+    // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN 
+
+
+    // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG 
+    // Tabel A. Akademik
     public function postAkademik(Request $request)
     {
         Http::post(
@@ -184,4 +193,22 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Pendidikan teori upload successfully');
     }
+
+    // Tabel B. Bimbingan
+    public function postBimbingan(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/bimbingan',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pendidikan teori upload successfully');
+    }
+
+    // Tabel C. UKM
+
+    // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG 
 }
