@@ -103,8 +103,6 @@
                                                     <div class="modal-footer justify-content-center">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batalkan</button>
-                                                        {{-- <a href="{{ route('rk-pendidikan.teori.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            id="confirmDeleteBtn" class="btn btn-danger">Yakin</a> --}}
                                                         <a id="confirmDeleteBtn" class="btn btn-primary"
                                                             href="{{ route('rk-pendidikan.teori.destroy', ['id' => $item['id_rencana']]) }}"
                                                             onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
@@ -174,8 +172,6 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    {{-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button> --}}
                                                     <button id="edit-{{ $item['id_rencana'] }}" type="submit"
                                                         class="btn btn-primary">
                                                         Simpan Perubahan
