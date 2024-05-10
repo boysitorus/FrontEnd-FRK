@@ -2646,9 +2646,9 @@
                             <label for="lingkup_penerbit" class="form-label">Kategori</label>
                             <select name="lingkup_penerbit"class="form-select" aria-label="Default select example" required>
                                 <option disabled selected value="">Pilih Kategori</option>
-                                <option value="Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi
-                                    atau proceedings seminar nasional maupun internasional">Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi
-                                    atau proceedings seminar nasional maupun internasional</option>
+                                <option value="Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi atau proceedings seminar nasional maupun internasional">
+                                    Diterbitkan oleh Jurnal ilmiah/majalah ilmiah ber-ISSN tidak terakreditasi atau proceedings seminar nasional maupun internasional
+                                </option>
                                 <option value="Diterbitkan oleh Jurnal terakreditasi">Diterbitkan oleh Jurnal terakreditasi</option>
                                 <option value="Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)">Diterbitkan oleh Jurnal terakreditasi internasional (dalam bahasa intenasional)</option>
                             </select>
