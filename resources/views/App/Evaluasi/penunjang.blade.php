@@ -1535,53 +1535,58 @@
                     });
 
                     fileInput.addEventListener('change', function() {
-                        var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        var filesToAdd = Array.from(this.files); // Mengonversi FileList menjadi array
+                        displayFilesWithIcons(filesToAdd, selectedFilesDiv);
                     });
                 })();
             @endforeach
         @endif
 
         function displayFilesWithIcons(files, selectedFilesDiv) {
-            var selectedFiles = [];
-            selectedFiles = selectedFiles.concat(Array.from(files));
-
             selectedFilesDiv.innerHTML = '';
 
-            for (var i = 0; i < selectedFiles.length; i++) {
-                var file = selectedFiles[i];
-                    if (!file) continue; 
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                if (!file) continue; 
 
                 var fileName = file.name;
                 var fileExtension = fileName.split('.').pop();
                 var fileIcon = getFileIcon(fileExtension);
 
                 var fileListItem = document.createElement('div');
-                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2', 'border', 'rounded', 'p-3');
 
                 var fileIconImg = document.createElement('img');
                 fileIconImg.src = '/assets/img/' + fileIcon;
                 fileIconImg.alt = 'File Icon';
-                fileIconImg.width = 20;
+                fileIconImg.width = 30;
                 fileListItem.appendChild(fileIconImg);
 
                 var fileNameSpan = document.createElement('span');
+                fileNameSpan.classList.add('ms-2');
                 fileNameSpan.textContent = fileName;
                 fileListItem.appendChild(fileNameSpan);
+
+                var divDelete = document.createElement('div');
+                divDelete.style.marginLeft = 'auto'; // Menjadikan divDelete ke paling kanan
 
                 var deleteBtn = document.createElement('button');
                 deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
                 deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
-                deleteBtn.addEventListener('click', (function(fileToRemove) {
+                
+                // Tambahkan event listener untuk menghapus elemen saat tombol delete diklik
+                deleteBtn.addEventListener('click', (function(fileToRemove, listItemToRemove) {
                     return function() {
-                        var index = selectedFiles.indexOf(fileToRemove);
+                        var index = files.indexOf(fileToRemove);
                         if (index > -1) {
-                            selectedFiles.splice(index, 1);
+                            files.splice(index, 1);
+                            listItemToRemove.parentNode.removeChild(listItemToRemove); // Menghapus elemen fileListItem dari DOM
                         }
-                        this.parentElement.remove();
                     };
-                })(file));
-                fileListItem.appendChild(deleteBtn);
+                })(file, fileListItem));
+
+                divDelete.appendChild(deleteBtn);
+                fileListItem.appendChild(divDelete);
 
                 selectedFilesDiv.appendChild(fileListItem);
             }
