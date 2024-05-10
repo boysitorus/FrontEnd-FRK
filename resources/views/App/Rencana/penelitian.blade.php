@@ -729,45 +729,53 @@
                                     </div>
 
                                     <!-- MODAL Edit E -->
-                                    <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}
-                                            </h6>
-                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
+                                    <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}" 
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. 
+                                                        {{ $item['nama_kegiatan'] }}
+                                                    </h6>
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal" 
+                                                        aria-label="Close"></button>
+                                                </div>
 
                                                 <div class="modal-body">
                                                     <form action="{{ route('rk-penelitian.menyadur.update') }}" method="POST" class="formEditData">
                                                     @csrf
                                                         <div class="modal-body">
-                                                        <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
+                                                        <input type="hidden" name="id_rencana" 
+                                                            value="{{ $item['id_rencana'] }}" />
                                                         <div class="mb-3">
                                                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                            <input placeholder="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                            <input 
+                                                                name="nama_kegiatan" type="text" class="form-control"
+                                                                id="nama_kegiatan"
+                                                                value="{{ $item['nama_kegiatan'] }}" required />
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
-                                                            <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example" required>
-                                                                <option selected>Pilih tahapan</option>
-                                                                <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
-                                                                <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
-                                                                </option> 
-                                                                <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
-                                                                <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit</option>
-                                                                <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks bukuselesai dicetak</option>
+                                                            <select name="status_tahapan"
+                                                                class="form-select form-select-md mb-3"
+                                                                aria-label=".form-select-md example" required>
+                                                                    <option selected>Pilih tahapan</option>
+                                                                    <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
+                                                                    <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
+                                                                    </option> 
+                                                                    <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
+                                                                    <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit</option>
+                                                                    <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks bukuselesai dicetak</option>
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="posisi" class="form-label">Posisi</label>
-                                                            <select name="posisi"
-                                                                class="form-select form-select-md mb-3"
-                                                                aria-label=".form-select-lg example" required>
-                                                                <option value="Ketua">Ketua</option>
-                                                                <option value="Editor">Editor</option>
-                                                                <option value="Anggota">Anggota</option>
-                                                            </select>
+                                                        <label for="posisi" class="form-label">Posisi</label>
+                                                        <select name="posisi" class="form-select form-select-md mb-3"
+                                                            aria-label=".form-select-lg example" required>
+                                                            <option value="Ketua" {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua</option>
+                                                            <option value="Editor" {{ $item['posisi'] == 'Editor' ? 'selected' : '' }}>Editor</option>
+                                                            <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
+                                                        </select>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary">
@@ -881,8 +889,7 @@
 
                                     <!-- MODAL EDIT F -->
                                     <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}"
-                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                        aria-hidden="true">
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -892,18 +899,19 @@
                                                         aria-label="Close"></button>
                                                 </div>
 
+                                                <div class="modal-body">
                                                 <form action="{{ route('rk-penelitian.menyunting.update') }}"
                                                     method="POST" class="formEditData">
                                                     @csrf
                                                     <div class="modal-body">
+                                                        <input type="hidden" name="id_rencana"
+                                                            value="{{ $item['id_rencana'] }}" />
                                                         <div class="mb-3">
-                                                            <input type="hidden" name="id_rencana"
-                                                                value="{{ $item['id_rencana'] }}">
-                                                            <label for="nama_kegiatan" class="form-label">Nama
-                                                                Kegiatan</label>
-                                                            <input placeholder="{{ $item['nama_kegiatan'] }}"
+                                                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                                                            <input
                                                                 name="nama_kegiatan" type="text" class="form-control"
-                                                                id="nama_kegiatan" required>
+                                                                id="nama_kegiatan"
+                                                                value="{{ $item['nama_kegiatan'] }}" required />
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="status_tahapan" class="form-label">Tahap
@@ -922,11 +930,10 @@
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="posisi" class="form-label">Posisi</label>
+                                                        <label for="posisi" class="form-label">Posisi</label>
                                                             <select name="posisi" class="form-select form-select-md mb-3"
-                                                                aria-label=".form-select-lg example">
-                                                                <option selected>Pilih posisi</option>
-                                                                <option value="Ketua" {{ $item['posisi'] == 'Editor' ? 'selected' : '' }}>Ketua</option>
+                                                                aria-label=".form-select-lg example" required>
+                                                                <option value="Ketua" {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua</option>
                                                                 <option value="Anggota" {{ $item['posisi'] == 'Anggota' ? 'selected' : '' }}>Anggota</option>
                                                             </select>
                                                         </div>
