@@ -2551,7 +2551,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN A}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN A --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN B --}}
     <div class="modal fade modal-lg" id="modalPenunjang_B" tabindex="-1" role="dialog"
@@ -2585,7 +2585,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN B}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN B --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN C --}}
     <div class="modal fade modal-lg" id="modalPenunjang_C" tabindex="-1" role="dialog"
@@ -2620,7 +2620,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN C}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN C--}}
 
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN D --}}
@@ -2651,7 +2651,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN D}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN D --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN E --}}
     <div class="modal fade modal-lg" id="modalPenunjang_E" tabindex="-1" role="dialog"
@@ -2705,7 +2705,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN E}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN E --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN F --}}
     <div class="modal fade modal-lg" id="modalPenunjang_F" tabindex="-1" role="dialog"
@@ -2749,7 +2749,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN F}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN F --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN G --}}
     <div class="modal fade modal-lg" id="modalPenunjang_G" tabindex="-1" role="dialog"
@@ -2787,7 +2787,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN G}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN G --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN H --}}
     <div class="modal fade modal-lg" id="modalPenunjang_H" tabindex="-1" role="dialog"
@@ -2829,7 +2829,7 @@
         </div>
     </div>
 
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN H}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN H --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN I --}}
     <div class="modal fade modal-lg" id="modalPenunjang_I" tabindex="-1" role="dialog"
@@ -2867,7 +2867,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN I}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN I --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN J --}}
     <div class="modal fade modal-lg" id="modalPenunjang_J" tabindex="-1" role="dialog"
@@ -2905,7 +2905,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN J}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN J --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN K --}}
     <div class="modal fade modal-lg" id="modalPenunjang_K" tabindex="-1" role="dialog"
@@ -2942,7 +2942,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN K}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN K --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN L --}}
     <div class="modal fade modal-lg" id="modalPenunjang_L" tabindex="-1" role="dialog"
@@ -2985,7 +2985,7 @@
         </div>
     </div>
 
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN L}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN L --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN M --}}
     <div class="modal fade modal-lg" id="modalPenunjang_M" tabindex="-1" role="dialog"
@@ -3024,7 +3024,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN M}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN M --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN N --}}
     <div class="modal fade modal-lg" id="modalPenunjang_N" tabindex="-1" role="dialog"
@@ -3053,7 +3053,7 @@
         </div>
     </div>
 
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN N}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN N --}}
 
 
 
