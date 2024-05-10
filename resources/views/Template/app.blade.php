@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FRK & FED</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('assets/bootstrap-5.3.3-dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/bootstrap-icons-1.11.2/font/bootstrap-icons.min.css') }}"> --}} --}}
 
     <link rel="stylesheet" href="{{ asset('dist/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/bs/bootstrap-5.3.3-dist/css/bootstrap.min.css') }}">
