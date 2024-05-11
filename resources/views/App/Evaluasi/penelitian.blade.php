@@ -1198,10 +1198,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
                             @if (isset($pembicara_seminar) && sizeof($pembicara_seminar) > 0)
                                 @php
                                     $counter = 1;
+                                    $apiUrl = env('API_FED_SERVICE') . '/penelitian/pembicara-seminar';
                                 @endphp
                                 @foreach ($pembicara_seminar as $item)
                         <tr>
@@ -1213,9 +1213,67 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenelitian_M">Tambah Lampiran</button>
+                                    data-bs-target="#modalEditEvaluasiPenelitian_M-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
                             </td>
                         </tr>
+                        {{-- MODAL UPLOAD M --}}
+                        <div class="modal fade" id="modalEditEvaluasiPenelitian_M-{{ $item['id_rencana'] }}" tabindex="-1"
+                            aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>M. Menyampaikan orasi ilmiah,
+                                                pembicara dalam seminar,
+                                                narasumber terkait dengan bidang keilmuannya</h5></b>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <form id="uploadForm-M-{{ $item['id_rencana'] }}" enctype="multipart/form-data">
+                                    @csrf
+                                        <div class="modal-body">
+                                            <input type="hidden" name="id_rencana"
+                                            value="{{ $item['id_rencana'] }}">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi: </h6>
+                                                        <ol>
+                                                            <li>Surat Permohonan sebagai Pembicara/Nara Sumber</li>
+                                                            <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
+                                                            <li>Naskah/ materi yang diberikan</li>
+                                                            <li>Sertifikat (jika ada)</li>
+                                                        </ol>
+                                                        <!-- File Input -->
+                                                        <button type="button" id="addFilesBtnM" class="btn btn-secondary">Add Files</button>
+                                                        <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                        <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                        <!-- tambahkan jarak bawah -->
+                                                        <div class="mt-3 mb-3">
+                                                            <div id="selectedFilesM"></div>
+                                                        </div>
+                                                        <input type="file" id="fileInputM" name="fileInputM[]" style="display: none;"
+                                                            multiple>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <button type="button" id="buttonUpload-M-{{ $item['id_rencana'] }}" class="btn btn-primary">Upload Lampiran</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- AKHIR MODAL UPLOAD M --}}
+
+                        <script>
+                            const id_rencana = "{{ $item['id_rencana'] }}"
+                            const formId = "uploadForm-M-{{ $item['id_rencana'] }}"
+                            document.getElementById(`buttonUpload-M-${id_rencana}`).addEventListener('click', function() {
+                                        uploadFiles(formId, "{{ $apiUrl }}");
+                                    });
+                        </script>
                         @endforeach
                         @endif
                     </tbody>
@@ -1225,53 +1283,6 @@
     </div>
     {{-- AKHIR BAGIAN M --}}
 
-    {{-- MODAL UPLOAD M --}}
-    <div class="modal fade" id="modalEditEvaluasiPenelitian_M" tabindex="-1"
-        aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>M. Menyampaikan orasi ilmiah,
-                            pembicara dalam seminar,
-                            narasumber terkait dengan bidang keilmuannya</h5></b>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <form action="{{ route('ed-add-pembicara-seminar') }}" method="post" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h6>*Jenis Dokumen yang harus dilengkapi: </h6>
-                                    <ol>
-                                        <li>Surat Permohonan sebagai Pembicara/Nara Sumber</li>
-                                        <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
-                                        <li>Naskah/ materi yang diberikan</li>
-                                        <li>Sertifikat (jika ada)</li>
-                                    </ol>
-                                    <!-- File Input -->
-                                    <button type="button" id="addFilesBtnM" class="btn btn-secondary">Add Files</button>
-                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                    <!-- tambahkan jarak bawah -->
-                                    <div class="mt-3 mb-3">
-                                        <div id="selectedFilesM"></div>
-                                    </div>
-                                    <input type="file" id="fileInputM" name="fileInputM[]" style="display: none;"
-                                        multiple>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Upload Lampiran</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL UPLOAD M --}}
 
     {{-- BAGIAN N --}}
     <div id="penelitian-N" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -1305,6 +1316,7 @@
                             @if (isset($penyajian_makalah) && sizeof($penyajian_makalah) > 0)
                                 @php
                                     $counter = 1;
+                                    $apiUrl = env('API_FED_SERVICE') . '/penelitian/penyajian-makalah';
                                 @endphp
                                 @foreach ($penyajian_makalah as $item)
                         <tr>
@@ -1319,10 +1331,67 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenelitian_N">Tambah Lampiran</button>
+                                    data-bs-target="#modalEditEvaluasiPenelitian_N-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
 
                             </td>
                         </tr>
+                        {{-- MODAL UPLOAD N --}}
+                        <div class="modal fade" id="modalEditEvaluasiPenelitian_N-{{ $item['id_rencana'] }}" tabindex="-1"
+                            aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>N. Penyaji makalah dalam seminar
+                                                atau pertemuan ilmiah terkait dengan bidang ilmu</h5></b>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <form id="uploadForm-N-{{ $item['id_rencana'] }}" enctype="multipart/form-data">
+                                    @csrf
+                                        <div class="modal-body">
+                                        <input type="hidden" name="id_rencana"
+                                            value="{{ $item['id_rencana'] }}">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi: </h6>
+                                                        <ol>
+                                                            <li>Surat Penerimaan untuk disajkina dari Panitia</li>
+                                                            <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
+                                                            <li>Naskah/materi yang diberikan</li>
+                                                            <li>Sertifikat (jika ada)</li>
+                                                        </ol>
+                                                        <!-- File Input -->
+                                                        <button type="button" id="addFilesBtnN" class="btn btn-secondary">Add
+                                                            Files</button>
+                                                        <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                        <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                        <!-- Tambahkan jarak bawah -->
+                                                        <div class="mt-3 mb-3">
+                                                            <div id="selectedFilesN"></div>
+                                                        </div>
+                                                        <input type="file" id="fileInputN" name="fileInputN[]" style="display: none;"
+                                                            multiple>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <button type="button" id="buttonUpload-N-{{ $item['id_rencana'] }}" class="btn btn-primary">Upload Lampiran</button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- AKHIR MODAL UPLOAD N --}}
+
+                        <script>
+                            const id_rencana = "{{ $item['id_rencana'] }}"
+                            const formId = "uploadForm-N-{{ $item['id_rencana'] }}"
+                            document.getElementB~~yId(`buttonUpload-N-${id_rencana}`).addEventListener('click', function() {
+                                uploadFiles(formId, "{{ $apiUrl }}");
+                            });
+                        </script>
                         @endforeach
                         @endif
                     </tbody>
@@ -1332,53 +1401,7 @@
     </div>
     {{-- AKHIR BAGIAN N --}}
 
-    {{-- MODAL UPLOAD N --}}
-    <div class="modal fade" id="modalEditEvaluasiPenelitian_N" tabindex="-1"
-        aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>N. Penyaji makalah dalam seminar
-                            atau pertemuan ilmiah terkait dengan bidang ilmu</h5></b>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <form action="{{ route('ed-add-penyajian-makalah') }}" method="post" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="mol-md-12">
-                                    <h6>*Jenis Dokumen yang harus dilengkapi: </h6>
-                                    <ol>
-                                        <li>Surat Penerimaan untuk disajkina dari Panitia</li>
-                                        <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
-                                        <li>Naskah/materi yang diberikan</li>
-                                        <li>Sertifikat (jika ada)</li>
-                                    </ol>
-                                    <!-- File Input -->
-                                    <button type="button" id="addFilesBtnN" class="btn btn-secondary">Add
-                                        Files</button>
-                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                    <!-- Tambahkan jarak bawah -->
-                                    <div class="mt-3 mb-3">
-                                        <div id="selectedFilesN"></div>
-                                    </div>
-                                    <input type="file" id="fileInputN" name="fileInputN[]" style="display: none;"
-                                        multiple>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Upload Lampiran</button>
-                    </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL UPLOAD N --}}
-
+    
 
     {{-- TEMPAT MODAL DELETE CONFIRM --}}
     <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"

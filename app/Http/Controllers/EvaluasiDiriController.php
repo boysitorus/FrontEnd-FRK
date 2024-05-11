@@ -148,6 +148,42 @@ class EvaluasiDiriController extends Controller
     }
 }
 
+public function postPembicaraSeminar(Request $request)
+{
+    try {
+        $files = $request->file('fileInputM');
+        $id_rencana = $request->input('id_rencana');
+        
+        // Create a new Guzzle HTTP client instance
+        $client = new \GuzzleHttp\Client();
+
+        // Prepare the form data
+        $formData = [
+            'id_rencana' => $id_rencana,
+        ];
+
+        // Prepare the files to be attached
+        foreach ($files as $file) {
+            $formData['files[]'] = fopen($file->getRealPath(), 'r');
+        }
+
+        // Send the HTTP request with the form data and files attached
+        $response = $client->request('POST', env('API_FED_SERVICE') . '/penelitian/pembicara-seminar', [
+            'multipart' => $formData,
+        ]);
+
+        // Check the response status code and handle it accordingly
+        if ($response->getStatusCode() == 200) {
+            return redirect()->back()->with('success', 'Penelitian pembicara_seminar added successfully');
+        } else {
+            return redirect()->back()->with('error', 'Failed to add penelitian pembicara_seminar');
+        }
+    } catch (\Exception $e) {
+        // Handle the exception, log it, or return an error response
+        return redirect()->back()->with('error', 'An error occurred while adding penelitian pembicara_seminar');
+    }
+}
+
     public function getSimpulanPanel(){
         return view('App.Evaluasi.FEDsimpulan');
     }
