@@ -34,20 +34,87 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenelitian_A">Tambah Lampiran</button>
-                            </td>
-                        </tr>
+                        @if (isset($penelitian_kelompok) && sizeof($penelitian_kelompok) > 0)
+                            @php
+                                $counter = 1;
+                                $apiUrl = env('API_FED_SERVICE') . '/penelitian/penelitian-kelompok';
+                            @endphp
+                            @foreach ($penelitian_kelompok as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['status_tahapan'] }}</td>
+                                    <td>{{ $item['posisi'] }}</td>
+                                    <td>{{ $item['jumlah_anggota'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPenelitian_A-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                    </td>
+                                </tr>
+
+                                {{-- TEMPAT MODAL ADD FILE A --}}
+                                <div class="modal fade" id="modalEditEvaluasiPenelitian_A-{{ $item['id_rencana'] }}" tabindex="-1"
+                                    aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">A. Kuliah (Teori) pada tingkat Diploma
+                                                    dan S1 terhadap setiap kelompok</h6>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+
+                                            <form id="uploadForm-A-{{ $item['id_rencana'] }}" enctype="multipart/form-data">
+                                                @csrf
+                                            <div class="modal-body">
+                                                <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                            <ol>
+                                                                <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat Kontrak Penelitian</li>
+                                                                <li>Proposal</li>
+                                                                <li>Laporan progress report bila belum selesai</li>
+                                                                <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah selesai</li>
+                                                                <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                                <li>Foto karya seni / bukti lain yang relevan jika terkait dengan pengembangan teknologi
+                                                                </li>
+                                                            </ol>
+                                                            <!-- File input -->
+                                                            <button  type="button" id="addFilesBtnA" class="btn btn-secondary">Add Files</button>
+                                                            <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                            <!-- tambahkan jarak bawah -->
+                                                            <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                <div id="selectedFiles"></div>
+                                                            </div>
+                                                            <input type="file" id="fileInputA" name="fileInputA[]" style="display: none;" multiple>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="button" id="buttonUpload-A-{{ $item['id_rencana'] }}" class="btn btn-primary">Upload Lampiran</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- AKHIR MODAL ADD FILE A --}}
+
+                                <script>
+                                    const id_rencana = "{{ $item['id_rencana'] }}"
+                                    const formId = "uploadForm-A-{{ $item['id_rencana'] }}"
+                                    document.getElementById(`buttonUpload-A-${id_rencana}`).addEventListener('click', function() {
+                                        uploadFiles(formId, "{{ $apiUrl }}");
+                                    });
+                                </script>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -55,55 +122,6 @@
     </div>
     {{-- AKHIR BAGIAN A --}}
 
-
-    {{-- TEMPAT MODAL ADD FILE A --}}
-    <div class="modal fade" id="modalEditEvaluasiPenelitian_A" tabindex="-1"
-        aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">A. Kuliah (Teori) pada tingkat Diploma
-                        dan S1 terhadap setiap kelompok</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat Kontrak Penelitian</li>
-                                    <li>Proposal</li>
-                                    <li>Laporan progress report bila belum selesai</li>
-                                    <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah selesai</li>
-                                    <li>Laporan akhir penelitian (termasuklog book)</li>
-                                    <li>Foto karya seni / bukti lain yang relevan jika terkait dengan pengembangan teknologi
-                                    </li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtn" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFiles"></div>
-                                </div>
-                                <input type="file" id="fileInput" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL ADD FILE A --}}
-
-
-    {{-- AKHIR BAGIAN MODAL BATAL UPLOAD A}}
 
     {{-- BAGIAN B --}}
     <div id="penelitian-B" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -131,102 +149,106 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditPenelitian_B"><i class="bi bi-plus-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                        @if (isset($penelitian_mandiri) && sizeof($penelitian_mandiri) > 0)
+                            @php
+                                $counter = 1;
+                                $apiUrl = env('API_FED_SERVICE') . '/penelitian/penelitian-mandiri';
+                            @endphp
+                            @foreach ($penelitian_mandiri as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>{{ $item['status_tahapan'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal" 
+                                        data-bs-target="#modalEditEvaluasiPenelitian_B-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                    </td>
+                                </tr>
 
-                            </td>
-                        </tr>
+                                {{-- MODAL UPLOAD B --}}
+                                <div class="modal fade" id="modalEditEvaluasiPenelitian_B-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditPenelitian_B_label"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalEditPenelitian_B_label"><b>B. Pelaksanaan penelitian mandiri atau
+                                                        pembuatan
+                                                        karya seni atau teknologi (disetujui oleh pimpinan dan tercatat) </h5></b>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            
+                                            <form id="uploadForm-B-{{ $item['id_rencana'] }}" enctype="multipart/form-data">
+                                                @csrf
+                                            <div class="modal-body">
+                                                <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                <ol>
+                                                                    <li>Surat Keterangan dari Pimpinan
+                                                                    / Ka LPPM atau Surat Kontrak Penelitian</li>
+                                                                    <li>Proposal</li>
+                                                                    <li>Laporan progress report bila belum selesai</li>
+                                                                    <li>Surat pernyataan dari Ka LPPM
+                                                                    bahwa penelitian sudah selesai
+                                                                    </li>
+                                                                    <li>Laporan akhir penelitian (termasuk
+                                                                    log book)</li>
+                                                                    <li>Foto karya seni / bukti lain yang
+                                                                    relevan jika terkait dengan pengembangan teknologi</li>
+                                                                </ol>
+                                                                <!-- File input -->
+                                                                <button type="button" id="addFilesBtnB"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number
+                                                                    of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
+                                                                <!-- tambahkan jarak bawah -->
+                                                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                    <div id="selectedFilesB"></div>
+                                                                </div>
+                                                                <input type="file" id="fileInputB" name="fileInputB[]"
+                                                                    style="display: none;" multiple>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button type="button" id="buttonUpload-B-{{ $item['id_rencana'] }}"
+                                                        class="btn btn-primary">Upload
+                                                        Lampiran</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- AKHIR MODAL UPLOAD B --}}
+
+                                <script>
+                                    const id_rencana = "{{ $item['id_rencana'] }}"
+                                    const formId = "uploadForm-B-{{ $item['id_rencana'] }}"
+                                    document.getElementById(`buttonUpload-B-${id_rencana}`).addEventListener('click', function() {
+                                        uploadFiles(formId, "{{ $apiUrl }}");
+                                    });
+                                </script>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
     {{-- AKHIR BAGIAN B --}}
-
-    {{-- MODAL UPLOAD B --}}
-    <div class="modal fade" id="modalEditPenelitian_B" tabindex="-1" aria-labelledby="modalEditPenelitian_B_label"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenelitian_B_label"><b>B. Pelaksanaan penelitian mandiri atau
-                            pembuatan
-                            karya seni atau teknologi (disetujui oleh pimpinan dan tercatat) </h5></b>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Surat Keterangan dari Pimpinan
-                                        / Ka LPPM atau Surat Kontrak Penelitian
-                                </b></h6></label>
-                            <input class="form-control" type="file" id="formFile">
-                        </div>
-                    </form>
-                    <form>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Proposal
-                                </b></h6></label>
-                            <input class="form-control" type="file" id="formFile">
-                        </div>
-                    </form>
-                    <form>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Laporan progress report bila belum selesai
-                                </b></h6></label>
-                            <input class="form-control" type="file" id="formFile">
-                        </div>
-                    </form>
-                    <form>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Surat pernyataan dari Ka LPPM
-                                        bahwa penelitian sudah selesai
-                                </b></h6> </label>
-                            <input class="form-control" type="file" id="formFile">
-                        </div>
-                    </form>
-                    <form>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Laporan akhir penelitian (termasuk
-                                        log book)
-                                </b></h6> </label>
-                            <input class="form-control" type="file" id="formFile">
-                        </div>
-                    </form>
-                    <form>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Foto karya seni / bukti lain yang
-                                        relevan jika terkait dengan pengembangan teknologi
-                                </b></h6> </label>
-                            <input class="form-control" type="file" id="formFile">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer py-4">
-                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
-                        data-bs-target="#modalBatal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL UPLOAD B --}}
 
     {{-- BAGIAN C --}}
     <div id="penelitian-C" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -256,20 +278,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenelitian_C">Tambah Lampiran</button>
-                            </td>
-                        </tr>
+                        @if (isset($buku_terbit) && sizeof($buku_terbit) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($buku_terbit as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>{{$item['nama_kegiatan']}}</td>
+                                    <td>{{$item['status_tahapan']}}</td>
+                                    <td>{{$item['jenis_pengerjaan']}}</td>
+                                    <td>{{$item['peran']}}</td>
+                                    <td>{{$item['sks_terhitung']}}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPenelitian_C">Tambah Lampiran</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -1544,13 +1573,13 @@
         function displayFilesWithIconsC(files) {
             var selectedFilesDiv = document.getElementById('selectedFilesC');
             // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFilesA = selectedFilesA.concat(Array.from(files));
+            selectedFilesC = selectedFilesC.concat(Array.from(files));
 
             // Menghapus konten sebelumnya
             selectedFilesDiv.innerHTML = '';
 
             // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFilesA.length; i++) {
+            for (var i = 0; i < selectedFilesC.length; i++) {
                 var file = selectedFilesC[i];
                 if (!file) continue; // Lewati file yang telah dihapus
 
@@ -1594,18 +1623,18 @@
             }
         }
 
-        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya D
-        function displayFilesWithIconsD(files) {
-            var selectedFilesDiv = document.getElementById('selectedFilesD');
+        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya B
+        function displayFilesWithIconsB(files) {
+            var selectedFilesDiv = document.getElementById('selectedFilesB');
             // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFilesD = selectedFilesD.concat(Array.from(files));
+            selectedFilesB = selectedFilesB.concat(Array.from(files));
 
             // Menghapus konten sebelumnya
             selectedFilesDiv.innerHTML = '';
 
             // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFilesD.length; i++) {
-                var file = selectedFilesD[i];
+            for (var i = 0; i < selectedFilesB.length; i++) {
+                var file = selectedFilesB[i];
                 if (!file) continue; // Lewati file yang telah dihapus
 
                 var fileName = file.name;
@@ -1634,9 +1663,9 @@
                 deleteBtn.addEventListener('click', (function(fileToRemove) {
                     return function() {
                         // Hapus file dari array file-file yang dipilih
-                        var index = selectedFilesD.indexOf(fileToRemove);
+                        var index = selectedFilesB.indexOf(fileToRemove);
                         if (index > -1) {
-                            selectedFilesD.splice(index, 1);
+                            selectedFilesB.splice(index, 1);
                         }
                         // Hapus elemen file dari tampilan
                         this.parentElement.remove();
@@ -1830,13 +1859,17 @@
         }
 
         // Gunakan fungsi displayFilesWithIcons untuk menampilkan file dengan gambar/logo
-        document.getElementById('fileInput').addEventListener('change', function() {
+        document.getElementById('fileInputA').addEventListener('change', function() {
             var files = this.files;
             displayFilesWithIcons(files);
         });
         document.getElementById('fileInputC').addEventListener('change', function() {
             var files = this.files;
             displayFilesWithIconsC(files);
+        });
+        document.getElementById('fileInputB').addEventListener('change', function() {
+            var files = this.files;
+            displayFilesWithIconsB(files);
         });
         document.getElementById('fileInputD').addEventListener('change', function() {
             var files = this.files;
@@ -1852,13 +1885,17 @@
         });
 
         // Fungsi untuk menambah file A
-        document.getElementById('addFilesBtn').addEventListener('click', function() {
-            var fileInput = document.getElementById('fileInput');
+        document.getElementById('addFilesBtnA').addEventListener('click', function() {
+            var fileInput = document.getElementById('fileInputA');
             fileInput.click();
         });
         document.getElementById('addFilesBtnC').addEventListener('click', function() {
             var fileInputC = document.getElementById('fileInputC');
             fileInputC.click();
+        });
+        document.getElementById('addFilesBtnB').addEventListener('click', function() {
+            var fileInputB = document.getElementById('fileInputB');
+            fileInputB.click();
         });
         document.getElementById('addFilesBtnD').addEventListener('click', function() {
             var fileInputD = document.getElementById('fileInputD');
@@ -1874,6 +1911,7 @@
         });
 
         var selectedFiles = [];
+        var selectedFilesB= [];
         var selectedFilesC = [];
         var selectedFilesD = [];
         var selectedFilesM = [];
