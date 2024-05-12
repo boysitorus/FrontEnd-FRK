@@ -54,7 +54,6 @@
                                             data-bs-target="#modalEditEvaluasiPenelitian_A-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
                                     </td>
                                 </tr>
-
                                 {{-- TEMPAT MODAL ADD FILE A --}}
                                 <div class="modal fade" id="modalEditEvaluasiPenelitian_A-{{ $item['id_rencana'] }}" tabindex="-1"
                                     aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
@@ -105,7 +104,6 @@
                                     </div>
                                 </div>
                                 {{-- AKHIR MODAL ADD FILE A --}}
-
                                 <script>
                                     const id_rencana = "{{ $item['id_rencana'] }}"
                                     const formId = "uploadForm-A-{{ $item['id_rencana'] }}"
@@ -233,14 +231,6 @@
                                     </div>
                                 </div>
                                 {{-- AKHIR MODAL UPLOAD B --}}
-
-                                <script>
-                                    const id_rencana = "{{ $item['id_rencana'] }}"
-                                    const formId = "uploadForm-B-{{ $item['id_rencana'] }}"
-                                    document.getElementById(`buttonUpload-B-${id_rencana}`).addEventListener('click', function() {
-                                        uploadFiles(formId, "{{ $apiUrl }}");
-                                    });
-                                </script>
                             @endforeach
                         @endif
                     </tbody>
@@ -249,6 +239,8 @@
         </div>
     </div>
     {{-- AKHIR BAGIAN B --}}
+
+
 
     {{-- BAGIAN C --}}
     <div id="penelitian-C" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -297,6 +289,53 @@
                                             data-bs-target="#modalEditEvaluasiPenelitian_C">Tambah Lampiran</button>
                                     </td>
                                 </tr>
+
+                                {{-- TEMPAT MODAL ADD FILE C --}}
+                                <div class="modal fade" id="modalEditEvaluasiPenelitian_C" tabindex="-1"
+                                    aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="modalEditEvaluasiPenelitianCLabel">C. Menulis 1 judul naskah buku yang
+                                                    akan diterbitkan dalam waktu sebanyak-banyaknya \ 4 semester (disetujui oleh pimpinan dan
+                                                    tercatat)sama dengan 3 sks.</h6>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                            <ol>
+                                                                <li>Buku yang sudah terbit</li>
+                                                                <li>Bukti kontrak penerbitan jika masih naik cetak</li>
+                                                                <li>Surat Keterangan Sedang Menulis
+                                                                    Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai
+                                                                    dalam
+                                                                    berapa lama, bagi yang sedang menulis.</li>
+                                                                <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
+                                                            </ol>
+                                                            <!-- File input -->
+                                                            <button id="addFilesBtnC" class="btn btn-secondary">Add Files</button>
+                                                            <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                            <!-- tambahkan jarak bawah -->
+                                                            <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                <div id="selectedFilesC"></div>
+                                                            </div>
+                                                            <input type="file" id="fileInputC" style="display: none;" multiple>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="button" class="btn btn-primary">Upload Lampiran</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- AKHIR MODAL ADD FILE C --}}
                             @endforeach
                         @endif
                     </tbody>
@@ -305,53 +344,6 @@
         </div>
     </div>
     {{-- AKHIR BAGIAN C --}}
-
-    {{-- TEMPAT MODAL ADD FILE C --}}
-    <div class="modal fade" id="modalEditEvaluasiPenelitian_C" tabindex="-1"
-        aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPenelitianCLabel">C. Menulis 1 judul naskah buku yang
-                        akan diterbitkan dalam waktu sebanyak-banyaknya \ 4 semester (disetujui oleh pimpinan dan
-                        tercatat)sama dengan 3 sks.</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Buku yang sudah terbit</li>
-                                    <li>Bukti kontrak penerbitan jika masih naik cetak</li>
-                                    <li>Surat Keterangan Sedang Menulis
-                                        Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai
-                                        dalam
-                                        berapa lama, bagi yang sedang menulis.</li>
-                                    <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnC" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesC"></div>
-                                </div>
-                                <input type="file" id="fileInputC" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL ADD FILE C --}}
 
     {{-- BAGIAN D --}}
     <div id="penelitian-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -1227,10 +1219,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
                             @if (isset($pembicara_seminar) && sizeof($pembicara_seminar) > 0)
                                 @php
                                     $counter = 1;
-                                    $apiUrl = env('API_FED_SERVICE') . '/penelitian/pembicara-seminar';
                                 @endphp
                                 @foreach ($pembicara_seminar as $item)
                         <tr>
@@ -1242,67 +1234,9 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenelitian_M-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                    data-bs-target="#modalEditEvaluasiPenelitian_M">Tambah Lampiran</button>
                             </td>
                         </tr>
-                        {{-- MODAL UPLOAD M --}}
-                        <div class="modal fade" id="modalEditEvaluasiPenelitian_M-{{ $item['id_rencana'] }}" tabindex="-1"
-                            aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>M. Menyampaikan orasi ilmiah,
-                                                pembicara dalam seminar,
-                                                narasumber terkait dengan bidang keilmuannya</h5></b>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-
-                                    <form id="uploadForm-M-{{ $item['id_rencana'] }}" enctype="multipart/form-data">
-                                    @csrf
-                                        <div class="modal-body">
-                                            <input type="hidden" name="id_rencana"
-                                            value="{{ $item['id_rencana'] }}">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h6>*Jenis Dokumen yang harus dilengkapi: </h6>
-                                                        <ol>
-                                                            <li>Surat Permohonan sebagai Pembicara/Nara Sumber</li>
-                                                            <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
-                                                            <li>Naskah/ materi yang diberikan</li>
-                                                            <li>Sertifikat (jika ada)</li>
-                                                        </ol>
-                                                        <!-- File Input -->
-                                                        <button type="button" id="addFilesBtnM" class="btn btn-secondary">Add Files</button>
-                                                        <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                        <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                                        <!-- tambahkan jarak bawah -->
-                                                        <div class="mt-3 mb-3">
-                                                            <div id="selectedFilesM"></div>
-                                                        </div>
-                                                        <input type="file" id="fileInputM" name="fileInputM[]" style="display: none;"
-                                                            multiple>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                            <button type="button" id="buttonUpload-M-{{ $item['id_rencana'] }}" class="btn btn-primary">Upload Lampiran</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- AKHIR MODAL UPLOAD M --}}
-
-                        <script>
-                            const id_rencana = "{{ $item['id_rencana'] }}"
-                            const formId = "uploadForm-M-{{ $item['id_rencana'] }}"
-                            document.getElementById(`buttonUpload-M-${id_rencana}`).addEventListener('click', function() {
-                                        uploadFiles(formId, "{{ $apiUrl }}");
-                                    });
-                        </script>
                         @endforeach
                         @endif
                     </tbody>
@@ -1312,6 +1246,53 @@
     </div>
     {{-- AKHIR BAGIAN M --}}
 
+    {{-- MODAL UPLOAD M --}}
+    <div class="modal fade" id="modalEditEvaluasiPenelitian_M" tabindex="-1"
+        aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>M. Menyampaikan orasi ilmiah,
+                            pembicara dalam seminar,
+                            narasumber terkait dengan bidang keilmuannya</h5></b>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form action="{{ route('ed-add-pembicara-seminar') }}" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6>*Jenis Dokumen yang harus dilengkapi: </h6>
+                                    <ol>
+                                        <li>Surat Permohonan sebagai Pembicara/Nara Sumber</li>
+                                        <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
+                                        <li>Naskah/ materi yang diberikan</li>
+                                        <li>Sertifikat (jika ada)</li>
+                                    </ol>
+                                    <!-- File Input -->
+                                    <button type="button" id="addFilesBtnM" class="btn btn-secondary">Add Files</button>
+                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                    <!-- tambahkan jarak bawah -->
+                                    <div class="mt-3 mb-3">
+                                        <div id="selectedFilesM"></div>
+                                    </div>
+                                    <input type="file" id="fileInputM" name="fileInputM[]" style="display: none;"
+                                        multiple>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Upload Lampiran</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- AKHIR MODAL UPLOAD M --}}
 
     {{-- BAGIAN N --}}
     <div id="penelitian-N" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -1345,7 +1326,6 @@
                             @if (isset($penyajian_makalah) && sizeof($penyajian_makalah) > 0)
                                 @php
                                     $counter = 1;
-                                    $apiUrl = env('API_FED_SERVICE') . '/penelitian/penyajian-makalah';
                                 @endphp
                                 @foreach ($penyajian_makalah as $item)
                         <tr>
@@ -1360,67 +1340,10 @@
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEvaluasiPenelitian_N-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                    data-bs-target="#modalEditEvaluasiPenelitian_N">Tambah Lampiran</button>
 
                             </td>
                         </tr>
-                        {{-- MODAL UPLOAD N --}}
-                        <div class="modal fade" id="modalEditEvaluasiPenelitian_N-{{ $item['id_rencana'] }}" tabindex="-1"
-                            aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>N. Penyaji makalah dalam seminar
-                                                atau pertemuan ilmiah terkait dengan bidang ilmu</h5></b>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-
-                                    <form id="uploadForm-N-{{ $item['id_rencana'] }}" enctype="multipart/form-data">
-                                    @csrf
-                                        <div class="modal-body">
-                                        <input type="hidden" name="id_rencana"
-                                            value="{{ $item['id_rencana'] }}">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h6>*Jenis Dokumen yang harus dilengkapi: </h6>
-                                                        <ol>
-                                                            <li>Surat Penerimaan untuk disajkina dari Panitia</li>
-                                                            <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
-                                                            <li>Naskah/materi yang diberikan</li>
-                                                            <li>Sertifikat (jika ada)</li>
-                                                        </ol>
-                                                        <!-- File Input -->
-                                                        <button type="button" id="addFilesBtnN" class="btn btn-secondary">Add
-                                                            Files</button>
-                                                        <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                        <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                                        <!-- Tambahkan jarak bawah -->
-                                                        <div class="mt-3 mb-3">
-                                                            <div id="selectedFilesN"></div>
-                                                        </div>
-                                                        <input type="file" id="fileInputN" name="fileInputN[]" style="display: none;"
-                                                            multiple>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                            <button type="button" id="buttonUpload-N-{{ $item['id_rencana'] }}" class="btn btn-primary">Upload Lampiran</button>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- AKHIR MODAL UPLOAD N --}}
-
-                        <script>
-                            const id_rencana = "{{ $item['id_rencana'] }}"
-                            const formId = "uploadForm-N-{{ $item['id_rencana'] }}"
-                            document.getElementB~~yId(`buttonUpload-N-${id_rencana}`).addEventListener('click', function() {
-                                uploadFiles(formId, "{{ $apiUrl }}");
-                            });
-                        </script>
                         @endforeach
                         @endif
                     </tbody>
@@ -1430,7 +1353,53 @@
     </div>
     {{-- AKHIR BAGIAN N --}}
 
-    
+    {{-- MODAL UPLOAD N --}}
+    <div class="modal fade" id="modalEditEvaluasiPenelitian_N" tabindex="-1"
+        aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>N. Penyaji makalah dalam seminar
+                            atau pertemuan ilmiah terkait dengan bidang ilmu</h5></b>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form action="{{ route('ed-add-penyajian-makalah') }}" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="mol-md-12">
+                                    <h6>*Jenis Dokumen yang harus dilengkapi: </h6>
+                                    <ol>
+                                        <li>Surat Penerimaan untuk disajkina dari Panitia</li>
+                                        <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
+                                        <li>Naskah/materi yang diberikan</li>
+                                        <li>Sertifikat (jika ada)</li>
+                                    </ol>
+                                    <!-- File Input -->
+                                    <button type="button" id="addFilesBtnN" class="btn btn-secondary">Add
+                                        Files</button>
+                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                    <!-- Tambahkan jarak bawah -->
+                                    <div class="mt-3 mb-3">
+                                        <div id="selectedFilesN"></div>
+                                    </div>
+                                    <input type="file" id="fileInputN" name="fileInputN[]" style="display: none;"
+                                        multiple>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Upload Lampiran</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    {{-- AKHIR MODAL UPLOAD N --}}
+
 
     {{-- TEMPAT MODAL DELETE CONFIRM --}}
     <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
@@ -1592,6 +1561,60 @@
             }
         }
 
+        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya B
+        function displayFilesWithIconsB(files) {
+            var selectedFilesDiv = document.getElementById('selectedFilesB');
+            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
+            selectedFilesB = selectedFilesB.concat(Array.from(files));
+
+            // Menghapus konten sebelumnya
+            selectedFilesDiv.innerHTML = '';
+
+            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
+            for (var i = 0; i < selectedFilesB.length; i++) {
+                var file = selectedFilesB[i];
+                if (!file) continue; // Lewati file yang telah dihapus
+
+                var fileName = file.name;
+                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
+                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
+
+                var fileListItem = document.createElement('div');
+                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+                // Tambahkan ikon/gambar
+                var fileIconImg = document.createElement('img');
+                fileIconImg.src = '/assets/img/' + fileIcon;
+                fileIconImg.alt = 'File Icon';
+                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+                fileListItem.appendChild(fileIconImg);
+
+                // Tambahkan nama file
+                var fileNameSpan = document.createElement('span');
+                fileNameSpan.textContent = fileName;
+                fileListItem.appendChild(fileNameSpan);
+
+                // Tambahkan tombol hapus
+                var deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'ms-2');
+                // deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
+                deleteBtn.addEventListener('click', (function(fileToRemove) {
+                    return function() {
+                        // Hapus file dari array file-file yang dipilih
+                        var index = selectedFilesB.indexOf(fileToRemove);
+                        if (index > -1) {
+                            selectedFilesD.splice(index, 1);
+                        }
+                        // Hapus elemen file dari tampilan
+                        this.parentElement.remove();
+                    };
+                })(file)); // Closure untuk menyimpan file yang benar
+                fileListItem.appendChild(deleteBtn);
+
+                selectedFilesDiv.appendChild(fileListItem);
+            }
+        }
+
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya C
         function displayFilesWithIconsC(files) {
             var selectedFilesDiv = document.getElementById('selectedFilesC');
@@ -1646,59 +1669,6 @@
             }
         }
 
-        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya B
-        function displayFilesWithIconsB(files) {
-            var selectedFilesDiv = document.getElementById('selectedFilesB');
-            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFilesB = selectedFilesB.concat(Array.from(files));
-
-            // Menghapus konten sebelumnya
-            selectedFilesDiv.innerHTML = '';
-
-            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFilesB.length; i++) {
-                var file = selectedFilesB[i];
-                if (!file) continue; // Lewati file yang telah dihapus
-
-                var fileName = file.name;
-                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-                var fileListItem = document.createElement('div');
-                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-                // Tambahkan ikon/gambar
-                var fileIconImg = document.createElement('img');
-                fileIconImg.src = '/assets/img/' + fileIcon;
-                fileIconImg.alt = 'File Icon';
-                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-                fileListItem.appendChild(fileIconImg);
-
-                // Tambahkan nama file
-                var fileNameSpan = document.createElement('span');
-                fileNameSpan.textContent = fileName;
-                fileListItem.appendChild(fileNameSpan);
-
-                // Tambahkan tombol hapus
-                var deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'ms-2');
-                // deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
-                deleteBtn.addEventListener('click', (function(fileToRemove) {
-                    return function() {
-                        // Hapus file dari array file-file yang dipilih
-                        var index = selectedFilesB.indexOf(fileToRemove);
-                        if (index > -1) {
-                            selectedFilesB.splice(index, 1);
-                        }
-                        // Hapus elemen file dari tampilan
-                        this.parentElement.remove();
-                    };
-                })(file)); // Closure untuk menyimpan file yang benar
-                fileListItem.appendChild(deleteBtn);
-
-                selectedFilesDiv.appendChild(fileListItem);
-            }
-        }
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya D
         function displayFilesWithIconsD(files) {
             var selectedFilesDiv = document.getElementById('selectedFilesD');
@@ -1886,13 +1856,13 @@
             var files = this.files;
             displayFilesWithIcons(files);
         });
-        document.getElementById('fileInputC').addEventListener('change', function() {
-            var files = this.files;
-            displayFilesWithIconsC(files);
-        });
         document.getElementById('fileInputB').addEventListener('change', function() {
             var files = this.files;
             displayFilesWithIconsB(files);
+        });
+        document.getElementById('fileInputC').addEventListener('change', function() {
+            var files = this.files;
+            displayFilesWithIconsC(files);
         });
         document.getElementById('fileInputD').addEventListener('change', function() {
             var files = this.files;
@@ -1912,13 +1882,13 @@
             var fileInput = document.getElementById('fileInputA');
             fileInput.click();
         });
+        document.getElementById('addFilesBtnB').addEventListener('click', function() {
+            var fileInput = document.getElementById('fileInputB');
+            fileInput.click();
+        });
         document.getElementById('addFilesBtnC').addEventListener('click', function() {
             var fileInputC = document.getElementById('fileInputC');
             fileInputC.click();
-        });
-        document.getElementById('addFilesBtnB').addEventListener('click', function() {
-            var fileInputB = document.getElementById('fileInputB');
-            fileInputB.click();
         });
         document.getElementById('addFilesBtnD').addEventListener('click', function() {
             var fileInputD = document.getElementById('fileInputD');
@@ -1934,7 +1904,7 @@
         });
 
         var selectedFiles = [];
-        var selectedFilesB= [];
+        var selectedFilesB = [];
         var selectedFilesC = [];
         var selectedFilesD = [];
         var selectedFilesM = [];
