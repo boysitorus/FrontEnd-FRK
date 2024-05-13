@@ -39,7 +39,7 @@ class AuthenticationController extends Controller
             Tools::setToken($request, $parseData['token']);
             Tools::setTokenRefresh($request, $parseData['refresh_token']);
 
-            return redirect()->route('home');
+            return redirect()->route('profile');
 
         } catch (\Exception $err) {
             return back()->with('error', "Silahkan coba lagi!");
