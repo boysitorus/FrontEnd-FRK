@@ -191,7 +191,7 @@ class EvaluasiDiriController extends Controller
             ]
         );
 
-        return redirect()->back()->with('success', 'Pendidikan teori upload successfully');
+        return redirect()->back()->with('success', 'Penunjang akademik upload successfully');
     }
 
     // Tabel B. Bimbingan
@@ -205,10 +205,51 @@ class EvaluasiDiriController extends Controller
             ]
         );
 
-        return redirect()->back()->with('success', 'Pendidikan teori upload successfully');
+        return redirect()->back()->with('success', 'Penunjang bimbingan upload successfully');
     }
 
     // Tabel C. UKM
+    public function postUkm(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/ukm',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang ukm upload successfully');
+    }
+
+    // Tabel D.
+    public function postSosial(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/sosial',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang sosial upload successfully');
+    }
+
+    // Tabel E. Struktural
+    public function postStruktural(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/struktural',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang struktural upload successfully');
+    }
+
 
     // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG 
 }
