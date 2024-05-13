@@ -1077,7 +1077,6 @@
                 }
             }
 
-
 // Fungsi untuk menampilkan file yang dipilih beserta ikonnya B
             function displayFilesWithIconsB(files) {
                 var selectedFilesDiv = document.getElementById('selectedFilesB');
