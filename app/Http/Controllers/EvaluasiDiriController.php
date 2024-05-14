@@ -174,7 +174,50 @@ class EvaluasiDiriController extends Controller
         return redirect()->back()->with('success', 'Pendidikan teori upload successfully');
     }
 
-    // >>lanjut
+    // Tabel B. Praktikum
+    public function postPraktikum(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/pendidikan/praktikum',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pendidikan praktikum upload successfully');
+    }
+
+    // Tabel C. Bimbingan
+    
+
+    // Tabel D. Seminar
+    public function postSeminar(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/pendidikan/seminar',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput'),
+            ]
+        ); 
+
+        return redirect()->back()->with('success', 'Pendidikan seminar upload successfully');
+    }
+
+    // Tabel E. Tugas Akhir
+    public function postTugasAkhir(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/pendidikan/tugasakhir',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pendidikan tugas akhir upload successfully');
+    }
 
     // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN 
 

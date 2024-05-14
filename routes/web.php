@@ -330,7 +330,21 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::get('/simpulan', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
 
         Route::prefix('/pendidikan')->group(function () {
+            // A. Teori
             Route::post('/teori-upload', [EvaluasiDiriController::class, 'postTeori'])->name('ed-pendidikan.teori.upload');
+
+            // B. Praktikum
+            Route::post('/praktikum-upload', [EvaluasiDiriController::class, 'postPraktikum'])->name('ed-pendidikan.praktikum.upload');
+
+            // C. Bimbingan
+            Route::post('/bimbingan-upload', [EvaluasiDiriController::class, 'postBimbingan'])->name('ed-pendidikan.bimbingan.upload');
+
+            // D. Seminar
+            Route::post('/seminar-upload', [EvaluasiDiriController::class, 'postSeminar'])->name('ed-pendidikan.seminar.upload');
+
+            // E. Tugas Akhir
+            Route::post('/tugasakhir-upload', [EvaluasiDiriController::class, 'postTugasAkhir'])->name('ed-pendidikan.tugasakhir.upload');
+
         });
 
         Route::prefix('/penunjang')->group(function () {
