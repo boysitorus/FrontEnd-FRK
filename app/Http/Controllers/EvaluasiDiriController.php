@@ -189,7 +189,18 @@ class EvaluasiDiriController extends Controller
     }
 
     // Tabel C. Bimbingan
-    
+    public function postBimbinganPendidikan(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/pendidikan/bimbingan',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Pendidikan bimbingan upload successfully');
+    }
 
     // Tabel D. Seminar
     public function postSeminar(Request $request)

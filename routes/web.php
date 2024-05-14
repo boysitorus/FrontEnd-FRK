@@ -337,7 +337,7 @@ Route::group(['middleware' => ['check.token']], function () {
             Route::post('/praktikum-upload', [EvaluasiDiriController::class, 'postPraktikum'])->name('ed-pendidikan.praktikum.upload');
 
             // C. Bimbingan
-            Route::post('/bimbingan-upload', [EvaluasiDiriController::class, 'postBimbingan'])->name('ed-pendidikan.bimbingan.upload');
+            Route::post('/bimbingan-upload', [EvaluasiDiriController::class, 'postBimbinganPendidikan'])->name('ed-pendidikan.bimbingan.upload');
 
             // D. Seminar
             Route::post('/seminar-upload', [EvaluasiDiriController::class, 'postSeminar'])->name('ed-pendidikan.seminar.upload');
