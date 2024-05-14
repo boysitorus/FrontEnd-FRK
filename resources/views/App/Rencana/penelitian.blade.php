@@ -594,7 +594,7 @@
                                                 <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
                                                 <div class="mb-3">
                                                     <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                    <input value="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                    <input value="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
@@ -747,7 +747,7 @@
                                                 <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
                                                 <div class="mb-3">
                                                     <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                                    <input value="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan">
+                                                    <input value="{{ $item['nama_kegiatan'] }}" name="nama_kegiatan" type="text" class="form-control" id="nama_kegiatan" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="status_tahapan" class="form-label">Tahap Pencapaian</label>
@@ -828,7 +828,7 @@
                         @endphp
                         @foreach ($menyunting as $item)
                             <tr>
-                                <td scope="row">{{ $counter++ }}</td>
+                                <td scope="row">{{ $counter }}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
                                 <td>{{ $item['status_tahapan'] }}</td>
                                 <td>{{ $item['posisi'] }}</td>

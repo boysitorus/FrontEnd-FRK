@@ -334,7 +334,20 @@ Route::group(['middleware' => ['check.token']], function () {
         });
 
         Route::prefix('/penunjang')->group(function () {
+            // A. Akademik
             Route::post('/akademik-upload', [EvaluasiDiriController::class, 'postAkademik'])->name('ed-penunjang.akademik.upload');
+
+            // B. Bimbingan
+            Route::post('/bimbingan-upload', [EvaluasiDiriController::class, 'postBimbingan'])->name('ed-penunjang.bimbingan.upload');
+
+            // C. Ukm
+            Route::post('/ukm-upload', [EvaluasiDiriController::class, 'postUkm'])->name('ed-penunjang.ukm.upload');
+
+            // D. Sosial
+            Route::post('/sosial-upload', [EvaluasiDiriController::class, 'postSosial'])->name('ed-penunjang.sosial.upload');
+
+            // E. Struktural
+            Route::post('/struktural-upload', [EvaluasiDiriController::class, 'postStruktural'])->name('ed-penunjang.struktural.upload');
         });
 
     });

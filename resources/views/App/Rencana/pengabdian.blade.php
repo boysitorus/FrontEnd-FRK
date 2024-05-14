@@ -723,8 +723,8 @@
                                                             Pendahuluan
                                                         </option>
                                                         <option
-                                                            value="50 % dari isi buku" {{ $item['status_tahapan'] == '50 % dari isi buku' ? 'selected' : '' }}>
-                                                            50 % dari isi buku
+                                                            value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>
+                                                            50% dari isi buku
                                                         </option>
                                                         <option
                                                             value="Buku jadi" {{ $item['status_tahapan'] == 'Buku jadi' ? 'selected' : '' }}>
@@ -861,7 +861,7 @@
                                     aria-label=".form-select-md example" required>
                                 <option disabled selected value="">Pilih tahapan</option>
                                 <option value="Pendahuluan">Pendahuluan</option>
-                                <option value="50 % dari isi buku">50 % dari isi buku</option>
+                                <option value="50% dari isi buku">50% dari isi buku</option>
                                 <option value="Buku jadi">Buku jadi</option>
                                 <option value="Persetujuan Penerbit">Persetujuan Penerbit</option>
                                 <option value="Buku selesai dicetak">Buku selesai dicetak</option>
