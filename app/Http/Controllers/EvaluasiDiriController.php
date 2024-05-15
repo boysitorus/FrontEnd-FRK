@@ -203,7 +203,7 @@ class EvaluasiDiriController extends Controller
     }
 
     // Tabel D. Seminar
-    public function postSeminar(Request $request)
+    public function postSeminarPendidikan(Request $request)
     {
         Http::post(
             env('API_FED_SERVICE') . '/pendidikan/seminar',
