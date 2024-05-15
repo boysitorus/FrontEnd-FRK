@@ -17,11 +17,7 @@
         </div>
 
         <div class = "bg-white mt-2" style="border-top: 1px solid black; border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;">
-<<<<<<< HEAD
-            <div class = "ml-2 mr-2 pt-4">
-=======
             <div class = "ml-1 mr-2 pt-4">
->>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
                 <h4 class = "font-weight-bold">Rekap Kerja - Semester 2023/2024 Genap</h4>
             </div>
             <hr/>

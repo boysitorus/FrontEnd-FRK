@@ -303,7 +303,134 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Penunjang struktural upload successfully');
     }
+    
+    // Tabel F. Non Struktural
+    public function postNonStruktural(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/nonstruktural',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
 
+        return redirect()->back()->with('success', 'Penunjang non struktural upload successfully');
+    }
+        
+    // Tabel G. Redaksi
+    public function postRedaksi(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/redaksi',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang redaksi upload successfully');
+    }
+    
+    // Tabel H. Ad Hoc
+    public function postAdHoc(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/adhoc',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang adhoc upload successfully');
+    
+    }
+    
+    // Tabel I. Ketua Panitia
+    public function postKetuaPanitia(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/ketuapanitia',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang ketua panitia upload successfully');
+    }
+    
+    // Tabel J. Anggota Panitia
+    public function postAnggotaPanitia(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/anggotapanitia',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang anggota panitia upload successfully');
+    }
+    
+    // Tabel K. Pengurus Yayasan
+    public function postPengurusYayasan(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/pengurusyayasan',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang pengurus yayasan upload successfully');
+    }
+    
+    // Tabel L. Asosiasi
+    public function postAssosiasi(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/assosiasi',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang assosiasi upload successfully');
+    }
+    
+    // Tabel M. Seminar
+    public function postSeminar(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/seminar',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang seminar upload successfully');
+    }
+    
+    // Tabel N. Reviewer
+    public function postReviewer(Request $request)
+    {
+        Http::post(
+            env('API_FED_SERVICE') . '/penunjang/reviewer',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'fileInput[]' => $request->file('fileInput[]'),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Penunjang reviewer upload successfully');
+    }
+    
 
     // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG 
 }
