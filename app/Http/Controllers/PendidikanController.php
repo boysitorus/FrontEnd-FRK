@@ -12,6 +12,7 @@ class PendidikanController extends Controller
     {
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+
         try {
             // Mengambil data teori dari Lumen
             $responseTeori = Http::get(env('API_FRK_SERVICE') . '/pendidikan/teori/' . $id_dosen);
@@ -77,34 +78,34 @@ class PendidikanController extends Controller
 
     public function postTeori(Request $request)
     {
-        Http::post(
-            env('API_FRK_SERVICE') . '/pendidikan/teori',
-            [
-                'id_dosen' => $request->get('id_dosen'),
-                'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'jumlah_kelas' => $request->get('jumlah_kelas'),
-                'jumlah_evaluasi' => $request->get('jumlah_evaluasi'),
-                'sks_matakuliah' => $request->get('sks_matakuliah'),
-            ]
-        );
+            Http::post(
+                env('API_FRK_SERVICE') . '/pendidikan/teori',
+                [
+                    'id_dosen' => $request->get('id_dosen'),
+                    'nama_kegiatan' => $request->get('nama_kegiatan'),
+                    'jumlah_kelas' => $request->get('jumlah_kelas'),
+                    'jumlah_evaluasi' => $request->get('jumlah_evaluasi'),
+                    'sks_matakuliah' => $request->get('sks_matakuliah'),
+                ]
+            );
 
-        return redirect()->back()->with('success', 'Pendidikan teori added successfully');
+            return redirect()->back()->with('success', 'Pendidikan teori added successfully');
     }
 
     public function editTeori(Request $request)
     {
-        Http::post(
-            env('API_FRK_SERVICE') . '/pendidikan/edit/teori',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'jumlah_kelas' => $request->get('jumlah_kelas'),
-                'jumlah_evaluasi' => $request->get('jumlah_evaluasi'),
-                'sks_matakuliah' => $request->get('sks_matakuliah'),
-            ]
-        );
+            Http::post(
+                env('API_FRK_SERVICE') . '/pendidikan/edit/teori',
+                [
+                    'id_rencana' => $request->get('id_rencana'),
+                    'nama_kegiatan' => $request->get('nama_kegiatan'),
+                    'jumlah_kelas' => $request->get('jumlah_kelas'),
+                    'jumlah_evaluasi' => $request->get('jumlah_evaluasi'),
+                    'sks_matakuliah' => $request->get('sks_matakuliah'),
+                ]
+            );
 
-        return redirect()->back()->with('success', 'Item updated successfully');
+            return redirect()->back()->with('success', 'Item updated successfully');
     }
 
     public function deleteTeori($id)
@@ -445,5 +446,5 @@ class PendidikanController extends Controller
         return redirect()->back()->with('success', 'Item deleted');
     }
 
-    
+
 }

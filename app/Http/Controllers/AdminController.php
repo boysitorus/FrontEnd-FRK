@@ -21,7 +21,7 @@ class AdminController extends Controller
 
         try {
             $genData = Http::asForm()->post(env('API_ADMIN_SERVICE', false) . 'generate-tanggal', [
-                'role' => $auth->user->role,
+                'role' => json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '],
                 'tipe_tanggal' => 'FRK',
                 "tahun_ajaran" => $request->tahun_ajaran,
                 "tgl_awal_pengisian" => $request->tanggal_awal_rencana_kerja,
@@ -45,7 +45,7 @@ class AdminController extends Controller
 
         try {
             $genData = Http::asForm()->post(env('API_ADMIN_SERVICE', false) . 'generate-tanggal', [
-                'role' => $auth->user->role,
+                'role' => json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '],
                 'tipe_tanggal' => 'FED',
                 "tahun_ajaran" => $request->tahun_ajaran,
                 "tgl_awal_pengisian" => $request->tanggal_awal_rencana_kerja,

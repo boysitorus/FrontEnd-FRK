@@ -23,10 +23,11 @@ class CheckRoles
             return redirect()->route('logout.get');
         }
 
-        if (json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '] != "Staf Human Resources")
+        if (in_array(json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '], $role) == false)
         {
             return redirect()->route('home');
         }
+
         return $next($request);
     }
 }
