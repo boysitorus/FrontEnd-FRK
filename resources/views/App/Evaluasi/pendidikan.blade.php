@@ -250,8 +250,6 @@
             </div>
         </div>
     </div>
-    
-    
     {{-- AKHIR BAGIAN B --}}
 
     {{-- BAGIAN C --}}
@@ -260,7 +258,7 @@
             <h6><b>C. Bimbingan kuliah kerja yang terprogram terhadap setiap kelompok, Pembimbingan Praktek Klinik/Lapangan,
                     dan DPL (Dosen Pembimbing lapangan)</b></h6>
             <hr />
-
+            
             <div class="text-sm">
                 <table id="tableEvaluasiPendidikan-C"
                     class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
@@ -269,8 +267,7 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan
-                            </th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -285,74 +282,89 @@
                             @php
                                 $counter = 1;
                             @endphp
+                    
                             @foreach ($bimbingan as $item)
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (!array_key_exists('lampiran', $item) || is_null($item['lampiran']) )
+                                            <div class="border-kuning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                        @else
+                                            <div class="border-hijau">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan_C">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
                                     </td>
                                 </tr>
+                                {{-- TEMPAT MODAL ADD FILE C --}}
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
+                                    aria-labelledby="modalEditEvaluasiPendidikanCLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <form action="{{ route('ed-pendidikan.bimbingan.upload') }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('POST')
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                <ol>
+                                                                    <li>Surat Tugas atau Surat Keputusan Mengajar dari Pimpinan</li>
+                                                                    <li>Presensi Mahasiswa</li>
+                                                                    <li>Berita Acara bimbingan</li>
+                                                                    <li>Daftar Nilai tugas atau laporan hasil praktek</li>
+                                                                    <li>Berita Acara bimbingan</li>
+                                                                    <li>Daftar Nilai tugas atau laporan hasil praktek</li>
+                                                                    <li>Daftar nilai atau laporan KKN</li>
+                                                                </ol>
+                                                                <!-- File input -->
+                                                                <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <!-- tambahkan jarak bawah -->
+                                                                <div class="mt-3 mb-3">
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                </div>
+                                                                <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Upload Lampiran</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- AKHIR MODAL ADD FILE C --}}
                             @endforeach
                         @endif
-                    </tbody>
+                    </tbody>                    
                 </table>
             </div>
         </div>
     </div>
     {{-- AKHIR BAGIAN C --}}
-
-    {{-- TEMPAT MODAL ADD FILE C --}}
-    <div class="modal fade" id="modalEditEvaluasiPendidikan_C" tabindex="-1"
-        aria-labelledby="modalEditEvaluasiPendidikanCLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanCLabel">C. Bimbingan kuliah kerja yang
-                        terprogram terhadap setiap kelompok, Pembimbingan Praktek Klinik/Lapangan,
-                        dan DPL (Dosen Pembimbing lapangan)</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Surat Tugas atau Surat Keputusan Mengajar dari Pimpinan</li>
-                                    <li>Presensi Mahasiswa</li>
-                                    <li>Berita Acara bimbingan</li>
-                                    <li>Daftar Nilai tugas atau laporan hasil praktek</li>
-                                    <li>Berita Acara bimbingan</li>
-                                    <li>Daftar Nilai tugas atau laporan hasil praktek</li>
-                                    <li>Daftar nilai atau laporan KKN</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnC" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesC"></div>
-                                </div>
-                                <input type="file" id="fileInputC" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL ADD FILE C --}}
 
     {{-- BAGIAN D --}}
     <div id="ed-pendidikan-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
