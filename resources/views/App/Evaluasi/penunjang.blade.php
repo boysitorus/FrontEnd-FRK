@@ -592,68 +592,83 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_F">Tambah Lampiran</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR BAGIAN F --}}
+                        @if (isset($nonstruktural) && sizeof($nonstruktural) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
 
-    {{-- TEMPAT MODAL ADD FILE F--}}
-    <div class="modal fade" id="modalEditEvaluasiPenunjang_F" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangFLabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6
-                     class="modal-title" id="modalEditEvaluasiPenunjangFLabel">F. Jabatan non struktural</h6
-                    >
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>SK Pengangkatan / Surat  Tugas dari Pejabat yang  berwenang</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnEvF" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesEvF"></div>
+                        @foreach ($nonstruktural as $item)
+                            <tr>
+                                <td scope="row">{{ $counter }}</td>
+                                <td>
+                                    <div>
+                                        {{ $item['nama_kegiatan'] }}
+                                    </div>
+                                    @if (is_null($item['lampiran']) )
+                                        <div class="border-kuning">
+                                            Lampiran belum diupload.
+                                        </div>
+                                        @else
+                                        <div class="border-hijau">
+                                            Lampiran sudah diisi.
+                                        </div>
+                                    @endif
+                                </td>
+                                <td>{{ $item['jenis_jabatan_struktural'] }}</td>
+                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjangF-{{ $item['id_rencana'] }}">Tambah Lampiran
+                                    </button>
+                                </td>
+                            </tr>
+                            {{-- TEMPAT MODAL ADD FILE F--}}
+                            <div class="modal fade" id="modalEditEvaluasiPenunjangF-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangDLabel"
+                            aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6
+                                            class="modal-title" id="modalEditEvaluasiPenunjangFLabel">F. Jabatan non struktural</h6
+                                            >
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>SK Pengangkatan / Surat  Tugas dari Pejabat yang  berwenang</li>
+                                                        </ol>
+                                                        <!-- File input -->
+                                                        <button type="button" id="addFilesBtn-{{ $item['id rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                        <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                        <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="selectedFilesEvF"></div>
+                                                        </div>
+                                                        <input type="file" id="fileInput[]" id="addFilesBtn-{{ $item['id rencana'] }}" style="display: none;" multiple>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <input type="file" id="fileInputEvF" style="display: none;" multiple>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
-            </div>
+                            {{-- AKHIR MODAL ADD FILE F--}}
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
         </div>
     </div>
-    {{-- AKHIR MODAL ADD FILE F--}}
 
     {{-- BAGIAN G --}}
     <div id="ed-penunjang-G" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -680,74 +695,96 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_G">Tambah Lampiran</button>
-                            </td>
+                            @if (isset($redaksi) && sizeof($redaksi) > 0)
+                                @php
+                                    $counter = 1;
+                                @endphp
+                                @foreach ($redaksi as $item)
+                                    <tr>
+                                        <td scope="row">{{ $counter }}</td>
+                                        <td>
+                                            <div>
+                                                {{ $item['nama_kegiatan'] }}
+                                            </div>
+                                            @if (is_null($item['lampiran']) )
+                                                <div class="border-kuning">
+                                                    Lampiran belum diupload.
+                                                </div>
+                                                @else
+                                                <div class="border-hijau">
+                                                    Lampiran sudah diisi.
+                                                </div>
+                                            @endif
+                                        </td>
+                                        <td>{{ $item['jenis_jabatan_struktural'] }}</td>
+                                        <td>{{ $item['sks_terhitung'] }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditEvaluasiPenunjangG-{{ $item['id_rencana'] }}">Tambah Lampiran
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{-- TEMPAT MODAL ADD FILE G --}}
+                                    <div class="modal fade" id="modalEditEvaluasiPenunjangG-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangDLabel"
+                                    aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <div class="modal-header">
+                                                        <h6
+                                                        class="modal-title" id="modalEditEvaluasiPenunjangGLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
+                                                        >
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                    <ol>
+                                                                        <li>Surat Tugas/ Surat Keputusan  Pimpinan</li> 
+                                                                        <li>Bukti jurnal yang sudaH terbit</li>
+                                                                    </ol>
+                                                                    <!-- File input -->
+                                                                    <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                                                    <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                        <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    </div>
+                                                                    <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                        <button type="submit" class="btn btn-primary">Upload Lampiran</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- AKHIR MODAL ADD FILE G--}}
+                                @endforeach
+                            @endif
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
+         </div>
     </div>
     {{-- AKHIR BAGIAN G --}}
-
-    {{-- TEMPAT MODAL ADD FILE G--}}
-    <div class="modal fade" id="modalEditEvaluasiPenunjang_G" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangGLabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6
-                     class="modal-title" id="modalEditEvaluasiPenunjangGLabel">G. Ketua Redaksi Jurnal ber-ISSN / Anggota Redaksi Jurnal ber-ISSN</h6
-                    >
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Surat Tugas/Surat Keputusan  Pimpinan</li> 
-                                    <li>Bukti jurnal yang sudah  terbit</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnEvG" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesEvG"></div>
-                                </div>
-                                <input type="file" id="fileInputEvG" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL ADD FILE G--}}
 
     {{-- BAGIAN H --}}
     <div id="ed-penunjang-H" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>H. Ketua Panitia Ad Hoc: (umur panitia sekurang-kurangnya 2 semester),
-                    seperti Panitia Reviewer RKAT, Panitia Telaah Prodi Anggota Panitia Ad Hoc</b></h6>
+            <h6><b>H. Ketua Panitia Ad Hoc: (umur panitia sekurang-kurangnya 2 semester), 
+                seperti Panitia Reviewer RKAT, Panitia Telaah Prodi Anggota Panitia Ad Hoc</b></h6>
             <hr />
 
             <div class="text-sm">
@@ -768,68 +805,102 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
+                        @if (isset($adhoc) && sizeof($adhoc) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($adhoc as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="border-kuning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="border-hijau">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
+                                    <td>{{ $item['jenis_jabatan_struktural'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPenunjangE-{{ $item['id_rencana'] }}">Tambah Lampiran
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td>
+                                        <div class="border-hijau">
+                                            <p>Lampiran sudah di upload</p>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPenunjang_H">Tambah Lampiran
+                                        </button>
+                                    </td>
+                                </tr>                     
+                                {{-- TEMPAT MODAL ADD FILE H--}}
+                                <div class="modal fade" id="modalEditEvaluasiPenunjangH-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangDLabel"
+                                aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="modalEditEvaluasiPenunjangHLabel">H. Ketua Panitia Ad Hoc: (umur panitia sekurang-kurangnya 2 semester),
+                                                seperti Panitia Reviewer RKAT, Panitia Telaah Prodi Anggota Panitia Ad Hoc</h6>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                            <ol>
+                                                                <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                                                <li>Laporan Kegiatan</li>
+                                                            </ol>
+                                                            <!-- File input -->
+                                                            <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                </div>
+                                                                <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_H">Tambah Lampiran</button>
-                            </td>
-                        </tr>
+                                {{-- AKHIR MODAL ADD FILE H--}}
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
     {{-- AKHIR BAGIAN H --}}
-
-    {{-- TEMPAT MODAL ADD FILE H--}}
-    <div class="modal fade" id="modalEditEvaluasiPenunjang_H" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangHLabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPenunjangHLabel">H. Ketua Panitia Ad Hoc: (umur panitia sekurang-kurangnya 2 semester),
-                    seperti Panitia Reviewer RKAT, Panitia Telaah Prodi Anggota Panitia Ad Hoc</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
-                                    <li>Laporan Kegiatan</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnEvH" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesEvH"></div>
-                                </div>
-                                <input type="file" id="fileInputEvH" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL ADD FILE H--}}
 
     {{-- BAGIAN I --}}
     <div id="ed-penunjang-I" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -854,503 +925,651 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>
-                                <div class="border-hijau">
-                                    <p>Lampiran sudah di upload</p>
+                        @if (isset($ketuapanitia) && sizeof($ketuapanitia) > 0)
+                        @php
+                            $counter = 1;
+                        @endphp
+                        @foreach ($ketuapanitia as $item)
+                            <tr>
+                                <td scope="row">{{ $counter }}</td>
+                                <td>
+                                    <div>
+                                        {{ $item['nama_kegiatan'] }}
+                                    </div>
+                                    @if (is_null($item['lampiran']) )
+                                        <div class="border-kuning">
+                                            Lampiran belum diupload.
+                                        </div>
+                                        @else
+                                        <div class="border-hijau">
+                                            Lampiran sudah diisi.
+                                        </div>
+                                    @endif
+                                </td>
+                                <td>{{ $item['jenis_jabatan_struktural'] }}</td>
+                                <td>{{ $item['sks_terhitung'] }}</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditEvaluasiPenunjangE-{{ $item['id_rencana'] }}">Tambah Lampiran
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>
+                                    <div class="border-hijau">
+                                        <p>Lampiran sudah di upload</p>
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPenunjang_I">Tambah Lampiran</button>
+                                </td>
+                            </tr>
+                            {{-- TEMPAT MODAL ADD FILE I--}}
+                            <div class="modal fade" id="modalEditEvaluasiPenunjangI-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangDLabel"
+                            aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                            @csrf
+                                            @method('POST')
+                                            <div class="modal-header">
+                                                <h6
+                                                class="modal-title" id="modalEditEvaluasiPenunjangILabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
+                                                >
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                            <ol>
+                                                                <li>Surat Tugas/ Surat Keputusan  Pimpinan</li> 
+                                                            </ol>
+                                                            <!-- File input -->
+                                                            <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                            <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                                            <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                            </div>
+                                                            <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-primary">Upload Lampiran</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_I">Tambah Lampiran</button>
-                            </td>
+                            </div>
+                            {{-- AKHIR MODAL ADD FILE I--}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- AKHIR BAGIAN I --}}
+
+    {{-- BAGIAN J--}}
+    <div id="ed-penunjang-J" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+        <div class="card-body">
+            <h6><b>J. Anggota Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</b></h6>
+            <hr />
+
+            <div class="text-sm">
+                <table id="tableEvaluasiPenunjang-J" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                    style="border: 2px;">
+                    <thead>
+                        <tr>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkat Jabatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                            <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                        </tr>
+                        <tr>
+                            <th scope="col" class="fw-bold">Asesor 1</th>
+                            <th scope="col" class="fw-bold">Asesor 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (isset($anggotapanitia) && sizeof($anggotapanitia) > 0)
+                                @php
+                                    $counter = 1;
+                                @endphp
+                                @foreach ($anggotapanitia as $item)
+                                    <tr>
+                                        <td scope="row1">{{ $counter }}</td>
+                                        <td>
+                                            <div>
+                                                {{ $item['nama_kegiatan'] }}
+                                            </div>
+                                            @if (is_null($item['lampiran']) )
+                                                <div class="border-kuning">
+                                                    Lampiran belum diupload.
+                                                </div>
+                                                @else
+                                                <div class="border-hijau">
+                                                    Lampiran sudah diisi.
+                                                </div>
+                                            @endif
+                                        </td>
+                                        <td>{{ $item['sks_terhitung'] }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditEvaluasiPenunjangJ-{{ $item['id_rencana'] }}">Tambah Lampiran
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{-- TEMPAT MODAL ADD FILE J--}}
+                                    <div class="modal fade" id="modalEditEvaluasiPenunjangJ-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangDLabel"
+                                    aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <div class="modal-header">
+                                                        <h6
+                                                        class="modal-title" id="modalEditEvaluasiPenunjangJLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
+                                                        >
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                    <ol>
+                                                                        <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                                                        <li>Laporan Kegiatan</li>
+                                                                    </ol>
+                                                                    <!-- File input -->
+                                                                    <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                                                    <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                        <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    </div>
+                                                                    <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- AKHIR MODAL ADD FILE J--}}
+                                @endforeach
+                            @endif
+                        </tr>   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{-- AKHIR BAGIAN J --}}
+
+    {{-- BAGIAN K--}}
+    <div id="ed-penunjang-K" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+        <div class="card-body">
+            <h6><b>K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI , asesor BAN-PT</b></h6>
+            <hr />
+
+            <div class="text-sm">
+                <table id="tableEvaluasiPenunjang-K" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                    style="border: 2px;">
+                    <thead>
+                        <tr>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan(Ketua/Anggota)</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                            <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                        </tr>
+                        <tr>
+                            <th scope="col" class="fw-bold">Asesor 1</th>
+                            <th scope="col" class="fw-bold">Asesor 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (isset($pengurusyayasan) && sizeof($pengurusyayasan) > 0)
+                                @php
+                                    $counter = 1;
+                                @endphp
+                                @foreach ($pengurusyayasan as $item)
+                                    <tr>
+                                        <td scope="row1">{{ $counter }}</td>
+                                        <td>
+                                            <div>
+                                                {{ $item['nama_kegiatan'] }}
+                                            </div>
+                                            @if (is_null($item['lampiran']) )
+                                                <div class="border-kuning">
+                                                    Lampiran belum diupload.
+                                                </div>
+                                                @else
+                                                <div class="border-hijau">
+                                                    Lampiran sudah diisi.
+                                                </div>
+                                            @endif
+                                        </td>
+                                        <td>{{ $item['sks_terhitung'] }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditEvaluasiPenunjangK-{{ $item['id_rencana'] }}">Tambah Lampiran
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{-- TEMPAT MODAL ADD FILE K--}}
+                                    <div class="modal fade" id="modalEditEvaluasiPenunjangK-{{ $sistem['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangFLabel"
+                                    aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <div class="modal-header">
+                                                        <h6
+                                                        class="modal-title" id="modalEditEvaluasiPenunjangKLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
+                                                        >
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                    <ol>
+                                                                        <li>Surat Tugas/Surat Keputusan/ Surat Persetujuan/Surat Ijin dari Pimpinan</li>
+                                                                        <li>Laporan Kegiatan</li>
+                                                                    </ol>
+                                                                    <!-- File input -->
+                                                                    <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                                                    <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                        <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    </div>
+                                                                    <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- AKHIR MODAL ADD FILE K--}}
+                                @endforeach
+                            @endif
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    {{-- AKHIR BAGIAN I --}}
-
-    {{-- TEMPAT MODAL ADD FILE I--}}
-    <div class="modal fade" id="modalEditEvaluasiPenunjang_I" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangILabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPenunjangILabel">I. Ketua Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
-                                    <li>Laporan Kegiatan</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnEvI" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesEvI"></div>
-                                </div>
-                                <input type="file" id="fileInputEvI" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL ADD FILE I--}}
-
-    {{-- BAGIAN J--}}
-    <div id="ed-penunjang-J" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-            <div class="card-body">
-                <h6><b>J. Anggota Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</b></h6>
-                <hr />
-
-                <div class="text-sm">
-                    <table id="tableEvaluasiPenunjang-J" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-                        style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkat Jabatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col" class="fw-bold">Asesor 1</th>
-                                <th scope="col" class="fw-bold">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>
-                                    <div class="border-hijau">
-                                        <p>Lampiran sudah di upload</p>
-                                    </div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_J">Tambah Lampiran</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR BAGIAN J --}}
-
-    {{-- TEMPAT MODAL ADD FILE J--}}
-    <div class="modal fade" id="modalEditEvaluasiPenunjang_J" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangJLabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6
-                     class="modal-title" id="modalEditEvaluasiPenunjangJLabel">J. Anggota Panitia Tetap: (umur panitia sekurang-kurangnya 2 semester)</h6
-                    >
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
-                                    <li>Laporan Kegiatan</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnEvJ" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesEvJ"></div>
-                                </div>
-                                <input type="file" id="fileInputEvJ" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL ADD FILE J--}}
-
-    {{-- BAGIAN K--}}
-    <div id="ed-penunjang-K" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-            <div class="card-body">
-                <h6><b>K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI , asesor BAN-PT</b></h6>
-                <hr />
-
-                <div class="text-sm">
-                    <table id="tableEvaluasiPenunjang-K" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-                        style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">Jabatan(Ketua/Anggota)</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col" class="fw-bold">Asesor 1</th>
-                                <th scope="col" class="fw-bold">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>
-                                    <div class="border-hijau">
-                                        <p>Lampiran sudah di upload</p>
-                                    </div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_K">Tambah Lampiran</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
     {{-- AKHIR BAGIAN K --}}
 
-    {{-- TEMPAT MODAL ADD FILE K--}}
-    <div class="modal fade" id="modalEditEvaluasiPenunjang_K" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangKLabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6
-                     class="modal-title" id="modalEditEvaluasiPenunjangKLabel">K. Menjadi Pengurus Yayasan : APTISI atau BMPTSI , asesor BAN-PT</h6
-                    >
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
-                                    <li>Laporan Kegiatan</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnEvK" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesEvK"></div>
-                                </div>
-                                <input type="file" id="fileInputEvK" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL ADD FILE K--}}
+     {{-- BAGIAN L--}}
+     <div id="ed-penunjang-L" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
+        <div class="card-body">
+            <h6><b>L. Menjadi Pengurus/Anggota Asosiasi Profesi</b></h6>
+            <hr />
 
-    {{-- BAGIAN L--}}
-    <div id="ed-penunjang-L" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-            <div class="card-body">
-                <h6><b>L. Menjadi Pengurus/Anggota Asosiasi Profesi</b></h6>
-                <hr />
-
-                <div class="text-sm">
-                    <table id="tableEvaluasiPenunjang-L" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-                        style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jabatan(Ketua/Anggota)</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col" class="fw-bold">Asesor 1</th>
-                                <th scope="col" class="fw-bold">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>
-                                    <div class="border-hijau">
-                                        <p>Lampiran sudah di upload</p>
+            <div class="text-sm">
+                <table id="tableEvaluasiPenunjang-L" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                    style="border: 2px;">
+                    <thead>
+                        <tr>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Jabatan(Ketua/Anggota)</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                            <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                        </tr>
+                        <tr>
+                            <th scope="col" class="fw-bold">Asesor 1</th>
+                            <th scope="col" class="fw-bold">Asesor 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (isset($asosiasi) && sizeof($asosiasi) > 0)
+                                @php
+                                    $counter = 1;
+                                @endphp
+                                @foreach ($asosiasi as $item)
+                                    <tr>
+                                        <td scope="row1">{{ $counter }}</td>
+                                        <td>
+                                            <div>
+                                                {{ $item['nama_kegiatan'] }}
+                                            </div>
+                                            @if (is_null($item['lampiran']) )
+                                                <div class="border-kuning">
+                                                    Lampiran belum diupload.
+                                                </div>
+                                                @else
+                                                <div class="border-hijau">
+                                                    Lampiran sudah diisi.
+                                                </div>
+                                            @endif
+                                        </td>
+                                        <td>{{ $item['sks_terhitung'] }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditEvaluasiPenunjangL-{{ $item['id_rencana'] }}">Tambah Lampiran
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{-- TEMPAT MODAL ADD FILE L--}}
+                                    <div class="modal fade" id="modalEditEvaluasiPenunjangL-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangDLabel"
+                                    aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <div class="modal-header">
+                                                        <h6
+                                                        class="modal-title" id="modalEditEvaluasiPenunjangLLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
+                                                        >
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                    <ol>
+                                                                        <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                                                        <li>Kartu Anggota</li>
+                                                                        <li>Laporan Kegiatan</li>
+                                                                    </ol>
+                                                                    <!-- File input -->
+                                                                    <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                                                    <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                        <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    </div>
+                                                                    <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer justify-content-center">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                            <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_L">Tambah Lampiran</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR BAGIAN L --}}
-
-    {{-- TEMPAT MODAL ADD FILE L--}}
-    <div class="modal fade" id="modalEditEvaluasiPenunjang_L" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangLLabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPenunjangLLabel">L. Menjadi Pengurus/Anggota Asosiasi Profesi</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
-                                    <li>Kartu Anggota</li>
-                                    <li>Laporan Kegiatan</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnEvL" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesEvL"></div>
-                                </div>
-                                <input type="file" id="fileInputEvL" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
+                                    {{-- AKHIR MODAL ADD FILE L--}}
+                                @endforeach
+                            @endif
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL ADD FILE L--}}
+    {{-- AKHIR BAGIAN L --}}
 
     {{-- BAGIAN M--}}
     <div id="ed-penunjang-M" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-            <div class="card-body">
-                <h6><b>M. Peserta Seminar/Workshop/Kursus Berdasar Penugasan Pimpinan</b></h6>
-                <hr />
+        <div class="card-body">
+            <h6><b>M. Peserta Seminar/Workshop/Kursus Berdasar Penugasan Pimpinan</b></h6>
+            <hr />
 
-                <div class="text-sm">
-                    <table id="tableEvaluasiPenunjang-M" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-                        style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col" class="fw-bold">Asesor 1</th>
-                                <th scope="col" class="fw-bold">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>
-                                    <div class="border-hijau">
-                                        <p>Lampiran sudah di upload</p>
+            <div class="text-sm">
+                <table id="tableEvaluasiPenunjang-M" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                    style="border: 2px;">
+                    <thead>
+                        <tr>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Tingkatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                            <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                        </tr>
+                        <tr>
+                            <th scope="col" class="fw-bold">Asesor 1</th>
+                            <th scope="col" class="fw-bold">Asesor 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (isset($seminar) && sizeof($seminar) > 0)
+                                @php
+                                    $counter = 1;
+                                @endphp
+                                @foreach ($seminar as $item)
+                                    <tr>
+                                        <td scope="row1">{{ $counter }}</td>
+                                        <td>
+                                            <div>
+                                                {{ $item['nama_kegiatan'] }}
+                                            </div>
+                                            @if (is_null($item['lampiran']) )
+                                                <div class="border-kuning">
+                                                    Lampiran belum diupload.
+                                                </div>
+                                                @else
+                                                <div class="border-hijau">
+                                                    Lampiran sudah diisi.
+                                                </div>
+                                            @endif
+                                        </td>
+                                        <td>{{ $item['sks_terhitung'] }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditEvaluasiPenunjangD-{{ $item['id_rencana'] }}">Tambah Lampiran
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{-- TEMPAT MODAL ADD FILE M--}}
+                                    <div class="modal fade" id="modalEditEvaluasiPenunjangM-{{ $sistem['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangFLabel"
+                                    aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <div class="modal-header">
+                                                        <h6
+                                                        class="modal-title" id="modalEditEvaluasiPenunjangMLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
+                                                        >
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                    <ol>
+                                                                        <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                                                        <li>Sertifikasi atau bukti lain kehadiran di kegiatan tersebut</li>
+                                                                    </ol>
+                                                                    <!-- File input -->
+                                                                    <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                                                    <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                        <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    </div>
+                                                                    <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_M">Tambah Lampiran</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR BAGIAN M--}}
-
-    {{-- TEMPAT MODAL ADD FILE M--}}
-    <div class="modal fade" id="modalEditEvaluasiPenunjang_M" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangMLabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPenunjangMLabel">M. Peserta Seminar/Workshop/Kursus Berdasar Penugasan Pimpinan</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
-                                    <li>Sertifikasi atau bukti lain kehadiran di kegiatan tersebut</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnEvM" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesEvM"></div>
-                                </div>
-                                <input type="file" id="fileInputEvM" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
+                                    {{-- AKHIR MODAL ADD FILE M--}}
+                                @endforeach
+                            @endif
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL ADD FILE M--}}
+    {{-- AKHIR BAGIAN M--}}
 
     {{-- BAGIAN N--}}
     <div id="ed-penunjang-N" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-            <div class="card-body">
-                <h6><b>N. Reviewer jurnal ilmiah , proposal Hibah dll</b></h6>
-                <hr />
+        <div class="card-body">
+            <h6><b>N. Reviewer jurnal ilmiah , proposal Hibah dll</b></h6>
+            <hr />
 
-                <div class="text-sm">
-                    <table id="tableEvaluasiPenunjang-N" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-                        style="border: 2px;">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
-                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
-                            </tr>
-                            <tr>
-                                <th scope="col" class="fw-bold">Asesor 1</th>
-                                <th scope="col" class="fw-bold">Asesor 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>
-                                    <div class="border-hijau">
-                                        <p>Lampiran sudah di upload</p>
+            <div class="text-sm">
+                <table id="tableEvaluasiPenunjang-N" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                    style="border: 2px;">
+                    <thead>
+                        <tr>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
+                            <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                        </tr>
+                        <tr>
+                            <th scope="col" class="fw-bold">Asesor 1</th>
+                            <th scope="col" class="fw-bold">Asesor 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (isset($reviewer) && sizeof($reviewer) > 0)
+                                @php
+                                    $counter = 1;
+                                @endphp
+                                @foreach ($reviewer as $item)
+                                    <tr>
+                                        <td scope="row1">{{ $counter }}</td>
+                                        <td>
+                                            <div>
+                                                {{ $item['nama_kegiatan'] }}
+                                            </div>
+                                            @if (is_null($item['lampiran']) )
+                                                <div class="border-kuning">
+                                                    Lampiran belum diupload.
+                                                </div>
+                                                @else
+                                                <div class="border-hijau">
+                                                    Lampiran sudah diisi.
+                                                </div>
+                                            @endif
+                                        </td>
+                                        <td>{{ $item['sks_terhitung'] }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditEvaluasiPenunjangN-{{ $item['id_rencana'] }}">Tambah Lampiran
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{-- TEMPAT MODAL ADD FILE N--}}
+                                    <div class="modal fade" id="modalEditEvaluasiPenunjangN-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangDLabel"
+                                    aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <div class="modal-header">
+                                                        <h6
+                                                        class="modal-title" id="modalEditEvaluasiPenunjangNLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
+                                                        >
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                    <ol>
+                                                                        <li>Surat Tugas/Surat Keputusan Pimpinan</li>
+                                                                        <li>Bukti hasil telaah artikel/proposal yang direview</li>
+                                                                    </ol>
+                                                                    <!-- File input -->
+                                                                    <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
+                                                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
+                                                                    <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                        <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    </div>
+                                                                    <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                        <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPenunjang_N">Tambah Lampiran</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    {{-- AKHIR BAGIAN N--}}
-
-    {{-- TEMPAT MODAL ADD FILE N--}}
-    <div class="modal fade" id="modalEditEvaluasiPenunjang_N" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangNLabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPenunjangNLabel">N. Reviewer jurnal ilmiah , proposal Hibah dll</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                <ol>
-                                    <li>Surat Tugas/Surat Keputusan Pimpinan</li>
-                                    <li>Bukti hasil telaah artikel/proposal yang direview</li>
-                                </ol>
-                                <!-- File input -->
-                                <button id="addFilesBtnEvN" class="btn btn-secondary">Add Files</button>
-                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p> <!-- tambahkan jarak bawah -->
-                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                    <div id="selectedFilesEvN"></div>
-                                </div>
-                                <input type="file" id="fileInputEvN" style="display: none;" multiple>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Lampiran</button>
-                </div>
+                                    {{-- AKHIR MODAL ADD FILE N--}}
+                                @endforeach
+                            @endif
+                        </tr> 
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    {{-- AKHIR MODAL ADD FILE N--}}
+    {{-- AKHIR BAGIAN N--}}
 
+    
     {{-- TEMPAT MODAL DELETE CONFIRM --}}
     <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1685,6 +1904,195 @@
 
         @if (isset($struktural) && sizeof($struktural) > 0)
             @foreach ($struktural as $item)
+                (function() {
+                    var itemId = {{ $item['id_rencana'] }};
+
+                    var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
+                    var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
+                    var fileInput = document.getElementById('fileInput-' + itemId);
+
+                    addFilesBtn.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener('change', function() {
+                        var filesToAdd = Array.from(this.files); // Mengonversi FileList menjadi array
+                        displayFilesWithIcons(filesToAdd, selectedFilesDiv);
+                    });
+                })();
+            @endforeach
+        @endif
+
+        @if (isset($nonstruktural) && sizeof($nonstruktural) > 0)
+            @foreach ($struktural as $item)
+                (function() {
+                    var itemId = {{ $item['id_rencana'] }};
+
+                    var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
+                    var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
+                    var fileInput = document.getElementById('fileInput-' + itemId);
+
+                    addFilesBtn.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener('change', function() {
+                        var filesToAdd = Array.from(this.files); // Mengonversi FileList menjadi array
+                        displayFilesWithIcons(filesToAdd, selectedFilesDiv);
+                    });
+                })();
+            @endforeach
+        @endif
+
+        @if (isset($redaksi) && sizeof($redaksi) > 0)
+            @foreach ($redaksi as $item)
+                (function() {
+                    var itemId = {{ $item['id_rencana'] }};
+
+                    var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
+                    var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
+                    var fileInput = document.getElementById('fileInput-' + itemId);
+
+                    addFilesBtn.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener('change', function() {
+                        var filesToAdd = Array.from(this.files); // Mengonversi FileList menjadi array
+                        displayFilesWithIcons(filesToAdd, selectedFilesDiv);
+                    });
+                })();
+            @endforeach
+        @endif
+
+        @if (isset($adhoc) && sizeof($adhoc) > 0)
+            @foreach ($adhoc as $item)
+                (function() {
+                    var itemId = {{ $item['id_rencana'] }};
+
+                    var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
+                    var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
+                    var fileInput = document.getElementById('fileInput-' + itemId);
+
+                    addFilesBtn.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener('change', function() {
+                        var filesToAdd = Array.from(this.files); // Mengonversi FileList menjadi array
+                        displayFilesWithIcons(filesToAdd, selectedFilesDiv);
+                    });
+                })();
+            @endforeach
+        @endif
+        
+        @if (isset($ketuapanitia) && sizeof($ketuapanitia) > 0)
+            @foreach ($ketuapanitia as $item)
+                (function() {
+                    var itemId = {{ $item['id_rencana'] }};
+
+                    var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
+                    var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
+                    var fileInput = document.getElementById('fileInput-' + itemId);
+
+                    addFilesBtn.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener('change', function() {
+                        var filesToAdd = Array.from(this.files); // Mengonversi FileList menjadi array
+                        displayFilesWithIcons(filesToAdd, selectedFilesDiv);
+                    });
+                })();
+            @endforeach
+        @endif
+
+        @if (isset($anggotapanitia) && sizeof($anggotapanitia) > 0)
+            @foreach ($anggotapanitia as $item)
+                (function() {
+                    var itemId = {{ $item['id_rencana'] }};
+
+                    var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
+                    var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
+                    var fileInput = document.getElementById('fileInput-' + itemId);
+
+                    addFilesBtn.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener('change', function() {
+                        var filesToAdd = Array.from(this.files); // Mengonversi FileList menjadi array
+                        displayFilesWithIcons(filesToAdd, selectedFilesDiv);
+                    });
+                })();
+            @endforeach
+        @endif
+        
+        @if (isset($pengurusyayasan) && sizeof($pengurusyayasan) > 0)
+            @foreach ($pengurusyayasan as $item)
+                (function() {
+                    var itemId = {{ $item['id_rencana'] }};
+
+                    var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
+                    var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
+                    var fileInput = document.getElementById('fileInput-' + itemId);
+
+                    addFilesBtn.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener('change', function() {
+                        var filesToAdd = Array.from(this.files); // Mengonversi FileList menjadi array
+                        displayFilesWithIcons(filesToAdd, selectedFilesDiv);
+                    });
+                })();
+            @endforeach
+        @endif
+
+        @if (isset($asosiasi) && sizeof($asosiasi) > 0)
+            @foreach ($asosiasi as $item)
+                (function() {
+                    var itemId = {{ $item['id_rencana'] }};
+
+                    var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
+                    var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
+                    var fileInput = document.getElementById('fileInput-' + itemId);
+
+                    addFilesBtn.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener('change', function() {
+                        var filesToAdd = Array.from(this.files); // Mengonversi FileList menjadi array
+                        displayFilesWithIcons(filesToAdd, selectedFilesDiv);
+                    });
+                })();
+            @endforeach
+        @endif
+
+        @if (isset($seminar) && sizeof($seminar) > 0)
+            @foreach ($seminar as $item)
+                (function() {
+                    var itemId = {{ $item['id_rencana'] }};
+
+                    var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
+                    var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
+                    var fileInput = document.getElementById('fileInput-' + itemId);
+
+                    addFilesBtn.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener('change', function() {
+                        var filesToAdd = Array.from(this.files); // Mengonversi FileList menjadi array
+                        displayFilesWithIcons(filesToAdd, selectedFilesDiv);
+                    });
+                })();
+            @endforeach
+        @endif
+
+        @if (isset($reviewer) && sizeof($reviewer) > 0)
+            @foreach ($reviewer as $item)
                 (function() {
                     var itemId = {{ $item['id_rencana'] }};
 

@@ -348,6 +348,34 @@ Route::group(['middleware' => ['check.token']], function () {
 
             // E. Struktural
             Route::post('/struktural-upload', [EvaluasiDiriController::class, 'postStruktural'])->name('ed-penunjang.struktural.upload');
+
+            // F. Non Struktural
+            Route::post('/nonstruktural-upload', [EvaluasiDiriController::class, 'postNonStruktural'])->name('ed-penunjang.nonstruktural.upload');
+            
+            // G. Redaksi
+            Route::post('/redaksiupload', [EvaluasiDiriController::class, 'postRedaksi'])->name('ed-penunjang.redaksi.upload');
+            
+            // H. Ad Hoc
+            Route::post('/adhoc-upload', [EvaluasiDiriController::class, 'postAdHoc'])->name('ed-penunjang.adhoc.upload');
+            
+            // I. Ketua Panitia
+            Route::post('/ketuapanitia-upload', [EvaluasiDiriController::class, 'postKetuaPanitia'])->name('ed-penunjang.ketuapanitia.upload');
+            
+            // J. Angggota Panitia
+            Route::post('/anggotapanitia-upload', [EvaluasiDiriController::class, 'postAnggotaPanitia'])->name('ed-penunjang.anggotapanitia.upload');
+            
+            // K. Pengurus Yayasan
+            Route::post('/pengurusyayasan-upload', [EvaluasiDiriController::class, 'postPengurusYayasan'])->name('ed-penunjang.pengurusyayasan.upload');
+            
+            // L. Asosiasi
+            Route::post('/asosiasi-upload', [EvaluasiDiriController::class, 'postAsosiasi'])->name('ed-penunjang.asosiasi.upload');
+            
+            // M. Seminar
+            Route::post('/seminar-upload', [EvaluasiDiriController::class, 'postSeminar'])->name('ed-penunjang.seminar.upload');
+            
+            // N. Reviewer
+            Route::post('/reviewer-upload', [EvaluasiDiriController::class, 'postreviewer'])->name('ed-penunjang.reviewer.upload');
+
         });
 
     });
@@ -365,4 +393,3 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::post('/review-evaluasi-diri', [AsesorController::class, 'reviewEvaluasi'])->name('ed-asesor-review-evaluasi');
     });
 });
-
