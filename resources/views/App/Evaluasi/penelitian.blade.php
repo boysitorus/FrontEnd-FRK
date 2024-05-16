@@ -65,39 +65,40 @@
 
                                             <form id="uploadForm-A-{{ $item['id_rencana'] }}" enctype="multipart/form-data">
                                                 @csrf
-                                            <div class="modal-body">
-                                                <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                                            <ol>
-                                                                <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat Kontrak Penelitian</li>
-                                                                <li>Proposal</li>
-                                                                <li>Laporan progress report bila belum selesai</li>
-                                                                <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah selesai</li>
-                                                                <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                                <li>Foto karya seni / bukti lain yang relevan jika terkait dengan pengembangan teknologi
-                                                                </li>
-                                                            </ol>
-                                                            <!-- File input -->
-                                                            <button  type="button" id="addFilesBtnPenelitianA" class="btn btn-secondary">Add Files</button>
-                                                            <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                                            <!-- tambahkan jarak bawah -->
-                                                            <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                <div id="selectedFilesPenelitianA"></div>
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                <ol>
+                                                                    <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat Kontrak Penelitian</li>
+                                                                    <li>Proposal</li>
+                                                                    <li>Laporan progress report bila belum selesai</li>
+                                                                    <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah selesai</li>
+                                                                    <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                                    <li>Foto karya seni / bukti lain yang relevan jika terkait dengan pengembangan teknologi
+                                                                    </li>
+                                                                </ol>
+                                                                <!-- File input -->
+                                                                <button  type="button" id="addFilesBtnPenelitianA" class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <!-- tambahkan jarak bawah -->
+                                                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                    <div id="selectedFilesPenelitianA"></div>
+                                                                </div>
+                                                                <input type="file" id="fileInputPenelitianA" name="fileInputPenelitianA[]" style="display: none;" multiple>
                                                             </div>
-                                                            <input type="file" id="fileInputPenelitianA" name="fileInputPenelitianA[]" style="display: none;" multiple>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <button type="button" id="buttonUpload-A-{{ $item['id_rencana'] }}" class="btn btn-primary">Upload Lampiran</button>
-                                            </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                    <button type="button" id="buttonUpload-A-{{ $item['id_rencana'] }}" class="btn btn-primary">Upload Lampiran</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -375,57 +376,65 @@
     </div>
     {{-- AKHIR BAGIAN D --}}
 
-    {{-- TEMPAT MODAL ADD FILE D--}}
-    <div class="modal fade" id="modalEditEvaluasiPenelitian_D" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">D. Menulis satu judul naskah buku internasional
-                        (berbahasa dan diedarkan secara internasional minimal  tiga negara),
-                        disetujui oleh pimpinan dan tercatat</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
 
-                <form action="{{ route('ed-add-buku-internasional') }}" method="post" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        @csrf
-                        <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                    <ol>
-                                        <li>Buku yang sudah terbit</li>
-                                        <li>Bukti kontrak penerbitan jika masih naik cetak</li>
-                                        <li>Surat Keterangan Sedang Menulis
-                                            Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam
-                                            berapa lama, bagi yang sedang menulis.</li>
-                                        <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
-                                    </ol>
-                                    <!-- File input -->
-                                    <button type="button" id="addFilesBtnD" class="btn btn-secondary">Add Files</button>
-                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                    <!-- tambahkan jarak bawah -->
-                                    <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                        <div id="selectedFilesD"></div>
+    @if (isset($buku_internasional) && sizeof($buku_internasional) > 0)
+        @php
+            $counter = 1;
+        @endphp
+        @foreach ($buku_internasional as $item)
+            {{-- TEMPAT MODAL ADD FILE D--}}
+            <div class="modal fade" id="modalEditEvaluasiPenelitian_D" tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">D. Menulis satu judul naskah buku internasional
+                                (berbahasa dan diedarkan secara internasional minimal  tiga negara),
+                                disetujui oleh pimpinan dan tercatat</h6>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <form action="{{ route('ed-add-buku-internasional') }}" method="post" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                @csrf
+                                <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                            <ol>
+                                                <li>Buku yang sudah terbit</li>
+                                                <li>Bukti kontrak penerbitan jika masih naik cetak</li>
+                                                <li>Surat Keterangan Sedang Menulis
+                                                    Buku dari Pimpinan bagi yang sedang menulis buku, dengan mencantumkan akan selesai dalam
+                                                    berapa lama, bagi yang sedang menulis.</li>
+                                                <li>Progres penulisan buku dll., bagi yang sedang dalam proses</li>
+                                            </ol>
+                                            <!-- File input -->
+                                            <button type="button" id="addFilesBtnD" class="btn btn-secondary">Add Files</button>
+                                            <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                            <!-- tambahkan jarak bawah -->
+                                            <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                <div id="selectedFilesD"></div>
+                                            </div>
+                                            <input type="file" id="fileInputD" name="fileInputD[]" style="display: none;" multiple>
+                                        </div>
                                     </div>
-                                    <input type="file" id="fileInputD" name="fileInputD[]" style="display: none;" multiple>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Upload Lampiran</button>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-primary">Upload Lampiran</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL ADD FILE D--}}
+            {{-- AKHIR MODAL ADD FILE D--}}
+        @endforeach
+    @endif
 
     {{-- BAGIAN E --}}
     <div id="penelitian-E" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
