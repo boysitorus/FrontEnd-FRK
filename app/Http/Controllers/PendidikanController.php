@@ -11,6 +11,9 @@ class PendidikanController extends Controller
     public function getAll(Request $request)
     {
         $auth = Tools::getAuth($request);
+
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FRK")), true)['data'];
+
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
 
         try {
@@ -65,10 +68,12 @@ class PendidikanController extends Controller
                 'koordinator' => $koordinator,
                 'proposal' => $proposal,
                 'auth' => $auth,
-                'id_dosen' => $id_dosen
+                'id_dosen' => $id_dosen,
+                'periode' => $getTanggal
             ];
 
-            // Mengirim data ke view
+//            dd($data);
+            // Mengirim sdata ke view
             return view('App.Rencana.pendidikan', $data);
         } catch (\Throwable $th) {
             // Tangani error jika terjadi

@@ -9,10 +9,11 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class SimpulanController extends Controller
 {
-    
+
     public function getAll(Request $request)
     {
         $auth = Tools::getAuth($request);
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FRK")), true)['data'];
         try {
             $responsePendidikan = Http::get(env('API_FRK_SERVICE') . '/simpulan-pendidikan');
             $totalSksPendidikan = $responsePendidikan->json();
@@ -37,7 +38,8 @@ class SimpulanController extends Controller
                 'pengabdianSks' => $totalSksPengabdian,
                 'penunjangSks' => $totalSksPenunjang,
                 'totalSks' => $totalSksTotal,
-                'auth' => $auth
+                'auth' => $auth,
+                'periode' => $getTanggal
             ]
             );
 

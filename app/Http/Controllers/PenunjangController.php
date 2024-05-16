@@ -11,6 +11,7 @@ class PenunjangController extends Controller
     public function getAll(Request $request)
     {
         $auth = Tools::getAuth($request);
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FRK")), true)['data'];
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try {
             $responseAkademik = Http::get(env('API_FRK_SERVICE') . '/penunjang/akademik/' . $id_dosen);
@@ -71,7 +72,8 @@ class PenunjangController extends Controller
                 'anggotapanitia' => $anggotapanitia,
                 'pengurusyayasan' => $pengurusyayasan,
                 'auth' => $auth,
-                'id_dosen' => $id_dosen
+                'id_dosen' => $id_dosen,
+                'periode' => $getTanggal
             ];
 
             return view('App.Rencana.penunjang', $data);

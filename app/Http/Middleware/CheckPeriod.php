@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use App\Utils\Tools;
 use Closure;
 use Illuminate\Http\Request;
-use mysql_xdevapi\Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 class CheckPeriod

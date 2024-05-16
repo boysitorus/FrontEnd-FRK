@@ -2,7 +2,6 @@
 
 namespace App\Utils;
 
-use App\Models\generate_tanggal;
 use Illuminate\Support\Facades\Http;
 
 class   Tools{
@@ -48,6 +47,15 @@ class   Tools{
         }
 
         return $payloadData->uid;
+    }
+
+    public static function getPeriod($token, $type)
+    {
+        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'get-tanggal', [
+            'type' => $type
+        ])->body(), true);
+
+        return $requestDataTanggal;
     }
 
     public static function checkPeriodFRK($token)
