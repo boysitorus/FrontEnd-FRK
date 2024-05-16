@@ -67,34 +67,35 @@
 
                                             <form id="uploadForm-A-{{ $item['id_rencana'] }}" enctype="multipart/form-data">
                                                 @csrf
-                                            <div class="modal-body">
-                                                <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                                            <ol>
-                                                                <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat Kontrak Penelitian</li>
-                                                                <li>Proposal</li>
-                                                                <li>Laporan progress report bila belum selesai</li>
-                                                                <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah selesai</li>
-                                                                <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                                <li>Foto karya seni / bukti lain yang relevan jika terkait dengan pengembangan teknologi
-                                                                </li>
-                                                            </ol>
-                                                            <!-- File input -->
-                                                            <button  type="button" id="addFilesBtnA" class="btn btn-secondary">Add Files</button>
-                                                            <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                                            <!-- tambahkan jarak bawah -->
-                                                            <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                <div id="selectedFiles"></div>
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                <ol>
+                                                                    <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat Kontrak Penelitian</li>
+                                                                    <li>Proposal</li>
+                                                                    <li>Laporan progress report bila belum selesai</li>
+                                                                    <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah selesai</li>
+                                                                    <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                                    <li>Foto karya seni / bukti lain yang relevan jika terkait dengan pengembangan teknologi
+                                                                    </li>
+                                                                </ol>
+                                                                <!-- File input -->
+                                                                <button  type="button" id="addFilesBtnA" class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <!-- tambahkan jarak bawah -->
+                                                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                    <div id="selectedFiles"></div>
+                                                                </div>
+                                                                <input type="file" id="fileInputA" name="fileInputA[]" style="display: none;" multiple>
                                                             </div>
-                                                            <input type="file" id="fileInputA" name="fileInputA[]" style="display: none;" multiple>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </form>
 
                                             <div class="modal-footer justify-content-center">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -161,7 +162,7 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal" 
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPenelitian_B-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
                                     </td>
                                 </tr>
@@ -174,11 +175,11 @@
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="modalEditPenelitian_B_label"><b>B. Pelaksanaan penelitian mandiri atau
                                                         pembuatan
-                                                        karya seni atau teknologi (disetujui oleh pimpinan dan tercatat) </h5></b>
+                                                        karya seni atau teknologi (disetujui oleh pimpinan dan tercatat)</b> </h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            
+
                                             <form id="uploadForm-B-{{ $item['id_rencana'] }}" enctype="multipart/form-data">
                                                 @csrf
                                             <div class="modal-body">
@@ -641,7 +642,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalEditPenelitian_F_label"><b>F. Menyunting satu judul naskah buku yang
                             akan diterbitkan dalam waktu
-                            sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat) sama dengan 2 sks </h5></b>
+                            sebanyak-banyaknya 4 semester (disetujui pimpinan dan tercatat) sama dengan 2 sks </b></h5>
                 </div>
                 <div class="modal-body">
                     <div class="container">
@@ -733,7 +734,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalEditPenelitian_G_label"><b>G. Menulis Modul/Diktat/Bahan Ajar oleh
                             seorang Dosen yang sesuai dengan
-                            bidang ilmu dan tidak diterbitkan, tetapi digunakan oleh mahasiswa</h5></b>
+                            bidang ilmu dan tidak diterbitkan, tetapi digunakan oleh mahasiswa</b></h5>
                 </div>
                 <div class="modal-body">
                     <div class="container">
@@ -802,7 +803,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenelitian_H"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -819,32 +820,32 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenelitian_H_label"><b>H. PEKERTI/AA</h5></b>
+                    <h5 class="modal-title" id="modalEditPenelitian_H_label"><b>H. PEKERTI/AA</b></h5>
                 </div>
                 <div class="modal-body">
 
                     <form>
                         <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Surat Tugas Mengikuti Program Pekerti dari Pimpinan
-                                </b></h6></label>
+                            <h6><label for="formFile" class="form-label"><b>
+                                    Surat Tugas Mengikuti Program Pekerti dari Pimpinan
+                                </b></label></h6>
                             <input class="form-control" type="file" id="formFile">
                         </div>
                     </form>
                     <form>
                         <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Sertifikat
-                                </b></h6></label>
+                            <h6><label for="formFile" class="form-label"><b>
+                                    Sertifikat
+                                </b></label></h6>
                             <input class="form-control" type="file" id="formFile">
                         </div>
                     </form>
                     <form>
                         <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Tugas yang diselesaikan selama pelatihan seperti RKPSS yang
+                            <h6> <label for="formFile" class="form-label"><b>
+                                    Tugas yang diselesaikan selama pelatihan seperti RKPSS yang
                                         sudah siap dll.
-                                </b></h6></label>
+                                </b></label></h6>
                             <input class="form-control" type="file" id="formFile">
                         </div>
                     </form>
@@ -861,9 +862,9 @@
 
     {{-- BAGIAN I --}}
     <div id="penelitian-I" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
-        <div class="card-body"><b>
+        <div class="card-body">
                 <h6>I. Sebagai asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi
-            </b></h6>
+            </h6>
             <hr />
 
             <div class="text-sm">
@@ -897,7 +898,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenelitian_I"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -914,32 +915,32 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenelitian_I_label"><b>I. Sebagai asesor Beban Kerja Dosen dan
-                            Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</h5></b>
+                    <h5 class="modal-title" id="modalEditPenelitian_I_label">I. Sebagai asesor Beban Kerja Dosen dan
+                            Evaluasi Pelaksanaan Tridharma Perguruan Tinggi</h5>
                 </div>
                 <div class="modal-body">
 
                     <form>
                         <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Surat Tugas Mengikuti Program Pekerti dari Pimpinan
-                                </b></h6></label>
+                            <h6><label for="formFile" class="form-label"><b>
+                                    Surat Tugas Mengikuti Program Pekerti dari Pimpinan
+                                </b></label></h6>
                             <input class="form-control" type="file" id="formFile">
                         </div>
                     </form>
                     <form>
                         <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>vSurat permohonan dari institusi lain
-                                </b></h6></label>
+                            <h6><label for="formFile" class="form-label"><b>
+                                    vSurat permohonan dari institusi lain
+                                </b></label></h6>
                             <input class="form-control" type="file" id="formFile">
                         </div>
                     </form>
                     <form>
                         <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Lembar Pengesahan/bukti kegiatan yg disahkan atasan
-                                </b></h6></label>
+                            <h6><label for="formFile" class="form-label"><b>
+                                    Lembar Pengesahan/bukti kegiatan yg disahkan atasan
+                                </b></label></h6>
                             <input class="form-control" type="file" id="formFile">
                         </div>
                     </form>
@@ -996,7 +997,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenelitian_J"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
                             </td>
                         </tr>
                     </tbody>
@@ -1012,16 +1013,16 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenelitian_J_label"><b>J. Menulis jurnal ilmiah</h5></b>
+                    <h5 class="modal-title" id="modalEditPenelitian_J_label">J. Menulis jurnal ilmiah</h5>
                 </div>
                 <div class="modal-body">
 
                     <form>
                         <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Jurnal yang sudah diterbitkan atau surat
+                            <h6><label for="formFile" class="form-label"><b>
+                                    Jurnal yang sudah diterbitkan atau surat
                                         keterangan/penerimaan dr redaksi & naskah, bagi yang belum diterbitkan.
-                                </b></h6></label>
+                                </b></label></h6>
                             <input class="form-control" type="file" id="formFile">
                         </div>
                     </form>
@@ -1072,7 +1073,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenelitian_K"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -1089,16 +1090,16 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenelitian_K_label"><b>K. Memperoleh hak paten</h5></b>
+                    <h5 class="modal-title" id="modalEditPenelitian_K_label">K. Memperoleh hak paten</h5>
                 </div>
                 <div class="modal-body">
 
                     <form>
                         <div class="mb-3">
-                            <label for="formFile" class="form-label"><b>
-                                    <h6>Surat/sertifikat paten atau surat
+                            <h6> <label for="formFile" class="form-label">
+                                    Surat/sertifikat paten atau surat
                                         keterangan dari Pimpinan
-                                </b></h6></label>
+                                </label></h6>
                             <input class="form-control" type="file" id="formFile">
                         </div>
                     </form>
@@ -1149,7 +1150,7 @@
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditPenelitian_L"><i class="bi bi-plus-square"></i></button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></i></button>
+                                    data-bs-target="#modalDeleteConfirm"><i class="bi bi-trash3"></i></button>
 
                             </td>
                         </tr>
@@ -1166,19 +1167,19 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenelitian_L_label"><b>L. Menulis di media massa (Koran/majalah:
+                    <h5 class="modal-title" id="modalEditPenelitian_L_label">L. Menulis di media massa (Koran/majalah:
                             tulisan berupa opini,
                             form diskusi, kritik, kajian ilmiah, ulasan ahli/pakar yang terkait dengan keahlian bidang
-                            ilmunya)</h5></b>
+                            ilmunya)</h5>
                 </div>
                 <div class="modal-body">
 
                     <form>
                         <div class="mb-3">
                             <label for="formFile" class="form-label"><b>
-                                    <h6> Foto kopi tulisan yang dimuat di
+                                     Foto kopi tulisan yang dimuat di
                                         Koran/majalah
-                                </b></h6></label>
+                               </b></label>
                             <input class="form-control" type="file" id="formFile">
                         </div>
                     </form>
@@ -1252,9 +1253,9 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>M. Menyampaikan orasi ilmiah,
+                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel">M. Menyampaikan orasi ilmiah,
                             pembicara dalam seminar,
-                            narasumber terkait dengan bidang keilmuannya</h5></b>
+                            narasumber terkait dengan bidang keilmuannya</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -1359,8 +1360,8 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel"><b>N. Penyaji makalah dalam seminar
-                            atau pertemuan ilmiah terkait dengan bidang ilmu</h5></b>
+                    <h5 class="modal-title" id="modalEditEvaluasiPendidikanALabel">N. Penyaji makalah dalam seminar
+                            atau pertemuan ilmiah terkait dengan bidang ilmu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -1395,6 +1396,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Upload Lampiran</button>
                     </div>
+                </form>
             </div>
         </div>
     </div>
@@ -1469,9 +1471,9 @@
 
     {{-- TEMPAT JAVASCRIPT --}}
     <script>
-        document.getElementById('confirmEditBtn').addEventListener('click', function() {
-            showEditToast();
-        });
+        // document.getElementById('confirmEditBtn').addEventListener('click', function() {
+        //     showEditToast();
+        // });
 
         function showEditToast() {
             // Menutup modal
@@ -1856,10 +1858,10 @@
             var files = this.files;
             displayFilesWithIcons(files);
         });
-        document.getElementById('fileInputB').addEventListener('change', function() {
-            var files = this.files;
-            displayFilesWithIconsB(files);
-        });
+        // document.getElementById('fileInputB').addEventListener('change', function() {
+        //     var files = this.files;
+        //     displayFilesWithIconsB(files);
+        // });
         document.getElementById('fileInputC').addEventListener('change', function() {
             var files = this.files;
             displayFilesWithIconsC(files);
@@ -1911,16 +1913,16 @@
         var selectedFilesN = [];
     </script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var editButton = document.querySelector("#modalEditButton");
+{{--    <script>--}}
+{{--        document.addEventListener("DOMContentLoaded", function() {--}}
+{{--            var editButton = document.querySelector("#modalEditButton");--}}
 
-            editButton.addEventListener("click", function() {
-                var modalEdit = new bootstrap.Modal(document.querySelector("#modalEditPenelitian_A"));
-                modalEdit.show();
-            });
-        });
-    </script>
+{{--            editButton.addEventListener("click", function() {--}}
+{{--                var modalEdit = new bootstrap.Modal(document.querySelector("#modalEditPenelitian_A"));--}}
+{{--                modalEdit.show();--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
 
     <script>
         function uploadFiles(formId, apiUrl) {
