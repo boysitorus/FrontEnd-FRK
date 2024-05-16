@@ -83,14 +83,14 @@
                                                                 </li>
                                                             </ol>
                                                             <!-- File input -->
-                                                            <button  type="button" id="addFilesBtnA" class="btn btn-secondary">Add Files</button>
+                                                            <button  type="button" id="addFilesBtnPenelitianA" class="btn btn-secondary">Add Files</button>
                                                             <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                                             <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                                                             <!-- tambahkan jarak bawah -->
                                                             <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                <div id="selectedFiles"></div>
+                                                                <div id="selectedFilesPenelitianA"></div>
                                                             </div>
-                                                            <input type="file" id="fileInputA" name="fileInputA[]" style="display: none;" multiple>
+                                                            <input type="file" id="fileInputPenelitianA" name="fileInputPenelitianA[]" style="display: none;" multiple>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1508,17 +1508,17 @@
 
 
         // Fungsi untuk menampilkan file yang dipilih beserta ikonnya A
-        function displayFilesWithIcons(files) {
-            var selectedFilesDiv = document.getElementById('selectedFiles');
+        function displayFilesWithIconsPenelitianA(files) {
+            var selectedFilesDiv = document.getElementById('selectedFilesPenelitianA');
             // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFiles = selectedFiles.concat(Array.from(files));
+            selectedFilesPenelitianA = selectedFilesPenelitianA.concat(Array.from(files));
 
             // Menghapus konten sebelumnya
             selectedFilesDiv.innerHTML = '';
 
             // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFiles.length; i++) {
-                var file = selectedFiles[i];
+            for (var i = 0; i < selectedFilesPenelitianA.length; i++) {
+                var file = selectedFilesPenelitianA[i];
                 if (!file) continue; // Lewati file yang telah dihapus
 
                 var fileName = file.name;
@@ -1547,9 +1547,9 @@
                 deleteBtn.addEventListener('click', (function(fileToRemove) {
                     return function() {
                         // Hapus file dari array file-file yang dipilih
-                        var index = selectedFiles.indexOf(fileToRemove);
+                        var index = selectedFilesPenelitianA.indexOf(fileToRemove);
                         if (index > -1) {
-                            selectedFiles.splice(index, 1);
+                            selectedFilesPenelitianA.splice(index, 1);
                         }
                         // Hapus elemen file dari tampilan
                         this.parentElement.remove();
@@ -1852,9 +1852,9 @@
         }
 
         // Gunakan fungsi displayFilesWithIcons untuk menampilkan file dengan gambar/logo
-        document.getElementById('fileInputA').addEventListener('change', function() {
+        document.getElementById('fileInputPenelitianA').addEventListener('change', function() {
             var files = this.files;
-            displayFilesWithIcons(files);
+            displayFilesWithIconsPenelitianA(files);
         });
         document.getElementById('fileInputB').addEventListener('change', function() {
             var files = this.files;
@@ -1878,8 +1878,8 @@
         });
 
         // Fungsi untuk menambah file A
-        document.getElementById('addFilesBtnA').addEventListener('click', function() {
-            var fileInput = document.getElementById('fileInputA');
+        document.getElementById('addFilesBtnPenelitianA').addEventListener('click', function() {
+            var fileInput = document.getElementById('fileInputPenelitianA');
             fileInput.click();
         });
         document.getElementById('addFilesBtnB').addEventListener('click', function() {
@@ -1903,7 +1903,7 @@
             fileInputN.click();
         });
 
-        var selectedFiles = [];
+        var selectedFilesPenelitianA = [];
         var selectedFilesB = [];
         var selectedFilesC = [];
         var selectedFilesD = [];
