@@ -316,6 +316,11 @@ Route::group(['middleware' => ['check.token']], function() {
    });
 
     Route::prefix('/formEvaluasiDiri')->group(function () {
+
+        Route::prefix('/pendidikan')->group(function () {
+            Route::get('/', [EvaluasiDiriController::class, 'getPendidikanPanel'])->name('ed-pendidikan');
+        });
+
         Route::prefix('/penelitian')->group(function () {
             Route::get('/', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
             Route::post('upload-lampiran', [EvaluasiDiriController::class, 'postLampiran'])->name('ed-add-lampiran-penelitian');
@@ -323,6 +328,10 @@ Route::group(['middleware' => ['check.token']], function() {
 
         Route::prefix('/penunjang')->group(function () {
             Route::get('/', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
+        });
+
+        Route::prefix('/pengabdian')->group(function () {
+            Route::get('/', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
         });
 
         Route::prefix('/simpulan')->group(function () {
