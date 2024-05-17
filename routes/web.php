@@ -326,13 +326,14 @@ Route::group(['middleware' => ['check.token']], function() {
             Route::post('upload-lampiran', [EvaluasiDiriController::class, 'postLampiran'])->name('ed-add-lampiran-penelitian');
         });
 
+        Route::prefix('/pengabdian')->group(function () {
+            Route::get('/', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
+        });
+
         Route::prefix('/penunjang')->group(function () {
             Route::get('/', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
         });
 
-        Route::prefix('/pengabdian')->group(function () {
-            Route::get('/', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
-        });
 
         Route::prefix('/simpulan')->group(function () {
             Route::get('/', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
