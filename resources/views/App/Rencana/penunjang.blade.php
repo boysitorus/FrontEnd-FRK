@@ -98,14 +98,16 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan" required>
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Mahasiswa</label>
                                                         <input id="mahasiswa-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_mahasiswa'] }}" type="number"
-                                                            class="form-control" name="jumlah_mahasiswa" min="1" required>
+                                                            class="form-control" name="jumlah_mahasiswa" min="1"
+                                                            required>
                                                     </div>
                                                 </div>
 
@@ -262,14 +264,16 @@
                                                             Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan" required>
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Mahasiswa</label>
                                                         <input id="mahasiswa-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_mahasiswa'] }}" type="number"
-                                                            class="form-control" name="jumlah_mahasiswa" min="1" required>
+                                                            class="form-control" name="jumlah_mahasiswa" min="1"
+                                                            required>
                                                     </div>
                                                 </div>
 
@@ -2083,7 +2087,8 @@
                                                         </div>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan" required>
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -2278,7 +2283,8 @@
                                                         </div>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan" required>
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <div style="text-align: left;">
@@ -2455,7 +2461,8 @@
                                                         </label>
                                                         <input id="nama-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan" required>
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                 </div>
 
@@ -2620,7 +2627,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN C--}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN C --}}
 
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN D --}}
@@ -2676,7 +2683,7 @@
                             <label for="jenis_jabatan_struktural" class="form-label">Jabatan</label>
                             <select id="penunjang_jabatan_E" class="form-select" aria-label="Default select example"
                                 name="jenis_jabatan_struktural" required>
-                                <option value="" selected disabled hidden>Open this select menu</option>
+                                <option value="" selected disabled hidden>Pilih Jabatan</option>
                                 <option value="Rektor">Rektor</option>
                                 <option value="Wakil Rektor">Wakil Rektor</option>
                                 <option value="Dekan">Dekan</option>
@@ -2728,7 +2735,7 @@
                             <label for="jenis_jabatan_nonstruktural" class="form-label">Jabatan</label>
                             <select id="penunjang_jabatan_F" class="form-select" aria-label="Default select example"
                                 name="jenis_jabatan_nonstruktural" required>
-                                <option value="" selected disabled hidden>Open this select menu</option>
+                                <option value="" selected disabled hidden>Pilih Jabatan</option>
                                 <option value="Ketua Senat Akademik Institut">Ketua Senat Akademik Institut</option>
                                 <option value="Sekretaris Senat Akademik Institut">Sekretaris Senat Akademik Institut
                                 </option>
@@ -2774,7 +2781,7 @@
                             <label for="jabatan" class="form-label">Jabatan</label>
                             <select id="penunjang_jabatan_G" class="form-select" aria-label="Default select example"
                                 name="jabatan" required>
-                                <option value="" selected disabled hidden>Open this select menu</option>
+                                <option value="" selected disabled hidden>Pilih Jabatan </option>
                                 <option value="Ketua Redaksi Jurnal ber-ISSN">Ketua Redaksi Jurnal ber-ISSN</option>
                                 <option value="Anggota Redaksi Jurnal ber-ISSN">Anggota Redaksi Jurnal ber-ISSN</option>
                             </select>
@@ -2813,8 +2820,7 @@
                                 <label for="jabatan" class="form-label">Jabatan</label>
                                 <select id="penunjang_jabatan_H" class="form-select"
                                     aria-label="Default select example" name="jabatan" required>
-                                    <option value="" selected disabled hidden>Open this
-                                        select menu</option>
+                                    <option value="" selected disabled hidden>Pilih Jabatan </option>
                                     <option value="Ketua Panitia Ad Hoc">Ketua Panitia Ad Hoc</option>
                                     <option value="Anggota Panitia Ad Hoc">Anggota Panitia Ad Hoc</option>
                                 </select>
@@ -2853,7 +2859,7 @@
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
                             <select id="penunjang_tingkatan_I" name="jenis_tingkatan" class="form-control" required>
-                                <option value="" selected disabled hidden>Open this select menu</option>
+                                <option value="" selected disabled hidden>Pilih Tingkat Jabatan </option>
                                 <option value="1">Universitas</option>
                                 <option value="2">Fakultas</option>
                                 <option value="3">Program Studi</option>
@@ -2891,7 +2897,7 @@
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
                             <select id="penunjang_tingkatan_J" name="jenis_tingkatan" class="form-control" required>
-                                <option value="" selected disabled hidden>Open this select menu</option>
+                                <option value="" selected disabled hidden>Pilih Tingkat Jabatan</option>
                                 <option value="1">Universitas</option>
                                 <option value="2">Fakultas</option>
                                 <option value="3">Program Studi</option>
@@ -2929,7 +2935,7 @@
                         <div class="mb-3">
                             <label class="form-label">Jabatan:</label>
                             <select id="penunjang_jabatan_K" name="jabatan" class="form-control"required>
-                                <option value="" selected disabled hidden>Open this select menu</option>
+                                <option value="" selected disabled hidden>Pilih Tingkat Jabatan</option>
                                 <option value="1">Ketua Yayasan</option>
                                 <option value="2">Anggota Yayasan</option>
                             </select>
@@ -2964,7 +2970,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="jabatan" class="form-label">Jabatan:</label>
-                            <select id="penunjang_jabatan_L" class="form-control" id="jenis_jabatan" name="jabatan">
+                            <select id="penunjang_jabatan_L" class="form-control" id="jenis_jabatan" name="jabatan"
+                                required>
+                                <option value="" disabled selected>Pilih Jabatan</option>
                                 <option value="Anggota">Anggota</option>
                                 <option value="Ketua">Ketua</option>
                             </select>
@@ -2972,7 +2980,7 @@
                         <label class="form-label">Tingkatan:</label>
                         <select id="penunjang_tingkatan_L" class="form-control" id="jenis_tingkatan"
                             name="jenis_tingkatan" required>
-                            <option value="" selected disabled hidden>Open this select menu</option>
+                            <option value="" selected disabled>Pilih Tingkatan</option>
                             <option value="Nasional">Nasional</option>
                             <option value="Internasional">Internasional</option>
                         </select>
@@ -3011,7 +3019,7 @@
                             <label for="jenis_tingkatan" class="form-label">Tingkatan:</label>
                             <select id="penunjang_tingkatan_M" class="form-control" id="jenis_tingkatan"
                                 name="jenis_tingkatan" required>
-                                <option value="" selected disabled hidden>Open this select menu</option>
+                                <option value="" selected disabled hidden>Pilih Tingkatan</option>
                                 <option value="Regional/Nasional">Regional/Nasional</option>
                                 <option value="Internasional">Internasional</option>
                             </select>
