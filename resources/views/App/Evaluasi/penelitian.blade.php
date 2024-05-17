@@ -13,25 +13,23 @@
             <hr />
 
             <div class="text-sm">
-                <table id="tablePenelitian-A"
-                    class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-                    style="border: 2px;">
+                <table id="tablePenelitian-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                       style="border: 2px;">
                     <thead>
-                        <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Tahap Pencapaian</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Posisi (Ketua/ Anggota)
-                            </th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Anggota</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" colspan="2 " class="allign-middle fw-bold col-3">Status</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="fw-bold">Asesor 1</th>
-                            <th scope="col" class="fw-bold">Asesor 2</th>
-                        </tr>
+                    <tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Tahap Pencapaian</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Posisi (Ketua/ Anggota)</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Anggota</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
+                        <th scope="col" colspan="2 " class="allign-middle fw-bold col-3">Status</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="fw-bold">Asesor 1</th>
+                        <th scope="col" class="fw-bold">Asesor 2</th>
+                    </tr>
                     </thead>
                     <tbody>
                         @if (isset($penelitian_kelompok) && sizeof($penelitian_kelompok) > 0)
@@ -152,29 +150,28 @@
     <div id="penelitian-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>D. Menulis satu judul naskah buku internasional
-                    (berbahasa dan diedarkan secara internasional minimal tiga negara),
+                    (berbahasa dan diedarkan secara internasional minimal  tiga negara),
                     disetujui oleh pimpinan dan tercatat</b></h6>
             <hr />
 
             <div class="text-sm">
-                <table id="tablePenelitian-D"
-                    class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-                    style="border: 2px;">
+                <table id="tablePenelitian-D" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                       style="border: 2px;">
                     <thead>
-                        <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Tahap Pencapaian</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Pengerjaan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Peran</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                            <th scope="col" colspan="2" class="align-middle fw-bold col-2">Status</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="fw-bold col-1">Asesor 1</th>
-                            <th scope="col" class="fw-bold col-1">Asesor 2</th>
-                        </tr>
+                    <tr>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Tahap Pencapaian</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Jenis Pengerjaan</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Peran</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
+                        <th scope="col" colspan="2" class="align-middle fw-bold col-2">Status</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="fw-bold col-1">Asesor 1</th>
+                        <th scope="col" class="fw-bold col-1">Asesor 2</th>
+                    </tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -315,8 +312,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body text-center" style="padding: 8%;">
-                    <h5 class="modal-title" id="modalBatal_label py-5">Apakah anda yakin untuk membatalkan pengumpulan
-                        lampiran?</h5>
+                    <h5 class="modal-title" id="modalBatal_label py-5">Apakah anda yakin untuk membatalkan pengumpulan lampiran?</h5>
                     <div class="my-4">
                         <button type="button" class="btn btn-primary mx-3" data-bs-dismiss="modal">Yakin</button>
                         <button type="button" class="btn btn-secondary mx-3">Tidak</button>
@@ -352,3 +348,4 @@
 
     <script src="{{ asset('js/app.js') }}"></script>
 @endsection
+
