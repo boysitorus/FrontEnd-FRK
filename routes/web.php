@@ -318,14 +318,13 @@ Route::group(['middleware' => ['check.token']], function() {
     Route::prefix('/formEvaluasiDiri')->group(function () {
         Route::prefix('/penelitian')->group(function () {
             Route::get('/', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
-            
-            Route::post('buku-internasional', [EvaluasiDiriController::class, 'postBukuInternasional'])->name('ed-add-buku-internasional');
-            Route::post('pembicara-seminar', [EvaluasiDiriController::class, 'postPembicaraSeminar'])->name('ed-add-pembicara-seminar');
-            Route::post('penyajian-makalah', [EvaluasiDiriController::class, 'postPenyajianMakalah'])->name('ed-add-penyajian-makalah');
+            Route::post('upload-lampiran', [EvaluasiDiriController::class, 'postLampiran'])->name('ed-add-lampiran-penelitian');
         });
-        Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
-        Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanPanel'])->name('ed-pendidikan');
-        Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
+
+        Route::prefix('/penunjang')->group(function () {
+            Route::get('/', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
+        });
+
         Route::prefix('/simpulan')->group(function () {
             Route::get('/', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
             Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanSimpulanPanel'])->name('ed-simpulan-pendidikan');

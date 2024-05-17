@@ -289,8 +289,6 @@
             })
         </script>
     @endif
-
-
 </body>
 
 </html>

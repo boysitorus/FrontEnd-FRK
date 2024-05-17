@@ -6,18 +6,22 @@ use Illuminate\Http\Request;
 use App\Utils\Tools;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class EvaluasiDiriController extends Controller
 {
-    public function getPendidikanPanel(){
+    public function getPendidikanPanel()
+    {
         return view('App.Evaluasi.pendidikan');
     }
 
-    public function getPenunjangPanel(){
+    public function getPenunjangPanel()
+    {
         return view('App.Evaluasi.penunjang');
     }
 
-    public function getPengabdianPanel(){
+    public function getPengabdianPanel()
+    {
         return view('App.Evaluasi.pengabdian');
     }
 
@@ -25,7 +29,7 @@ class EvaluasiDiriController extends Controller
     {
 
         $auth = Tools::getAuth($request);
-        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         try {
             // Mengambil data a. penelitian kelompok dari Lumen
             $responsePenelitianKelompok = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok/' . $id_dosen);
@@ -90,16 +94,16 @@ class EvaluasiDiriController extends Controller
                 'penelitian_mandiri' => $PenelitianMandiri,
                 'buku_terbit' => $BukuTerbit,
                 'buku_internasional' => $BukuInternasional,
-                'menyadur'=>$Menyadur,
-                'menyunting'=>$Menyunting,
+                'menyadur' => $Menyadur,
+                'menyunting' => $Menyunting,
                 'penelitian_modul' => $PenelitianModul,
                 'penelitian_pekerti' => $PenelitianPekerti,
                 'penelitian_tridharma' => $PenelitianTridharma,
                 'jurnal_ilmiah' => $JurnalIlmiah,
-                'pembicara_seminar'=>$PembicaraSeminar,
-                'penyajian_makalah'=>$PenyajianMakalah,
-                'hak_paten'=>$HakPaten,
-                'media_massa'=>$MediaMassa,
+                'pembicara_seminar' => $PembicaraSeminar,
+                'penyajian_makalah' => $PenyajianMakalah,
+                'hak_paten' => $HakPaten,
+                'media_massa' => $MediaMassa,
                 'auth' => $auth,
                 'id_dosen' => $id_dosen
             ];
@@ -112,164 +116,77 @@ class EvaluasiDiriController extends Controller
         }
     }
 
-    public function postPenelitianKelompok(Request $request)
-    {
-        try {
-            $files = $request->file('fileInputA');
-            $id_rencana = $request->input('id_rencana');
-            
-            // Create a new Guzzle HTTP client instance
-            $client = new \GuzzleHttp\Client();
-    
-            // Prepare the form data
-            $formData = [
-                'id_rencana' => $id_rencana,
-            ];
-    
-            // Prepare the files to be attached
+    //HANDLER UPLOAD LAMPIRAN
+    public function postLampiran(Request $request){
+        $id_rencana = $request->get("id_rencana");
+        $jenis_penelitian = $request->get("jenis_penelitian");
+        $filePaths = [];
+        $url = env('API_FED_SERVICE') . '/penelitian/upload-lampiran';
+
+        if ($request->hasFile('fileInput')) {
+            $files = $request->file('fileInput');
             foreach ($files as $file) {
-                $formData['files[]'] = fopen($file->getRealPath(), 'r');
+                if ($file->isValid()) {
+                    $extension = $file->getClientOriginalExtension();
+                    $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . "_" . $id_rencana . "." . $extension;
+                    $file->move(app()->basePath('storage/documents/'), $filename);
+                    $filePaths[] = 'documents/' . $filename;
+                } else {
+                    return redirect()->back()->with('Error', 'error 0');
+                }
             }
-    
-            // Send the HTTP request with the form data and files attached
-            $response = $client->request('POST', env('API_FED_SERVICE') . '/penelitian/penelitian-kelompok', [
-                'multipart' => $formData,
-            ]);
-    
-            // Check the response status code and handle it accordingly
-            if ($response->getStatusCode() == 200) {
-                return redirect()->back()->with('success', 'Penelitian penelitian kelompok added successfully');
-            } else {
-                return redirect()->back()->with('error', 'Failed to add penelitian penelitian kelompok');
+            //kirim kan file ke api
+            $http = Http::asMultipart();
+            foreach ($filePaths as $filePath) {
+                if (file_exists(storage_path($filePath))) {
+                    $fileName = basename($filePath);
+                    $fileContent = file_get_contents(storage_path($filePath));
+                    $http->attach('fileInput[]', $fileContent, $fileName);
+                } else {
+                    return response()->json(['error' => "File not found: $filePath"], 404);
+                }
             }
-        } catch (\Exception $e) {
-            // Handle the exception, log it, or return an error response
-            return redirect()->back()->with('error', 'An error occurred while adding penelitian penelitian kelompok');
-        }
-    }
 
-    public function postPenelitianMandiri(Request $request)
-    {
-        try {
-            $files = $request->file('fileInputB');
-            $id_rencana = $request->input('id_rencana');
-            
-            // Create a new Guzzle HTTP client instance
-            $client = new \GuzzleHttp\Client();
-    
-            // Prepare the form data
-            $formData = [
+            $response = $http->post($url, [
                 'id_rencana' => $id_rencana,
-            ];
-    
-            // Prepare the files to be attached
-            foreach ($files as $file) {
-                $formData['files[]'] = fopen($file->getRealPath(), 'r');
-            }
-    
-            // Send the HTTP request with the form data and files attached
-            $response = $client->request('POST', env('API_FED_SERVICE') . '/penelitian/penelitian-mandiri', [
-                'multipart' => $formData,
+                'jenis_penelitian' => $jenis_penelitian
             ]);
-    
-            // Check the response status code and handle it accordingly
-            if ($response->getStatusCode() == 200) {
-                return redirect()->back()->with('success', 'Penelitian penelitian kelompok added successfully');
+
+            if ($response->successful()) {
+                foreach ($filePaths as $filePath) {
+                    if (file_exists(storage_path($filePath))) {
+                        unlink(storage_path($filePath));
+                    }
+                }
+                return redirect()->back()->with('message', 'Berhasil mengupload lampiran');
             } else {
-                return redirect()->back()->with('error', 'Failed to add penelitian penelitian kelompok');
+                return response()->json(['error' => $response->body()], 404);
             }
-        } catch (\Exception $e) {
-            // Handle the exception, log it, or return an error response
-            return redirect()->back()->with('error', 'An error occurred while adding penelitian penelitian kelompok');
-        }
-    }
-
-    public function postBukuInternasional(Request $request)
-{
-    try {
-        $files = $request->file('fileInputD');
-        $id_rencana = $request->input('id_rencana');
-        
-        // Create a new Guzzle HTTP client instance
-        $client = new \GuzzleHttp\Client();
-
-        // Prepare the form data
-        $formData = [
-            'id_rencana' => $id_rencana,
-        ];
-
-        // Prepare the files to be attached
-        foreach ($files as $file) {
-            $formData['files[]'] = fopen($file->getRealPath(), 'r');
-        }
-
-        // Send the HTTP request with the form data and files attached
-        $response = $client->request('POST', env('API_FED_SERVICE') . '/penelitian/buku-internasional', [
-            'multipart' => $formData,
-        ]);
-
-        // Check the response status code and handle it accordingly
-        if ($response->getStatusCode() == 200) {
-            return redirect()->back()->with('success', 'Penelitian buku_internasional added successfully');
         } else {
-            return redirect()->back()->with('error', 'Failed to add penelitian buku_internasional');
+            return redirect()->back()->with('error', 'No file selected');
         }
-    } catch (\Exception $e) {
-        // Handle the exception, log it, or return an error response
-        return redirect()->back()->with('error', 'An error occurred while adding penelitian buku_internasional');
     }
-}
+    //END OF HANDLER UPLOAD LAMPIRAN
 
-public function postPembicaraSeminar(Request $request)
-{
-    try {
-        $files = $request->file('fileInputM');
-        $id_rencana = $request->input('id_rencana');
-        
-        // Create a new Guzzle HTTP client instance
-        $client = new \GuzzleHttp\Client();
-
-        // Prepare the form data
-        $formData = [
-            'id_rencana' => $id_rencana,
-        ];
-
-        // Prepare the files to be attached
-        foreach ($files as $file) {
-            $formData['files[]'] = fopen($file->getRealPath(), 'r');
-        }
-
-        // Send the HTTP request with the form data and files attached
-        $response = $client->request('POST', env('API_FED_SERVICE') . '/penelitian/pembicara-seminar', [
-            'multipart' => $formData,
-        ]);
-
-        // Check the response status code and handle it accordingly
-        if ($response->getStatusCode() == 200) {
-            return redirect()->back()->with('success', 'Penelitian pembicara_seminar added successfully');
-        } else {
-            return redirect()->back()->with('error', 'Failed to add penelitian pembicara_seminar');
-        }
-    } catch (\Exception $e) {
-        // Handle the exception, log it, or return an error response
-        return redirect()->back()->with('error', 'An error occurred while adding penelitian pembicara_seminar');
-    }
-}
-
-    public function getSimpulanPanel(){
+    public function getSimpulanPanel()
+    {
         return view('App.Evaluasi.FEDsimpulan');
     }
 
-    public function getPendidikanSimpulanPanel(){
+    public function getPendidikanSimpulanPanel()
+    {
         return view('App.Evaluasi.simpulanPendidikan');
     }
-    public function getPenelitianSimpulanPanel(){
+    public function getPenelitianSimpulanPanel()
+    {
         return view('App.Evaluasi.simpulanPenelitian');
     }
-    public function getPengabdianSimpulanPanel(){
+    public function getPengabdianSimpulanPanel()
+    {
         return view('App.Evaluasi.simpulanPengabdian');
     }
-    public function getPenunjangSimpulanPanel(){
+    public function getPenunjangSimpulanPanel()
+    {
         return view('App.Evaluasi.simpulanPenunjang');
     }
 }
