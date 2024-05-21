@@ -20,9 +20,49 @@ class EvaluasiDiriController extends Controller
         return view('App.Evaluasi.penunjang');
     }
 
-    public function getPengabdianPanel()
+    public function getPengabdianPanel(Request $request)
     {
-        return view('App.Evaluasi.pengabdian');
+        $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        try{
+            // Mengambil data a. kegiatan dari lumen
+            $responsKegiatan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/kegiatan/' . $id_dosen);
+            $Kegiatan = $responsKegiatan->json();
+
+            // Mengambil data b. penyuluhan dari lumen
+            $responsePenyuluhan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/penyuluhan/' . $id_dosen);
+            $Penyuluhan = $responsePenyuluhan->json();
+
+            // Mengambil data c. konsultan dari lumen
+            $responsekonsultan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/konsultan/' . $id_dosen);
+            $konsultan = $responsekonsultan->json();
+
+            // Mengambil data d. karya dari lumen
+            $responseKarya = Http::get(env('API_FRK_SERVICE') .'/pengabdian/karya/' . $id_dosen);
+            $Karya = $responseKarya->json();
+
+
+            // Menggabungkan data
+            $data = [
+                //data a
+                'kegiatan' => $Kegiatan,
+                //data b
+                'penyuluhan' => $Penyuluhan,
+
+                //data c
+                'konsultan' => $konsultan,
+                //data d
+                'karya' => $Karya,
+                'auth' => $auth,
+                'id_dosen' => $id_dosen
+            ];
+
+            // Mengirim data ke view
+            return view('App.Evaluasi.pengabdian', $data);
+        }catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
     }
 
     public function getPenelitianPanel(Request $request)
@@ -150,6 +190,56 @@ class EvaluasiDiriController extends Controller
             $response = $http->post($url, [
                 'id_rencana' => $id_rencana,
                 'jenis_penelitian' => $jenis_penelitian
+            ]);
+
+            if ($response->successful()) {
+                foreach ($filePaths as $filePath) {
+                    if (file_exists(storage_path($filePath))) {
+                        unlink(storage_path($filePath));
+                    }
+                }
+                return redirect()->back()->with('message', 'Berhasil mengupload lampiran');
+            } else {
+                return response()->json(['error' => $response->body()], 404);
+            }
+        } else {
+            return redirect()->back()->with('error', 'No file selected');
+        }
+    }
+
+    public function postLampiranPengabdian(Request $request){
+        $id_rencana = $request->get("id_rencana");
+        $jenis_pengabdian = $request->get("jenis_pengabdian");
+        $filePaths = [];
+        $url = env('API_FED_SERVICE') . '/pengabdian/upload-lampiran';
+
+        if ($request->hasFile('fileInput')) {
+            $files = $request->file('fileInput');
+            foreach ($files as $file) {
+                if ($file->isValid()) {
+                    $extension = $file->getClientOriginalExtension();
+                    $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . "_" . $id_rencana . "." . $extension;
+                    $file->move(app()->basePath('storage/documents/'), $filename);
+                    $filePaths[] = 'documents/' . $filename;
+                } else {
+                    return redirect()->back()->with('Error', 'error 0');
+                }
+            }
+            //kirim kan file ke api
+            $http = Http::asMultipart();
+            foreach ($filePaths as $filePath) {
+                if (file_exists(storage_path($filePath))) {
+                    $fileName = basename($filePath);
+                    $fileContent = file_get_contents(storage_path($filePath));
+                    $http->attach('fileInput[]', $fileContent, $fileName);
+                } else {
+                    return response()->json(['error' => "File not found: $filePath"], 404);
+                }
+            }
+
+            $response = $http->post($url, [
+                'id_rencana' => $id_rencana,
+                'jenis_pengabdian' => $jenis_pengabdian
             ]);
 
             if ($response->successful()) {
