@@ -386,4 +386,9 @@ class AsesorController extends Controller
         //     return back()->with('message', 'Gagal approve rencana kerja');
         // }
     }
+
+    public function simpulanAsesor()
+    {
+        return view('App.AsesorFED.simpulanAsesorFED');
+    }
 }
