@@ -39,7 +39,20 @@
                             @foreach ($penelitian_kelompok as $item)
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['jumlah_anggota'] }}</td>
@@ -180,7 +193,20 @@
                             @foreach ($penelitian_mandiri as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
@@ -320,7 +346,20 @@
                             @foreach ($buku_terbit as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
@@ -467,7 +506,20 @@
                             @foreach ($buku_internasional as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
@@ -615,7 +667,20 @@
                             @foreach ($menyadur as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
@@ -760,7 +825,20 @@
                             @foreach ($menyunting as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
@@ -902,7 +980,20 @@
                             @foreach ($penelitian_modul as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
@@ -1037,7 +1128,20 @@
                             @foreach ($penelitian_pekerti as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
@@ -1169,7 +1273,20 @@
                             @foreach ($penelitian_tridharma as $item)
                                 <tr>
                                     <td scope="row">1</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['jumlah_bkd'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
@@ -1306,7 +1423,20 @@
                             @foreach ($jurnal_ilmiah as $item)
                                 <tr>
                                     <td scope="row">1</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['lingkup_penerbit'] }}</td>
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
@@ -1437,7 +1567,20 @@
                             @foreach ($hak_paten as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td> {{ $item['nama_kegiatan'] }} </td>
+                                    <td> 
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td> {{ $item['lingkup_wilayah'] }} </td>
                                     <td> {{ $item['sks_terhitung'] }} </td>
                                     <td></td>
@@ -1569,7 +1712,20 @@
                             @foreach ($media_massa as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td> {{ $item['nama_kegiatan'] }} </td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td> {{ $item['sks_terhitung'] }} </td>
                                     <td></td>
                                     <td></td>
@@ -1700,7 +1856,20 @@
                             @foreach ($pembicara_seminar as $item)
                                 <tr>
                                     <td scope="row">{{ $counter++ }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['lingkup_wilayah'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
@@ -1836,7 +2005,20 @@
                                 @foreach ($penyajian_makalah as $item)
                         <tr>
                             <td scope="row">{{ $counter++ }}</td>
-                            <td>{{ $item['nama_kegiatan'] }}</td>
+                            <td>
+                                <div>
+                                    {{ $item['nama_kegiatan'] }}
+                                </div>
+                                @if (is_null($item['lampiran']) )
+                                    <div class="badge text-bg-warning">
+                                        Lampiran belum diupload.
+                                    </div>
+                                    @else
+                                    <div class="badge text-bg-success   ">
+                                        Lampiran sudah diisi.
+                                    </div>
+                                @endif
+                            </td>
                             <td>{{ $item['lingkup_wilayah'] }}</td>
                             <td>{{ $item['jenis_pengerjaan'] }}</td>
                             <td>{{ $item['posisi'] }}</td>

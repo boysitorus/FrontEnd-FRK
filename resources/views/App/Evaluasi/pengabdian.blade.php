@@ -36,7 +36,20 @@
                             @foreach ($kegiatan as $item)
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['jumlah_durasi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
@@ -166,7 +179,20 @@
                             @foreach ($penyuluhan as $item)
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['jumlah_durasi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
@@ -299,7 +325,20 @@
                             @foreach ($konsultan as $item)
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
-                                    <td>{{ $item['nama_kegiatan'] }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
+                                        </div>
+                                        @if (is_null($item['lampiran']) )
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
+                                            @else
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
@@ -431,7 +470,20 @@
                         @foreach ($karya as $item)
                             <tr>
                                 <td scope="row">{{ $counter }}</td>
-                                <td>{{ $item['nama_kegiatan'] }}</td>
+                                <td>
+                                    <div>
+                                        {{ $item['nama_kegiatan'] }}
+                                    </div>
+                                    @if (is_null($item['lampiran']) )
+                                        <div class="badge text-bg-warning">
+                                            Lampiran belum diupload.
+                                        </div>
+                                        @else
+                                        <div class="badge text-bg-success   ">
+                                            Lampiran sudah diisi.
+                                        </div>
+                                    @endif
+                                </td>
                                 <td>{{ $item['jenis_terbit'] }}</td>
                                 <td>{{ $item['status_tahapan'] }}</td>
                                 <td>{{ $item['jenis_pengerjaan'] }}</td>
