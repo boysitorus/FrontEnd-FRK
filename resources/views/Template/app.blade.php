@@ -95,7 +95,9 @@
 
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex
+                                {{ Str::startsWith(request()->path(), 'formEvaluasiDiri') ? 'active' : '' }}
+                                justify-content-between align-items-center"
                                 data-bs-toggle="collapse" data-bs-target="#fed-collapse" aria-expanded="false">
                                 <i class="bi bi-pencil-square me-2"></i>
                                 <div class="me-auto"><span>Evaluasi Diri</span></div>

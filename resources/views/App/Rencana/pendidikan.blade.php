@@ -935,8 +935,9 @@
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}"><i
-                                                class="bi bi-pencil-square"></i></button>
+                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
+                                            <i class="bi bi-pencil-square"></i></button>
+
                                         <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
@@ -964,11 +965,11 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batalkan</button>
                                                         <a id="confirmDeleteBtn" class="btn btn-primary"
-                                                            href="{{ route('rk-pendidikan.proposal.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            href="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
                                                             onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
 
                                                         <form id="delete-form-{{ $item['id_rencana'] }}"
-                                                            action="{{ route('rk-pendidikan.proposal.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            action="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
                                                             method="POST" style="display: none;">
                                                             @csrf
                                                             @method('DELETE')
@@ -1088,13 +1089,51 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($item['asesor2_frk'] === null)
-                                            <span class="badge bg-secondary">Menunggu</span>
-                                        @elseif ($item['asesor2_frk'] === 'setuju')
-                                            <span class="badge bg-success">Disetujui</span>
-                                        @elseif ($item['asesor2_frk'] === 'ditolak')
-                                            <span class="badge bg-danger">Ditolak</span>
-                                        @endif
+                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
+                                            <i class="bi bi-pencil-square"></i></button>
+
+                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                            class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
+                                                class="bi bi-trash3-fill"></i></button>
+
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
+                                            tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+
+                                                    <div class="modal-body text-center">
+                                                        <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                        <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                        <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                            anda sudah menekan tombol 'Yakin'
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Batalkan</button>
+                                                        <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                            href="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                        <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                            action="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            method="POST" style="display: none;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
@@ -1263,42 +1302,44 @@
                                     <td>
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
+                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
+                                            <i class="bi bi-pencil-square"></i></button>
+
                                         <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-trash3-fill"></i></i>
-                                        </button>
+                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
+                                                class="bi bi-trash3-fill"></i></button>
 
-                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
+                                                        <button class="btn-close" type="button"
+                                                            data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
 
                                                     <div class="modal-body text-center">
                                                         <h1><i class="bi bi-x-circle text-danger"></i></h1>
                                                         <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                                                        <p class="text-muted small">Proses ini tidak dapat diurungkan bila
-                                                            Anda sudah menekan tombol 'Yakin'.</p>
+                                                        <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                            anda sudah menekan tombol 'Yakin'
+                                                        </p>
                                                     </div>
 
                                                     <div class="modal-footer justify-content-center">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batalkan</button>
-                                                        <form
-                                                            action="{{ route('rk-pendidikan.kembang.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            method="POST" style="display: inline;">
+                                                        <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                            href="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                        <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                            action="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            method="POST" style="display: none;">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button id="confirmDeleteBtn" type="submit"
-                                                                class="btn btn-primary">Yakin</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -1466,10 +1507,10 @@
 
                                         <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-trash3"></i></button>
+                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
+                                                class="bi bi-trash3-fill"></i></button>
 
-                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1491,11 +1532,11 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batalkan</button>
                                                         <a id="confirmDeleteBtn" class="btn btn-primary"
-                                                            href="{{ route('rk-pendidikan.cangkok.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            href="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
                                                             onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
 
                                                         <form id="delete-form-{{ $item['id_rencana'] }}"
-                                                            action="{{ route('rk-pendidikan.cangkok.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            action="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
                                                             method="POST" style="display: none;">
                                                             @csrf
                                                             @method('DELETE')
@@ -1641,10 +1682,10 @@
 
                                         <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-trash3"></i></button>
+                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
+                                                class="bi bi-trash3-fill"></i></button>
 
-                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1666,11 +1707,11 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batalkan</button>
                                                         <a id="confirmDeleteBtn" class="btn btn-primary"
-                                                            href="{{ route('rk-pendidikan.koordinator.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            href="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
                                                             onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
 
                                                         <form id="delete-form-{{ $item['id_rencana'] }}"
-                                                            action="{{ route('rk-pendidikan.koordinator.destroy', ['id' => $item['id_rencana']]) }}"
+                                                            action="{{ route('rk-pendidikan.tugasAkhir.destroy', ['id' => $item['id_rencana']]) }}"
                                                             method="POST" style="display: none;">
                                                             @csrf
                                                             @method('DELETE')
@@ -2016,7 +2057,7 @@
     {{-- AKHIR MODAL G --}}
 
 
-{{-- MULAI MODAL H --}}
+    {{-- MULAI MODAL H --}}
     <div class="modal fade modal-lg" id="modalPendidikan_H" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

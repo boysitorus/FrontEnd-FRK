@@ -392,7 +392,7 @@
                                 <td>{{$item['jenis_pengerjaan']}}</td>
                                 <td>{{$item['peran']}}</td>
                                 <td>{{$item['sks_terhitung']}}</td>
-                                <td>   
+                                <td>
                                     @if ($item['asesor1_frk'] === null)
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
