@@ -754,7 +754,7 @@
                                                     <select name="status_tahapan" class="form-select form-select-md mb-3" aria-label=".form-select-md example" required>
                                                         <option value="Pendahuluan" {{ $item['status_tahapan'] == 'Pendahuluan' ? 'selected' : '' }}>Pendahuluan</option>
                                                         <option value="50% dari isi buku" {{ $item['status_tahapan'] == '50% dari isi buku' ? 'selected' : '' }}>50% dari isi buku
-                                                        </option> 
+                                                        </option>
                                                         <option value="sks buku jadi" {{ $item['status_tahapan'] == 'sks buku jadi' ? 'selected' : '' }}>sks buku jadi</option>
                                                         <option value="persetujuan penerbit" {{ $item['status_tahapan'] == 'persetujuan penerbit' ? 'selected' : '' }}>persetujuan penerbit</option>
                                                         <option value="sks buku selesai dicetak" {{ $item['status_tahapan'] == 'sks buku selesai dicetak' ? 'selected' : '' }}>sks bukuselesai dicetak</option>
@@ -2177,7 +2177,7 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}" 
+                <form action="{{ route('rk-penelitian.penelitian_kelompok.create') }}"
                     method = "POST" class="formTambahData">
                     @csrf
                     <div class="modal-body">
@@ -2600,7 +2600,7 @@
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                
+
                     <form action="{{ route('rk-penelitian.penelitian_tridharma.create') }}" method = "POST"
                     class="formTambahData">
                         @csrf
@@ -2836,7 +2836,7 @@
                         <div class="mb-3">
                             <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
                             <input name="jumlah_anggota" type="number" class="form-control" id="jumlah_anggota" required min="0">
-                        </div> 
+                        </div>
                         <div class="mb-3">
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
                             <select name="jenis_pengerjaan" class="form-select form-select-md mb-3"

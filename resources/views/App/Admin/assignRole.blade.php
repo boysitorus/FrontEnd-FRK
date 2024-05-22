@@ -33,49 +33,59 @@
 
                     </thead>
                     <tbody class="align-middle">
-                        <tr>
+                            <tr>
+                            <tr>
                             <td>1</td>
                             <td>Rektor</td>
-                            <td>Button Assesor
+                            <td>
+                                <button type="submit" class="btn btn-secondary">
+                                    Assign Sebagai Assesor
+                                </button>
+                            </td>
                         <tr>
                             <td>2</td>
                             <td>Wakil Rektor I</td>
-                            <td>Button Assesor</td>
+                            <td>
+                                <button type="submit" class="btn btn-secondary">
+                                    Assign Sebagai Assesor
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>Wakil Rektor II</td>
-                            <td>Button</td>
+                            <td>
+                                <button type="submit" class="btn btn-secondary">
+                                    Assign Sebagai Assesor
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>Wakil Rektor III</td>
-                            <td>Button Assign sebagai assesor</td>
+                            <td>
+                                <button type="submit" class="btn btn-secondary">
+                                    Assign Sebagai Assesor
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>Dekan</td>
-                            <td>Button Assign sebagai assesor</td>
+                            <td>
+                                <button type="submit" class="btn btn-secondary">
+                                    Assign Sebagai Assesor
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>6</td>
                             <td>Ketua Program Studi</td>
-                            <td>Button Assign sebagai assesor</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Dosen Biasa</td>
-                            <td>Button Assesor</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Dosen Biasa</td>
-                            <td>Button Assesor</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>Dosen Biasa</td>
-                            <td>Button Assesor</td>
+                            <td>
+                                <button type="submit" class="btn btn-secondary">
+                                    Assign Sebagai Assesor
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

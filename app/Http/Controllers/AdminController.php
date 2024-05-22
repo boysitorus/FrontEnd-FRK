@@ -73,10 +73,5 @@ class AdminController extends Controller
     {
         return view('App.Admin.assignRole');
     }
-
-      public function getOpenAccess()
-    {
-        return view('App.Admin.openAccess');
-    }
 }
 
