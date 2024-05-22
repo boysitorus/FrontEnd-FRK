@@ -13,6 +13,9 @@ class PenunjangController extends Controller
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try {
+            $responseAll = Http::get(env('API_FRK_SERVICE'). '/penunjang/all/' . $id_dosen);
+            $all = $responseAll->json();
+
             $responseAkademik = Http::get(env('API_FRK_SERVICE') . '/penunjang/akademik/' . $id_dosen);
             $akademik = $responseAkademik->json();
 
@@ -56,6 +59,7 @@ class PenunjangController extends Controller
             $pengurusyayasan = $responsePengurusYayasan->json();
 
             $data = [
+                'all' => $all,
                 'akademik' => $akademik,
                 'bimbingan' => $bimbingan,
                 'ukm' => $ukm,
