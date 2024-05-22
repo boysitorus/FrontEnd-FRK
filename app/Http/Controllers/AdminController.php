@@ -68,4 +68,15 @@ class AdminController extends Controller
         $auth = Tools::getAuth($request);
         return view('App.Admin.generateEvaluasi', ['auth' => $auth]);
     }
+
+    public function getAssignRole()
+    {
+        return view('App.Admin.assignRole');
+    }
+
+      public function getOpenAccess()
+    {
+        return view('App.Admin.openAccess');
+    }
 }
+

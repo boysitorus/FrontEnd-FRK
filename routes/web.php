@@ -420,3 +420,6 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::get('/simpulan-asesor', [AsesorController::class, 'simpulanAsesor'])->name('ed-simpulan-asesor');
     });
 });
+
+Route::get('/admin/assign-role/', [AdminController::class, 'getAssignRole'])->name('admin.assign-role');
+Route::get('/admin/open-access/', [AdminController::class, 'getOpenAccess'])->name('admin.open-access');
