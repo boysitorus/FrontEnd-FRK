@@ -85,7 +85,7 @@
                         <div class="modal fade" id="modalEditEvaluasiPenunjang-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangALabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="{{ route('ed-penunjang.akademik.upload') }}" method="POST" enctype = "multipart/form-data">
+                                    <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                         @csrf
                                         @method('POST')
                                         <div class="modal-header">
@@ -95,6 +95,11 @@
 
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                             </button>
+
+                                            <input type="hidden" name="id_rencana"
+                                                value="{{ $item['id_rencana'] }}">
+                                            <input type="hidden" name="jenis_penunjang"
+                                                value="Akademik" />
                                         </div>
                                         <div class="modal-body">
                                             <div class="container">
@@ -243,7 +248,7 @@
                         aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="{{ route('ed-penunjang.bimbingan.upload') }}" method="POST" enctype = "multipart/form-data">
+                                    <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                         <div class="modal-header">
                                             <h6 class="modal-title" id="modalEditEvaluasiPenunjangBLabel">
                                                 {{ $counter++ }}. {{ $item['nama_kegiatan'] }}
@@ -251,6 +256,11 @@
 
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                             </button>
+
+                                            <input type="hidden" name="id_rencana"
+                                                value="{{ $item['id_rencana'] }}">
+                                            <input type="hidden" name="jenis_penunjang"
+                                                value="Bimbingan" />
                                         </div>
 
                                         <div class="modal-body">
@@ -373,7 +383,7 @@
                             aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
-                                        <form action="{{ route('ed-penunjang.ukm.upload') }}" method="POST" enctype = "multipart/form-data">
+                                        <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                             @csrf
                                             @method('POST')
                                             <div class="modal-header">
@@ -381,6 +391,11 @@
                                                 class="modal-title" id="modalEditEvaluasiPenunjangCLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                                 >
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                                <input type="hidden" name="id_rencana"
+                                                value="{{ $item['id_rencana'] }}">
+                                                <input type="hidden" name="jenis_penunjang"
+                                                value="Ukm" />
                                             </div>
                                             <div class="modal-body">
                                                 <div class="container">
@@ -480,7 +495,7 @@
                                 aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
@@ -488,6 +503,11 @@
                                                     class="modal-title" id="modalEditEvaluasiPenunjangDLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                                     >
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                                    <input type="hidden" name="id_rencana"
+                                                    value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_penunjang"
+                                                    value="Sosial" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -589,7 +609,7 @@
                             aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
-                                        <form action="{{ route('ed-penunjang.struktural.upload') }}" method="POST" enctype = "multipart/form-data">
+                                        <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                             @csrf
                                             @method('POST')
                                             <div class="modal-header">
@@ -597,6 +617,9 @@
                                                 class="modal-title" id="modalEditEvaluasiPenunjangELabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                                 >
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                                <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                <input type="hidden" name="jenis_penunjang" value="Struktural" />
                                             </div>
                                             <div class="modal-body">
                                                 <div class="container">
@@ -702,6 +725,9 @@
                                             class="modal-title" id="modalEditEvaluasiPenunjangFLabel">F. Jabatan non struktural</h6
                                             >
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                            <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                            <input type="hidden" name="jenis_penunjang" value="Nonstruktural" />
                                         </div>
                                         <div class="modal-body">
                                             <div class="container">
@@ -800,7 +826,7 @@
                                 aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
@@ -808,6 +834,9 @@
                                                     class="modal-title" id="modalEditEvaluasiPenunjangGLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                                     >
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_penunjang" value="Redaksi" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -931,6 +960,9 @@
                                             <h6 class="modal-title" id="modalEditEvaluasiPenunjangHLabel">H. Ketua Panitia Ad Hoc: (umur panitia sekurang-kurangnya 2 semester),
                                             seperti Panitia Reviewer RKAT, Panitia Telaah Prodi Anggota Panitia Ad Hoc</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                            <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                            <input type="hidden" name="jenis_penunjang" value="Adhoc" />
                                         </div>
                                         <div class="modal-body">
                                             <div class="container">
@@ -1046,7 +1078,7 @@
                         aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                    <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                         @csrf
                                         @method('POST')
                                         <div class="modal-header">
@@ -1054,6 +1086,8 @@
                                             class="modal-title" id="modalEditEvaluasiPenunjangILabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                             >
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                            <input type="hidden" name="jenis_penunjang" value="Ketua_Panitia" />
                                         </div>
                                         <div class="modal-body">
                                             <div class="container">
@@ -1153,7 +1187,7 @@
                                 aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
@@ -1161,6 +1195,8 @@
                                                     class="modal-title" id="modalEditEvaluasiPenunjangJLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                                     >
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_penunjang" value="Anggota_Panitia" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -1262,7 +1298,7 @@
                                 aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
@@ -1270,6 +1306,8 @@
                                                     class="modal-title" id="modalEditEvaluasiPenunjangKLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                                     >
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_penunjang" value="Pengurus_Yayasan" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -1372,7 +1410,7 @@
                                 aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
@@ -1380,6 +1418,8 @@
                                                     class="modal-title" id="modalEditEvaluasiPenunjangLLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                                     >
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_penunjang" value="Asosiasi" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -1482,7 +1522,7 @@
                                 aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
@@ -1490,6 +1530,8 @@
                                                     class="modal-title" id="modalEditEvaluasiPenunjangMLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                                     >
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_penunjang" value="Seminar" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -1590,7 +1632,7 @@
                                 aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-penunjang.sosial.upload') }}" method="POST" enctype = "multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
@@ -1598,6 +1640,9 @@
                                                     class="modal-title" id="modalEditEvaluasiPenunjangNLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6
                                                     >
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_penunjang" value="Reviewer" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
