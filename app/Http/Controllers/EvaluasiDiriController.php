@@ -433,4 +433,161 @@ class EvaluasiDiriController extends Controller
     
 
     // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG 
+
+    //
+    //HANDLER UPLOAD LAMPIRAN
+    public function postLampiran(Request $request){
+        $id_rencana = $request->get("id_rencana");
+        $jenis_penelitian = $request->get("jenis_penelitian");
+        $filePaths = [];
+        $url = env('API_FED_SERVICE') . '/penelitian/upload-lampiran';
+
+        if ($request->hasFile('fileInput')) {
+            $files = $request->file('fileInput');
+            foreach ($files as $file) {
+                if ($file->isValid()) {
+                    $extension = $file->getClientOriginalExtension();
+                    $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . "_" . $id_rencana . "." . $extension;
+                    $file->move(app()->basePath('storage/documents/'), $filename);
+                    $filePaths[] = 'documents/' . $filename;
+                } else {
+                    return redirect()->back()->with('Error', 'error 0');
+                }
+            }
+            //kirim kan file ke api
+            $http = Http::asMultipart();
+            foreach ($filePaths as $filePath) {
+                if (file_exists(storage_path($filePath))) {
+                    $fileName = basename($filePath);
+                    $fileContent = file_get_contents(storage_path($filePath));
+                    $http->attach('fileInput[]', $fileContent, $fileName);
+                } else {
+                    return response()->json(['error' => "File not found: $filePath"], 404);
+                }
+            }
+
+            $response = $http->post($url, [
+                'id_rencana' => $id_rencana,
+                'jenis_penelitian' => $jenis_penelitian
+            ]);
+
+            if ($response->successful()) {
+                foreach ($filePaths as $filePath) {
+                    if (file_exists(storage_path($filePath))) {
+                        unlink(storage_path($filePath));
+                    }
+                }
+                return redirect()->back()->with('message', 'Berhasil mengupload lampiran');
+            } else {
+                return response()->json(['error' => $response->body()], 404);
+            }
+        } else {
+            return redirect()->back()->with('error', 'No file selected');
+        }
+    }
+    //END OF HANDLER UPLOAD LAMPIRAN
+
+    //HANDLER UPLOAD LAMPIRAN
+    public function postPendidikan(Request $request){
+        $id_rencana = $request->get("id_rencana");
+        $jenis_pendidikan = $request->get("jenis_pendidikan");
+        $filePaths = [];
+        $url = env('API_FED_SERVICE') . '/pendidikan/upload-lampiran';
+
+        if ($request->hasFile('fileInput')) {
+            $files = $request->file('fileInput');
+            foreach ($files as $file) {
+                if ($file->isValid()) {
+                    $extension = $file->getClientOriginalExtension();
+                    $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . "_" . $id_rencana . "." . $extension;
+                    $file->move(app()->basePath('storage/documents/'), $filename);
+                    $filePaths[] = 'documents/' . $filename;
+                } else {
+                    return redirect()->back()->with('Error', 'error 0');
+                }
+            }
+            //kirim kan file ke api
+            $http = Http::asMultipart();
+            foreach ($filePaths as $filePath) {
+                if (file_exists(storage_path($filePath))) {
+                    $fileName = basename($filePath);
+                    $fileContent = file_get_contents(storage_path($filePath));
+                    $http->attach('fileInput[]', $fileContent, $fileName);
+                } else {
+                    return response()->json(['error' => "File not found: $filePath"], 404);
+                }
+            }
+
+            $response = $http->post($url, [
+                'id_rencana' => $id_rencana,
+                'jenis_pendidikan' => $jenis_pendidikan
+            ]);
+
+            if ($response->successful()) {
+                foreach ($filePaths as $filePath) {
+                    if (file_exists(storage_path($filePath))) {
+                        unlink(storage_path($filePath));
+                    }
+                }
+                return redirect()->back()->with('message', 'Berhasil mengupload lampiran');
+            } else {
+                return response()->json(['error' => $response->body()], 404);
+            }
+        } else {
+            return redirect()->back()->with('error', 'No file selected');
+        }
+    }
+    //END OF HANDLER UPLOAD LAMPIRAN
+
+    //HANDLER UPLOAD LAMPIRAN
+    public function postPenunjang(Request $request){
+        $id_rencana = $request->get("id_rencana");
+        $jenis_penunjang = $request->get("jenis_penunjang");
+        $filePaths = [];
+        $url = env('API_FED_SERVICE') . '/penunjang/upload-lampiran';
+
+        if ($request->hasFile('fileInput')) {
+            $files = $request->file('fileInput');
+            foreach ($files as $file) {
+                if ($file->isValid()) {
+                    $extension = $file->getClientOriginalExtension();
+                    $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . "_" . $id_rencana . "." . $extension;
+                    $file->move(app()->basePath('storage/documents/'), $filename);
+                    $filePaths[] = 'documents/' . $filename;
+                } else {
+                    return redirect()->back()->with('Error', 'error 0');
+                }
+            }
+            //kirim kan file ke api
+            $http = Http::asMultipart();
+            foreach ($filePaths as $filePath) {
+                if (file_exists(storage_path($filePath))) {
+                    $fileName = basename($filePath);
+                    $fileContent = file_get_contents(storage_path($filePath));
+                    $http->attach('fileInput[]', $fileContent, $fileName);
+                } else {
+                    return response()->json(['error' => "File not found: $filePath"], 404);
+                }
+            }
+
+            $response = $http->post($url, [
+                'id_rencana' => $id_rencana,
+                'jenis_penunjang' => $jenis_penunjang
+            ]);
+
+            if ($response->successful()) {
+                foreach ($filePaths as $filePath) {
+                    if (file_exists(storage_path($filePath))) {
+                        unlink(storage_path($filePath));
+                    }
+                }
+                return redirect()->back()->with('message', 'Berhasil mengupload lampiran');
+            } else {
+                return response()->json(['error' => $response->body()], 404);
+            }
+        } else {
+            return redirect()->back()->with('error', 'No file selected');
+        }
+    }
+    //END OF HANDLER UPLOAD LAMPIRAN
 }
