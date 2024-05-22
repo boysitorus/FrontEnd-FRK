@@ -49,7 +49,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -203,7 +203,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -356,7 +356,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -516,7 +516,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -677,7 +677,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -835,7 +835,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -990,7 +990,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -1138,7 +1138,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -1283,7 +1283,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -1433,7 +1433,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -1577,7 +1577,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -1722,7 +1722,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -1866,7 +1866,7 @@
                                             </div>
                                             @else
                                             <div class="badge text-bg-success   ">
-                                                Lampiran sudah diisi.
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -2015,7 +2015,7 @@
                                     </div>
                                     @else
                                     <div class="badge text-bg-success   ">
-                                        Lampiran sudah diisi.
+                                        Lampiran sudah diupload.
                                     </div>
                                 @endif
                             </td>
