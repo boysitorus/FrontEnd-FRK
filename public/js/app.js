@@ -1,4 +1,5 @@
 var selectedFiles = [];
+
 // Fungsi untuk menampilkan file yang dipilih beserta ikonnya
 function displayFilesWithIcons(files, selectedFilesId) {
     var selectedFilesDiv = document.getElementById(selectedFilesId);
@@ -22,20 +23,28 @@ function displayFilesWithIcons(files, selectedFilesId) {
             "file-item",
             "d-flex",
             "align-items-center",
-            "mb-2"
+            "mb-2",
+            "border",
+            "rounded",
+            "p-3"
         );
 
         // Tambahkan ikon/gambar
         var fileIconImg = document.createElement("img");
         fileIconImg.src = "/assets/img/" + fileIcon;
         fileIconImg.alt = "File Icon";
-        fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
+        fileIconImg.width = 30; // Sesuaikan lebar gambar sesuai kebutuhan
         fileListItem.appendChild(fileIconImg);
 
         // Tambahkan nama file
         var fileNameSpan = document.createElement("span");
+        fileNameSpan.classList.add('ms-2');
         fileNameSpan.textContent = fileName;
         fileListItem.appendChild(fileNameSpan);
+
+        // Buat elemen div untuk tombol hapus
+        var divDelete = document.createElement('div');
+        divDelete.style.marginLeft = 'auto';
 
         // Tambahkan tombol hapus
         var deleteBtn = document.createElement("button");
@@ -57,11 +66,15 @@ function displayFilesWithIcons(files, selectedFilesId) {
                         selectedFiles.splice(index, 1);
                     }
                     // Hapus elemen file dari tampilan
-                    this.parentElement.remove();
+                    this.parentElement.parentElement.remove();
                 };
             })(file)
         ); // Closure untuk menyimpan file yang benar
-        fileListItem.appendChild(deleteBtn);
+
+        // Tambahkan tombol hapus ke dalam divDelete
+        divDelete.appendChild(deleteBtn);
+        // Tambahkan divDelete ke dalam fileListItem
+        fileListItem.appendChild(divDelete);
 
         selectedFilesDiv.appendChild(fileListItem);
     }
