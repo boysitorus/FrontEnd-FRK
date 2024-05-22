@@ -1,5 +1,6 @@
+var selectedFiles = [];
 // Fungsi untuk menampilkan file yang dipilih beserta ikonnya
-function displayFilesWithIcons(files, selectedFilesId, selectedFiles) {
+function displayFilesWithIcons(files, selectedFilesId) {
     var selectedFilesDiv = document.getElementById(selectedFilesId);
     // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
     selectedFiles = selectedFiles.concat(Array.from(files));
