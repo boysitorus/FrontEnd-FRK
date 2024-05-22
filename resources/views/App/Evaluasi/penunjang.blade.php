@@ -249,6 +249,8 @@
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <form action="{{ route('ed-add-lampiran-penunjang') }}" method="POST" enctype = "multipart/form-data">
+                                        @csrf
+                                        @method('POST')
                                         <div class="modal-header">
                                             <h6 class="modal-title" id="modalEditEvaluasiPenunjangBLabel">
                                                 {{ $counter++ }}. {{ $item['nama_kegiatan'] }}
