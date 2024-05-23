@@ -12,10 +12,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitian-A" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal"
-                    data-bs-target="#modalPendidikan_A">
-                    Tambah Kegiatan
-                </button>
+                    @if ($all == 0)
+                        <button id="btnFrkPenelitian-A" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal"
+                            data-bs-target="#modalPendidikan_A">
+                            Tambah Kegiatan 
+                        </button>
+                    @endif
             </div>
 
             <div class="text-sm">
@@ -72,6 +74,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                    @if ($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}"><i
@@ -81,7 +84,9 @@
                                             class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></button>
-
+                                    @else
+                                        <span>No Action Available</span>
+                                    @endif
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
@@ -198,10 +203,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPendidikan_B">
-                    Tambah Kegiatan
-                </button>
+                @if($all ==0)
+                    <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto m-1"
+                        data-bs-toggle="modal" data-bs-target="#modalPendidikan_B">
+                        Tambah Kegiatan
+                    </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -259,6 +266,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                    @if($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}"><i
@@ -267,6 +275,9 @@
                                             class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></i></button>
+                                    @else
+                                        <span>No Action Available</span>
+                                    @endif
                                     </td>
                                 </tr>
 
@@ -381,10 +392,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPendidikan_C">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -437,6 +450,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
@@ -448,6 +462,9 @@
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i>
                                         </button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
 
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -547,10 +564,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitianD" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPendidikan_D">
-                    Tambah Kegiatan
-                </button>
+                @if($all == 0)
+                    <button id="btnFrkPenelitianD" type="button" class="btn btn-success col-md-auto m-1"
+                        data-bs-toggle="modal" data-bs-target="#modalPendidikan_D">
+                        Tambah Kegiatan
+                    </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -602,17 +621,20 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
-                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
-                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
-                                            class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-trash3-fill"></i></i>
-                                        </button>
-
+                                        @if($item['flag_save_permananent'] != 1)
+                                            <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                                class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </button>
+                                            <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                                class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
+                                                <i class="bi bi-trash3-fill"></i></i>
+                                            </button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
@@ -712,10 +734,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitianE" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPendidikan_E">
-                    Tambah Kegiatan
-                </button>
+                @if($all == 0)
+                    <button id="btnFrkPenelitianE" type="button" class="btn btn-success col-md-auto m-1"
+                        data-bs-toggle="modal" data-bs-target="#modalPendidikan_E">
+                        Tambah Kegiatan
+                    </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -767,16 +791,19 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
-                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-pencil-square"></i></button>
+                                        @if($item['flag_save_permananent'] != 1)
+                                            <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                                class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
+                                                <i class="bi bi-pencil-square"></i></button>
 
-                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
-                                            class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
-                                                class="bi bi-trash3-fill"></i></button>
-
+                                            <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                                class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
+                                                    class="bi bi-trash3-fill"></i></button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
@@ -879,10 +906,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitianF" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPendidikan_F">
-                    Tambah Kegiatan
-                </button>
+                @if($all == 0)
+                    <button id="btnFrkPenelitianF" type="button" class="btn btn-success col-md-auto m-1"
+                        data-bs-toggle="modal" data-bs-target="#modalPendidikan_F">
+                        Tambah Kegiatan
+                    </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -934,6 +963,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                    @if($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
@@ -943,7 +973,9 @@
                                             class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
                                                 class="bi bi-trash3-fill"></i></button>
-
+                                    @else
+                                        <span>No Action Available</span>
+                                    @endif
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
@@ -1045,10 +1077,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitianG" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPendidikan_G">
-                    Tambah Kegiatan
-                </button>
+                @if($all == 0)
+                    <button id="btnFrkPenelitianG" type="button" class="btn btn-success col-md-auto m-1"
+                        data-bs-toggle="modal" data-bs-target="#modalPendidikan_G">
+                        Tambah Kegiatan
+                    </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -1091,6 +1125,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
@@ -1100,7 +1135,9 @@
                                             class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
                                                 class="bi bi-trash3-fill"></i></button>
-
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
@@ -1248,10 +1285,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenelitianH" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPendidikan_H">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -1303,6 +1342,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
@@ -1312,7 +1352,9 @@
                                             class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
                                                 class="bi bi-trash3-fill"></i></button>
-
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
@@ -1447,10 +1489,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenelitianI" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPendidikan_I">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -1503,6 +1547,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
@@ -1512,7 +1557,9 @@
                                             class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
                                                 class="bi bi-trash3-fill"></i></button>
-
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
@@ -1625,10 +1672,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenelitianJ" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPendidikan_J">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -1678,6 +1727,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
@@ -1687,7 +1737,9 @@
                                             class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
                                                 class="bi bi-trash3-fill"></i></button>
-
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">

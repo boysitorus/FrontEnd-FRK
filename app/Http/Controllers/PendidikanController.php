@@ -13,6 +13,9 @@ class PendidikanController extends Controller
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try {
+            $responseAll = Http::get(env('API_FRK_SERVICE'). '/pendidikan/all/' . $id_dosen);
+            $all = $responseAll->json();
+
             // Mengambil data teori dari Lumen
             $responseTeori = Http::get(env('API_FRK_SERVICE') . '/pendidikan/teori/' . $id_dosen);
             $teori = $responseTeori->json();
@@ -53,6 +56,7 @@ class PendidikanController extends Controller
 
             // Menggabungkan data teori dan bimbingan
             $data = [
+                'all' => $all,
                 'teori' => $teori,
                 'bimbingan' => $bimbingan,
                 'seminar' => $seminar,
