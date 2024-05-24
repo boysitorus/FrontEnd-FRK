@@ -127,7 +127,7 @@
                                                     <label for="jumlah_durasi" class="form-label">Durasi
                                                         Kegiatan</label>
                                                     <input name="jumlah_durasi" type="number" class="form-control"
-                                                           id="nama" value={{ $item['jumlah_durasi'] }} min="1" required>
+                                                           id="jumlah_durasi" value={{ $item['jumlah_durasi'] }} min="1" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -312,7 +312,7 @@
                                                     <label for="jumlah_durasi" class="form-label">Durasi
                                                         Kegiatan</label>
                                                     <input name="jumlah_durasi" type="number" class="form-control"
-                                                           id="nama" value={{ $item['jumlah_durasi'] }} min="1" required>
+                                                           id="jumlah_durasi" value={{ $item['jumlah_durasi'] }} min="1" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -489,7 +489,7 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="posisi" class="form-label">Jabatan</label>
-                                                    <select name="posisi" class="form-select form-select-md mb-3"
+                                                    <select name="posisi" id="posisi" class="form-select form-select-md mb-3"
                                                             aria-label=".form-select-md example" required>
                                                         <option value="Ketua"
                                                             {{ $item['posisi'] == 'Ketua' ? 'selected' : '' }}>Ketua
@@ -543,7 +543,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="posisi" class="form-label">Jabatan</label>
-                            <select name="posisi" class="form-select form-select-md mb-3"
+                            <select name="posisi" id="posisi" class="form-select form-select-md mb-3"
                                     aria-label=".form-select-md example" required>
                                 <option disabled selected value="">Pilih Jabatan</option>
                                 <option value="Ketua">Ketua</option>
@@ -687,12 +687,12 @@
                                                     <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                                     <input
                                                         name="nama_kegiatan" type="text" class="form-control"
-                                                        id="nama_kegiatan"
-                                                        value="{{ $item['nama_kegiatan'] }}" required>
+                                                        id="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}" 
+                                                        required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jenis_terbit" class="form-label">Kategori</label>
-                                                    <select name="jenis_terbit" class="form-select form-select-md mb-3"
+                                                    <select name="jenis_terbit" id="jenis_terbit" class="form-select form-select-md mb-3"
                                                             aria-label=".form-select-md example" required>
                                                         <option disabled selected value="">Pilih kategori</option>
                                                         <option
@@ -714,7 +714,7 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="status_tahapan" class="form-label">Tahapan</label>
-                                                    <select name="status_tahapan"
+                                                    <select name="status_tahapan" id="status_tahapan"
                                                             class="form-select form-select-md mb-3"
                                                             aria-label=".form-select-md example" required>
                                                         <option disabled selected value="">Pilih tahapan</option>
@@ -743,7 +743,7 @@
                                                 <div class="mb-3">
                                                     <label for="jenis_pengerjaan" class="form-label">Jenis
                                                         Pengerjaan</label>
-                                                    <select name="jenis_pengerjaan"
+                                                    <select name="jenis_pengerjaan" id="jenis_pengerjaan"
                                                             class="form-select form-select-md mb-3"
                                                             aria-label=".form-select-md example">
                                                         <option disabled selected value>Pilih jenis pengerjaan</option>
@@ -759,7 +759,7 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="peran" class="form-label">Peran</label>
-                                                    <select name="peran" class="form-select form-select-md mb-3"
+                                                    <select name="peran" name="peran" class="form-select form-select-md mb-3"
                                                             aria-label=".form-select-md example" required>
                                                         <option disabled selected value="">Pilih peran</option>
                                                         <option
@@ -784,7 +784,7 @@
                                                     <label for="jumlah_anggota" class="form-label">Jumlah
                                                         Anggota</label>
                                                     <input name="jumlah_anggota" type="number" class="form-control"
-                                                    id="nama" value={{ $item['jumlah_anggota'] }} min="0" required>
+                                                    id="jumlah_anggota" value={{ $item['jumlah_anggota'] }} min="0" required>
                                                     <div class="invalid-feedback">
                                                         Jumlah anggota tidak valid
                                                     </div>
@@ -837,7 +837,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jenis_terbit" class="form-label">Kategori</label>
-                            <select name="jenis_terbit" class="form-select form-select-md mb-3"
+                            <select name="jenis_terbit" id="jenis_terbit" class="form-select form-select-md mb-3"
                                     aria-label=".form-select-md example" required>
                                 <option disabled selected value="">Pilih kategori</option>
                                 <option
@@ -857,7 +857,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="status_tahapan" class="form-label">Tahapan</label>
-                            <select name="status_tahapan" class="form-select form-select-md mb-3"
+                            <select name="status_tahapan" id="status_tahapan" class="form-select form-select-md mb-3"
                                     aria-label=".form-select-md example" required>
                                 <option disabled selected value="">Pilih tahapan</option>
                                 <option value="Pendahuluan">Pendahuluan</option>
@@ -869,7 +869,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jenis_pengerjaan" class="form-label">Jenis Pengerjaan</label>
-                            <select name="jenis_pengerjaan" class="form-select form-select-md mb-3"
+                            <select name="jenis_pengerjaan" id="jenis_pengerjaan" class="form-select form-select-md mb-3"
                                     aria-label=".form-select-md example" required>
                                 <option disabled selected value ="">Pilih jenis pengerjaan</option>
                                 <option value="Mandiri">Mandiri</option>
@@ -878,7 +878,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="peran" class="form-label">Peran</label>
-                            <select name="peran" class="form-select form-select-md mb-3"
+                            <select name="peran" id="peran" class="form-select form-select-md mb-3"
                                     aria-label=".form-select-md example" required>
                                 <option disabled selected value="">Pilih peran</option>
                                 <option value="Editor">Editor</option>
@@ -889,7 +889,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_anggota" class="form-label">Jumlah Anggota</label>
-                            <input name="jumlah_anggota" type="number" class="form-control" min="0" required>
+                            <input name="jumlah_anggota" id="jumlah_anggota" type="number" class="form-control" min="0" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -1029,6 +1029,23 @@
             // Menghapus kelas 'show' setelah beberapa detik (sesuaikan dengan durasi animasi toast)
             setTimeout(function () {
                 $('#editToast').removeClass('show');
+            }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
+        }
+
+        document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+            showDeleteToast();
+        });
+
+        function showDeleteToast() {
+            // Menutup modal
+            $('#modalDeleteConfirm').modal('hide');
+
+            // Menambahkan kelas 'show' ke elemen toast
+            $('#deleteToast').addClass('show');
+
+            // Menghapus kelas 'show' setelah beberapa detik (sesuaikan dengan durasi animasi toast)
+            setTimeout(function() {
+                $('#deleteToast').removeClass('show');
             }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
         }
     </script>
