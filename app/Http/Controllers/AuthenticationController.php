@@ -78,7 +78,7 @@ class AuthenticationController extends Controller
 
         // Validasi respon dari API
         if (!$response->successful() || !$parseData['result']) {
-            return redirect()->route('user.login.get')->withErrors(['error-login' => 'Error, silahkan hubungi Developer! [3]'])->withInput();
+            return redirect()->route('user.login.get')->withErrors(['error-login' => 'Error, akun anda salah'])->withInput();
         }
 
         // Set autentikasi dan token
