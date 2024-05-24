@@ -1123,6 +1123,16 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor2_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
                                         @if($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1171,18 +1181,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
-                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
-                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
-                                            class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-trash3-fill"></i></i>
-                                        </button>
                                     </td>
                                 </tr>
                                 {{-- MULAI MODAL G --}}
