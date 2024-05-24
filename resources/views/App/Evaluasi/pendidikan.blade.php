@@ -90,12 +90,16 @@
                                     aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-pendidikan.teori.upload') }}" method="POST" enctype = "multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype = "multipart/form-data">
                                             @csrf
                                             @method('POST')
                                                 <div class="modal-header">
                                                     <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_pendidikan"
+                                                        value="Teori" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -202,12 +206,16 @@
                                 aria-labelledby="modalEditEvaluasiPendidikanBLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
-                                        <form action="{{ route('ed-pendidikan.praktikum.upload') }}" method="POST" enctype = "multipart/form-data">
+                                        <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype = "multipart/form-data">
                                             @csrf
                                             @method('POST')
                                                 <div class="modal-header">
                                                     <h6 class="modal-title" id="modalEditEvaluasiPendidikanBLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_pendidikan"
+                                                        value="Praktikum" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -313,12 +321,16 @@
                                     aria-labelledby="modalEditEvaluasiPendidikanCLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-pendidikan.bimbingan.upload') }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
                                                     <h6 class="modal-title" id="modalEditEvaluasiPendidikanCLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_pendidikan"
+                                                        value="Bimbingan" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -425,12 +437,16 @@
                                     aria-labelledby="modalEditEvaluasiPendidikanDLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-pendidikan.seminar.upload') }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
                                                     <h6 class="modal-title" id="modalEditEvaluasiPendidikanDLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_pendidikan"
+                                                        value="Seminar" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -536,12 +552,16 @@
                                     aria-labelledby="modalEditEvaluasiPendidikanCLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-pendidikan.tugasakhir.upload') }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
                                                     <h6 class="modal-title" id="modalEditEvaluasiPendidikanCLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_pendidikan"
+                                                        value="TugasAkhir" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
