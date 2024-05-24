@@ -230,6 +230,66 @@ class EvaluasiDiriController extends Controller
         return redirect()->back()->with('success', 'Pendidikan tugas akhir upload successfully');
     }
 
+    // Tabel F. Proposal
+    public function postProposal(Request $request){
+        Http::post(
+            env('API_FED_SERVICE') . '/pendidikan/proposal',
+        [
+            'id_rencana' => $request->get('id_rencana'),
+            'fileInput[]' => $request->file('fileInput'),
+        ]
+        );
+        return redirect()->back()->with('success', 'Pendidikan Proposal upload successfully');
+    }
+
+    // Tabel G. Rendah
+    public function postRendah(Request $request){
+        Http::post(
+            env('API_FED_SERVICE') . '/pendidikan/rendah',
+        [
+            'id_rencana' => $request->get('id_rencana'),
+            'fileInput[]' => $request->file('fileInput'),
+        ]
+        );
+        return redirect()->back()->with('success', 'Pendidikan Rendah upload successfully');
+    }
+
+    // Tabel H. Kembang
+    public function postKembang(Request $request){
+        Http::post(
+            env('API_FED_SERVICE') . '/pendidikan/kembang',
+        [
+            'id_rencana' => $request->get('id_rencana'),
+            'fileInput[]' => $request->file('fileInput'),
+        ]
+        );
+        return redirect()->back()->with('success', 'Pendidikan Kembang upload successfully');
+    }
+
+    // Tabel I. Cangkok
+    public function postCangkok(Request $request){
+        Http::post(
+            env('API_FED_SERVICE') . '/pendidikan/cangkok',
+        [
+            'id_rencana' => $request->get('id_rencana'),
+            'fileInput[]' => $request->file('fileInput'),
+        ]
+        );
+        return redirect()->back()->with('success', 'Pendidikan Cangkok upload successfully');
+    }
+
+    // Tabel J. Koordinator
+    public function postKoordinator(Request $request){
+        Http::post(
+            env('API_FED_SERVICE') . '/pendidikan/koordinator',
+        [
+            'id_rencana' => $request->get('id_rencana'),
+            'fileInput[]' => $request->file('fileInput'),
+        ]
+        );
+        return redirect()->back()->with('success', 'Pendidikan koordinator upload successfully');
+    }
+
     // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN 
 
 
