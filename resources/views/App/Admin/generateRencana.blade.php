@@ -142,6 +142,11 @@
             if (successMessage) {
                 toastBerhasil.show();
             }
+
+            // Menghapus kelas 'show' setelah beberapa detik (sesuaikan dengan durasi animasi toast)
+            setTimeout(function() {
+                $('#editToast').removeClass('show');
+            }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
         });
     </script>
 
