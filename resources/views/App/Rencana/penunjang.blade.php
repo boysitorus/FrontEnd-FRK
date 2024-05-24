@@ -967,7 +967,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($item['flag_Save_permananent'] != 1)
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
@@ -1354,7 +1354,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($item['save_flag_permananent'] != 1)
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
@@ -1737,7 +1737,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($item['flag_save_permananent'])
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
@@ -2112,7 +2112,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($item['flag_savve_permananent'] != 1)
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
