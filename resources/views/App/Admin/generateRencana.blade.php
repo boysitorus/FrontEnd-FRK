@@ -2,15 +2,14 @@
 
 @section('content-generate')
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body>
-<form action="{{route('admin.generate_frk.post')}}" method="post">
+<form action="{{ route('admin.generate_frk.post') }}" method="post">
     @csrf
 
     <div class="container mt-2 ml-0 mt-5 mb-4">
@@ -111,6 +110,17 @@
         <button class="btn btn-danger ">Cancel</button>
     </div>
 
+    {{-- TOAST TAMBAH --}}
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="addToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-body">
+                <i class="bi bi-check2-circle"></i>
+                Berhasil Menambah Kegiatan
+            </div>
+        </div>
+    </div>
+
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
@@ -119,6 +129,22 @@
             document.getElementById(id).value = '';
         }
     </script>
+
+    {{-- TEMPAT JAVASCRIPT --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toastBerhasil = new bootstrap.Toast(document.getElementById('addToast'));
+
+            // Ambil pesan kesuksesan dari session
+            var successMessage = '{{ session('success') }}';
+
+            // Jika ada pesan kesuksesan, tampilkan toast
+            if (successMessage) {
+                toastBerhasil.show();
+            }
+        });
+    </script>
+
 </form>
 </body>
 </html>
