@@ -32,17 +32,17 @@
                                     <div class="alert alert-danger">
                                         <ul>
                                             @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
+                                                <li style='list-style-type: none;'>{{ $error }}</li>
                                             @endforeach
                                         </ul>
                                     </div>
                                 @endif
 
-                                @error('error-login')
-                                <div class="invalid-feedback d-block">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+{{--                                @error('error-login')--}}
+{{--                                <div class="invalid-feedback d-block">--}}
+{{--                                    {{ $message }}--}}
+{{--                                </div>--}}
+{{--                                @enderror--}}
 
                                 <div class="form-outline form-white mb-2">
                                     <label class="d-flex align-items-start form-label" for="typeEmailX">Username</label>
