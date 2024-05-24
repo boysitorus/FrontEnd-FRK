@@ -28,30 +28,51 @@
                                 @csrf
                                 <h2 class="fw-bold mb-5" style="font-size: 42px">Login</h2>
 
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
+                                @error('error-login')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+
                                 <div class="form-outline form-white mb-2">
                                     <label class="d-flex align-items-start form-label" for="typeEmailX">Username</label>
                                     <input type="text" name="username" id="typeEmailX"
                                            class="shadow form-control form-control-lg border-dark @error('username') is-invalid @enderror"
                                            style="background-color: #FBFBFB; height: 58px"
+                                           required
                                     />
                                     @error('username')
-                                    <div class="invalid-feedback">
+                                    <div class="invalid-feedback d-block">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
-                                    <label class="d-flex align-items-start form-label" for="typePasswordX">Kata
-                                        Sandi</label>
+                                    <label class="d-flex align-items-start form-label" for="typePasswordX">Kata Sandi</label>
                                     <input type="password" name="password" id="typePasswordX"
-                                           class="shadow form-control form-control-lg border-dark"
-                                           style="background-color: #FBFBFB; height: 58px"/>
+                                           class="shadow form-control form-control-lg border-dark @error('password') is-invalid @enderror"
+                                           style="background-color: #FBFBFB; height: 58px" required/>
+                                    @error('password')
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
 
-                                <p class="small mb-2 pb-lg-2 d-flex align-items-start "><a
-                                        class="text-decoration-none" style="color: #696969" href="#!">Lupa kata
-                                        sandi?</a></p>
+                                <p class="small mb-2 pb-lg-2 d-flex align-items-start">
+                                    <a class="text-decoration-none" style="color: #696969" href="#!">Lupa kata sandi?</a>
+                                </p>
 
                                 <button
                                     style="background-color: #69839C; font-size: 2rem;font-weight: 600; width: 100%; height: 75px"
