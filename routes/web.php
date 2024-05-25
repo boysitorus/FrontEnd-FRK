@@ -324,6 +324,7 @@ Route::group(['middleware' => ['check.token']], function() {
         Route::prefix('/penelitian')->group(function () {
             Route::get('/', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
             Route::post('upload-lampiran-penelitian', [EvaluasiDiriController::class, 'postLampiran'])->name('ed-add-lampiran-penelitian');
+            Route::post('delete-lampiran-penelitian', [EvaluasiDiriController::class, 'deleteLampiran'])->name('ed-delete-lampiran-penelitian');
         });
 
         Route::prefix('/penunjang')->group(function () {

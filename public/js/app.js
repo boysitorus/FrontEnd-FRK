@@ -37,13 +37,13 @@ function displayFilesWithIcons(files, selectedFilesId, selectedFiles) {
 
         // Tambahkan nama file
         var fileNameSpan = document.createElement("span");
-        fileNameSpan.classList.add('ms-2');
+        fileNameSpan.classList.add("ms-2");
         fileNameSpan.textContent = fileName;
         fileListItem.appendChild(fileNameSpan);
 
         // Buat elemen div untuk tombol hapus
-        var divDelete = document.createElement('div');
-        divDelete.style.marginLeft = 'auto';
+        var divDelete = document.createElement("div");
+        divDelete.style.marginLeft = "auto";
 
         // Tambahkan tombol hapus
         // var deleteBtn = document.createElement("button");
@@ -99,3 +99,15 @@ function getFileIcon(extension) {
     }
 }
 
+function deleteFile(idRencanaValue, fileNameValue) {
+    const form = document.getElementById("formDeleteLampiranPenelitian");
+
+    var idRencanaInput = form.querySelector('input[name="id_rencana"]');
+    var fileNameInput = form.querySelector('input[name="fileName"]');
+
+    idRencanaInput.value = idRencanaValue;
+    fileNameInput.value = fileNameValue;
+
+    // Submit the form
+    form.submit();
+}

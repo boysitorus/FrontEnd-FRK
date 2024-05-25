@@ -122,6 +122,9 @@
                                                                     <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
+                                                                            @php
+                                                                                $iteration = 1;
+                                                                            @endphp
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
                                                                                 @php
                                                                                     $checkExtension = pathinfo(
@@ -158,13 +161,14 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <a
-
-                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
-                                                                                        <button class="btn btn-danger btn-sm btn-circle ms-2"><i class="bi bi-x"></i>
-                                                                                        </button>
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
                                                                                     </div>
                                                                                 </div>
                                                                             @endforeach
@@ -367,7 +371,10 @@
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
-                                                                                        <button class="btn btn-danger btn-sm btn-circle ms-2" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
+                                                                                        <button
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
                                                                                     </div>
@@ -396,39 +403,7 @@
                                 </div>
                                 {{-- AKHIR MODAL UPLOAD B --}}
 
-                                <!-- Modal hapus -->
-                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
-                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
 
-                                            <div class="modal-body text-center">
-                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                                                <h5>Yakin untuk menghapus Lampiran ini?</h5>
-                                                <p class="text-muted small">Proses ini tidak dapat diurungkan bila
-                                                    Anda sudah menekan tombol 'Yakin'.</p>
-                                            </div>
-
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Batalkan</button>
-                                                <form
-                                                    action="{{ route('rk-pendidikan.kembang.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    method="POST" style="display: inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button id="confirmDeleteBtn" type="submit"
-                                                        class="btn btn-primary">Yakin</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <script>
                                     // Gunakan fungsi displayFilesWithIcons untuk menampilkan file dengan gambar/logo
                                     document.getElementById("fileInputPenelitianB-{{ $item['id_rencana'] }}").addEventListener("change", function() {
@@ -606,12 +581,11 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <a
-
-                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -825,12 +799,11 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <a
-
-                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -1039,12 +1012,11 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <a
-
-                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -1248,12 +1220,11 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <a
-
-                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -1455,12 +1426,11 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <a
-
-                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -1653,12 +1623,11 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <a
-
-                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -1857,12 +1826,11 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <a
-
-                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -2059,12 +2027,11 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <a
-
-                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -2210,7 +2177,8 @@
                                                                     class="btn btn-secondary">Add Files</button>
                                                                 <p style="color: #808080;">Maximum file size: 5MB, maximum
                                                                     number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih
+                                                                    dari
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
@@ -2263,6 +2231,7 @@
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -2460,6 +2429,7 @@
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -2662,6 +2632,7 @@
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -2871,6 +2842,7 @@
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
+                                                                                            onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
@@ -2922,8 +2894,8 @@
     </div>
     {{-- AKHIR BAGIAN N --}}
 
-    {{-- TEMPAT MODAL DELETE CONFIRM --}}
-    <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
+    <!-- Modal hapus -->
+    <div class="modal fade" id="modalDeleteConfirmPenelitian" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -2933,14 +2905,20 @@
 
                 <div class="modal-body text-center">
                     <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                    <p class="text-muted small">proses ini tidak dapat diurungkan bila anda sudah menekan tombol 'Yakin'
-                    </p>
+                    <h5>Yakin untuk menghapus Lampiran ini?</h5>
+                    <p class="text-muted small">Proses ini tidak dapat diurungkan bila
+                        Anda sudah menekan tombol 'Yakin'.</p>
                 </div>
 
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                    <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Yakin</button>
+                    <form id="formDeleteLampiranPenelitian" action="{{ route('ed-delete-lampiran-penelitian') }}"
+                        method="POST" style="display: inline;">
+                        @csrf
+
+                        <input type="hidden" name="id_rencana" id="idRencana">
+                        <input type="hidden" name="fileName" id="fileName">
+                    </form>
                 </div>
             </div>
         </div>
@@ -2990,7 +2968,7 @@
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             let deleteButtons = document.querySelectorAll('.btn-danger[data-bs-toggle="modal"]');
 
             deleteButtons.forEach(function(button) {

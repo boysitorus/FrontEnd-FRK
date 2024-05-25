@@ -207,6 +207,21 @@ class EvaluasiDiriController extends Controller
         }
     }
 
+    public function deleteLampiran(Request $request){
+        $id_rencana = $request->get("id_rencana");
+        $fileName = $request->get("fileName");
+
+        $result = Http::delete(
+            env('API_FED_SERVICE') . '/penelitian/lampiran/' . $id_rencana . "/delete/" . $fileName,
+        );
+
+        if($result->successful()){
+            return redirect()->back()->with('message', 'Berhasil menghapus lampiran');
+        } else {
+            return redirect()->back()->with('error', 'Gagal Menghapus File');
+        }
+    }
+
     public function postLampiranPengabdian(Request $request){
         $id_rencana = $request->get("id_rencana");
         $jenis_pengabdian = $request->get("jenis_pengabdian");
