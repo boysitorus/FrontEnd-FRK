@@ -113,7 +113,13 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianA-{{ $item['id_rencana'] }}">
+
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -139,6 +145,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -151,8 +158,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                    <a
+
+                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -162,11 +171,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-
-                                                                    <div
-                                                                        id="selectedFilesPenelitianA-{{ $item['id_rencana'] }}">
-
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -318,7 +322,12 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianB-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -344,6 +353,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -356,8 +366,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                    <a
+
+                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -367,9 +379,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianB-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -524,7 +533,12 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianC-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -550,6 +564,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -562,8 +577,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                    <a
+
+                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -573,9 +590,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianC-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -739,7 +753,11 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div id="selectedFilesD-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -765,6 +783,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -777,8 +796,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                    <a
+
+                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -788,8 +809,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div id="selectedFilesD-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -947,7 +966,12 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianE-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -973,6 +997,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -985,8 +1010,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                    <a
+
+                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -996,9 +1023,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianE-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -1151,7 +1175,12 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianF-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -1177,6 +1206,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -1189,8 +1219,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                    <a
+
+                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -1200,9 +1232,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianF-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -1353,7 +1382,12 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianG-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -1379,6 +1413,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -1391,8 +1426,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                    <a
+
+                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -1402,9 +1439,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianG-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -1546,7 +1580,12 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianH-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -1572,6 +1611,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -1584,8 +1624,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                    <a
+
+                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -1595,9 +1637,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianH-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -1745,7 +1784,12 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianI-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -1771,6 +1815,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -1783,8 +1828,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                    <a
+
+                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -1794,9 +1841,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianI-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -1942,7 +1986,12 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianJ-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -1968,6 +2017,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -1980,8 +2030,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                    <a
+
+                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -1991,9 +2043,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianJ-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -2136,7 +2185,12 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianK-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -2162,6 +2216,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -2173,9 +2228,10 @@
                                                                                 <div
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
-                                                                                        alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                        alt="File Icon"
+                                                                                        width="30" />
+                                                                                    <a
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -2185,9 +2241,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianK-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -2324,11 +2377,17 @@
                                                                     class="btn btn-secondary">Add Files</button>
                                                                 <p style="color: #808080;">Maximum file size: 5MB, maximum
                                                                     number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih
+                                                                    dari
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianL-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -2354,6 +2413,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -2365,9 +2425,10 @@
                                                                                 <div
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
-                                                                                        alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                        alt="File Icon"
+                                                                                        width="30" />
+                                                                                    <a
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -2377,9 +2438,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianL-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -2526,7 +2584,12 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianM-{{ $item['id_rencana'] }}">
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -2552,6 +2615,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -2563,9 +2627,10 @@
                                                                                 <div
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
-                                                                                        alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                        alt="File Icon"
+                                                                                        width="30" />
+                                                                                    <a
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -2575,9 +2640,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianM-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
@@ -2730,7 +2792,13 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                     <div id="existsFiles">
+
+                                                                    <div
+                                                                        id="selectedFilesPenelitianN-{{ $item['id_rencana'] }}">
+
+                                                                    </div>
+
+                                                                    <div id="existsFiles">
                                                                         {{-- Menampilkan file lampiran yang sudah ada --}}
                                                                         @if (!is_null($item['lampiran']))
                                                                             @foreach (json_decode($item['lampiran'], true) as $i)
@@ -2756,6 +2824,7 @@
                                                                                             $extension = 'sheets.png';
                                                                                             break;
                                                                                         case 'png':
+                                                                                        case 'PNG':
                                                                                         case 'jpg':
                                                                                         case 'jpeg':
                                                                                             $extension = 'photo.png';
@@ -2767,9 +2836,10 @@
                                                                                 <div
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
-                                                                                        alt="File Icon" width="30" />
-                                                                                    <span
-                                                                                        class="ms-2">{{ $i }}</span>
+                                                                                        alt="File Icon"
+                                                                                        width="30" />
+                                                                                    <a
+                                                                                        class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
                                                                                         <button
                                                                                             class="btn btn-danger btn-sm btn-circle ms-2">
@@ -2779,10 +2849,6 @@
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
-                                                                    </div>
-                                                                    <div
-                                                                        id="selectedFilesPenelitianN-{{ $item['id_rencana'] }}">
-
                                                                     </div>
                                                                 </div>
                                                                 <input type="file"
