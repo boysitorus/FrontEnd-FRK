@@ -12,6 +12,7 @@ class EvaluasiDiriController extends Controller
     public function getPendidikanPanel(Request $request){
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
         try {
             // Mengambil data teori dari Lumen
             $responseTeori = Http::get(env('API_FED_SERVICE') . '/pendidikan/teori/' . $id_dosen);
@@ -64,7 +65,8 @@ class EvaluasiDiriController extends Controller
                 'koordinator' => $koordinator,
                 'proposal' => $proposal,
                 'auth' => $auth,
-                'id_dosen' => $id_dosen
+                'id_dosen' => $id_dosen,
+                'periode' => $getTanggal
             ];
 
             // Mengirim data ke view
@@ -78,6 +80,7 @@ class EvaluasiDiriController extends Controller
     public function getPenunjangPanel(Request $request){
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
         try {
             $responseAkademik = Http::get(env('API_FED_SERVICE') . '/penunjang/akademik/' . $id_dosen);
             $akademik = $responseAkademik->json();
@@ -137,7 +140,8 @@ class EvaluasiDiriController extends Controller
                 'anggotapanitia' => $anggotapanitia,
                 'pengurusyayasan' => $pengurusyayasan,
                 'auth' => $auth,
-                'id_dosen' => $id_dosen
+                'id_dosen' => $id_dosen,
+                'periode' => $getTanggal
             ];
 
             return view('App.Evaluasi.penunjang', $data);
@@ -650,4 +654,20 @@ class EvaluasiDiriController extends Controller
         }
     }
     //END OF HANDLER UPLOAD LAMPIRAN
+
+    // HANDLER DELETE LAMPIRAN
+    public function deletePenunjang(Request $request){
+        $id_rencana = $request->get("id_rencana");
+        $fileName = $request->get("fileName");
+
+        $result = Http::delete(
+            env('API_FED_SERVICE') . '/penunjang/lampiran/' . $id_rencana . "/delete/" . $fileName,
+        );
+
+        if($result->successful()){
+            return redirect()->back()->with('message', 'Berhasil menghapus lampiran');
+        } else {
+            return redirect()->back()->with('error', 'Gagal Menghapus File');
+        }
+    }
 }

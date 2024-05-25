@@ -406,6 +406,8 @@ Route::group(['middleware' => ['check.token']], function () {
             // Route::post('/reviewer-upload', [EvaluasiDiriController::class, 'postreviewer'])->name('ed-penunjang.reviewer.upload');
 
             Route::post('/upload-lampiran-penunjang', [EvaluasiDiriController::class, 'postPenunjang'])->name('ed-add-lampiran-penunjang');
+
+            Route::post('/delete-lampiran-penunjang', [EvaluasiDiriController::class, 'deletePenunjang'])->name('ed-delete-lampiran-penunjang');
         });
 
     });

@@ -2,30 +2,6 @@
 
 @section('content-kegiatan')
 
-    {{-- TAMPILAN BAGIAN EVALUASI PENDIDIKAN --}}
-    <style>
-        .border-hijau {
-            border: 2px solid #008000;
-            /* Border berwarna hijau */
-            padding: 3px;
-            /* Padding untuk memberi ruang di sekitar teks */
-            border-radius: 5px;
-            /* Untuk memberikan sudut-sudut yang melengkung pada border */
-            display: inline-block;
-            /* Mengatur agar border memenuhi ruang yang tersedia */
-            background-color: #008000;
-            color: #FFFFFF;
-        }
-
-        .border-kuning {
-            border: 2px solid #FFFF00;
-            padding: 3px;
-            border-radius: 5px;
-            display: inline-block;
-            background-color: #FFD700;
-        }
-    </style>
-
     {{-- BAGIAN A --}}
     <div id="ed-pendidikan-A" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
@@ -65,12 +41,12 @@
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
                                         @if (is_null($item['lampiran']) )
-                                            <div class="border-kuning">
+                                            <div class="badge text-bg-warning">
                                                 Lampiran belum diupload.
                                             </div>
                                             @else
-                                            <div class="border-hijau">
-                                                Lampiran sudah diisi.
+                                            <div class="badge text-bg-success">
+                                                Lampiran sudah diupload.
                                             </div>
                                         @endif
                                     </td>
@@ -182,12 +158,12 @@
                                         {{ $item['nama_kegiatan'] }}
                                     </div>
                                     @if (is_null($item['lampiran']) )
-                                        <div class="border-kuning">
+                                        <div class="badge text-bg-warning">
                                             Lampiran belum diupload.
                                         </div>
                                         @else
-                                        <div class="border-hijau">
-                                            Lampiran sudah diisi.
+                                        <div class="badge text-bg-success">
+                                            Lampiran sudah diupload.
                                         </div>
                                     @endif
                                 </td>
@@ -298,12 +274,12 @@
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
                                         @if (is_null($item['lampiran']) )
-                                        <div class="border-kuning">
+                                        <div class="badge text-bg-warning">
                                             Lampiran belum diupload.
                                         </div>
                                         @else
-                                        <div class="border-hijau">
-                                            Lampiran sudah diisi.
+                                        <div class="badge text-bg-warning">
+                                            Lampiran sudah diupload.
                                         </div>
                                         @endif
                                     </td>
@@ -414,12 +390,12 @@
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
                                         @if (is_null($item['lampiran']) )
-                                        <div class="border-kuning">
+                                        <div class="badge text-bg-warning">
                                             Lampiran belum diupload.
                                         </div>
                                         @else
-                                        <div class="border-hijau">
-                                            Lampiran sudah diisi.
+                                        <div class="badge text-bg-success">
+                                            Lampiran sudah diupload.
                                         </div>
                                         @endif
                                     </td>
@@ -529,12 +505,12 @@
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
                                         @if (is_null($item['lampiran']) )
-                                        <div class="border-kuning">
+                                        <div class="badge text-bg-warning">
                                             Lampiran belum diupload.
                                         </div>
                                         @else
-                                        <div class="border-hijau">
-                                            Lampiran sudah diisi.
+                                        <div class="badge text-bg-success">
+                                            Lampiran sudah diupload.
                                         </div>
                                         @endif
                                     </td>
@@ -643,12 +619,12 @@
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
                                         @if (is_null($item['lampiran']) )
-                                        <div class="border-kuning">
+                                        <div class="badge text-bg-warning">
                                             Lampiran belum diupload.
                                         </div>
                                         @else
-                                        <div class="border-hijau">
-                                            Lampiran sudah diisi.
+                                        <div class="badge text-bg-success">
+                                            Lampiran sudah diupload.
                                         </div>
                                         @endif
                                     </td>
@@ -759,12 +735,12 @@
                                         {{ $item['nama_kegiatan'] }}
                                     </div>
                                     @if (is_null($item['lampiran']) )
-                                    <div class="border-kuning">
+                                    <div class="badge text-bg-warning">
                                         Lampiran belum diupload.
                                     </div>
                                     @else
-                                    <div class="border-hijau">
-                                        Lampiran sudah diisi.
+                                    <div class="badge text-bg-success">
+                                        Lampiran sudah diupload.
                                     </div>
                                     @endif
                                 </td>
@@ -876,12 +852,12 @@
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
                                         @if (is_null($item['lampiran']) )
-                                        <div class="border-kuning">
+                                        <div class="badge text-bg-warning">
                                             Lampiran belum diupload.
                                         </div>
                                         @else
-                                        <div class="border-hijau">
-                                            Lampiran sudah diisi.
+                                        <div class="badge text-bg-success">
+                                            Lampiran sudah diupload.
                                         </div>
                                         @endif
                                     </td>
@@ -993,12 +969,12 @@
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
                                         @if (is_null($item['lampiran']) )
-                                        <div class="border-kuning">
+                                        <div class="badge text-bg-warning">
                                             Lampiran belum diupload.
                                         </div>
                                         @else
-                                        <div class="border-hijau">
-                                            Lampiran sudah diisi.
+                                        <div class="badge text-bg-success">
+                                            Lampiran sudah diupload.
                                         </div>
                                         @endif
                                     </td>
@@ -1105,12 +1081,12 @@
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
                                         @if (is_null($item['lampiran']) )
-                                        <div class="border-kuning">
+                                        <div class="badge text-bg-warning">
                                             Lampiran belum diupload.
                                         </div>
                                         @else
-                                        <div class="border-hijau">
-                                            Lampiran sudah diisi.
+                                        <div class="">
+                                            Lampiran sudah diupload.
                                         </div>
                                         @endif
                                     </td>  
