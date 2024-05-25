@@ -32,19 +32,19 @@
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link " href="#"><b>Rencana Pendidikan</b></a>
+                        <a class="nav-link {{ Request::is('formEvaluasiDiri/pendidikan') ? ' active' : '' }}" href="{{ route('ed-pendidikan') }}" ><b>Evaluasi Pendidikan</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link" href="#"><b>Rencana Penelitian</b></a>
+                        <a class="nav-link {{ Request::is('formEvaluasiDiri/penelitian') ? ' active' : '' }}" href="{{ route('ed-penelitian') }} " ><b>Evaluasi Penelitian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link" href="#"><b>Rencana Pengabdian</b></a>
+                        <a class="nav-link{{ Request::is('formEvaluasiDiri/pengabdian') ? ' active' : '' }}" href="{{ route('ed-pengabdian') }} "><b>Evaluasi Pengabdian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link" href="#"><b>Tunjangan Lainnya</b></a>
+                        <a class="nav-link{{ Request::is('formEvaluasiDiri/penunjang') ? ' active' : '' }}" href="{{ route('ed-penunjang') }} "><b>Evaluasi Penunjang Lainnya</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link active" href="#"><b>Simpulan</b></a>
+                        <a class="nav-link{{ Request::is('formEvaluasiDiri/simpulan') ? ' active' : '' }}" href="{{ route('ed-simpulan') }}"><b>Simpulan</b></a>
                     </li>
                 </ul>
             </div>
