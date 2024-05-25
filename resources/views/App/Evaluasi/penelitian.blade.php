@@ -2337,7 +2337,7 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPenelitian_K-{{ $item['id_rencana'] }}">Tambah
+                                            data-bs-target="#modalEditPenelitian_L-{{ $item['id_rencana'] }}">Tambah
                                             Lampiran</button>
                                     </td>
                                 </tr>
