@@ -163,9 +163,7 @@
                                                                                     href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
-                                                                                        <button
-                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
-                                                                                            <i class="bi bi-x"></i>
+                                                                                        <button class="btn btn-danger btn-sm btn-circle ms-2"><i class="bi bi-x"></i>
                                                                                         </button>
                                                                                     </div>
                                                                                 </div>
@@ -366,13 +364,10 @@
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
                                                                                         alt="File Icon" width="30" />
-                                                                                    <a
-
-                                                                                    href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
-                                                                                        <button
-                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                        <button class="btn btn-danger btn-sm btn-circle ms-2" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                                                                             <i class="bi bi-x"></i>
                                                                                         </button>
                                                                                     </div>
@@ -400,6 +395,40 @@
                                     </div>
                                 </div>
                                 {{-- AKHIR MODAL UPLOAD B --}}
+
+                                <!-- Modal hapus -->
+                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-body text-center">
+                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                <h5>Yakin untuk menghapus Lampiran ini?</h5>
+                                                <p class="text-muted small">Proses ini tidak dapat diurungkan bila
+                                                    Anda sudah menekan tombol 'Yakin'.</p>
+                                            </div>
+
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Batalkan</button>
+                                                <form
+                                                    action="{{ route('rk-pendidikan.kembang.destroy', ['id' => $item['id_rencana']]) }}"
+                                                    method="POST" style="display: inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button id="confirmDeleteBtn" type="submit"
+                                                        class="btn btn-primary">Yakin</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <script>
                                     // Gunakan fungsi displayFilesWithIcons untuk menampilkan file dengan gambar/logo
                                     document.getElementById("fileInputPenelitianB-{{ $item['id_rencana'] }}").addEventListener("change", function() {
@@ -2960,6 +2989,20 @@
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let deleteButtons = document.querySelectorAll('.btn-danger[data-bs-toggle="modal"]');
+
+            deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    let targetModalId = button.getAttribute('data-bs-target');
+                    let modal = new bootstrap.Modal(document.querySelector(targetModalId));
+                    modal.show();
+                });
+            });
+        });
+    </script>
 @endsection
 
 {{-- BAGIAN A --}}

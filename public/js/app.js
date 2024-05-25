@@ -98,3 +98,4 @@ function getFileIcon(extension) {
             return "document.png";
     }
 }
+
