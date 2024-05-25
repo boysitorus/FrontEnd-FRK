@@ -15,7 +15,7 @@
                     @if ($all == 0)
                         <button id="btnFrkPenelitian-A" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal"
                             data-bs-target="#modalPendidikan_A">
-                            Tambah Kegiatan 
+                            Tambah Kegiatan
                         </button>
                     @endif
             </div>
@@ -873,7 +873,7 @@
                                                             Kelompok</label>
                                                         <input id="mahasiswa-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_kelompok'] }}" type="number"
-                                                            class="form-control" name="jumlah_kelompok" required>
+                                                            class="form-control" name="jumlah_kelompok" min=1 required>
                                                     </div>
 
                                                 </div>
@@ -1043,7 +1043,7 @@
                                                             Kelompok</label>
                                                         <input id="mahasiswa-{{ $item['id_rencana'] }}"
                                                             value="{{ $item['jumlah_mahasiswa'] }}" type="number"
-                                                            class="form-control" name="jumlah_mahasiswa" required>
+                                                            class="form-control" name="jumlah_mahasiswa" min=1 required>
                                                     </div>
 
                                                 </div>
@@ -1101,7 +1101,7 @@
                             <th scope="col" class="fw-bold">Asesor 2</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         @if (isset($rendah) && sizeof($rendah) > 0)
                             @php
                                 $counter = 1;
@@ -1123,10 +1123,20 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor2_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
                                         @if($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
+                                            data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i></button>
 
                                         <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
@@ -1172,18 +1182,6 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
-                                        <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
-                                            class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
-                                        <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
-                                            class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
-                                            <i class="bi bi-trash3-fill"></i></i>
-                                        </button>
-                                    </td>
                                 </tr>
                                 {{-- MULAI MODAL G --}}
                                 <div class="modal fade modal-lg" id="modalEditPendidikan_{{ $item['id_rencana'] }}"
@@ -1205,16 +1203,16 @@
                                                     <input type="hidden" name="id_rencana"
                                                         value="{{ $item['id_rencana'] }}">
                                                     <div class="mb-3">
-                                                        <label for="nama" class="form-label">Nama Kegiatan</label>
+                                                        <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                                         <input id="nama-{{ $item['id_rencana'] }}" name="nama_kegiatan"
                                                             type="text" class="form-control"
                                                             value="{{ $item['nama_kegiatan'] }}" required />
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="form-label">Jumlah Dosen Dibimbing</label>
+                                                        <label for="jumlah_dosen" class="form-label">Jumlah Dosen Dibimbing</label>
                                                         <input id="dosen-{{ $item['id_rencana'] }}" name="jumlah_dosen"
-                                                            class="form-control" type="text"
-                                                            value="{{ $item['jumlah_dosen'] }}" required>
+                                                            class="form-control" type="number"
+                                                            value="{{ $item['jumlah_dosen'] }}" min=1 required>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button id="edit-{{ $item['id_rencana'] }}" type="submit"
@@ -1342,7 +1340,7 @@
                                         @if($item['flag_save_permananent'] != 1)
                                         <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
                                             class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPendidikan-{{ $item['id_rencana'] }}">
+                                            data-bs-target="#modalEditPendidikan_{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i></button>
 
                                         <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
@@ -1418,8 +1416,8 @@
                                                     <div class="mb-3">
                                                         <label class="form-label">Jumlah SAP</label>
                                                         <input id="sap-{{ $item['id_rencana'] }}" name="jumlah_sap"
-                                                            class="form-control" type="text"
-                                                            value="{{ $item['jumlah_sap'] }}" required>
+                                                            class="form-control" type="number"
+                                                            value="{{ $item['jumlah_sap'] }}" min=1 required>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button id="edit-{{ $item['id_rencana'] }}" type="submit"
@@ -2057,7 +2055,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Kelompok</label>
-                            <input id="pend_kelompok_F" name="jumlah_mahasiswa" class="form-control" type="number"
+                            <input id="pend_kelompok_F" name="jumlah_mahasiswa" class="form-control" type="number" min="1"
                                 required>
                         </div>
                         <div class="modal-footer">
@@ -2095,7 +2093,7 @@
                         <div class="mb-3">
                             <label class="form-label">Jumlah Dosen Bimbingan</label>
                             <input id="pend_dosen_G" name="jumlah_dosen" class="form-control" type="number"
-                                required min="1" step="any">
+                                required min="1" required>
                         </div>
                         <div class="modal-footer">
                             <button id="pend_simpan_G" type="submit" class="btn btn-primary">Simpan</button>

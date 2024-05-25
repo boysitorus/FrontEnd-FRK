@@ -769,8 +769,7 @@
                                                             <div class="mb-3">
                                                                 <div style="text-align: left;">
                                                                     <label for="nama_kegiatan" class="form-label"
-                                                                        style="text-align: left;"> Nama
-                                                                        Kegiatan</label>
+                                                                        style="text-align: left;"> Nama Kegiatan</label>
                                                                 </div>
                                                                 <input id="nama-{{ $item['id_rencana'] }}"
                                                                     value="{{ $item['nama_kegiatan'] }}" type="text"
@@ -968,7 +967,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($item['flag_Save_permananent'] != 1)
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
@@ -998,15 +997,14 @@
                                                             <input type="hidden" name="id_rencana"
                                                                 value="{{ $item['id_rencana'] }}" />
 
-                                                            <div class="mb-3">
+                                                           <div class="mb-3">
                                                                 <div style="text-align: left;">
                                                                     <label for="nama_kegiatan" class="form-label"
-                                                                        style="text-align: left;">Nama
-                                                                        Kegiatan</label>
+                                                                        style="text-align: left;"> Nama Kegiatan</label>
                                                                 </div>
                                                                 <input id="nama-{{ $item['id_rencana'] }}"
                                                                     value="{{ $item['nama_kegiatan'] }}" type="text"
-                                                                    class="form-control" id="nama_kegiatan"
+                                                                    class="form-control"  id="nama"
                                                                     name="nama_kegiatan" required>
                                                             </div>
                                                             <div class="mb-3">
@@ -1356,7 +1354,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($item['save_flag_permananent'] != 1)
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
@@ -1739,7 +1737,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($item['flag_save_permananent'])
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
@@ -2114,7 +2112,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($item['flag_savve_permananent'] != 1)
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
@@ -2807,7 +2805,7 @@
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input id="penunjang_nama_F" type="text" class="form-control" name="nama_kegiatan">
+                            <input id="penunjang_nama_F" type="text" class="form-control" name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_jabatan_nonstruktural" class="form-label">Jabatan</label>
@@ -2853,7 +2851,7 @@
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                             <input id="penunjang_nama_G" type="text" class="form-control" id="nama_kegiatan"
-                                name="nama_kegiatan">
+                                name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="jabatan" class="form-label">Jabatan</label>
@@ -2892,7 +2890,7 @@
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                                 <input id="penunjang_nama_H" type="text" class="form-control" id="nama_kegiatan"
-                                    name="nama_kegiatan">
+                                    name="nama_kegiatan" required>
                             </div>
                             <div class="mb-3">
                                 <label for="jabatan" class="form-label">Jabatan</label>
@@ -2932,7 +2930,7 @@
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
                             <input id="penunjang_nama_I" name="nama_kegiatan" type="text" class="form-control"
-                                id="nama">
+                                id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
@@ -3169,6 +3167,7 @@
 
     {{-- TEMPAT JAVASCRIPT --}}
     <script>
+
         document.getElementById('confirmEditBtn').addEventListener('click', function() {
             showEditToast();
         });
