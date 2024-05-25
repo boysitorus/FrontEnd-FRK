@@ -24,7 +24,6 @@
 
             <div class="alert alert-info mt-2 ml-1 mr-1 mb-6 bg-alert-info" role="alert">
                 <h5> <b> <u> Info untuk dosen </u> </b> </h5>
-                <p><b>Penarikan Kinerja</b> dari xx xxxxx xxxxx  sampai xx xxxxx xxxxx</p>
                 <p><b>Periode Pengisian</b> dari {{ date("d F Y", strtotime($periode['tgl_awal_pengisian'])) }} sampai {{ date("d F Y", strtotime($periode['tgl_akhir_pengisian'])) }}</p>
                 <p><b>Periode Penilaian</b> dari {{ date("d F Y", strtotime($periode['periode_awal_approve_assesor_1'])) }}  sampai
                     {{ date("d F Y", strtotime($periode['periode_akhir_approve_assesor_2'])) }}</p>

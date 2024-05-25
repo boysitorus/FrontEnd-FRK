@@ -12,6 +12,24 @@
 <form action="{{ route('admin.generate_frk.post') }}" method="post">
     @csrf
 
+    {{-- TOAST --}}
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="successToast" class="toast bg-success-subtle" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+                <i class="bi bi-check2-circle"></i>
+                <ul id="success-toast-messages">
+                </ul>
+            </div>
+        </div>
+        <div id="errorToast" class="toast bg-danger-subtle" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+                <i class="bi bi-x-circle"></i>
+                <ul id="error-toast-messages">
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-2 ml-0 mt-5 mb-4">
         <div class="row">
             <div class="col">
@@ -110,17 +128,6 @@
         <button class="btn btn-danger ">Cancel</button>
     </div>
 
-    {{-- TOAST TAMBAH --}}
-    <div class="toast-container position-fixed top-0 end-0 p-3">
-        <div id="addToast" class="toast bg-success-subtle" role="alert" aria-live="assertive"
-            aria-atomic="true">
-            <div class="toast-body">
-                <i class="bi bi-check2-circle"></i>
-                Berhasil Menambah Kegiatan
-            </div>
-        </div>
-    </div>
-
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
@@ -128,25 +135,40 @@
         function clearDate(id) {
             document.getElementById(id).value = '';
         }
-    </script>
 
-    {{-- TEMPAT JAVASCRIPT --}}
-    <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var toastBerhasil = new bootstrap.Toast(document.getElementById('addToast'));
+            var successToastElement = document.getElementById('successToast');
+            var errorToastElement = document.getElementById('errorToast');
+            var successToast = new bootstrap.Toast(successToastElement);
+            var errorToast = new bootstrap.Toast(errorToastElement);
 
-            // Ambil pesan kesuksesan dari session
-            var successMessage = '{{ session('success') }}';
-
-            // Jika ada pesan kesuksesan, tampilkan toast
-            if (successMessage) {
-                toastBerhasil.show();
-            }
+            @if ($errors->any())
+                // Menampilkan pesan error
+                var errorMessages = @json($errors->all());
+                var errorToastMessagesContainer = document.getElementById('error-toast-messages');
+                errorMessages.forEach(function(message) {
+                    var li = document.createElement('li');
+                    li.textContent = message;
+                    li.style.listStyleType = 'none';
+                    errorToastMessagesContainer.appendChild(li);
+                });
+                errorToast.show();
+            @elseif (session('success'))
+                // Menampilkan pesan sukses
+                var successMessage = '{{ session('success') }}';
+                var successToastMessagesContainer = document.getElementById('success-toast-messages');
+                var li = document.createElement('li');
+                li.textContent = successMessage;
+                li.style.listStyleType = 'none';
+                successToastMessagesContainer.appendChild(li);
+                successToast.show();
+            @endif
 
             // Menghapus kelas 'show' setelah beberapa detik (sesuaikan dengan durasi animasi toast)
             setTimeout(function() {
-                $('#editToast').removeClass('show');
-            }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
+                successToastElement.classList.remove('show');
+                errorToastElement.classList.remove('show');
+            }, 5000); // 5000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
         });
     </script>
 
