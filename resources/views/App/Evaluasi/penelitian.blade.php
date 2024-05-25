@@ -371,12 +371,10 @@
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
                                                                                     <div style="margin-left: auto;">
-                                                                                        <button
-                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"
-                                                                                            data-bs-toggle="modal"
-                                                                                            data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
                                                                                             <i class="bi bi-x"></i>
-                                                                                        </button>
+                                                                                        </a>
                                                                                     </div>
                                                                                 </div>
                                                                             @endforeach
