@@ -107,9 +107,13 @@ class AdminController extends Controller
         return view('App.Admin.generateEvaluasi', ['auth' => $auth, 'semester' => $getSemester['data']]);
     }
 
-    public function getAssignRole()
+    public function getAssignRole(Request $request)
     {
-        return view('App.Admin.assignRole');
+        $auth = Tools::getAuth($request);
+
+        $requestData = Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE').'get-eligible-asesor');
+
+        return view('App.Admin.assignRole', ['eligible_asesor' => json_decode($requestData, true)]);
     }
 }
 

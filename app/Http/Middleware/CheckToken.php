@@ -35,24 +35,10 @@ class CheckToken
         }
 
         $uid = Tools::getUserIdFromToken($token);
-        
+
         if($uid <= 0 || !isset($auth->user->user_id) || ($auth->user->user_id != $uid)){
             return redirect()->route("logout.get");
         }
-
-        // try {
-        //     $response = Http::asForm()->withToken($token)->post(env("API_CIS") . "/jwt-api/new-access-token", [
-        //         'refresh_token' => $refresh_token
-        //     ]);
-        //     $parseData = json_decode($response->body());
-        //     dd($parseData);
-        //     if((isset($parseData->result) && !$parseData->result) || ! isset($parseData->token)){
-        //         return redirect()->route("logout.get");
-        //     }
-        //     Tools::setToken($request, $parseData->token);
-        // }catch (\Exception $ex){
-        //     return redirect()->route("logout.get");
-        // }
 
         return $next($request);
     }
