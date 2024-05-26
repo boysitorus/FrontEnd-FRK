@@ -111,3 +111,16 @@ function deleteFile(idRencanaValue, fileNameValue) {
     // Submit the form
     form.submit();
 }
+
+function deleteFilePengabdian(idRencanaValue, fileNameValue) {
+    const form = document.getElementById("formDeleteLampiranPengabdian");
+
+    var idRencanaInput = form.querySelector('input[name="id_rencana"]');
+    var fileNameInput = form.querySelector('input[name="fileName"]');
+
+    idRencanaInput.value = idRencanaValue;
+    fileNameInput.value = fileNameValue;
+
+    // Submit the form
+    form.submit();
+}

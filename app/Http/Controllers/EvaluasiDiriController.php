@@ -207,7 +207,7 @@ class EvaluasiDiriController extends Controller
         }
     }
 
-    public function deleteLampiran(Request $request){
+    public function deleteLampiranPenelitian(Request $request){
         $id_rencana = $request->get("id_rencana");
         $fileName = $request->get("fileName");
 
@@ -269,6 +269,21 @@ class EvaluasiDiriController extends Controller
             }
         } else {
             return redirect()->back()->with('error', 'No file selected');
+        }
+    }
+
+    public function deleteLampiranPengabdian(Request $request){
+        $id_rencana = $request->get("id_rencana");
+        $fileName = $request->get("fileName");
+
+        $result = Http::delete(
+            env('API_FED_SERVICE') . '/pengabdian/lampiran/' . $id_rencana . "/delete/" . $fileName,
+        );
+
+        if($result->successful()){
+            return redirect()->back()->with('message', 'Berhasil menghapus lampiran');
+        } else {
+            return redirect()->back()->with('error', 'Gagal Menghapus File');
         }
     }
     //END OF HANDLER UPLOAD LAMPIRAN

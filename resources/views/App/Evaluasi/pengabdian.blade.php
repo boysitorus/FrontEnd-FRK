@@ -103,9 +103,67 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                    <div id="selectedFilesPengabdianA-{{ $item['id_rencana'] }}">
+                                                                    <div 
+                                                                        id="selectedFilesPengabdianA-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
+
+                                                                <div id="existsFiles">
+                                                                    {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                    @if (!is_null($item['lampiran']))
+                                                                        @php
+                                                                            $iteration = 1;
+                                                                        @endphp
+                                                                        @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                            @php
+                                                                                $checkExtension = pathinfo(
+                                                                                    $i,
+                                                                                    PATHINFO_EXTENSION,
+                                                                                );
+
+                                                                                $extension = '';
+
+                                                                                // Determine the icon filename based on the extension
+                                                                                switch ($checkExtension) {
+                                                                                    case 'pdf':
+                                                                                        $extension = 'pdf.png';
+                                                                                        break;
+                                                                                    case 'doc':
+                                                                                    case 'docx':
+                                                                                        $extension = 'word.png';
+                                                                                        break;
+                                                                                    case 'xls':
+                                                                                    case 'xlsx':
+                                                                                        $extension = 'sheets.png';
+                                                                                        break;
+                                                                                    case 'png':
+                                                                                    case 'PNG':
+                                                                                    case 'jpg':
+                                                                                    case 'jpeg':
+                                                                                        $extension = 'photo.png';
+                                                                                        break;
+                                                                                    default:
+                                                                                        $extension = 'document.png';
+                                                                                }
+                                                                            @endphp
+                                                                            <div
+                                                                                class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                <img src="{{ '/assets/img/' . $extension }}"
+                                                                                    alt="File Icon" width="30" />
+                                                                                <a href={{ env('API_FED_SERVICE') . '/pengabdian/get-lampiran/' . base64_encode($i) }}
+                                                                                    class="ms-2">{{ $i }}</a>
+                                                                                <div style="margin-left: auto;">
+                                                                                    <a onclick="event.preventDefault(); deleteFilePengabdian('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                        class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                            class="bi bi-x"></i>
+                                                                                    </a>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </div>
+
                                                                 <input type="file"
                                                                     id="fileInputPengabdianA-{{ $item['id_rencana'] }}"
                                                                     name="fileInput[]" style="display: none;" multiple>
@@ -117,7 +175,7 @@
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Batal</button>
-                                                    <button type="submit" class="btn btn-primary">Upload
+                                                    <button type="submit" id="btnUploadPengabdianA-{{ $item['id_rencana'] }}" class="btn btn-primary">Upload
                                                         Lampiran</button>
                                                 </div>
                                             </form>
@@ -250,6 +308,63 @@
                                                                     <div id="selectedFilesPengabdianB-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
+
+                                                                <div id="existsFiles">
+                                                                    {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                    @if (!is_null($item['lampiran']))
+                                                                        @php
+                                                                            $iteration = 1;
+                                                                        @endphp
+                                                                        @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                            @php
+                                                                                $checkExtension = pathinfo(
+                                                                                    $i,
+                                                                                    PATHINFO_EXTENSION,
+                                                                                );
+
+                                                                                $extension = '';
+
+                                                                                // Determine the icon filename based on the extension
+                                                                                switch ($checkExtension) {
+                                                                                    case 'pdf':
+                                                                                        $extension = 'pdf.png';
+                                                                                        break;
+                                                                                    case 'doc':
+                                                                                    case 'docx':
+                                                                                        $extension = 'word.png';
+                                                                                        break;
+                                                                                    case 'xls':
+                                                                                    case 'xlsx':
+                                                                                        $extension = 'sheets.png';
+                                                                                        break;
+                                                                                    case 'png':
+                                                                                    case 'PNG':
+                                                                                    case 'jpg':
+                                                                                    case 'jpeg':
+                                                                                        $extension = 'photo.png';
+                                                                                        break;
+                                                                                    default:
+                                                                                        $extension = 'document.png';
+                                                                                }
+                                                                            @endphp
+                                                                            <div
+                                                                                class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                <img src="{{ '/assets/img/' . $extension }}"
+                                                                                    alt="File Icon" width="30" />
+                                                                                <a href={{ env('API_FED_SERVICE') . '/pengabdian/get-lampiran/' . base64_encode($i) }}
+                                                                                    class="ms-2">{{ $i }}</a>
+                                                                                <div style="margin-left: auto;">
+                                                                                    <a onclick="event.preventDefault(); deleteFilePengabdian('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                        class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                            class="bi bi-x"></i>
+                                                                                    </a>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </div>
+
                                                                 <input type="file"
                                                                     id="fileInputPengabdianB-{{ $item['id_rencana'] }}"
                                                                     name="fileInput[]" style="display: none;" multiple>
@@ -393,6 +508,63 @@
                                                                     <div id="selectedFilesPengabdianC-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
+
+                                                                <div id="existsFiles">
+                                                                    {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                    @if (!is_null($item['lampiran']))
+                                                                        @php
+                                                                            $iteration = 1;
+                                                                        @endphp
+                                                                        @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                            @php
+                                                                                $checkExtension = pathinfo(
+                                                                                    $i,
+                                                                                    PATHINFO_EXTENSION,
+                                                                                );
+
+                                                                                $extension = '';
+
+                                                                                // Determine the icon filename based on the extension
+                                                                                switch ($checkExtension) {
+                                                                                    case 'pdf':
+                                                                                        $extension = 'pdf.png';
+                                                                                        break;
+                                                                                    case 'doc':
+                                                                                    case 'docx':
+                                                                                        $extension = 'word.png';
+                                                                                        break;
+                                                                                    case 'xls':
+                                                                                    case 'xlsx':
+                                                                                        $extension = 'sheets.png';
+                                                                                        break;
+                                                                                    case 'png':
+                                                                                    case 'PNG':
+                                                                                    case 'jpg':
+                                                                                    case 'jpeg':
+                                                                                        $extension = 'photo.png';
+                                                                                        break;
+                                                                                    default:
+                                                                                        $extension = 'document.png';
+                                                                                }
+                                                                            @endphp
+                                                                            <div
+                                                                                class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                <img src="{{ '/assets/img/' . $extension }}"
+                                                                                    alt="File Icon" width="30" />
+                                                                                <a href={{ env('API_FED_SERVICE') . '/pengabdian/get-lampiran/' . base64_encode($i) }}
+                                                                                    class="ms-2">{{ $i }}</a>
+                                                                                <div style="margin-left: auto;">
+                                                                                    <a onclick="event.preventDefault(); deleteFilePengabdian('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                        class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                            class="bi bi-x"></i>
+                                                                                    </a>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </div>
+
                                                                 <input type="file"
                                                                     id="fileInputPengabdianC-{{ $item['id_rencana'] }}"
                                                                     name="fileInput[]" style="display: none;" multiple>
@@ -537,6 +709,63 @@
                                                                     <div id="selectedFilesPengabdianD-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
+
+                                                                <div id="existsFiles">
+                                                                    {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                    @if (!is_null($item['lampiran']))
+                                                                        @php
+                                                                            $iteration = 1;
+                                                                        @endphp
+                                                                        @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                            @php
+                                                                                $checkExtension = pathinfo(
+                                                                                    $i,
+                                                                                    PATHINFO_EXTENSION,
+                                                                                );
+
+                                                                                $extension = '';
+
+                                                                                // Determine the icon filename based on the extension
+                                                                                switch ($checkExtension) {
+                                                                                    case 'pdf':
+                                                                                        $extension = 'pdf.png';
+                                                                                        break;
+                                                                                    case 'doc':
+                                                                                    case 'docx':
+                                                                                        $extension = 'word.png';
+                                                                                        break;
+                                                                                    case 'xls':
+                                                                                    case 'xlsx':
+                                                                                        $extension = 'sheets.png';
+                                                                                        break;
+                                                                                    case 'png':
+                                                                                    case 'PNG':
+                                                                                    case 'jpg':
+                                                                                    case 'jpeg':
+                                                                                        $extension = 'photo.png';
+                                                                                        break;
+                                                                                    default:
+                                                                                        $extension = 'document.png';
+                                                                                }
+                                                                            @endphp
+                                                                            <div
+                                                                                class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                <img src="{{ '/assets/img/' . $extension }}"
+                                                                                    alt="File Icon" width="30" />
+                                                                                <a href={{ env('API_FED_SERVICE') . '/pengabdian/get-lampiran/' . base64_encode($i) }}
+                                                                                    class="ms-2">{{ $i }}</a>
+                                                                                <div style="margin-left: auto;">
+                                                                                    <a onclick="event.preventDefault(); deleteFilePengabdian('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                        class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                            class="bi bi-x"></i>
+                                                                                    </a>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </div>
+
                                                                 <input type="file"
                                                                     id="fileInputPengabdianD-{{ $item['id_rencana'] }}"
                                                                     name="fileInput[]" style="display: none;" multiple>
@@ -581,6 +810,36 @@
     </div>
     {{-- AKHIR BAGIAN D --}}
 
+    <!-- Modal hapus -->
+    <div class="modal fade" id="modalDeleteConfirmPenelitian" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body text-center">
+                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                    <h5>Yakin untuk menghapus Lampiran ini?</h5>
+                    <p class="text-muted small">Proses ini tidak dapat diurungkan bila
+                        Anda sudah menekan tombol 'Yakin'.</p>
+                </div>
+
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                    <form id="formDeleteLampiranPengabdian" action="{{ route('ed-delete-lampiran-pengabdian') }}"
+                        method="POST" style="display: inline;">
+                        @csrf
+
+                        <input type="hidden" name="id_rencana" id="idRencana">
+                        <input type="hidden" name="fileName" id="fileName">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{-- TEMPAT MODAL DELETE CONFIRM --}}
     <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -623,4 +882,18 @@
     {{-- AKHIR BAGIAN MODAL BATAL UPLOAD --}}
 
 <script src="{{ asset('js/app.js') }}"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let deleteButtons = document.querySelectorAll('.btn-danger[data-bs-toggle="modal"]');
+
+            deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    let targetModalId = button.getAttribute('data-bs-target');
+                    let modal = new bootstrap.Modal(document.querySelector(targetModalId));
+                    modal.show();
+                });
+            });
+        });
+    </script>
 @endsection
