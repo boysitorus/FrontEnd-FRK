@@ -904,7 +904,7 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan_F">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE F --}}
@@ -1074,7 +1074,7 @@
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPendidikan_G">Tambah Lampiran</button>
+                                        data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
                                 </td>
                             </tr>
                             {{-- TEMPAT MODAL ADD FILE G --}}
@@ -1245,7 +1245,7 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan_H">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
                                     </td>
                                 </tr>    
                                 {{-- TEMPAT MODAL ADD FILE H --}}
@@ -1416,7 +1416,7 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan_I">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE I --}}
@@ -1581,7 +1581,7 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan_J">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
                                     </td>
                                 </tr>    
                                 {{-- TEMPAT MODAL ADD FILE J --}}
