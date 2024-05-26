@@ -1682,7 +1682,6 @@
     {{-- AKHIR MODAL H --}}
 
 
-    {{-- MULAI MODAL I --}}
     <div class="modal fade modal-lg" id="modalPendidikan_I" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1696,21 +1695,22 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-pendidikan.cangkok.create') }}" method="POST">
                         @csrf
-                            <input type="hidden" name="id_dosen" value={{$id_dosen}}/>
-                            <div class="mb-3">
-                                <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Jumlah Dosen (Maks. 2/smt)</label>
-                                <select class="form-control" id="jumlah_dosen" name="jumlah_dosen">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                </select>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                            </div>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }} />
+                        <div class="mb-3">
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input id="pend_nama_I" type="text" class="form-control" id="nama_kegiatan"
+                                name="nama_kegiatan" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Jumlah Dosen (Maks. 2/smt)</label>
+                            <select class="form-control" id="jumlah_dosen" name="jumlah_dosen">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="pend_simpan_I" type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1733,14 +1733,15 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-pendidikan.koordinator.create') }}" method="POST">
                         @csrf
-                            <input type="hidden" name="id_dosen" value={{$id_dosen}}/>
-                            <div class="mb-3">
-                                <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                            </div>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }} />
+                        <div class="mb-3">
+                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
+                            <input id="pend_nama_J" type="text" class="form-control" id="nama_kegiatan"
+                                name="nama_kegiatan" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="pend_simpan_J" type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
                     </form>
                 </div>
             </div>
