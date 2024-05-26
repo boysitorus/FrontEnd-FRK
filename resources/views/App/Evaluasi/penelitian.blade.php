@@ -1859,15 +1859,15 @@
                                 {{-- AKHIR MODAL UPLOAD I --}}
                                 <script>
                                     // Gunakan fungsi displayFilesWithIcons untuk menampilkan file dengan gambar/logo
-                                    document.getElementById("fileInputPenelitianH-{{ $item['id_rencana'] }}").addEventListener("change", function() {
+                                    document.getElementById("fileInputPenelitianI-{{ $item['id_rencana'] }}").addEventListener("change", function() {
                                         var files = this.files;
-                                        const idFiles = "selectedFilesPenelitianH-{{ $item['id_rencana'] }}"
+                                        const idFiles = "selectedFilesPenelitianI-{{ $item['id_rencana'] }}"
                                         var fileArray = [];
                                         displayFilesWithIcons(files, idFiles, fileArray);
                                     });
 
-                                    document.getElementById("addFilesBtnPenelitianH-{{ $item['id_rencana'] }}").addEventListener("click", function() {
-                                        var fileInput = document.getElementById("fileInputPenelitianH-{{ $item['id_rencana'] }}");
+                                    document.getElementById("addFilesBtnPenelitianI-{{ $item['id_rencana'] }}").addEventListener("click", function() {
+                                        var fileInput = document.getElementById("fileInputPenelitianI-{{ $item['id_rencana'] }}");
                                         fileInput.click();
                                     });
                                 </script>
@@ -2466,7 +2466,7 @@
                                     });
 
                                     document.getElementById("addFilesBtnPenelitianL-{{ $item['id_rencana'] }}").addEventListener("click", function() {
-                                        var fileInput = document.getElementById("fileInputPenelitianK-{{ $item['id_rencana'] }}");
+                                        var fileInput = document.getElementById("fileInputPenelitianL-{{ $item['id_rencana'] }}");
                                         fileInput.click();
                                     });
                                 </script>
