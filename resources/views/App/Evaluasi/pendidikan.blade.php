@@ -936,7 +936,7 @@
                                                                 <li>Daftar Nilai</li>
                                                             </ol>
                                                             <!-- File input -->
-                                                            <button id="addFilesBtnF" class="btn btn-secondary">Add Files</button>
+                                                            <button type="button" id="addFilesBtnF" class="btn btn-secondary">Add Files</button>
                                                             <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                                             <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                                                             <!-- tambahkan jarak bawah -->
@@ -1275,7 +1275,7 @@
                                                                     sebelumnya</li>
                                                             </ol>
                                                             <!-- File input -->
-                                                            <button id="addFilesBtnH" class="btn btn-secondary">Add Files</button>
+                                                            <button type="button" id="addFilesBtnH" class="btn btn-secondary">Add Files</button>
                                                             <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                                             <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                                                             <!-- tambahkan jarak bawah -->
@@ -1445,7 +1445,7 @@
                                                         <li>Bukti yang relevan (laporan kegiatan)</li>
                                                     </ol>
                                                     <!-- File input -->
-                                                    <button id="addFilesBtnI" class="btn btn-secondary">Add Files</button>
+                                                    <button type="button" id="addFilesBtnI" class="btn btn-secondary">Add Files</button>
                                                     <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                                     <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                                                     <!-- tambahkan jarak bawah -->
@@ -1610,7 +1610,7 @@
                                                                 <li>Daftar Nilai</li>
                                                             </ol>
                                                             <!-- File input -->
-                                                            <button id="addFilesBtnJ" class="btn btn-secondary">Add Files</button>
+                                                            <button type="button" id="addFilesBtnJ" class="btn btn-secondary">Add Files</button>
                                                             <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
                                                             <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
                                                             <!-- tambahkan jarak bawah -->
