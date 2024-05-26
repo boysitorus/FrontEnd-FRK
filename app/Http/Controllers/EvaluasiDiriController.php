@@ -670,4 +670,19 @@ class EvaluasiDiriController extends Controller
             return redirect()->back()->with('error', 'Gagal Menghapus File');
         }
     }
+
+    public function deletePendidikan(Request $request){
+        $id_rencana = $request->get("id_rencana");
+        $fileName = $request->get("fileName");
+
+        $result = Http::delete(
+            env('API_FED_SERVICE') . '/pendidikan/lampiran/' . $id_rencana . "/delete/" . $fileName,
+        );
+
+        if($result->successful()){
+            return redirect()->back()->with('message', 'Berhasil menghapus lampiran');
+        } else {
+            return redirect()->back()->with('error', 'Gagal Menghapus File');
+        }
+    }
 }

@@ -344,67 +344,12 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::get('/simpulan', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
 
         Route::prefix('/pendidikan')->group(function () {
-            // // A. Teori
-            // Route::post('/teori-upload', [EvaluasiDiriController::class, 'postTeori'])->name('ed-pendidikan.teori.upload');
-
-            // // B. Praktikum
-            // Route::post('/praktikum-upload', [EvaluasiDiriController::class, 'postPraktikum'])->name('ed-pendidikan.praktikum.upload');
-
-            // // C. Bimbingan
-            // Route::post('/bimbingan-upload', [EvaluasiDiriController::class, 'postBimbinganPendidikan'])->name('ed-pendidikan.bimbingan.upload');
-
-            // // D. Seminar
-            // Route::post('/seminar-upload', [EvaluasiDiriController::class, 'postSeminarPendidikan'])->name('ed-pendidikan.seminar.upload');
-
-            // // E. Tugas Akhir
-            // Route::post('/tugasakhir-upload', [EvaluasiDiriController::class, 'postTugasAkhir'])->name('ed-pendidikan.tugasakhir.upload');
-
             Route::post('/upload-lampiran-pendidikan', [EvaluasiDiriController::class, 'postPendidikan'])->name('ed-add-lampiran-pendidikan');
+
+            Route::post('/delete-lampiran-pendidikan', [EvaluasiDiriController::class, 'deletePendidikan'])->name('ed-delete-lampiran-pendidikan');
         });
 
         Route::prefix('/penunjang')->group(function () {
-            // // A. Akademik
-            // Route::post('/akademik-upload', [EvaluasiDiriController::class, 'postAkademik'])->name('ed-penunjang.akademik.upload');
-
-            // // B. Bimbingan
-            // Route::post('/bimbingan-upload', [EvaluasiDiriController::class, 'postBimbingan'])->name('ed-penunjang.bimbingan.upload');
-
-            // // C. Ukm
-            // Route::post('/ukm-upload', [EvaluasiDiriController::class, 'postUkm'])->name('ed-penunjang.ukm.upload');
-
-            // // D. Sosial
-            // Route::post('/sosial-upload', [EvaluasiDiriController::class, 'postSosial'])->name('ed-penunjang.sosial.upload');
-
-            // // E. Struktural
-            // Route::post('/struktural-upload', [EvaluasiDiriController::class, 'postStruktural'])->name('ed-penunjang.struktural.upload');
-
-            // // F. Non Struktural
-            // Route::post('/nonstruktural-upload', [EvaluasiDiriController::class, 'postNonStruktural'])->name('ed-penunjang.nonstruktural.upload');
-
-            // // G. Redaksi
-            // Route::post('/redaksiupload', [EvaluasiDiriController::class, 'postRedaksi'])->name('ed-penunjang.redaksi.upload');
-
-            // // H. Ad Hoc
-            // Route::post('/adhoc-upload', [EvaluasiDiriController::class, 'postAdHoc'])->name('ed-penunjang.adhoc.upload');
-
-            // // I. Ketua Panitia
-            // Route::post('/ketuapanitia-upload', [EvaluasiDiriController::class, 'postKetuaPanitia'])->name('ed-penunjang.ketuapanitia.upload');
-
-            // // J. Angggota Panitia
-            // Route::post('/anggotapanitia-upload', [EvaluasiDiriController::class, 'postAnggotaPanitia'])->name('ed-penunjang.anggotapanitia.upload');
-
-            // // K. Pengurus Yayasan
-            // Route::post('/pengurusyayasan-upload', [EvaluasiDiriController::class, 'postPengurusYayasan'])->name('ed-penunjang.pengurusyayasan.upload');
-
-            // // L. Asosiasi
-            // Route::post('/asosiasi-upload', [EvaluasiDiriController::class, 'postAsosiasi'])->name('ed-penunjang.asosiasi.upload');
-
-            // // M. Seminar
-            // Route::post('/seminar-upload', [EvaluasiDiriController::class, 'postSeminar'])->name('ed-penunjang.seminar.upload');
-
-            // // N. Reviewer
-            // Route::post('/reviewer-upload', [EvaluasiDiriController::class, 'postreviewer'])->name('ed-penunjang.reviewer.upload');
-
             Route::post('/upload-lampiran-penunjang', [EvaluasiDiriController::class, 'postPenunjang'])->name('ed-add-lampiran-penunjang');
 
             Route::post('/delete-lampiran-penunjang', [EvaluasiDiriController::class, 'deletePenunjang'])->name('ed-delete-lampiran-penunjang');

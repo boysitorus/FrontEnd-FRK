@@ -96,6 +96,60 @@
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+
+                                                                    <div id="existsFiles">
+                                                                        @if (!is_null($item['lampiran']))
+                                                                            @php
+                                                                                $iteration = 1;
+                                                                            @endphp
+                                                                            @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                                @php
+                                                                                    $checkExtension = pathinfo(
+                                                                                        $lampiran,
+                                                                                        PATHINFO_EXTENSION,
+                                                                                    );
+
+                                                                                    $extension = '';
+
+                                                                                    // Determine the icon filename based on the extension
+                                                                                    switch ($checkExtension) {
+                                                                                        case 'pdf':
+                                                                                            $extension = 'pdf.png';
+                                                                                            break;
+                                                                                        case 'doc':
+                                                                                        case 'docx':
+                                                                                            $extension = 'word.png';
+                                                                                            break;
+                                                                                        case 'xls':
+                                                                                        case 'xlsx':
+                                                                                            $extension = 'sheets.png';
+                                                                                            break;
+                                                                                        case 'png':
+                                                                                        case 'PNG':
+                                                                                        case 'jpg':
+                                                                                        case 'jpeg':
+                                                                                            $extension = 'photo.png';
+                                                                                            break;
+                                                                                        default:
+                                                                                            $extension = 'document.png';
+                                                                                    }
+                                                                                @endphp
+                                                                                <div
+                                                                                    class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                    <img src="{{ '/assets/img/' . $extension }}"
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                        class="ms-2">{{ $lampiran }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                            <i class="bi bi-x"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
                                                                 <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                             </div>
@@ -211,6 +265,60 @@
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+
+                                                                    <div id="existsFiles">
+                                                                        @if (!is_null($item['lampiran']))
+                                                                            @php
+                                                                                $iteration = 1;
+                                                                            @endphp
+                                                                            @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                                @php
+                                                                                    $checkExtension = pathinfo(
+                                                                                        $lampiran,
+                                                                                        PATHINFO_EXTENSION,
+                                                                                    );
+
+                                                                                    $extension = '';
+
+                                                                                    // Determine the icon filename based on the extension
+                                                                                    switch ($checkExtension) {
+                                                                                        case 'pdf':
+                                                                                            $extension = 'pdf.png';
+                                                                                            break;
+                                                                                        case 'doc':
+                                                                                        case 'docx':
+                                                                                            $extension = 'word.png';
+                                                                                            break;
+                                                                                        case 'xls':
+                                                                                        case 'xlsx':
+                                                                                            $extension = 'sheets.png';
+                                                                                            break;
+                                                                                        case 'png':
+                                                                                        case 'PNG':
+                                                                                        case 'jpg':
+                                                                                        case 'jpeg':
+                                                                                            $extension = 'photo.png';
+                                                                                            break;
+                                                                                        default:
+                                                                                            $extension = 'document.png';
+                                                                                    }
+                                                                                @endphp
+                                                                                <div
+                                                                                    class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                    <img src="{{ '/assets/img/' . $extension }}"
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                        class="ms-2">{{ $lampiran }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                            <i class="bi bi-x"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
                                                                 <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                             </div>
@@ -329,6 +437,60 @@
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3">
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+
+                                                                    <div id="existsFiles">
+                                                                        @if (!is_null($item['lampiran']))
+                                                                            @php
+                                                                                $iteration = 1;
+                                                                            @endphp
+                                                                            @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                                @php
+                                                                                    $checkExtension = pathinfo(
+                                                                                        $lampiran,
+                                                                                        PATHINFO_EXTENSION,
+                                                                                    );
+
+                                                                                    $extension = '';
+
+                                                                                    // Determine the icon filename based on the extension
+                                                                                    switch ($checkExtension) {
+                                                                                        case 'pdf':
+                                                                                            $extension = 'pdf.png';
+                                                                                            break;
+                                                                                        case 'doc':
+                                                                                        case 'docx':
+                                                                                            $extension = 'word.png';
+                                                                                            break;
+                                                                                        case 'xls':
+                                                                                        case 'xlsx':
+                                                                                            $extension = 'sheets.png';
+                                                                                            break;
+                                                                                        case 'png':
+                                                                                        case 'PNG':
+                                                                                        case 'jpg':
+                                                                                        case 'jpeg':
+                                                                                            $extension = 'photo.png';
+                                                                                            break;
+                                                                                        default:
+                                                                                            $extension = 'document.png';
+                                                                                    }
+                                                                                @endphp
+                                                                                <div
+                                                                                    class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                    <img src="{{ '/assets/img/' . $extension }}"
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                        class="ms-2">{{ $lampiran }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                            <i class="bi bi-x"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
                                                                 <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                             </div>
@@ -443,6 +605,60 @@
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3">
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+
+                                                                    <div id="existsFiles">
+                                                                        @if (!is_null($item['lampiran']))
+                                                                            @php
+                                                                                $iteration = 1;
+                                                                            @endphp
+                                                                            @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                                @php
+                                                                                    $checkExtension = pathinfo(
+                                                                                        $lampiran,
+                                                                                        PATHINFO_EXTENSION,
+                                                                                    );
+
+                                                                                    $extension = '';
+
+                                                                                    // Determine the icon filename based on the extension
+                                                                                    switch ($checkExtension) {
+                                                                                        case 'pdf':
+                                                                                            $extension = 'pdf.png';
+                                                                                            break;
+                                                                                        case 'doc':
+                                                                                        case 'docx':
+                                                                                            $extension = 'word.png';
+                                                                                            break;
+                                                                                        case 'xls':
+                                                                                        case 'xlsx':
+                                                                                            $extension = 'sheets.png';
+                                                                                            break;
+                                                                                        case 'png':
+                                                                                        case 'PNG':
+                                                                                        case 'jpg':
+                                                                                        case 'jpeg':
+                                                                                            $extension = 'photo.png';
+                                                                                            break;
+                                                                                        default:
+                                                                                            $extension = 'document.png';
+                                                                                    }
+                                                                                @endphp
+                                                                                <div
+                                                                                    class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                    <img src="{{ '/assets/img/' . $extension }}"
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                        class="ms-2">{{ $lampiran }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                            <i class="bi bi-x"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
                                                                 <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                             </div>
@@ -558,6 +774,60 @@
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3">
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+
+                                                                    <div id="existsFiles">
+                                                                        @if (!is_null($item['lampiran']))
+                                                                            @php
+                                                                                $iteration = 1;
+                                                                            @endphp
+                                                                            @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                                @php
+                                                                                    $checkExtension = pathinfo(
+                                                                                        $lampiran,
+                                                                                        PATHINFO_EXTENSION,
+                                                                                    );
+
+                                                                                    $extension = '';
+
+                                                                                    // Determine the icon filename based on the extension
+                                                                                    switch ($checkExtension) {
+                                                                                        case 'pdf':
+                                                                                            $extension = 'pdf.png';
+                                                                                            break;
+                                                                                        case 'doc':
+                                                                                        case 'docx':
+                                                                                            $extension = 'word.png';
+                                                                                            break;
+                                                                                        case 'xls':
+                                                                                        case 'xlsx':
+                                                                                            $extension = 'sheets.png';
+                                                                                            break;
+                                                                                        case 'png':
+                                                                                        case 'PNG':
+                                                                                        case 'jpg':
+                                                                                        case 'jpeg':
+                                                                                            $extension = 'photo.png';
+                                                                                            break;
+                                                                                        default:
+                                                                                            $extension = 'document.png';
+                                                                                    }
+                                                                                @endphp
+                                                                                <div
+                                                                                    class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                    <img src="{{ '/assets/img/' . $extension }}"
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                        class="ms-2">{{ $lampiran }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                            <i class="bi bi-x"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
                                                                 <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                             </div>
@@ -672,6 +942,60 @@
                                                             <!-- tambahkan jarak bawah -->
                                                             <div class="mt-3 mb-3">
                                                                 <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+
+                                                                <div id="existsFiles">
+                                                                    @if (!is_null($item['lampiran']))
+                                                                        @php
+                                                                            $iteration = 1;
+                                                                        @endphp
+                                                                        @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                            @php
+                                                                                $checkExtension = pathinfo(
+                                                                                    $lampiran,
+                                                                                    PATHINFO_EXTENSION,
+                                                                                );
+
+                                                                                $extension = '';
+
+                                                                                // Determine the icon filename based on the extension
+                                                                                switch ($checkExtension) {
+                                                                                    case 'pdf':
+                                                                                        $extension = 'pdf.png';
+                                                                                        break;
+                                                                                    case 'doc':
+                                                                                    case 'docx':
+                                                                                        $extension = 'word.png';
+                                                                                        break;
+                                                                                    case 'xls':
+                                                                                    case 'xlsx':
+                                                                                        $extension = 'sheets.png';
+                                                                                        break;
+                                                                                    case 'png':
+                                                                                    case 'PNG':
+                                                                                    case 'jpg':
+                                                                                    case 'jpeg':
+                                                                                        $extension = 'photo.png';
+                                                                                        break;
+                                                                                    default:
+                                                                                        $extension = 'document.png';
+                                                                                }
+                                                                            @endphp
+                                                                            <div
+                                                                                class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                <img src="{{ '/assets/img/' . $extension }}"
+                                                                                    alt="File Icon" width="30" />
+                                                                                <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                    class="ms-2">{{ $lampiran }}</a>
+                                                                                <div style="margin-left: auto;">
+                                                                                    <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                        class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                        <i class="bi bi-x"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </div>
                                                             </div>
                                                             <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                         </div>
@@ -788,6 +1112,60 @@
                                                         <!-- tambahkan jarak bawah -->
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+
+                                                            <div id="existsFiles">
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $lampiran,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                class="ms-2">{{ $lampiran }}</a>
+                                                                            <div style="margin-left: auto;">
+                                                                                <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                    class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                    <i class="bi bi-x"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                         <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                     </div>
@@ -903,6 +1281,60 @@
                                                             <!-- tambahkan jarak bawah -->
                                                             <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                                 <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+
+                                                                <div id="existsFiles">
+                                                                    @if (!is_null($item['lampiran']))
+                                                                        @php
+                                                                            $iteration = 1;
+                                                                        @endphp
+                                                                        @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                            @php
+                                                                                $checkExtension = pathinfo(
+                                                                                    $lampiran,
+                                                                                    PATHINFO_EXTENSION,
+                                                                                );
+
+                                                                                $extension = '';
+
+                                                                                // Determine the icon filename based on the extension
+                                                                                switch ($checkExtension) {
+                                                                                    case 'pdf':
+                                                                                        $extension = 'pdf.png';
+                                                                                        break;
+                                                                                    case 'doc':
+                                                                                    case 'docx':
+                                                                                        $extension = 'word.png';
+                                                                                        break;
+                                                                                    case 'xls':
+                                                                                    case 'xlsx':
+                                                                                        $extension = 'sheets.png';
+                                                                                        break;
+                                                                                    case 'png':
+                                                                                    case 'PNG':
+                                                                                    case 'jpg':
+                                                                                    case 'jpeg':
+                                                                                        $extension = 'photo.png';
+                                                                                        break;
+                                                                                    default:
+                                                                                        $extension = 'document.png';
+                                                                                }
+                                                                            @endphp
+                                                                            <div
+                                                                                class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                <img src="{{ '/assets/img/' . $extension }}"
+                                                                                    alt="File Icon" width="30" />
+                                                                                <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                    class="ms-2">{{ $lampiran }}</a>
+                                                                                <div style="margin-left: auto;">
+                                                                                    <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                        class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                        <i class="bi bi-x"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </div>
                                                             </div>
                                                             <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                         </div>
@@ -1019,6 +1451,60 @@
                                                     <!-- tambahkan jarak bawah -->
                                                     <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                         <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+
+                                                        <div id="existsFiles">
+                                                            @if (!is_null($item['lampiran']))
+                                                                @php
+                                                                    $iteration = 1;
+                                                                @endphp
+                                                                @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                    @php
+                                                                        $checkExtension = pathinfo(
+                                                                            $lampiran,
+                                                                            PATHINFO_EXTENSION,
+                                                                        );
+
+                                                                        $extension = '';
+
+                                                                        // Determine the icon filename based on the extension
+                                                                        switch ($checkExtension) {
+                                                                            case 'pdf':
+                                                                                $extension = 'pdf.png';
+                                                                                break;
+                                                                            case 'doc':
+                                                                            case 'docx':
+                                                                                $extension = 'word.png';
+                                                                                break;
+                                                                            case 'xls':
+                                                                            case 'xlsx':
+                                                                                $extension = 'sheets.png';
+                                                                                break;
+                                                                            case 'png':
+                                                                            case 'PNG':
+                                                                            case 'jpg':
+                                                                            case 'jpeg':
+                                                                                $extension = 'photo.png';
+                                                                                break;
+                                                                            default:
+                                                                                $extension = 'document.png';
+                                                                        }
+                                                                    @endphp
+                                                                    <div
+                                                                        class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                        <img src="{{ '/assets/img/' . $extension }}"
+                                                                            alt="File Icon" width="30" />
+                                                                        <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                            class="ms-2">{{ $lampiran }}</a>
+                                                                        <div style="margin-left: auto;">
+                                                                            <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                <i class="bi bi-x"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
                                                     </div>
                                                     <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                 </div>
@@ -1130,6 +1616,60 @@
                                                             <!-- tambahkan jarak bawah -->
                                                             <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                                 <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+
+                                                                <div id="existsFiles">
+                                                                    @if (!is_null($item['lampiran']))
+                                                                        @php
+                                                                            $iteration = 1;
+                                                                        @endphp
+                                                                        @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                            @php
+                                                                                $checkExtension = pathinfo(
+                                                                                    $lampiran,
+                                                                                    PATHINFO_EXTENSION,
+                                                                                );
+
+                                                                                $extension = '';
+
+                                                                                // Determine the icon filename based on the extension
+                                                                                switch ($checkExtension) {
+                                                                                    case 'pdf':
+                                                                                        $extension = 'pdf.png';
+                                                                                        break;
+                                                                                    case 'doc':
+                                                                                    case 'docx':
+                                                                                        $extension = 'word.png';
+                                                                                        break;
+                                                                                    case 'xls':
+                                                                                    case 'xlsx':
+                                                                                        $extension = 'sheets.png';
+                                                                                        break;
+                                                                                    case 'png':
+                                                                                    case 'PNG':
+                                                                                    case 'jpg':
+                                                                                    case 'jpeg':
+                                                                                        $extension = 'photo.png';
+                                                                                        break;
+                                                                                    default:
+                                                                                        $extension = 'document.png';
+                                                                                }
+                                                                            @endphp
+                                                                            <div
+                                                                                class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                <img src="{{ '/assets/img/' . $extension }}"
+                                                                                    alt="File Icon" width="30" />
+                                                                                <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                    class="ms-2">{{ $lampiran }}</a>
+                                                                                <div style="margin-left: auto;">
+                                                                                    <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                        class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                        <i class="bi bi-x"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </div>
                                                             </div>
                                                             <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                         </div>
@@ -1147,7 +1687,7 @@
                                 {{-- AKHIR MODAL ADD FILE J --}}
                             @endforeach
                         @endif
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -1155,6 +1695,35 @@
     {{-- AKHIR BAGIAN J --}}
 
 
+    <!-- Modal hapus -->
+    <div class="modal fade" id="modalDeleteConfirmPendidikan" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body text-center">
+                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                    <h5>Yakin untuk menghapus Lampiran ini?</h5>
+                    <p class="text-muted small">Proses ini tidak dapat diurungkan bila
+                        Anda sudah menekan tombol 'Yakin'.</p>
+                </div>
+
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                    <form id="formDeleteLampiranPendidikan" action="{{ route('ed-delete-lampiran-pendidikan') }}"
+                        method="POST" style="display: inline;">
+                        @csrf
+
+                        <input type="hidden" name="id_rencana" id="idRencana">
+                        <input type="hidden" name="fileName" id="fileName">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {{-- TEMPAT MODAL DELETE CONFIRM --}}
     <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -1240,538 +1809,6 @@
             }, 3000); // 3000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
         }
 
-        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya A
-        // function displayFilesWithIcons(files) {
-        //     var selectedFilesDiv = document.getElementById('selectedFiles');
-        //     // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-        //     selectedFiles = selectedFiles.concat(Array.from(files));
-
-        //     // Menghapus konten sebelumnya
-        //     selectedFilesDiv.innerHTML = '';
-
-        //     // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-        //     for (var i = 0; i < selectedFiles.length; i++) {
-        //         var file = selectedFiles[i];
-        //         if (!file) continue; // Lewati file yang telah dihapus
-
-        //         var fileName = file.name;
-        //         var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-        //         var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-        //         var fileListItem = document.createElement('div');
-        //         fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-        //         // Tambahkan ikon/gambar
-        //         var fileIconImg = document.createElement('img');
-        //         fileIconImg.src = '/assets/img/' + fileIcon;
-        //         fileIconImg.alt = 'File Icon';
-        //         fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-        //         fileListItem.appendChild(fileIconImg);
-
-        //         // Tambahkan nama file
-        //         var fileNameSpan = document.createElement('span');
-        //         fileNameSpan.textContent = fileName;
-        //         fileListItem.appendChild(fileNameSpan);
-
-        //         // Tambahkan tombol hapus
-        //         var deleteBtn = document.createElement('button');
-        //         deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
-        //         deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
-        //         deleteBtn.addEventListener('click', (function(fileToRemove) {
-        //             return function() {
-        //                 // Hapus file dari array file-file yang dipilih
-        //                 var index = selectedFiles.indexOf(fileToRemove);
-        //                 if (index > -1) {
-        //                     selectedFiles.splice(index, 1);
-        //                 }
-        //                 // Hapus elemen file dari tampilan
-        //                 this.parentElement.remove();
-        //             };
-        //         })(file)); // Closure untuk menyimpan file yang benar
-        //         fileListItem.appendChild(deleteBtn);
-
-        //         selectedFilesDiv.appendChild(fileListItem);
-        //     }
-        // }
-
-
-        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya B
-        // function displayFilesWithIconsB(files) {
-        //     var selectedFilesDiv = document.getElementById('selectedFilesB');
-        //     // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-        //     selectedFilesB = selectedFilesB.concat(Array.from(files));
-
-        //     // Menghapus konten sebelumnya
-        //     selectedFilesDiv.innerHTML = '';
-
-        //     // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-        //     for (var i = 0; i < selectedFilesB.length; i++) {
-        //         var file = selectedFilesB[i];
-        //         if (!file) continue; // Lewati file yang telah dihapus
-
-        //         var fileName = file.name;
-        //         var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-        //         var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-        //         var fileListItem = document.createElement('div');
-        //         fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-        //         // Tambahkan ikon/gambar
-        //         var fileIconImg = document.createElement('img');
-        //         fileIconImg.src = '/assets/img/' + fileIcon;
-        //         fileIconImg.alt = 'File Icon';
-        //         fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-        //         fileListItem.appendChild(fileIconImg);
-
-        //         // Tambahkan nama file
-        //         var fileNameSpan = document.createElement('span');
-        //         fileNameSpan.textContent = fileName;
-        //         fileListItem.appendChild(fileNameSpan);
-
-        //         // Tambahkan tombol hapus
-        //         var deleteBtn = document.createElement('button');
-        //         deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
-        //         deleteBtn.addEventListener('click', (function(fileToRemove) {
-        //             return function() {
-        //                 // Hapus file dari array file-file yang dipilih
-        //                 var index = selectedFilesB.indexOf(fileToRemove);
-        //                 if (index > -1) {
-        //                     selectedFilesB.splice(index, 1);
-        //                 }
-        //                 // Hapus elemen file dari tampilan
-        //                 this.parentElement.remove();
-        //             };
-        //         })(file)); // Closure untuk menyimpan file yang benar
-        //         fileListItem.appendChild(deleteBtn);
-
-        //         selectedFilesDiv.appendChild(fileListItem);
-        //     }
-        // }
-
-        // // Fungsi untuk menampilkan file yang dipilih beserta ikonnya C
-        // function displayFilesWithIconsC(files) {
-        //     var selectedFilesDiv = document.getElementById('selectedFilesC');
-        //     // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-        //     selectedFilesC = selectedFilesC.concat(Array.from(files));
-
-        //     // Menghapus konten sebelumnya
-        //     selectedFilesDiv.innerHTML = '';
-
-        //     // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-        //     for (var i = 0; i < selectedFilesC.length; i++) {
-        //         var file = selectedFilesC[i];
-        //         if (!file) continue; // Lewati file yang telah dihapus
-
-        //         var fileName = file.name;
-        //         var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-        //         var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-        //         var fileListItem = document.createElement('div');
-        //         fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-        //         // Tambahkan ikon/gambar
-        //         var fileIconImg = document.createElement('img');
-        //         fileIconImg.src = '/assets/img/' + fileIcon;
-        //         fileIconImg.alt = 'File Icon';
-        //         fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-        //         fileListItem.appendChild(fileIconImg);
-
-        //         // Tambahkan nama file
-        //         var fileNameSpan = document.createElement('span');
-        //         fileNameSpan.textContent = fileName;
-        //         fileListItem.appendChild(fileNameSpan);
-
-        //         // Tambahkan tombol hapus
-        //         var deleteBtn = document.createElement('button');
-        //         deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
-        //         deleteBtn.addEventListener('click', (function(fileToRemove) {
-        //             return function() {
-        //                 // Hapus file dari array file-file yang dipilih
-        //                 var index = selectedFilesC.indexOf(fileToRemove);
-        //                 if (index > -1) {
-        //                     selectedFilesC.splice(index, 1);
-        //                 }
-        //                 // Hapus elemen file dari tampilan
-        //                 this.parentElement.remove();
-        //             };
-        //         })(file)); // Closure untuk menyimpan file yang benar
-        //         fileListItem.appendChild(deleteBtn);
-
-        //         selectedFilesDiv.appendChild(fileListItem);
-        //     }
-        // }
-
-        // // Fungsi untuk menampilkan file yang dipilih beserta ikonnya D
-        // function displayFilesWithIconsD(files) {
-        //     var selectedFilesDiv = document.getElementById('selectedFilesD');
-        //     // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-        //     selectedFilesD = selectedFilesD.concat(Array.from(files));
-
-        //     // Menghapus konten sebelumnya
-        //     selectedFilesDiv.innerHTML = '';
-
-        //     // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-        //     for (var i = 0; i < selectedFilesD.length; i++) {
-        //         var file = selectedFilesD[i];
-        //         if (!file) continue; // Lewati file yang telah dihapus
-
-        //         var fileName = file.name;
-        //         var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-        //         var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-        //         var fileListItem = document.createElement('div');
-        //         fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-        //         // Tambahkan ikon/gambar
-        //         var fileIconImg = document.createElement('img');
-        //         fileIconImg.src = '/assets/img/' + fileIcon;
-        //         fileIconImg.alt = 'File Icon';
-        //         fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-        //         fileListItem.appendChild(fileIconImg);
-
-        //         // Tambahkan nama file
-        //         var fileNameSpan = document.createElement('span');
-        //         fileNameSpan.textContent = fileName;
-        //         fileListItem.appendChild(fileNameSpan);
-
-        //         // Tambahkan tombol hapus
-        //         var deleteBtn = document.createElement('button');
-        //         deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
-        //         deleteBtn.addEventListener('click', (function(fileToRemove) {
-        //             return function() {
-        //                 // Hapus file dari array file-file yang dipilih
-        //                 var index = selectedFilesD.indexOf(fileToRemove);
-        //                 if (index > -1) {
-        //                     selectedFilesD.splice(index, 1);
-        //                 }
-        //                 // Hapus elemen file dari tampilan
-        //                 this.parentElement.remove();
-        //             };
-        //         })(file)); // Closure untuk menyimpan file yang benar
-        //         fileListItem.appendChild(deleteBtn);
-
-        //         selectedFilesDiv.appendChild(fileListItem);
-        //     }
-        // }
-
-        // // Fungsi untuk menampilkan file yang dipilih beserta ikonnya E
-        // function displayFilesWithIconsE(files) {
-        //     var selectedFilesDiv = document.getElementById('selectedFilesE');
-        //     // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-        //     selectedFilesE = selectedFilesE.concat(Array.from(files));
-
-        //     // Menghapus konten sebelumnya
-        //     selectedFilesDiv.innerHTML = '';
-
-        //     // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-        //     for (var i = 0; i < selectedFilesE.length; i++) {
-        //         var file = selectedFilesE[i];
-        //         if (!file) continue; // Lewati file yang telah dihapus
-
-        //         var fileName = file.name;
-        //         var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-        //         var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-        //         var fileListItem = document.createElement('div');
-        //         fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-        //         // Tambahkan ikon/gambar
-        //         var fileIconImg = document.createElement('img');
-        //         fileIconImg.src = '/assets/img/' + fileIcon;
-        //         fileIconImg.alt = 'File Icon';
-        //         fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-        //         fileListItem.appendChild(fileIconImg);
-
-        //         // Tambahkan nama file
-        //         var fileNameSpan = document.createElement('span');
-        //         fileNameSpan.textContent = fileName;
-        //         fileListItem.appendChild(fileNameSpan);
-
-        //         // Tambahkan tombol hapus
-        //         var deleteBtn = document.createElement('button');
-        //         deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
-        //         deleteBtn.addEventListener('click', (function(fileToRemove) {
-        //             return function() {
-        //                 // Hapus file dari array file-file yang dipilih
-        //                 var index = selectedFilesE.indexOf(fileToRemove);
-        //                 if (index > -1) {
-        //                     selectedFilesE.splice(index, 1);
-        //                 }
-        //                 // Hapus elemen file dari tampilan
-        //                 this.parentElement.remove();
-        //             };
-        //         })(file)); // Closure untuk menyimpan file yang benar
-        //         fileListItem.appendChild(deleteBtn);
-
-        //         selectedFilesDiv.appendChild(fileListItem);
-        //     }
-        // }
-
-        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya F
-        function displayFilesWithIconsF(files) {
-            var selectedFilesDiv = document.getElementById('selectedFilesF');
-            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFilesF = selectedFilesF.concat(Array.from(files));
-
-            // Menghapus konten sebelumnya
-            selectedFilesDiv.innerHTML = '';
-
-            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFilesF.length; i++) {
-                var file = selectedFilesF[i];
-                if (!file) continue; // Lewati file yang telah dihapus
-
-                var fileName = file.name;
-                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-                var fileListItem = document.createElement('div');
-                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-                // Tambahkan ikon/gambar
-                var fileIconImg = document.createElement('img');
-                fileIconImg.src = '/assets/img/' + fileIcon;
-                fileIconImg.alt = 'File Icon';
-                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-                fileListItem.appendChild(fileIconImg);
-
-                // Tambahkan nama file
-                var fileNameSpan = document.createElement('span');
-                fileNameSpan.textContent = fileName;
-                fileListItem.appendChild(fileNameSpan);
-
-                // Tambahkan tombol hapus
-                var deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
-                deleteBtn.addEventListener('click', (function(fileToRemove) {
-                    return function() {
-                        // Hapus file dari array file-file yang dipilih
-                        var index = selectedFilesF.indexOf(fileToRemove);
-                        if (index > -1) {
-                            selectedFilesF.splice(index, 1);
-                        }
-                        // Hapus elemen file dari tampilan
-                        this.parentElement.remove();
-                    };
-                })(file)); // Closure untuk menyimpan file yang benar
-                fileListItem.appendChild(deleteBtn);
-
-                selectedFilesDiv.appendChild(fileListItem);
-            }
-        }
-
-        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya G
-        function displayFilesWithIconsG(files) {
-            var selectedFilesDiv = document.getElementById('selectedFilesG');
-            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFilesG = selectedFilesG.concat(Array.from(files));
-
-            // Menghapus konten sebelumnya
-            selectedFilesDiv.innerHTML = '';
-
-            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFilesG.length; i++) {
-                var file = selectedFilesG[i];
-                if (!file) continue; // Lewati file yang telah dihapus
-
-                var fileName = file.name;
-                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-                var fileListItem = document.createElement('div');
-                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-                // Tambahkan ikon/gambar
-                var fileIconImg = document.createElement('img');
-                fileIconImg.src = '/assets/img/' + fileIcon;
-                fileIconImg.alt = 'File Icon';
-                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-                fileListItem.appendChild(fileIconImg);
-
-                // Tambahkan nama file
-                var fileNameSpan = document.createElement('span');
-                fileNameSpan.textContent = fileName;
-                fileListItem.appendChild(fileNameSpan);
-
-                // Tambahkan tombol hapus
-                var deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
-                deleteBtn.addEventListener('click', (function(fileToRemove) {
-                    return function() {
-                        // Hapus file dari array file-file yang dipilih
-                        var index = selectedFilesG.indexOf(fileToRemove);
-                        if (index > -1) {
-                            selectedFilesG.splice(index, 1);
-                        }
-                        // Hapus elemen file dari tampilan
-                        this.parentElement.remove();
-                    };
-                })(file)); // Closure untuk menyimpan file yang benar
-                fileListItem.appendChild(deleteBtn);
-
-                selectedFilesDiv.appendChild(fileListItem);
-            }
-        }
-
-        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya H
-        function displayFilesWithIconsH(files) {
-            var selectedFilesDiv = document.getElementById('selectedFilesH');
-            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFilesH = selectedFilesH.concat(Array.from(files));
-
-            // Menghapus konten sebelumnya
-            selectedFilesDiv.innerHTML = '';
-
-            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFilesH.length; i++) {
-                var file = selectedFilesH[i];
-                if (!file) continue; // Lewati file yang telah dihapus
-
-                var fileName = file.name;
-                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-                var fileListItem = document.createElement('div');
-                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-                // Tambahkan ikon/gambar
-                var fileIconImg = document.createElement('img');
-                fileIconImg.src = '/assets/img/' + fileIcon;
-                fileIconImg.alt = 'File Icon';
-                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-                fileListItem.appendChild(fileIconImg);
-
-                // Tambahkan nama file
-                var fileNameSpan = document.createElement('span');
-                fileNameSpan.textContent = fileName;
-                fileListItem.appendChild(fileNameSpan);
-
-                // Tambahkan tombol hapus
-                var deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
-                deleteBtn.addEventListener('click', (function(fileToRemove) {
-                    return function() {
-                        // Hapus file dari array file-file yang dipilih
-                        var index = selectedFilesH.indexOf(fileToRemove);
-                        if (index > -1) {
-                            selectedFilesH.splice(index, 1);
-                        }
-                        // Hapus elemen file dari tampilan
-                        this.parentElement.remove();
-                    };
-                })(file)); // Closure untuk menyimpan file yang benar
-                fileListItem.appendChild(deleteBtn);
-
-                selectedFilesDiv.appendChild(fileListItem);
-            }
-        }
-
-        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya I
-        function displayFilesWithIconsI(files) {
-            var selectedFilesDiv = document.getElementById('selectedFilesI');
-            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFilesI = selectedFilesI.concat(Array.from(files));
-
-            // Menghapus konten sebelumnya
-            selectedFilesDiv.innerHTML = '';
-
-            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFilesI.length; i++) {
-                var file = selectedFilesI[i];
-                if (!file) continue; // Lewati file yang telah dihapus
-
-                var fileName = file.name;
-                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-                var fileListItem = document.createElement('div');
-                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-                // Tambahkan ikon/gambar
-                var fileIconImg = document.createElement('img');
-                fileIconImg.src = '/assets/img/' + fileIcon;
-                fileIconImg.alt = 'File Icon';
-                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-                fileListItem.appendChild(fileIconImg);
-
-                // Tambahkan nama file
-                var fileNameSpan = document.createElement('span');
-                fileNameSpan.textContent = fileName;
-                fileListItem.appendChild(fileNameSpan);
-
-                // Tambahkan tombol hapus
-                var deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
-                deleteBtn.addEventListener('click', (function(fileToRemove) {
-                    return function() {
-                        // Hapus file dari array file-file yang dipilih
-                        var index = selectedFilesI.indexOf(fileToRemove);
-                        if (index > -1) {
-                            selectedFilesI.splice(index, 1);
-                        }
-                        // Hapus elemen file dari tampilan
-                        this.parentElement.remove();
-                    };
-                })(file)); // Closure untuk menyimpan file yang benar
-                fileListItem.appendChild(deleteBtn);
-
-                selectedFilesDiv.appendChild(fileListItem);
-            }
-        }
-
-        // Fungsi untuk menampilkan file yang dipilih beserta ikonnya J
-        function displayFilesWithIconsJ(files) {
-            var selectedFilesDiv = document.getElementById('selectedFilesJ');
-            // Menambahkan file-file yang baru dipilih ke dalam array file-file yang dipilih sebelumnya
-            selectedFilesJ = selectedFilesJ.concat(Array.from(files));
-
-            // Menghapus konten sebelumnya
-            selectedFilesDiv.innerHTML = '';
-
-            // Mengulangi semua file yang dipilih dan menampilkannya dengan ikon
-            for (var i = 0; i < selectedFilesJ.length; i++) {
-                var file = selectedFilesJ[i];
-                if (!file) continue; // Lewati file yang telah dihapus
-
-                var fileName = file.name;
-                var fileExtension = fileName.split('.').pop(); // Dapatkan ekstensi file
-                var fileIcon = getFileIcon(fileExtension); // Dapatkan ikon/gambar berdasarkan ekstensi file
-
-                var fileListItem = document.createElement('div');
-                fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
-
-                // Tambahkan ikon/gambar
-                var fileIconImg = document.createElement('img');
-                fileIconImg.src = '/assets/img/' + fileIcon;
-                fileIconImg.alt = 'File Icon';
-                fileIconImg.width = 20; // Sesuaikan lebar gambar sesuai kebutuhan
-                fileListItem.appendChild(fileIconImg);
-
-                // Tambahkan nama file
-                var fileNameSpan = document.createElement('span');
-                fileNameSpan.textContent = fileName;
-                fileListItem.appendChild(fileNameSpan);
-
-                // Tambahkan tombol hapus
-                var deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('btn', 'btn-close', 'btn-sm', 'btn-circle', 'ms-2');
-                deleteBtn.addEventListener('click', (function(fileToRemove) {
-                    return function() {
-                        // Hapus file dari array file-file yang dipilih
-                        var index = selectedFilesJ.indexOf(fileToRemove);
-                        if (index > -1) {
-                            selectedFilesJ.splice(index, 1);
-                        }
-                        // Hapus elemen file dari tampilan
-                        this.parentElement.remove();
-                    };
-                })(file)); // Closure untuk menyimpan file yang benar
-                fileListItem.appendChild(deleteBtn);
-
-                selectedFilesDiv.appendChild(fileListItem);
-            }
-        }
-
         // Fungsi untuk mendapatkan gambar/logo berdasarkan ekstensi file
         function getFileIcon(extension) {
             switch (extension.toLowerCase()) {
@@ -1791,132 +1828,6 @@
                     return 'document.png';
             }
         }
-
-        // Gunakan fungsi displayFilesWithIcons untuk menampilkan file dengan gambar/logo
-        // document.getElementById('fileInput').addEventListener('change', function() {
-        //     var files = this.files;
-        //     displayFilesWithIcons(files);
-        // });
-
-        // document.getElementById('fileInputB').addEventListener('change', function() {
-        //     var files = this.files;
-        //     displayFilesWithIconsB(files);
-        // });
-
-        // document.getElementById('fileInputC').addEventListener('change', function() {
-        //     var files = this.files;
-        //     displayFilesWithIconsC(files);
-        // });
-
-        // document.getElementById('fileInputD').addEventListener('change', function() {
-        //     var files = this.files;
-        //     displayFilesWithIconsD(files);
-        // });
-
-        // document.getElementById('fileInputE').addEventListener('change', function() {
-        //     var files = this.files;
-        //     displayFilesWithIconsE(files);
-        // });
-
-        //bagian f hingga j
-
-       // document.getElementById('fileInputF').addEventListener('change', function() {
-         //   var files = this.files;
-           // displayFilesWithIconsF(files);
-       // });
-
-        //document.getElementById('fileInputG').addEventListener('change', function() {
-          //  var files = this.files;
-           // displayFilesWithIconsG(files);
-        //});
-
-        //document.getElementById('fileInputH').addEventListener('change', function() {
-          //  var files = this.files;
-            //displayFilesWithIconsH(files);
-        //});
-
-        //document.getElementById('fileInputI').addEventListener('change', function() {
-          //  var files = this.files;
-           // displayFilesWithIconsI(files);
-        //});
-
-        ////document.getElementById('fileInputJ').addEventListener('change', function() {
-            //var files = this.files;
-           // displayFilesWithIconsJ(files);
-        //});
-
-
-        // Fungsi untuk menambah file A
-        // document.getElementById('addFilesBtn').addEventListener('click', function() {
-        //     var fileInput = document.getElementById('fileInput');
-        //     fileInput.click();
-        // });
-
-        // Fungsi untuk menambah file B
-        // document.getElementById('addFilesBtnB').addEventListener('click', function() {
-        //     var fileInputB = document.getElementById('fileInputB');
-        //     fileInputB.click();
-        // });
-
-        // // Fungsi untuk menambah file C
-        // document.getElementById('addFilesBtnC').addEventListener('click', function() {
-        //     var fileInputC = document.getElementById('fileInputC');
-        //     fileInputC.click();
-        // });
-
-        // // Fungsi untuk menambah file D
-        // document.getElementById('addFilesBtnD').addEventListener('click', function() {
-        //     var fileInputD = document.getElementById('fileInputD');
-        //     fileInputD.click();
-        // });
-
-        // // Fungsi untuk menambah file E
-        // document.getElementById('addFilesBtnE').addEventListener('click', function() {
-        //     var fileInputE = document.getElementById('fileInputE');
-        //     fileInputE.click();
-        // });
-
-        // Fungsi untuk menambah file F
-       // document.getElementById('addFilesBtnF').addEventListener('click', function() {
-          //  var fileInputF = document.getElementById('fileInputF');
-         //   fileInputF.click();
-      //  });
-
-        // Fungsi untuk menambah file G
-       // document.getElementById('addFilesBtnG').addEventListener('click', function() {
-         //   var fileInputG = document.getElementById('fileInputG');
-        //    fileInputG.click();
-       // });
-
-        // Fungsi untuk menambah file H
-       // document.getElementById('addFilesBtnH').addEventListener('click', function() {
-         //   var fileInputH = document.getElementById('fileInputH');
-         //   fileInputH.click();
-      //  });
-
-        // Fungsi untuk menambah file I
-       // document.getElementById('addFilesBtnI').addEventListener('click', function() {
-          //  var fileInputI = document.getElementById('fileInputI');
-           // fileInputI.click();
-       // });
-
-        // Fungsi untuk menambah file J
-       // document.getElementById('addFilesBtnJ').addEventListener('click', function() {
-           // var fileInputJ = document.getElementById('fileInputJ');
-           // fileInputJ.click();
-      //  });
-
-        // Variabel global untuk menyimpan file-file yang dipilih
-        // var selectedFiles = [];
-        // var selectedFilesB = [];
-        // var selectedFilesC = [];
-        // var selectedFilesD = [];
-        // var selectedFilesE = [];
-       // var selectedFilesF = [];
-       // var selectedFilesG = [];
-       // var selectedFilesH = [];
-       // var selectedFilesI = [];
-       // var selectedFilesJ = [];
     </script>
 
     <script>
@@ -1929,6 +1840,7 @@
                     var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
                     var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
                     var fileInput = document.getElementById('fileInput-' + itemId);
+                    var fileArray = [];
 
                     addFilesBtn.addEventListener('click', function() {
                         fileInput.click();
@@ -1936,7 +1848,7 @@
 
                     fileInput.addEventListener('change', function() {
                         var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        displayFilesWithIcons(files, selectedFilesDiv, fileArray);
                     });
                 })();
             @endforeach
@@ -1951,6 +1863,7 @@
                     var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
                     var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
                     var fileInput = document.getElementById('fileInput-' + itemId);
+                    var fileArray = [];
 
                     addFilesBtn.addEventListener('click', function() {
                         fileInput.click();
@@ -1958,7 +1871,7 @@
 
                     fileInput.addEventListener('change', function() {
                         var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        displayFilesWithIcons(files, selectedFilesDiv, fileArray);
                     });
                 })();
             @endforeach
@@ -1973,6 +1886,7 @@
                     var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
                     var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
                     var fileInput = document.getElementById('fileInput-' + itemId);
+                    var fileArray = [];
 
                     addFilesBtn.addEventListener('click', function() {
                         fileInput.click();
@@ -1980,7 +1894,7 @@
 
                     fileInput.addEventListener('change', function() {
                         var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        displayFilesWithIcons(files, selectedFilesDiv, fileArray);
                     });
                 })();
             @endforeach
@@ -1995,6 +1909,7 @@
                     var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
                     var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
                     var fileInput = document.getElementById('fileInput-' + itemId);
+                    var fileArray = [];
 
                     addFilesBtn.addEventListener('click', function() {
                         fileInput.click();
@@ -2002,7 +1917,7 @@
 
                     fileInput.addEventListener('change', function() {
                         var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        displayFilesWithIcons(files, selectedFilesDiv, fileArray);
                     });
                 })();
             @endforeach
@@ -2017,6 +1932,7 @@
                     var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
                     var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
                     var fileInput = document.getElementById('fileInput-' + itemId);
+                    var fileArray = [];
 
                     addFilesBtn.addEventListener('click', function() {
                         fileInput.click();
@@ -2024,7 +1940,7 @@
 
                     fileInput.addEventListener('change', function() {
                         var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        displayFilesWithIcons(files, selectedFilesDiv, fileArray);
                     });
                 })();
             @endforeach
@@ -2039,6 +1955,7 @@
                     var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
                     var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
                     var fileInput = document.getElementById('fileInput-' + itemId);
+                    var fileArray = [];
 
                     addFilesBtn.addEventListener('click', function() {
                         fileInput.click();
@@ -2046,7 +1963,7 @@
 
                     fileInput.addEventListener('change', function() {
                         var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        displayFilesWithIcons(files, selectedFilesDiv, fileArray);
                     });
                 })();
             @endforeach
@@ -2061,6 +1978,7 @@
                     var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
                     var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
                     var fileInput = document.getElementById('fileInput-' + itemId);
+                    var fileArray = [];
 
                     addFilesBtn.addEventListener('click', function() {
                         fileInput.click();
@@ -2068,7 +1986,7 @@
 
                     fileInput.addEventListener('change', function() {
                         var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        displayFilesWithIcons(files, selectedFilesDiv, fileArray);
                     });
                 })();
             @endforeach
@@ -2083,6 +2001,7 @@
                     var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
                     var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
                     var fileInput = document.getElementById('fileInput-' + itemId);
+                    var fileArray = [];
 
                     addFilesBtn.addEventListener('click', function() {
                         fileInput.click();
@@ -2090,7 +2009,7 @@
 
                     fileInput.addEventListener('change', function() {
                         var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        displayFilesWithIcons(files, selectedFilesDiv, fileArray);
                     });
                 })();
             @endforeach
@@ -2105,6 +2024,7 @@
                     var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
                     var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
                     var fileInput = document.getElementById('fileInput-' + itemId);
+                    var fileArray = [];
 
                     addFilesBtn.addEventListener('click', function() {
                         fileInput.click();
@@ -2112,7 +2032,7 @@
 
                     fileInput.addEventListener('change', function() {
                         var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        displayFilesWithIcons(files, selectedFilesDiv, fileArray);
                     });
                 })();
             @endforeach
@@ -2127,6 +2047,7 @@
                     var addFilesBtn = document.getElementById('addFilesBtn-' + itemId);
                     var selectedFilesDiv = document.getElementById('selectedFiles-' + itemId);
                     var fileInput = document.getElementById('fileInput-' + itemId);
+                    var fileArray = [];
 
                     addFilesBtn.addEventListener('click', function() {
                         fileInput.click();
@@ -2134,74 +2055,89 @@
 
                     fileInput.addEventListener('change', function() {
                         var files = this.files;
-                        displayFilesWithIcons(files, selectedFilesDiv);
+                        displayFilesWithIcons(files, selectedFilesDiv, fileArray);
                     });
                 })();
             @endforeach
         @endif
 
-        function displayFilesWithIcons(files, selectedFilesDiv) {
-                var selectedFiles = [];
-                selectedFiles = selectedFiles.concat(Array.from(files));
+        function displayFilesWithIcons(files, selectedFilesDiv, selectedFiles) {
+            selectedFilesDiv.innerHTML = '';
 
-                selectedFilesDiv.innerHTML = '';
+            selectedFiles = selectedFiles.concat(Array.from(files));
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                if (!file) continue; 
 
-                for (var i = 0; i < selectedFiles.length; i++) {
-                    var file = selectedFiles[i];
-                        if (!file) continue; 
+                var fileName = file.name;
+                var fileExtension = fileName.split('.').pop();
+                var fileIcon = getFileIcon(fileExtension);
 
-                    var fileName = file.name;
-                    var fileExtension = fileName.split('.').pop();
-                    var fileIcon = getFileIcon(fileExtension);
+                var fileListItem = document.createElement('div');
+                fileListItem.classList.add(
+                    'file-item', 
+                    'd-flex', 
+                    'align-items-center', 
+                    'mb-2', 
+                    'border', 
+                    'rounded', 
+                    'p-3',
+                    'bg-abu'
+                );
 
-                    var fileListItem = document.createElement('div');
-                    fileListItem.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+                // Tambahkan ikon/gambar
+                var fileIconImg = document.createElement('img');
+                fileIconImg.src = '/assets/img/' + fileIcon;
+                fileIconImg.alt = 'File Icon';
+                fileIconImg.width = 30;
+                fileListItem.appendChild(fileIconImg);
 
-                    var fileIconImg = document.createElement('img');
-                    fileIconImg.src = '/assets/img/' + fileIcon;
-                    fileIconImg.alt = 'File Icon';
-                    fileIconImg.width = 20;
-                    fileListItem.appendChild(fileIconImg);
+                // Tambahkan nama file
+                var fileNameSpan = document.createElement('span');
+                fileNameSpan.classList.add('ms-2');
+                fileNameSpan.textContent = fileName;
+                fileListItem.appendChild(fileNameSpan);
 
-                    var fileNameSpan = document.createElement('span');
-                    fileNameSpan.textContent = fileName;
-                    fileListItem.appendChild(fileNameSpan);
+                // Buat elemen div untuk tombol hapus
+                var divDelete = document.createElement('div');
+                divDelete.style.marginLeft = 'auto';
 
-                    var deleteBtn = document.createElement('button');
-                    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'btn-circle', 'ms-2');
-                    deleteBtn.innerHTML = '<i class="bi bi-x"></i>';
-                    deleteBtn.addEventListener('click', (function(fileToRemove) {
-                        return function() {
-                            var index = selectedFiles.indexOf(fileToRemove);
-                            if (index > -1) {
-                                selectedFiles.splice(index, 1);
-                            }
-                            this.parentElement.remove();
-                        };
-                    })(file));
-                    fileListItem.appendChild(deleteBtn);
-
-                    selectedFilesDiv.appendChild(fileListItem);
-                }
+                selectedFilesDiv.appendChild(fileListItem);
             }
+        }
 
-            function getFileIcon(extension) {
-                switch (extension.toLowerCase()) {
-                    case 'pdf':
-                        return 'pdf.png';
-                    case 'doc':
-                    case 'docx':
-                        return 'word.png';
-                    case 'xls':
-                    case 'xlsx':
-                        return 'sheets.png';
-                    case 'png':
-                    case 'jpg':
-                    case 'jpeg':
-                        return 'photo.png';
-                    default:
-                        return 'document.png';
-                }
+        function getFileIcon(extension) {
+            switch (extension.toLowerCase()) {
+                case 'pdf':
+                    return 'pdf.png';
+                case 'doc':
+                case 'docx':
+                    return 'word.png';
+                case 'xls':
+                case 'xlsx':
+                    return 'sheets.png';
+                case 'png':
+                case 'jpg':
+                case 'jpeg':
+                    return 'photo.png';
+                default:
+                    return 'document.png';
             }
+        }
+    </script>
+
+    <script>
+        function deleteFile(idRencanaValue, fileNameValue) {
+            const form = document.getElementById("formDeleteLampiranPendidikan");
+
+            var idRencanaInput = form.querySelector('input[name="id_rencana"]');
+            var fileNameInput = form.querySelector('input[name="fileName"]');
+
+            idRencanaInput.value = idRencanaValue;
+            fileNameInput.value = fileNameValue;
+
+            // Submit the form
+            form.submit();
+        }
     </script>
 @endsection
