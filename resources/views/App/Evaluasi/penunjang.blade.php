@@ -2383,7 +2383,7 @@
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <button type="submitgit " class="btn btn-primary">Upload Lampiran</button>
+                                                    <button type="submit" class="btn btn-primary">Upload Lampiran</button>
                                                 </div>
                                             </form>
                                         </div>
