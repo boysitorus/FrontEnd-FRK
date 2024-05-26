@@ -39,6 +39,7 @@ Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(func
         Route::post('/generateFED', [AdminController::class, 'postGenerateFED'])->name('admin.generate_fed.post');
 
         Route::get('/assign-role', [AdminController::class, 'getAssignRole'])->name('admin.assign-role');
+        Route::post('/assign-role', [AdminController::class, 'postAssignRole'])->name('admin.assign-role.post');
     });
 });
 

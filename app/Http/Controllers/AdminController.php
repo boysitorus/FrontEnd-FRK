@@ -31,8 +31,7 @@ class AdminController extends Controller
             'periode_akhir_asesor_ii' => 'required|date|after_or_equal:periode_awal_asesor_ii',
         ]);
 
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             return redirect()->route('admin.generate_frk')->withErrors($validator)->withInput();
         }
 
@@ -71,8 +70,7 @@ class AdminController extends Controller
             'periode_akhir_asesor_ii' => 'required|date|after_or_equal:periode_awal_asesor_ii',
         ]);
 
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             return redirect()->route('admin.generate_frk')->withErrors($validator)->withInput();
         }
 
@@ -110,10 +108,33 @@ class AdminController extends Controller
     public function getAssignRole(Request $request)
     {
         $auth = Tools::getAuth($request);
+        $getSemesterFRK = Tools::getPeriod($auth->user->token, 'FRK');
+        $getSemesterFED = Tools::getPeriod($auth->user->token, 'FED');
 
-        $requestData = Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE').'get-eligible-asesor');
+        $requestData = Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-eligible-asesor');
 
-        return view('App.Admin.assignRole', ['eligible_asesor' => json_decode($requestData, true)]);
+        $data = [
+            'eligible_asesor' => json_decode($requestData, true),
+            'tanggal_frk' => $getSemesterFRK['data'],
+            'tanggal_fed' => $getSemesterFED['data'],
+        ];
+        return view('App.Admin.assignRole', $data);
+    }
+
+    public function postAssignRole(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        $token = $auth->user->token;
+
+        $requestData = Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE', false) . 'assign-role', [
+            'id_pegawai' => $request->id_pegawai,
+            'id_FRK' => $request->id_FRK,
+            'id_FED' => $request->id_FED,
+            'jabatan' =>$request->jabatan,
+        ]);
+
+        return redirect()->back()->with('success', 'Asesor added successfully');
     }
 }
 

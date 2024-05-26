@@ -36,36 +36,47 @@
                     @php
                         $i = 0
                     @endphp
-                    @foreach($eligible_asesor['data'] as $asesor)
-                        @php
-                            $i++
-                        @endphp
+                    @if(isset($eligible_asesor))
+                        @foreach($eligible_asesor['data'] as $asesor)
+                            @php
+                                $i++
+                            @endphp
 
-                        <tr>
-                            <td>{{$i}}</td>
-                            <td>
-                                @if(isset($asesor['kepala']))
-                                    @if($asesor['kepala'] == 'Wakil Rektor Bidang Perencanaan, Keuangan, dan Sumber Daya')
-                                        Wakil Rektor II => {{ $asesor['nama'] }}
-                                        @if(isset($asesor['anggota']))
-                                            @foreach($asesor['anggota'] as $anggota)
-                                                @if(preg_match('/Wakil Rektor Bidang Perencanaan, Keuangan, dan Sumber Daya|Wakil Rektor Bidang Akademik dan Kemahasiswaan/i', $anggota['jabatan']))
-                                                    Wakil Rektor I => {{ $anggota['nama'] }}
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    @else
-                                        {{$asesor['kepala']}} => {{ $asesor['nama'] }}
+                            <tr>
+                                <td>{{$i}}</td>
+                                <td>
+                                    @if(isset($asesor['kepala']))
+                                        @switch($asesor['kepala'])
+                                            @case('Wakil Rektor Bidang Akademik dan Kemahasiswaan')
+                                                Wakil Rektor I
+                                                @break
+                                            @case('Wakil Rektor Bidang Perencanaan, Keuangan, dan Sumber Daya')
+                                                Wakil Rektor II
+                                                @break
+                                            @case('REKTOR')
+                                                Rektor
+                                                @break
+                                            @default
+                                                {{$asesor['kepala']}}
+                                        @endswitch
                                     @endif
-                                @endif
-                            </td>
-                            <td>
-                                <button type="submit" class="btn btn-secondary">
-                                    Assign Sebagai Assesor
-                                </button>
-                            </td>
-                        </tr>
-                    @endforeach
+                                </td>
+                                <td>
+                                    <form action="{{ route('admin.assign-role.post') }}" method="POST">
+                                        @csrf
+
+                                        <input type="hidden" name="id_pegawai" value="{{$asesor['pegawai_id']}}">
+                                        <input type="hidden" name="jabatan" value="{{ $asesor['kepala'] }}">
+                                        <input type="hidden" name="id_FRK" value="{{$tanggal_frk['id']}}">
+                                        <input type="hidden" name="id_FED" value="{{$tanggal_fed['id']}}">
+                                        <button type="submit" class="btn btn-secondary">
+                                            Assign Sebagai Assesor
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
