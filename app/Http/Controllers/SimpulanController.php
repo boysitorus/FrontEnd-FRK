@@ -17,6 +17,7 @@ class SimpulanController extends Controller
     {
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+
         try {
             $dataSks = Http::get(env("API_FRK_SERVICE") . '/simpulan/' . $id_dosen);
 
@@ -35,7 +36,7 @@ class SimpulanController extends Controller
                     'penunjangSks' => $totalSksPenunjang,
                     'totalSks' => $totalSks,
                     'auth' => $auth,
-                    'id_dosen' => $id_dosen
+                    'id_dosen' => $id_dosen,
                 ]
             );
         } catch (\Throwable $th) {
@@ -47,6 +48,9 @@ class SimpulanController extends Controller
     {
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $nidn_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nidn'];
+        $nama_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nama'];
+        $role_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '] . " Program Studi " . $auth->user->data_lengkap->dosen->prodi;
         try {
             $dataSks = Http::get(env("API_FRK_SERVICE") . '/simpulan/' . $id_dosen);
 
@@ -57,6 +61,9 @@ class SimpulanController extends Controller
             $totalSks = $dataSks["sks_total"];
 
             $data = [
+                'nidn_dosen' => $nidn_dosen,
+                'nama_dosen' => $nama_dosen,
+                'role_dosen' => $role_dosen,
                 'pendidikanSks' => $totalSksPendidikan,
                 'penelitianSks' => $totalSksPenelitian,
                 'pengabdianSks' => $totalSksPengabdian,

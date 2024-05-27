@@ -2,7 +2,7 @@
 
 @section('content-FEDsimpulan')
     <div class="container d-flex justify-content-end mr-1">
-        <form action="#" method="GET">
+        <form action="{{ route("ed-generatePdf") }}" method="GET">
             <button type="submit" class="btn btn-danger">Download PDF</button>
         </form>
     </div>

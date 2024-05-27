@@ -24,9 +24,9 @@
 
             <div class="alert alert-info mt-2 ml-1 mr-1 mb-6 bg-alert-info" role="alert">
                 <h5> <b> <u> Profil dosen </u> </b> </h5>
-                <p><b>Wilona Diva Artha Simbolon S.Kom</b></p>
-                <p>12AS356</p>
-                <p>Dosen Fakultas Informatika dan Teknik Elektro</p>
+                <p><b>{{ $nama_dosen }}</b></p>
+                <p><b>{{ $nidn_dosen }}</b></p>
+                <p><b>{{ $role_dosen }}</b></p>
             </div>
 
             <div class = "mt-5 mb-5">

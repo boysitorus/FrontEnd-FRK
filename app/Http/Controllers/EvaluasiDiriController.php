@@ -296,6 +296,9 @@ class EvaluasiDiriController extends Controller
     {
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $nidn_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nidn'];
+        $nama_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nama'];
+        $role_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '] . " Program Studi " . $auth->user->data_lengkap->dosen->prodi;
         try {
             $dataSks = Http::get(env("API_FED_SERVICE") . '/simpulan/' . $id_dosen);
 
@@ -308,6 +311,9 @@ class EvaluasiDiriController extends Controller
             return view(
                 'App.Evaluasi.FEDsimpulan',
                 [
+                    'nidn_dosen' => $nidn_dosen,
+                    'nama_dosen' => $nama_dosen,
+                    'role_dosen' => $role_dosen,
                     'pendidikanSks' => $totalSksPendidikan,
                     'penelitianSks' => $totalSksPenelitian,
                     'pengabdianSks' => $totalSksPengabdian,
@@ -327,27 +333,49 @@ class EvaluasiDiriController extends Controller
     {
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $nidn_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nidn'];
+        $nama_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nama'];
+        $role_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '] . " Program Studi " . $auth->user->data_lengkap->dosen->prodi;
         try {
-            // $dataSks = Http::get(env("API_FRK_SERVICE") . '/simpulan/' . $id_dosen);
+            $dataSks = Http::get(env("API_FED_SERVICE") . '/simpulan/' . $id_dosen);
 
-            // $totalSksPendidikan = $dataSks["sks_pendidikan"];
-            // $totalSksPenelitian = $dataSks["sks_penelitian"];
-            // $totalSksPengabdian = $dataSks["sks_pengabdian"];
-            // $totalSksPenunjang = $dataSks["sks_penunjang"];
-            // $totalSks = $dataSks["sks_total"];
+            $totalSksPendidikan = $dataSks["sks_pendidikan"];
+            $totalSksPenelitian = $dataSks["sks_penelitian"];
+            $totalSksPengabdian = $dataSks["sks_pengabdian"];
+            $totalSksPenunjang = $dataSks["sks_penunjang"];
+            $totalSks = $dataSks["sks_total"];
 
             $data = [
-                // 'pendidikanSks' => $totalSksPendidikan,
-                // 'penelitianSks' => $totalSksPenelitian,
-                // 'pengabdianSks' => $totalSksPengabdian,
-                // 'penunjangSks' => $totalSksPenunjang,
-                // 'totalSks' => $totalSks,
+                'nidn_dosen' => $nidn_dosen,
+                'nama_dosen' => $nama_dosen,
+                'role_dosen' => $role_dosen,
+                'pendidikanSks' => $totalSksPendidikan,
+                'penelitianSks' => $totalSksPenelitian,
+                'pengabdianSks' => $totalSksPengabdian,
+                'penunjangSks' => $totalSksPenunjang,
+                'totalSks' => $totalSks,
             ];
 
-            $pdf = Pdf::loadView('App.Evaluasi.PDFSimpulanFED', $data);
+            $pdf = Pdf::loadView('App.Evaluasi.pdf', $data);
             return $pdf->download('Simpulan-Evaluasi-Diri.pdf');
         } catch (\Throwable $th) {
             return response()->json(['error' => 'Failed to generate PDF'], 500);
+        }
+    }
+
+    public function simpanEvaluasi(Request $request)
+    {
+        $id_dosen = $request->get('id_dosen');
+        try {
+            $response = Http::post(env('API_FRK_SERVICE') . '/simpulan-simpan-rencana/' . $id_dosen);
+            if ($response->status() === 200) {
+                return back()->with('message', $response["message"]);
+            } else {
+                throw new RequestException($response);
+            }
+        } catch (RequestException $e) {
+            $message = $response['message'];
+            return back()->with('error', $message);
         }
     }
 }
