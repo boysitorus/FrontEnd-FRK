@@ -23,22 +23,22 @@ class EvaluasiDiriController extends Controller
     public function getPengabdianPanel(Request $request)
     {
         $auth = Tools::getAuth($request);
-        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
-        try{
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        try {
             // Mengambil data a. kegiatan dari lumen
-            $responsKegiatan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/kegiatan/' . $id_dosen);
+            $responsKegiatan = Http::get(env('API_FRK_SERVICE') . '/pengabdian/kegiatan/' . $id_dosen);
             $Kegiatan = $responsKegiatan->json();
 
             // Mengambil data b. penyuluhan dari lumen
-            $responsePenyuluhan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/penyuluhan/' . $id_dosen);
+            $responsePenyuluhan = Http::get(env('API_FRK_SERVICE') . '/pengabdian/penyuluhan/' . $id_dosen);
             $Penyuluhan = $responsePenyuluhan->json();
 
             // Mengambil data c. konsultan dari lumen
-            $responsekonsultan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/konsultan/' . $id_dosen);
+            $responsekonsultan = Http::get(env('API_FRK_SERVICE') . '/pengabdian/konsultan/' . $id_dosen);
             $konsultan = $responsekonsultan->json();
 
             // Mengambil data d. karya dari lumen
-            $responseKarya = Http::get(env('API_FRK_SERVICE') .'/pengabdian/karya/' . $id_dosen);
+            $responseKarya = Http::get(env('API_FRK_SERVICE') . '/pengabdian/karya/' . $id_dosen);
             $Karya = $responseKarya->json();
 
 
@@ -59,7 +59,7 @@ class EvaluasiDiriController extends Controller
 
             // Mengirim data ke view
             return view('App.Evaluasi.pengabdian', $data);
-        }catch (\Throwable $th) {
+        } catch (\Throwable $th) {
             // Tangani error jika terjadi
             return response()->json(['error' => 'Failed to retrieve data from API'], 500);
         }
@@ -157,7 +157,8 @@ class EvaluasiDiriController extends Controller
     }
 
     //HANDLER UPLOAD LAMPIRAN
-    public function postLampiran(Request $request){
+    public function postLampiran(Request $request)
+    {
         $id_rencana = $request->get("id_rencana");
         $jenis_penelitian = $request->get("jenis_penelitian");
         $filePaths = [];
@@ -207,7 +208,8 @@ class EvaluasiDiriController extends Controller
         }
     }
 
-    public function deleteLampiranPenelitian(Request $request){
+    public function deleteLampiranPenelitian(Request $request)
+    {
         $id_rencana = $request->get("id_rencana");
         $fileName = $request->get("fileName");
 
@@ -215,14 +217,15 @@ class EvaluasiDiriController extends Controller
             env('API_FED_SERVICE') . '/penelitian/lampiran/' . $id_rencana . "/delete/" . $fileName,
         );
 
-        if($result->successful()){
+        if ($result->successful()) {
             return redirect()->back()->with('message', 'Berhasil menghapus lampiran');
         } else {
             return redirect()->back()->with('error', 'Gagal Menghapus File');
         }
     }
 
-    public function postLampiranPengabdian(Request $request){
+    public function postLampiranPengabdian(Request $request)
+    {
         $id_rencana = $request->get("id_rencana");
         $jenis_pengabdian = $request->get("jenis_pengabdian");
         $filePaths = [];
@@ -272,7 +275,8 @@ class EvaluasiDiriController extends Controller
         }
     }
 
-    public function deleteLampiranPengabdian(Request $request){
+    public function deleteLampiranPengabdian(Request $request)
+    {
         $id_rencana = $request->get("id_rencana");
         $fileName = $request->get("fileName");
 
@@ -280,7 +284,7 @@ class EvaluasiDiriController extends Controller
             env('API_FED_SERVICE') . '/pengabdian/lampiran/' . $id_rencana . "/delete/" . $fileName,
         );
 
-        if($result->successful()){
+        if ($result->successful()) {
             return redirect()->back()->with('message', 'Berhasil menghapus lampiran');
         } else {
             return redirect()->back()->with('error', 'Gagal Menghapus File');
@@ -288,25 +292,33 @@ class EvaluasiDiriController extends Controller
     }
     //END OF HANDLER UPLOAD LAMPIRAN
 
-    public function getSimpulanPanel()
+    public function getSimpulanPanel(Request $request)
     {
-        return view('App.Evaluasi.FEDsimpulan');
-    }
+        $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        try {
+            $dataSks = Http::get(env("API_FED_SERVICE") . '/simpulan/' . $id_dosen);
 
-    public function getPendidikanSimpulanPanel()
-    {
-        return view('App.Evaluasi.simpulanPendidikan');
-    }
-    public function getPenelitianSimpulanPanel()
-    {
-        return view('App.Evaluasi.simpulanPenelitian');
-    }
-    public function getPengabdianSimpulanPanel()
-    {
-        return view('App.Evaluasi.simpulanPengabdian');
-    }
-    public function getPenunjangSimpulanPanel()
-    {
-        return view('App.Evaluasi.simpulanPenunjang');
+            $totalSksPendidikan = $dataSks["sks_pendidikan"];
+            $totalSksPenelitian = $dataSks["sks_penelitian"];
+            $totalSksPengabdian = $dataSks["sks_pengabdian"];
+            $totalSksPenunjang = $dataSks["sks_penunjang"];
+            $totalSks = $dataSks["sks_total"];
+
+            return view(
+                'App.Evaluasi.FEDsimpulan',
+                [
+                    'pendidikanSks' => $totalSksPendidikan,
+                    'penelitianSks' => $totalSksPenelitian,
+                    'pengabdianSks' => $totalSksPengabdian,
+                    'penunjangSks' => $totalSksPenunjang,
+                    'totalSks' => $totalSks,
+                    'auth' => $auth,
+                    'id_dosen' => $id_dosen
+                ]
+            );
+        } catch (\Throwable $th) {
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
     }
 }

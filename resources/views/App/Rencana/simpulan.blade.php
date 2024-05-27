@@ -38,7 +38,7 @@
                         @else
                             <td style="color: green;text-align: center">M</td>
                         @endif
-    
+
                     </tr>
                     <tr>
                         <td scope="row" style=" text-align: left;">2</td>
@@ -50,7 +50,7 @@
                         @else
                             <td style="color: green;text-align: center">M</td>
                         @endif
-    
+
                     </tr>
                     <tr>
                         <td scope="row" style=" text-align: left;">3</td>
@@ -62,7 +62,7 @@
                         @else
                             <td style="color: green;text-align: center">M</td>
                         @endif
-    
+
                     </tr>
                     <tr>
                         <td scope="row" style=" text-align: left;">4</td>
@@ -115,7 +115,7 @@
                             <td style="color: green;text-align: center">M</td>
                         @endif
                     </tr>
-                    
+
                     <tr style="border-bottom: 2px solid black;">
                         <td colspan="2" style="text-align: center; background-color: #DFF5FF;" ><strong>Kesimpulan Akhir</strong></td>
                         <td style=" text-align: left ; background-color: #DFF5FF;"></td>
@@ -130,12 +130,12 @@
 
                 <tbody>
             </table>
-                
+
         </div>
 
     </div>
 
-    
+
 </div>
 
 <!-- <div style="margin-top: 100px;"> </div> -->

@@ -43,35 +43,29 @@ class SimpulanController extends Controller
         }
     }
 
-    public function generatePdf()
+    public function generatePdf(Request $request)
     {
+        $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         try {
-            // Ambil data dari API untuk setiap jenis sks
-            $responsePendidikan = Http::get(env('API_FRK_SERVICE') . '/simpulan-pendidikan');
-            $totalSksPendidikan = $responsePendidikan->json();
+            $dataSks = Http::get(env("API_FRK_SERVICE") . '/simpulan/' . $id_dosen);
 
-            $responsePenelitian = Http::get(env('API_FRK_SERVICE') . '/simpulan-penelitian');
-            $totalSksPenelitian = $responsePenelitian->json();
-
-            $responsePengabdian = Http::get(env('API_FRK_SERVICE') . '/simpulan-pengabdian');
-            $totalSksPengabdian = $responsePengabdian->json();
-
-            $responsePenunjang = Http::get(env('API_FRK_SERVICE') . '/simpulan-penunjang');
-            $totalSksPenunjang = $responsePenunjang->json();
-
-            $responseTotal = Http::get(env('API_FRK_SERVICE') . '/simpulan-total');
-            $totalSksTotal = $responseTotal->json();
+            $totalSksPendidikan = $dataSks["sks_pendidikan"];
+            $totalSksPenelitian = $dataSks["sks_penelitian"];
+            $totalSksPengabdian = $dataSks["sks_pengabdian"];
+            $totalSksPenunjang = $dataSks["sks_penunjang"];
+            $totalSks = $dataSks["sks_total"];
 
             $data = [
                 'pendidikanSks' => $totalSksPendidikan,
                 'penelitianSks' => $totalSksPenelitian,
                 'pengabdianSks' => $totalSksPengabdian,
                 'penunjangSks' => $totalSksPenunjang,
-                'totalSks' => $totalSksTotal,
+                'totalSks' => $totalSks,
             ];
 
             $pdf = Pdf::loadView('App.Rencana.pdf', $data);
-            return $pdf->download('coba.pdf');
+            return $pdf->download('Simpulan-Rencana-Kerja.pdf');
         } catch (\Throwable $th) {
             return response()->json(['error' => 'Failed to generate PDF'], 500);
         }
