@@ -223,7 +223,7 @@
 
                      <div class="ms-auto d-flex align-items-center justify-content-start">
                         <img class="d-inline" src="{{ asset('assets/icon/Logout.svg') }}" alt="">
-                        <a class="text-reset me-3 text-decoration-none" href="{{ route('logout.get') }}">
+                        <a class="text-reset me-3 text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
                             <h5 class="ms-2 pt-2 " style="font-weight: 700;">Keluar</h5>
                         </a>
                     </div>
@@ -240,6 +240,25 @@
     <main id="contentPage" style="margin-top: 74px;">
         <div class="bg-abu container-fluid pt-4 ">
             @yield('content')
+        </div>
+
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content text-center">
+                    <h3 class="modal-title w-100 fw-bolder mt-5" id="logoutModalLabel">Logout</h3>
+                    <div class="modal-body mt-3">
+                        Anda yakin ingin keluar?
+                    </div>
+                    <div class="justify-content-center mt-3 mb-5">
+                        <div>
+                            <a href="{{ route('logout.get') }}" class="fw-bolder"  style="text-decoration: none; color: red;">Ya, Saya Yakin</a>
+                        </div>
+                        <div class="mt-2">
+                            <a  class="fw-bolder" href="" data-bs-dismiss="modal" style="text-decoration: none; color: grey;">Tidak, Saya ingin kembali</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <!--Main layout-->
