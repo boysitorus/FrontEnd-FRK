@@ -34,31 +34,32 @@
                         $i = 0
                     @endphp
                     @if(isset($eligible_asesor))
-                        <form action="{{ route('admin.assign-role.post') }}" method="POST">
-                            @foreach($eligible_asesor['data'] as $asesor)
-                                @php
-                                    $i++
-                                @endphp
-                                <tr>
-                                    <td>{{$i}}</td>
-                                    <td>
-                                        @if(isset($asesor['kepala']))
-                                            @switch($asesor['kepala'])
-                                                @case('Wakil Rektor Bidang Akademik dan Kemahasiswaan')
-                                                    Wakil Rektor I
-                                                    @break
-                                                @case('Wakil Rektor Bidang Perencanaan, Keuangan, dan Sumber Daya')
-                                                    Wakil Rektor II
-                                                    @break
-                                                @case('REKTOR')
-                                                    Rektor
-                                                    @break
-                                                @default
-                                                    {{$asesor['kepala']}}
-                                            @endswitch
-                                        @endif
-                                    </td>
-                                    <td>
+
+                        @foreach($eligible_asesor['data'] as $asesor)
+                            @php
+                                $i++
+                            @endphp
+                            <tr>
+                                <td>{{$i}}</td>
+                                <td>
+                                    @if(isset($asesor['kepala']))
+                                        @switch($asesor['kepala'])
+                                            @case('Wakil Rektor Bidang Akademik dan Kemahasiswaan')
+                                                Wakil Rektor I
+                                                @break
+                                            @case('Wakil Rektor Bidang Perencanaan, Keuangan, dan Sumber Daya')
+                                                Wakil Rektor II
+                                                @break
+                                            @case('REKTOR')
+                                                Rektor
+                                                @break
+                                            @default
+                                                {{$asesor['kepala']}}
+                                        @endswitch
+                                    @endif
+                                </td>
+                                <td>
+                                    <form action="{{ route('admin.assign-role.post') }}" method="POST">
                                         @csrf
                                         {{-- TOAST --}}
                                         <div class="toast-container position-fixed top-0 end-0 p-3">
@@ -88,10 +89,13 @@
                                         <button type="submit" class="btn btn-secondary">
                                             Assign Sebagai Assesor
                                         </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
 
-                                    </td>
-                                </tr>
-                            @endforeach
+                        <form>
+                            @csrf
                             <script>
                                 document.addEventListener('DOMContentLoaded', function () {
                                     var successToastElement = document.getElementById('successToast');
