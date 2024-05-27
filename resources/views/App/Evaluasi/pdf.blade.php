@@ -36,7 +36,7 @@
 
     <div class="card mt-4">
         <div class="card-header bg-primary text-white">
-            <h4 class="mb-0"><strong>Simpulan Rencana Kerja</strong></h4>
+            <h4 class="mb-0"><strong>Simpulan Evaluasi Diri</strong></h4>
         </div>
         <div class="card-body">
             <table class="table table-bordered">
