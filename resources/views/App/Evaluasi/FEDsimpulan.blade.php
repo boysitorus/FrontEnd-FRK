@@ -2,7 +2,7 @@
 
 @section('content-FEDsimpulan')
     <div class="container d-flex justify-content-end mr-1">
-        <form action="{{ route("ed-generatePdf") }}" method="GET">
+        <form action="{{ route('ed-generatePdf') }}" method="GET">
             <button type="submit" class="btn btn-danger">Download PDF</button>
         </form>
     </div>
@@ -12,8 +12,6 @@
             <h6 style="color: white"><b>Simpulan Evaluasi Diri</b></h6>
         </div>
         <div class="card-body">
-            <!-- <hr /> -->
-
             <div class="text-sm">
                 <table id="simpulan" class="table table-striped mt-2 text-center">
                     <thead>
@@ -58,15 +56,12 @@
         </div>
     </div>
     <div style="padding: 8px; "></div>
-    </div>
-    </div>
-
 
     <!-- Kembali button with back icon -->
     <div class="container">
         <div class="container d-flex justify-content-end mr-1">
-            <button class="btn btn-primary mt-3 justify-content-end mr-1" style="margin-bottom: 30px; "><i
-                    class="fas fa-save"></i> Simpan Permanen</button>
+            <button class="btn btn-primary mt-3 justify-content-end mr-1" type="button" data-bs-toggle="modal"
+                data-bs-target="#modalSubmitConfirm"><i class="fas fa-save"></i> Simpan Permanen</button>
         </div>
     </div>
 @endsection

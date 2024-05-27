@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Utils\Tools;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Client\RequestException;
 
 class EvaluasiDiriController extends Controller
 {
@@ -367,7 +367,7 @@ class EvaluasiDiriController extends Controller
     {
         $id_dosen = $request->get('id_dosen');
         try {
-            $response = Http::post(env('API_FRK_SERVICE') . '/simpulan-simpan-rencana/' . $id_dosen);
+            $response = Http::post(env('API_FED_SERVICE') . '/simpulan/simpan-rencana/' . $id_dosen);
             if ($response->status() === 200) {
                 return back()->with('message', $response["message"]);
             } else {

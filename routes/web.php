@@ -346,6 +346,7 @@ Route::group(['middleware' => ['check.token']], function () {
         });
 
         Route::get('/generate-simpulan-pdf', [EvaluasiDiriController::class, 'generatePdf'])->name('ed-generatePdf');
+        Route::post('/simpan-evaluasi-pdf', [EvaluasiDiriController::class, 'simpanEvaluasi'])->name('ed-simpan-evaluasi');
     });
 
     Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
