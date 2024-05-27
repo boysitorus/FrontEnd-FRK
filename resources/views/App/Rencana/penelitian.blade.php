@@ -226,7 +226,7 @@
                                             class="bi bi-trash3"></i></button>
 
                                     {{-- MODAL DELETE B --}}
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                         aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -385,7 +385,7 @@
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i class="bi bi-trash3"></i></button>
                                     {{-- Modal delete C --}}
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -539,7 +539,7 @@
                                 data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i class="bi bi-trash3"></i></button>
 
                                 {{-- MODAL DELETE D --}}
-                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -1007,7 +1007,7 @@
                                             class="bi bi-trash3"></i></button>
 
                                     {{-- MODAL DELETE G --}}
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                         aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1176,7 +1176,7 @@
                                             class="bi bi-trash3"></i></button>
 
                                     {{-- MODAL DELETE H --}}
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                         aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1312,7 +1312,7 @@
                                 data-bs-target="#modalDeleteConfirm-{{$item ['id_rencana']}}"><i class="bi bi-trash3"></i></button>
 
                                 {{-- MODAL DELETE I --}}
-                                <div class="modal fade" id="modalDeleteConfirm-{{$item ['id_rencana']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="modalDeleteConfirm-{{$counter}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -1446,7 +1446,7 @@
                                 data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i class="bi bi-trash3"></i></button>
 
                                 {{-- MODAL DELETE J --}}
-                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -1868,7 +1868,7 @@
                                             class="bi bi-trash3"></i></button>
                                 </td>
                                 {{-- MODAL DELETE M --}}
-                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                     tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2027,7 +2027,7 @@
                                 </td>
 
                                 {{-- MODAL DELETE N --}}
-                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
                                     tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
