@@ -36,7 +36,7 @@
                 <h6 style="font-weight: bold;">Semester yang dijalani</h6>
                 <div class="input-group date">
                     <input type="text" class="form-control date-input" id="tahun-ajaran" name="tahun_ajaran"
-                           placeholder="Semester Genap 2023/2024">
+                           placeholder="Semester Genap 2023/2024" required>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 <h6 style="font-weight: bold;">Tanggal Awal Periode Pengisian Rencana Kerja</h6>
                 <div class="input-group date">
                     <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="tanggal_awal_rencana_kerja"
-                           placeholder="dd/mm/yyyy">
+                           placeholder="dd/mm/yyyy" required>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary clear-date" type="button"
                                 onclick="clearDate('tanggal-awal-rencana-kerja')"><i class="fas fa-times"></i></button>
@@ -59,7 +59,7 @@
                 <h6 style="font-weight: bold;">Tanggal Akhir Periode Pengisian Rencana Kerja</h6>
                 <div class="input-group date">
                     <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="tanggal_akhir_rencana_kerja"
-                           placeholder="dd/mm/yyyy">
+                           placeholder="dd/mm/yyyy" required>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary clear-date" type="button"
                                 onclick="clearDate('tanggal-akhir-rencana-kerja')"><i class="fas fa-times"></i></button>
@@ -75,7 +75,7 @@
                 <h6 style="font-weight: bold;">Periode Awal Approval oleh Asesor I</h6>
                 <div class="input-group date">
                     <input type="date" class="form-control date-input" id="periode-awal-asesor-i" name="periode_awal_asesor_i"
-                           placeholder="dd/mm/yyyy">
+                           placeholder="dd/mm/yyyy" required>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary clear-date" type="button"
                                 onclick="clearDate('periode-awal-asesor-i')"><i class="fas fa-times"></i></button>
@@ -86,7 +86,7 @@
                 <h6 style="font-weight: bold;">Periode Akhir Approval oleh Asesor I </h6>
                 <div class="input-group date">
                     <input type="date" class="form-control date-input" id="periode-akhir-asesor-i" name="periode_akhir_asesor_i"
-                           placeholder="dd/mm/yyyy">
+                           placeholder="dd/mm/yyyy" required>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary clear-date" type="button"
                                 onclick="clearDate('periode-akhir-asesor-i')"><i class="fas fa-times"></i></button>
@@ -102,7 +102,7 @@
                 <h6 style="font-weight: bold;">Periode Awal Approval oleh Asesor II</h6>
                 <div class="input-group date">
                     <input type="date" class="form-control date-input" id="periode-awal-asesor-ii" name="periode_awal_asesor_ii"
-                           placeholder="dd/mm/yyyy">
+                           placeholder="dd/mm/yyyy" required>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary clear-date" type="button"
                                 onclick="clearDate('periode-awal-asesor-ii')"><i class="fas fa-times"></i></button>
@@ -113,7 +113,7 @@
                 <h6 style="font-weight: bold;">Periode Akhir Approval oleh Asesor II</h6>
                 <div class="input-group date">
                     <input type="date" class="form-control date-input" id="periode-akhir-asesor-ii" name="periode_akhir_asesor_ii"
-                           placeholder="dd/mm/yyyy">
+                           placeholder="dd/mm/yyyy" required>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary clear-date" type="button"
                                 onclick="clearDate('periode-akhir-asesor-ii')"><i class="fas fa-times"></i></button>
@@ -168,7 +168,7 @@
             setTimeout(function() {
                 successToastElement.classList.remove('show');
                 errorToastElement.classList.remove('show');
-            }, 5000); // 5000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
+            }, 15000); // 5000 milidetik (3 detik) disesuaikan dengan durasi animasi toast
         });
     </script>
 

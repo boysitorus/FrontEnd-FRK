@@ -151,19 +151,52 @@ class EvaluasiDiriController extends Controller
         }
     }
 
-    public function getPenelitianPanel(){
-        return view('App.Evaluasi.penelitian');
+    public function getPenelitianPanel(Request $request){
+        $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
+
+        $responseProposal = Http::get(env('API_FED_SERVICE') . '/penelitian/proposal/' . $id_dosen);
+        $proposal = $responseProposal->json();
+        $data = [
+            'auth' => $auth,
+            'id_dosen' => $id_dosen,
+            'periode' => $getTanggal
+        ];
+        return view('App.Evaluasi.penelitian', $data);
     }
 
-    public function getPengabdianPanel(){
-        return view('App.Evaluasi.pengabdian');
+    public function getPengabdianPanel(Request $request){
+        $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
+
+        $responseProposal = Http::get(env('API_FED_SERVICE') . '/pengabdian/proposal/' . $id_dosen);
+        $proposal = $responseProposal->json();
+        $data = [
+            'auth' => $auth,
+            'id_dosen' => $id_dosen,
+            'periode' => $getTanggal
+        ];
+        return view('App.Evaluasi.pengabdian', $data);
     }
 
-    public function getSimpulanPanel(){
-        return view('App.Evaluasi.simpulanPendidikan');
+    public function getSimpulanPanel(Request $request){
+        $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
+
+        $responseProposal = Http::get(env('API_FED_SERVICE') . '/pengabdian/proposal/' . $id_dosen);
+        $proposal = $responseProposal->json();
+        $data = [
+            'auth' => $auth,
+            'id_dosen' => $id_dosen,
+            'periode' => $getTanggal
+        ];
+        return view('App.Evaluasi.FEDsimpulan',$data);
     }
 
-    // METHOD FOR PENDIDIKAN // METHOD FOR PENDIDIKAN // METHOD FOR PENDIDIKAN 
+    // METHOD FOR PENDIDIKAN // METHOD FOR PENDIDIKAN // METHOD FOR PENDIDIKAN
     // Tabel A. Teori
     public function postTeori(Request $request)
     {
@@ -215,7 +248,7 @@ class EvaluasiDiriController extends Controller
                 'id_rencana' => $request->get('id_rencana'),
                 'fileInput[]' => $request->file('fileInput'),
             ]
-        ); 
+        );
 
         return redirect()->back()->with('success', 'Pendidikan seminar upload successfully');
     }
@@ -294,10 +327,10 @@ class EvaluasiDiriController extends Controller
         return redirect()->back()->with('success', 'Pendidikan koordinator upload successfully');
     }
 
-    // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN 
+    // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN
 
 
-    // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG 
+    // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG
     // Tabel A. Akademik
     public function postAkademik(Request $request)
     {
@@ -367,7 +400,7 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Penunjang struktural upload successfully');
     }
-    
+
     // Tabel F. Non Struktural
     public function postNonStruktural(Request $request)
     {
@@ -381,7 +414,7 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Penunjang non struktural upload successfully');
     }
-        
+
     // Tabel G. Redaksi
     public function postRedaksi(Request $request)
     {
@@ -395,7 +428,7 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Penunjang redaksi upload successfully');
     }
-    
+
     // Tabel H. Ad Hoc
     public function postAdHoc(Request $request)
     {
@@ -408,9 +441,9 @@ class EvaluasiDiriController extends Controller
         );
 
         return redirect()->back()->with('success', 'Penunjang adhoc upload successfully');
-    
+
     }
-    
+
     // Tabel I. Ketua Panitia
     public function postKetuaPanitia(Request $request)
     {
@@ -424,7 +457,7 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Penunjang ketua panitia upload successfully');
     }
-    
+
     // Tabel J. Anggota Panitia
     public function postAnggotaPanitia(Request $request)
     {
@@ -438,7 +471,7 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Penunjang anggota panitia upload successfully');
     }
-    
+
     // Tabel K. Pengurus Yayasan
     public function postPengurusYayasan(Request $request)
     {
@@ -452,7 +485,7 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Penunjang pengurus yayasan upload successfully');
     }
-    
+
     // Tabel L. Asosiasi
     public function postAssosiasi(Request $request)
     {
@@ -466,7 +499,7 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Penunjang assosiasi upload successfully');
     }
-    
+
     // Tabel M. Seminar
     public function postSeminar(Request $request)
     {
@@ -480,7 +513,7 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Penunjang seminar upload successfully');
     }
-    
+
     // Tabel N. Reviewer
     public function postReviewer(Request $request)
     {
@@ -494,9 +527,9 @@ class EvaluasiDiriController extends Controller
 
         return redirect()->back()->with('success', 'Penunjang reviewer upload successfully');
     }
-    
 
-    // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG 
+
+    // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG
 
     //
     //HANDLER UPLOAD LAMPIRAN
