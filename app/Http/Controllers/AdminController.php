@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Validator;
 class AdminController extends Controller
 {
 
+    public function gettahunAjaran(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        return view('App.Admin.tahunAjaran');
+    }
+
     public function getGenerateFRK(Request $request)
     {
         $auth = Tools::getAuth($request);

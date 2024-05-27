@@ -40,6 +40,8 @@ Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(func
 
         Route::get('/assign-role', [AdminController::class, 'getAssignRole'])->name('admin.assign-role');
         Route::post('/assign-role', [AdminController::class, 'postAssignRole'])->name('admin.assign-role.post');
+
+        Route::get('/tahunAjaran', [AdminController::class, 'gettahunAjaran'])->name('admin.tahunAjaran');
     });
 });
 
