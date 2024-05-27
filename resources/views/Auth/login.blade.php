@@ -54,7 +54,7 @@
                                     @error('username')
                                     <div class="invalid-feedback d-block">
                                         {{ $message }}
-                                    </div> 
+                                    </div>
                                     @enderror
                                 </div>
 
@@ -70,10 +70,6 @@
                                     @enderror
                                 </div>
 
-                                <p class="small mb-2 pb-lg-2 d-flex align-items-start">
-                                    <a class="text-decoration-none" style="color: #696969" href="#!">Lupa kata sandi?</a>
-                                </p>
-
                                 <button
                                     style="background-color: #69839C; font-size: 2rem;font-weight: 600; width: 100%; height: 75px"
                                     class="btn text-white btn-lg px-5" type="submit">Masuk
@@ -82,11 +78,6 @@
 
                         </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <p class="mt-3">Belum punya akun? <a href="#!" style="color: #3553BF"
-                                                         class="fw-bold text-decoration-none">Daftar Sekarang</a>
-                    </p>
                 </div>
             </div>
         </div>
