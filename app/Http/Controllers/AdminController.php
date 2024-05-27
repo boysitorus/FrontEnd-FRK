@@ -127,12 +127,24 @@ class AdminController extends Controller
 
         $token = $auth->user->token;
 
-        $requestData = Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE', false) . 'assign-role', [
-            'id_pegawai' => $request->id_pegawai,
-            'id_FRK' => $request->id_FRK,
-            'id_FED' => $request->id_FED,
-            'jabatan' =>$request->jabatan,
-        ]);
+        try {
+            $requestData = Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE', false) . 'assign-role', [
+                'id_pegawai' => $request->id_pegawai,
+                'id_FRK' => $request->id_FRK,
+                'id_FED' => $request->id_FED,
+                'jabatan' => $request->jabatan,
+            ]);
+
+            $decodeData = json_decode($requestData, true);
+
+            if ($decodeData['result'] == false)
+            {
+                return redirect()->back()->with('error', $decodeData['error']);
+            }
+        } catch (\Exception $err) {
+            return redirect()->back()->with('error', $err->getMessage());
+        }
+
 
         return redirect()->back()->with('success', 'Asesor added successfully');
     }
