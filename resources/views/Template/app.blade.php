@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FRK & FED</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('dist/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/bs/bootstrap-5.3.3-dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/toastr.min.css') }}">
-    <script src="{{ asset('js/app.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-5.3.3-dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-icons-1.11.2/font/bootstrap-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/toastr.min.css') }}">
 
     <style>
         /* Remove inner borders */
@@ -24,17 +24,14 @@
         table.outer-border-only-table {
             border-collapse: separate;
             border-spacing: 0;
-            border: 1px solid black;
-            /* Adjust the border style as needed */
+            border: 1px solid black; /* Adjust the border style as needed */
         }
-
         table.outer-border-only-table th,
         table.outer-border-only-table td {
             border-left: none;
             border-right: none;
             border-top: none;
         }
-
         table.outer-border-only-table thead th,
         table.outer-border-only-table tbody tr:last-child td {
             border-bottom: 1px solid black;
@@ -63,8 +60,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('profile') }}"
-                                class="{{ request()->routeIs('profile') ? 'active' : '' }} list-group-item bg-abu list-group-item-action py-2 ripple">
+                            <a href="{{route('profile')}}" class="{{ request()->routeIs('profile') ? 'active' : '' }} list-group-item bg-abu list-group-item-action py-2 ripple">
                                 <i class="bi bi-person-fill me-1"></i>
                                 <span>Profile</span>
                             </a>
@@ -73,8 +69,9 @@
                         <li>
                             <a type="button"
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
-                                {{ Str::startsWith(request()->path(), 'formRencanaKerja') ? 'active' : '' }}
+                                {{Str::startsWith(request()->path(), 'formRencanaKerja') ? 'active' : ''}}
                                 d-flex justify-content-between align-items-center"
+
                                 data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
                                 <i class="bi bi-person-workspace me-2"></i>
                                 <div class="me-auto"><span>Rencana Kerja</span></div>
@@ -95,9 +92,9 @@
 
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex
-                                {{ Str::startsWith(request()->path(), 'formEvaluasiDiri') ? 'active' : '' }}
-                                justify-content-between align-items-center"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
+                                {{Str::startsWith(request()->path(), 'formEvaluasiDiri') ? 'active' : ''}}
+                                d-flex justify-content-between align-items-center"
                                 data-bs-toggle="collapse" data-bs-target="#fed-collapse" aria-expanded="false">
                                 <i class="bi bi-pencil-square me-2"></i>
                                 <div class="me-auto"><span>Evaluasi Diri</span></div>
@@ -123,10 +120,10 @@
                             </a>
                         </li>
 
+                        @if(in_array(json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '], ['Staf Human Resources']))
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center
-                                {{ Str::startsWith(request()->path(), 'Asesor') ? 'active' : '' }}"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
                                 data-bs-toggle="collapse" data-bs-target="#asesor-collapse" aria-expanded="false">
                                 <i class="bi bi-people-fill me-2"></i>
                                 <div class="me-auto"><span>Asesor</span></div>
@@ -146,7 +143,7 @@
                                         <div class="collapse" id="asesor-frk-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li>
-                                                    <a href="{{ route('rk-asesor') }}"
+                                                    <a href="#"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple"
                                                         style="margin-bottom:0.1px">
                                                         Rekap Kegiatan
@@ -154,7 +151,7 @@
                                                 </li>
 
                                                 <li>
-                                                    <a href="{{ route('rk-asesor-setuju') }}"
+                                                    <a href="#"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                                         Rekap Kegiatan yang Disetujui
                                                     </a>
@@ -188,13 +185,15 @@
                                                         Rekap Kegiatan yang Disetujui
                                                     </a>
                                                 </li>
+
                                             </ul>
                                         </div>
                                     </li>
+
                                 </ul>
                             </div>
                         </li>
-                    </ul>
+                    @endif
                 </div>
             </div>
         </nav>
@@ -224,7 +223,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <div class="ms-auto d-flex align-items-center justify-content-start">
+                     <div class="ms-auto d-flex align-items-center justify-content-start">
                         <img class="d-inline" src="{{ asset('assets/icon/Logout.svg') }}" alt="">
                         <a class="text-reset me-3 text-decoration-none" href="{{ route('logout.get') }}">
                             <h5 class="ms-2 pt-2 " style="font-weight: 700;">Keluar</h5>
@@ -247,7 +246,10 @@
     </main>
     <!--Main layout-->
 
-    <script src="{{ asset('dist/jquery-3.7.1.min.js') }}"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script> -->
+    <script src="{{ asset('assets/jquery-3.7.1.min.js') }}"></script>
     <script>
         $(document).ready(function() {
 
@@ -256,28 +258,33 @@
                 $('#contentPage').toggleClass('active');
             });
 
-            $('.btn-toggle').on('click', function() {
-                $('#sidebarMenu').removeClass('active');
-                $('#contentPage').removeClass('active');
-            })
         });
     </script>
 
-{{--    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"--}}
-{{--        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">--}}
-{{--    </script>--}}
-    <script src="{{ asset('dist/bs/bootstrap-5.3.3-dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('dist/toastr.min.js') }}"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script> -->
+    <script src="{{ asset('assets/bootstrap-5.3.3-dist/js/bootstrap.min.js') }}">
+    </script>
+    <script src="{{ asset('assets/toastr.min.js')}}">
+    </script>
+    <script src="{{ asset('assets/toastr.min.js')}}">
+    </script>
 
-
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     @if (Session::has('message'))
         <script>
             toastr.options = {
                 "closeButton": true,
+                "progressBar": true
             }
             toastr.success("{{ Session::get('message') }}", 'Success!', {
                 timeOut: 12000
             })
+            toastr.options.progressBar = true;
         </script>
     @endif
 
@@ -285,12 +292,14 @@
         <script>
             toastr.options = {
                 "closeButton": true,
+                "progressBar": true
             }
             toastr.error("{{ Session::get('error') }}", 'Error!', {
                 timeOut: 12000
             })
         </script>
     @endif
+
 </body>
 
 </html>
