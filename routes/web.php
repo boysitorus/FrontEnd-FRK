@@ -34,34 +34,34 @@ Route::prefix('/admin')->group(function () {
     Route::get('/generateFED', [AdminController::class, 'getGenerateFED'])->name('admin.generate_fed');
 });
 
-Route::group(['middleware' => ['check.token']], function() {
+Route::group(['middleware' => ['check.token']], function () {
     Route::get('/dashboard', [UserController::class, 'userDashboard'])->name('home');
 
     Route::get('/profile', [UserController::class, 'userProfile'])->name('profile');
 
-    Route::get('/formRencanaKerja', function() {
+    Route::get('/formRencanaKerja', function () {
         return view('App.Rencana.penelitian');
     });
 
-    Route::get('/formEvaluasiDiri', function() {
+    Route::get('/formEvaluasiDiri', function () {
         return view('App.Evaluasi.pendidikan');
     });
 
-    Route::get('/formEvaluasiDiri', function() {
+    Route::get('/formEvaluasiDiri', function () {
         return view('App.Evaluasi.penunjang');
     });
 
-   Route::prefix('/formRencanaKerja')->group(function () {
-       Route::get('/pendidikan', [PendidikanController::class, 'getAll'])->name('rk-pendidikan');
-       Route::get('/penelitian', [PenelitianController::class, 'getPenelitianPanel'])->name('rk-penelitian');
-    //    Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
-       Route::get('/pengabdian', [PengabdianController::class, 'getPengabdianPanel'])->name('rk-pengabdian');
-       Route::get('/penunjang', [PenunjangController::class, 'getAll'])->name('rk-penunjang');
-       Route::get('/simpulan', [SimpulanController::class, 'getAll'])->name('rk-simpulan');
-       Route::post('/simpanRencana', [SimpulanController::class, 'simpanRencana'])->name('rk-simpan-rencana');
+    Route::prefix('/formRencanaKerja')->group(function () {
+        Route::get('/pendidikan', [PendidikanController::class, 'getAll'])->name('rk-pendidikan');
+        Route::get('/penelitian', [PenelitianController::class, 'getPenelitianPanel'])->name('rk-penelitian');
+        //    Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
+        Route::get('/pengabdian', [PengabdianController::class, 'getPengabdianPanel'])->name('rk-pengabdian');
+        Route::get('/penunjang', [PenunjangController::class, 'getAll'])->name('rk-penunjang');
+        Route::get('/simpulan', [SimpulanController::class, 'getAll'])->name('rk-simpulan');
+        Route::post('/simpanRencana', [SimpulanController::class, 'simpanRencana'])->name('rk-simpan-rencana');
 
-       // Kelompok rute untuk form penelitian
-       Route::prefix('/penelitian')->group(function () {
+        // Kelompok rute untuk form penelitian
+        Route::prefix('/penelitian')->group(function () {
             // Rute untuk data tabel a. penelitian kelompok
             Route::get('/penelitian_kelompok', [PenelitianController::class, 'getPenelitianKelompok'])->name('rk-penelitian.penelitian_kelompok');
             Route::post('/penelitian_kelompok-tambah', [PenelitianController::class, 'postPenelitianKelompok'])->name('rk-penelitian.penelitian_kelompok.create');
@@ -87,16 +87,16 @@ Route::group(['middleware' => ['check.token']], function() {
             Route::post('/edit/buku_internasional', [PenelitianController::class, 'editBukuInternasional'])->name('rk-penelitian.buku_internasional.update');
 
             // Rute untuk data tabel e. penelitian Tridharma
-            Route::get('/penelitian_tridharma', [PenelitianController::class,'getPenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma');
-            Route::post('/penelitian_tridharma', [PenelitianController::class,'postPenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma.create');
-            Route::delete('/penelitian_tridharma/{id}', [PenelitianController::class,'deletePenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma.destroy');
-            Route::post('/edit/penelitian_tridharma', [PenelitianController::class,'editPenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma.update');
+            Route::get('/penelitian_tridharma', [PenelitianController::class, 'getPenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma');
+            Route::post('/penelitian_tridharma', [PenelitianController::class, 'postPenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma.create');
+            Route::delete('/penelitian_tridharma/{id}', [PenelitianController::class, 'deletePenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma.destroy');
+            Route::post('/edit/penelitian_tridharma', [PenelitianController::class, 'editPenelitianTridharma'])->name('rk-penelitian.penelitian_tridharma.update');
 
             // Rute untuk data tabel f. menulis Jurnal Ilmiah
-            Route::get('/jurnal_ilmiah', [PenelitianController::class,'getJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah');
-            Route::post('/jurnal_ilmiah', [PenelitianController::class,'postJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah.create');
-            Route::delete('/jurnal_ilmiah/{id}', [PenelitianController::class,'deleteJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah.destroy');
-            Route::post('/edit/jurnal_ilmiah', [PenelitianController::class,'editJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah.update');
+            Route::get('/jurnal_ilmiah', [PenelitianController::class, 'getJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah');
+            Route::post('/jurnal_ilmiah', [PenelitianController::class, 'postJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah.create');
+            Route::delete('/jurnal_ilmiah/{id}', [PenelitianController::class, 'deleteJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah.destroy');
+            Route::post('/edit/jurnal_ilmiah', [PenelitianController::class, 'editJurnalIlmiah'])->name('rk-penelitian.jurnal_ilmiah.update');
 
             // Rute untuk data tabel g. menyadur naskah buku
             Route::get('/menyadur', [PenelitianController::class, 'getMenyadur'])->name('rk-penelitian.menyadur');
@@ -145,12 +145,12 @@ Route::group(['middleware' => ['check.token']], function() {
             Route::post('/penyajian_makalah-tambah', [PenelitianController::class, 'postPenyajianMakalah'])->name('rk-penelitian.penyajian_makalah.create');
             Route::delete('/penyajian_makalah/{id}', [PenelitianController::class, 'deletePenyajianMakalah'])->name('rk-penelitian.penyajian_makalah.destroy');
             Route::post('/edit/penyajian_makalah', [PenelitianController::class, 'editPenyajianMakalah'])->name('rk-penelitian.penyajian_makalah.update');
-       });
+        });
 
-       // Kelompok rute untuk bagian pengabdian
+        // Kelompok rute untuk bagian pengabdian
         Route::prefix('/pengabdian')->group(function () {
             // Rute untuk data tabel a. kegiatan
-            Route::get('/kegiatan',[PengabdianController::class, 'getKegiatan'] )->name('rk-pengabdian.kegiatan');
+            Route::get('/kegiatan', [PengabdianController::class, 'getKegiatan'])->name('rk-pengabdian.kegiatan');
             Route::post('/kegiatan-tambah', [PengabdianController::class, 'postKegiatan'])->name('rk-pengabdian.kegiatan.create');
             Route::delete('/kegiatan/{id}', [PengabdianController::class, 'deleteKegiatan'])->name('rk-pengabdian.kegiatan.destroy');
             Route::post('/edit/kegiatan', [PengabdianController::class, 'editKegiatan'])->name('rk-pengabdian.kegiatan.update');
@@ -175,7 +175,7 @@ Route::group(['middleware' => ['check.token']], function() {
             Route::post('/edit/karya', [PengabdianController::class, 'editKarya'])->name('rk-pengabdian.karya.update');
         });
 
-       //START ROUTE PENDIDIKAN
+        //START ROUTE PENDIDIKAN
         Route::prefix('/pendidikan')->group(function () {
 
             // Rute untuk data teori
@@ -313,7 +313,7 @@ Route::group(['middleware' => ['check.token']], function() {
             Route::delete('/reviewer/{id}', [PenunjangController::class, 'deleteReviewer'])->name('rk-penunjang.reviewer.destroy');
         });
         //END OF ROUTE PENUNJANG
-   });
+    });
 
     Route::prefix('/formEvaluasiDiri')->group(function () {
 
@@ -335,7 +335,6 @@ Route::group(['middleware' => ['check.token']], function() {
             Route::get('/', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
             Route::post('upload-lampiran', [EvaluasiDiriController::class, 'postLampiranPengabdian'])->name('ed-add-lampiran-pengabdian');
             Route::post('delete-lampiran-pengabdian', [EvaluasiDiriController::class, 'deleteLampiranPengabdian'])->name('ed-delete-lampiran-pengabdian');
-
         });
 
         Route::prefix('/simpulan')->group(function () {
@@ -345,6 +344,8 @@ Route::group(['middleware' => ['check.token']], function() {
             Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianSimpulanPanel'])->name('ed-simpulan-pengabdian');
             Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangSimpulanPanel'])->name('ed-simpulan-penunjang');
         });
+
+        Route::get('/generate-simpulan-pdf', [EvaluasiDiriController::class, 'generatePdf'])->name('ed-generatePdf');
     });
 
     Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
@@ -359,5 +360,3 @@ Route::group(['middleware' => ['check.token']], function() {
         Route::post('/review-rencana-kerja', [AsesorController::class, 'reviewRencana'])->name('rk-asesor-review-rencana');
     });
 });
-
-

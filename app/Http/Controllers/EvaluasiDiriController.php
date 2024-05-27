@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Utils\Tools;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
@@ -319,6 +319,35 @@ class EvaluasiDiriController extends Controller
             );
         } catch (\Throwable $th) {
             return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    //Download PDF
+    public function generatePdf(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        try {
+            // $dataSks = Http::get(env("API_FRK_SERVICE") . '/simpulan/' . $id_dosen);
+
+            // $totalSksPendidikan = $dataSks["sks_pendidikan"];
+            // $totalSksPenelitian = $dataSks["sks_penelitian"];
+            // $totalSksPengabdian = $dataSks["sks_pengabdian"];
+            // $totalSksPenunjang = $dataSks["sks_penunjang"];
+            // $totalSks = $dataSks["sks_total"];
+
+            $data = [
+                // 'pendidikanSks' => $totalSksPendidikan,
+                // 'penelitianSks' => $totalSksPenelitian,
+                // 'pengabdianSks' => $totalSksPengabdian,
+                // 'penunjangSks' => $totalSksPenunjang,
+                // 'totalSks' => $totalSks,
+            ];
+
+            $pdf = Pdf::loadView('App.Evaluasi.PDFSimpulanFED', $data);
+            return $pdf->download('Simpulan-Evaluasi-Diri.pdf');
+        } catch (\Throwable $th) {
+            return response()->json(['error' => 'Failed to generate PDF'], 500);
         }
     }
 }
