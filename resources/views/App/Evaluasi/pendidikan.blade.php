@@ -1571,7 +1571,7 @@
                                             Lampiran belum diupload.
                                         </div>
                                         @else
-                                        <div class="">
+                                        <div class="badge text-bg-success">
                                             Lampiran sudah diupload.
                                         </div>
                                         @endif
