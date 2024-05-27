@@ -324,7 +324,7 @@ Route::group(['middleware' => ['check.token']], function() {
         Route::prefix('/penelitian')->group(function () {
             Route::get('/', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
             Route::post('upload-lampiran-penelitian', [EvaluasiDiriController::class, 'postLampiran'])->name('ed-add-lampiran-penelitian');
-            Route::post('delete-lampiran-penelitian', [EvaluasiDiriController::class, 'deleteLampiran'])->name('ed-delete-lampiran-penelitian');
+            Route::post('delete-lampiran-penelitian', [EvaluasiDiriController::class, 'deleteLampiranPenelitian'])->name('ed-delete-lampiran-penelitian');
         });
 
         Route::prefix('/penunjang')->group(function () {
@@ -334,6 +334,8 @@ Route::group(['middleware' => ['check.token']], function() {
         Route::prefix('/pengabdian')->group(function () {
             Route::get('/', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
             Route::post('upload-lampiran', [EvaluasiDiriController::class, 'postLampiranPengabdian'])->name('ed-add-lampiran-pengabdian');
+            Route::post('delete-lampiran-pengabdian', [EvaluasiDiriController::class, 'deleteLampiranPengabdian'])->name('ed-delete-lampiran-pengabdian');
+
         });
 
         Route::prefix('/simpulan')->group(function () {
