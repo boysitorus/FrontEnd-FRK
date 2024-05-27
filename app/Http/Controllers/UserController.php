@@ -18,9 +18,27 @@ class UserController extends Controller
     public function userProfile(Request $request)
     {
         $auth = Tools::getAuth($request);
-        return view('App.Profile.profile', ['auth' => $auth,
-        // 'keanggotaan' => json_decode(json_encode($auth->user->jabatan), true)[3]['jabatan']
-        // 'keanggotaan' => "Testing Role"
-    ]);
+
+        $decodeKeanggotaan = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['prodi'];
+
+        $prodiFITE = ['S1 Informatika','S1 Sistem Informasi','S1 Teknik Elektro'];
+        $prodiVokasi = ['DIII Teknologi Informasi','DIII Teknologi Komputer', 'DIV Teknologi Rekayasa Perangkat Lunak'];
+        $prodiBP = ['S1 Teknik Bioproses'];
+        $prodiFTI = ['S1 Manajemen Rekayasa'];
+
+        if (in_array($decodeKeanggotaan, $prodiFITE)) {
+            $fakultas = "Fakultas Informatika dan Teknik Elektro";
+        } else if (in_array($decodeKeanggotaan, $prodiVokasi)) {
+            $fakultas = "Fakultas Vokasi";
+        } else if (in_array($decodeKeanggotaan, $prodiBP)) {
+            $fakultas = "Fakultas Bioteknologi";
+        } else if (in_array($decodeKeanggotaan, $prodiFTI)) {
+            $fakultas = "Fakultas Teknik Industri";
+        }
+
+        $data = [
+            'auth' => $auth, 'keanggotaan' => $fakultas
+        ];
+        return view('App.Profile.profile', $data);
     }
 }

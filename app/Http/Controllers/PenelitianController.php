@@ -13,6 +13,7 @@ class PenelitianController extends Controller
     {
 
         $auth = Tools::getAuth($request);
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FRK")), true)['data'];
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try {
             // Mengambil data a. penelitian kelompok dari Lumen
@@ -89,7 +90,8 @@ class PenelitianController extends Controller
                 'hak_paten'=>$HakPaten,
                 'media_massa'=>$MediaMassa,
                 'auth' => $auth,
-                'id_dosen' => $id_dosen
+                'id_dosen' => $id_dosen,
+                'periode' => $getTanggal
             ];
 
             // Mengirim data ke view

@@ -10,6 +10,22 @@ use Illuminate\Http\Client\RequestException;
 
 class AsesorController extends Controller
 {
+    
+
+    public function getDosen($uid, $token){
+        $requestDataDosen = Http::withToken($token)->asForm()->post(env('API_DATA_DOSEN') . $uid)->body();
+        $jsonDataDosen = json_decode($requestDataDosen, true);
+
+        $data = [
+            "id_dosen" => $uid,
+            "nidn" => $jsonDataDosen['data']['dosen'][0]['nidn'],
+            "nama" => $jsonDataDosen['data']['dosen'][0]['nama'],
+            "prodi" => $jsonDataDosen['data']['dosen'][0]['prodi'],
+        ];
+
+        return $data;
+    }
+
     public function getRencanaKegiatan(Request $request)
     {
         $auth = Tools::getAuth($request);
@@ -25,29 +41,11 @@ class AsesorController extends Controller
                 array_push($data_dosen, $res);
             }
         }
-
-
-
-
         return view('App.Asesor.rekapKegiatan',
         [
             'auth' => $auth,
             'data_dosen' => $data_dosen,
         ]);
-    }
-
-    public function getDosen($uid, $token){
-        $requestDataDosen = Http::withToken($token)->asForm()->post(env('API_DATA_DOSEN') . $uid)->body();
-        $jsonDataDosen = json_decode($requestDataDosen, true);
-
-        $data = [
-            "id_dosen" => $uid,
-            "nidn" => $jsonDataDosen['data']['dosen'][0]['nidn'],
-            "nama" => $jsonDataDosen['data']['dosen'][0]['nama'],
-            "prodi" => $jsonDataDosen['data']['dosen'][0]['prodi'],
-        ];
-
-        return $data;
     }
 
     public function getRencanaKegiatanSetuju(Request $request)
@@ -267,6 +265,7 @@ class AsesorController extends Controller
             return response()->json(['error' => 'Failed to retrieve data from API'], 500);
         }
     }
+
     public function getRencanaPenunjang(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
@@ -366,4 +365,198 @@ class AsesorController extends Controller
             return back()->with('message', 'Gagal approve rencana kerja');
         }
     }
+
+    //EVALUASI DIRI
+    public function getEvaluasiDiri(Request $request)
+    {
+        return view('App.AsesorFED.rekapEvaluasi');
+    }
+
+    public function getEvaluasiDiriSetuju(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        return view('App.AsesorFED.rekapEvaluasiSetuju',
+        [
+            'auth' => $auth
+        ]);
+    }
+
+    public function getEvaluasiPendidikan(Request $request, $id)
+    {
+        $auth = Tools::getAuth($request);
+        $token = json_decode(json_encode($auth->user),true)['token'];
+        $dataDosen = $auth->user->data_lengkap->dosen;
+        // dd($dataDosen);
+        // try {
+            // Mengambil data teori dari Lumen
+            $responseTeori = Http::get(env('API_FRK_SERVICE') . '/pendidikan/teori/' . $id);
+            $teori = $responseTeori->json();
+
+            $responsePraktikum = Http::get(env('API_FRK_SERVICE') . '/pendidikan/praktikum/' . $id);
+            $praktikum = $responsePraktikum->json();
+
+            // Mengambil data bimbingan dari Lumen
+            $responseBimbingan = Http::get(env('API_FRK_SERVICE') . '/pendidikan/bimbingan/' . $id);
+            $bimbingan = $responseBimbingan->json();
+
+            //Mengambil data seminar dari Lumen
+            $responseSeminar = Http::get(env('API_FRK_SERVICE') . '/pendidikan/seminar/' . $id);
+            $seminar = $responseSeminar->json();
+
+            //Mengambil data rendah dari Lumen
+            $responseRendah = Http::get(env('API_FRK_SERVICE') . '/pendidikan/rendah/' . $id);
+            $rendah = $responseRendah->json();
+
+            //Mengambil data kembang dari Lumen
+            $responseKembang = Http::get(env('API_FRK_SERVICE') . '/pendidikan/kembang/' . $id);
+            $kembang = $responseKembang->json();
+
+            $responseTugasAkhir = Http::get(env('API_FRK_SERVICE') . '/pendidikan/tugasAkhir/' . $id);
+            $tugasAkhir = $responseTugasAkhir->json();
+
+            //Mengambil data cangkok dari Lumen
+            $responseCangkok = Http::get(env('API_FRK_SERVICE') . '/pendidikan/cangkok/' . $id);
+            $cangkok = $responseCangkok->json();
+
+            //Mengambil data koordinator dari Lumen
+            $responseKoordinator = Http::get(env('API_FRK_SERVICE') . '/pendidikan/koordinator/' . $id);
+            $koordinator = $responseKoordinator->json();
+
+            $responseProposal = Http::get(env('API_FRK_SERVICE') . '/pendidikan/proposal/' . $id);
+            $proposal = $responseProposal->json();
+
+
+            // Menggabungkan data teori dan bimbingan
+            $data = [
+                'id' => $id,
+                'teori' => $teori,
+                'bimbingan' => $bimbingan,
+                'seminar' => $seminar,
+                'praktikum' => $praktikum,
+                'rendah' => $rendah,
+                'kembang' => $kembang,
+                'tugasAkhir' => $tugasAkhir,
+                'cangkok' => $cangkok,
+                'koordinator' => $koordinator,
+                'proposal' => $proposal,
+                'auth' => $auth,
+                'dataDosen' => json_decode(json_encode($dataDosen), true)    
+            ];
+
+            //Mengirim data ke view
+            return view('App.AsesorFED.pendidikanAsesorFED', $data);
+    }
+
+    public function getEvaluasiPenelitian(Request $request, $id)
+    {
+        $auth = Tools::getAuth($request);
+        $token = json_decode(json_encode($auth->user),true)['token'];
+        $dataDosen = $auth->user->data_lengkap->dosen;
+        try {
+            // Mengambil data a. penelitian kelompok dari Lumen
+            $responsePenelitianKelompok = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok/' . $id);
+            $PenelitianKelompok = $responsePenelitianKelompok->json();
+
+            // Mengambil data b. penelitian mandiri dari Lumen
+            $responsePenelitianMandiri = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_mandiri/' . $id);
+            $PenelitianMandiri = $responsePenelitianMandiri->json();
+
+            // Mengambil data c. buku terbit dari Lumen
+            $responseBukuTerbit = Http::get(env('API_FRK_SERVICE') . '/penelitian/buku_terbit/' . $id);
+            $BukuTerbit = $responseBukuTerbit->json();
+
+            //Mengambil data d. buku internasional dari Lumen
+            $responseBukuInternasional = Http::get(env('API_FRK_SERVICE') . '/penelitian/buku_internasional/' . $id);
+            $BukuInternasional = $responseBukuInternasional->json();
+
+            //Mengambil data e. menydur dari Lumen
+            $responseMenyadur = Http::get(env('API_FRK_SERVICE') . '/penelitian/menyadur/' . $id);
+            $Menyadur = $responseMenyadur->json();
+
+            //Mengambil data f. menyunting dari Lumen
+            $responseMenyunting = Http::get(env('API_FRK_SERVICE') . '/penelitian/menyunting/' . $id);
+            $Menyunting = $responseMenyunting->json();
+
+            //Mengambil data g. penelitian dari Lumen
+            $responsePenelitianModul = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_modul/' . $id);
+            $PenelitianModul = $responsePenelitianModul->json();
+
+            //Mengambil data h. pekerti dari Lumen
+            $responsePenelitianPekerti = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_pekerti/' . $id);
+            $PenelitianPekerti = $responsePenelitianPekerti->json();
+
+            //Mengambil data i. tridharma dari Lumen
+            $responsePenelitianTridharma = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_tridharma/' . $id);
+            $PenelitianTridharma = $responsePenelitianTridharma->json();
+
+            //Mengambil data j. jurnal ilmiah dari Lumen
+            $responseJurnalIlmiah = Http::get(env('API_FRK_SERVICE') . '/penelitian/jurnal_ilmiah/' . $id);
+            $JurnalIlmiah = $responseJurnalIlmiah->json();
+
+            //Mengambil data k. hak paten dari Lumen
+            $responseHakPaten = Http::get(env('API_FRK_SERVICE') . '/penelitian/hak_paten/' . $id);
+            $HakPaten = $responseHakPaten->json();
+
+            //Mengambil data l. media massa dari Lumen
+            $responseMediaMassa = Http::get(env('API_FRK_SERVICE') . '/penelitian/media_massa/' . $id);
+            $MediaMassa = $responseMediaMassa->json();
+
+            //Mengambil data m. pembicara seminar dari Lumen
+            $responsePembicaraSeminar = Http::get(env('API_FRK_SERVICE') . '/penelitian/pembicara_seminar/' . $id);
+            $PembicaraSeminar = $responsePembicaraSeminar->json();
+
+            //Mengambil data n. penyajian makalah  dari Lumen
+            $responsePenyajianMakalah = Http::get(env('API_FRK_SERVICE') . '/penelitian/penyajian_makalah/' . $id);
+            $PenyajianMakalah = $responsePenyajianMakalah->json();
+
+
+            // Menggabungkan data
+            $data = [
+                'penelitian_kelompok' => $PenelitianKelompok,
+                'penelitian_mandiri' => $PenelitianMandiri,
+                'buku_terbit' => $BukuTerbit,
+                'buku_internasional' => $BukuInternasional,
+                'menyadur'=>$Menyadur,
+                'menyunting'=>$Menyunting,
+                'penelitian_modul' => $PenelitianModul,
+                'penelitian_pekerti' => $PenelitianPekerti,
+                'penelitian_tridharma' => $PenelitianTridharma,
+                'jurnal_ilmiah' => $JurnalIlmiah,
+                'pembicara_seminar'=>$PembicaraSeminar,
+                'penyajian_makalah'=>$PenyajianMakalah,
+                'hak_paten'=>$HakPaten,
+                'media_massa'=>$MediaMassa,
+                'auth' => $auth,
+                'id' => $id,
+                'dataDosen' => json_decode(json_encode($dataDosen), true)
+            ];
+
+            // Mengirim data ke view
+            return view('App.AsesorFED.penelitianAsesorFED', $data);
+        // return view('App.AsesorFED.penelitianAsesorFED');
+        } catch (\Throwable $th) {
+        //     // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function getEvaluasiPengabdian(Request $request, $id)
+    {
+        return view('App.AsesorFED.pengabdianAsesor');
+    }
+
+    public function getEvaluasiPenunjang(Request $request, $id)
+    {
+        return view('App.AsesorFED.penunjangAsesor');
+    }
+
+    public function reviewEvaluasi(Request $request){
+    }
+
+    public function simpulanAsesor()
+    {
+        return view('App.AsesorFED.simpulanAsesorFED');
+    }
+
 }
