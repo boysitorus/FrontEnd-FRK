@@ -12,6 +12,7 @@ use App\Http\Controllers\PengabdianController;
 use App\Http\Controllers\EvaluasiDiriController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AsesorController;
+use App\Http\Controllers\AsesorEvaluasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -359,5 +360,15 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::get('/Rekap-Kegiatan-Asesor-pengabdian/{id}', [AsesorController::class, 'getRencanaPengabdian'])->name('rk-asesor-detail-pengabdian');
         Route::get('/Rekap-Kegiatan-Asesor-penunjang/{id}', [AsesorController::class, 'getRencanaPenunjang'])->name('rk-asesor-detail-penunjang');
         Route::post('/review-rencana-kerja', [AsesorController::class, 'reviewRencana'])->name('rk-asesor-review-rencana');
+    });
+
+    Route::prefix('/Asesor/Evaluasi')->group(function () {
+        Route::get('/Rekap-Kegiatan', [AsesorEvaluasiController::class, 'getRencanaKegiatan'])->name('ed-asesor');
+        Route::get('/Rekap-Kegiatan-Setuju', [AsesorEvaluasiController::class, 'getRencanaKegiatanSetuju'])->name('ed-asesor-setuju');
+        Route::get('/Rekap-Kegiatan-Asesor-pendidikan/{id}', [AsesorEvaluasiController::class, 'getRencanaPendidikan'])->name('ed-asesor-detail-pendidikan');
+        Route::get('/Rekap-Kegiatan-Asesor-penelitian/{id}', [AsesorEvaluasiController::class, 'getRencanaPenelitian'])->name('ed-asesor-detail-penelitian');
+        Route::get('/Rekap-Kegiatan-Asesor-pengabdian/{id}', [AsesorEvaluasiController::class, 'getRencanaPengabdian'])->name('ed-asesor-detail-pengabdian');
+        Route::get('/Rekap-Kegiatan-Asesor-penunjang/{id}', [AsesorEvaluasiController::class, 'getRencanaPenunjang'])->name('ed-asesor-detail-penunjang');
+        Route::post('/review-rencana-kerja', [AsesorEvaluasiController::class, 'reviewRencana'])->name('ed-asesor-review-rencana');
     });
 });

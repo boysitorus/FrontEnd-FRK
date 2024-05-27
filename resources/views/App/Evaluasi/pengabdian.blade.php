@@ -5,7 +5,7 @@
     {{-- TAMPILAN BAGIAN EVALUASI PENGABDIAN --}}
 
     {{-- BAGIAN A --}}
-    
+
     <div id="pengabdian-A" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
             <h6><b>A. Satu kegiatan yang setara dengan 50 jam kerja</b></h6>
@@ -16,7 +16,7 @@
                     style="border: 2px;">
                     <thead>
                         <tr>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">Durasi Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
@@ -35,7 +35,7 @@
                             @endphp
                             @foreach ($kegiatan as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter }}</td>
+                                    <td scope="row">{{ $counter++ }}</td>
                                     <td>
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
@@ -103,7 +103,7 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                    <div 
+                                                                    <div
                                                                         id="selectedFilesPengabdianA-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
@@ -236,7 +236,7 @@
                             @endphp
                             @foreach ($penyuluhan as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter }}</td>
+                                    <td scope="row">{{ $counter++ }}</td>
                                     <td>
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
@@ -439,7 +439,7 @@
                             @endphp
                             @foreach ($konsultan as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter }}</td>
+                                    <td scope="row">{{ $counter++ }}</td>
                                     <td>
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
@@ -614,7 +614,7 @@
             <hr />
 
             <div class="text-sm">
-                <table id="tablePengabdian-D" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle" 
+                <table id="tablePengabdian-D" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                 style="border: 2px;">
                 <thead>
                     <tr>
@@ -641,7 +641,7 @@
                         @endphp
                         @foreach ($karya as $item)
                             <tr>
-                                <td scope="row">{{ $counter }}</td>
+                                <td scope="row">{{ $counter++ }}</td>
                                 <td>
                                     <div>
                                         {{ $item['nama_kegiatan'] }}
@@ -801,7 +801,7 @@
                                 </script>
 
                         @endforeach
-                    @endif          
+                    @endif
                     </tr>
                 </tbody>
             </table>
@@ -863,7 +863,7 @@
             </div>
         </div>
     </div>
-    
+
     {{-- MODAL BATAL UPLOAD --}}
     <div class="modal fade" id="modalBatal" tabindex="-1" aria-labelledby="modalBatal_label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">

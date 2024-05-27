@@ -175,7 +175,7 @@
                                         <div class="collapse" id="asesor-fed-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="{{ route('ed-asesor') }}"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple margin"
                                                         style="margin-bottom:0.1px">
                                                         Rekap Kegiatan
