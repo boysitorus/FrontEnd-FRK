@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class = "mt-5 flex-wrap ml-4 mr-4 pb-3">
+    <div class = "mt-5 flex-wrap ml-4 mr-4 pb-3" style="height: 100vh">
         <div class = "row">
             <div class = "col">
                 <h3 class = "font-weight-bold">Rekap Kegiatan</h3>
