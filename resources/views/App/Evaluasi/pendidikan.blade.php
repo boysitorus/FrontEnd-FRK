@@ -40,13 +40,13 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
+                                        @if (is_null($item['lampiran']))
                                             <div class="badge text-bg-warning">
-                                                Lampiran belum diupload.
+                                                Lampiran belum diupload
                                             </div>
-                                            @else
+                                        @else
                                             <div class="badge text-bg-success">
-                                                Lampiran sudah diupload.
+                                                Lampiran sudah diupload
                                             </div>
                                         @endif
                                     </td>
@@ -58,24 +58,27 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE A --}}
-                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
-                                    aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanALabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype = "multipart/form-data">
-                                            @csrf
-                                            @method('POST')
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST"
+                                                enctype = "multipart/form-data">
+                                                @csrf
+                                                @method('POST')
                                                 <div class="modal-header">
-                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanALabel">
+                                                        {{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
                                                     <input type="hidden" name="id_rencana"
                                                         value="{{ $item['id_rencana'] }}">
-                                                    <input type="hidden" name="jenis_pendidikan"
-                                                        value="Teori" />
+                                                    <input type="hidden" name="jenis_pendidikan" value="Teori" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -83,19 +86,26 @@
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                                 <ol>
-                                                                    <li>Surat Tugas atau Surat Keputusan Mengajar dari Pimpinan</li>
-                                                                    <li>BAP/Berita Acara Perkuliahan (presensi/jurnal kehadiran dosen)</li>
+                                                                    <li>Surat Tugas atau Surat Keputusan Mengajar dari
+                                                                        Pimpinan</li>
+                                                                    <li>BAP/Berita Acara Perkuliahan (presensi/jurnal
+                                                                        kehadiran dosen)</li>
                                                                     <li>Presensi Mahasiswa</li>
                                                                     <li>Daftar Nilai UAS Mahasiswa</li>
                                                                     <li>Daftar Nilai Akhir Mahasiswa</li>
                                                                 </ol>
                                                                 <!-- File input -->
-                                                                <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
-                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <button type="button"
+                                                                    id="addFilesBtn-{{ $item['id_rencana'] }}"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}">
+                                                                    </div>
 
                                                                     <div id="existsFiles">
                                                                         @if (!is_null($item['lampiran']))
@@ -151,13 +161,16 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                                <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                <input type="file" name="fileInput[]"
+                                                                    id="fileInput-{{ $item['id_rencana'] }}"
+                                                                    style="display: none;" multiple>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
                                                     <button class="btn btn-primary" type="submit">Upload Lampiran</button>
                                                 </div>
                                             </form>
@@ -189,7 +202,8 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelas</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Praktikum (1 SKS = 2 jam)</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Praktikum (1 SKS = 2
+                                jam)</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -205,66 +219,76 @@
                                 $counter = 1;
                             @endphp
                             @foreach ($praktikum as $item)
-                            <tr>
-                                <td scope="row">{{ $counter }}</td>
-                                <td>
-                                    <div>
-                                        {{ $item['nama_kegiatan'] }}
-                                    </div>
-                                    @if (is_null($item['lampiran']) )
-                                        <div class="badge text-bg-warning">
-                                            Lampiran belum diupload.
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
                                         </div>
+                                        @if (is_null($item['lampiran']))
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload
+                                            </div>
                                         @else
-                                        <div class="badge text-bg-success">
-                                            Lampiran sudah diupload.
-                                        </div>
-                                    @endif
-                                </td>
-                                <td>{{ $item['jumlah_kelas'] }}</td>
-                                <td>{{ $item['sks_matakuliah'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
-                                </td>
-                            </tr>
-                            {{-- TEMPAT MODAL ADD FILE B --}}
-                            <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
-                                aria-labelledby="modalEditEvaluasiPendidikanBLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype = "multipart/form-data">
-                                            @csrf
-                                            @method('POST')
+                                            <div class="badge text-bg-success">
+                                                Lampiran sudah diupload
+                                            </div>
+                                        @endif
+                                    </td>
+                                    <td>{{ $item['jumlah_kelas'] }}</td>
+                                    <td>{{ $item['sks_matakuliah'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
+                                    </td>
+                                </tr>
+                                {{-- TEMPAT MODAL ADD FILE B --}}
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanBLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST"
+                                                enctype = "multipart/form-data">
+                                                @csrf
+                                                @method('POST')
                                                 <div class="modal-header">
-                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanBLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanBLabel">
+                                                        {{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
                                                     <input type="hidden" name="id_rencana"
                                                         value="{{ $item['id_rencana'] }}">
-                                                    <input type="hidden" name="jenis_pendidikan"
-                                                        value="Praktikum" />
+                                                    <input type="hidden" name="jenis_pendidikan" value="Praktikum" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                                        <ol>
-                                                            <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
-                                                            <li>Berita Acara Praktikum atau Asistensi</li>
-                                                            <li>Presensi Mahasiswa</li>
-                                                            <li>Daftar Nilai tugas</li>
-                                                        </ol>
-                                                        <!-- File input -->
-                                                        <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
-                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <ol>
+                                                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                        Pimpinan</li>
+                                                                    <li>Berita Acara Praktikum atau Asistensi</li>
+                                                                    <li>Presensi Mahasiswa</li>
+                                                                    <li>Daftar Nilai tugas</li>
+                                                                </ol>
+                                                                <!-- File input -->
+                                                                <button type="button"
+                                                                    id="addFilesBtn-{{ $item['id_rencana'] }}"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}">
+                                                                    </div>
 
                                                                     <div id="existsFiles">
                                                                         @if (!is_null($item['lampiran']))
@@ -320,20 +344,24 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                                <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                <input type="file" name="fileInput[]"
+                                                                    id="fileInput-{{ $item['id_rencana'] }}"
+                                                                    style="display: none;" multiple>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <button class="btn btn-primary" type="submit">Upload Lampiran</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Upload
+                                                        Lampiran</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-                            {{-- AKHIR MODAL ADD FILE B --}}
+                                {{-- AKHIR MODAL ADD FILE B --}}
                             @endforeach
                         @endif
                     </tbody>
@@ -349,7 +377,7 @@
             <h6><b>C. Bimbingan kuliah kerja yang terprogram terhadap setiap kelompok, Pembimbingan Praktek Klinik/Lapangan,
                     dan DPL (Dosen Pembimbing lapangan)</b></h6>
             <hr />
-            
+
             <div class="text-sm">
                 <table id="tableEvaluasiPendidikan-C"
                     class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
@@ -358,7 +386,8 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan
+                            </th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -373,7 +402,7 @@
                             @php
                                 $counter = 1;
                             @endphp
-                    
+
                             @foreach ($bimbingan as $item)
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
@@ -381,14 +410,14 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
-                                        <div class="badge text-bg-warning">
-                                            Lampiran belum diupload.
-                                        </div>
+                                        @if (is_null($item['lampiran']))
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload
+                                            </div>
                                         @else
-                                        <div class="badge text-bg-warning">
-                                            Lampiran sudah diupload.
-                                        </div>
+                                            <div class="badge text-bg-warning">
+                                                Lampiran sudah diupload
+                                            </div>
                                         @endif
                                     </td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
@@ -397,24 +426,28 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE C --}}
-                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
-                                    aria-labelledby="modalEditEvaluasiPendidikanCLabel" aria-hidden="true">
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanCLabel"
+                                    aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
-                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanCLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanCLabel">
+                                                        {{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
                                                     <input type="hidden" name="id_rencana"
                                                         value="{{ $item['id_rencana'] }}">
-                                                    <input type="hidden" name="jenis_pendidikan"
-                                                        value="Bimbingan" />
+                                                    <input type="hidden" name="jenis_pendidikan" value="Bimbingan" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -422,7 +455,8 @@
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                                 <ol>
-                                                                    <li>Surat Tugas atau Surat Keputusan Mengajar dari Pimpinan</li>
+                                                                    <li>Surat Tugas atau Surat Keputusan Mengajar dari
+                                                                        Pimpinan</li>
                                                                     <li>Presensi Mahasiswa</li>
                                                                     <li>Berita Acara bimbingan</li>
                                                                     <li>Daftar Nilai tugas atau laporan hasil praktek</li>
@@ -431,12 +465,17 @@
                                                                     <li>Daftar nilai atau laporan KKN</li>
                                                                 </ol>
                                                                 <!-- File input -->
-                                                                <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
-                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <button type="button"
+                                                                    id="addFilesBtn-{{ $item['id_rencana'] }}"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3">
-                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}">
+                                                                    </div>
 
                                                                     <div id="existsFiles">
                                                                         @if (!is_null($item['lampiran']))
@@ -492,14 +531,18 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                                <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                <input type="file" name="fileInput[]"
+                                                                    id="fileInput-{{ $item['id_rencana'] }}"
+                                                                    style="display: none;" multiple>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <button class="btn btn-primary" type="submit">Upload Lampiran</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Upload
+                                                        Lampiran</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -508,7 +551,7 @@
                                 {{-- AKHIR MODAL ADD FILE C --}}
                             @endforeach
                         @endif
-                    </tbody>                    
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -551,14 +594,14 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
-                                        <div class="badge text-bg-warning">
-                                            Lampiran belum diupload.
-                                        </div>
+                                        @if (is_null($item['lampiran']))
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload
+                                            </div>
                                         @else
-                                        <div class="badge text-bg-success">
-                                            Lampiran sudah diupload.
-                                        </div>
+                                            <div class="badge text-bg-success">
+                                                Lampiran sudah diupload
+                                            </div>
                                         @endif
                                     </td>
                                     <td>{{ $item['jumlah_kelompok'] }}</td>
@@ -567,24 +610,28 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE D --}}
-                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
-                                    aria-labelledby="modalEditEvaluasiPendidikanDLabel" aria-hidden="true">
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanDLabel"
+                                    aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
-                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanDLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanDLabel">
+                                                        {{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
                                                     <input type="hidden" name="id_rencana"
                                                         value="{{ $item['id_rencana'] }}">
-                                                    <input type="hidden" name="jenis_pendidikan"
-                                                        value="Seminar" />
+                                                    <input type="hidden" name="jenis_pendidikan" value="Seminar" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -592,19 +639,25 @@
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                                 <ol>
-                                                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                        Pimpinan</li>
                                                                     <li>Membimbing Seminar dan Pimpinan</li>
                                                                     <li>Presensi Mahasiswa</li>
                                                                     <li>Berita acara bimbingan</li>
                                                                     <li>Daftar Nilai Akhir</li>
                                                                 </ol>
                                                                 <!-- File input -->
-                                                                <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
-                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <button type="button"
+                                                                    id="addFilesBtn-{{ $item['id_rencana'] }}"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3">
-                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}">
+                                                                    </div>
 
                                                                     <div id="existsFiles">
                                                                         @if (!is_null($item['lampiran']))
@@ -660,14 +713,18 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                                <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                <input type="file" name="fileInput[]"
+                                                                    id="fileInput-{{ $item['id_rencana'] }}"
+                                                                    style="display: none;" multiple>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <button class="btn btn-primary" type="submit">Upload Lampiran</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Upload
+                                                        Lampiran</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -720,14 +777,14 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
-                                        <div class="badge text-bg-warning">
-                                            Lampiran belum diupload.
-                                        </div>
+                                        @if (is_null($item['lampiran']))
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload
+                                            </div>
                                         @else
-                                        <div class="badge text-bg-success">
-                                            Lampiran sudah diupload.
-                                        </div>
+                                            <div class="badge text-bg-success">
+                                                Lampiran sudah diupload
+                                            </div>
                                         @endif
                                     </td>
                                     <td>{{ $item['jumlah_kelompok'] }}</td>
@@ -736,24 +793,28 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE E --}}
-                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
-                                    aria-labelledby="modalEditEvaluasiPendidikanCLabel" aria-hidden="true">
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanCLabel"
+                                    aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="modal-header">
-                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanCLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanCLabel">
+                                                        {{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
                                                     <input type="hidden" name="id_rencana"
                                                         value="{{ $item['id_rencana'] }}">
-                                                    <input type="hidden" name="jenis_pendidikan"
-                                                        value="TugasAkhir" />
+                                                    <input type="hidden" name="jenis_pendidikan" value="TugasAkhir" />
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
@@ -761,19 +822,25 @@
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                                 <ol>
-                                                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
+                                                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                        Pimpinan</li>
                                                                     <li>Presensi Mahasiswa</li>
                                                                     <li>Bukti pembimbingan</li>
                                                                     <li>Berita acara ujian skripsi</li>
                                                                     <li>Daftar Nilai</li>
                                                                 </ol>
                                                                 <!-- File input -->
-                                                                <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
-                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <button type="button"
+                                                                    id="addFilesBtn-{{ $item['id_rencana'] }}"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3">
-                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}">
+                                                                    </div>
 
                                                                     <div id="existsFiles">
                                                                         @if (!is_null($item['lampiran']))
@@ -829,14 +896,18 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                                <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
+                                                                <input type="file" name="fileInput[]"
+                                                                    id="fileInput-{{ $item['id_rencana'] }}"
+                                                                    style="display: none;" multiple>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <button class="btn btn-primary" type="submit">Upload Lampiran</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Upload
+                                                        Lampiran</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -866,7 +937,8 @@
                         <tr>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
-                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Dibimbing</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Dibimbing
+                            </th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" colspan="2 " class="allign-middle fw-bold col-2">Status</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
@@ -888,14 +960,14 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
-                                        <div class="badge text-bg-warning">
-                                            Lampiran belum diupload.
-                                        </div>
+                                        @if (is_null($item['lampiran']))
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload
+                                            </div>
                                         @else
-                                        <div class="badge text-bg-success">
-                                            Lampiran sudah diupload.
-                                        </div>
+                                            <div class="badge text-bg-success">
+                                                Lampiran sudah diupload
+                                            </div>
                                         @endif
                                     </td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
@@ -904,109 +976,123 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE F --}}
-                                    <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
-                                    aria-labelledby="modalEditEvaluasiPendidikanFLabel" aria-hidden="true">
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanFLabel"
+                                    aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 @method('POST')
-                                            <div class="modal-header">
-                                                <h6 class="modal-title" id="modalEditEvaluasiPendidikanFLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <input type="hidden" name="id_rencana"
-                                                value="{{ $item['id_rencana'] }}">
-                                            <input type="hidden" name="jenis_pendidikan"
-                                                value="Proposal" />
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                                            <ol>
-                                                                <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
-                                                                <li>Presensi Mahasiswa</li>
-                                                                <li>Bukti pembimbingan</li>
-                                                                <li>Berita acara ujian skripsi</li>
-                                                                <li>Daftar Nilai</li>
-                                                            </ol>
-                                                            <!-- File input -->
-                                                            <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
-                                                            <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                                            <!-- tambahkan jarak bawah -->
-                                                            <div class="mt-3 mb-3">
-                                                                <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanFLabel">
+                                                        {{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_pendidikan" value="Proposal" />
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                <ol>
+                                                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                        Pimpinan</li>
+                                                                    <li>Presensi Mahasiswa</li>
+                                                                    <li>Bukti pembimbingan</li>
+                                                                    <li>Berita acara ujian skripsi</li>
+                                                                    <li>Daftar Nilai</li>
+                                                                </ol>
+                                                                <!-- File input -->
+                                                                <button type="button"
+                                                                    id="addFilesBtn-{{ $item['id_rencana'] }}"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
+                                                                <!-- tambahkan jarak bawah -->
+                                                                <div class="mt-3 mb-3">
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}">
+                                                                    </div>
 
-                                                                <div id="existsFiles">
-                                                                    @if (!is_null($item['lampiran']))
-                                                                        @php
-                                                                            $iteration = 1;
-                                                                        @endphp
-                                                                        @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                    <div id="existsFiles">
+                                                                        @if (!is_null($item['lampiran']))
                                                                             @php
-                                                                                $checkExtension = pathinfo(
-                                                                                    $lampiran,
-                                                                                    PATHINFO_EXTENSION,
-                                                                                );
-
-                                                                                $extension = '';
-
-                                                                                // Determine the icon filename based on the extension
-                                                                                switch ($checkExtension) {
-                                                                                    case 'pdf':
-                                                                                        $extension = 'pdf.png';
-                                                                                        break;
-                                                                                    case 'doc':
-                                                                                    case 'docx':
-                                                                                        $extension = 'word.png';
-                                                                                        break;
-                                                                                    case 'xls':
-                                                                                    case 'xlsx':
-                                                                                        $extension = 'sheets.png';
-                                                                                        break;
-                                                                                    case 'png':
-                                                                                    case 'PNG':
-                                                                                    case 'jpg':
-                                                                                    case 'jpeg':
-                                                                                        $extension = 'photo.png';
-                                                                                        break;
-                                                                                    default:
-                                                                                        $extension = 'document.png';
-                                                                                }
+                                                                                $iteration = 1;
                                                                             @endphp
-                                                                            <div
-                                                                                class="file-item d-flex align-items-center mb-2 border rounded p-3">
-                                                                                <img src="{{ '/assets/img/' . $extension }}"
-                                                                                    alt="File Icon" width="30" />
-                                                                                <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
-                                                                                    class="ms-2">{{ $lampiran }}</a>
-                                                                                <div style="margin-left: auto;">
-                                                                                    <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
-                                                                                        class="btn btn-danger btn-sm btn-circle ms-2">
-                                                                                        <i class="bi bi-x"></i>
-                                                                                    </a>
+                                                                            @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                                @php
+                                                                                    $checkExtension = pathinfo(
+                                                                                        $lampiran,
+                                                                                        PATHINFO_EXTENSION,
+                                                                                    );
+
+                                                                                    $extension = '';
+
+                                                                                    // Determine the icon filename based on the extension
+                                                                                    switch ($checkExtension) {
+                                                                                        case 'pdf':
+                                                                                            $extension = 'pdf.png';
+                                                                                            break;
+                                                                                        case 'doc':
+                                                                                        case 'docx':
+                                                                                            $extension = 'word.png';
+                                                                                            break;
+                                                                                        case 'xls':
+                                                                                        case 'xlsx':
+                                                                                            $extension = 'sheets.png';
+                                                                                            break;
+                                                                                        case 'png':
+                                                                                        case 'PNG':
+                                                                                        case 'jpg':
+                                                                                        case 'jpeg':
+                                                                                            $extension = 'photo.png';
+                                                                                            break;
+                                                                                        default:
+                                                                                            $extension = 'document.png';
+                                                                                    }
+                                                                                @endphp
+                                                                                <div
+                                                                                    class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                    <img src="{{ '/assets/img/' . $extension }}"
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                        class="ms-2">{{ $lampiran }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                            <i class="bi bi-x"></i>
+                                                                                        </a>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        @endforeach
-                                                                    @endif
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
+                                                                <input type="file" name="fileInput[]"
+                                                                    id="fileInput-{{ $item['id_rencana'] }}"
+                                                                    style="display: none;" multiple>
                                                             </div>
-                                                            <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <button class="btn btn-primary" type="submit">Upload Lampiran</button>
-                                            </div>
-                                        </form>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Upload
+                                                        Lampiran</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -1020,7 +1106,7 @@
     </div>
     {{-- AKHIR BAGIAN F --}}
 
-    
+
 
     {{-- BAGIAN G --}}
     <div id="ed-pendidikan-G" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -1034,7 +1120,7 @@
                     style="border: 2px;">
                     <thead>
                         <tr>
-                        <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Dosen Bimbingan</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
@@ -1047,142 +1133,156 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @if (isset($rendah) && sizeof($rendah) > 0)
-                        @php
-                            $counter = 1;
-                        @endphp
-                        @foreach ($rendah as $item)
-                            <tr>
-                                <td scope="row">{{ $counter }}</td>
-                                <td>
-                                    <div>
-                                        {{ $item['nama_kegiatan'] }}
-                                    </div>
-                                    @if (is_null($item['lampiran']) )
-                                    <div class="badge text-bg-warning">
-                                        Lampiran belum diupload.
-                                    </div>
-                                    @else
-                                    <div class="badge text-bg-success">
-                                        Lampiran sudah diupload.
-                                    </div>
-                                    @endif
-                                </td>
-                                <td>{{ $item['jumlah_dosen'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
-                                </td>
-                            </tr>
-                            {{-- TEMPAT MODAL ADD FILE G --}}
-                            <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
-                                aria-labelledby="modalEditEvaluasiPendidikanGLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                    <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            @method('POST')
-                                        <div class="modal-header">
-                                            <h6 class="modal-title" id="modalEditEvaluasiPendidikanGLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            <input type="hidden" name="id_rencana"
-                                                value="{{ $item['id_rencana'] }}">
-                                            <input type="hidden" name="jenis_pendidikan"
-                                                value="Rendah" />
+                        @if (isset($rendah) && sizeof($rendah) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($rendah as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        <div class="modal-body">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                                        <ol>
-                                                            <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
-                                                            <li>Presensi Mahasiswa</li>
-                                                            <li>Bukti pembimbingan</li>
-                                                            <li>Berita acara ujian skripsi</li>
-                                                            <li>Daftar Nilai</li>
-                                                        </ol>
-                                                        <!-- File input -->
-                                                        <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
-                                                        <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                        <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                                        <!-- tambahkan jarak bawah -->
-                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                            <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                        @if (is_null($item['lampiran']))
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload
+                                            </div>
+                                        @else
+                                            <div class="badge text-bg-success">
+                                                Lampiran sudah diupload
+                                            </div>
+                                        @endif
+                                    </td>
+                                    <td>{{ $item['jumlah_dosen'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
+                                    </td>
+                                </tr>
+                                {{-- TEMPAT MODAL ADD FILE G --}}
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanGLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('POST')
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanGLabel">
+                                                        {{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_pendidikan" value="Rendah" />
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                <ol>
+                                                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                        Pimpinan</li>
+                                                                    <li>Presensi Mahasiswa</li>
+                                                                    <li>Bukti pembimbingan</li>
+                                                                    <li>Berita acara ujian skripsi</li>
+                                                                    <li>Daftar Nilai</li>
+                                                                </ol>
+                                                                <!-- File input -->
+                                                                <button type="button"
+                                                                    id="addFilesBtn-{{ $item['id_rencana'] }}"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
+                                                                <!-- tambahkan jarak bawah -->
+                                                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}">
+                                                                    </div>
 
-                                                            <div id="existsFiles">
-                                                                @if (!is_null($item['lampiran']))
-                                                                    @php
-                                                                        $iteration = 1;
-                                                                    @endphp
-                                                                    @foreach (json_decode($item['lampiran'], true) as $lampiran)
-                                                                        @php
-                                                                            $checkExtension = pathinfo(
-                                                                                $lampiran,
-                                                                                PATHINFO_EXTENSION,
-                                                                            );
+                                                                    <div id="existsFiles">
+                                                                        @if (!is_null($item['lampiran']))
+                                                                            @php
+                                                                                $iteration = 1;
+                                                                            @endphp
+                                                                            @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                                @php
+                                                                                    $checkExtension = pathinfo(
+                                                                                        $lampiran,
+                                                                                        PATHINFO_EXTENSION,
+                                                                                    );
 
-                                                                            $extension = '';
+                                                                                    $extension = '';
 
-                                                                            // Determine the icon filename based on the extension
-                                                                            switch ($checkExtension) {
-                                                                                case 'pdf':
-                                                                                    $extension = 'pdf.png';
-                                                                                    break;
-                                                                                case 'doc':
-                                                                                case 'docx':
-                                                                                    $extension = 'word.png';
-                                                                                    break;
-                                                                                case 'xls':
-                                                                                case 'xlsx':
-                                                                                    $extension = 'sheets.png';
-                                                                                    break;
-                                                                                case 'png':
-                                                                                case 'PNG':
-                                                                                case 'jpg':
-                                                                                case 'jpeg':
-                                                                                    $extension = 'photo.png';
-                                                                                    break;
-                                                                                default:
-                                                                                    $extension = 'document.png';
-                                                                            }
-                                                                        @endphp
-                                                                        <div
-                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
-                                                                            <img src="{{ '/assets/img/' . $extension }}"
-                                                                                alt="File Icon" width="30" />
-                                                                            <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
-                                                                                class="ms-2">{{ $lampiran }}</a>
-                                                                            <div style="margin-left: auto;">
-                                                                                <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
-                                                                                    class="btn btn-danger btn-sm btn-circle ms-2">
-                                                                                    <i class="bi bi-x"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    @endforeach
-                                                                @endif
+                                                                                    // Determine the icon filename based on the extension
+                                                                                    switch ($checkExtension) {
+                                                                                        case 'pdf':
+                                                                                            $extension = 'pdf.png';
+                                                                                            break;
+                                                                                        case 'doc':
+                                                                                        case 'docx':
+                                                                                            $extension = 'word.png';
+                                                                                            break;
+                                                                                        case 'xls':
+                                                                                        case 'xlsx':
+                                                                                            $extension = 'sheets.png';
+                                                                                            break;
+                                                                                        case 'png':
+                                                                                        case 'PNG':
+                                                                                        case 'jpg':
+                                                                                        case 'jpeg':
+                                                                                            $extension = 'photo.png';
+                                                                                            break;
+                                                                                        default:
+                                                                                            $extension = 'document.png';
+                                                                                    }
+                                                                                @endphp
+                                                                                <div
+                                                                                    class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                    <img src="{{ '/assets/img/' . $extension }}"
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                        class="ms-2">{{ $lampiran }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                            <i class="bi bi-x"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                                <input type="file" name="fileInput[]"
+                                                                    id="fileInput-{{ $item['id_rencana'] }}"
+                                                                    style="display: none;" multiple>
                                                             </div>
                                                         </div>
-                                                        <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                     </div>
                                                 </div>
-                                            </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Upload
+                                                        Lampiran</button>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                            <button class="btn btn-primary" type="submit">Upload Lampiran</button>
-                                        </div>
-                                    </form>
                                     </div>
                                 </div>
-                            </div>
-                            {{-- AKHIR MODAL ADD FILE G --}}
-                        @endforeach
-                    @endif
+                                {{-- AKHIR MODAL ADD FILE G --}}
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -1190,7 +1290,7 @@
     </div>
     {{-- AKHIR BAGIAN G --}}
 
-    
+
 
     {{-- BAGIAN H --}}
     <div id="ed-pendidikan-H" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
@@ -1229,14 +1329,14 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
-                                        <div class="badge text-bg-warning">
-                                            Lampiran belum diupload.
-                                        </div>
+                                        @if (is_null($item['lampiran']))
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload
+                                            </div>
                                         @else
-                                        <div class="badge text-bg-success">
-                                            Lampiran sudah diupload.
-                                        </div>
+                                            <div class="badge text-bg-success">
+                                                Lampiran sudah diupload
+                                            </div>
                                         @endif
                                     </td>
                                     <td>{{ $item['jumlah_sap'] }}</td>
@@ -1245,115 +1345,129 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
                                     </td>
-                                </tr>    
+                                </tr>
                                 {{-- TEMPAT MODAL ADD FILE H --}}
-                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
-                                    aria-labelledby="modalEditEvaluasiPendidikanHLabel" aria-hidden="true">
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanHLabel"
+                                    aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 @method('POST')
-                                            <div class="modal-header">
-                                                <h6 class="modal-title" id="modalEditEvaluasiPendidikanHLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <input type="hidden" name="id_rencana"
-                                                value="{{ $item['id_rencana'] }}">
-                                            <input type="hidden" name="jenis_pendidikan"
-                                                value="Kembang" />
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                                            <ol>
-                                                                <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
-                                                                <li>Bukti hasil(Silabus, SAP/RKPSS, GBPP) yang baru dan silabus, SAP/RKPSS. GBPP yang
-                                                                    sebelumnya</li>
-                                                            </ol>
-                                                            <!-- File input -->
-                                                            <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
-                                                            <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                                            <!-- tambahkan jarak bawah -->
-                                                            <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanHLabel">
+                                                        {{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_pendidikan" value="Kembang" />
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                <ol>
+                                                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                        Pimpinan</li>
+                                                                    <li>Bukti hasil(Silabus, SAP/RKPSS, GBPP) yang baru dan
+                                                                        silabus, SAP/RKPSS. GBPP yang
+                                                                        sebelumnya</li>
+                                                                </ol>
+                                                                <!-- File input -->
+                                                                <button type="button"
+                                                                    id="addFilesBtn-{{ $item['id_rencana'] }}"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
+                                                                <!-- tambahkan jarak bawah -->
+                                                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}">
+                                                                    </div>
 
-                                                                <div id="existsFiles">
-                                                                    @if (!is_null($item['lampiran']))
-                                                                        @php
-                                                                            $iteration = 1;
-                                                                        @endphp
-                                                                        @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                    <div id="existsFiles">
+                                                                        @if (!is_null($item['lampiran']))
                                                                             @php
-                                                                                $checkExtension = pathinfo(
-                                                                                    $lampiran,
-                                                                                    PATHINFO_EXTENSION,
-                                                                                );
-
-                                                                                $extension = '';
-
-                                                                                // Determine the icon filename based on the extension
-                                                                                switch ($checkExtension) {
-                                                                                    case 'pdf':
-                                                                                        $extension = 'pdf.png';
-                                                                                        break;
-                                                                                    case 'doc':
-                                                                                    case 'docx':
-                                                                                        $extension = 'word.png';
-                                                                                        break;
-                                                                                    case 'xls':
-                                                                                    case 'xlsx':
-                                                                                        $extension = 'sheets.png';
-                                                                                        break;
-                                                                                    case 'png':
-                                                                                    case 'PNG':
-                                                                                    case 'jpg':
-                                                                                    case 'jpeg':
-                                                                                        $extension = 'photo.png';
-                                                                                        break;
-                                                                                    default:
-                                                                                        $extension = 'document.png';
-                                                                                }
+                                                                                $iteration = 1;
                                                                             @endphp
-                                                                            <div
-                                                                                class="file-item d-flex align-items-center mb-2 border rounded p-3">
-                                                                                <img src="{{ '/assets/img/' . $extension }}"
-                                                                                    alt="File Icon" width="30" />
-                                                                                <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
-                                                                                    class="ms-2">{{ $lampiran }}</a>
-                                                                                <div style="margin-left: auto;">
-                                                                                    <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
-                                                                                        class="btn btn-danger btn-sm btn-circle ms-2">
-                                                                                        <i class="bi bi-x"></i>
-                                                                                    </a>
+                                                                            @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                                @php
+                                                                                    $checkExtension = pathinfo(
+                                                                                        $lampiran,
+                                                                                        PATHINFO_EXTENSION,
+                                                                                    );
+
+                                                                                    $extension = '';
+
+                                                                                    // Determine the icon filename based on the extension
+                                                                                    switch ($checkExtension) {
+                                                                                        case 'pdf':
+                                                                                            $extension = 'pdf.png';
+                                                                                            break;
+                                                                                        case 'doc':
+                                                                                        case 'docx':
+                                                                                            $extension = 'word.png';
+                                                                                            break;
+                                                                                        case 'xls':
+                                                                                        case 'xlsx':
+                                                                                            $extension = 'sheets.png';
+                                                                                            break;
+                                                                                        case 'png':
+                                                                                        case 'PNG':
+                                                                                        case 'jpg':
+                                                                                        case 'jpeg':
+                                                                                            $extension = 'photo.png';
+                                                                                            break;
+                                                                                        default:
+                                                                                            $extension = 'document.png';
+                                                                                    }
+                                                                                @endphp
+                                                                                <div
+                                                                                    class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                    <img src="{{ '/assets/img/' . $extension }}"
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                        class="ms-2">{{ $lampiran }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                            <i class="bi bi-x"></i>
+                                                                                        </a>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        @endforeach
-                                                                    @endif
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
+                                                                <input type="file" name="fileInput[]"
+                                                                    id="fileInput-{{ $item['id_rencana'] }}"
+                                                                    style="display: none;" multiple>
                                                             </div>
-                                                            <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <button class="btn btn-primary" type="submit">Upload Lampiran</button>
-                                            </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Upload
+                                                        Lampiran</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                                 {{-- AKHIR MODAL ADD FILE H --}}
-                            
                             @endforeach
                         @endif
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -1400,129 +1514,143 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
-                                        <div class="badge text-bg-warning">
-                                            Lampiran belum diupload.
-                                        </div>
+                                        @if (is_null($item['lampiran']))
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload
+                                            </div>
                                         @else
-                                        <div class="badge text-bg-success">
-                                            Lampiran sudah diupload.
-                                        </div>
+                                            <div class="badge text-bg-success">
+                                                Lampiran sudah diupload
+                                            </div>
                                         @endif
                                     </td>
-                                    <td>{{ $item['jumlah_dosen'] }}</td>    
+                                    <td>{{ $item['jumlah_dosen'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE I --}}
-                            <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
-                            aria-labelledby="modalEditEvaluasiPendidikanILabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        @method('POST')
-                                    <div class="modal-header">
-                                        <h6 class="modal-title" id="modalEditEvaluasiPendidikanILabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        <input type="hidden" name="id_rencana"
-                                        value="{{ $item['id_rencana'] }}">
-                                    <input type="hidden" name="jenis_pendidikan"
-                                        value="Cangkok" />
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                                    <ol>
-                                                        <li>Surat Tugas atau Surat Keputusan Membimbing dari Pimpinan</li>
-                                                        <li>Bukti yang relevan (laporan kegiatan)</li>
-                                                    </ol>
-                                                    <!-- File input -->
-                                                    <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
-                                                    <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                    <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                                    <!-- tambahkan jarak bawah -->
-                                                    <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                        <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
-
-                                                        <div id="existsFiles">
-                                                            @if (!is_null($item['lampiran']))
-                                                                @php
-                                                                    $iteration = 1;
-                                                                @endphp
-                                                                @foreach (json_decode($item['lampiran'], true) as $lampiran)
-                                                                    @php
-                                                                        $checkExtension = pathinfo(
-                                                                            $lampiran,
-                                                                            PATHINFO_EXTENSION,
-                                                                        );
-
-                                                                        $extension = '';
-
-                                                                        // Determine the icon filename based on the extension
-                                                                        switch ($checkExtension) {
-                                                                            case 'pdf':
-                                                                                $extension = 'pdf.png';
-                                                                                break;
-                                                                            case 'doc':
-                                                                            case 'docx':
-                                                                                $extension = 'word.png';
-                                                                                break;
-                                                                            case 'xls':
-                                                                            case 'xlsx':
-                                                                                $extension = 'sheets.png';
-                                                                                break;
-                                                                            case 'png':
-                                                                            case 'PNG':
-                                                                            case 'jpg':
-                                                                            case 'jpeg':
-                                                                                $extension = 'photo.png';
-                                                                                break;
-                                                                            default:
-                                                                                $extension = 'document.png';
-                                                                        }
-                                                                    @endphp
-                                                                    <div
-                                                                        class="file-item d-flex align-items-center mb-2 border rounded p-3">
-                                                                        <img src="{{ '/assets/img/' . $extension }}"
-                                                                            alt="File Icon" width="30" />
-                                                                        <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
-                                                                            class="ms-2">{{ $lampiran }}</a>
-                                                                        <div style="margin-left: auto;">
-                                                                            <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
-                                                                                class="btn btn-danger btn-sm btn-circle ms-2">
-                                                                                <i class="bi bi-x"></i>
-                                                                            </a>
-                                                                        </div>
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanILabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('POST')
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanILabel">
+                                                        {{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_pendidikan" value="Cangkok" />
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                <ol>
+                                                                    <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                        Pimpinan</li>
+                                                                    <li>Bukti yang relevan (laporan kegiatan)</li>
+                                                                </ol>
+                                                                <!-- File input -->
+                                                                <button type="button"
+                                                                    id="addFilesBtn-{{ $item['id_rencana'] }}"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
+                                                                <!-- tambahkan jarak bawah -->
+                                                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}">
                                                                     </div>
-                                                                @endforeach
-                                                            @endif
+
+                                                                    <div id="existsFiles">
+                                                                        @if (!is_null($item['lampiran']))
+                                                                            @php
+                                                                                $iteration = 1;
+                                                                            @endphp
+                                                                            @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                                @php
+                                                                                    $checkExtension = pathinfo(
+                                                                                        $lampiran,
+                                                                                        PATHINFO_EXTENSION,
+                                                                                    );
+
+                                                                                    $extension = '';
+
+                                                                                    // Determine the icon filename based on the extension
+                                                                                    switch ($checkExtension) {
+                                                                                        case 'pdf':
+                                                                                            $extension = 'pdf.png';
+                                                                                            break;
+                                                                                        case 'doc':
+                                                                                        case 'docx':
+                                                                                            $extension = 'word.png';
+                                                                                            break;
+                                                                                        case 'xls':
+                                                                                        case 'xlsx':
+                                                                                            $extension = 'sheets.png';
+                                                                                            break;
+                                                                                        case 'png':
+                                                                                        case 'PNG':
+                                                                                        case 'jpg':
+                                                                                        case 'jpeg':
+                                                                                            $extension = 'photo.png';
+                                                                                            break;
+                                                                                        default:
+                                                                                            $extension = 'document.png';
+                                                                                    }
+                                                                                @endphp
+                                                                                <div
+                                                                                    class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                    <img src="{{ '/assets/img/' . $extension }}"
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                        class="ms-2">{{ $lampiran }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                            <i class="bi bi-x"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                                <input type="file" name="fileInput[]"
+                                                                    id="fileInput-{{ $item['id_rencana'] }}"
+                                                                    style="display: none;" multiple>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                 </div>
-                                            </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Upload
+                                                        Lampiran</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
-                                    <div class="modal-footer justify-content-center">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                        <button class="btn btn-primary" type="submit">Upload Lampiran</button>
-                                    </div>
-                                    </form>
                                 </div>
-                            </div>
-                            </div>
-                            {{-- AKHIR MODAL ADD FILE I --}}
+                                {{-- AKHIR MODAL ADD FILE I --}}
                             @endforeach
                         @endif
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -1566,120 +1694,133 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
-                                        <div class="badge text-bg-warning">
-                                            Lampiran belum diupload.
-                                        </div>
+                                        @if (is_null($item['lampiran']))
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload
+                                            </div>
                                         @else
-                                        <div class="badge text-bg-success">
-                                            Lampiran sudah diupload.
-                                        </div>
+                                            <div class="badge text-bg-success">
+                                                Lampiran sudah diupload
+                                            </div>
                                         @endif
-                                    </td>  
+                                    </td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
                                     </td>
-                                </tr>    
+                                </tr>
                                 {{-- TEMPAT MODAL ADD FILE J --}}
-                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}" tabindex="-1"
-                                    aria-labelledby="modalEditEvaluasiPendidikanJLabel" aria-hidden="true">
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanJLabel"
+                                    aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            @method('POST')
-                                            <div class="modal-header">
-                                                <h6 class="modal-title" id="modalEditEvaluasiPendidikanJLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <input type="hidden" name="id_rencana"
-                                                value="{{ $item['id_rencana'] }}">
-                                            <input type="hidden" name="jenis_pendidikan"
-                                                value="Koordinator" />
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
-                                                            <ol>
-                                                                <li>Surat Tugas</li>
-                                                                <li>Daftar Nilai</li>
-                                                            </ol>
-                                                            <!-- File input -->
-                                                            <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
-                                                            <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
-                                                            <!-- tambahkan jarak bawah -->
-                                                            <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
+                                            <form action="{{ route('ed-add-lampiran-pendidikan') }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('POST')
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title" id="modalEditEvaluasiPendidikanJLabel">
+                                                        {{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                    <input type="hidden" name="id_rencana"
+                                                        value="{{ $item['id_rencana'] }}">
+                                                    <input type="hidden" name="jenis_pendidikan" value="Koordinator" />
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                                <ol>
+                                                                    <li>Surat Tugas</li>
+                                                                    <li>Daftar Nilai</li>
+                                                                </ol>
+                                                                <!-- File input -->
+                                                                <button type="button"
+                                                                    id="addFilesBtn-{{ $item['id_rencana'] }}"
+                                                                    class="btn btn-secondary">Add Files</button>
+                                                                <p style="color: #808080;">Maximum file size: 5MB, maximum
+                                                                    number of files: 50</p>
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari
+                                                                    1 </p>
+                                                                <!-- tambahkan jarak bawah -->
+                                                                <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                                    <div id="selectedFiles-{{ $item['id_rencana'] }}">
+                                                                    </div>
 
-                                                                <div id="existsFiles">
-                                                                    @if (!is_null($item['lampiran']))
-                                                                        @php
-                                                                            $iteration = 1;
-                                                                        @endphp
-                                                                        @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                    <div id="existsFiles">
+                                                                        @if (!is_null($item['lampiran']))
                                                                             @php
-                                                                                $checkExtension = pathinfo(
-                                                                                    $lampiran,
-                                                                                    PATHINFO_EXTENSION,
-                                                                                );
-
-                                                                                $extension = '';
-
-                                                                                // Determine the icon filename based on the extension
-                                                                                switch ($checkExtension) {
-                                                                                    case 'pdf':
-                                                                                        $extension = 'pdf.png';
-                                                                                        break;
-                                                                                    case 'doc':
-                                                                                    case 'docx':
-                                                                                        $extension = 'word.png';
-                                                                                        break;
-                                                                                    case 'xls':
-                                                                                    case 'xlsx':
-                                                                                        $extension = 'sheets.png';
-                                                                                        break;
-                                                                                    case 'png':
-                                                                                    case 'PNG':
-                                                                                    case 'jpg':
-                                                                                    case 'jpeg':
-                                                                                        $extension = 'photo.png';
-                                                                                        break;
-                                                                                    default:
-                                                                                        $extension = 'document.png';
-                                                                                }
+                                                                                $iteration = 1;
                                                                             @endphp
-                                                                            <div
-                                                                                class="file-item d-flex align-items-center mb-2 border rounded p-3">
-                                                                                <img src="{{ '/assets/img/' . $extension }}"
-                                                                                    alt="File Icon" width="30" />
-                                                                                <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
-                                                                                    class="ms-2">{{ $lampiran }}</a>
-                                                                                <div style="margin-left: auto;">
-                                                                                    <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
-                                                                                        class="btn btn-danger btn-sm btn-circle ms-2">
-                                                                                        <i class="bi bi-x"></i>
-                                                                                    </a>
+                                                                            @foreach (json_decode($item['lampiran'], true) as $lampiran)
+                                                                                @php
+                                                                                    $checkExtension = pathinfo(
+                                                                                        $lampiran,
+                                                                                        PATHINFO_EXTENSION,
+                                                                                    );
+
+                                                                                    $extension = '';
+
+                                                                                    // Determine the icon filename based on the extension
+                                                                                    switch ($checkExtension) {
+                                                                                        case 'pdf':
+                                                                                            $extension = 'pdf.png';
+                                                                                            break;
+                                                                                        case 'doc':
+                                                                                        case 'docx':
+                                                                                            $extension = 'word.png';
+                                                                                            break;
+                                                                                        case 'xls':
+                                                                                        case 'xlsx':
+                                                                                            $extension = 'sheets.png';
+                                                                                            break;
+                                                                                        case 'png':
+                                                                                        case 'PNG':
+                                                                                        case 'jpg':
+                                                                                        case 'jpeg':
+                                                                                            $extension = 'photo.png';
+                                                                                            break;
+                                                                                        default:
+                                                                                            $extension = 'document.png';
+                                                                                    }
+                                                                                @endphp
+                                                                                <div
+                                                                                    class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                                    <img src="{{ '/assets/img/' . $extension }}"
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/pendidikan/get-lampiran/' . base64_encode($lampiran) }}
+                                                                                        class="ms-2">{{ $lampiran }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($lampiran) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2">
+                                                                                            <i class="bi bi-x"></i>
+                                                                                        </a>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        @endforeach
-                                                                    @endif
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
+                                                                <input type="file" name="fileInput[]"
+                                                                    id="fileInput-{{ $item['id_rencana'] }}"
+                                                                    style="display: none;" multiple>
                                                             </div>
-                                                            <input type="file" name="fileInput[]" id="fileInput-{{ $item['id_rencana'] }}" style="display: none;" multiple>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <button class="btn btn-primary" type="submit">Upload Lampiran</button>
-                                            </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Upload
+                                                        Lampiran</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2067,7 +2208,7 @@
             selectedFiles = selectedFiles.concat(Array.from(files));
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
-                if (!file) continue; 
+                if (!file) continue;
 
                 var fileName = file.name;
                 var fileExtension = fileName.split('.').pop();
@@ -2075,12 +2216,12 @@
 
                 var fileListItem = document.createElement('div');
                 fileListItem.classList.add(
-                    'file-item', 
-                    'd-flex', 
-                    'align-items-center', 
-                    'mb-2', 
-                    'border', 
-                    'rounded', 
+                    'file-item',
+                    'd-flex',
+                    'align-items-center',
+                    'mb-2',
+                    'border',
+                    'rounded',
                     'p-3',
                     'bg-abu'
                 );
