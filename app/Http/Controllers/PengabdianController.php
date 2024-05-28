@@ -13,6 +13,9 @@ class PengabdianController extends Controller
         $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FRK")), true)['data'];
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try{
+            $responseAll = Http::get(env('API_FRK_SERVICE'). '/pendidikan/all/' . $id_dosen);
+            $all = $responseAll->json();
+
             // Mengambil data a. kegiatan dari lumen
             $responsKegiatan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/kegiatan/' . $id_dosen);
             $Kegiatan = $responsKegiatan->json();
@@ -32,14 +35,10 @@ class PengabdianController extends Controller
 
             // Menggabungkan data
             $data = [
-                //data a
+                'all' => $all,
                 'kegiatan' => $Kegiatan,
-                //data b
                 'penyuluhan' => $Penyuluhan,
-
-                //data c
                 'konsultan' => $konsultan,
-                //data d
                 'karya' => $Karya,
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,

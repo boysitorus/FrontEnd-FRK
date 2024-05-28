@@ -13,7 +13,7 @@
 
             <div class="row justify-content-end mr-0">
                     @if ($all == 0)
-                        <button id="btnFrkPenelitian-A" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal"
+                        <button id="btnFrkPendidikan-A" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal"
                             data-bs-target="#modalPendidikan_A">
                             Tambah Kegiatan
                         </button>

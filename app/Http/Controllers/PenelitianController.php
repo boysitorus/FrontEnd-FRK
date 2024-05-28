@@ -6,6 +6,7 @@ use App\Utils\Tools;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Http;
+
 class PenelitianController extends Controller
 {
     //
@@ -13,9 +14,12 @@ class PenelitianController extends Controller
     {
 
         $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FRK")), true)['data'];
-        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try {
+            $responseAll = Http::get(env('API_FRK_SERVICE') . '/pendidikan/all/' . $id_dosen);
+            $all = $responseAll->json();
+
             // Mengambil data a. penelitian kelompok dari Lumen
             $responsePenelitianKelompok = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok/' . $id_dosen);
             $PenelitianKelompok = $responsePenelitianKelompok->json();
@@ -75,20 +79,21 @@ class PenelitianController extends Controller
 
             // Menggabungkan data
             $data = [
+                'all' => $all,
                 'penelitian_kelompok' => $PenelitianKelompok,
                 'penelitian_mandiri' => $PenelitianMandiri,
                 'buku_terbit' => $BukuTerbit,
                 'buku_internasional' => $BukuInternasional,
-                'menyadur'=>$Menyadur,
-                'menyunting'=>$Menyunting,
+                'menyadur' => $Menyadur,
+                'menyunting' => $Menyunting,
                 'penelitian_modul' => $PenelitianModul,
                 'penelitian_pekerti' => $PenelitianPekerti,
                 'penelitian_tridharma' => $PenelitianTridharma,
                 'jurnal_ilmiah' => $JurnalIlmiah,
-                'pembicara_seminar'=>$PembicaraSeminar,
-                'penyajian_makalah'=>$PenyajianMakalah,
-                'hak_paten'=>$HakPaten,
-                'media_massa'=>$MediaMassa,
+                'pembicara_seminar' => $PembicaraSeminar,
+                'penyajian_makalah' => $PenyajianMakalah,
+                'hak_paten' => $HakPaten,
+                'media_massa' => $MediaMassa,
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
                 'periode' => $getTanggal
@@ -347,7 +352,7 @@ class PenelitianController extends Controller
         try {
             // Mengambil data Menyadur naskah dari Lumen
             $responseMenyadur = Http::get(env('API_FRK_SERVICE') . '/penelitian/menyadur');
-            $Menyadur= $responseMenyadur->json();
+            $Menyadur = $responseMenyadur->json();
 
             $data = [
                 'menyadur' => $Menyadur,
@@ -405,7 +410,7 @@ class PenelitianController extends Controller
         try {
             // Mengambil data Menyunting naskah dari Lumen
             $responseMenyunting = Http::get(env('API_FRK_SERVICE') . '/penelitian/menyunting');
-            $Menyunting= $responseMenyunting->json();
+            $Menyunting = $responseMenyunting->json();
 
             $data = [
                 'menyunting' => $Menyunting,
@@ -620,7 +625,8 @@ class PenelitianController extends Controller
         return redirect()->back()->with('success', 'Item updated successfully');
     }
 
-    public function deletePenelitianTridharma($id){
+    public function deletePenelitianTridharma($id)
+    {
         Http::delete(env('API_FRK_SERVICE') . "/penelitian/penelitian_tridharma/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
@@ -628,11 +634,12 @@ class PenelitianController extends Controller
     // END CRUD BAGIAN I. PELAKSANAAN TRIDHARMA // END CRUD BAGIAN I. PELAKSANAAN TRIDHARMA
 
     // START CRUD BAGIAN J. JURNAL ILMIAH // START CRUD BAGIAN J. JURNAL ILMIAH
-    public function getJurnalIlmiah(){
-         try{
+    public function getJurnalIlmiah()
+    {
+        try {
             //Mengambil data j dari Lumen
-         $responseJurnalIlmiah = Http::get(env('API_FRK_SERVICE') . '/penelitian/jurnal_ilmiah');
-         $JurnalIlmiah = $responseJurnalIlmiah->json();
+            $responseJurnalIlmiah = Http::get(env('API_FRK_SERVICE') . '/penelitian/jurnal_ilmiah');
+            $JurnalIlmiah = $responseJurnalIlmiah->json();
 
             $data = [
                 'jurnal_ilmiah' => $JurnalIlmiah,
@@ -646,22 +653,25 @@ class PenelitianController extends Controller
         }
     }
 
-    public function postJurnalIlmiah(Request $request){
-        $this->validate($request,
-        [
-            'id_dosen'=> 'required',
-            'nama_kegiatan' => 'required',
-            'lingkup_penerbit'=> 'required',
-            'jenis_pengerjaan' => 'required',
-            'peran' => 'required',
-        ]);
+    public function postJurnalIlmiah(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'id_dosen' => 'required',
+                'nama_kegiatan' => 'required',
+                'lingkup_penerbit' => 'required',
+                'jenis_pengerjaan' => 'required',
+                'peran' => 'required',
+            ]
+        );
 
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/jurnal_ilmiah',
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'lingkup_penerbit'=> $request->get('lingkup_penerbit'),
+                'lingkup_penerbit' => $request->get('lingkup_penerbit'),
                 'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
                 'peran'  => $request->get('peran'),
 
@@ -678,7 +688,7 @@ class PenelitianController extends Controller
             [
                 'id_rencana' => $request->get('id_rencana'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
-                'lingkup_peberbit'=> $request->get('lingkup_penerbit'),
+                'lingkup_peberbit' => $request->get('lingkup_penerbit'),
                 'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
                 'peran'  => $request->get('peran'),
             ]
@@ -687,7 +697,8 @@ class PenelitianController extends Controller
         return redirect()->back()->with('success', 'Item updated successfully');
     }
 
-    public function deleteJurnalIlmiah($id){
+    public function deleteJurnalIlmiah($id)
+    {
         Http::delete(env('API_FRK_SERVICE') . "/penelitian/jurnal_ilmiah/{$id}");
 
         return redirect()->back()->with('success', 'Item deleted');
@@ -700,7 +711,7 @@ class PenelitianController extends Controller
         try {
             // Mengambil data Hak Paten naskah dari Lumen
             $responseHakPaten = Http::get(env('API_FRK_SERVICE') . '/penelitian/hak_paten');
-            $HakPaten= $responseHakPaten->json();
+            $HakPaten = $responseHakPaten->json();
 
             $data = [
                 'hak_paten' => $HakPaten,
@@ -714,8 +725,10 @@ class PenelitianController extends Controller
         }
     }
 
-    public function postHakPaten(Request $request){
-        Http::post(env('API_FRK_SERVICE') . "/penelitian/hak_paten",
+    public function postHakPaten(Request $request)
+    {
+        Http::post(
+            env('API_FRK_SERVICE') . "/penelitian/hak_paten",
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -756,7 +769,7 @@ class PenelitianController extends Controller
         try {
             // Mengambil data Media Massa naskah dari Lumen
             $responseMediaMassa = Http::get(env('API_FRK_SERVICE') . '/penelitian/media_massa');
-            $MediaMassa= $responseMediaMassa->json();
+            $MediaMassa = $responseMediaMassa->json();
 
             $data = [
                 'media_massa' => $MediaMassa,
@@ -770,8 +783,10 @@ class PenelitianController extends Controller
         }
     }
 
-    public function postMediaMassa(Request $request){
-        Http::post(env('API_FRK_SERVICE') . "/penelitian/media_massa",
+    public function postMediaMassa(Request $request)
+    {
+        Http::post(
+            env('API_FRK_SERVICE') . "/penelitian/media_massa",
             [
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
@@ -808,7 +823,7 @@ class PenelitianController extends Controller
     {
         try {
             $responsePembicaraSeminar = Http::get(env('API_FRK_SERVICE') . '/penelitian/pembicara_seminar');
-            $PembicaraSeminar= $responsePembicaraSeminar->json();
+            $PembicaraSeminar = $responsePembicaraSeminar->json();
 
             $data = [
                 'pembicara_seminar' => $PembicaraSeminar,
@@ -825,9 +840,9 @@ class PenelitianController extends Controller
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/pembicara_seminar',
             [
-            'id_dosen' => $request->get('id_dosen'),
-            'nama_kegiatan' => $request->get('nama_kegiatan'),
-            'tingkatan' => $request->get('tingkatan'),
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'tingkatan' => $request->get('tingkatan'),
             ]
         );
 
@@ -839,9 +854,9 @@ class PenelitianController extends Controller
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/edit/pembicara_seminar',
             [
-            'id_rencana' => $request->get('id_rencana'),
-            'nama_kegiatan' => $request->get('nama_kegiatan'),
-            'tingkatan' => $request->get('tingkatan'),
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'tingkatan' => $request->get('tingkatan'),
             ]
         );
 
@@ -852,7 +867,7 @@ class PenelitianController extends Controller
     {
         Http::delete(env('API_FRK_SERVICE') . "/penelitian/pembicara_seminar/{$id}");
 
-    return redirect()->back()->with('success', 'Item deleted');
+        return redirect()->back()->with('success', 'Item deleted');
     }
     //END CRUD TABEL M. PEMBICARA SEMINAR //END CRUD TABEL M. PEMBICARA SEMINAR
 
@@ -885,7 +900,7 @@ class PenelitianController extends Controller
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'tingkatan' => $request->get('tingkatan'),
                 'jenis_kegiatan' => $request->get('jenis_kegiatan'),
-                'posisi'=> $request ->get('posisi'),
+                'posisi' => $request->get('posisi'),
                 'jumlah_anggota' => $request->get('jumlah_anggota'),
                 'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
             ]
@@ -903,7 +918,7 @@ class PenelitianController extends Controller
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'tingkatan' => $request->get('tingkatan'),
                 'jenis_pengerjaan' => $request->get('jenis_pengerjaan'),
-                'posisi'=> $request ->get('posisi'),
+                'posisi' => $request->get('posisi'),
                 'jumlah_anggota' => $request->get('jumlah_anggota'),
             ]
         );
@@ -919,5 +934,5 @@ class PenelitianController extends Controller
     }
     //END CRUD TABEL N. PENYAJIAN MAKALAH
 
-//END PENELITIAN CONTROLLER
+    //END PENELITIAN CONTROLLER
 }
