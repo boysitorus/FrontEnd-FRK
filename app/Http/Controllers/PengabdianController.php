@@ -29,6 +29,15 @@ class PengabdianController extends Controller
             $responseKarya = Http::get(env('API_FRK_SERVICE') .'/pengabdian/karya/' . $id_dosen);
             $Karya = $responseKarya->json();
 
+            $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+            $listIdAssesor = [];
+
+
+            foreach ($responseAsesor['data'] as $e) {
+                $listIdAssesor[] = $e['id_pegawai'];
+            }
+
 
             // Menggabungkan data
             $data = [
@@ -43,7 +52,8 @@ class PengabdianController extends Controller
                 'karya' => $Karya,
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
-                'periode' => $getTanggal
+                'periode' => $getTanggal,
+                'idAsesor' => $listIdAssesor
             ];
 
             // Mengirim data ke view

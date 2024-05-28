@@ -118,7 +118,7 @@
                             </a>
                         </li>
 
-                        @if(in_array(json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '], ['Staf Human Resources']))
+                        @if(in_array($auth->user->data_lengkap->dosen->pegawai_id, $idAsesor))
                         <li>
                             <a type="button"
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"

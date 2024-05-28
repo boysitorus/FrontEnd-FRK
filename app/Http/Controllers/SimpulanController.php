@@ -30,6 +30,15 @@ class SimpulanController extends Controller
             $responseTotal = Http::get(env('API_FRK_SERVICE') . '/simpulan-total');
             $totalSksTotal = $responseTotal->json();
 
+            $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+            $listIdAssesor = [];
+
+
+            foreach ($responseAsesor['data'] as $e) {
+                $listIdAssesor[] = $e['id_pegawai'];
+            }
+
 
             return view('App.Rencana.simpulan',
             [
@@ -39,7 +48,8 @@ class SimpulanController extends Controller
                 'penunjangSks' => $totalSksPenunjang,
                 'totalSks' => $totalSksTotal,
                 'auth' => $auth,
-                'periode' => $getTanggal
+                'periode' => $getTanggal,
+                'idAsesor' => $listIdAssesor
             ]
             );
 

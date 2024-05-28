@@ -51,6 +51,15 @@ class EvaluasiDiriController extends Controller
             $responseProposal = Http::get(env('API_FED_SERVICE') . '/pendidikan/proposal/' . $id_dosen);
             $proposal = $responseProposal->json();
 
+            $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+            $listIdAssesor = [];
+
+
+            foreach ($responseAsesor['data'] as $e) {
+                $listIdAssesor[] = $e['id_pegawai'];
+            }
+
 
             // Menggabungkan data teori dan bimbingan
             $data = [
@@ -66,7 +75,8 @@ class EvaluasiDiriController extends Controller
                 'proposal' => $proposal,
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
-                'periode' => $getTanggal
+                'periode' => $getTanggal,
+                'idAsesor' => $listIdAssesor
             ];
 
             // Mengirim data ke view
@@ -124,6 +134,15 @@ class EvaluasiDiriController extends Controller
             $responsePengurusYayasan = Http::get(env('API_FED_SERVICE') . '/penunjang/pengurusyayasan/' . $id_dosen);
             $pengurusyayasan = $responsePengurusYayasan->json();
 
+            $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+            $listIdAssesor = [];
+
+
+            foreach ($responseAsesor['data'] as $e) {
+                $listIdAssesor[] = $e['id_pegawai'];
+            }
+
             $data = [
                 'akademik' => $akademik,
                 'bimbingan' => $bimbingan,
@@ -141,7 +160,8 @@ class EvaluasiDiriController extends Controller
                 'pengurusyayasan' => $pengurusyayasan,
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
-                'periode' => $getTanggal
+                'periode' => $getTanggal,
+                'idAsesor' => $listIdAssesor
             ];
 
             return view('App.Evaluasi.penunjang', $data);

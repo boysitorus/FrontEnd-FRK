@@ -22,6 +22,15 @@ class UserController extends Controller
 
         $decodeKeanggotaan = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['prodi'];
 
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
         $prodiFITE = ['S1 Informatika','S1 Sistem Informasi','S1 Teknik Elektro'];
         $prodiVokasi = ['DIII Teknologi Informasi','DIII Teknologi Komputer', 'DIV Teknologi Rekayasa Perangkat Lunak'];
         $prodiBP = ['S1 Teknik Bioproses'];
@@ -43,7 +52,8 @@ class UserController extends Controller
         $data = [
             'auth' => $auth, 
             'keanggotaan' => $fakultas,
-            'isHumanResources' => $isHumanResources
+            'isHumanResources' => $isHumanResources,
+            'idAsesor' => $listIdAssesor
         ];
 
         return view('App.Profile.profile', $data);
