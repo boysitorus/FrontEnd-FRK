@@ -35,6 +35,7 @@ Route::group(['middleware' => ['check.token']], function () {
     Route::get('/dashboard', [UserController::class, 'userDashboard'])->name('home');
 
     Route::get('/profile', [UserController::class, 'userProfile'])->name('profile');
+    Route::get('/rekap-kegiatan', [UserController::class, 'rekapKegiatan'])->name('rekap-kegiatan');
 
     Route::get('/formRencanaKerja', function () {
         return view('App.Rencana.penelitian');
