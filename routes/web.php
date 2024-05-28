@@ -49,8 +49,11 @@ Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(func
         Route::prefix('/LihatKerja')->group(function () {
             Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaran'])->name('lk-tahunAjaran');
             Route::get('/ViewDosen', [AsesorController::class, 'getViewDosen'])->name('lk-viewDosen');
-
+Route::get('/ViewDetail', [AsesorController::class, 'getViewDetail'])->name('lk-viewDetail');
         });
+
+        Route::get('/RekapKerja', [AsesorController::class,'getRekapKerja'])->name('ed-riwayatKerjaSaya');
+        
 
     });
 });
@@ -355,6 +358,7 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanPanel'])->name('ed-pendidikan');
         Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
         Route::get('/simpulan', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
+        
 
         Route::prefix('/pendidikan')->group(function () {
             Route::post('/upload-lampiran-pendidikan', [EvaluasiDiriController::class, 'postPendidikan'])->name('ed-add-lampiran-pendidikan');
@@ -382,6 +386,7 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::get('/Evaluasi-Diri-Asesor-penunjang/{id}', [AsesorController::class, 'getEvaluasiPenunjang'])->name('ed-asesor-detail-penunjang');
         Route::post('/review-evaluasi-diri', [AsesorController::class, 'reviewEvaluasi'])->name('ed-asesor-review-evaluasi');
         Route::get('/simpulan-asesor', [AsesorController::class, 'simpulanAsesor'])->name('ed-simpulan-asesor');
+        
     });
 
 });

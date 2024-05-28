@@ -17,7 +17,7 @@
                 <div class = "ml-2 mr-2 pt-4">
                     <h4 class = "font-weight-bold">Rekap Kerja</h4>
                 </div>
-                <hr/>
+                <hr />
 
                 <div class="container-fluid ">
                     <div class="table-responsive">
@@ -36,7 +36,7 @@
                                     <td>2023/2024</td>
                                     <td>Ganjil</td>
                                     <td>
-                                        <a type="button" href="#" class="btn btn-primary">View Dosen</a>
+                                        <a type="button" href="#" class="btn btn-primary">View Detail</a>
                                     </td>
                                 </tr>
                             </tbody>

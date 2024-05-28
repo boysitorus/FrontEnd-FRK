@@ -394,11 +394,19 @@ class AsesorController extends Controller
 
     public function getTahunAjaran()
     {
-        return view('App.Asesor.AsesorLihatTahunAjaran');
+        return view('App.Asesor.AsessorLihatTahunAjaran');
     }
 
     public function getViewDosen()
     {
         return view('App.Asesor.AsessorLihatKerjaViewDosen');
+    }
+    
+    public function getViewDetail(){
+        return view('App.Asesor.AsessorLihatKerjaViewDetail');
+    }
+
+    public function getRekapKerja(){
+        return view('App.Asesor.AsessorRekapKerjaSaya');
     }
 }

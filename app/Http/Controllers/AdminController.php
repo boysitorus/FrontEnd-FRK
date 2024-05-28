@@ -128,17 +128,27 @@ class AdminController extends Controller
     public function getAssignRole(Request $request)
     {
         $auth = Tools::getAuth($request);
+
         $getSemesterFRK = Tools::getPeriod($auth->user->token, 'FRK');
         $getSemesterFED = Tools::getPeriod($auth->user->token, 'FED');
 
         $requestData = Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-eligible-asesor');
 
-        $data = [
-            'eligible_asesor' => json_decode($requestData, true),
-            'tanggal_frk' => $getSemesterFRK['data'],
-            'tanggal_fed' => $getSemesterFED['data'],
-        ];
-        return view('App.Admin.assignRole', $data);
+        $requestListAsesor = Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor');
+
+        if (json_decode($requestData, true)['result'] == true)
+        {
+            $data = [
+                'eligible_asesor' => json_decode($requestData, true),
+                'tanggal_frk' => $getSemesterFRK['data'],
+                'tanggal_fed' => $getSemesterFED['data'],
+                'list_asesor' => json_decode($requestListAsesor,true),
+            ];
+
+            return view('App.Admin.assignRole', $data);
+        } else {
+            return redirect()->route('logout.get');
+        }
     }
 
     public function postAssignRole(Request $request)
