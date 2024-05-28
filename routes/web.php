@@ -43,12 +43,15 @@ Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(func
         Route::get('/assign-role', [AdminController::class, 'getAssignRole'])->name('admin.assign-role');
         Route::post('/assign-role', [AdminController::class, 'postAssignRole'])->name('admin.assign-role.post');
 
+        Route::get('/tahunAjaran', [AdminController::class, 'getTahunAjaran'])->name('admin.tahunAjaran.post');
+        Route::post('/tahunAjaran', [AdminController::class, 'postTahunAjaran'])->name('admin.tahunAjaran.post');
+
         Route::prefix('/LihatKerja')->group(function () {
             Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaran'])->name('lk-tahunAjaran');
             Route::get('/ViewDosen', [AsesorController::class, 'getViewDosen'])->name('lk-viewDosen');
-            
+
         });
-        
+
     });
 });
 
@@ -380,5 +383,5 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::post('/review-evaluasi-diri', [AsesorController::class, 'reviewEvaluasi'])->name('ed-asesor-review-evaluasi');
         Route::get('/simpulan-asesor', [AsesorController::class, 'simpulanAsesor'])->name('ed-simpulan-asesor');
     });
-   
+
 });
