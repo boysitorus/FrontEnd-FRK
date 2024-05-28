@@ -93,11 +93,9 @@
                         </li>
 
                         <li>
-                            <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
-                                data-bs-toggle="collapse" data-bs-target="#fed-collapse" aria-expanded="false">
-                                <i class="bi bi-eye me-2"></i></i>
-                                <div class="me-auto"><span>Lihat Kerja</span></div>
+                            <a href="{{route('lk-tahunAjaran')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaran') ? 'active' : '' }}">
+                                <i class="bi bi-eye me-2"></i>
+                                <span>Lihat Kerja</span>
                             </a>
                         </li>
                     </ul>

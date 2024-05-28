@@ -49,12 +49,12 @@
                         <thead>
                             <tr>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold">Kegiatan</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelas Tatap Muka</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelas Evaluasi</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Mata Kuliah</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-1">Lampiran</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold ">SKS Mata Kuliah</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold ">SKS Terhitung</th>
+                                <th scope="col" colspan="2 " class="allign-middle fw-bold ">Lampiran</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -92,12 +92,12 @@
                         <thead>
                             <tr>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold">Kegiatan</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Kelas </th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Mata Kuliah ( 1SKS
+                                <th scope="col" rowspan="2" class="align-middle fw-bold">SKS Mata Kuliah ( 1SKS
                                     = 2 jam) </th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-1">Lampiran</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold">SKS Terhitung</th>
+                                <th scope="col" colspan="2 " class="allign-middle fw-bold">Lampiran</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -135,11 +135,11 @@
                         <thead>
                             <tr>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Kegiatan</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold ">Kegiatan</th>
                                 <th scope="col" rowspan="2" class="align-middle fw-bold">Jumlah Mahasiswa Bimbingan
                                 </th>
-                                <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
-                                <th scope="col" colspan="2 " class="allign-middle fw-bold col-1">Lampiran</th>
+                                <th scope="col" rowspan="2" class="align-middle fw-bold ">SKS Terhitung</th>
+                                <th scope="col" colspan="2 " class="allign-middle fw-bold ">Lampiran</th>
                             </tr>
                         </thead>
                         <tbody>

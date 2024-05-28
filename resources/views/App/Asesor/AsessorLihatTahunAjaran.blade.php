@@ -39,7 +39,7 @@
                                         <td>2023/2024</td>
                                         <td>Ganjil</td>
                                         <td>
-                                            <a type="button" href="/admin/LihatKerja/ViewDosen"
+                                            <a type="button" href="{{route('lk-viewDosen')}}"
                                                 class="btn btn-primary">View
                                                 Dosen</a>
                                         </td>

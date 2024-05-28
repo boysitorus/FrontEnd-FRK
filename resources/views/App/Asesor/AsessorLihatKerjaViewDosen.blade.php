@@ -41,7 +41,7 @@
                                 <td>12AS3456</td>
                                 <td>S1 Informatika 2021</td>
                                 <td>
-                                    <a type="button" href="/admin/LihatKerja/ViewDetail" class="btn btn-primary">View
+                                    <a type="button" href="{{route('lk-viewDetail')}}" class="btn btn-primary">View
                                         Detail</a>
                                 </td>
                             </tr>
