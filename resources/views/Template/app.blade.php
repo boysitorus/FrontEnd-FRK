@@ -141,7 +141,8 @@
                                     <li>
                                         <a type="button"
                                             class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
-                                            >
+                                            data-bs-toggle="collapse" data-bs-target="#asesor-frk-collapse"
+                                            aria-expanded="false">
 
                                             <div class="me-auto">Rencana Kerja</div>
                                             <i class="bi bi-chevron-down"></i>
