@@ -127,10 +127,43 @@ class AsesorEvaluasiController extends Controller
         }
     }
 
-    public function getRencanaPengabdian (Request $request){}
-    public function getRencanaPenunjang (Request $request){}
+    public function getEvaluasiPengabdian(Request $request, $id)
+    {
+        $auth = Tools::getAuth($request);
+        $id_pegawai = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $token = json_decode(json_encode($auth->user), true)['token'];
+        $dataDosen = $this->getDosen($id, $token);
 
-    public function reviewEvaluasi (Request $request){
+        try {
+            // Mengambil data a. kegiatan dari lumen
+            $response = Http::get(env('API_FED_SERVICE') . '/asesor-fed/get-all-pengabdian/' . $id);
+            $responsePengabdian = $response->json();
+
+            // Menggabungkan data
+            $data = [
+                'kegiatan' => $responsePengabdian["kegiatan"],
+                'penyuluhan' => $responsePengabdian["penyuluhan"],
+                'konsultan' => $responsePengabdian["konsultan"],
+                'karya' => $responsePengabdian["karya"],
+                'auth' => $auth,
+                'id' => $id,
+                'dataDosen' => $dataDosen,
+                'idPegawai' => $id_pegawai
+            ];
+
+            // Mengirim data ke view
+            return view('App.AsesorEvaluasi.pengabdianAsesor', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+    public function getEvaluasiPenunjang(Request $request, $id)
+    {
+    }
+
+    public function reviewEvaluasi(Request $request)
+    {
         $auth = Tools::getAuth($request);
         $check = Tools::checkAsesor(
             json_decode(json_encode($auth->user->data_lengkap->dosen), true)['pegawai_id'],
@@ -139,18 +172,18 @@ class AsesorEvaluasiController extends Controller
         $id_rencana = $request->get('id_rencana');
         $komentar = $request->get('komentar');
         $toastMsg = "";
-        if($komentar == "setuju"){
+        if ($komentar == "setuju") {
             $toastMsg = "Berhasil mengapprove rencana kerja";
-        } else{
+        } else {
             $toastMsg = "Berhasil menolak rencana kerja";
         }
         try {
             $response = Http::post(env('API_FED_SERVICE') . '/asesor-fed/reviewEvaluasi', [
-               "id_rencana" => $id_rencana,
-               "komentar" => $komentar,
-               "role" => $check["data"]["tipe_asesor"]
+                "id_rencana" => $id_rencana,
+                "komentar" => $komentar,
+                "role" => $check["data"]["tipe_asesor"]
             ]);
-            if($response->status() === 200){
+            if ($response->status() === 200) {
                 return back()->with('message', $toastMsg);
             } else {
                 throw new RequestException($response);
@@ -158,7 +191,5 @@ class AsesorEvaluasiController extends Controller
         } catch (RequestException $e) {
             return back()->with('message', 'Gagal approve rencana kerja');
         }
-
-
     }
 }
