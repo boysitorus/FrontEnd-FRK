@@ -86,7 +86,86 @@
                                                             <option value="Genap">Genap</option>
                                                         </select>
                                                     </div>
+                                                    <div class="container mt-2 ml-0 mt-5 mb-4">
+                                                        <div class="row">
+                                                            <div class="col mr-2">
+                                                                <h6 style="font-weight: bold;">Tanggal Awal Periode Pengisian Evaluasi Diri</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="tanggal_awal_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-awal-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h6 style="font-weight: bold;">Tanggal Akhir Periode Pengisian Evaluasi Diri</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="tanggal_akhir_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-akhir-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
+                                                    <div class="container mt-2 ml-0 mt-5 mb-4">
+                                                        <div class="row">
+                                                            <div class="col mr-2">
+                                                                <h6 style="font-weight: bold;">Periode Awal Approval oleh Asesor I</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="tanggal_awal_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-awal-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h6 style="font-weight: bold;">Periode Akhir Approval oleh Asesor I</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="tanggal_akhir_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-akhir-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="container mt-2 ml-0 mt-5 mb-4">
+                                                        <div class="row">
+                                                            <div class="col mr-2">
+                                                                <h6 style="font-weight: bold;">Periode Awal Approval oleh Asesor II</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="tanggal_awal_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-awal-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h6 style="font-weight: bold;">Periode Akhir Approval oleh Asesor II</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="tanggal_akhir_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-akhir-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="modal-footer">
@@ -148,7 +227,86 @@
                                                             <option value="Genap">Genap</option>
                                                         </select>
                                                     </div>
+                                                    <div class="container mt-2 ml-0 mt-5 mb-4">
+                                                        <div class="row">
+                                                            <div class="col mr-2">
+                                                                <h6 style="font-weight: bold;">Tanggal Awal Periode Pengisian Rencana Kerja</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="tanggal_awal_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-awal-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h6 style="font-weight: bold;">Tanggal Akhir Periode Pengisian Rencana Kerja</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="tanggal_akhir_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-akhir-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
+                                                    <div class="container mt-2 ml-0 mt-5 mb-4">
+                                                        <div class="row">
+                                                            <div class="col mr-2">
+                                                                <h6 style="font-weight: bold;">Periode Awal Approval oleh Asesor I</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="tanggal_awal_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-awal-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h6 style="font-weight: bold;">Periode Akhir Approval oleh Asesor I</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="tanggal_akhir_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-akhir-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="container mt-2 ml-0 mt-5 mb-4">
+                                                        <div class="row">
+                                                            <div class="col mr-2">
+                                                                <h6 style="font-weight: bold;">Periode Awal Approval oleh Asesor II</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="tanggal_awal_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-awal-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h6 style="font-weight: bold;">Periode Akhir Approval oleh Asesor II</h6>
+                                                                <div class="input-group date">
+                                                                    <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="tanggal_akhir_rencana_kerja"
+                                                                           placeholder="dd/mm/yyyy" required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary clear-date" type="button"
+                                                                                onclick="clearDate('tanggal-akhir-rencana-kerja')"><i class="fas fa-times"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="modal-footer">
