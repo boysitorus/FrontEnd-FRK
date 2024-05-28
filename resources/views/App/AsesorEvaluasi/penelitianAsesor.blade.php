@@ -24,6 +24,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
+
                         </tr>
                     </thead>
 
@@ -47,17 +48,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -221,6 +222,7 @@
                                         <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
+                                                <input type="hidden" name="id_dosen" value="1435" />
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
@@ -269,6 +271,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
 
@@ -290,17 +293,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -512,6 +515,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
 
@@ -535,17 +539,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -759,6 +763,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -781,17 +786,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -807,7 +812,9 @@
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianDLabel">D. Menulis satu judul naskah buku internasional (berbahasa dan diedarkan secara internasional minimal
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianDLabel">D. Menulis
+                                                satu judul naskah buku internasional (berbahasa dan diedarkan secara
+                                                internasional minimal
                                                 tiga negara), disetujui oleh pimpinan dan tercatat</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
@@ -819,15 +826,15 @@
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
                                                             <li>Buku yang sudah terbit</li>
-                                                                    <li>Bukti kontrak penerbitan jika masih naik cetak</li>
-                                                                    <li>Surat Keterangan Sedang Menulis
-                                                                        Buku dari Pimpinan bagi yang sedang menulis buku,
-                                                                        dengan
-                                                                        mencantumkan akan selesai dalam
-                                                                        berapa lama, bagi yang sedang menulis.</li>
-                                                                    <li>Progres penulisan buku dll., bagi yang sedang dalam
-                                                                        proses
-                                                                    </li>
+                                                            <li>Bukti kontrak penerbitan jika masih naik cetak</li>
+                                                            <li>Surat Keterangan Sedang Menulis
+                                                                Buku dari Pimpinan bagi yang sedang menulis buku,
+                                                                dengan
+                                                                mencantumkan akan selesai dalam
+                                                                berapa lama, bagi yang sedang menulis.</li>
+                                                            <li>Progres penulisan buku dll., bagi yang sedang dalam
+                                                                proses
+                                                            </li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
                                                         </div>
@@ -1002,6 +1009,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1023,17 +1031,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1049,7 +1057,8 @@
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">E.Menterjemahkan
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">
+                                                E.Menterjemahkan
                                                 atau
                                                 menyadur naskah buku teks yang
                                                 akan diterbitkan dalam waktu sebanyak-banyaknya 4 semester (disetujui
@@ -1065,16 +1074,16 @@
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
                                                             <li>Buku yang sudah terbit</li>
-                                                                    <li>Bukti kontrak penerbitan jika masih naik cetak</li>
-                                                                    <li>Surat Keterangan Sedang Menulis Buku dari Pimpinan
-                                                                        bagi
-                                                                        yang
-                                                                        sedang menulis buku, dengan mencantumkan akan
-                                                                        selesai
-                                                                        dalam
-                                                                        berapa lama, bagi yang sedang menulis</li>
-                                                                    <li>Progres penulisan buku dll., bagi yang sedang dalam
-                                                                        proses</li>
+                                                            <li>Bukti kontrak penerbitan jika masih naik cetak</li>
+                                                            <li>Surat Keterangan Sedang Menulis Buku dari Pimpinan
+                                                                bagi
+                                                                yang
+                                                                sedang menulis buku, dengan mencantumkan akan
+                                                                selesai
+                                                                dalam
+                                                                berapa lama, bagi yang sedang menulis</li>
+                                                            <li>Progres penulisan buku dll., bagi yang sedang dalam
+                                                                proses</li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
                                                         </div>
@@ -1249,6 +1258,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1270,37 +1280,37 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPenelitian_F-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianALabel" aria-hidden="true">
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN F --}}
+                            <div class="modal fade" id="modalLihatLampiranPenelitian_F-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianFLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">A.
-                                                Keterlibatan
-                                                dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang
-                                                dilakukan oleh
-                                                kelompok (disetujui oleh pimpinan dan tercapai)</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianFLabel">F. Menyunting
+                                                satu judul naskah buku yang akan diterbitkan dalam waktu sebanyak-banyaknya
+                                                4 semester
+                                                (disetujui pimpinan dan tercatat)
+                                                sama dengan 2 sks</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -1310,16 +1320,14 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas atau Surat Keterangan Telah Menyunting
+                                                                Buku
+                                                                dari
+                                                                Pimpinan dengan
+                                                                mencantumkan akan selesai dalam berapa lama.</li>
+                                                            <li>Buku yang sudah terbit</li>
+                                                            <li>bukti kontrak penerbitan jika masih naik cetak</li>
+                                                            <li>Progres penyuntingan naskah buku</li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
                                                         </div>
@@ -1380,7 +1388,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN F --}}
 
 
                             {{-- MODAL SETUJU --}}
@@ -1495,6 +1503,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1517,37 +1526,36 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPenelitian_G-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianALabel" aria-hidden="true">
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN G --}}
+                            <div class="modal fade" id="modalLihatLampiranPenelitian_G-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianGLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">A.
-                                                Keterlibatan
-                                                dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang
-                                                dilakukan oleh
-                                                kelompok (disetujui oleh pimpinan dan tercapai)</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianGLabel">G. Menulis
+                                                Modul/Diktat/Bahan Ajar oleh seorang Dosen yang sesuai dengan bidang ilmu
+                                                dan tidak
+                                                diterbitkan, tetapi digunakan oleh mahasiswa</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -1557,16 +1565,14 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas atau Surat Keputusan Mengajar (mata
+                                                                kuliah
+                                                                yang
+                                                                dimodulkan) dari Pimpinan</li>
+                                                            <li>Modul/Diktat/Bahan Ajar yang sudah jadi</li>
+                                                            <li>Bukti lain yang menunjukkan bahwa modul/diktat/bahan
+                                                                ajar
+                                                                sudah dipergunakan oleh mahasiswa</li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
                                                         </div>
@@ -1627,7 +1633,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN G --}}
 
 
                             {{-- MODAL SETUJU --}}
@@ -1736,6 +1742,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1755,38 +1762,35 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPenelitian_H-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianALabel"
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN H --}}
+                            <div class="modal fade" id="modalLihatLampiranPenelitian_H-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianHLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">A.
-                                                Keterlibatan
-                                                dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang
-                                                dilakukan oleh
-                                                kelompok (disetujui oleh pimpinan dan tercapai)</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianHLabel">H.
+                                                PEKERTI/AA</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -1796,16 +1800,12 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
+                                                            <li>Surat Tugas Mengikuti Program Pekerti dari Pimpinan
                                                             </li>
+                                                            <li>Sertifikat</li>
+                                                            <li>Tugas yang diselesaikan selama pelatihan seperti
+                                                                RKPSS yang
+                                                                sudah siap dll.</li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
                                                         </div>
@@ -1866,7 +1866,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN H --}}
 
 
                             {{-- MODAL SETUJU --}}
@@ -1980,6 +1980,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -2000,38 +2001,36 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPenelitian_I-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianALabel"
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN I --}}
+                            <div class="modal fade" id="modalLihatLampiranPenelitian_I-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianILabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">A.
-                                                Keterlibatan
-                                                dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang
-                                                dilakukan oleh
-                                                kelompok (disetujui oleh pimpinan dan tercapai)</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianILabel">I. Sebagai
+                                                asesor Beban Kerja Dosen dan Evaluasi Pelaksanaan Tridharma Perguruan Tinggi
+                                            </h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -2041,15 +2040,10 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
+                                                            <li>Surat Tugas Mengikuti Program Pekerti dari Pimpinan
+                                                            </li>
+                                                            <li>Surat permohonan dari institusi lain</li>
+                                                            <li>Lembar Pengesahan/bukti kegiatan yg disahkan atasan
                                                             </li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
@@ -2111,7 +2105,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN I --}}
 
 
                             {{-- MODAL SETUJU --}}
@@ -2225,6 +2219,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -2247,38 +2242,35 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPenelitian_J-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianALabel"
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN J --}}
+                            <div class="modal fade" id="modalLihatLampiranPenelitian_J-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianJLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">A.
-                                                Keterlibatan
-                                                dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang
-                                                dilakukan oleh
-                                                kelompok (disetujui oleh pimpinan dan tercapai)</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianJLabel">J. Menulis
+                                                jurnal ilmiah</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -2288,16 +2280,9 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Jurnal yang sudah diterbitkan atau surat
+                                                                keterangan/penerimaan dr redaksi & naskah, bagi yang
+                                                                belum diterbitkan.</li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
                                                         </div>
@@ -2358,7 +2343,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN J --}}
 
 
                             {{-- MODAL SETUJU --}}
@@ -2471,6 +2456,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -2491,38 +2477,35 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPenelitian_K-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianALabel"
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN K --}}
+                            <div class="modal fade" id="modalLihatLampiranPenelitian_K-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianKLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">A.
-                                                Keterlibatan
-                                                dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang
-                                                dilakukan oleh
-                                                kelompok (disetujui oleh pimpinan dan tercapai)</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianKLabel">K.
+                                                Memperoleh hak paten</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -2532,16 +2515,12 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
+                                                            <li>Surat Tugas Mengikuti Program Pekerti dari Pimpinan
                                                             </li>
+                                                            <li>Sertifikat</li>
+                                                            <li>Tugas yang diselesaikan selama pelatihan seperti
+                                                                RKPSS yang
+                                                                sudah siap dll.</li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
                                                         </div>
@@ -2602,7 +2581,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN K --}}
 
 
                             {{-- MODAL SETUJU --}}
@@ -2716,6 +2695,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -2735,38 +2715,35 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPenelitian_L-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
                             {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianALabel"
+                            <div class="modal fade" id="modalLihatLampiranPenelitian_L-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianLLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">A.
-                                                Keterlibatan
-                                                dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang
-                                                dilakukan oleh
-                                                kelompok (disetujui oleh pimpinan dan tercapai)</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianLLabel">L. Menulis
+                                                di media massa</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -2776,16 +2753,8 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Foto kopi tulisan yang dimuat di
+                                                                Koran/majalah</li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
                                                         </div>
@@ -2846,7 +2815,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN L --}}
 
 
                             {{-- MODAL SETUJU --}}
@@ -2960,6 +2929,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -2980,38 +2950,36 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPenelitian_M-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianALabel"
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN M --}}
+                            <div class="modal fade" id="modalLihatLampiranPenelitian_M-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianMLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">A.
-                                                Keterlibatan
-                                                dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang
-                                                dilakukan oleh
-                                                kelompok (disetujui oleh pimpinan dan tercapai)</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianMLabel">M.
+                                                Menyampaikan orasi ilmiah, pembicara dalam seminar, nara sumber terkait
+                                                dengan bidang keilmuannya</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -3021,16 +2989,10 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Permohonan sebagai Pembicara/Nara Sumber</li>
+                                                            <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
+                                                            <li>Naskah/ materi yang diberikan</li>
+                                                            <li>Sertifikat (jika ada)</li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
                                                         </div>
@@ -3091,7 +3053,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN M --}}
 
 
                             {{-- MODAL SETUJU --}}
@@ -3206,6 +3168,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -3229,38 +3192,35 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item['asesor1_fed'] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item['asesor1_fed'] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
                                         </td>
                                     @endif
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPenelitian_N-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
                             {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPenelitian_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianALabel"
+                            <div class="modal fade" id="modalLihatLampiranPenelitian_N-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenelitianNLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianALabel">A.
-                                                Keterlibatan
-                                                dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang
-                                                dilakukan oleh
-                                                kelompok (disetujui oleh pimpinan dan tercapai)</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPenelitianNLabel">N. Penyaji
+                                                makalah dalam seminar atau pertemuan ilmiah terkait dengan bidang ilmu</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -3270,16 +3230,10 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Penerimaan untuk disajkina dari Panitia</li>
+                                                            <li>Surat tugas/ijin/persetujuan dari Pimpinan</li>
+                                                            <li>Naskah/materi yang diberikan</li>
+                                                            <li>Sertifikat (jika ada)</li>
                                                         </ol>
                                                         <div class="font-weight-bold">List Lampiran yang telah diupload
                                                         </div>
@@ -3340,7 +3294,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN N --}}
 
 
                             {{-- MODAL SETUJU --}}

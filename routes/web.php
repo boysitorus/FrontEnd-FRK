@@ -344,12 +344,12 @@ Route::group(['middleware' => ['check.token']], function () {
     });
 
     Route::prefix('/Asesor/Evaluasi')->group(function () {
-        Route::get('/Rekap-Kegiatan', [AsesorEvaluasiController::class, 'getRencanaKegiatan'])->name('ed-asesor');
-        Route::get('/Rekap-Kegiatan-Setuju', [AsesorEvaluasiController::class, 'getRencanaKegiatanSetuju'])->name('ed-asesor-setuju');
-        Route::get('/Rekap-Kegiatan-Asesor-pendidikan/{id}', [AsesorEvaluasiController::class, 'getRencanaPendidikan'])->name('ed-asesor-detail-pendidikan');
-        Route::get('/Rekap-Kegiatan-Asesor-penelitian/{id}', [AsesorEvaluasiController::class, 'getRencanaPenelitian'])->name('ed-asesor-detail-penelitian');
-        Route::get('/Rekap-Kegiatan-Asesor-pengabdian/{id}', [AsesorEvaluasiController::class, 'getRencanaPengabdian'])->name('ed-asesor-detail-pengabdian');
-        Route::get('/Rekap-Kegiatan-Asesor-penunjang/{id}', [AsesorEvaluasiController::class, 'getRencanaPenunjang'])->name('ed-asesor-detail-penunjang');
-        Route::post('/review-rencana-kerja', [AsesorEvaluasiController::class, 'reviewRencana'])->name('ed-asesor-review-rencana');
+        Route::get('/Rekap-Kegiatan', [AsesorEvaluasiController::class, 'getEvaluasiKegiatan'])->name('ed-asesor');
+        Route::get('/Rekap-Kegiatan-Setuju', [AsesorEvaluasiController::class, 'getEvaluasiKegiatanSetuju'])->name('ed-asesor-setuju');
+        Route::get('/Rekap-Kegiatan-Asesor-pendidikan/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPendidikan'])->name('ed-asesor-detail-pendidikan');
+        Route::get('/Rekap-Kegiatan-Asesor-penelitian/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPenelitian'])->name('ed-asesor-detail-penelitian');
+        Route::get('/Rekap-Kegiatan-Asesor-pengabdian/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPengabdian'])->name('ed-asesor-detail-pengabdian');
+        Route::get('/Rekap-Kegiatan-Asesor-penunjang/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPenunjang'])->name('ed-asesor-detail-penunjang');
+        Route::post('/review-evaluasi-kerja', [AsesorEvaluasiController::class, 'reviewEvaluasi'])->name('ed-asesor-review-evaluasi');
     });
 });
