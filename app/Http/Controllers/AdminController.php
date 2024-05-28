@@ -179,6 +179,34 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Asesor added successfully');
     }
 
+    public function deleteAssignRole(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        $token = $auth->user->token;
+
+        try {
+            $requestData = Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE', false) . 'delete-assign-role', [
+                'id_pegawai' => $request->id_pegawai,
+                'id_FRK' => $request->id_FRK,
+                'id_FED' => $request->id_FED,
+                'jabatan' => $request->jabatan,
+            ]);
+
+            $decodeData = json_decode($requestData, true);
+
+            if ($decodeData['result'] == false)
+            {
+                return redirect()->back()->with('error', $decodeData['error']);
+            }
+        } catch (\Exception $err) {
+            return redirect()->back()->with('error', $err->getMessage());
+        }
+
+
+        return redirect()->back()->with('success', 'Asesor unsigned successfully');
+    }
+
     public function postTahunAjaran(Request $request)
     {
         $auth = Tools::getAuth($request);
