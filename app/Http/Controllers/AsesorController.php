@@ -55,17 +55,23 @@ class AsesorController extends Controller
     {
         $auth = Tools::getAuth($request);
         $token = json_decode(json_encode($auth->user), true)['token'];
-        $response_dosen = Http::get(env('API_FRK_SERVICE') . '/asesor-frk/getAllCompleteDosen/asesor1');
+        $auth = Tools::getAuth($request);
+        $check = Tools::checkAsesor(
+            json_decode(json_encode($auth->user->data_lengkap->dosen), true)['pegawai_id'],
+        );
+        $role = $check["data"]["tipe_asesor"] == '1' ? 'asesor1' : 'asesor2';
+        $response_dosen = Http::get(env('API_FRK_SERVICE') . '/asesor-frk/getAllCompleteDosen/' . $role);
 
 
         $data_dosen = [];
         if (sizeof($response_dosen->json()) > 0) {
             foreach ($response_dosen->json() as $item) {
-                $res = $this->getDosen($item["id_dosen"], $token);
+                $res = $this->getDosen($item, $token);
 
                 array_push($data_dosen, $res);
             }
         }
+
 
         return view(
             'App.Asesor.rekapKegiatanSetuju',
