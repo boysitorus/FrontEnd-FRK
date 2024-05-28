@@ -20,7 +20,7 @@
             <h4 class = "font-weight-bold">Rekap Kerja</h4>
             <p class="breadcrumbs">Daftar Rekan Kegiatan T.A 2023/2024</p>
         </div>
-        <hr/>
+        <hr />
         <div class="container-fluid ">
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
@@ -33,17 +33,20 @@
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Wilona Diva Artha Simbolon S.Kom</td>
-                            <td>12AS3456</td>
-                            <td>S1 Informatika 2021</td>
-                            <td>
-                                <a type="button" href="#" class="btn btn-primary">View Detail</a>
-                            </td>
-                        </tr>
-                    </tbody>
+                    @for ($i = 0; $i < 10; $i++)
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Wilona Diva Artha Simbolon S.Kom</td>
+                                <td>12AS3456</td>
+                                <td>S1 Informatika 2021</td>
+                                <td>
+                                    <a type="button" href="/admin/LihatKerja/ViewDetail" class="btn btn-primary">View
+                                        Detail</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    @endfor
                 </table>
             </div>
         </div>
