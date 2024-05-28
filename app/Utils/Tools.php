@@ -103,4 +103,8 @@ class   Tools{
             return false;
         }
     }
+
+    public static function checkAsesor($id){
+
+    }
 }

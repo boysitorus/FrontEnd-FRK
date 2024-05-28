@@ -48,9 +48,10 @@ class AsesorEvaluasiController extends Controller
         return $data;
     }
 
-    public function getRencanaPendidikan(Request $request, $id)
+    public function getEvaluasiPendidikan(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
+        $id_auth = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
         try {
@@ -72,7 +73,8 @@ class AsesorEvaluasiController extends Controller
                 'koordinator' => $responsePendidikan["koordinator"],
                 'proposal' => $responsePendidikan["proposal"],
                 'auth' => $auth,
-                'dataDosen' => $dataDosen
+                'dataDosen' => $dataDosen,
+                'idAuth' => $id_auth
             ];
 
             // Mengirim data ke view
@@ -83,9 +85,10 @@ class AsesorEvaluasiController extends Controller
         }
     }
 
-    public function getRencanaPenelitian(Request $request, $id)
+    public function getEvaluasiPenelitian(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
+        $id_auth = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
         try {
@@ -111,7 +114,8 @@ class AsesorEvaluasiController extends Controller
                 'media_massa' => $responsePenelitian["media_massa"],
                 'auth' => $auth,
                 'id' => $id,
-                'dataDosen' => $dataDosen
+                'dataDosen' => $dataDosen,
+                'idAuth' => $id_auth
             ];
 
             // Mengirim data ke view
@@ -120,5 +124,12 @@ class AsesorEvaluasiController extends Controller
             // Tangani error jika terjadi
             return response()->json(['error' => 'Failed to retrieve data from API'], 500);
         }
+    }
+
+    public function getRencanaPengabdian (Request $request){}
+    public function getRencanaPenunjang (Request $request){}
+
+    public function reviewEvaluasi (Request $request){
+
     }
 }
