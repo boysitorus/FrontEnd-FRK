@@ -51,7 +51,7 @@ class   Tools{
 
     public static function getPeriod($token, $type)
     {
-        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'/get-tanggal', [
+        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'get-tanggal', [
             'type' => $type
         ])->body(), true);
 
@@ -104,7 +104,10 @@ class   Tools{
         }
     }
 
-    public static function checkAsesor($id){
+    public static function checkAsesor($idPegawai){
+        $response = Http::get(env('API_ADMIN_SERVICE') . 'check-asesor/' . $idPegawai);
+        $check = $response->json();
 
+        return $check;
     }
 }
