@@ -306,7 +306,7 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_B-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPengabdian_B-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
@@ -540,7 +540,7 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_C-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPengabdian_C-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
@@ -781,7 +781,7 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPenelitian_D-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPengabdian_D-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>

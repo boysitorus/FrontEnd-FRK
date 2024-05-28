@@ -133,6 +133,7 @@ class AsesorEvaluasiController extends Controller
         $id_pegawai = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
+
         try {
             // Mengambil data a. kegiatan dari lumen
             $response = Http::get(env('API_FED_SERVICE') . '/asesor-fed/get-all-pengabdian/' . $id);
