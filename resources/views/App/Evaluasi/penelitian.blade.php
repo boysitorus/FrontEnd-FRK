@@ -1473,12 +1473,12 @@
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPenelitian_G-{{ $item["id_rencana"] }}">Tambah Lampiran</button>
+                                            data-bs-target="#modalEditPenelitian_G">Tambah Lampiran</button>
                                     </td>
                                 </tr>
 
                                 {{-- MODAL UPLOAD G --}}
-                                <div class="modal fade" id="modalEditPenelitian_G-{{ $item["id_rencana"] }}" tabindex="-1"
+                                <div class="modal fade" id="modalEditPenelitian_G" tabindex="-1"
                                     aria-labelledby="modalEditPenelitian_G_label" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
@@ -2996,18 +2996,18 @@
                                     <td>{{ $item['jumlah_anggota'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td>
-                                    @if ($item['asesor1_fed'] === null)
+                                    @if ($item['asesor2_fed'] === null)
                                             <span class="badge bg-secondary">Menunggu</span>
-                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
                                         @else
                                             <span class="badge bg-danger">Ditolak</span>
                                             <span
-                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
                                         @endif
                                     </td>
                                     <td>
-                                    @if ($item['asesor2_fed'] === null)
+                                        @if ($item['asesor2_fed'] === null)
                                             <span class="badge bg-secondary">Menunggu</span>
                                         @elseif ($item['asesor2_fed'] === 'setuju')
                                             <span class="badge bg-success">Disetujui</span>
