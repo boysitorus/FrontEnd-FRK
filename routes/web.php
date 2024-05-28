@@ -36,9 +36,9 @@ Route::group(['middleware' => ['check.token']], function () {
 
     Route::get('/profile', [UserController::class, 'userProfile'])->name('profile');
 
-    Route::prefix('/rekap-kegiatan')->group(function () {
-        Route::get('/', [UserController::class, 'rekapKegiatan'])->name('rekap-kegiatan');
-        Route::get('/detail', [UserController::class, 'rekapKegiatanDetail'])->name('rekap-kegiatan-detail');
+    Route::prefix('/riwayat-kegiatan')->group(function () {
+        Route::get('/', [UserController::class, 'rekapKegiatan'])->name('riwayat-kegiatan');
+        Route::get('/detail', [UserController::class, 'rekapKegiatanDetail'])->name('riwayat-kegiatan-detail');
     });
 
     Route::get('/formRencanaKerja', function () {

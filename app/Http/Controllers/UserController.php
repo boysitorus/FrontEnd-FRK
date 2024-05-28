@@ -55,9 +55,11 @@ class UserController extends Controller
     public function rekapKegiatanDetail(Request $request)
     {
         $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
 
         $data = [
-            'auth' => $auth
+            'auth' => $auth,
+            'id' => $id_dosen
         ];
         return view('App.Riwayat.dosenRiwayatDetail', $data);
     }
