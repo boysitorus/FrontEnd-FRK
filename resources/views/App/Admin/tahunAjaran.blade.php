@@ -28,49 +28,59 @@
     </div>
 </div>
 
+{{-- Tabel Daftar Tahun Ajaran --}}
 <div class="container mt-2 ml-0 mt-5 mb-4">
     <div class="row">
         <div class="col">
             <table class="table table-striped table-bordered mt-2 text-center border-secondary-subtle">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Tahun Ajaran</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">No.</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">Tahun Ajaran</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">Status</th>
+                        <th scope="col" rowspan="2" class="align-middle fw-bold">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="align-middle">
-                    <tr>
-                        <td>1</td>
-                        <td>Semester Genap 2022/2023</td>
-                        <td>Belum Selesai</td>
-                        <td>
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPendidikan"><i
-                                    class="bi bi-pencil-square"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Semester Ganjil 2023/2024</td>
-                        <td>Sudah Selesai</td>
-                        <td>
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPendidikan"><i
-                                    class="bi bi-pencil-square"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Semester Genap 2023/2024</td>
-                        <td>Sudah Selesai</td>
-                        <td>
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPendidikan"><i
-                                    class="bi bi-pencil-square"></i></button>
-                        </td>
-                    </tr>
+                    {{-- {{ dd($data, $tanggal_frk, $tanggal_fed) }} --}}
+                    @if ($data != null)
+                        @php
+                            $counter = 0;
+                        @endphp
+
+                        @foreach ($data['data'] as $item)
+                            @php
+                                $counter++;
+                            @endphp
+
+                            <tr>
+                                <td scope="row">{{ $counter }}</td>
+                                <td>{{ $item['tahun_ajaran'] }} ({{ $item['tipe'] }})</td>
+                                <td>
+                                    {{-- fengecekan untuk status --}}
+                                    @if($item['tipe'] == 'FED')
+                                        @if($tanggal_fed['data']['id'] == $item['id'])
+                                            <span class="badge rounded-pill bg-success">Tersedia</span>
+                                        @else
+                                            <span class="badge rounded-pill bg-danger">Tidak Tersedia</span>
+                                        @endif
+                                    @elseif($item['tipe'] == 'FRK')
+                                        @if($tanggal_frk['data']['id'] == $item['id'])
+                                            <span class="badge rounded-pill bg-success">Tersedia</span>
+                                        @else
+                                            <span class="badge rounded-pill bg-danger">Tidak Tersedia</span>
+                                        @endif
+                                    @endif
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditTahunAjaran-{{ $item['id'] }}"><i
+                                            class="bi bi-pencil-square"></i></button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+
                 </tbody>
             </table>
         </div>
