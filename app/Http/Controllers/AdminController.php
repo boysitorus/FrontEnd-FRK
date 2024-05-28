@@ -14,7 +14,16 @@ class AdminController extends Controller
     {
         $auth = Tools::getAuth($request);
 
-        return view('App.Admin.tahunAjaran');
+        $getSemesterFRK = Tools::getPeriod($auth->user->token, 'FRK');
+        $getSemesterFED = Tools::getPeriod($auth->user->token, 'FED');
+
+        $data = [
+            'data' => Tools::getAllPeriod($auth->user->token),
+            'tanggal_frk' => $getSemesterFRK,
+            'tanggal_fed' => $getSemesterFED,
+        ];
+
+        return view('App.Admin.tahunAjaran', $data);
     }
 
     public function getGenerateFRK(Request $request)
@@ -155,5 +164,10 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Asesor added successfully');
     }
-}
 
+    public function postTahunAjaran(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+    }
+
+}

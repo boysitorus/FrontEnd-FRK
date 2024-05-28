@@ -58,6 +58,14 @@ class   Tools{
         return $requestDataTanggal;
     }
 
+
+    public static function getAllPeriod($token)
+    {
+        $requestDataTanggal = json_decode(Http::withToken($token)->get(env('API_ADMIN_SERVICE').'get-all-tanggal'), true);
+
+        return $requestDataTanggal;
+    }
+
     public static function checkPeriodFRK($token)
     {
 
