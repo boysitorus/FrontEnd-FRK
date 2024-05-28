@@ -404,14 +404,6 @@ Route::group(['middleware' => ['check.token']], function () {
     Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
 
     Route::prefix('/Asesor')->group(function () {
-        Route::get('/Evaluasi-Diri', [AsesorController::class, 'getEvaluasiDiri'])->name('ed-asesor');
-        Route::get('/Evaluasi-Diri-Setuju', [AsesorController::class, 'getEvaluasiDiriSetuju'])->name('ed-asesor-setuju');
-        Route::get('/Evaluasi-Diri-Asesor-pendidikan/{id}', [AsesorController::class, 'getEvaluasiPendidikan'])->name('ed-asesor-detail-pendidikan');
-        Route::get('/Evaluasi-Diri-Asesor-penelitian/{id}', [AsesorController::class, 'getEvaluasiPenelitian'])->name('ed-asesor-detail-penelitian');
-        Route::get('/Evaluasi-Diri-Asesor-pengabdian/{id}', [AsesorController::class, 'getEvaluasiPengabdian'])->name('ed-asesor-detail-pengabdian');
-        Route::get('/Evaluasi-Diri-Asesor-penunjang/{id}', [AsesorController::class, 'getEvaluasiPenunjang'])->name('ed-asesor-detail-penunjang');
-        Route::post('/review-evaluasi-diri', [AsesorController::class, 'reviewEvaluasi'])->name('ed-asesor-review-evaluasi');
-        Route::get('/simpulan-asesor', [AsesorController::class, 'simpulanAsesor'])->name('ed-simpulan-asesor');
         Route::get('/Rekap-Kegiatan', [AsesorController::class, 'getRencanaKegiatan'])->name('rk-asesor');
         Route::get('/Rekap-Kegiatan-Setuju', [AsesorController::class, 'getRencanaKegiatanSetuju'])->name('rk-asesor-setuju');
         Route::get('/Rekap-Kegiatan-Asesor-pendidikan/{id}', [AsesorController::class, 'getRencanaPendidikan'])->name('rk-asesor-detail-pendidikan');
@@ -426,7 +418,7 @@ Route::group(['middleware' => ['check.token']], function () {
             Route::get('/ViewDetail', [AsesorController::class, 'getViewDetailAsesor'])->name('lk-viewDetailAsesor');
         });
 
-        Route::prefix('/Asesor/Evaluasi')->group(function () {
+        Route::prefix('/Evaluasi')->group(function () {
             Route::get('/Rekap-Kegiatan', [AsesorEvaluasiController::class, 'getEvaluasiKegiatan'])->name('ed-asesor');
             Route::get('/Rekap-Kegiatan-Setuju', [AsesorEvaluasiController::class, 'getEvaluasiKegiatanSetuju'])->name('ed-asesor-setuju');
             Route::get('/Rekap-Kegiatan-Asesor-pendidikan/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPendidikan'])->name('ed-asesor-detail-pendidikan');

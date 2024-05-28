@@ -24,14 +24,17 @@
         table.outer-border-only-table {
             border-collapse: separate;
             border-spacing: 0;
-            border: 1px solid black; /* Adjust the border style as needed */
+            border: 1px solid black;
+            /* Adjust the border style as needed */
         }
+
         table.outer-border-only-table th,
         table.outer-border-only-table td {
             border-left: none;
             border-right: none;
             border-top: none;
         }
+
         table.outer-border-only-table thead th,
         table.outer-border-only-table tbody tr:last-child td {
             border-bottom: 1px solid black;
@@ -60,7 +63,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('profile')}}" class="{{ request()->routeIs('profile') ? 'active' : '' }} list-group-item bg-abu list-group-item-action py-2 ripple">
+                            <a href="{{ route('profile') }}"
+                                class="{{ request()->routeIs('profile') ? 'active' : '' }} list-group-item bg-abu list-group-item-action py-2 ripple">
                                 <i class="bi bi-person-fill me-1"></i>
                                 <span>Profile</span>
                             </a>
@@ -69,9 +73,8 @@
                         <li>
                             <a type="button"
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
-                                {{Str::startsWith(request()->path(), 'formRencanaKerja') ? 'active' : ''}}
+                                {{ Str::startsWith(request()->path(), 'formRencanaKerja') ? 'active' : '' }}
                                 d-flex justify-content-between align-items-center"
-
                                 data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
                                 <i class="bi bi-person-workspace me-2"></i>
                                 <div class="me-auto"><span>Rencana Kerja</span></div>
@@ -93,7 +96,7 @@
                         <li>
                             <a type="button"
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
-                                {{Str::startsWith(request()->path(), 'formEvaluasiDiri') ? 'active' : ''}}
+                                {{ Str::startsWith(request()->path(), 'formEvaluasiDiri') ? 'active' : '' }}
                                 d-flex justify-content-between align-items-center"
                                 data-bs-toggle="collapse" data-bs-target="#fed-collapse" aria-expanded="false">
                                 <i class="bi bi-pencil-square me-2"></i>
@@ -121,70 +124,80 @@
                         </li>
 
                         <li>
-                            <a href="{{route('lk-tahunAjaranAsesor')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaran') ? 'active' : '' }}">
+                            <a href="{{ route('lk-tahunAjaranAsesor') }}"
+                                class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaran') ? 'active' : '' }}">
                                 <i class="bi bi-eye me-2"></i>
                                 <span>Lihat Kerja</span>
                             </a>
                         </li>
 
-                        @if(in_array($auth->user->data_lengkap->dosen->pegawai_id, $idAsesor))
-                        <li>
-                            <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
-                                data-bs-toggle="collapse" data-bs-target="#asesor-collapse" aria-expanded="false">
-                                <i class="bi bi-people-fill me-2"></i>
-                                <div class="me-auto"><span>Asesor</span></div>
-                                <i class="bi bi-chevron-down"></i>
-                            </a>
-                            <div class="collapse" id="asesor-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li>
-                                        <a type="button"
-                                            class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
-                                            data-bs-toggle="collapse" data-bs-target="#asesor-frk-collapse"
-                                            aria-expanded="false">
+                        @php
+                            use App\Utils\Tools;
+                            $check = Tools::checkAsesor(
+                                json_decode(json_encode($auth->user->data_lengkap->dosen), true)['pegawai_id'],
+                            );
+                        @endphp
 
-                                            <div class="me-auto">Rencana Kerja</div>
-                                            <i class="bi bi-chevron-down"></i>
-                                        </a>
-                                        <div class="collapse" id="asesor-frk-collapse">
-                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                                <li>
-                                                    <a href="{{ route('rk-asesor') }}"
-                                                        class="text-decoration-none sub-menu list-group-item-action py-2 ripple"
-                                                        style="margin-bottom:0.1px">
-                                                        Rekap Kegiatan
-                                                    </a>
-                                                </li>
+                        @if ($check['result'])
+                            <li>
+                                <a type="button"
+                                    class="
+                                    {{ Str::startsWith(request()->path(), 'Asesor') ? 'active' : '' }}
+                                    btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#asesor-collapse" aria-expanded="false">
+                                    <i class="bi bi-people-fill me-2"></i>
+                                    <div class="me-auto"><span>Asesor</span></div>
+                                    <i class="bi bi-chevron-down"></i>
+                                </a>
+                                <div class="collapse" id="asesor-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li>
+                                            <a type="button"
+                                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                                data-bs-toggle="collapse" data-bs-target="#asesor-frk-collapse"
+                                                aria-expanded="false">
 
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a type="button"
-                                            class="btn-toggle list-group-item blist-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
-                                            data-bs-toggle="collapse" data-bs-target="#asesor-fed-collapse"
-                                            aria-expanded="false">
+                                                <div class="me-auto">Rencana Kerja</div>
+                                                <i class="bi bi-chevron-down"></i>
+                                            </a>
+                                            <div class="collapse" id="asesor-frk-collapse">
+                                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                    <li>
+                                                        <a href="{{ route('rk-asesor') }}"
+                                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple"
+                                                            style="margin-bottom:0.1px">
+                                                            Rekap Kegiatan
+                                                        </a>
+                                                    </li>
 
-                                            <div class="me-auto">Evaluasi Diri</div>
-                                            <i class="bi bi-chevron-down"></i>
-                                        </a>
-                                        <div class="collapse" id="asesor-fed-collapse">
-                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                                <li>
-                                                    <a href="{{ route('ed-asesor') }}"
-                                                        class="text-decoration-none sub-menu list-group-item-action py-2 ripple margin"
-                                                        style="margin-bottom:0.1px">
-                                                        Rekap Kegiatan
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    @endif
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a type="button"
+                                                class="btn-toggle list-group-item blist-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                                data-bs-toggle="collapse" data-bs-target="#asesor-fed-collapse"
+                                                aria-expanded="false">
+
+                                                <div class="me-auto">Evaluasi Diri</div>
+                                                <i class="bi bi-chevron-down"></i>
+                                            </a>
+                                            <div class="collapse" id="asesor-fed-collapse">
+                                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                    <li>
+                                                        <a href="{{ route('ed-asesor') }}"
+                                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple margin"
+                                                            style="margin-bottom:0.1px">
+                                                            Rekap Kegiatan
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        @endif
                 </div>
             </div>
         </nav>
@@ -214,7 +227,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                     <div class="ms-auto d-flex align-items-center justify-content-start">
+                    <div class="ms-auto d-flex align-items-center justify-content-start">
                         <img class="d-inline" src="{{ asset('assets/icon/Logout.svg') }}" alt="">
                         <a class="text-reset me-3 text-decoration-none" href="{{ route('logout.get') }}">
                             <h5 class="ms-2 pt-2 " style="font-weight: 700;">Keluar</h5>
@@ -235,7 +248,8 @@
             @yield('content')
         </div>
 
-        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content text-center">
                     <h3 class="modal-title w-100 fw-bolder mt-5" id="logoutModalLabel">Logout</h3>
@@ -244,10 +258,12 @@
                     </div>
                     <div class="justify-content-center mt-3 mb-5">
                         <div>
-                            <a href="{{ route('logout.get') }}" class="fw-bolder"  style="text-decoration: none; color: red;">Ya, Saya Yakin</a>
+                            <a href="{{ route('logout.get') }}" class="fw-bolder"
+                                style="text-decoration: none; color: red;">Ya, Saya Yakin</a>
                         </div>
                         <div class="mt-2">
-                            <a  class="fw-bolder" href="" data-bs-dismiss="modal" style="text-decoration: none; color: grey;">Tidak, Saya ingin kembali</a>
+                            <a class="fw-bolder" href="" data-bs-dismiss="modal"
+                                style="text-decoration: none; color: grey;">Tidak, Saya ingin kembali</a>
                         </div>
                     </div>
                 </div>
@@ -277,14 +293,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
     </script> -->
-    <script src="{{ asset('assets/bootstrap-5.3.3-dist/js/bootstrap.min.js') }}">
-    </script>
-    <script src="{{ asset('assets/toastr.min.js')}}">
-    </script>
-    <script src="{{ asset('assets/toastr.min.js')}}">
-    </script>
+    <script src="{{ asset('assets/bootstrap-5.3.3-dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/toastr.min.js') }}"></script>
+    <script src="{{ asset('assets/toastr.min.js') }}"></script>
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     @if (Session::has('message'))
         <script>
             toastr.options = {
