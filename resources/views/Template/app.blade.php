@@ -117,7 +117,9 @@
                         </li>
 
                         <li>
-                            <a href="" class="list-group-item bg-abu list-group-item-action py-2 ripple">
+                            <a href="{{route('riwayat-kegiatan')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple 
+                            {{ Str::startsWith(request()->path(), 'riwayat-kegiatan') ? 'active' : '' }}
+">
                                 <i class="bi bi-clock-fill me-1"></i>
                                 <span>Riwayat Kegiatan</span>
                             </a>
