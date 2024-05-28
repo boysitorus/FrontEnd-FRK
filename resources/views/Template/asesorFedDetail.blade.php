@@ -7,7 +7,7 @@
         <div class = "row">
             <div class = "col">
                 <h3 class = "font-weight-bold">Rekap Kegiatan</h3>
-                <p class = "breadcrumbs">Asesor</p>
+                <p class = "breadcrumbs">Asesor Form Evaluasi Diri</p>
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
@@ -26,40 +26,34 @@
                 <h5> <b> <u> Info untuk dosen </u> </b> </h5>
                 <p><b>Nama : {{ $dataDosen["nama"] }}</b></p>
                 <p><b>NIDN : {{ $dataDosen["nidn"] }}</b></p>
-                <p><b>Jabatan</b></p>
+                <p><b>Jabatan : {{ "Dosen Program Studi " . $dataDosen["prodi"] }}</b></p>
             </div>
 
             <div class = "mt-5 mb-5">
                 <ul class="nav nav-pills justify-content-center text-center">
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link
-                        {{ Str::startsWith(request()->path(), 'Asesor/Rekap-Kegiatan-Asesor-pendidikan') ? 'active' : '' }}"
+                        {{ Str::startsWith(request()->path(), 'Asesor/Evaluasi/Rekap-Kegiatan-Asesor-pendidikan') ? 'active' : '' }}"
                         href="{{ route('ed-asesor-detail-pendidikan', ['id' => $id]) }}"
                         ><b>Rencana Pendidikan</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link
-                        {{ Str::startsWith(request()->path(), 'Asesor/Rekap-Kegiatan-Asesor-penelitian') ? 'active' : '' }}"
+                        {{ Str::startsWith(request()->path(), 'Asesor/Evaluasi/Rekap-Kegiatan-Asesor-penelitian') ? 'active' : '' }}"
                         href="{{ route('ed-asesor-detail-penelitian', ['id' => $id]) }} "
                         ><b>Rencana Penelitian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link
-                        {{ Str::startsWith(request()->path(), 'Asesor/Rekap-Kegiatan-Asesor-pengabdian') ? 'active' : '' }}"
+                        {{ Str::startsWith(request()->path(), 'Asesor/Evaluasi/Rekap-Kegiatan-Asesor-pengabdian') ? 'active' : '' }}"
                         href="{{ route('ed-asesor-detail-pengabdian', ['id' => $id]) }} "
                         ><b>Rencana Pengabdian</b></a>
                     </li>
                     <li class="nav-item nav-item-150 bg-abu-nav">
                         <a class="nav-link
-                        {{ Str::startsWith(request()->path(), 'Asesor/Rekap-Kegiatan-Asesor-penunjang') ? 'active' : '' }}"
+                        {{ Str::startsWith(request()->path(), 'Asesor/Evaluasi/Rekap-Kegiatan-Asesor-penunjang') ? 'active' : '' }}"
                         href="{{ route('ed-asesor-detail-penunjang', ['id' => $id]) }} "
                         ><b>Tunjangan Lainnya</b></a>
-                    </li>
-                    <li class="nav-item nav-item-150 bg-abu-nav">
-                        <a class="nav-link
-                        {{ Str::startsWith(request()->path(), 'Asesor/Rekap-Kegiatan-Asesor-penunjang') ? 'active' : '' }}"
-                        href="{{ route('ed-asesor-detail-penunjang', ['id' => $id]) }} "
-                        ><b>Simpulan</b></a>
                     </li>
                 </ul>
             </div>

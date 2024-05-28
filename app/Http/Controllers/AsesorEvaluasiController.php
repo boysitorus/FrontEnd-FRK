@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Utils\Tools;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -96,6 +97,7 @@ class AsesorEvaluasiController extends Controller
             $response = Http::get(env('API_FED_SERVICE') . '/asesor-fed/get-all-penelitian/' . $id);
             $responsePenelitian = $response->json();
 
+
             // Menggabungkan data
             $data = [
                 'penelitian_kelompok' => $responsePenelitian["penelitian_kelompok"],
@@ -130,6 +132,34 @@ class AsesorEvaluasiController extends Controller
     public function getRencanaPenunjang (Request $request){}
 
     public function reviewEvaluasi (Request $request){
-        // $checkRole =
+        $auth = Tools::getAuth($request);
+        $check = Tools::checkAsesor(
+            json_decode(json_encode($auth->user->data_lengkap->dosen), true)['pegawai_id'],
+        );
+
+        $id_rencana = $request->get('id_rencana');
+        $komentar = $request->get('komentar');
+        $toastMsg = "";
+        if($komentar == "setuju"){
+            $toastMsg = "Berhasil mengapprove rencana kerja";
+        } else{
+            $toastMsg = "Berhasil menolak rencana kerja";
+        }
+        try {
+            $response = Http::post(env('API_FED_SERVICE') . '/asesor-fed/reviewEvaluasi', [
+               "id_rencana" => $id_rencana,
+               "komentar" => $komentar,
+               "role" => $check["data"]["tipe_asesor"]
+            ]);
+            if($response->status() === 200){
+                return back()->with('message', $toastMsg);
+            } else {
+                throw new RequestException($response);
+            }
+        } catch (RequestException $e) {
+            return back()->with('message', 'Gagal approve rencana kerja');
+        }
+
+
     }
 }
