@@ -52,33 +52,39 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('profile')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple">
+                            <a href="{{route('profile')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('profile') ? 'active' : '' }}">
                                 <i class="bi bi-person-fill me-1"></i>
                                 <span>Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.assign-role')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('admin.assign-role') ? 'active' : '' }}">
+                            <i class="bi bi-person-fill-check me-2"></i>
+                                <span>Assign Role</span>
                             </a>
                         </li>
 
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed active
-                                d-flex justify-content-between align-items-center"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
+                                d-flex justify-content-between align-items-center {{ request()->routeIs('admin.generate_frk') || request()->routeIs('admin.generate_fed')  ? 'active' : '' }}"
                                 data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
                                 <i class="bi bi-calendar-check me-2"></i>
-                                <div class="me-auto"><span>Tanggal</span></div>
+                                <div class="me-auto"><span>Generate Tanggal</span></div>
                                 <i class="bi bi-chevron-down"></i>
                             </a>
                             <div class="collapse" id="frk-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
-                                        <a href="#"
-                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
+                                        <a href="{{route('admin.generate_frk')}}"
+                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple {{ request()->routeIs('admin.generate_frk') ? 'active' : '' }}">
                                             FRK
                                         </a>
                                     </li>
 
                                     <li style="margin-top : 4px">
-                                        <a href="#"
-                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
+                                        <a href="{{route('admin.generate_fed')}}"
+                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple {{ request()->routeIs('admin.generate_fed') ? 'active' : '' }}">
                                             FED
                                         </a>
                                     </li>
@@ -87,20 +93,12 @@
                         </li>
 
                         <li>
-                            <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
-                                data-bs-toggle="collapse" data-bs-target="#fed-collapse" aria-expanded="false">
-                                <i class="bi bi-universal-access me-2"></i>
-                                <div class="me-auto"><span>Akses</span></div>
+                            <a href="{{route('lk-tahunAjaran')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaran') ? 'active' : '' }}">
+                                <i class="bi bi-eye me-2"></i>
+                                <span>Lihat Kerja</span>
                             </a>
                         </li>
-
-                        <li>
-                            <a href="" class="list-group-item bg-abu list-group-item-action py-2 ripple">
-                            <i class="bi bi-person-fill-check me-2"></i>
-                                <span>Assign Role</span>
-                            </a>
-                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -132,7 +130,7 @@
 
                      <div class="ms-auto d-flex align-items-center justify-content-start">
                         <img class="d-inline" src="{{ asset('assets/icon/Logout.svg') }}" alt="">
-                        <a class="text-reset me-3 text-decoration-none" href="{{ route('logout.get') }}">
+                        <a class="text-reset me-3 text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#logoutModal">
                             <h5 class="ms-2 pt-2 " style="font-weight: 700;">Keluar</h5>
                         </a>
                     </div>
@@ -149,6 +147,25 @@
     <main id="contentPage" style="margin-top: 74px;">
         <div class="bg-abu container-fluid pt-4 ">
             @yield('content')
+        </div>
+
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content text-center">
+                    <h3 class="modal-title w-100 fw-bolder mt-5" id="logoutModalLabel">Logout</h3>
+                    <div class="modal-body mt-3">
+                        Anda yakin ingin keluar?
+                    </div>
+                    <div class="justify-content-center mt-3 mb-5">
+                        <div>
+                            <a href="{{ route('logout.get') }}" class="fw-bolder"  style="text-decoration: none; color: red;">Ya, Saya Yakin</a>
+                        </div>
+                        <div class="mt-2">
+                            <a  class="fw-bolder" href="" data-bs-dismiss="modal" style="text-decoration: none; color: grey;">Tidak, Saya ingin kembali</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <!--Main layout-->

@@ -120,6 +120,7 @@
                             </a>
                         </li>
 
+                        @if(in_array($auth->user->data_lengkap->dosen->pegawai_id, $idAsesor))
                         <li>
                             <a type="button"
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
@@ -192,6 +193,7 @@
                                 </ul>
                             </div>
                         </li>
+                    @endif
                 </div>
             </div>
         </nav>
@@ -240,6 +242,25 @@
     <main id="contentPage" style="margin-top: 74px;">
         <div class="bg-abu container-fluid pt-4 ">
             @yield('content')
+        </div>
+
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content text-center">
+                    <h3 class="modal-title w-100 fw-bolder mt-5" id="logoutModalLabel">Logout</h3>
+                    <div class="modal-body mt-3">
+                        Anda yakin ingin keluar?
+                    </div>
+                    <div class="justify-content-center mt-3 mb-5">
+                        <div>
+                            <a href="{{ route('logout.get') }}" class="fw-bolder"  style="text-decoration: none; color: red;">Ya, Saya Yakin</a>
+                        </div>
+                        <div class="mt-2">
+                            <a  class="fw-bolder" href="" data-bs-dismiss="modal" style="text-decoration: none; color: grey;">Tidak, Saya ingin kembali</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <!--Main layout-->

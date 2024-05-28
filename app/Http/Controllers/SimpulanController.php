@@ -13,10 +13,10 @@ use function PHPUnit\Framework\throwException;
 class SimpulanController extends Controller
 {
 
-
     public function getAll(Request $request)
     {
         $auth = Tools::getAuth($request);
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FRK")), true)['data'];
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $nidn_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nidn'];
         $nama_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nama'];
@@ -31,22 +31,34 @@ class SimpulanController extends Controller
             $totalSksPenunjang = $dataSks["sks_penunjang"];
             $totalSks = $dataSks["sks_total"];
 
-            return view(
-                'App.Rencana.simpulan',
-                [
-                    'pendidikanSks' => $totalSksPendidikan,
-                    'penelitianSks' => $totalSksPenelitian,
-                    'pengabdianSks' => $totalSksPengabdian,
-                    'penunjangSks' => $totalSksPenunjang,
-                    'totalSks' => $totalSks,
-                    'auth' => $auth,
-                    'id_dosen' => $id_dosen,
-                    'nidn_dosen' => $nidn_dosen,
-                    'nama_dosen' => $nama_dosen,
-                    'role_dosen' => $role_dosen,
-                ]
+            $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+            $listIdAssesor = [];
+
+
+            foreach ($responseAsesor['data'] as $e) {
+                $listIdAssesor[] = $e['id_pegawai'];
+            }
+
+
+            return view('App.Rencana.simpulan',
+            [
+                'pendidikanSks' => $totalSksPendidikan,
+                'penelitianSks' => $totalSksPenelitian,
+                'pengabdianSks' => $totalSksPengabdian,
+                'penunjangSks' => $totalSksPenunjang,
+                'totalSks' => $totalSks,
+                'auth' => $auth,
+                'periode' => $getTanggal,
+                'idAsesor' => $listIdAssesor,
+                'id_dosen' => $id_dosen,
+                'nidn_dosen' => $nidn_dosen,
+                'nama_dosen' => $nama_dosen,
+                'role_dosen' => $role_dosen,
+            ]
             );
-        } catch (\Throwable $th) {
+
+        } catch(\Throwable $th) {
             return response()->json(['error' => 'Failed to retrieve data from API'], 500);
         }
     }
@@ -79,8 +91,10 @@ class SimpulanController extends Controller
             ];
 
             $pdf = Pdf::loadView('App.Rencana.pdf', $data);
-            return $pdf->download('Simpulan-Rencana-Kerja.pdf');
-        } catch (\Throwable $th) {
+            return $pdf->download('coba.pdf');
+
+
+        } catch(\Throwable $th) {
             return response()->json(['error' => 'Failed to generate PDF'], 500);
         }
     }

@@ -59,37 +59,84 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <form action="{{ route('admin.assign-role.post') }}" method="POST">
-                                        @csrf
-                                        {{-- TOAST --}}
-                                        <div class="toast-container position-fixed top-0 end-0 p-3">
-                                            <div id="successToast" class="toast bg-success-subtle" role="alert"
-                                                 aria-live="assertive" aria-atomic="true">
-                                                <div class="toast-body">
-                                                    <i class="bi bi-check2-circle"></i>
-                                                    <ul id="success-toast-messages">
-                                                    </ul>
+
+                                    @php
+                                        $isAssigned = false;
+                                    @endphp
+
+                                    @foreach($list_asesor['data'] as $asesor_terdaftar)
+                                        @if($asesor_terdaftar['id_pegawai'] == $asesor['pegawai_id'] && $asesor_terdaftar['id_tanggal_frk'] == $tanggal_frk['id'] && $asesor_terdaftar['id_tanggal_fed'] == $tanggal_fed['id'])
+                                            @php
+                                                $isAssigned = true;
+                                                break;
+                                            @endphp
+                                        @endif
+                                    @endforeach
+
+                                    @if($isAssigned)
+                                        <form action="{{ route('admin.assign-role.delete') }}" method="POST">
+                                            @csrf
+                                            {{-- TOAST --}}
+                                            <div class="toast-container position-fixed top-0 end-0 p-3">
+                                                <div id="successToast" class="toast bg-success-subtle" role="alert"
+                                                     aria-live="assertive" aria-atomic="true">
+                                                    <div class="toast-body">
+                                                        <i class="bi bi-check2-circle"></i>
+                                                        <ul id="success-toast-messages">
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div id="errorToast" class="toast bg-danger-subtle" role="alert"
+                                                     aria-live="assertive" aria-atomic="true">
+                                                    <div class="toast-body">
+                                                        <i class="bi bi-x-circle"></i>
+                                                        <ul id="error-toast-messages">
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div id="errorToast" class="toast bg-danger-subtle" role="alert"
-                                                 aria-live="assertive" aria-atomic="true">
-                                                <div class="toast-body">
-                                                    <i class="bi bi-x-circle"></i>
-                                                    <ul id="error-toast-messages">
-                                                    </ul>
+
+                                            <input type="hidden" name="id_pegawai" value="{{$asesor['pegawai_id']}}">
+                                            <input type="hidden" name="jabatan" value="{{ $asesor['kepala'] }}">
+                                            <input type="hidden" name="id_FRK" value="{{$tanggal_frk['id']}}">
+                                            <input type="hidden" name="id_FED" value="{{$tanggal_fed['id']}}">
+
+                                            <button type="submit" class="btn btn-danger">
+                                                Sudah Di Assign Sebagai Assesor
+                                            </button>
+                                        </form>
+                                    @else
+                                        <form action="{{ route('admin.assign-role.post') }}" method="POST">
+                                            @csrf
+                                            {{-- TOAST --}}
+                                            <div class="toast-container position-fixed top-0 end-0 p-3">
+                                                <div id="successToast" class="toast bg-success-subtle" role="alert"
+                                                     aria-live="assertive" aria-atomic="true">
+                                                    <div class="toast-body">
+                                                        <i class="bi bi-check2-circle"></i>
+                                                        <ul id="success-toast-messages">
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div id="errorToast" class="toast bg-danger-subtle" role="alert"
+                                                     aria-live="assertive" aria-atomic="true">
+                                                    <div class="toast-body">
+                                                        <i class="bi bi-x-circle"></i>
+                                                        <ul id="error-toast-messages">
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <input type="hidden" name="id_pegawai" value="{{$asesor['pegawai_id']}}">
-                                        <input type="hidden" name="jabatan" value="{{ $asesor['kepala'] }}">
-                                        <input type="hidden" name="id_FRK" value="{{$tanggal_frk['id']}}">
-                                        <input type="hidden" name="id_FED" value="{{$tanggal_fed['id']}}">
-
-                                        <button type="submit" class="btn btn-secondary">
-                                            Assign Sebagai Assesor
-                                        </button>
-                                    </form>
+                                            <input type="hidden" name="id_pegawai" value="{{$asesor['pegawai_id']}}">
+                                            <input type="hidden" name="jabatan" value="{{ $asesor['kepala'] }}">
+                                            <input type="hidden" name="id_FRK" value="{{$tanggal_frk['id']}}">
+                                            <input type="hidden" name="id_FED" value="{{$tanggal_fed['id']}}">
+                                            <button type="submit" class="btn btn-secondary">
+                                                Assign Sebagai Assesor
+                                            </button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

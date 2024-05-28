@@ -10,8 +10,6 @@ use Illuminate\Http\Client\RequestException;
 
 class AsesorController extends Controller
 {
-    
-
     public function getDosen($uid, $token){
         $requestDataDosen = Http::withToken($token)->asForm()->post(env('API_DATA_DOSEN') . $uid)->body();
         $jsonDataDosen = json_decode($requestDataDosen, true);
@@ -369,8 +367,44 @@ class AsesorController extends Controller
     //EVALUASI DIRI
     public function getEvaluasiDiri(Request $request)
     {
+        // $auth = Tools::getAuth($request);
+        // $token = json_decode(json_encode($auth->user),true)['token'];
+        // $response_dosen = Http::get(env('API_FRK_SERVICE') . '/asesor-frk/getAllDosen');
+
+
+        // $data_dosen = [];
+        // if(sizeof($response_dosen->json()) > 0){
+        //     foreach($response_dosen->json() as $item){
+        //         $res = $this->getDosen($item["id_dosen"], $token);
+
+        //         array_push($data_dosen, $res);
+        //     }
+        // }
+
+
+
+
+        // return view('App.Asesor.rekapKegiatan',
+        // [
+        //     'auth' => $auth,
+        //     'data_dosen' => $data_dosen,
+        // ]);
         return view('App.AsesorFED.rekapEvaluasi');
     }
+
+    // public function getDosen($uid, $token){
+    //     $requestDataDosen = Http::withToken($token)->asForm()->post(env('API_DATA_DOSEN') . $uid)->body();
+    //     $jsonDataDosen = json_decode($requestDataDosen, true);
+
+    //     $data = [
+    //         "id_dosen" => $uid,
+    //         "nidn" => $jsonDataDosen['data']['dosen'][0]['nidn'],
+    //         "nama" => $jsonDataDosen['data']['dosen'][0]['nama'],
+    //         "prodi" => $jsonDataDosen['data']['dosen'][0]['prodi'],
+    //     ];
+
+    //     return $data;
+    // }
 
     public function getEvaluasiDiriSetuju(Request $request)
     {
@@ -441,7 +475,7 @@ class AsesorController extends Controller
                 'koordinator' => $koordinator,
                 'proposal' => $proposal,
                 'auth' => $auth,
-                'dataDosen' => json_decode(json_encode($dataDosen), true)    
+                'dataDosen' => json_decode(json_encode($dataDosen), true)
             ];
 
             //Mengirim data ke view
@@ -559,4 +593,118 @@ class AsesorController extends Controller
         return view('App.AsesorFED.simpulanAsesorFED');
     }
 
+
+    public function getTahunAjaranAsesor(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
+        $data = [
+            'auth' => $auth,
+            'idAsesor' => $listIdAssesor
+        ];
+        return view('App.Asesor.AsessorLihatTahunAjaran', $data);
+    }
+
+    public function getViewDosenAsesor(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
+        $data = [
+            'auth' => $auth,
+            'idAsesor' => $listIdAssesor
+        ];
+
+        return view('App.Asesor.AsessorLihatKerjaViewDosen', $data);
+    }
+
+    public function getViewDetailAsesor(Request $request){
+        $auth = Tools::getAuth($request);
+
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
+        $data = [
+            'auth' => $auth,
+            'idAsesor' => $listIdAssesor
+        ];
+        return view('App.Asesor.AsessorLihatKerjaViewDetail', $data);
+    }
+
+    public function getRekapKerjaAsesor(Request $request){
+        $auth = Tools::getAuth($request);
+
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
+        $data = [
+            'auth' => $auth,
+            'idAsesor' => $listIdAssesor
+        ];
+        return view('App.Asesor.AsessorRekapKerjaSaya', $data);
+    }
+
+    public function getTahunAjaranAdmin(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        $data = [
+            'auth' => $auth,
+        ];
+        return view('App.Asesor.AsessorLihatTahunAjaran', $data);
+    }
+
+    public function getViewDosenAdmin(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        $data = [
+            'auth' => $auth,
+        ];
+
+        return view('App.Asesor.AsessorLihatKerjaViewDosen', $data);
+    }
+
+    public function getViewDetailAdmin(Request $request){
+        $auth = Tools::getAuth($request);
+
+        $data = [
+            'auth' => $auth,
+        ];
+        return view('App.Asesor.AsessorLihatKerjaViewDetail', $data);
+    }
+
+    public function getRekapKerjaAdmin(Request $request){
+        $auth = Tools::getAuth($request);
+
+        $data = [
+            'auth' => $auth,
+        ];
+        return view('App.Asesor.AsessorRekapKerjaSaya', $data);
+    }
 }

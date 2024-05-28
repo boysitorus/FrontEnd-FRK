@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Utils\Tools;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
@@ -21,6 +22,15 @@ class UserController extends Controller
 
         $decodeKeanggotaan = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['prodi'];
 
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
         $prodiFITE = ['S1 Informatika','S1 Sistem Informasi','S1 Teknik Elektro'];
         $prodiVokasi = ['DIII Teknologi Informasi','DIII Teknologi Komputer', 'DIV Teknologi Rekayasa Perangkat Lunak'];
         $prodiBP = ['S1 Teknik Bioproses'];
@@ -36,9 +46,16 @@ class UserController extends Controller
             $fakultas = "Fakultas Teknik Industri";
         }
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
-            'auth' => $auth, 'keanggotaan' => $fakultas
+            'auth' => $auth, 
+            'keanggotaan' => $fakultas,
+            'isHumanResources' => $isHumanResources,
+            'idAsesor' => $listIdAssesor
         ];
+
         return view('App.Profile.profile', $data);
     }
 }

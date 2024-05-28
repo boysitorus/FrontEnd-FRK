@@ -17,7 +17,7 @@
 
         <div class = "bg-white mt-2 pb-4">
             <div class = "ml-2 mr-2 pt-4">
-                <h4 class = "font-weight-bold">Rekap Kerja - Semester 2023/2024 Genap</h4>
+                <h4 class = "font-weight-bold">Rekap Kerja - Tahun Ajaran {{ $periode['tahun_ajaran'] }} Semester {{ $periode['semester'] }}</h4>
             </div>
             <hr/>
 

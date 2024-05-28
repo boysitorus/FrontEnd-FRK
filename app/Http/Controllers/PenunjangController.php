@@ -59,6 +59,15 @@ class PenunjangController extends Controller
             $responsePengurusYayasan = Http::get(env('API_FRK_SERVICE') . '/penunjang/pengurusyayasan/' . $id_dosen);
             $pengurusyayasan = $responsePengurusYayasan->json();
 
+            $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+            $listIdAssesor = [];
+
+
+            foreach ($responseAsesor['data'] as $e) {
+                $listIdAssesor[] = $e['id_pegawai'];
+            }
+
             $data = [
                 'all' => $all,
                 'akademik' => $akademik,
@@ -77,7 +86,8 @@ class PenunjangController extends Controller
                 'pengurusyayasan' => $pengurusyayasan,
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
-                'periode' => $getTanggal
+                'periode' => $getTanggal,
+                'idAsesor' => $listIdAssesor
             ];
 
             return view('App.Rencana.penunjang', $data);

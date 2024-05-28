@@ -51,9 +51,17 @@ class   Tools{
 
     public static function getPeriod($token, $type)
     {
-        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'/get-tanggal', [
+        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'get-tanggal', [
             'type' => $type
         ])->body(), true);
+
+        return $requestDataTanggal;
+    }
+
+
+    public static function getAllPeriod($token)
+    {
+        $requestDataTanggal = json_decode(Http::withToken($token)->get(env('API_ADMIN_SERVICE').'get-all-tanggal'), true);
 
         return $requestDataTanggal;
     }

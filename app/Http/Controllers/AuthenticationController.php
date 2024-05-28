@@ -34,6 +34,7 @@ class AuthenticationController extends Controller
 
         $parseData = json_decode($response->body(), true);
 
+        // dd($response);
         // Validasi respon dari API
         if (!$response->successful() || !$parseData['result']) {
             return redirect()->route('user.login.get')->withErrors(['error-login' => 'Error, akun anda salah'])->withInput();
