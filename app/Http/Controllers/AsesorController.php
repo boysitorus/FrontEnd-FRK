@@ -51,7 +51,7 @@ class AsesorController extends Controller
     {
         $auth = Tools::getAuth($request);
         $token = json_decode(json_encode($auth->user),true)['token'];
-        $response_dosen = Http::get(env('API_FRK_SERVICE') . '/asesor-frk/getAllDosen');
+        $response_dosen = Http::get(env('API_FRK_SERVICE') . '/asesor-frk/getAllCompleteDosen');
 
 
         $data_dosen = [];
@@ -62,7 +62,7 @@ class AsesorController extends Controller
                 array_push($data_dosen, $res);
             }
         }
-        return view('App.Asesor.rekapKegiatan',
+        return view('App.Asesor.rekapKegiatanSetuju',
         [
             'auth' => $auth,
             'data_dosen' => $data_dosen,
