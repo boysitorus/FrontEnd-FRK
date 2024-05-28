@@ -7,6 +7,22 @@
     "content-hash": "3721e474e81bd5047790c8d2a62aa58c",
     "packages": [
         {
+<<<<<<< HEAD
+            "name": "brick/math",
+            "version": "0.12.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brick/math.git",
+                "reference": "f510c0a40911935b77b86859eb5223d58d660df1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brick/math/zipball/f510c0a40911935b77b86859eb5223d58d660df1",
+                "reference": "f510c0a40911935b77b86859eb5223d58d660df1",
+                "shasum": ""
+            },
+            "require": {
+=======
             "name": "barryvdh/laravel-dompdf",
             "version": "v2.1.1",
             "source": {
@@ -98,6 +114,7 @@
                 "shasum": ""
             },
             "require": {
+>>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
                 "php": "^8.1"
             },
             "require-dev": {
@@ -1191,6 +1208,7 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v10.48.10",
             "source": {
                 "type": "git",
@@ -1201,6 +1219,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/91e2b9e218afa4e5c377510faa11957042831ba3",
                 "reference": "91e2b9e218afa4e5c377510faa11957042831ba3",
+=======
+            "version": "v10.48.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "ad758500b47964d022addf119600a1b1b0230733"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ad758500b47964d022addf119600a1b1b0230733",
+                "reference": "ad758500b47964d022addf119600a1b1b0230733",
+>>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
                 "shasum": ""
             },
             "require": {
@@ -1394,6 +1424,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
             "time": "2024-04-30T12:52:59+00:00"
         },
         {
@@ -1408,6 +1439,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/prompts/zipball/23ea808e8a145653e0ab29e30d4385e49f40a920",
                 "reference": "23ea808e8a145653e0ab29e30d4385e49f40a920",
+=======
+            "time": "2024-04-23T15:01:33+00:00"
+        },
+        {
+            "name": "laravel/prompts",
+            "version": "v0.1.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/prompts.git",
+                "reference": "bf9a360c484976692de0f3792f30066f4f4b34a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/bf9a360c484976692de0f3792f30066f4f4b34a2",
+                "reference": "bf9a360c484976692de0f3792f30066f4f4b34a2",
+>>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
                 "shasum": ""
             },
             "require": {
@@ -1450,9 +1497,15 @@
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/laravel/prompts/tree/v0.1.21"
             },
             "time": "2024-04-30T12:46:16+00:00"
+=======
+                "source": "https://github.com/laravel/prompts/tree/v0.1.20"
+            },
+            "time": "2024-04-18T00:45:25+00:00"
+>>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
         },
         {
             "name": "laravel/sanctum",
@@ -2040,6 +2093,17 @@
             "time": "2024-01-28T23:22:08+00:00"
         },
         {
+<<<<<<< HEAD
+            "name": "monolog/monolog",
+            "version": "3.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "4b18b21a5527a3d5ffdac2fd35d3ab25a9597654"
+            },
+            "dist": {
+                "type": "zip",
+=======
             "name": "masterminds/html5",
             "version": "2.9.0",
             "source": {
@@ -2116,6 +2180,7 @@
             },
             "dist": {
                 "type": "zip",
+>>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
                 "url": "https://api.github.com/repos/Seldaek/monolog/zipball/4b18b21a5527a3d5ffdac2fd35d3ab25a9597654",
                 "reference": "4b18b21a5527a3d5ffdac2fd35d3ab25a9597654",
                 "shasum": ""
@@ -3488,6 +3553,17 @@
             "time": "2024-04-27T21:32:50+00:00"
         },
         {
+<<<<<<< HEAD
+            "name": "symfony/console",
+            "version": "v6.4.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "a170e64ae10d00ba89e2acbb590dc2e54da8ad8f"
+            },
+            "dist": {
+                "type": "zip",
+=======
             "name": "sabberworm/php-css-parser",
             "version": "v8.5.1",
             "source": {
@@ -3562,6 +3638,7 @@
             },
             "dist": {
                 "type": "zip",
+>>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
                 "url": "https://api.github.com/repos/symfony/console/zipball/a170e64ae10d00ba89e2acbb590dc2e54da8ad8f",
                 "reference": "a170e64ae10d00ba89e2acbb590dc2e54da8ad8f",
                 "shasum": ""
@@ -6242,6 +6319,7 @@
         },
         {
             "name": "laravel/pint",
+<<<<<<< HEAD
             "version": "v1.15.3",
             "source": {
                 "type": "git",
@@ -6252,6 +6330,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/pint/zipball/3600b5d17aff52f6100ea4921849deacbbeb8656",
                 "reference": "3600b5d17aff52f6100ea4921849deacbbeb8656",
+=======
+            "version": "v1.15.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/pint.git",
+                "reference": "2c9f8004899815f3f0ee3cb28ef7281e2b589134"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/2c9f8004899815f3f0ee3cb28ef7281e2b589134",
+                "reference": "2c9f8004899815f3f0ee3cb28ef7281e2b589134",
+>>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
                 "shasum": ""
             },
             "require": {
@@ -6304,7 +6394,11 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
+<<<<<<< HEAD
             "time": "2024-04-30T15:02:26+00:00"
+=======
+            "time": "2024-04-23T15:42:34+00:00"
+>>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
         },
         {
             "name": "laravel/sail",
@@ -8280,6 +8374,7 @@
         },
         {
             "name": "spatie/laravel-ignition",
+<<<<<<< HEAD
             "version": "2.6.2",
             "source": {
                 "type": "git",
@@ -8290,6 +8385,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/42d986f4ab9d667020264a7481190a4606ebbeb0",
                 "reference": "42d986f4ab9d667020264a7481190a4606ebbeb0",
+=======
+            "version": "2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-ignition.git",
+                "reference": "e2f8f3724371f093f9461dcd7f8c1a1bd157c27e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/e2f8f3724371f093f9461dcd7f8c1a1bd157c27e",
+                "reference": "e2f8f3724371f093f9461dcd7f8c1a1bd157c27e",
+>>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
                 "shasum": ""
             },
             "require": {
@@ -8368,7 +8475,11 @@
                     "type": "github"
                 }
             ],
+<<<<<<< HEAD
             "time": "2024-04-30T13:56:21+00:00"
+=======
+            "time": "2024-04-29T14:55:54+00:00"
+>>>>>>> 430bc83b159b7cf70884f3ce0dc665fa76250eb4
         },
         {
             "name": "symfony/yaml",

@@ -48,4 +48,59 @@ class   Tools{
 
         return $payloadData->uid;
     }
+
+    public static function getPeriod($token, $type)
+    {
+        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'/get-tanggal', [
+            'type' => $type
+        ])->body(), true);
+
+        return $requestDataTanggal;
+    }
+
+    public static function checkPeriodFRK($token)
+    {
+
+        /*
+         * Format Tanggal ( Tahun - Tanggal - Bulan)
+         *  Y - d - m
+         */
+
+        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'get-tanggal', [
+            'type' => 'FRK'
+        ])->body(), true);
+
+        $currentDate = strtotime(date("Y-m-d"));
+        $tanggalAwal = strtotime($requestDataTanggal['data']['tgl_awal_pengisian']);
+        $tanggalAkhir = strtotime($requestDataTanggal['data']['tgl_akhir_pengisian']);
+
+        if ($tanggalAwal <= $currentDate && $currentDate <= $tanggalAkhir) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function checkPeriodFED($token)
+    {
+
+        /*
+         * Format Tanggal ( Tahun - Tanggal - Bulan)
+         *  Y - d - m
+         */
+
+        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'get-tanggal', [
+            'type' => 'FED'
+        ])->body(), true);
+
+        $currentDate = strtotime(date("Y-m-d"));
+        $tanggalAwal = strtotime($requestDataTanggal['data']['tgl_awal_pengisian']);
+        $tanggalAkhir = strtotime($requestDataTanggal['data']['tgl_akhir_pengisian']);
+
+        if ($tanggalAwal <= $currentDate && $currentDate <= $tanggalAkhir) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

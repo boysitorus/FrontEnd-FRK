@@ -25,10 +25,10 @@
             <hr />
 
             <div class="alert alert-info mt-2 ml-1 mr-1 mb-6 bg-alert-info" role="alert">
-                <h5> <b> <u> Info untuk dosen </u> </b> </h5>
-                <p><b>Penarikan Kinerja</b> dari 01 Januari 2024 sampai xx xxxxx xxxxx</p>
-                <p><b>Periode Pengisian</b> dari 05 Februari 2024 sampai xx xxxxx xxxxx</p>
-                <p><b>Periode Penilaian</b> dari 01 Januari 2024 sampai xx xxxxx xxxxx</p>
+                <h5> <b> <u> Profil dosen </u> </b> </h5>
+                <p><b>{{ $nama_dosen }}</b></p>
+                <p><b>{{ $nidn_dosen }}</b></p>
+                <p><b>{{ $role_dosen }}</b></p>
             </div>
 
             <div class = "mt-5 mb-5">

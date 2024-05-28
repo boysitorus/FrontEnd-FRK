@@ -15,10 +15,6 @@ class PenelitianController extends Controller
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try {
-
-            $responseAll = Http::get(env('API_FRK_SERVICE'). '/pendidikan/all/' . $id_dosen);
-            $all = $responseAll->json();
-
             // Mengambil data a. penelitian kelompok dari Lumen
             $responsePenelitianKelompok = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok/' . $id_dosen);
             $PenelitianKelompok = $responsePenelitianKelompok->json();
@@ -78,7 +74,6 @@ class PenelitianController extends Controller
 
             // Menggabungkan data
             $data = [
-                'all' => $all,
                 'penelitian_kelompok' => $PenelitianKelompok,
                 'penelitian_mandiri' => $PenelitianMandiri,
                 'buku_terbit' => $BukuTerbit,

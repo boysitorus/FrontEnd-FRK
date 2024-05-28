@@ -10,6 +10,7 @@ class PengabdianController extends Controller
 {
     public function getPengabdianPanel(Request $request){
         $auth = Tools::getAuth($request);
+        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FRK")), true)['data'];
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         try{
             $responseAll = Http::get(env('API_FRK_SERVICE'). '/pendidikan/all/' . $id_dosen);
@@ -40,7 +41,8 @@ class PengabdianController extends Controller
                 'konsultan' => $konsultan,
                 'karya' => $Karya,
                 'auth' => $auth,
-                'id_dosen' => $id_dosen
+                'id_dosen' => $id_dosen,
+                'periode' => $getTanggal
             ];
 
             // Mengirim data ke view
