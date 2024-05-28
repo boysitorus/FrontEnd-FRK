@@ -173,8 +173,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
+                                            <input type="hidden" name="id_pegawai" value={{ $idPegawai }}>
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
                                             <div class="modal-body">
@@ -219,10 +220,10 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_dosen" value="1435" />
+                                                <input type="hidden" name="id_pegawai" value={{ $idPegawai }} />
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"

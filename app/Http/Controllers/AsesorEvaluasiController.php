@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 
 class AsesorEvaluasiController extends Controller
 {
-    public function getRencanaKegiatan(Request $request)
+    public function getEvaluasiKegiatan(Request $request)
     {
         $auth = Tools::getAuth($request);
         $token = json_decode(json_encode($auth->user), true)['token'];
@@ -51,7 +51,7 @@ class AsesorEvaluasiController extends Controller
     public function getEvaluasiPendidikan(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-        $id_auth = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $id_pegawai = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['pegawai_id'];
         $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
         try {
@@ -74,7 +74,7 @@ class AsesorEvaluasiController extends Controller
                 'proposal' => $responsePendidikan["proposal"],
                 'auth' => $auth,
                 'dataDosen' => $dataDosen,
-                'idAuth' => $id_auth
+                'idPegawai' => $id_pegawai
             ];
 
             // Mengirim data ke view
@@ -88,7 +88,7 @@ class AsesorEvaluasiController extends Controller
     public function getEvaluasiPenelitian(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-        $id_auth = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $id_pegawai = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
         try {
@@ -115,7 +115,7 @@ class AsesorEvaluasiController extends Controller
                 'auth' => $auth,
                 'id' => $id,
                 'dataDosen' => $dataDosen,
-                'idAuth' => $id_auth
+                'idPegawai' => $id_pegawai
             ];
 
             // Mengirim data ke view
@@ -130,6 +130,6 @@ class AsesorEvaluasiController extends Controller
     public function getRencanaPenunjang (Request $request){}
 
     public function reviewEvaluasi (Request $request){
-
+        // $checkRole =
     }
 }

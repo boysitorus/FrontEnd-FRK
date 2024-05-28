@@ -113,6 +113,8 @@ class AdminController extends Controller
 
         $requestData = Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-eligible-asesor');
 
+        // dd($getSemesterFRK);
+
         $data = [
             'eligible_asesor' => json_decode($requestData, true),
             'tanggal_frk' => $getSemesterFRK['data'],
