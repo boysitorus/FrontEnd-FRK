@@ -72,6 +72,14 @@ class PenelitianController extends Controller
             $responsePenyajianMakalah = Http::get(env('API_FRK_SERVICE') . '/penelitian/penyajian_makalah/' . $id_dosen);
             $PenyajianMakalah = $responsePenyajianMakalah->json();
 
+            $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+            $listIdAssesor = [];
+
+
+            foreach ($responseAsesor['data'] as $e) {
+                $listIdAssesor[] = $e['id_pegawai'];
+            }
 
             // Menggabungkan data
             $data = [
@@ -91,7 +99,8 @@ class PenelitianController extends Controller
                 'media_massa'=>$MediaMassa,
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
-                'periode' => $getTanggal
+                'periode' => $getTanggal,
+                'idAsesor' => $listIdAssesor
             ];
 
             // Mengirim data ke view
