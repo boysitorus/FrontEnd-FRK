@@ -59,6 +59,48 @@
                                 {{-- pengecekan untuk status --}}
                                 @if($item['tipe'] == 'FED')
                                     @if($tanggal_fed['data']['id'] == $item['id'])
+                                    <div class="modal fade modal-lg" id="modalEditTahunAjaran-{{ $item['id'] }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">(FED) {{$counter}}. {{ $item['tahun_ajaran'] }} ({{ $item['semester'] }})</h6>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('admin.generate_fed.post') }}" method="POST">
+                                                <div class="modal-body">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $item['id'] }}" />
+
+                                                    <div class="mb-3">
+                                                        <label for="tahun_ajaran" class="form-label">Tahun Ajaran</label>
+                                                        <input placeholder="{{ $item['tahun_ajaran'] }}" type="text" class="form-control" id="nama"
+                                                            name="tahun_ajaran">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="semester" class="form-label">Semester</label>
+                                                        <select name="semester" class="form-select form-select-md mb-3" aria-label=".form-select-md example" required>
+                                                            <option value="" disabled selected>Pilih Semester</option>
+                                                            <option value="Ganjil">Ganjil</option>
+                                                            <option value="Genap">Genap</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    {{-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#modalEditConfirm">Simpan Perubahan</button> --}}
+                                                        <button type="submit" class="btn btn-primary">
+                                                            Simpan Perubahan
+                                                        </button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
                                         <td>
                                             <span class="badge rounded-pill bg-success">Aktif</span>
                                         </td>
@@ -79,40 +121,16 @@
                                     
                                 @elseif($item['tipe'] == 'FRK')
                                     @if($tanggal_frk['data']['id'] == $item['id'])
-                                        <td>
-                                            <span class="badge rounded-pill bg-success">Aktif</span>
-                                        </td>
-
-                                        <td>
-                                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                                data-bs-target="#modalEditTahunAjaran-{{ $item['id'] }}"><i
-                                                    class="bi bi-pencil-square"></i></button>
-                                        </td>
-                                    @else
-                                        <td>
-                                            <span class="badge rounded-pill bg-danger">Tidak Aktif</span>
-                                        </td>
-
-                                        <td>
-                                            <button type="button" class="btn btn-danger mr-1"><i
-                                                    class="bi bi-x-circle"></i></button>
-                                        </td>
-                                    @endif
-                                @endif
-                                
-                            </tr>
-
-                            {{-- MODAL EDIT DAFTAR TAHUN AJARAN --}}
-                            <div class="modal fade modal-lg" id="modalEditTahunAjaran-{{ $item['id'] }}"
+                                    <div class="modal fade modal-lg" id="modalEditTahunAjaran-{{ $item['id'] }}"
                                     tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter }}. {{ $item['tahun_ajaran'] }} ({{ $item['semester'] }})</h6>
+                                                <h6 class="modal-title" id="exampleModalLabel">(FRK) {{ $counter }}. {{ $item['tahun_ajaran'] }} ({{ $item['semester'] }})</h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            <form action="{{ route('rk-pendidikan.teori.update') }}" method="POST">
+                                            <form action="{{ route('admin.generate_frk.post') }}" method="POST">
                                                 <div class="modal-body">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $item['id'] }}" />
@@ -123,13 +141,12 @@
                                                             name="tahun_ajaran">
                                                     </div>
                                                     <div class="mb-3">
-                                                        {{-- <label for="jumlah_dosen" class="form-label">
-                                                            Status
-                                                        </label>
-                                                        <select class="form-control" name="jumlah_dosen" id="jumlah_dosen">
-                                                            <option value="1" {{ $item['jumlah_dosen'] == 1 ? 'selected' : '' }}>1</option>
-                                                            <option value="2" {{ $item['jumlah_dosen'] == 2 ? 'selected' : '' }}>2</option>
-                                                        </select> --}}
+                                                        <label for="semester" class="form-label">Semester</label>
+                                                        <select name="semester" class="form-select form-select-md mb-3" aria-label=".form-select-md example" required>
+                                                            <option value="" disabled selected>Pilih Semester</option>
+                                                            <option value="Ganjil">Ganjil</option>
+                                                            <option value="Genap">Genap</option>
+                                                        </select>
                                                     </div>
 
                                                 </div>
@@ -146,6 +163,31 @@
                                         </div>
                                     </div>
                                 </div>
+                                        <td>
+                                            <span class="badge rounded-pill bg-success">Aktif</span>
+                                        </td>
+
+                                        <td>
+                                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditTahunAjaran-{{ $item['id'] }}"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                        </td>
+                                    @else
+                                        <td>
+                                            <span class="badge rounded-pill bg-danger">Tidak Aktif</span>
+                                        </td>
+
+                                        <td>
+                                            <button type="button" class="disabled btn btn-secondary mr-1"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                        </td>
+                                    @endif
+                                @endif
+                                
+                            </tr>
+
+                            {{-- MODAL EDIT DAFTAR TAHUN AJARAN --}}
+                            
                         @endforeach
                     @endif
 

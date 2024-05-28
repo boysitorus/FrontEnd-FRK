@@ -42,6 +42,7 @@ Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(func
 
         Route::get('/assign-role', [AdminController::class, 'getAssignRole'])->name('admin.assign-role');
         Route::post('/assign-role', [AdminController::class, 'postAssignRole'])->name('admin.assign-role.post');
+        Route::post('/assign-role-delete', [AdminController::class, 'deleteAssignRole'])->name('admin.assign-role.delete');
 
         Route::get('/tahunAjaran', [AdminController::class, 'getTahunAjaran'])->name('admin.tahunAjaran.post');
         Route::post('/tahunAjaran', [AdminController::class, 'postTahunAjaran'])->name('admin.tahunAjaran.post');
@@ -53,7 +54,7 @@ Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(func
         });
 
         Route::get('/RekapKerja', [AsesorController::class,'getRekapKerja'])->name('ed-riwayatKerjaSaya');
-        
+
 
     });
 });
@@ -358,7 +359,7 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanPanel'])->name('ed-pendidikan');
         Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
         Route::get('/simpulan', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
-        
+
 
         Route::prefix('/pendidikan')->group(function () {
             Route::post('/upload-lampiran-pendidikan', [EvaluasiDiriController::class, 'postPendidikan'])->name('ed-add-lampiran-pendidikan');

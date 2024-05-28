@@ -76,6 +76,47 @@ class AdminController extends Controller
         return redirect()->route('admin.generate_frk')->with('success', 'Tanggal FRK added successfully');
     }
 
+    public function updateGenerateFRK(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'tahun_ajaran' => 'required|string',
+            'semester',
+            'tanggal_awal_rencana_kerja' => 'required|date',
+            'tanggal_akhir_rencana_kerja' => 'required|date|after_or_equal:tanggal_awal_rencana_kerja',
+            'periode_awal_asesor_i' => 'required|date',
+            'periode_akhir_asesor_i' => 'required|date|after_or_equal:periode_awal_asesor_i',
+            'periode_awal_asesor_ii' => 'required|date',
+            'periode_akhir_asesor_ii' => 'required|date|after_or_equal:periode_awal_asesor_ii',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('admin.generate_frk')->withErrors($validator)->withInput();
+        }
+
+        $auth = Tools::getAuth($request);
+
+        try {
+            $genData = Http::asForm()->post(env('API_ADMIN_SERVICE', false) . 'generate-tanggal', [
+                'role' => json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '],
+                'tipe_tanggal' => 'FRK',
+                "tahun_ajaran" => $request->tahun_ajaran,
+                "semester" => $request->semester,
+                "tgl_awal_pengisian" => $request->tanggal_awal_rencana_kerja,
+                "tgl_akhir_pengisian" => $request->tanggal_akhir_rencana_kerja,
+                "periode_awal_approve_assesor_1" => $request->periode_awal_asesor_i,
+                "periode_akhir_approve_assesor_1" => $request->periode_akhir_asesor_i,
+                "periode_awal_approve_assesor_2" => $request->periode_awal_asesor_ii,
+                "periode_akhir_approve_assesor_2" => $request->periode_akhir_asesor_ii,
+            ]);
+
+        } catch (\Exception $err) {
+
+            return redirect()->route('admin.generate_frk')->withErrors(['error' => $err->getMessage()]);
+        }
+
+        return redirect()->route('admin.generate_frk')->with('success', 'Tanggal FRK added successfully');
+    }
+
     public function postGenerateFED(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -177,6 +218,34 @@ class AdminController extends Controller
 
 
         return redirect()->back()->with('success', 'Asesor added successfully');
+    }
+
+    public function deleteAssignRole(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        $token = $auth->user->token;
+
+        try {
+            $requestData = Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE', false) . 'delete-assign-role', [
+                'id_pegawai' => $request->id_pegawai,
+                'id_FRK' => $request->id_FRK,
+                'id_FED' => $request->id_FED,
+                'jabatan' => $request->jabatan,
+            ]);
+
+            $decodeData = json_decode($requestData, true);
+
+            if ($decodeData['result'] == false)
+            {
+                return redirect()->back()->with('error', $decodeData['error']);
+            }
+        } catch (\Exception $err) {
+            return redirect()->back()->with('error', $err->getMessage());
+        }
+
+
+        return redirect()->back()->with('success', 'Asesor unsigned successfully');
     }
 
     public function postTahunAjaran(Request $request)
