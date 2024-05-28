@@ -57,8 +57,28 @@
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['jumlah_anggota'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenelitian_A-{{ $item['id_rencana'] }}">Tambah
@@ -267,8 +287,28 @@
                                     </td>
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_B-{{ $item['id_rencana'] }}">Tambah
@@ -479,8 +519,28 @@
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenelitian_C-{{ $item['id_rencana'] }}">Tambah
@@ -693,8 +753,28 @@
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenelitian_D_{{ $item['id_rencana'] }}">Tambah
@@ -907,8 +987,28 @@
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_E-{{ $item['id_rencana'] }}">Tambah
@@ -1119,8 +1219,28 @@
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_F-{{ $item['id_rencana'] }}">Tambah
@@ -1329,8 +1449,28 @@
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_G">Tambah Lampiran</button>
@@ -1528,8 +1668,28 @@
                                         @endif
                                     </td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_H-{{ $item['id_rencana'] }}">Tambah
@@ -1728,8 +1888,28 @@
                                     </td>
                                     <td>{{ $item['jumlah_bkd'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_I-{{ $item['id_rencana'] }}">Tambah
@@ -1934,8 +2114,28 @@
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_J-{{ $item['id_rencana'] }}">Tambah
@@ -2130,8 +2330,28 @@
                                     </td>
                                     <td> {{ $item['lingkup_wilayah'] }} </td>
                                     <td> {{ $item['sks_terhitung'] }} </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_K-{{ $item['id_rencana'] }}">Tambah
@@ -2329,8 +2549,28 @@
                                         @endif
                                     </td>
                                     <td> {{ $item['sks_terhitung'] }} </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_L-{{ $item['id_rencana'] }}">Tambah
@@ -2529,8 +2769,28 @@
                                     </td>
                                     <td>{{ $item['lingkup_wilayah'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_M-{{ $item['id_rencana'] }}">Tambah
@@ -2735,8 +2995,28 @@
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['jumlah_anggota'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_N-{{ $item['id_rencana'] }}">Tambah

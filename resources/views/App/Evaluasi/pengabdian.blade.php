@@ -53,8 +53,28 @@
                                     </td>
                                     <td>{{ $item['jumlah_durasi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPengabdian_A_{{ $item['id_rencana'] }}">Tambah
@@ -258,8 +278,28 @@
                                     </td>
                                     <td>{{ $item['jumlah_durasi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPengabdian_B_{{ $item['id_rencana'] }}">Tambah
@@ -468,8 +508,26 @@
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>@if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif</td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td><button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPengabdian_C_{{ $item['id_rencana'] }}">Tambah
                                             Lampiran</button></td>
@@ -679,8 +737,28 @@
                                     <td>{{ $item['peran'] }}</td>
                                     <td>{{ $item['jumlah_anggota'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td><button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPengabdian_D_{{ $item['id_rencana'] }}">Tambah
                                             Lampiran</button></td>

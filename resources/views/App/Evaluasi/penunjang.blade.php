@@ -52,8 +52,28 @@
                             </td>
                             <td>{{ $item['jumlah_mahasiswa'] }}</td>
                             <td>{{ $item['sks_terhitung'] }}</td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                            </td>
+                            <td>
+                            @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                            </td>
                             <td>
                                 <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal" data-bs-target="#modalEditEvaluasiPenunjang-{{ $item['id_rencana'] }}">
                                     Tambah Lampiran
@@ -267,8 +287,28 @@
                             </td>
                             <td>{{ $item['jumlah_mahasiswa'] }}</td>
                             <td>{{ $item['sks_terhitung'] }}</td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                            @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                            </td>
+                            <td>
+                            @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                            </td>
                             <td>
                                 <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal" data-bs-target="#modalEditEvaluasiPenunjangB-{{ $item['id_rencana'] }}">
                                     Tambah Lampiran
@@ -459,8 +499,28 @@
                                 </td>
                                 <td>{{ $item['jumlah_kegiatan'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPenunjangC-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -625,8 +685,28 @@
                                         @endif
                                     </td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangD-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -793,8 +873,28 @@
                                 </td>
                                 <td>{{ $item['jenis_jabatan_struktural'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPenunjangE-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -958,8 +1058,28 @@
                                 </td>
                                 <td>{{ $item['jenis_jabatan_nonstruktural'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPenunjangF-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1122,8 +1242,28 @@
                                     </td>
                                     <td>{{ $item['jabatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangG-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1289,8 +1429,28 @@
                                 </td>
                                 <td>{{ $item['jabatan'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPenunjangH-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1452,8 +1612,28 @@
                             </td>
                             <td>{{ $item['jenis_tingkatan'] }}</td>
                             <td>{{ $item['sks_terhitung'] }}</td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                            @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                            </td>
+                            <td>
+                            @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                            </td>
                             <td>
                                 <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditEvaluasiPenunjangI-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1616,8 +1796,28 @@
                                     </td>
                                     <td>{{ $item['jenis_tingkatan']}}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangJ-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1782,8 +1982,28 @@
                                     </td>
                                     <td>{{ $item['jabatan']}}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangK-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1950,8 +2170,28 @@
                                     <td>{{ $item['jabatan']}}</td>
                                     <td>{{ $item['jenis_tingkatan']}}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangL-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -2117,8 +2357,28 @@
                                     </td>
                                     <td>{{ $item['jenis_tingkatan']}}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangM-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -2281,8 +2541,28 @@
                                         @endif
                                     </td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangN-{{ $item['id_rencana'] }}">Tambah Lampiran

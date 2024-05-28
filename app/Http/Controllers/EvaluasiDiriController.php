@@ -19,6 +19,7 @@ class EvaluasiDiriController extends Controller
             $responseTeori = Http::get(env('API_FED_SERVICE') . '/pendidikan/teori/' . $id_dosen);
             $teori = $responseTeori->json();
 
+
             $responsePraktikum = Http::get(env('API_FED_SERVICE') . '/pendidikan/praktikum/' . $id_dosen);
             $praktikum = $responsePraktikum->json();
 
