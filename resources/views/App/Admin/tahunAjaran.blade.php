@@ -131,7 +131,7 @@
                                 </div>
                         @endforeach
                     @endif
-                    
+
                 </tbody>
             </table>
         </div>
