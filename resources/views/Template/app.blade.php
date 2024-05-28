@@ -117,7 +117,7 @@
                         </li>
 
                         <li>
-                            <a href="{{route('riwayat-kegiatan')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple 
+                            <a href="{{route('riwayat-kegiatan')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple
                             {{ Str::startsWith(request()->path(), 'riwayat-kegiatan') ? 'active' : '' }}
 ">
                                 <i class="bi bi-clock-fill me-1"></i>
@@ -194,7 +194,7 @@
                                                     </li>
 
                                                     <li>
-                                                        <a href="#"
+                                                        <a href="{{ route('ed-asesor-setuju') }}"
                                                             class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                                             Rekap Kegiatan yang Disetujui
                                                         </a>

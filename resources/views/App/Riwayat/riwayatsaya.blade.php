@@ -4,8 +4,8 @@
 
 <div class="dosen-riwayatsaya-content" class="ml-2 mr-2 pt-4 mb-3">
 
-    <div class="text-sm mt-5">
-        <table id="tahunajaran" 
+    <div class="text-sm mt-5 ps-5 pe-5">
+        <table id="tahunajaran"
             class="table table-striped table -bordered mt-2 text-center border-secondary-subtle align-middle"
             style="border: 2px;">
         <thead>
