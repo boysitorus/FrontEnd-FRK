@@ -11,11 +11,14 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
+                @if ($all == 0)
+                 <button id="btnFrkPenelitianA" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_A">Tambah Kegiatan</button>
+                @endif
             </div>
 
-            <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
+            <table id="tabelPenelitian-A"
+                class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2" class="align-middle">No.</th>
@@ -28,8 +31,8 @@
                         <th scope="col" rowspan="2" class="align-middle">Aksi</th>
                     </tr>
                     <tr>
-                        <th scope="col">Asesor 1</th>
-                        <th scope="col">Asesor 2</th>
+                        <th scope="col" class="fw-bold">Asesor 1</th>
+                        <th scope="col" class="fw-bold">Asesor 2</th>
                     </tr>
                 </thead>
                 <tbody class="align-middle">
@@ -50,28 +53,43 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
-                            </td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                </td>
+                            <td>
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
-                                            class="bi bi-trash3"></i></button>
 
-                                    {{-- MODAL DELETE A --}}
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-trash3"></i></button>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                    </button>
+                                                        aria-label="Close"></button>
                                                 </div>
 
                                                 <div class="modal-body text-center">
@@ -84,16 +102,14 @@
 
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        Batalkan
-                                                    </button>
+                                                        data-bs-dismiss="modal">Batalkan</button>
                                                     <a id="confirmDeleteBtn" class="btn btn-primary"
                                                         href="{{ route('rk-penelitian.penelitian_kelompok.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                    </a>
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
                                                     <form id="delete-form-{{ $item['id_rencana'] }}"
                                                         action="{{ route('rk-penelitian.penelitian_kelompok.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        method="POST">
+                                                        method="POST" style="display: none;">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>
@@ -101,7 +117,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- AKHIR MODAL DELETE A --}}
                                 </td>
                             </tr>
 
@@ -191,10 +206,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button id="btnFrkPenelitianB" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_B">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -228,20 +245,35 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-trash3"></i></button>
-
-                                    {{-- MODAL DELETE B --}}
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
                                     <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                         aria-hidden="true">
@@ -249,8 +281,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                    </button>
+                                                        aria-label="Close"></button>
                                                 </div>
 
                                                 <div class="modal-body text-center">
@@ -263,16 +294,14 @@
 
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        Batalkan
-                                                    </button>
+                                                        data-bs-dismiss="modal">Batalkan</button>
                                                     <a id="confirmDeleteBtn" class="btn btn-primary"
                                                         href="{{ route('rk-penelitian.penelitian_mandiri.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                    </a>
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
                                                     <form id="delete-form-{{ $item['id_rencana'] }}"
                                                         action="{{ route('rk-penelitian.penelitian_mandiri.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        method="POST">
+                                                        method="POST" style="display: none;">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>
@@ -280,7 +309,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- AKHIR MODAL DELETE B --}}
                                 </td>
                             </tr>
 
@@ -358,9 +386,10 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button id="btnFrkPenelitianC" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
                 data-bs-toggle="modal" data-bs-target="#modalPenelitian_C">Tambah Kegiatan</button>
-
+                @endif
             </div>
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
                 <thead>
@@ -397,52 +426,70 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i class="bi bi-trash3"></i></button>
-                                        {{-- Modal delete C --}}
-                                        <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                            aria-label="Close">
-                                                        </button>
-                                                    </div>
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-pencil-square"></i></button>
 
-                                                    <div class="modal-body text-center">
-                                                        <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                                                        <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                                                        <p class="text-muted small">proses ini tidak dapat diurungkan bila
-                                                            anda sudah menekan tombol 'Yakin'
-                                                        </p>
-                                                    </div>
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-trash3"></i></button>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
 
-                                                    <div class="modal-footer justify-content-center">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                            Batalkan
-                                                        </button>
-                                                        <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.buku_terbit.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                        </a>
-                                                        <form id="delete-form-{{ $item['id_rencana'] }}"
-                                                            action="{{ route('rk-penelitian.buku_terbit.destroy', ['id' => $item['id_rencana']]) }}"
-                                                            method="POST" >
-                                                            @csrf
-                                                            @method('DELETE')
-                                                        </form>
-                                                    </div>
+                                                <div class="modal-body text-center">
+                                                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                    <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                        anda sudah menekan tombol 'Yakin'
+                                                    </p>
+                                                </div>
+
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batalkan</button>
+                                                    <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                        href="{{ route('rk-penelitian.buku_terbit.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                    <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                        action="{{ route('rk-penelitian.buku_terbit.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
-                                {{-- AKHIR MODAL DELETE C --}}
+                                    </div>
                                 </td>
                             </tr>
 
@@ -526,10 +573,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button id="btnFrkPenelitianD" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_D">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -567,53 +616,70 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i class="bi bi-trash3"></i></button>
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-pencil-square"></i></button>
 
-                                {{-- MODAL DELETE D --}}
-                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                </button>
-                                            </div>
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-trash3"></i></button>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
 
-                                            <div class="modal-body text-center">
-                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                                                <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                                                <p class="text-muted small">proses ini tidak dapat diurungkan bila
-                                                    anda sudah menekan tombol 'Yakin'
-                                                </p>
-                                            </div>
+                                                <div class="modal-body text-center">
+                                                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                    <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                        anda sudah menekan tombol 'Yakin'
+                                                    </p>
+                                                </div>
 
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                    Batalkan
-                                                </button>
-                                                <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.buku_internasional.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                </a>
-                                                <form id="delete-form-{{ $item['id_rencana'] }}"
-                                                    action="{{ route('rk-penelitian.buku_internasional.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    method="POST" >
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batalkan</button>
+                                                    <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                        href="{{ route('rk-penelitian.buku_internasional.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                    <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                        action="{{ route('rk-penelitian.buku_internasional.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            {{-- AKHIR MODAL DELETE D --}}
                                 </td>
                             </tr>
 
@@ -694,8 +760,10 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button id="btnFrkPenelitianE" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_E">Tambah Kegiatan</button>
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -731,22 +799,38 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
-                                            class="bi bi-trash3"></i></button>
 
-                                    <!-- modal delete E -->
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter++ }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-trash3"></i></button>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -764,14 +848,14 @@
 
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Batalkan
-                                                    </button>
+                                                        data-bs-dismiss="modal">Batalkan</button>
                                                     <a id="confirmDeleteBtn" class="btn btn-primary"
                                                         href="{{ route('rk-penelitian.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
                                                         onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
                                                     <form id="delete-form-{{ $item['id_rencana'] }}"
                                                         action="{{ route('rk-penelitian.menyadur.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        method="POST">
+                                                        method="POST" style="display: none;">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>
@@ -779,6 +863,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                </td>
+                            </tr>
 
                                     <!-- MODAL Edit E -->
                                     <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}"
@@ -859,11 +945,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button id="btnFrkPenelitianF" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_F">
                     Tambah Kegiatan
                 </button>
-
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -899,22 +986,38 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm-{{ $counter }}"><i
-                                            class="bi bi-trash3"></i></button>
 
-                                    <!-- modal delete F -->
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-trash3"></i></button>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -936,6 +1039,7 @@
                                                     <a id="confirmDeleteBtn" class="btn btn-primary"
                                                         href="{{ route('rk-penelitian.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
                                                         onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
                                                     <form id="delete-form-{{ $item['id_rencana'] }}"
                                                         action="{{ route('rk-penelitian.menyunting.destroy', ['id' => $item['id_rencana']]) }}"
                                                         method="POST" style="display: none;">
@@ -946,6 +1050,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                </td>
+                            </tr>
 
                                     <!-- MODAL EDIT F -->
                                     <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}"
@@ -1031,8 +1137,10 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button id="btnFrkPenelitianG" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_G">Tambah Kegiatan</button>
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -1070,20 +1178,35 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-trash3"></i></button>
-
-                                    {{-- MODAL DELETE G --}}
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
                                     <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                         aria-hidden="true">
@@ -1091,8 +1214,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                    </button>
+                                                        aria-label="Close"></button>
                                                 </div>
 
                                                 <div class="modal-body text-center">
@@ -1105,16 +1227,14 @@
 
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        Batalkan
-                                                    </button>
+                                                        data-bs-dismiss="modal">Batalkan</button>
                                                     <a id="confirmDeleteBtn" class="btn btn-primary"
                                                         href="{{ route('rk-penelitian.penelitian_modul.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                    </a>
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
                                                     <form id="delete-form-{{ $item['id_rencana'] }}"
                                                         action="{{ route('rk-penelitian.penelitian_modul.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        method="POST">
+                                                        method="POST" style="display: none;">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>
@@ -1122,7 +1242,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- AKHIR MODAL DELETE G --}}
                                 </td>
                             </tr>
 
@@ -1218,8 +1337,10 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button id="btnFrkPenelitianH" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_H">Tambah Kegiatan</button>
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -1251,20 +1372,35 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-trash3"></i></button>
-
-                                    {{-- MODAL DELETE H --}}
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
                                     <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                         aria-hidden="true">
@@ -1272,8 +1408,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                    </button>
+                                                        aria-label="Close"></button>
                                                 </div>
 
                                                 <div class="modal-body text-center">
@@ -1286,16 +1421,14 @@
 
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        Batalkan
-                                                    </button>
+                                                        data-bs-dismiss="modal">Batalkan</button>
                                                     <a id="confirmDeleteBtn" class="btn btn-primary"
                                                         href="{{ route('rk-penelitian.penelitian_pekerti.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                    </a>
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
                                                     <form id="delete-form-{{ $item['id_rencana'] }}"
                                                         action="{{ route('rk-penelitian.penelitian_pekerti.destroy', ['id' => $item['id_rencana']]) }}"
-                                                        method="POST">
+                                                        method="POST" style="display: none;">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>
@@ -1303,7 +1436,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- AKHIR MODAL DELETE H --}}
                                 </td>
                             </tr>
 
@@ -1361,8 +1493,10 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button id="btnFrkPenelitianI" type="button" class="btn btn-success col-md-auto mt-2 mb-2 "
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_I">Tambah Kegiatan</button>
+                @endif
             </div>
 
 
@@ -1397,53 +1531,70 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian-{{$item ['id_rencana']}}"><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm-{{$item ['id_rencana']}}"><i class="bi bi-trash3"></i></button>
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-pencil-square"></i></button>
 
-                                {{-- MODAL DELETE I --}}
-                                <div class="modal fade" id="modalDeleteConfirm-{{$item ['id_rencana']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                </button>
-                                            </div>
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-trash3"></i></button>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
 
-                                            <div class="modal-body text-center">
-                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                                                <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                                                <p class="text-muted small">proses ini tidak dapat diurungkan bila
-                                                    anda sudah menekan tombol 'Yakin'
-                                                </p>
-                                            </div>
+                                                <div class="modal-body text-center">
+                                                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                    <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                        anda sudah menekan tombol 'Yakin'
+                                                    </p>
+                                                </div>
 
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                    Batalkan
-                                                </button>
-                                                <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.penelitian_tridharma.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                </a>
-                                                <form id="delete-form-{{ $item['id_rencana'] }}"
-                                                    action="{{ route('rk-penelitian.penelitian_tridharma.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    method="POST" >
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batalkan</button>
+                                                    <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                        href="{{ route('rk-penelitian.penelitian_tridharma.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                    <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                        action="{{ route('rk-penelitian.penelitian_tridharma.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            {{-- AKHIR MODAL DELETE I --}}
                                 </td>
                             </tr>
 
@@ -1497,10 +1648,11 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button id="btnFrkPenelitianJ" type="button" class="btn btn-success col-md-auto mt-2 mb-2"
                     data-bs-toggle="modal" data-bs-target="#modalPenelitian_J">Tambah
                     Kegiatan</button>
-
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -1538,55 +1690,70 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditPenelitian-{{$item ['id_rencana']}}">
-                                <i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i class="bi bi-trash3"></i></button>
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-pencil-square"></i></button>
 
-                                {{-- MODAL DELETE J --}}
-                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                </button>
-                                            </div>
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-trash3"></i></button>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
 
-                                            <div class="modal-body text-center">
-                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                                                <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                                                <p class="text-muted small">proses ini tidak dapat diurungkan bila
-                                                    anda sudah menekan tombol 'Yakin'
-                                                </p>
-                                            </div>
+                                                <div class="modal-body text-center">
+                                                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                    <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                        anda sudah menekan tombol 'Yakin'
+                                                    </p>
+                                                </div>
 
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                    Batalkan
-                                                </button>
-                                                <a id="confirmDeleteBtn" class="btn btn-primary" href="{{ route('rk-penelitian.jurnal_ilmiah.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                </a>
-                                                <form id="delete-form-{{ $item['id_rencana'] }}"
-                                                    action="{{ route('rk-penelitian.jurnal_ilmiah.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    method="POST" >
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batalkan</button>
+                                                    <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                        href="{{ route('rk-penelitian.jurnal_ilmiah.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                    <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                        action="{{ route('rk-penelitian.jurnal_ilmiah.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            {{-- AKHIR MODAL DELETE J --}}
-
                                 </td>
                             </tr>
 
@@ -1663,10 +1830,11 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button data-bs-toggle="modal" data-bs-target="#modalPenelitian_K" id=" btnFrkPenelitianM"
                     type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
                     Kegiatan</button>
-
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -1700,23 +1868,38 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}">
-                                        <i class="bi bi-pencil-square"></i></button>
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-pencil-square"></i></button>
 
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm-{{ $counter }}">
-                                        <i class="bi bi-trash3"></i></button>
-
-                                    {{-- MODAL DELETE CONFIRM --}}
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-trash3"></i></button>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -1735,7 +1918,7 @@
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Batalkan</button>
-                                                    <a id="confirmDeleteBtn" class="btn btn-danger"
+                                                    <a id="confirmDeleteBtn" class="btn btn-primary"
                                                         href="{{ route('rk-penelitian.hak_paten.destroy', ['id' => $item['id_rencana']]) }}"
                                                         onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
 
@@ -1810,10 +1993,11 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button data-bs-toggle="modal" data-bs-target="#modalPenelitian_L" id=" btnFrkPenelitianM"
                     type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah
                     Kegiatan</button>
-
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -1845,21 +2029,36 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}">
-                                        <i class="bi bi-pencil-square"></i></button>
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-pencil-square"></i></button>
 
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalDeleteConfirm-{{ $counter }}">
-                                        <i class="bi bi-trash3"></i></button>
-
-                                    <div class="modal fade" id="modalDeleteConfirm-{{ $counter }}"
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
+                                            class="bi bi-trash3"></i></button>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                         aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1880,7 +2079,7 @@
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Batalkan</button>
-                                                    <a id="confirmDeleteBtn" class="btn btn-danger"
+                                                    <a id="confirmDeleteBtn" class="btn btn-primary"
                                                         href="{{ route('rk-penelitian.media_massa.destroy', ['id' => $item['id_rencana']]) }}"
                                                         onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
 
@@ -1948,8 +2147,10 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button data-bs-toggle="modal" data-bs-target="#modalPenelitian_M" id=" btnFrkPenelitianM"
                     type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -1983,58 +2184,72 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-trash3"></i></button>
-                                </td>
-                                {{-- MODAL DELETE M --}}
-                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
-                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                </button>
-                                            </div>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
 
-                                            <div class="modal-body text-center">
-                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                                                <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                                                <p class="text-muted small">proses ini tidak dapat diurungkan bila
-                                                    anda sudah menekan tombol 'Yakin'
-                                                </p>
-                                            </div>
+                                                <div class="modal-body text-center">
+                                                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                    <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                        anda sudah menekan tombol 'Yakin'
+                                                    </p>
+                                                </div>
 
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    Batalkan
-                                                </button>
-                                                <a id="confirmDeleteBtn" class="btn btn-primary"
-                                                    href="{{ route('rk-penelitian.penelitian_kelompok.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                </a>
-                                                <form id="delete-form-{{ $item['id_rencana'] }}"
-                                                    action="{{ route('rk-penelitian.penelitian_kelompok.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batalkan</button>
+                                                    <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                        href="{{ route('rk-penelitian.pembicara_seminar.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
+
+                                                    <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                        action="{{ route('rk-penelitian.pembicara_seminar.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </td>
+                        </tr>
                                 {{-- AKHIR MODAL DELETE M --}}
 
                                 {{-- MODAL EDIT M --}}
@@ -2109,8 +2324,10 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if ($all == 0)
                 <button data-bs-toggle="modal" data-bs-target="#modalPenelitian_N" id=" btnFrkPenelitianM"
                     type="button" class="btn btn-success col-md-auto mt-2 mb-2">Tambah Kegiatan</button>
+                @endif
             </div>
 
             <table class="table table-striped table-bordered mt-2 text-center" style="border: 2px;">
@@ -2150,60 +2367,72 @@
                                         <span class="badge bg-secondary">Menunggu</span>
                                     @elseif ($item['asesor1_frk'] === 'setuju')
                                         <span class="badge bg-success">Disetujui</span>
-                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item['asesor2_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor2_frk'] === 'ditolak')
                                         <span class="badge bg-danger">Ditolak</span>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                @if ($item['flag_save_permananent'] != 1)
+                                    <button id="buttonEdit-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-warning mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditPenelitian-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+
+                                    <button id="buttonDelete-{{ $item['id_rencana'] }}" type="button"
+                                        class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-trash3"></i></button>
-                                </td>
+                                @else
+                                    <span>No Action Available</span>
+                                @endif
+                                    <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
 
-                                {{-- MODAL DELETE N --}}
-                                <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
-                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                </button>
-                                            </div>
+                                                <div class="modal-body text-center">
+                                                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
+                                                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
+                                                    <p class="text-muted small">proses ini tidak dapat diurungkan bila
+                                                        anda sudah menekan tombol 'Yakin'
+                                                    </p>
+                                                </div>
 
-                                            <div class="modal-body text-center">
-                                                <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                                                <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                                                <p class="text-muted small">proses ini tidak dapat diurungkan bila
-                                                    anda sudah menekan tombol 'Yakin'
-                                                </p>
-                                            </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batalkan</button>
+                                                    <a id="confirmDeleteBtn" class="btn btn-primary"
+                                                        href="{{ route('rk-penelitian.penyajian_makalah.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin</a>
 
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    Batalkan
-                                                </button>
-                                                <a id="confirmDeleteBtn" class="btn btn-primary"
-                                                    href="{{ route('rk-penelitian.penyajian_makalah.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item['id_rencana'] }}').submit()">Yakin
-                                                </a>
-                                                <form id="delete-form-{{ $item['id_rencana'] }}"
-                                                    action="{{ route('rk-penelitian.penyajian_makalah.destroy', ['id' => $item['id_rencana']]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
+                                                    <form id="delete-form-{{ $item['id_rencana'] }}"
+                                                        action="{{ route('rk-penelitian.penyajian_makalah.destroy', ['id' => $item['id_rencana']]) }}"
+                                                        method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                {{-- AKHIR MODAL DELETE N --}}
+                                </td>
+                        </tr>
 
                                 {{-- MODAL EDIT N --}}
                                 <div class="modal fade modal-lg" id="modalEditPenelitian-{{ $item['id_rencana'] }}"
