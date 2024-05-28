@@ -222,7 +222,7 @@
                                         <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_dosen" value={{ $idAuth }} />
+                                                <input type="hidden" name="id_dosen" value="1435" />
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
