@@ -11,10 +11,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangA" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal"
                     data-bs-target="#modalPenunjang_A">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -31,8 +33,8 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                         </tr>
                         <tr>
-                            <th scope="col" class="fw-bold">Asesor 1</th>
-                            <th scope="col" class="fw-bold">Asesor 2</th>
+                            <th scope="col" class="fw-bold col-1">Asesor 1</th>
+                            <th scope="col" class="fw-bold col-1">Asesor 2</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,15 +49,36 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></i></button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                     </td>
                                 </tr>
 
@@ -79,19 +102,24 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Mahasiswa</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}" type="number"
-                                                            class="form-control" name="jumlah_mahasiswa" min="1">
+                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['jumlah_mahasiswa'] }}" type="number"
+                                                            class="form-control" name="jumlah_mahasiswa" min="1"
+                                                            required>
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -154,10 +182,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangB" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_B">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -190,16 +220,36 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_mahasiswa'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></i></button>
-
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                     </td>
                                 </tr>
                                 {{-- MODAL EDIT --}}
@@ -223,20 +273,24 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text"
-                                                            class="form-control" id="nama" name="nama_kegiatan">
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jumlah_mahasiswa" class="form-label">Jumlah
                                                             Mahasiswa</label>
-                                                        <input placeholder="{{ $item['jumlah_mahasiswa'] }}"
-                                                            type="number" class="form-control" name="jumlah_mahasiswa"
-                                                            min="1">
+                                                        <input id="mahasiswa-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['jumlah_mahasiswa'] }}" type="number"
+                                                            class="form-control" name="jumlah_mahasiswa" min="1"
+                                                            required>
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -302,10 +356,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
-                <button id="btnFrkPenunjangC" type="button" class="btn btn-success col-md-auto m-1"
-                    data-bs-toggle="modal" data-bs-target="#modalPenunjang_C">
-                    Tambah Kegiatan
-                </button>
+                @if($all ==0)
+                    <button id="btnFrkPenunjangC" type="button" class="btn btn-success col-md-auto m-1"
+                        data-bs-toggle="modal" data-bs-target="#modalPenunjang_C">
+                        Tambah Kegiatan
+                    </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -337,9 +393,27 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jumlah_kegiatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i>
@@ -348,6 +422,9 @@
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i>
                                         </button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
 
                                         {{-- MODAL DELETE --}}
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
@@ -387,8 +464,8 @@
                                 </tr>
 
                                 {{-- MODAL EDIT --}}
-                                <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}" tabindex="-1"
-                                    aria-labelledby="modalEditPenunjangCLabel" aria-hidden="true">
+                                <div class="modal fade modal-lg" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditPenunjangCLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -404,21 +481,26 @@
                                                     <input type="hidden" name="id_rencana"
                                                         value ="{{ $item['id_rencana'] }}" />
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
+                                                        <label for="nama_kegiatan" class="form-label"
+                                                            style="text-align: left;">Nama
                                                             Kegiatan</label>
-                                                        <input type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
+                                                        <input id="nama-{{ $item['id_rencana'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jumlah_kegiatan" class="form-label">Jumlah
+                                                        <label for="jumlah_kegiatan" class="form-label"
+                                                            style="text-align: left;">Jumlah
                                                             Kegiatan</label>
-                                                        <input class="form-control" type="number" name="jumlah_kegiatan"
+                                                        <input id="jumlah-{{ $item['id_rencana'] }}" class="form-control"
+                                                            type="number" name="jumlah_kegiatan"
                                                             value="{{ $item['jumlah_kegiatan'] }}" min="1"
-                                                            step="any">
+                                                            step="any" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Simpan
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">Simpan
                                                         Perubahan</button>
                                                 </div>
                                             </form>
@@ -443,10 +525,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangD" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_D">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -476,9 +560,26 @@
                                     <td scope="row1">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-pencil-square"></i>
@@ -487,6 +588,9 @@
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}">
                                             <i class="bi bi-trash3-fill"></i>
                                         </button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
 
                                         {{-- MODAL DELETE --}}
                                         <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}"
@@ -526,8 +630,8 @@
                                 </tr>
 
                                 {{-- MODAL EDIT --}}
-                                <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}" tabindex="-1"
-                                    aria-labelledby="modalEditPenunjangDLabel" aria-hidden="true">
+                                <div class="modal fade modal-lg" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
+                                    tabindex="-1" aria-labelledby="modalEditPenunjangDLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -544,13 +648,15 @@
                                                     <div class="mb-3">
                                                         <label for="nama_kegiatan" class="form-label">Nama
                                                             Kegiatan</label>
-                                                        <input type="text" class="form-control" name="nama_kegiatan"
-                                                            value="{{ $item['nama_kegiatan'] }}">
+                                                        <input id="nama-{{ $item['id_rencana'] }}" type="text"
+                                                            class="form-control" name="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
                                                     </div>
 
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Simpan
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">Simpan
                                                         Perubahan</button>
                                                 </div>
                                             </form>
@@ -574,10 +680,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangE" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_E">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -609,19 +717,39 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jenis_jabatan_struktural'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3-fill"></i></i></button>
-
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                         {{-- TEMPAT MODAL EDIT CONFIRM E --}}
-                                        <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
-                                            tabindex="-1" aria-labelledby="modalEditPenunjangELabel" aria-hidden="true">
+                                        <div class="modal fade modal-lg"
+                                            id="modalEditPenunjang-{{ $item['id_rencana'] }}" tabindex="-1"
+                                            aria-labelledby="modalEditPenunjangELabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -639,19 +767,26 @@
                                                                 value="{{ $item['id_rencana'] }}" />
 
                                                             <div class="mb-3">
-                                                                <label for="nama_kegiatan" class="form-label">Nama
-                                                                    Kegiatan: </label>
-                                                                <input value="{{ $item['nama_kegiatan'] }}"
-                                                                    type="text" class="form-control"
-                                                                    id="nama_kegiatan" name="nama_kegiatan">
+                                                                <div style="text-align: left;">
+                                                                    <label for="nama_kegiatan" class="form-label"
+                                                                        style="text-align: left;"> Nama Kegiatan</label>
+                                                                </div>
+                                                                <input id="nama-{{ $item['id_rencana'] }}"
+                                                                    value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                                    class="form-control" id="nama_kegiatan"
+                                                                    name="nama_kegiatan" required>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="jenis_jabatan_struktural"
-                                                                    class="form-label">Jabatan</label>
-                                                                <select class="form-select"
+                                                                <div style="text-align: left;">
+                                                                    <label for="jenis_jabatan_struktural"
+                                                                        class="form-label" style="text-align: left;">
+                                                                        Jabatan</label>
+                                                                </div>
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}"
+                                                                    class="form-select"
                                                                     aria-label="Default select example"
                                                                     name="jenis_jabatan_struktural" required>
-                                                                    <option selected>
+                                                                    <option value="" selected disabled hidden>
                                                                         {{ $item['jenis_jabatan_struktural'] }}</option>
                                                                     <option value="Rektor"
                                                                         {{ $item['jenis_jabatan_struktural'] == 'Rektor' ? 'selected' : '' }}>
@@ -711,7 +846,8 @@
 
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary">Simpan
+                                                                <button id="edit-{{ $item['id_rencana'] }}"
+                                                                    type="submit" class="btn btn-primary">Simpan
                                                                     Perubahan</button>
                                                             </div>
                                                     </form>
@@ -774,10 +910,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangF" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_F">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -809,19 +947,40 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jenis_jabatan_nonstruktural'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3-fill"></i></i></button>
-
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                         {{-- TEMPAT MODAL EDIT CONFIRM F --}}
-                                        <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
-                                            tabindex="-1" aria-labelledby="modalEditPenunjangFLabel" aria-hidden="true">
+                                        <div class="modal fade modal-lg"
+                                            id="modalEditPenunjang-{{ $item['id_rencana'] }}" tabindex="-1"
+                                            aria-labelledby="modalEditPenunjangFLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -838,20 +997,27 @@
                                                             <input type="hidden" name="id_rencana"
                                                                 value="{{ $item['id_rencana'] }}" />
 
-                                                            <div class="mb-3">
-                                                                <label for="nama_kegiatan" class="form-label">Nama
-                                                                    Kegiatan</label>
-                                                                <input value="{{ $item['nama_kegiatan'] }}"
-                                                                    type="text" class="form-control"
-                                                                    id="nama_kegiatan" name="nama_kegiatan">
+                                                           <div class="mb-3">
+                                                                <div style="text-align: left;">
+                                                                    <label for="nama_kegiatan" class="form-label"
+                                                                        style="text-align: left;"> Nama Kegiatan</label>
+                                                                </div>
+                                                                <input id="nama-{{ $item['id_rencana'] }}"
+                                                                    value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                                    class="form-control"  id="nama"
+                                                                    name="nama_kegiatan" required>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="jenis_jabatan_nonstruktural"
-                                                                    class="form-label">Jabatan</label>
-                                                                <select class="form-select"
+                                                                <div style="text-align: left;">
+                                                                    <label for="jenis_jabatan_nonstruktural"
+                                                                        class="form-label"
+                                                                        style="text-align: left;">Jabatan</label>
+                                                                </div>
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}"
+                                                                    class="form-select"
                                                                     aria-label="Default select example"
-                                                                    name="jenis_jabatan_nonstruktural">
-                                                                    <option selected>
+                                                                    name="jenis_jabatan_nonstruktural" required>
+                                                                    <option value="" selected disabled hidden>
                                                                         {{ $item['jenis_jabatan_nonstruktural'] }}
                                                                     </option>
                                                                     <option value="Ketua Senat Akademik Institut"
@@ -885,7 +1051,8 @@
 
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary">Simpan
+                                                                <button id="edit-{{ $item['id_rencana'] }}"
+                                                                    type="submit" class="btn btn-primary">Simpan
                                                                     Perubahan</button>
                                                             </div>
                                                     </form>
@@ -948,10 +1115,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangG" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_G">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -983,19 +1152,40 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jabatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3-fill"></i></i></button>
-
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                         {{-- TEMPAT MODAL EDIT CONFIRM G --}}
-                                        <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
-                                            tabindex="-1" aria-labelledby="modalEditPenunjangGLabel" aria-hidden="true">
+                                        <div class="modal fade modal-lg"
+                                            id="modalEditPenunjang-{{ $item['id_rencana'] }}" tabindex="-1"
+                                            aria-labelledby="modalEditPenunjangGLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -1013,17 +1203,27 @@
                                                                 value="{{ $item['id_rencana'] }}" />
 
                                                             <div class="mb-3">
-                                                                <label for="nama_kegiatan" class="form-label">Nama
-                                                                    Kegiatan</label>
-                                                                <input value="{{ $item['nama_kegiatan'] }}"
-                                                                    type="text" class="form-control"
-                                                                    id="nama_kegiatan" name="nama_kegiatan">
+                                                                <div style="text-align: left;">
+                                                                    <label for="nama_kegiatan" class="form-label"
+                                                                        style="text-align: left;">Nama
+                                                                        Kegiatan</label>
+                                                                </div>
+                                                                <input id="nama-{{ $item['id_rencana'] }}"
+                                                                    value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                                    class="form-control" id="nama_kegiatan"
+                                                                    name="nama_kegiatan" required>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="jabatan" class="form-label">Jabatan</label>
-                                                                <select class="form-select"
-                                                                    aria-label="Default select example" name="jabatan">
-                                                                    <option selected>{{ $item['jabatan'] }}</option>
+                                                                <div style="text-align: left;">
+                                                                    <label for="jabatan" class="form-label"
+                                                                        style="text-align: left;">Jabatan</label>
+                                                                </div>
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}"
+                                                                    class="form-select"
+                                                                    aria-label="Default select example" name="jabatan"
+                                                                    required>
+                                                                    <option value="" selected disabled hidden>
+                                                                        {{ $item['jabatan'] }}</option>
                                                                     <option value="Ketua Redaksi Jurnal ber-ISSN"
                                                                         {{ $item['jabatan'] == 'Ketua Redaksi Jurnal ber-ISSN' ? 'selected' : '' }}>
                                                                         Ketua Redaksi Jurnal ber-ISSN</option>
@@ -1097,10 +1297,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangH" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_H">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -1132,19 +1334,40 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jabatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3-fill"></i></i></button>
-
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                         {{-- TEMPAT MODAL EDIT CONFIRM H --}}
-                                        <div class="modal fade" id="modalEditPenunjang-{{ $item['id_rencana'] }}"
-                                            tabindex="-1" aria-labelledby="modalEditPenunjangHLabel" aria-hidden="true">
+                                        <div class="modal fade modal-lg"
+                                            id="modalEditPenunjang-{{ $item['id_rencana'] }}" tabindex="-1"
+                                            aria-labelledby="modalEditPenunjangHLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -1162,17 +1385,29 @@
                                                                 value="{{ $item['id_rencana'] }}" />
 
                                                             <div class="mb-3">
-                                                                <label for="nama_kegiatan" class="form-label">Nama
-                                                                    Kegiatan</label>
-                                                                <input value="{{ $item['nama_kegiatan'] }}"
-                                                                    type="text" class="form-control"
-                                                                    id="nama_kegiatan" name="nama_kegiatan">
+                                                                <div style="text-align: left;">
+                                                                    <label for="nama_kegiatan" class="form-label"
+                                                                        style="text-align: left;">Nama
+                                                                        Kegiatan</label>
+                                                                </div>
+
+                                                                <input id="nama-{{ $item['id_rencana'] }}"
+                                                                    value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                                    class="form-control" id="nama_kegiatan"
+                                                                    name="nama_kegiatan" required>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="jabatan" class="form-label">Jabatan</label>
-                                                                <select class="form-select"
-                                                                    aria-label="Default select example" name="jabatan">
-                                                                    <option selected>{{ $item['jabatan'] }}</option>
+                                                                <div style="text-align: left;">
+                                                                    <label for="jabatan" class="form-label"
+                                                                        style="text-align: left;">Jabatan</label>
+                                                                </div>
+
+                                                                <select id="jabatan-{{ $item['id_rencana'] }}"
+                                                                    class="form-select"
+                                                                    aria-label="Default select example" name="jabatan"
+                                                                    required>
+                                                                    <option value="" selected disabled hidden>
+                                                                        {{ $item['jabatan'] }}</option>
                                                                     <option value="Ketua Panitia Ad Hoc"
                                                                         {{ $item['jabatan'] == 'Ketua Panitia Ad Hoc' ? 'selected' : '' }}>
                                                                         Ketua Panitia Ad Hoc</option>
@@ -1193,8 +1428,8 @@
             {{-- AKHIR MODAL EDIT --}}
 
             {{-- MODAL DELETE --}}
-            <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalDeleteConfirm-{{ $item['id_rencana'] }}" tabindex="-1"
+                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -1245,10 +1480,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangI" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_I">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -1289,15 +1526,36 @@
                                         <td>Tidak</td>
                                     @endif
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></i></button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                     </td>
                                 </tr>
 
@@ -1321,16 +1579,26 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
-                                                            Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
+                                                        <div style="text-align: left;">
+                                                            <label for="nama_kegiatan" class="form-label"
+                                                                style="text-align: left;">Nama
+                                                                Kegiatan</label>
+                                                        </div>
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jenis_tingkatan" class="form-label">
-                                                            Tingkat Jabatan</label>
-                                                        <select name="jenis_tingkatan" class="form-control">
+                                                        <div style="text-align: left;">
+                                                            <label for="jenis_tingkatan" class="form-label"
+                                                                style="text-align: left;">
+                                                                Tingkat Jabatan</label>
+                                                        </div>
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}"
+                                                            name="jenis_tingkatan" class="form-control" required>
+                                                            <option value="" selected disabled hidden>Open this
+                                                                select menu</option>
                                                             <option value="1">Universitas</option>
                                                             <option value="2">Fakultas</option>
                                                             <option value="3">Program Studi</option>
@@ -1338,7 +1606,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -1402,10 +1671,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangJ" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_J">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -1436,21 +1707,46 @@
                                 <tr>
                                     <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
-                                    @if ($item['jenis_tingkatan'] == 1)
-                                        <td>Ketua</td>
+                                    @if ($item['jenis_tingkatan'] == 1 || $item['jenis_tingkatan'] == 2)
+                                        @if ($item['jenis_tingkatan'] == 1)
+                                            <td>Universitas</td>
+                                        @else
+                                            <td>Fakultas</td>
+                                        @endif
                                     @else
-                                        <td>Anggota</td>
+                                        <td>Program Studi</td>
                                     @endif
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></i></button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                     </td>
                                 </tr>
 
@@ -1474,16 +1770,26 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
-                                                            Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
+                                                        <div style="text-align: left;">
+                                                            <label for="nama_kegiatan" class="form-label"
+                                                                style="text-align: left;">Nama
+                                                                Kegiatan</label>
+                                                        </div>
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jenis_tingkatan" class="form-label">
-                                                            Tingkat Jabatan</label>
-                                                        <select name="jenis_tingkatan" class="form-control">
+                                                        <div style="text-align: left;">
+                                                            <label for="jenis_tingkatan" class="form-label"
+                                                                style="text-align: left;">
+                                                                Tingkat Jabatan</label>
+                                                        </div>
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}"
+                                                            name="jenis_tingkatan" class="form-control" required>
+                                                            <option value="" selected disabled hidden>Open this
+                                                                select menu</option>
                                                             <option value="1">Universitas</option>
                                                             <option value="2">Fakultas</option>
                                                             <option value="3">Program Studi</option>
@@ -1556,10 +1862,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangK" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_K">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -1598,16 +1906,36 @@
                                         <td>Tidak terdefinisi</td>
                                     @endif
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></i></button>
-
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                     </td>
                                 </tr>
 
@@ -1631,16 +1959,26 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
-                                                            Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan" value="{{ $item['nama_kegiatan'] }}">
+                                                        <div style="text-align: left;">
+                                                            <label for="nama_kegiatan" class="form-label"
+                                                                style="text-align: left;">Nama
+                                                                Kegiatan</label>
+                                                        </div>
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            value="{{ $item['nama_kegiatan'] }}" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jabatan" class="form-label">
-                                                            Jabatan</label>
-                                                        <select name="jabatan" class="form-control">
+                                                        <div style="text-align: left;">
+                                                            <label for="jabatan" class="form-label"
+                                                                style="text-align: left;">
+                                                                Jabatan</label>
+                                                        </div>
+                                                        <select id="jabatan-{{ $item['id_rencana'] }}" name="jabatan"
+                                                            class="form-control" required>
+                                                            <option value="" selected disabled hidden>Open this
+                                                                select menu</option>
                                                             <option value="1">Ketua Yayasan</option>
                                                             <option value="2">Anggota Yayasan</option>
                                                         </select>
@@ -1648,7 +1986,8 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -1712,10 +2051,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangL" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_L">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -1751,15 +2092,36 @@
                                     <td>{{ $item['jabatan'] }}</td>
                                     <td>{{ $item['jenis_tingkatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></i></button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                     </td>
                                 </tr>
 
@@ -1782,34 +2144,56 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
-                                                            Kegiatan:</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan">
+                                                        <div style="text-align: left;">
+                                                            <label for="nama_kegiatan" class="form-label"
+                                                                style="text-align: left;">Nama
+                                                                Kegiatan:</label>
+                                                        </div>
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jabatan" class="form-label">Jabatan:</label>
-                                                        <select class="form-control" aria-label="Default select example"
-                                                            id="jabatan" name="jabatan">
-                                                            <option value="Anggota" {{ $item['jabatan'] === 'Anggota' ? 'selected' : '' }}>Anggota</option>
-                                                            <option value="Ketua" {{ $item['jabatan'] === 'Ketua' ? 'selected' : '' }}>Ketua</option>
+                                                        <div style="text-align: left;">
+                                                            <label for="jabatan" class="form-label"
+                                                                style="text-align: left;">Jabatan:</label>
+                                                        </div>
+                                                        <select id="jabatan-{{ $item['id_rencana'] }}"
+                                                            class="form-control" aria-label="Default select example"
+                                                            name="jabatan" required>
+                                                            <option value="" selected disabled hidden>Open this
+                                                                select menu</option>
+                                                            <option value="Anggota"
+                                                                {{ $item['jabatan'] === 'Anggota' ? 'selected' : '' }}>
+                                                                Anggota</option>
+                                                            <option value="Ketua"
+                                                                {{ $item['jabatan'] === 'Ketua' ? 'selected' : '' }}>Ketua
+                                                            </option>
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="jenis_tingkatan" class="form-label">
                                                             Tingkatan:
                                                         </label>
-                                                        <select class="form-control" aria-label="Default select example"
-                                                            id="jenis_tingkatan" name="jenis_tingkatan">
-                                                            <option value="Nasional" {{ $item['jenis_tingkatan'] === 'Nasional' ? 'selected' : '' }} >Nasional</option>
-                                                            <option value="Internasional" {{ $item['jenis_tingkatan'] === 'Internasional' ? 'selected' : '' }}>Internasional</option>
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}"
+                                                            class="form-control" aria-label="Default select example"
+                                                            name="jenis_tingkatan" required>
+                                                            <option value="" selected disabled hidden>Open this
+                                                                select menu</option>
+                                                            <option value="Nasional"
+                                                                {{ $item['jenis_tingkatan'] === 'Nasional' ? 'selected' : '' }}>
+                                                                Nasional</option>
+                                                            <option value="Internasional"
+                                                                {{ $item['jenis_tingkatan'] === 'Internasional' ? 'selected' : '' }}>
+                                                                Internasional</option>
                                                         </select>
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -1872,10 +2256,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangM" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_M">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -1908,15 +2294,36 @@
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['jenis_tingkatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></i></button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                     </td>
                                 </tr>
 
@@ -1939,18 +2346,28 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
-                                                            Kegiatan:</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan">
+                                                        <div style="text-align: left;">
+                                                            <label for="nama_kegiatan" class="form-label"
+                                                                style="text-align: left;">Nama
+                                                                Kegiatan:</label>
+                                                        </div>
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jenis_tingkatan" class="form-label">
-                                                            Tingkatan:
-                                                        </label>
-                                                        <select class="form-control" id="jenis_tingkatan"
+                                                        <div style="text-align: left;">
+                                                            <label for="jenis_tingkatan" class="form-label"
+                                                                style="text-align: left;">
+                                                                Tingkatan:
+                                                            </label>
+                                                        </div>
+                                                        <select id="tingkatan-{{ $item['id_rencana'] }}"
+                                                            class="form-control" id="jenis_tingkatan"
                                                             name="jenis_tingkatan" required>
+                                                            <option value="" selected disabled hidden>Open this
+                                                                select menu</option>
                                                             <option value="Regional/Nasional"
                                                                 {{ $item['jenis_tingkatan'] == 'Regional/Nasional' ? 'selected' : '' }}>
                                                                 Regional/Nasional</option>
@@ -2026,10 +2443,12 @@
             <hr />
 
             <div class="row justify-content-end mr-0">
+                @if($all == 0)
                 <button id="btnFrkPenunjangN" type="button" class="btn btn-success col-md-auto m-1"
                     data-bs-toggle="modal" data-bs-target="#modalPenunjang_N">
                     Tambah Kegiatan
                 </button>
+                @endif
             </div>
 
             <div class="text-sm">
@@ -2060,15 +2479,36 @@
                                     <td scope="row">{{ $counter }}</td>
                                     <td>{{ $item['nama_kegiatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
+                                        @if ($item['asesor1_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="mt-1 d-block text-komentar">{{ $item['asesor1_frk'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_frk'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_frk'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @elseif ($item['asesor2_frk'] === 'ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item['flag_save_permananent'] != 1)
                                         <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenunjang-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#modalDeleteConfirm-{{ $item['id_rencana'] }}"><i
                                                 class="bi bi-trash3"></i></i></button>
+                                        @else
+                                            <span>No Action Available</span>
+                                        @endif
                                     </td>
                                 </tr>
 
@@ -2091,17 +2531,20 @@
                                                         value="{{ $item['id_rencana'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">
+                                                        <label for="nama_kegiatan" class="form-label"
+                                                            style="text-align: left;">
                                                             Nama Kegiatan:
                                                         </label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}"
-                                                            type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan">
+                                                        <input id="nama-{{ $item['id_rencana'] }}"
+                                                            value="{{ $item['nama_kegiatan'] }}" type="text"
+                                                            class="form-control" id="nama" name="nama_kegiatan"
+                                                            required>
                                                     </div>
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button id="edit-{{ $item['id_rencana'] }}" type="submit"
+                                                        class="btn btn-primary">
                                                         Simpan Perubahan
                                                     </button>
                                                 </div>
@@ -2171,18 +2614,19 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.akademik.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                            <input id="penunjang_nama_A" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa:</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="number" required
-                                min="1">
+                            <input id="penunjang_mahasiswa_A" name="jumlah_mahasiswa" class="form-control"
+                                type="number" required min="1">
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="penunjang_simpan_A" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -2190,7 +2634,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN A}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN A --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN B --}}
     <div class="modal fade modal-lg" id="modalPenunjang_B" tabindex="-1" role="dialog"
@@ -2204,18 +2648,19 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.bimbingan.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                            <input id="penunjang_nama_B" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_mahasiswa" class="form-label">Jumlah Mahasiswa:</label>
-                            <input name="jumlah_mahasiswa" class="form-control" type="number" required
-                                min="1">
+                            <input id="penunjang_mahasiswa_B" name="jumlah_mahasiswa" class="form-control"
+                                type="number" required min="1">
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="penunjang_simpan_B" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -2223,7 +2668,7 @@
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN B}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN B --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN C --}}
     <div class="modal fade modal-lg" id="modalPenunjang_C" tabindex="-1" role="dialog"
@@ -2238,27 +2683,27 @@
                 <form action="{{ route('rk-penunjang.ukm.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"
-                                required>
+                            <input id="penunjang_nama_C" type="text" class="form-control" id="nama_kegiatan"
+                                name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="jumlah_kegiatan" class="form-label">Jumlah Kegiatan</label>
-                            <input class="form-control" type="number" name="jumlah_kegiatan" required
-                                min="1" step="any">
+                            <input id="penunjang_kegiatan_C" class="form-control" type="number"
+                                name="jumlah_kegiatan" required min="1" step="any">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button id="penunjang_simpan_C" type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
 
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN C}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN C --}}
 
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN D --}}
@@ -2275,20 +2720,21 @@
                 <form action="{{ route('rk-penunjang.sosial.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
+                            <input id="penunjang_nama_D" type="text" class="form-control" id="nama_kegiatan"
+                                name="nama_kegiatan" required>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button id="penunjang_simpan_D" type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN D}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN D --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN E --}}
     <div class="modal fade modal-lg" id="modalPenunjang_E" tabindex="-1" role="dialog"
@@ -2303,16 +2749,17 @@
                 <form action="{{ route('rk-penunjang.struktural.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"required>
+                            <input id="penunjang_nama_E" type="text" class="form-control" id="nama_kegiatan"
+                                name="nama_kegiatan"required>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_jabatan_struktural" class="form-label">Jabatan</label>
-                            <select class="form-select" aria-label="Default select example"
-                                name="jenis_jabatan_struktural"required>
-                                <option selected>Open this select menu</option>
+                            <select id="penunjang_jabatan_E" class="form-select" aria-label="Default select example"
+                                name="jenis_jabatan_struktural" required>
+                                <option value="" selected disabled hidden>Pilih Jabatan</option>
                                 <option value="Rektor">Rektor</option>
                                 <option value="Wakil Rektor">Wakil Rektor</option>
                                 <option value="Dekan">Dekan</option>
@@ -2335,13 +2782,13 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button id="penunjang_simpan_E" type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN E}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN E --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN F --}}
     <div class="modal fade modal-lg" id="modalPenunjang_F" tabindex="-1" role="dialog"
@@ -2355,16 +2802,16 @@
                 <form action="{{ route('rk-penunjang.nonstruktural.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"required>
+                            <input id="penunjang_nama_F" type="text" class="form-control" name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_jabatan_nonstruktural" class="form-label">Jabatan</label>
-                            <select class="form-select" aria-label="Default select example"
-                                name="jenis_jabatan_nonstruktural"required>
-                                <option selected>Open this select menu</option>
+                            <select id="penunjang_jabatan_F" class="form-select" aria-label="Default select example"
+                                name="jenis_jabatan_nonstruktural" required>
+                                <option value="" selected disabled hidden>Pilih Jabatan</option>
                                 <option value="Ketua Senat Akademik Institut">Ketua Senat Akademik Institut</option>
                                 <option value="Sekretaris Senat Akademik Institut">Sekretaris Senat Akademik Institut
                                 </option>
@@ -2379,13 +2826,13 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button id="penunjang_simpan_F" type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN F}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN F --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN G --}}
     <div class="modal fade modal-lg" id="modalPenunjang_G" tabindex="-1" role="dialog"
@@ -2400,28 +2847,30 @@
                 <form action="{{ route('rk-penunjang.redaksi.create') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"required>
+                            <input id="penunjang_nama_G" type="text" class="form-control" id="nama_kegiatan"
+                                name="nama_kegiatan" required>
                         </div>
                         <div class="mb-3">
                             <label for="jabatan" class="form-label">Jabatan</label>
-                            <select class="form-select" aria-label="Default select example" name="jabatan"required>
-                                <option selected>Open this select menu</option>
+                            <select id="penunjang_jabatan_G" class="form-select" aria-label="Default select example"
+                                name="jabatan" required>
+                                <option value="" selected disabled hidden>Pilih Jabatan </option>
                                 <option value="Ketua Redaksi Jurnal ber-ISSN">Ketua Redaksi Jurnal ber-ISSN</option>
                                 <option value="Anggota Redaksi Jurnal ber-ISSN">Anggota Redaksi Jurnal ber-ISSN</option>
                             </select>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button id="penunjang_simpan_G" type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN G}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN G --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN H --}}
     <div class="modal fade modal-lg" id="modalPenunjang_H" tabindex="-1" role="dialog"
@@ -2437,22 +2886,24 @@
                     <form action="{{ route('rk-penunjang.adhoc.create') }}" method="POST">
                         @csrf
                         <div class="modal-body">
-                            <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                            <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                             <div class="mb-3">
                                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan"required>
+                                <input id="penunjang_nama_H" type="text" class="form-control" id="nama_kegiatan"
+                                    name="nama_kegiatan" required>
                             </div>
                             <div class="mb-3">
                                 <label for="jabatan" class="form-label">Jabatan</label>
-                                <select class="form-select" aria-label="Default select example" name="jabatan"required>
-                                    <option selected>Open this select menu</option>
+                                <select id="penunjang_jabatan_H" class="form-select"
+                                    aria-label="Default select example" name="jabatan" required>
+                                    <option value="" selected disabled hidden>Pilih Jabatan </option>
                                     <option value="Ketua Panitia Ad Hoc">Ketua Panitia Ad Hoc</option>
                                     <option value="Anggota Panitia Ad Hoc">Anggota Panitia Ad Hoc</option>
                                 </select>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="penunjang_simpan_H" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -2460,7 +2911,7 @@
         </div>
     </div>
 
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN H}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN H --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN I --}}
     <div class="modal fade modal-lg" id="modalPenunjang_I" tabindex="-1" role="dialog"
@@ -2475,29 +2926,30 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.ketuapanitia.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama"required>
+                            <input id="penunjang_nama_I" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
-                            <select name="jenis_tingkatan" class="form-control"required>
-                                <option selected>Open this select menu</option>
+                            <select id="penunjang_tingkatan_I" name="jenis_tingkatan" class="form-control" required>
+                                <option value="" selected disabled hidden>Pilih Tingkat Jabatan </option>
                                 <option value="1">Universitas</option>
                                 <option value="2">Fakultas</option>
                                 <option value="3">Program Studi</option>
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="penunjang_simpan_I" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN I}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN I --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN J --}}
     <div class="modal fade modal-lg" id="modalPenunjang_J" tabindex="-1" role="dialog"
@@ -2512,29 +2964,30 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.anggotapanitia.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama"required>
+                            <input id="penunjnag_nama_J" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tingkat Jabatan:</label>
-                            <select name="jenis_tingkatan" class="form-control"required>
-                                <option selected>Open this select menu</option>
+                            <select id="penunjang_tingkatan_J" name="jenis_tingkatan" class="form-control" required>
+                                <option value="" selected disabled hidden>Pilih Tingkat Jabatan</option>
                                 <option value="1">Universitas</option>
                                 <option value="2">Fakultas</option>
                                 <option value="3">Program Studi</option>
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="penunjang_simpan_J" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN J}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN J --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN K --}}
     <div class="modal fade modal-lg" id="modalPenunjang_K" tabindex="-1" role="dialog"
@@ -2549,28 +3002,29 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.pengurusyayasan.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama"required>
+                            <input id="penunjang_nama_K" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama"required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jabatan:</label>
-                            <select name="jabatan" class="form-control">
-                                <option selected>Open this select menu</option>
+                            <select id="penunjang_jabatan_K" name="jabatan" class="form-control"required>
+                                <option value="" selected disabled hidden>Pilih Tingkat Jabatan</option>
                                 <option value="1">Ketua Yayasan</option>
                                 <option value="2">Anggota Yayasan</option>
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="penunjang_simpan_K" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN K}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN K --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN L --}}
     <div class="modal fade modal-lg" id="modalPenunjang_L" tabindex="-1" role="dialog"
@@ -2584,27 +3038,30 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.asosiasi.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                            <input id="penunjang_nama_L" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label for="jabatan" class="form-label">Jabatan:</label>
-                            <select class="form-control" id="jenis_jabatan" name="jabatan">
-                                <option selected>Open this select menu</option>
+                            <select id="penunjang_jabatan_L" class="form-control" id="jenis_jabatan" name="jabatan"
+                                required>
+                                <option value="" disabled selected>Pilih Jabatan</option>
                                 <option value="Anggota">Anggota</option>
                                 <option value="Ketua">Ketua</option>
                             </select>
                         </div>
                         <label class="form-label">Tingkatan:</label>
-                        <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
-                            <option selected>Open this select menu</option>
+                        <select id="penunjang_tingkatan_L" class="form-control" id="jenis_tingkatan"
+                            name="jenis_tingkatan" required>
+                            <option value="" selected disabled>Pilih Tingkatan</option>
                             <option value="Nasional">Nasional</option>
                             <option value="Internasional">Internasional</option>
                         </select>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="penunjang_simpan_L" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -2612,7 +3069,7 @@
         </div>
     </div>
 
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN L}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN L --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN M --}}
     <div class="modal fade modal-lg" id="modalPenunjang_M" tabindex="-1" role="dialog"
@@ -2628,28 +3085,30 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.seminar.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                            <input id="penunjang_nama_M" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="mb-3">
                             <label for="jenis_tingkatan" class="form-label">Tingkatan:</label>
-                            <select class="form-control" id="jenis_tingkatan" name="jenis_tingkatan" required>
-                                <option selected>Open this select menu</option>
+                            <select id="penunjang_tingkatan_M" class="form-control" id="jenis_tingkatan"
+                                name="jenis_tingkatan" required>
+                                <option value="" selected disabled hidden>Pilih Tingkatan</option>
                                 <option value="Regional/Nasional">Regional/Nasional</option>
                                 <option value="Internasional">Internasional</option>
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="penunjang_simpan_M" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN M}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN M --}}
 
     {{-- TEMPAT MODAL TAMBAH KEGIATAN N --}}
     <div class="modal fade modal-lg" id="modalPenunjang_N" tabindex="-1" role="dialog"
@@ -2663,13 +3122,14 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-penunjang.reviewer.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value={{$id_dosen}}>
+                        <input type="hidden" name="id_dosen" value={{ $id_dosen }}>
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input name="nama_kegiatan" type="text" class="form-control" id="nama" required>
+                            <input id="penunjang_nama_N" name="nama_kegiatan" type="text" class="form-control"
+                                id="nama" required>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button id="penunjang_simpan_N" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -2677,446 +3137,8 @@
         </div>
     </div>
 
-    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN N}}
+    {{-- AKHIR TEMPAT MENAMBAH KEGIATAN N --}}
 
-    {{-- TEMPAT MODAL EDIT CONFIRM A --}}
-    <div class="modal fade" id="modalEditPenunjang_A" tabindex="-1" aria-labelledby="modalEditPenunjangALabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangALabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Mahasiswa:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM B --}}
-    <div class="modal fade" id="modalEditPenunjang_B" tabindex="-1" aria-labelledby="modalEditPenunjangBLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangBLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Mahasiswa:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM C --}}
-    <div class="modal fade" id="modalEditPenunjang_C" tabindex="-1" aria-labelledby="modalEditPenunjangCLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangCLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Kegiatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM D --}}
-    <div class="modal fade" id="modalEditPenunjang_D" tabindex="-1" aria-labelledby="modalEditPenunjangDLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangDLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="editKegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="editKegiatan">
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM E --}}
-    <div class="modal fade" id="modalEditPenunjang_E" tabindex="-1" aria-labelledby="modalEditPenunjangELabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangELabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM F --}}
-    <div class="modal fade" id="modalEditPenunjang_F" tabindex="-1" aria-labelledby="modalEditPenunjangFLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangFLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM G --}}
-    <div class="modal fade" id="modalEditPenunjang_G" tabindex="-1" aria-labelledby="modalEditPenunjangGLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangGLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM H --}}
-    <div class="modal fade" id="modalEditPenunjang_H" tabindex="-1" aria-labelledby="modalEditPenunjangHLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangHLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM I --}}
-    <div class="modal fade" id="modalEditPenunjang_I" tabindex="-1" aria-labelledby="modalEditPenunjangILabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangILabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tingkat Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM J --}}
-    <div class="modal fade" id="modalEditPenunjang_J" tabindex="-1" aria-labelledby="modalEditPenunjangJLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangJLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tingkat Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM K --}}
-    <div class="modal fade" id="modalEditPenunjang_K" tabindex="-1" aria-labelledby="modalEditPenunjangKLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangKLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM L --}}
-    <div class="modal fade" id="modalEditPenunjang_L" tabindex="-1" aria-labelledby="modalEditPenunjangLLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangLLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jabatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM M --}}
-    <div class="modal fade" id="modalEditPenunjang_M" tabindex="-1" aria-labelledby="modalEditPenunjangMLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangMLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tingkatan:</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL EDIT CONFIRM N --}}
-    <div class="modal fade" id="modalEditPenunjang_N" tabindex="-1" aria-labelledby="modalEditPenunjangNLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditPenunjangNLabel">Edit Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="mb-3">
-                            <label for="editKegiatan" class="form-label">Nama Kegiatan:</label>
-                            <input type="text" class="form-control" id="editKegiatan">
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- AKHIR MODAL EDIT --}}
-
-    {{-- TEMPAT MODAL DELETE CONFIRM --}}
-    <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body text-center">
-                    <h1><i class="bi bi-x-circle text-danger"></i></h1>
-                    <h5>Yakin untuk menghapus kegiatan ini?</h5>
-                    <p class="text-muted small">proses ini tidak dapat diurungkan bila anda sudah menekan tombol 'Yakin'
-                    </p>
-                </div>
-
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-                    <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Yakin</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     {{-- TEMPAT TOAST --}}
@@ -3145,6 +3167,7 @@
 
     {{-- TEMPAT JAVASCRIPT --}}
     <script>
+
         document.getElementById('confirmEditBtn').addEventListener('click', function() {
             showEditToast();
         });

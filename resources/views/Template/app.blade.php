@@ -9,7 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-5.3.3-dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-icons-1.11.2/font/bootstrap-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/toastr.min.css') }}">
 
     <style>
         /* Remove inner borders */
@@ -33,6 +35,11 @@
         table.outer-border-only-table thead th,
         table.outer-border-only-table tbody tr:last-child td {
             border-bottom: 1px solid black;
+        }
+
+        .toast-top-right {
+            top: 130px;
+            right: 12px;
         }
     </style>
 </head>
@@ -85,7 +92,9 @@
 
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
+                                {{Str::startsWith(request()->path(), 'formEvaluasiDiri') ? 'active' : ''}}
+                                d-flex justify-content-between align-items-center"
                                 data-bs-toggle="collapse" data-bs-target="#fed-collapse" aria-expanded="false">
                                 <i class="bi bi-pencil-square me-2"></i>
                                 <div class="me-auto"><span>Evaluasi Diri</span></div>
@@ -94,7 +103,7 @@
                             <div class="collapse" id="fed-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
-                                        <a href="#"
+                                        <a href="{{ route('ed-pendidikan') }}"
                                             class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                             Rekap Kegiatan
                                         </a>
@@ -111,6 +120,7 @@
                             </a>
                         </li>
 
+                        @if(in_array(json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '], ['Staf Human Resources']))
                         <li>
                             <a type="button"
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
@@ -133,7 +143,7 @@
                                         <div class="collapse" id="asesor-frk-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li>
-                                                    <a href="{{ route('rk-asesor') }}"
+                                                    <a href="#"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple"
                                                         style="margin-bottom:0.1px">
                                                         Rekap Kegiatan
@@ -141,7 +151,7 @@
                                                 </li>
 
                                                 <li>
-                                                    <a href="{{ route('rk-asesor-setuju') }}"
+                                                    <a href="#"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
                                                         Rekap Kegiatan yang Disetujui
                                                     </a>
@@ -162,7 +172,7 @@
                                         <div class="collapse" id="asesor-fed-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="{{ route('ed-asesor') }}"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple margin"
                                                         style="margin-bottom:0.1px">
                                                         Rekap Kegiatan
@@ -183,7 +193,7 @@
                                 </ul>
                             </div>
                         </li>
-
+                    @endif
                 </div>
             </div>
         </nav>
@@ -236,9 +246,10 @@
     </main>
     <!--Main layout-->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    </script> -->
+    <script src="{{ asset('assets/jquery-3.7.1.min.js') }}"></script>
     <script>
         $(document).ready(function() {
 
@@ -250,13 +261,44 @@
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script> -->
+    <script src="{{ asset('assets/bootstrap-5.3.3-dist/js/bootstrap.min.js') }}">
+    </script>
+    <script src="{{ asset('assets/toastr.min.js')}}">
+    </script>
+    <script src="{{ asset('assets/toastr.min.js')}}">
     </script>
 
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    @if (Session::has('message'))
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ Session::get('message') }}", 'Success!', {
+                timeOut: 12000
+            })
+            toastr.options.progressBar = true;
+        </script>
+    @endif
+
+    @if (Session::has('error'))
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ Session::get('error') }}", 'Error!', {
+                timeOut: 12000
+            })
+        </script>
+    @endif
 
 </body>
 
