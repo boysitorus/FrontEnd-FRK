@@ -59,7 +59,6 @@ class AsesorEvaluasiController extends Controller
             $response = Http::get(env('API_FED_SERVICE') . '/asesor-fed/get-all-pendidikan/' . $id);
             $responsePendidikan = $response->json();
 
-
             // Menggabungkan data teori dan bimbingan
             $data = [
                 'id' => $id,
