@@ -120,6 +120,13 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a href="{{route('lk-tahunAjaranAsesor')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaran') ? 'active' : '' }}">
+                                <i class="bi bi-eye me-2"></i>
+                                <span>Lihat Kerja</span>
+                            </a>
+                        </li>
+
                         @if(in_array($auth->user->data_lengkap->dosen->pegawai_id, $idAsesor))
                         <li>
                             <a type="button"
@@ -150,13 +157,6 @@
                                                     </a>
                                                 </li>
 
-                                                <li>
-                                                    <a href="#"
-                                                        class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
-                                                        Rekap Kegiatan yang Disetujui
-                                                    </a>
-                                                </li>
-
                                             </ul>
                                         </div>
                                     </li>
@@ -178,18 +178,9 @@
                                                         Rekap Kegiatan
                                                     </a>
                                                 </li>
-
-                                                <li>
-                                                    <a href="#"
-                                                        class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
-                                                        Rekap Kegiatan yang Disetujui
-                                                    </a>
-                                                </li>
-
                                             </ul>
                                         </div>
                                     </li>
-
                                 </ul>
                             </div>
                         </li>

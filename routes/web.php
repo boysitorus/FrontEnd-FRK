@@ -421,9 +421,9 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::post('/review-rencana-kerja', [AsesorController::class, 'reviewRencana'])->name('rk-asesor-review-rencana');
 
         Route::prefix('/LihatKerja')->group(function () {
-            Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaran'])->name('lk-tahunAjaranAsesor');
-            Route::get('/ViewDosen', [AsesorController::class, 'getViewDosen'])->name('lk-viewDosenAsesor');
-            Route::get('/ViewDetail', [AsesorController::class, 'getViewDetail'])->name('lk-viewDetailAsesor');
+            Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaranAsesor'])->name('lk-tahunAjaranAsesor');
+            Route::get('/ViewDosen', [AsesorController::class, 'getViewDosenAsesor'])->name('lk-viewDosenAsesor');
+            Route::get('/ViewDetail', [AsesorController::class, 'getViewDetailAsesor'])->name('lk-viewDetailAsesor');
         });
 
         Route::prefix('/Asesor/Evaluasi')->group(function () {

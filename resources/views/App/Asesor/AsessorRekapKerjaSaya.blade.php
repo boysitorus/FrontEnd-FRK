@@ -1,4 +1,4 @@
-@extends('Template.admin')
+@extends($isHumanResources ? 'Template.admin' : 'Template.app')
 
 @section('content')
     <div class = "mt-5 flex-wrap ml-4 mr-4 ">

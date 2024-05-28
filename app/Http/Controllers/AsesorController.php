@@ -606,9 +606,13 @@ class AsesorController extends Controller
             $listIdAssesor[] = $e['id_pegawai'];
         }
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
-            'idAsesor' => $listIdAssesor
+            'idAsesor' => $listIdAssesor,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorLihatTahunAjaran', $data);
     }
@@ -625,9 +629,13 @@ class AsesorController extends Controller
             $listIdAssesor[] = $e['id_pegawai'];
         }
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
-            'idAsesor' => $listIdAssesor
+            'idAsesor' => $listIdAssesor,
+            'isHumanResources' => $isHumanResources
         ];
 
         return view('App.Asesor.AsessorLihatKerjaViewDosen', $data);
@@ -644,9 +652,13 @@ class AsesorController extends Controller
             $listIdAssesor[] = $e['id_pegawai'];
         }
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
-            'idAsesor' => $listIdAssesor
+            'idAsesor' => $listIdAssesor,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorLihatKerjaViewDetail', $data);
     }
@@ -662,9 +674,13 @@ class AsesorController extends Controller
             $listIdAssesor[] = $e['id_pegawai'];
         }
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
-            'idAsesor' => $listIdAssesor
+            'idAsesor' => $listIdAssesor,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorRekapKerjaSaya', $data);
     }
@@ -673,8 +689,12 @@ class AsesorController extends Controller
     {
         $auth = Tools::getAuth($request);
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorLihatTahunAjaran', $data);
     }
@@ -683,8 +703,12 @@ class AsesorController extends Controller
     {
         $auth = Tools::getAuth($request);
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
+            'isHumanResources' => $isHumanResources
         ];
 
         return view('App.Asesor.AsessorLihatKerjaViewDosen', $data);
@@ -693,8 +717,12 @@ class AsesorController extends Controller
     public function getViewDetailAdmin(Request $request){
         $auth = Tools::getAuth($request);
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorLihatKerjaViewDetail', $data);
     }
@@ -702,8 +730,12 @@ class AsesorController extends Controller
     public function getRekapKerjaAdmin(Request $request){
         $auth = Tools::getAuth($request);
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorRekapKerjaSaya', $data);
     }
