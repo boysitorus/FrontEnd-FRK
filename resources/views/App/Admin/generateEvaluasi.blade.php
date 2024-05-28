@@ -32,14 +32,21 @@
     </div>
 
     <div class="container mt-2 ml-0 mt-5 mb-4">
-        <div class="row">
-            <div class="col">
-                <h6 style="font-weight: bold;">Semester yang dijalani</h6>
-                <div class="input-group date">
-                    <input type="text" class="form-control date-input" id="tahun-ajaran" name="tahun_ajaran"
-                           placeholder="Semester Genap 2023/2024" required>
-                </div>
+        <div class="col">
+            <h6 style="font-weight: bold;">Tahun Ajaran</h6>
+            <div class="input-group date">
+                <input type="text" class="form-control date-input" id="tahun-ajaran" name="tahun_ajaran"
+                       placeholder="2023/2024" required>
             </div>
+        </div>
+
+        <div class="mb-3">
+            <label style="font-weight: bold;" for="semester" class="form-label">Semester</label>
+            <select name="semester" class="form-select form-select-md mb-3" aria-label=".form-select-md example" required>
+                <option value="" disabled selected>Pilih Semester</option>
+                <option value="Ganjil">Ganjil</option>
+                <option value="Genap">Genap</option>
+            </select>
         </div>
     </div>
 

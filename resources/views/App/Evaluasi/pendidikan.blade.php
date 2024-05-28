@@ -415,7 +415,7 @@
                                                 Lampiran belum diupload
                                             </div>
                                         @else
-                                            <div class="badge text-bg-warning">
+                                            <div class="badge text-bg-success">
                                                 Lampiran sudah diupload
                                             </div>
                                         @endif

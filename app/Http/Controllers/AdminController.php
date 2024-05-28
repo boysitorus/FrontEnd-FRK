@@ -39,6 +39,7 @@ class AdminController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'tahun_ajaran' => 'required|string',
+            'semester',
             'tanggal_awal_rencana_kerja' => 'required|date',
             'tanggal_akhir_rencana_kerja' => 'required|date|after_or_equal:tanggal_awal_rencana_kerja',
             'periode_awal_asesor_i' => 'required|date',
@@ -58,6 +59,7 @@ class AdminController extends Controller
                 'role' => json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '],
                 'tipe_tanggal' => 'FRK',
                 "tahun_ajaran" => $request->tahun_ajaran,
+                "semester" => $request->semester,
                 "tgl_awal_pengisian" => $request->tanggal_awal_rencana_kerja,
                 "tgl_akhir_pengisian" => $request->tanggal_akhir_rencana_kerja,
                 "periode_awal_approve_assesor_1" => $request->periode_awal_asesor_i,
@@ -78,6 +80,7 @@ class AdminController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'tahun_ajaran' => 'required|string',
+            'semester',
             'tanggal_awal_rencana_kerja' => 'required|date',
             'tanggal_akhir_rencana_kerja' => 'required|date|after_or_equal:tanggal_awal_rencana_kerja',
             'periode_awal_asesor_i' => 'required|date',
@@ -97,6 +100,7 @@ class AdminController extends Controller
                 'role' => json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '],
                 'tipe_tanggal' => 'FED',
                 "tahun_ajaran" => $request->tahun_ajaran,
+                "semester" => $request->semester,
                 "tgl_awal_pengisian" => $request->tanggal_awal_rencana_kerja,
                 "tgl_akhir_pengisian" => $request->tanggal_akhir_rencana_kerja,
                 "periode_awal_approve_assesor_1" => $request->periode_awal_asesor_i,
