@@ -115,6 +115,8 @@
                                                                 terkait dengan pengembangan teknologi
                                                             </li>
                                                         </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="existsFiles">
                                                                 {{-- Menampilkan file lampiran yang sudah ada --}}
@@ -335,7 +337,8 @@
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanBLabel">B. Asistensi tugas atau praktikum terhadap setiap kelompok</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanBLabel">B. Asistensi
+                                                tugas atau praktikum terhadap setiap kelompok</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -345,17 +348,14 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                Pimpinan</li>
+                                                            <li>Berita Acara Praktikum atau Asistensi</li>
+                                                            <li>Presensi Mahasiswa</li>
+                                                            <li>Daftar Nilai tugas</li>
                                                         </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="existsFiles">
                                                                 {{-- Menampilkan file lampiran yang sudah ada --}}
@@ -413,7 +413,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN B --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -565,21 +565,21 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPendidikan_C-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
 
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanALabel" aria-hidden="true">
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN C --}}
+                            <div class="modal fade" id="modalLihatLampiranPendidikan_C-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanCLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanALabel">A. Kuliah
-                                                (Teori)
-                                                pada tingkat Diploma
-                                                dan S1 terhadap setiap kelompok</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanCLabel">C. Bimbingan
+                                                kuliah kerja yang terprogram terhadap setiap kelompok, Pembimbingan Praktek
+                                                Klinik/Lapangan,
+                                                dan DPL (Dosen Pembimbing lapangan)</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -589,17 +589,17 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas atau Surat Keputusan Mengajar dari
+                                                                Pimpinan</li>
+                                                            <li>Presensi Mahasiswa</li>
+                                                            <li>Berita Acara bimbingan</li>
+                                                            <li>Daftar Nilai tugas atau laporan hasil praktek</li>
+                                                            <li>Berita Acara bimbingan</li>
+                                                            <li>Daftar Nilai tugas atau laporan hasil praktek</li>
+                                                            <li>Daftar nilai atau laporan KKN</li>
                                                         </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="existsFiles">
                                                                 {{-- Menampilkan file lampiran yang sudah ada --}}
@@ -657,7 +657,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN C --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -806,21 +806,19 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPendidikan_D-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
 
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanALabel" aria-hidden="true">
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN D --}}
+                            <div class="modal fade" id="modalLihatLampiranPendidikan_D-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanDLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanALabel">A. Kuliah
-                                                (Teori)
-                                                pada tingkat Diploma
-                                                dan S1 terhadap setiap kelompok</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanDLabel">D. Seminar
+                                                yang terjadwal terhadap setiap kelompok</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -830,17 +828,15 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                Pimpinan</li>
+                                                            <li>Membimbing Seminar dan Pimpinan</li>
+                                                            <li>Presensi Mahasiswa</li>
+                                                            <li>Berita acara bimbingan</li>
+                                                            <li>Daftar Nilai Akhir</li>
                                                         </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="existsFiles">
                                                                 {{-- Menampilkan file lampiran yang sudah ada --}}
@@ -898,7 +894,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN D --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1047,21 +1043,21 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPendidikan_E-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
 
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanALabel" aria-hidden="true">
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN E --}}
+                            <div class="modal fade" id="modalLihatLampiranPendidikan_E-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanELabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanALabel">A. Kuliah
-                                                (Teori)
-                                                pada tingkat Diploma
-                                                dan S1 terhadap setiap kelompok</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanELabel">E. Bimbingan
+                                                dan tugas akhir/Skripsi/Karya Tulis Ilmiah SO (Diploma) dan S1 Dosen
+                                                Pembimbing utama dan
+                                                pembimbing penyerta dinilai sama</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -1071,17 +1067,15 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                Pimpinan</li>
+                                                            <li>Presensi Mahasiswa</li>
+                                                            <li>Bukti pembimbingan</li>
+                                                            <li>Berita acara ujian skripsi</li>
+                                                            <li>Daftar Nilai</li>
                                                         </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="existsFiles">
                                                                 {{-- Menampilkan file lampiran yang sudah ada --}}
@@ -1139,7 +1133,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN E --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1287,21 +1281,19 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPendidikan_F-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
 
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanALabel" aria-hidden="true">
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN F --}}
+                            <div class="modal fade" id="modalLihatLampiranPendidikan_F-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanFLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanALabel">A. Kuliah
-                                                (Teori)
-                                                pada tingkat Diploma
-                                                dan S1 terhadap setiap kelompok</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanFLabel">F. Menguji
+                                                proposal S1, S2, S3, Kualifikasi</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -1311,17 +1303,15 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                Pimpinan</li>
+                                                            <li>Presensi Mahasiswa</li>
+                                                            <li>Bukti pembimbingan</li>
+                                                            <li>Berita acara ujian skripsi</li>
+                                                            <li>Daftar Nilai</li>
                                                         </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="existsFiles">
                                                                 {{-- Menampilkan file lampiran yang sudah ada --}}
@@ -1379,7 +1369,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN F --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1526,21 +1516,19 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPendidikan_G-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
 
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanALabel" aria-hidden="true">
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN G --}}
+                            <div class="modal fade" id="modalLihatLampiranPendidikan_G-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanGLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanALabel">A. Kuliah
-                                                (Teori)
-                                                pada tingkat Diploma
-                                                dan S1 terhadap setiap kelompok</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanGLabel">G. Membimbing
+                                                dosen yang lebih rendah Jenjang Jabatan Akademiknya</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -1550,17 +1538,15 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                Pimpinan</li>
+                                                            <li>Presensi Mahasiswa</li>
+                                                            <li>Bukti pembimbingan</li>
+                                                            <li>Berita acara ujian skripsi</li>
+                                                            <li>Daftar Nilai</li>
                                                         </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="existsFiles">
                                                                 {{-- Menampilkan file lampiran yang sudah ada --}}
@@ -1618,7 +1604,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN G --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1766,22 +1752,22 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPendidikan_H-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
 
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanALabel"
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN H --}}
+                            <div class="modal fade" id="modalLihatLampiranPendidikan_H-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanHLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanALabel">A. Kuliah
-                                                (Teori)
-                                                pada tingkat Diploma
-                                                dan S1 terhadap setiap kelompok</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanHLabel">H.
+                                                Mengembangkan program perkuliahan/pengajaran (Silabus, SAP/RPP, GBPP, dll)
+                                                dalam kelompok atau mandiri
+                                                yang hasilnya dipakai untuk kegiatan perkuliahan</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -1791,17 +1777,14 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                Pimpinan</li>
+                                                            <li>Bukti hasil(Silabus, SAP/RKPSS, GBPP) yang baru dan
+                                                                silabus, SAP/RKPSS. GBPP yang
+                                                                sebelumnya</li>
                                                         </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="existsFiles">
                                                                 {{-- Menampilkan file lampiran yang sudah ada --}}
@@ -1859,7 +1842,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN H --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -2008,22 +1991,21 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPendidikan_I-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
 
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanALabel"
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN I --}}
+                            <div class="modal fade" id="modalLihatLampiranPendidikan_I-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanILabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanALabel">A. Kuliah
-                                                (Teori)
-                                                pada tingkat Diploma
-                                                dan S1 terhadap setiap kelompok</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanILabel">I.
+                                                Melaksanakan kegiatan detasering dan pencangkokan dosen dalam 1 semester
+                                            </h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -2033,17 +2015,12 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas atau Surat Keputusan Membimbing dari
+                                                                Pimpinan</li>
+                                                            <li>Bukti yang relevan (laporan kegiatan)</li>
                                                         </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="existsFiles">
                                                                 {{-- Menampilkan file lampiran yang sudah ada --}}
@@ -2101,7 +2078,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN I --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -2247,22 +2224,20 @@
                                 @endif
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}">Lihat
+                                        data-bs-target="#modalLihatLampiranPendidikan_J-{{ $item['id_rencana'] }}">Lihat
                                         Lampiran</button>
                                 </td>
                             </tr>
 
-                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
-                            <div class="modal fade" id="modalLihatLampiranPendidikan_A-{{ $item['id_rencana'] }}"
-                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanALabel"
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN J --}}
+                            <div class="modal fade" id="modalLihatLampiranPendidikan_J-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPendidikanJLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanALabel">A. Kuliah
-                                                (Teori)
-                                                pada tingkat Diploma
-                                                dan S1 terhadap setiap kelompok</h6>
+                                            <h6 class="modal-title" id="modalLihatLampiranPendidikanJLabel">J.
+                                                Koordinator Tugas Akhir/Skripsi, Proyek Akhir atau KP</h6>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -2272,17 +2247,11 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
-                                                                Kontrak Penelitian</li>
-                                                            <li>Proposal</li>
-                                                            <li>Laporan progress report bila belum selesai</li>
-                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
-                                                                selesai</li>
-                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
-                                                            <li>Foto karya seni / bukti lain yang relevan jika
-                                                                terkait dengan pengembangan teknologi
-                                                            </li>
+                                                            <li>Surat Tugas</li>
+                                                            <li>Daftar Nilai</li>
                                                         </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
                                                         <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
                                                             <div id="existsFiles">
                                                                 {{-- Menampilkan file lampiran yang sudah ada --}}
@@ -2340,7 +2309,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN J --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"

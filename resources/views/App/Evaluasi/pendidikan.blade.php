@@ -242,12 +242,12 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}">Tambah
+                                            data-bs-target="#modalEditEvaluasiPendidikan-B{{ $item['id_rencana'] }}">Tambah
                                             Lampiran</button>
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE B --}}
-                                <div class="modal fade" id="modalEditEvaluasiPendidikan-{{ $item['id_rencana'] }}"
+                                <div class="modal fade" id="modalEditEvaluasiPendidikan-B{{ $item['id_rencana'] }}"
                                     tabindex="-1" aria-labelledby="modalEditEvaluasiPendidikanBLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
@@ -415,7 +415,7 @@
                                                 Lampiran belum diupload
                                             </div>
                                         @else
-                                            <div class="badge text-bg-warning">
+                                            <div class="badge text-bg-success">
                                                 Lampiran sudah diupload
                                             </div>
                                         @endif
