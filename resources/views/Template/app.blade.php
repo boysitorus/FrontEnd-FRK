@@ -92,7 +92,9 @@
 
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
+                                {{Str::startsWith(request()->path(), 'formEvaluasiDiri') ? 'active' : ''}}
+                                d-flex justify-content-between align-items-center"
                                 data-bs-toggle="collapse" data-bs-target="#fed-collapse" aria-expanded="false">
                                 <i class="bi bi-pencil-square me-2"></i>
                                 <div class="me-auto"><span>Evaluasi Diri</span></div>
@@ -141,7 +143,7 @@
                                         <div class="collapse" id="asesor-frk-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="{{ route('rk-asesor') }}"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple"
                                                         style="margin-bottom:0.1px">
                                                         Rekap Kegiatan
@@ -170,7 +172,7 @@
                                         <div class="collapse" id="asesor-fed-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="{{ route('ed-asesor') }}"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple margin"
                                                         style="margin-bottom:0.1px">
                                                         Rekap Kegiatan
@@ -223,7 +225,7 @@
 
                      <div class="ms-auto d-flex align-items-center justify-content-start">
                         <img class="d-inline" src="{{ asset('assets/icon/Logout.svg') }}" alt="">
-                        <a class="text-reset me-3 text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        <a class="text-reset me-3 text-decoration-none" href="{{ route('logout.get') }}">
                             <h5 class="ms-2 pt-2 " style="font-weight: 700;">Keluar</h5>
                         </a>
                     </div>

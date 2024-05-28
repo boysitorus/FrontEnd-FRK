@@ -15,14 +15,14 @@
 
 <body>
 
-<section class="vh-100" style="background-color: #ECECEC">
-    <div class="container py-lg-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card bg-white text-black" style="border-radius: 1rem;">
-                    <div class="card-body py-4 px-5 text-center">
+    <section class="vh-100" style="background-color: #ECECEC">
+        <div class="container py-lg-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-white text-black" style="border-radius: 1rem;">
+                        <div class="card-body py-4 px-5 text-center">
 
-                        <div class="mb-md-5 px-4 mt-md-4">
+                            <div class="mb-md-5 px-4 mt-md-4">
 
                             <form action="{{route('user.login.post')}}" method="post">
                                 @csrf
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-</section>
+    </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

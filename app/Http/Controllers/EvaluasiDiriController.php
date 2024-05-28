@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\Http;
 use App\Utils\Tools;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Client\RequestException;
 
 class EvaluasiDiriController extends Controller
 {
@@ -87,7 +88,8 @@ class EvaluasiDiriController extends Controller
         }
     }
 
-    public function getPenunjangPanel(Request $request){
+    public function getPenunjangPanel(Request $request)
+    {
         $auth = Tools::getAuth($request);
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
@@ -171,389 +173,149 @@ class EvaluasiDiriController extends Controller
         }
     }
 
-    public function getPenelitianPanel(Request $request){
+    public function getPengabdianPanel(Request $request)
+    {
         $auth = Tools::getAuth($request);
-        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
+        try {
+            // Mengambil data a. kegiatan dari lumen
+            $responsKegiatan = Http::get(env('API_FRK_SERVICE') . '/pengabdian/kegiatan/' . $id_dosen);
+            $Kegiatan = $responsKegiatan->json();
 
-        $responseProposal = Http::get(env('API_FED_SERVICE') . '/penelitian/proposal/' . $id_dosen);
-        $proposal = $responseProposal->json();
-        $data = [
-            'auth' => $auth,
-            'id_dosen' => $id_dosen,
-            'periode' => $getTanggal
-        ];
-        return view('App.Evaluasi.penelitian', $data);
+            // Mengambil data b. penyuluhan dari lumen
+            $responsePenyuluhan = Http::get(env('API_FRK_SERVICE') . '/pengabdian/penyuluhan/' . $id_dosen);
+            $Penyuluhan = $responsePenyuluhan->json();
+
+            // Mengambil data c. konsultan dari lumen
+            $responsekonsultan = Http::get(env('API_FRK_SERVICE') . '/pengabdian/konsultan/' . $id_dosen);
+            $konsultan = $responsekonsultan->json();
+
+            // Mengambil data d. karya dari lumen
+            $responseKarya = Http::get(env('API_FRK_SERVICE') . '/pengabdian/karya/' . $id_dosen);
+            $Karya = $responseKarya->json();
+
+
+            // Menggabungkan data
+            $data = [
+                //data a
+                'kegiatan' => $Kegiatan,
+                //data b
+                'penyuluhan' => $Penyuluhan,
+
+                //data c
+                'konsultan' => $konsultan,
+                //data d
+                'karya' => $Karya,
+                'auth' => $auth,
+                'id_dosen' => $id_dosen,
+                'periode' => $getTanggal
+            ];
+
+            // Mengirim data ke view
+            return view('App.Evaluasi.pengabdian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
     }
 
-    public function getPengabdianPanel(Request $request){
+    public function getPenelitianPanel(Request $request)
+    {
+
         $auth = Tools::getAuth($request);
-        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
+        try {
+            // Mengambil data a. penelitian kelompok dari Lumen
+            $responsePenelitianKelompok = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok/' . $id_dosen);
+            $PenelitianKelompok = $responsePenelitianKelompok->json();
 
-        $responseProposal = Http::get(env('API_FED_SERVICE') . '/pengabdian/proposal/' . $id_dosen);
-        $proposal = $responseProposal->json();
-        $data = [
-            'auth' => $auth,
-            'id_dosen' => $id_dosen,
-            'periode' => $getTanggal
-        ];
-        return view('App.Evaluasi.pengabdian', $data);
+            // Mengambil data b. penelitian mandiri dari Lumen
+            $responsePenelitianMandiri = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_mandiri/' . $id_dosen);
+            $PenelitianMandiri = $responsePenelitianMandiri->json();
+
+            // Mengambil data c. buku terbit dari Lumen
+            $responseBukuTerbit = Http::get(env('API_FRK_SERVICE') . '/penelitian/buku_terbit/' . $id_dosen);
+            $BukuTerbit = $responseBukuTerbit->json();
+
+            //Mengambil data d. buku internasional dari Lumen
+            $responseBukuInternasional = Http::get(env('API_FRK_SERVICE') . '/penelitian/buku_internasional/' . $id_dosen);
+            $BukuInternasional = $responseBukuInternasional->json();
+
+            //Mengambil data e. menydur dari Lumen
+            $responseMenyadur = Http::get(env('API_FRK_SERVICE') . '/penelitian/menyadur/' . $id_dosen);
+            $Menyadur = $responseMenyadur->json();
+
+            //Mengambil data f. menyunting dari Lumen
+            $responseMenyunting = Http::get(env('API_FRK_SERVICE') . '/penelitian/menyunting/' . $id_dosen);
+            $Menyunting = $responseMenyunting->json();
+
+            //Mengambil data g. penelitian dari Lumen
+            $responsePenelitianModul = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_modul/' . $id_dosen);
+            $PenelitianModul = $responsePenelitianModul->json();
+
+            //Mengambil data h. pekerti dari Lumen
+            $responsePenelitianPekerti = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_pekerti/' . $id_dosen);
+            $PenelitianPekerti = $responsePenelitianPekerti->json();
+
+            //Mengambil data i. tridharma dari Lumen
+            $responsePenelitianTridharma = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_tridharma/' . $id_dosen);
+            $PenelitianTridharma = $responsePenelitianTridharma->json();
+
+            //Mengambil data j. jurnal ilmiah dari Lumen
+            $responseJurnalIlmiah = Http::get(env('API_FRK_SERVICE') . '/penelitian/jurnal_ilmiah/' . $id_dosen);
+            $JurnalIlmiah = $responseJurnalIlmiah->json();
+
+            //Mengambil data k. hak paten dari Lumen
+            $responseHakPaten = Http::get(env('API_FRK_SERVICE') . '/penelitian/hak_paten/' . $id_dosen);
+            $HakPaten = $responseHakPaten->json();
+
+            //Mengambil data l. media massa dari Lumen
+            $responseMediaMassa = Http::get(env('API_FRK_SERVICE') . '/penelitian/media_massa/' . $id_dosen);
+            $MediaMassa = $responseMediaMassa->json();
+
+            //Mengambil data m. pembicara seminar dari Lumen
+            $responsePembicaraSeminar = Http::get(env('API_FRK_SERVICE') . '/penelitian/pembicara_seminar/' . $id_dosen);
+            $PembicaraSeminar = $responsePembicaraSeminar->json();
+
+            //Mengambil data n. penyajian makalah  dari Lumen
+            $responsePenyajianMakalah = Http::get(env('API_FRK_SERVICE') . '/penelitian/penyajian_makalah/' . $id_dosen);
+            $PenyajianMakalah = $responsePenyajianMakalah->json();
+
+
+            // Menggabungkan data
+            $data = [
+                'penelitian_kelompok' => $PenelitianKelompok,
+                'penelitian_mandiri' => $PenelitianMandiri,
+                'buku_terbit' => $BukuTerbit,
+                'buku_internasional' => $BukuInternasional,
+                'menyadur' => $Menyadur,
+                'menyunting' => $Menyunting,
+                'penelitian_modul' => $PenelitianModul,
+                'penelitian_pekerti' => $PenelitianPekerti,
+                'penelitian_tridharma' => $PenelitianTridharma,
+                'jurnal_ilmiah' => $JurnalIlmiah,
+                'pembicara_seminar' => $PembicaraSeminar,
+                'penyajian_makalah' => $PenyajianMakalah,
+                'hak_paten' => $HakPaten,
+                'media_massa' => $MediaMassa,
+                'auth' => $auth,
+                'id_dosen' => $id_dosen,
+                'periode' => $getTanggal
+            ];
+
+            // Mengirim data ke view
+            return view('App.Evaluasi.penelitian', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
     }
 
-    public function getSimpulanPanel(Request $request){
-        $auth = Tools::getAuth($request);
-        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
-        $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
-
-        $responseProposal = Http::get(env('API_FED_SERVICE') . '/pengabdian/proposal/' . $id_dosen);
-        $proposal = $responseProposal->json();
-        $data = [
-            'auth' => $auth,
-            'id_dosen' => $id_dosen,
-            'periode' => $getTanggal
-        ];
-        return view('App.Evaluasi.FEDsimpulan',$data);
-    }
-
-    // METHOD FOR PENDIDIKAN // METHOD FOR PENDIDIKAN // METHOD FOR PENDIDIKAN
-    // Tabel A. Teori
-    public function postTeori(Request $request)
+    //HANDLER UPLOAD LAMPIRAN PENELITIAN
+    public function postLampiran(Request $request)
     {
-        Http::post(
-            env('API_FED_SERVICE') . '/pendidikan/teori',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Pendidikan teori upload successfully');
-    }
-
-    // Tabel B. Praktikum
-    public function postPraktikum(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/pendidikan/praktikum',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Pendidikan praktikum upload successfully');
-    }
-
-    // Tabel C. Bimbingan
-    public function postBimbinganPendidikan(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/pendidikan/bimbingan',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Pendidikan bimbingan upload successfully');
-    }
-
-    // Tabel D. Seminar
-    public function postSeminarPendidikan(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/pendidikan/seminar',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Pendidikan seminar upload successfully');
-    }
-
-    // Tabel E. Tugas Akhir
-    public function postTugasAkhir(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/pendidikan/tugasakhir',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Pendidikan tugas akhir upload successfully');
-    }
-
-    // Tabel F. Proposal
-    public function postProposal(Request $request){
-        Http::post(
-            env('API_FED_SERVICE') . '/pendidikan/proposal',
-        [
-            'id_rencana' => $request->get('id_rencana'),
-            'fileInput[]' => $request->file('fileInput'),
-        ]
-        );
-        return redirect()->back()->with('success', 'Pendidikan Proposal upload successfully');
-    }
-
-    // Tabel G. Rendah
-    public function postRendah(Request $request){
-        Http::post(
-            env('API_FED_SERVICE') . '/pendidikan/rendah',
-        [
-            'id_rencana' => $request->get('id_rencana'),
-            'fileInput[]' => $request->file('fileInput'),
-        ]
-        );
-        return redirect()->back()->with('success', 'Pendidikan Rendah upload successfully');
-    }
-
-    // Tabel H. Kembang
-    public function postKembang(Request $request){
-        Http::post(
-            env('API_FED_SERVICE') . '/pendidikan/kembang',
-        [
-            'id_rencana' => $request->get('id_rencana'),
-            'fileInput[]' => $request->file('fileInput'),
-        ]
-        );
-        return redirect()->back()->with('success', 'Pendidikan Kembang upload successfully');
-    }
-
-    // Tabel I. Cangkok
-    public function postCangkok(Request $request){
-        Http::post(
-            env('API_FED_SERVICE') . '/pendidikan/cangkok',
-        [
-            'id_rencana' => $request->get('id_rencana'),
-            'fileInput[]' => $request->file('fileInput'),
-        ]
-        );
-        return redirect()->back()->with('success', 'Pendidikan Cangkok upload successfully');
-    }
-
-    // Tabel J. Koordinator
-    public function postKoordinator(Request $request){
-        Http::post(
-            env('API_FED_SERVICE') . '/pendidikan/koordinator',
-        [
-            'id_rencana' => $request->get('id_rencana'),
-            'fileInput[]' => $request->file('fileInput'),
-        ]
-        );
-        return redirect()->back()->with('success', 'Pendidikan koordinator upload successfully');
-    }
-
-    // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN // END OF METHOD FOR PENDIDIKAN
-
-
-    // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG // METHOD FOR PENUNJANG
-    // Tabel A. Akademik
-    public function postAkademik(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/akademik',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang akademik upload successfully');
-    }
-
-    // Tabel B. Bimbingan
-    public function postBimbingan(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/bimbingan',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang bimbingan upload successfully');
-    }
-
-    // Tabel C. UKM
-    public function postUkm(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/ukm',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang ukm upload successfully');
-    }
-
-    // Tabel D.
-    public function postSosial(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/sosial',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang sosial upload successfully');
-    }
-
-    // Tabel E. Struktural
-    public function postStruktural(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/struktural',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang struktural upload successfully');
-    }
-
-    // Tabel F. Non Struktural
-    public function postNonStruktural(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/nonstruktural',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang non struktural upload successfully');
-    }
-
-    // Tabel G. Redaksi
-    public function postRedaksi(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/redaksi',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang redaksi upload successfully');
-    }
-
-    // Tabel H. Ad Hoc
-    public function postAdHoc(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/adhoc',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang adhoc upload successfully');
-
-    }
-
-    // Tabel I. Ketua Panitia
-    public function postKetuaPanitia(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/ketuapanitia',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang ketua panitia upload successfully');
-    }
-
-    // Tabel J. Anggota Panitia
-    public function postAnggotaPanitia(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/anggotapanitia',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang anggota panitia upload successfully');
-    }
-
-    // Tabel K. Pengurus Yayasan
-    public function postPengurusYayasan(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/pengurusyayasan',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang pengurus yayasan upload successfully');
-    }
-
-    // Tabel L. Asosiasi
-    public function postAssosiasi(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/assosiasi',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang assosiasi upload successfully');
-    }
-
-    // Tabel M. Seminar
-    public function postSeminar(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/seminar',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang seminar upload successfully');
-    }
-
-    // Tabel N. Reviewer
-    public function postReviewer(Request $request)
-    {
-        Http::post(
-            env('API_FED_SERVICE') . '/penunjang/reviewer',
-            [
-                'id_rencana' => $request->get('id_rencana'),
-                'fileInput[]' => $request->file('fileInput[]'),
-            ]
-        );
-
-        return redirect()->back()->with('success', 'Penunjang reviewer upload successfully');
-    }
-
-
-    // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG // END OF METHOD FOR PENUNJANG
-
-    //
-    //HANDLER UPLOAD LAMPIRAN
-    public function postLampiran(Request $request){
         $id_rencana = $request->get("id_rencana");
         $jenis_penelitian = $request->get("jenis_penelitian");
         $filePaths = [];
@@ -602,9 +364,93 @@ class EvaluasiDiriController extends Controller
             return redirect()->back()->with('error', 'No file selected');
         }
     }
+
+    public function deleteLampiranPenelitian(Request $request)
+    {
+        $id_rencana = $request->get("id_rencana");
+        $fileName = $request->get("fileName");
+
+        $result = Http::delete(
+            env('API_FED_SERVICE') . '/penelitian/lampiran/' . $id_rencana . "/delete/" . $fileName,
+        );
+
+        if ($result->successful()) {
+            return redirect()->back()->with('message', 'Berhasil menghapus lampiran');
+        } else {
+            return redirect()->back()->with('error', 'Gagal Menghapus File');
+        }
+    }
+
+    //HANDLER UPLOAD LAMPIRAN PENGABDIAN
+    public function postLampiranPengabdian(Request $request)
+    {
+        $id_rencana = $request->get("id_rencana");
+        $jenis_pengabdian = $request->get("jenis_pengabdian");
+        $filePaths = [];
+        $url = env('API_FED_SERVICE') . '/pengabdian/upload-lampiran';
+
+        if ($request->hasFile('fileInput')) {
+            $files = $request->file('fileInput');
+            foreach ($files as $file) {
+                if ($file->isValid()) {
+                    $extension = $file->getClientOriginalExtension();
+                    $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . "_" . $id_rencana . "." . $extension;
+                    $file->move(app()->basePath('storage/documents/'), $filename);
+                    $filePaths[] = 'documents/' . $filename;
+                } else {
+                    return redirect()->back()->with('Error', 'error 0');
+                }
+            }
+            //kirim kan file ke api
+            $http = Http::asMultipart();
+            foreach ($filePaths as $filePath) {
+                if (file_exists(storage_path($filePath))) {
+                    $fileName = basename($filePath);
+                    $fileContent = file_get_contents(storage_path($filePath));
+                    $http->attach('fileInput[]', $fileContent, $fileName);
+                } else {
+                    return response()->json(['error' => "File not found: $filePath"], 404);
+                }
+            }
+
+            $response = $http->post($url, [
+                'id_rencana' => $id_rencana,
+                'jenis_pengabdian' => $jenis_pengabdian
+            ]);
+
+            if ($response->successful()) {
+                foreach ($filePaths as $filePath) {
+                    if (file_exists(storage_path($filePath))) {
+                        unlink(storage_path($filePath));
+                    }
+                }
+                return redirect()->back()->with('message', 'Berhasil mengupload lampiran');
+            } else {
+                return response()->json(['error' => $response->body()], 404);
+            }
+        } else {
+            return redirect()->back()->with('error', 'No file selected');
+        }
+    }
+
+    public function deleteLampiranPengabdian(Request $request)
+    {
+        $id_rencana = $request->get("id_rencana");
+        $fileName = $request->get("fileName");
+
+        $result = Http::delete(
+            env('API_FED_SERVICE') . '/pengabdian/lampiran/' . $id_rencana . "/delete/" . $fileName,
+        );
+
+        if ($result->successful()) {
+            return redirect()->back()->with('message', 'Berhasil menghapus lampiran');
+        } else {
+            return redirect()->back()->with('error', 'Gagal Menghapus File');
+        }
+    }
     //END OF HANDLER UPLOAD LAMPIRAN
 
-    //HANDLER UPLOAD LAMPIRAN
+    // HANDLE UPLOAD LAMPIRAN PENDIDIKAN
     public function postPendidikan(Request $request){
         $id_rencana = $request->get("id_rencana");
         $jenis_pendidikan = $request->get("jenis_pendidikan");
@@ -654,9 +500,24 @@ class EvaluasiDiriController extends Controller
             return redirect()->back()->with('error', 'No file selected');
         }
     }
+
+    public function deletePendidikan(Request $request){
+        $id_rencana = $request->get("id_rencana");
+        $fileName = $request->get("fileName");
+
+        $result = Http::delete(
+            env('API_FED_SERVICE') . '/pendidikan/lampiran/' . $id_rencana . "/delete/" . $fileName,
+        );
+
+        if($result->successful()){
+            return redirect()->back()->with('message', 'Berhasil menghapus lampiran');
+        } else {
+            return redirect()->back()->with('error', 'Gagal Menghapus File');
+        }
+    }
     //END OF HANDLER UPLOAD LAMPIRAN
 
-    //HANDLER UPLOAD LAMPIRAN
+    //HANDLER UPLOAD PENUNJANG
     public function postPenunjang(Request $request){
         $id_rencana = $request->get("id_rencana");
         $jenis_penunjang = $request->get("jenis_penunjang");
@@ -706,9 +567,7 @@ class EvaluasiDiriController extends Controller
             return redirect()->back()->with('error', 'No file selected');
         }
     }
-    //END OF HANDLER UPLOAD LAMPIRAN
 
-    // HANDLER DELETE LAMPIRAN
     public function deletePenunjang(Request $request){
         $id_rencana = $request->get("id_rencana");
         $fileName = $request->get("fileName");
@@ -724,18 +583,90 @@ class EvaluasiDiriController extends Controller
         }
     }
 
-    public function deletePendidikan(Request $request){
-        $id_rencana = $request->get("id_rencana");
-        $fileName = $request->get("fileName");
+    public function getSimpulanPanel(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $nidn_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nidn'];
+        $nama_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nama'];
+        $role_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '] . " Program Studi " . $auth->user->data_lengkap->dosen->prodi;
+        try {
+            $dataSks = Http::get(env('API_FED_SERVICE') . '/simpulan/' . $id_dosen);
 
-        $result = Http::delete(
-            env('API_FED_SERVICE') . '/pendidikan/lampiran/' . $id_rencana . "/delete/" . $fileName,
-        );
+            $totalSksPendidikan = $dataSks["sks_pendidikan"];
+            $totalSksPenelitian = $dataSks["sks_penelitian"];
+            $totalSksPengabdian = $dataSks["sks_pengabdian"];
+            $totalSksPenunjang = $dataSks["sks_penunjang"];
+            $totalSks = $dataSks["sks_total"];
 
-        if($result->successful()){
-            return redirect()->back()->with('message', 'Berhasil menghapus lampiran');
-        } else {
-            return redirect()->back()->with('error', 'Gagal Menghapus File');
+            return view(
+                'App.Evaluasi.FEDsimpulan',
+                [
+                    'nidn_dosen' => $nidn_dosen,
+                    'nama_dosen' => $nama_dosen,
+                    'role_dosen' => $role_dosen,
+                    'pendidikanSks' => $totalSksPendidikan,
+                    'penelitianSks' => $totalSksPenelitian,
+                    'pengabdianSks' => $totalSksPengabdian,
+                    'penunjangSks' => $totalSksPenunjang,
+                    'totalSks' => $totalSks,
+                    'auth' => $auth,
+                    'id_dosen' => $id_dosen
+                ]
+            );
+        } catch (\Throwable $th) {
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    //Download PDF
+    public function generatePdf(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $nidn_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nidn'];
+        $nama_dosen = json_decode(json_encode($auth->user->data_lengkap->dosen), true)['nama'];
+        $role_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '] . " Program Studi " . $auth->user->data_lengkap->dosen->prodi;
+        try {
+            $dataSks = Http::get(env("API_FED_SERVICE") . '/simpulan/' . $id_dosen);
+
+            $totalSksPendidikan = $dataSks["sks_pendidikan"];
+            $totalSksPenelitian = $dataSks["sks_penelitian"];
+            $totalSksPengabdian = $dataSks["sks_pengabdian"];
+            $totalSksPenunjang = $dataSks["sks_penunjang"];
+            $totalSks = $dataSks["sks_total"];
+
+            $data = [
+                'nidn_dosen' => $nidn_dosen,
+                'nama_dosen' => $nama_dosen,
+                'role_dosen' => $role_dosen,
+                'pendidikanSks' => $totalSksPendidikan,
+                'penelitianSks' => $totalSksPenelitian,
+                'pengabdianSks' => $totalSksPengabdian,
+                'penunjangSks' => $totalSksPenunjang,
+                'totalSks' => $totalSks,
+            ];
+
+            $pdf = Pdf::loadView('App.Evaluasi.pdf', $data);
+            return $pdf->download('Simpulan-Evaluasi-Diri.pdf');
+        } catch (\Throwable $th) {
+            return response()->json(['error' => 'Failed to generate PDF'], 500);
+        }
+    }
+
+    public function simpanEvaluasi(Request $request)
+    {
+        $id_dosen = $request->get('id_dosen');
+        try {
+            $response = Http::post(env('API_FED_SERVICE') . '/simpulan/simpan-rencana/' . $id_dosen);
+            if ($response->status() === 200) {
+                return back()->with('message', $response["message"]);
+            } else {
+                throw new RequestException($response);
+            }
+        } catch (RequestException $e) {
+            $message = $response['message'];
+            return back()->with('error', $message);
         }
     }
 }
