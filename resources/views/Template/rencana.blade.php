@@ -18,7 +18,7 @@
 
         <div class = "bg-white mt-2">
             <div class = "ml-2 mr-2 pt-4">
-                <h4 class = "font-weight-bold">Rekap Kerja - {{ $periode['tahun_ajaran'] }}</h4>
+                <h4 class = "font-weight-bold">Rekap Kerja - Tahun Ajaran {{ $periode['tahun_ajaran'] }} Semester {{ $periode['semester'] }}</h4>
             </div>
             <hr/>
 
