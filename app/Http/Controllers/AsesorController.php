@@ -39,10 +39,24 @@ class AsesorController extends Controller
                 array_push($data_dosen, $res);
             }
         }
+
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         return view('App.Asesor.rekapKegiatan',
         [
             'auth' => $auth,
             'data_dosen' => $data_dosen,
+            'isHumanResorces' => $isHumanResources,
+            'idAsesor' => $listIdAssesor
         ]);
     }
 
@@ -606,9 +620,13 @@ class AsesorController extends Controller
             $listIdAssesor[] = $e['id_pegawai'];
         }
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
-            'idAsesor' => $listIdAssesor
+            'idAsesor' => $listIdAssesor,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorLihatTahunAjaran', $data);
     }
@@ -625,9 +643,13 @@ class AsesorController extends Controller
             $listIdAssesor[] = $e['id_pegawai'];
         }
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
-            'idAsesor' => $listIdAssesor
+            'idAsesor' => $listIdAssesor,
+            'isHumanResources' => $isHumanResources
         ];
 
         return view('App.Asesor.AsessorLihatKerjaViewDosen', $data);
@@ -644,9 +666,13 @@ class AsesorController extends Controller
             $listIdAssesor[] = $e['id_pegawai'];
         }
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
-            'idAsesor' => $listIdAssesor
+            'idAsesor' => $listIdAssesor,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorLihatKerjaViewDetail', $data);
     }
@@ -662,9 +688,13 @@ class AsesorController extends Controller
             $listIdAssesor[] = $e['id_pegawai'];
         }
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
-            'idAsesor' => $listIdAssesor
+            'idAsesor' => $listIdAssesor,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorRekapKerjaSaya', $data);
     }
@@ -673,8 +703,12 @@ class AsesorController extends Controller
     {
         $auth = Tools::getAuth($request);
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorLihatTahunAjaran', $data);
     }
@@ -683,8 +717,12 @@ class AsesorController extends Controller
     {
         $auth = Tools::getAuth($request);
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
+            'isHumanResources' => $isHumanResources
         ];
 
         return view('App.Asesor.AsessorLihatKerjaViewDosen', $data);
@@ -693,8 +731,12 @@ class AsesorController extends Controller
     public function getViewDetailAdmin(Request $request){
         $auth = Tools::getAuth($request);
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorLihatKerjaViewDetail', $data);
     }
@@ -702,8 +744,12 @@ class AsesorController extends Controller
     public function getRekapKerjaAdmin(Request $request){
         $auth = Tools::getAuth($request);
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
             'auth' => $auth,
+            'isHumanResources' => $isHumanResources
         ];
         return view('App.Asesor.AsessorRekapKerjaSaya', $data);
     }
