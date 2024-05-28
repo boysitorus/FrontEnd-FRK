@@ -370,6 +370,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -575,6 +582,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -786,6 +800,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -992,6 +1013,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -1193,6 +1221,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -1393,6 +1428,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -1583,6 +1625,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -1779,6 +1828,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -1973,6 +2029,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif

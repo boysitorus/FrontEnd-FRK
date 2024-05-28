@@ -7,7 +7,7 @@
         <div class = "row">
             <div class = "col">
                 <h3 class = "font-weight-bold">Rekap Kegiatan</h3>
-                <p class = "breadcrumbs">Asesor Form Evaluasi Diri</p>
+                <p class = "breadcrumbs">Asesor</p>
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
@@ -26,7 +26,7 @@
                 <h5> <b> <u> Info untuk dosen </u> </b> </h5>
                 <p><b>Nama : {{ $dataDosen["nama"] }}</b></p>
                 <p><b>NIDN : {{ $dataDosen["nidn"] }}</b></p>
-                <p><b>Jabatan : {{ "Dosen Program Studi " . $dataDosen["prodi"] }}</b></p>
+                <p><b>Jabatan</b></p>
             </div>
 
             <div class = "mt-5 mb-5">
