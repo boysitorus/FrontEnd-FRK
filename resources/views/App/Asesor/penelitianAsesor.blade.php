@@ -1,6 +1,21 @@
 @extends('Template.asesorDetail')
 
 @section('content-kegiatan')
+    @php
+        use App\Utils\Tools;
+        $check = Tools::checkAsesor(json_decode(json_encode($auth->user->data_lengkap->dosen), true)['pegawai_id']);
+    @endphp
+
+    @if ($check['data']['tipe_asesor'] == '1')
+        @php
+            $tipeAsesor = 'asesor1_frk';
+        @endphp
+    @else
+        @php
+            $tipeAsesor = 'asesor2_frk';
+        @endphp
+    @endif
+
     {{-- BAGIAN A --}}
     <div id="penelitian-A" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
@@ -46,16 +61,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -124,7 +140,8 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                                    required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -189,16 +206,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -268,7 +286,8 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                                    required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -337,16 +356,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -416,7 +436,8 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                                    required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -486,16 +507,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -565,7 +587,8 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                                    required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -632,16 +655,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -711,7 +735,8 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                                    required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -778,16 +803,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -857,7 +883,8 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                                    required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -926,16 +953,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1005,7 +1033,8 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                                    required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -1065,16 +1094,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1144,7 +1174,8 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                                    required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -1207,16 +1238,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1286,7 +1318,8 @@
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
-                                                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                                    required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -1352,16 +1385,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1497,16 +1531,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1642,16 +1677,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1788,16 +1824,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1938,16 +1975,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_frk'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_frk'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
-                                            <span class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_frk'] }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
