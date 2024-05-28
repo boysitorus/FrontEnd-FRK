@@ -55,64 +55,81 @@
 
                             <tr>
                                 <td scope="row">{{ $counter }}</td>
-                                <td>{{ $item['tahun_ajaran'] }} ({{ $item['tipe'] }})</td>
-                                <td>
-                                    {{-- fengecekan untuk status --}}
-                                    @if($item['tipe'] == 'FED')
-                                        @if($tanggal_fed['data']['id'] == $item['id'])
-                                            <span class="badge rounded-pill bg-success">Tersedia</span>
-                                        @else
-                                            <span class="badge rounded-pill bg-danger">Tidak Tersedia</span>
-                                        @endif
-                                    @elseif($item['tipe'] == 'FRK')
-                                        @if($tanggal_frk['data']['id'] == $item['id'])
-                                            <span class="badge rounded-pill bg-success">Tersedia</span>
-                                        @else
-                                            <span class="badge rounded-pill bg-danger">Tidak Tersedia</span>
-                                        @endif
+                                <td>{{ $item['tahun_ajaran'] }} ({{ $item['tipe'] }}) => {{ $item['id'] }}</td>
+                                {{-- pengecekan untuk status --}}
+                                @if($item['tipe'] == 'FED')
+                                    @if($tanggal_fed['data']['id'] == $item['id'])
+                                        <td>
+                                            <span class="badge rounded-pill bg-success">Aktif</span>
+                                        </td>
+
+                                        <td>
+                                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditTahunAjaran-{{ $item['id'] }}"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                        </td>
+                                    @else
+                                        <td>
+                                            <span class="badge rounded-pill bg-danger">Tidak Aktif</span>
+                                        </td>
+
+                                        <button type="button" class="btn btn-danger mr-1"><i
+                                            class="bi bi-x-circle"></i></button>
                                     @endif
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditTahunAjaran-{{ $item['id'] }}"><i
-                                            class="bi bi-pencil-square"></i></button>
-                                </td>
+                                    
+                                @elseif($item['tipe'] == 'FRK')
+                                    @if($tanggal_frk['data']['id'] == $item['id'])
+                                        <td>
+                                            <span class="badge rounded-pill bg-success">Aktif</span>
+                                        </td>
+
+                                        <td>
+                                            <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditTahunAjaran-{{ $item['id'] }}"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                        </td>
+                                    @else
+                                        <td>
+                                            <span class="badge rounded-pill bg-danger">Tidak Aktif</span>
+                                        </td>
+
+                                        <td>
+                                            <button type="button" class="btn btn-danger mr-1"><i
+                                                    class="bi bi-x-circle"></i></button>
+                                        </td>
+                                    @endif
+                                @endif
+                                
                             </tr>
+
+                            {{-- MODAL EDIT DAFTAR TAHUN AJARAN --}}
                             <div class="modal fade modal-lg" id="modalEditTahunAjaran-{{ $item['id'] }}"
                                     tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter++ }}. {{ $item['nama_kegiatan'] }}</h6>
+                                                <h6 class="modal-title" id="exampleModalLabel">{{ $counter }}. {{ $item['tahun_ajaran'] }} ({{ $item['semester'] }})</h6>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
                                             <form action="{{ route('rk-pendidikan.teori.update') }}" method="POST">
                                                 <div class="modal-body">
                                                     @csrf
-                                                    <input type="hidden" name="id_rencana" value="{{ $item['id_rencana'] }}" />
+                                                    <input type="hidden" name="id" value="{{ $item['id'] }}" />
 
                                                     <div class="mb-3">
-                                                        <label for="nama_kegiatan" class="form-label">Nama
-                                                            Kegiatan</label>
-                                                        <input placeholder="{{ $item['nama_kegiatan'] }}" type="text" class="form-control" id="nama"
-                                                            name="nama_kegiatan">
+                                                        <label for="tahun_ajaran" class="form-label">Tahun Ajaran</label>
+                                                        <input placeholder="{{ $item['tahun_ajaran'] }}" type="text" class="form-control" id="nama"
+                                                            name="tahun_ajaran">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="jumlah_kelas" class="form-label">Jumlah Kelas
-                                                            Tatap Muka</label>
-                                                        <input placeholder="{{ $item['jumlah_kelas'] }}" type="number" class="form-control" name="jumlah_kelas" min="1">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="jumlah_evaluasi" class="form-label">Jumlah Kelas
-                                                            Evaluasi</label>
-                                                        <input placeholder="{{ $item['jumlah_evaluasi'] }}" type="number" class="form-control"
-                                                            name="jumlah_evaluasi" min="1">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="sks_matakuliah" class="form-label">SKS Mata
-                                                            Kuliah</label>
-                                                        <input placeholder="{{ $item['sks_matakuliah'] }}" type="number" class="form-control" name="sks_matakuliah" min="1">
+                                                        {{-- <label for="jumlah_dosen" class="form-label">
+                                                            Status
+                                                        </label>
+                                                        <select class="form-control" name="jumlah_dosen" id="jumlah_dosen">
+                                                            <option value="1" {{ $item['jumlah_dosen'] == 1 ? 'selected' : '' }}>1</option>
+                                                            <option value="2" {{ $item['jumlah_dosen'] == 2 ? 'selected' : '' }}>2</option>
+                                                        </select> --}}
                                                     </div>
 
                                                 </div>
