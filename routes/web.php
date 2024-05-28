@@ -35,7 +35,11 @@ Route::group(['middleware' => ['check.token']], function () {
     Route::get('/dashboard', [UserController::class, 'userDashboard'])->name('home');
 
     Route::get('/profile', [UserController::class, 'userProfile'])->name('profile');
-    Route::get('/riwayat-kegiatan', [UserController::class, 'rekapKegiatan'])->name('riwayat-kegiatan');
+
+    Route::prefix('/rekap-kegiatan')->group(function () {
+        Route::get('/', [UserController::class, 'rekapKegiatan'])->name('rekap-kegiatan');
+        Route::get('/detail', [UserController::class, 'rekapKegiatanDetail'])->name('rekap-kegiatan-detail');
+    });
 
     Route::get('/formRencanaKerja', function () {
         return view('App.Rencana.penelitian');

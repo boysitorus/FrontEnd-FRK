@@ -27,7 +27,7 @@
                 <td>1</td>
                 <td>2023/2024</td>
                 <td>Genap</td>
-                <td><a href="#"><button type="button" class="btn btn-primary mr-1">View Detail</button></a></td>
+                <td><a href="{{ route('rekap-kegiatan-detail') }}"><button type="button" class="btn btn-primary mr-1">View Detail</button></a></td>
             </tr>
         </tbody>
         </table>
