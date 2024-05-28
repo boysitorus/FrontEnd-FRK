@@ -160,6 +160,44 @@ class AsesorEvaluasiController extends Controller
     }
     public function getEvaluasiPenunjang(Request $request, $id)
     {
+        $auth = Tools::getAuth($request);
+        $id_pegawai = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $token = json_decode(json_encode($auth->user), true)['token'];
+        $dataDosen = $this->getDosen($id, $token);
+
+        try {
+            // Mengambil data a. kegiatan dari lumen
+            $response = Http::get(env('API_FED_SERVICE') . '/asesor-fed/get-all-penunjang/' . $id);
+            $responsePenunjang = $response->json();
+
+            // Menggabungkan data
+            $data = [
+                'akademik' => $responsePenunjang["akademik"],
+                'bimbingan' => $responsePenunjang["bimbingan"],
+                'ukm' => $responsePenunjang["ukm"],
+                'sosial' => $responsePenunjang["sosial"],
+                'struktural' => $responsePenunjang["struktural"],
+                'nonstruktural' => $responsePenunjang["nonstruktural"],
+                'redaksi' => $responsePenunjang["redaksi"],
+                'adhoc' => $responsePenunjang["adhoc"],
+                'ketuapanitia' => $responsePenunjang["ketuapanitia"],
+                'anggotapanitia' => $responsePenunjang["anggotapanitia"],
+                'pengurusyayasan' => $responsePenunjang["pengurusyayasan"],
+                'asosiasi' => $responsePenunjang["asosiasi"],
+                'seminar' => $responsePenunjang["seminar"],
+                'reviewer' => $responsePenunjang["reviewer"],
+                'auth' => $auth,
+                'id' => $id,
+                'dataDosen' => $dataDosen,
+                'idPegawai' => $id_pegawai
+            ];
+
+            // Mengirim data ke view
+            return view('App.AsesorEvaluasi.penunjangAsesor', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
     }
 
     public function reviewEvaluasi(Request $request)

@@ -33,6 +33,8 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
+
                         </tr>
                     </thead>
 
@@ -69,7 +71,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_A-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_A-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -82,7 +177,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -128,7 +223,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -177,6 +272,8 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
+
                         </tr>
                     </thead>
 
@@ -213,7 +310,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_B-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_B-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangBLabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -227,7 +417,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -273,7 +463,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -325,6 +515,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
 
@@ -360,7 +551,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_C-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN C --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_C-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangCLabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN C --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -374,7 +658,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -420,7 +704,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -470,6 +754,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -503,7 +788,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_D-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_D-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN D --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -517,7 +895,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -563,7 +941,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -612,6 +990,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -646,7 +1025,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_E-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                        {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN E --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_E-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN E --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -660,7 +1132,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -706,7 +1178,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -789,7 +1261,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_F-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN F --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_F-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN F --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -803,7 +1368,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -849,7 +1414,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -897,6 +1462,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -931,7 +1497,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_G-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_G-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN G --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -945,7 +1604,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -991,7 +1650,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -1040,6 +1699,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1074,7 +1734,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_H-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_H-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1088,7 +1841,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -1134,7 +1887,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -1182,6 +1935,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1225,7 +1979,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_I-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_I-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1239,7 +2086,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -1285,7 +2132,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -1333,6 +2180,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1372,7 +2220,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_J-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_J-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1386,7 +2327,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -1433,7 +2374,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -1485,6 +2426,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1526,7 +2468,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_K-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                        {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN K --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_K-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN K --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1540,7 +2575,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -1587,7 +2622,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -1640,6 +2675,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1676,7 +2712,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_L-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_L-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1690,7 +2819,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -1737,7 +2866,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -1786,6 +2915,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1821,7 +2951,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_M-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_M-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1835,7 +3058,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -1882,7 +3105,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -1930,6 +3153,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-1">SKS Terhitung</th>
                             <th scope="col" rowspan="2 " class="align-middle fw-bold col-2">Aksi</th>
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Komentar</th>
+                            <th scope="col" rowspan="2" class="align-middle fw-bold col-3">Lampiran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1964,7 +3188,100 @@
                                         </td>
                                     @endif
                                 @endif
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary mr-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalLihatLampiranPenunjang_N-{{ $item['id_rencana'] }}">Lihat
+                                        Lampiran</button>
+                                </td>
                             </tr>
+
+                            {{-- TEMPAT MODAL LIHAT FILE LAMPIRAN A --}}
+                            <div class="modal fade" id="modalLihatLampiranPenunjang_N-{{ $item['id_rencana'] }}"
+                                tabindex="-1" aria-labelledby="modalLihatLampiranPenunjangALabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modalLihatLampiranPenunjangALabel">A. Bimbingan Akademik (perwalian/penasehat akademik)</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
+                                                        <ol>
+                                                            <li>Surat Keterangan dari Pimpinan/Ka LPPM atau Surat
+                                                                Kontrak Penelitian</li>
+                                                            <li>Proposal</li>
+                                                            <li>Laporan progress report bila belum selesai</li>
+                                                            <li>Surat pernyataan dari Ka LPPM bahwa penelitian sudah
+                                                                selesai</li>
+                                                            <li>Laporan akhir penelitian (termasuklog book)</li>
+                                                            <li>Foto karya seni / bukti lain yang relevan jika
+                                                                terkait dengan pengembangan teknologi
+                                                            </li>
+                                                        </ol>
+                                                        <div class="font-weight-bold">List Lampiran yang telah diupload
+                                                        </div>
+                                                        <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
+                                                            <div id="existsFiles">
+                                                                {{-- Menampilkan file lampiran yang sudah ada --}}
+                                                                @if (!is_null($item['lampiran']))
+                                                                    @php
+                                                                        $iteration = 1;
+                                                                    @endphp
+                                                                    @foreach (json_decode($item['lampiran'], true) as $i)
+                                                                        @php
+                                                                            $checkExtension = pathinfo(
+                                                                                $i,
+                                                                                PATHINFO_EXTENSION,
+                                                                            );
+
+                                                                            $extension = '';
+
+                                                                            // Determine the icon filename based on the extension
+                                                                            switch ($checkExtension) {
+                                                                                case 'pdf':
+                                                                                    $extension = 'pdf.png';
+                                                                                    break;
+                                                                                case 'doc':
+                                                                                case 'docx':
+                                                                                    $extension = 'word.png';
+                                                                                    break;
+                                                                                case 'xls':
+                                                                                case 'xlsx':
+                                                                                    $extension = 'sheets.png';
+                                                                                    break;
+                                                                                case 'png':
+                                                                                case 'PNG':
+                                                                                case 'jpg':
+                                                                                case 'jpeg':
+                                                                                    $extension = 'photo.png';
+                                                                                    break;
+                                                                                default:
+                                                                                    $extension = 'document.png';
+                                                                            }
+                                                                        @endphp
+                                                                        <div
+                                                                            class="file-item d-flex align-items-center mb-2 border rounded p-3">
+                                                                            <img src="{{ '/assets/img/' . $extension }}"
+                                                                                alt="File Icon" width="30" />
+                                                                            <a href={{ env('API_FED_SERVICE') . '/penunjang/get-lampiran/' . base64_encode($i) }}
+                                                                                class="ms-2">{{ $i }}</a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- AKHIR MODAL LIHAT LAMPIRAN A --}}
 
                             {{-- MODAL SETUJU --}}
                             <div class="modal fade text-center" id="modalSetuju-{{ $item['id_rencana'] }}"
@@ -1978,7 +3295,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -2025,7 +3342,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
