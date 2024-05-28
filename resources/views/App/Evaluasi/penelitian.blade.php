@@ -38,7 +38,7 @@
                             @endphp
                             @foreach ($penelitian_kelompok as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">{{ $counter }}</td>
                                     <td>
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
@@ -1333,14 +1333,13 @@
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPenelitian_G-{{ $item['id_rencana'] }}">Tambah
-                                            Lampiran</button>
+                                            data-bs-target="#modalEditPenelitian_G">Tambah Lampiran</button>
                                     </td>
                                 </tr>
 
                                 {{-- MODAL UPLOAD G --}}
-                                <div class="modal fade" id="modalEditPenelitian_G-{{ $item['id_rencana'] }}"
-                                    tabindex="-1" aria-labelledby="modalEditPenelitian_G_label" aria-hidden="true">
+                                <div class="modal fade" id="modalEditPenelitian_G" tabindex="-1"
+                                    aria-labelledby="modalEditPenelitian_G_label" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -1712,7 +1711,7 @@
                             @endphp
                             @foreach ($penelitian_tridharma as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">1</td>
                                     <td>
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
@@ -1916,7 +1915,7 @@
                             @endphp
                             @foreach ($jurnal_ilmiah as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">1</td>
                                     <td>
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
@@ -2978,3 +2977,5 @@
         });
     </script>
 @endsection
+
+{{-- BAGIAN A --}}
