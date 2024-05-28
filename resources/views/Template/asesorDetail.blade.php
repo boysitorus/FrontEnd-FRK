@@ -11,7 +11,7 @@
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
-                    <p class = "mb-0 font-weight-bold"> Peran saat ini  : {{ json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['posisi '] }} Program Studi {{ $auth->user->data_lengkap->dosen->prodi }} </p>
+                    <p class = "mb-0 font-weight-bold"> Peran saat ini  : Asesor Program Studi {{ $auth->user->data_lengkap->dosen->prodi }} </p>
                 </div>
             </div>
         </div>

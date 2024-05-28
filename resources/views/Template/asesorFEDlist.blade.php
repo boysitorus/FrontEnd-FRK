@@ -2,7 +2,6 @@
 
 
 @section('content')
-
     <div class = "mt-5 flex-wrap ml-4 mr-4 ">
         <div class = "row">
             <div class = "col">
@@ -11,7 +10,9 @@
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
-                    <p class = "mb-0 font-weight-bold"> Peran saat ini  : {{ json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['posisi '] }} Program Studi {{ $auth->user->data_lengkap->dosen->prodi }} </p>
+                    <p class = "mb-0 font-weight-bold"> Peran saat ini :
+                        Asesor Program Studi
+                        {{ $auth->user->data_lengkap->dosen->prodi }} </p>
                 </div>
             </div>
         </div>
@@ -20,19 +21,15 @@
             <div class = "ml-2 mr-2 pt-4">
                 <h4 class = "font-weight-bold">Rekap Kerja - Semester 2023/2024 Genap</h4>
             </div>
-            <hr/>
+            <hr />
 
             @yield('content-kegiatan')
 
         </div>
-    <div>
+        <div>
 
 
 
         </div>
-    <div>
-
-
-
-@endsection
-
+        <div>
+        @endsection

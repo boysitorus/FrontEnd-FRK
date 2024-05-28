@@ -125,7 +125,9 @@
 
                         <li>
                             <a href="{{ route('lk-tahunAjaranAsesor') }}"
-                                class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaran') ? 'active' : '' }}">
+                                class="
+                                {{ Str::startsWith(request()->path(), 'Asesor/LihatKerja/') ? 'active' : '' }}
+                                list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaran') ? 'active' : '' }}">
                                 <i class="bi bi-eye me-2"></i>
                                 <span>Lihat Kerja</span>
                             </a>
@@ -142,7 +144,7 @@
                             <li>
                                 <a type="button"
                                     class="
-                                    {{ Str::startsWith(request()->path(), 'Asesor') ? 'active' : '' }}
+                                    {{ Str::startsWith(request()->path(), 'Asesor/Rencana') || Str::startsWith(request()->path(), 'Asesor/Evaluasi') ? 'active' : '' }}
                                     btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
                                     data-bs-toggle="collapse" data-bs-target="#asesor-collapse" aria-expanded="false">
                                     <i class="bi bi-people-fill me-2"></i>

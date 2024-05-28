@@ -430,7 +430,7 @@ class AsesorController extends Controller
             'idAsesor' => $listIdAssesor,
             'isHumanResources' => $isHumanResources
         ];
-        return view('App.Asesor.AsessorLihatTahunAjaran', $data);
+        return view('App.AsesorLihatKerja.AsessorLihatTahunAjaran', $data);
     }
 
     public function getViewDosenAsesor(Request $request)
@@ -454,7 +454,7 @@ class AsesorController extends Controller
             'isHumanResources' => $isHumanResources
         ];
 
-        return view('App.Asesor.AsessorLihatKerjaViewDosen', $data);
+        return view('App.AsesorLihatKerja.AsessorLihatKerjaViewDosen', $data);
     }
 
     public function getViewDetailAsesor(Request $request)
@@ -477,7 +477,7 @@ class AsesorController extends Controller
             'idAsesor' => $listIdAssesor,
             'isHumanResources' => $isHumanResources
         ];
-        return view('App.Asesor.AsessorLihatKerjaViewDetail', $data);
+        return view('App.AsesorLihatKerja.AsessorLihatKerjaViewDetail', $data);
     }
 
     public function getRekapKerjaAsesor(Request $request)
@@ -514,7 +514,7 @@ class AsesorController extends Controller
             'auth' => $auth,
             'isHumanResources' => $isHumanResources
         ];
-        return view('App.Asesor.AsessorLihatTahunAjaran', $data);
+        return view('App.AsesorLihatKerja.AsessorLihatTahunAjaran', $data);
     }
 
     public function getViewDosenAdmin(Request $request)
@@ -529,7 +529,7 @@ class AsesorController extends Controller
             'isHumanResources' => $isHumanResources
         ];
 
-        return view('App.Asesor.AsessorLihatKerjaViewDosen', $data);
+        return view('App.AsesorLihatKerja.AsessorLihatKerjaViewDosen', $data);
     }
 
     public function getViewDetailAdmin(Request $request)
@@ -543,7 +543,7 @@ class AsesorController extends Controller
             'auth' => $auth,
             'isHumanResources' => $isHumanResources
         ];
-        return view('App.Asesor.AsessorLihatKerjaViewDetail', $data);
+        return view('App.AsesorLihatKerja.AsessorLihatKerjaViewDetail', $data);
     }
 
     public function getRekapKerjaAdmin(Request $request)
