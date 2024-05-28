@@ -11,7 +11,8 @@ use Illuminate\Http\Client\RequestException;
 class AsesorController extends Controller
 {
 
-    public function getDosen($uid, $token){
+    public function getDosen($uid, $token)
+    {
         $requestDataDosen = Http::withToken($token)->asForm()->post(env('API_DATA_DOSEN') . $uid)->body();
         $jsonDataDosen = json_decode($requestDataDosen, true);
 
@@ -28,51 +29,57 @@ class AsesorController extends Controller
     public function getRencanaKegiatan(Request $request)
     {
         $auth = Tools::getAuth($request);
-        $token = json_decode(json_encode($auth->user),true)['token'];
+        $token = json_decode(json_encode($auth->user), true)['token'];
         $response_dosen = Http::get(env('API_FRK_SERVICE') . '/asesor-frk/getAllDosen');
 
 
         $data_dosen = [];
-        if(sizeof($response_dosen->json()) > 0){
-            foreach($response_dosen->json() as $item){
+        if (sizeof($response_dosen->json()) > 0) {
+            foreach ($response_dosen->json() as $item) {
                 $res = $this->getDosen($item["id_dosen"], $token);
 
                 array_push($data_dosen, $res);
             }
         }
-        return view('App.Asesor.rekapKegiatan',
-        [
-            'auth' => $auth,
-            'data_dosen' => $data_dosen,
-        ]);
+
+        return view(
+            'App.Asesor.rekapKegiatan',
+            [
+                'auth' => $auth,
+                'data_dosen' => $data_dosen,
+            ]
+        );
     }
 
     public function getRencanaKegiatanSetuju(Request $request)
     {
         $auth = Tools::getAuth($request);
-        $token = json_decode(json_encode($auth->user),true)['token'];
-        $response_dosen = Http::get(env('API_FRK_SERVICE') . '/asesor-frk/getAllCompleteDosen');
+        $token = json_decode(json_encode($auth->user), true)['token'];
+        $response_dosen = Http::get(env('API_FRK_SERVICE') . '/asesor-frk/getAllCompleteDosen/asesor1');
 
 
         $data_dosen = [];
-        if(sizeof($response_dosen->json()) > 0){
-            foreach($response_dosen->json() as $item){
+        if (sizeof($response_dosen->json()) > 0) {
+            foreach ($response_dosen->json() as $item) {
                 $res = $this->getDosen($item["id_dosen"], $token);
 
                 array_push($data_dosen, $res);
             }
         }
-        return view('App.Asesor.rekapKegiatanSetuju',
-        [
-            'auth' => $auth,
-            'data_dosen' => $data_dosen,
-        ]);
+
+        return view(
+            'App.Asesor.rekapKegiatanSetuju',
+            [
+                'auth' => $auth,
+                'data_dosen' => $data_dosen,
+            ]
+        );
     }
 
     public function getRencanaPendidikan(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-        $token = json_decode(json_encode($auth->user),true)['token'];
+        $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
         try {
             // Mengambil data teori dari Lumen
@@ -141,7 +148,7 @@ class AsesorController extends Controller
     public function getRencanaPenelitian(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-        $token = json_decode(json_encode($auth->user),true)['token'];
+        $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
         try {
             // Mengambil data a. penelitian kelompok dari Lumen
@@ -207,16 +214,16 @@ class AsesorController extends Controller
                 'penelitian_mandiri' => $PenelitianMandiri,
                 'buku_terbit' => $BukuTerbit,
                 'buku_internasional' => $BukuInternasional,
-                'menyadur'=>$Menyadur,
-                'menyunting'=>$Menyunting,
+                'menyadur' => $Menyadur,
+                'menyunting' => $Menyunting,
                 'penelitian_modul' => $PenelitianModul,
                 'penelitian_pekerti' => $PenelitianPekerti,
                 'penelitian_tridharma' => $PenelitianTridharma,
                 'jurnal_ilmiah' => $JurnalIlmiah,
-                'pembicara_seminar'=>$PembicaraSeminar,
-                'penyajian_makalah'=>$PenyajianMakalah,
-                'hak_paten'=>$HakPaten,
-                'media_massa'=>$MediaMassa,
+                'pembicara_seminar' => $PembicaraSeminar,
+                'penyajian_makalah' => $PenyajianMakalah,
+                'hak_paten' => $HakPaten,
+                'media_massa' => $MediaMassa,
                 'auth' => $auth,
                 'id' => $id,
                 'dataDosen' => $dataDosen
@@ -233,23 +240,23 @@ class AsesorController extends Controller
     public function getRencanaPengabdian(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-        $token = json_decode(json_encode($auth->user),true)['token'];
+        $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
-        try{
+        try {
             // Mengambil data a. kegiatan dari lumen
-            $responsKegiatan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/kegiatan/' . $id);
+            $responsKegiatan = Http::get(env('API_FRK_SERVICE') . '/pengabdian/kegiatan/' . $id);
             $Kegiatan = $responsKegiatan->json();
 
             // Mengambil data b. penyuluhan dari lumen
-            $responsePenyuluhan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/penyuluhan/' . $id);
+            $responsePenyuluhan = Http::get(env('API_FRK_SERVICE') . '/pengabdian/penyuluhan/' . $id);
             $Penyuluhan = $responsePenyuluhan->json();
 
             // Mengambil data c. konsultan dari lumen
-            $responsekonsultan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/konsultan/' . $id);
+            $responsekonsultan = Http::get(env('API_FRK_SERVICE') . '/pengabdian/konsultan/' . $id);
             $konsultan = $responsekonsultan->json();
 
             // Mengambil data d. karya dari lumen
-            $responseKarya = Http::get(env('API_FRK_SERVICE') .'/pengabdian/karya/' . $id);
+            $responseKarya = Http::get(env('API_FRK_SERVICE') . '/pengabdian/karya/' . $id);
             $Karya = $responseKarya->json();
 
 
@@ -271,7 +278,7 @@ class AsesorController extends Controller
 
             // Mengirim data ke view
             return view('App.Asesor.pengabdianAsesor', $data);
-        }catch (\Throwable $th) {
+        } catch (\Throwable $th) {
             // Tangani error jika terjadi
             return response()->json(['error' => 'Failed to retrieve data from API'], 500);
         }
@@ -280,7 +287,7 @@ class AsesorController extends Controller
     public function getRencanaPenunjang(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-        $token = json_decode(json_encode($auth->user),true)['token'];
+        $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
 
         try {
@@ -353,7 +360,8 @@ class AsesorController extends Controller
         }
     }
 
-    public function reviewRencana(Request $request){
+    public function reviewRencana(Request $request)
+    {
         $auth = Tools::getAuth($request);
         $check = Tools::checkAsesor(
             json_decode(json_encode($auth->user->data_lengkap->dosen), true)['pegawai_id'],
@@ -362,18 +370,18 @@ class AsesorController extends Controller
         $id_rencana = $request->get('id_rencana');
         $komentar = $request->get('komentar');
         $toastMsg = "";
-        if($komentar == "setuju"){
+        if ($komentar == "setuju") {
             $toastMsg = "Berhasil mengapprove rencana kerja";
-        } else{
+        } else {
             $toastMsg = "Berhasil menolak rencana kerja";
         }
         try {
             $response = Http::post(env('API_FRK_SERVICE') . '/asesor-frk/reviewRencana', [
-               "id_rencana" => $id_rencana,
-               "komentar" => $komentar,
-               "role" => $check["data"]["tipe_asesor"]
+                "id_rencana" => $id_rencana,
+                "komentar" => $komentar,
+                "role" => $check["data"]["tipe_asesor"]
             ]);
-            if($response->status() === 200){
+            if ($response->status() === 200) {
                 return back()->with('message', $toastMsg);
             } else {
                 throw new RequestException($response);
@@ -382,6 +390,4 @@ class AsesorController extends Controller
             return back()->with('message', 'Gagal approve rencana kerja');
         }
     }
-
-
 }
