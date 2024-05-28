@@ -230,4 +230,35 @@ class AsesorEvaluasiController extends Controller
             return back()->with('message', 'Gagal approve rencana kerja');
         }
     }
+
+    public function getEvaluasiKegiatanSetuju(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+        $token = json_decode(json_encode($auth->user), true)['token'];
+        $auth = Tools::getAuth($request);
+        $check = Tools::checkAsesor(
+            json_decode(json_encode($auth->user->data_lengkap->dosen), true)['pegawai_id'],
+        );
+        $role = $check["data"]["tipe_asesor"] == '1' ? 'asesor1' : 'asesor2';
+        $response_dosen = Http::get(env('API_FED_SERVICE') . '/asesor-fed/getAllCompleteDosen/' . $role);
+
+
+        $data_dosen = [];
+        if (sizeof($response_dosen->json()) > 0) {
+            foreach ($response_dosen->json() as $item) {
+                $res = $this->getDosen($item, $token);
+
+                array_push($data_dosen, $res);
+            }
+        }
+
+
+        return view(
+            'App.AsesorEvaluasi.rekapKegiatanSetuju',
+            [
+                'auth' => $auth,
+                'data_dosen' => $data_dosen,
+            ]
+        );
+    }
 }
