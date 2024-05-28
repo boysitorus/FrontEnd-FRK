@@ -75,6 +75,18 @@ class AsesorController extends Controller
         $auth = Tools::getAuth($request);
         $token = json_decode(json_encode($auth->user),true)['token'];
         $dataDosen = $this->getDosen($id, $token);
+
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         try {
             // Mengambil data teori dari Lumen
             $responseTeori = Http::get(env('API_FRK_SERVICE') . '/pendidikan/teori/' . $id);
@@ -128,7 +140,9 @@ class AsesorController extends Controller
                 'koordinator' => $koordinator,
                 'proposal' => $proposal,
                 'auth' => $auth,
-                'dataDosen' => $dataDosen
+                'dataDosen' => $dataDosen,
+                'isHumanResources' => $isHumanResources,
+                'idAsesor' => $listIdAssesor
             ];
 
             // Mengirim data ke view
@@ -144,6 +158,18 @@ class AsesorController extends Controller
         $auth = Tools::getAuth($request);
         $token = json_decode(json_encode($auth->user),true)['token'];
         $dataDosen = $this->getDosen($id, $token);
+
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         try {
             // Mengambil data a. penelitian kelompok dari Lumen
             $responsePenelitianKelompok = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok/' . $id);
@@ -220,7 +246,9 @@ class AsesorController extends Controller
                 'media_massa'=>$MediaMassa,
                 'auth' => $auth,
                 'id' => $id,
-                'dataDosen' => $dataDosen
+                'dataDosen' => $dataDosen,
+                'isHumanResources' => $isHumanResources,
+                'idAsesor' => $listIdAssesor
             ];
 
             // Mengirim data ke view
@@ -236,6 +264,18 @@ class AsesorController extends Controller
         $auth = Tools::getAuth($request);
         $token = json_decode(json_encode($auth->user),true)['token'];
         $dataDosen = $this->getDosen($id, $token);
+
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         try{
             // Mengambil data a. kegiatan dari lumen
             $responsKegiatan = Http::get(env('API_FRK_SERVICE') .'/pengabdian/kegiatan/' . $id);
@@ -267,7 +307,9 @@ class AsesorController extends Controller
                 'karya' => $Karya,
                 'auth' => $auth,
                 'id' => $id,
-                'dataDosen' => $dataDosen
+                'dataDosen' => $dataDosen,
+                'isHumanResources' => $isHumanResources,
+                'idAsesor' => $listIdAssesor
             ];
 
             // Mengirim data ke view
@@ -283,6 +325,18 @@ class AsesorController extends Controller
         $auth = Tools::getAuth($request);
         $token = json_decode(json_encode($auth->user),true)['token'];
         $dataDosen = $this->getDosen($id, $token);
+
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
 
         try {
             $responseAkademik = Http::get(env('API_FRK_SERVICE') . '/penunjang/akademik/' . $id);
@@ -344,7 +398,9 @@ class AsesorController extends Controller
                 'pengurusyayasan' => $pengurusyayasan,
                 'auth' => $auth,
                 'id' => $id,
-                'dataDosen' => $dataDosen
+                'dataDosen' => $dataDosen,
+                'isHumanResources' => $isHumanResources,
+                'idAsesor' => $listIdAssesor
             ];
 
             return view('App.Asesor.penunjangAsesor', $data);
