@@ -120,7 +120,6 @@
                             </a>
                         </li>
 
-                        @if(in_array(json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '], ['Staf Human Resources']))
                         <li>
                             <a type="button"
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
@@ -143,7 +142,7 @@
                                         <div class="collapse" id="asesor-frk-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="{{ route('rk-asesor') }}"
                                                         class="text-decoration-none sub-menu list-group-item-action py-2 ripple"
                                                         style="margin-bottom:0.1px">
                                                         Rekap Kegiatan
@@ -193,7 +192,6 @@
                                 </ul>
                             </div>
                         </li>
-                    @endif
                 </div>
             </div>
         </nav>
