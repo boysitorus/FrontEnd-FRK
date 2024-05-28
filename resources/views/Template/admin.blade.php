@@ -52,33 +52,39 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('profile')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple">
+                            <a href="{{route('profile')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('profile') ? 'active' : '' }}">
                                 <i class="bi bi-person-fill me-1"></i>
                                 <span>Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.assign-role')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('admin.assign-role') ? 'active' : '' }}">
+                            <i class="bi bi-person-fill-check me-2"></i>
+                                <span>Assign Role</span>
                             </a>
                         </li>
 
                         <li>
                             <a type="button"
-                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed active
-                                d-flex justify-content-between align-items-center"
+                                class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
+                                d-flex justify-content-between align-items-center {{ request()->routeIs('admin.generate_frk') || request()->routeIs('admin.generate_fed')  ? 'active' : '' }}"
                                 data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
                                 <i class="bi bi-calendar-check me-2"></i>
-                                <div class="me-auto"><span>Tanggal</span></div>
+                                <div class="me-auto"><span>Generate Tanggal</span></div>
                                 <i class="bi bi-chevron-down"></i>
                             </a>
                             <div class="collapse" id="frk-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
-                                        <a href="#"
-                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
+                                        <a href="{{route('admin.generate_frk')}}"
+                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple {{ request()->routeIs('admin.generate_frk') ? 'active' : '' }}">
                                             FRK
                                         </a>
                                     </li>
 
                                     <li style="margin-top : 4px">
-                                        <a href="#"
-                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple">
+                                        <a href="{{route('admin.generate_fed')}}"
+                                            class="text-decoration-none sub-menu list-group-item-action py-2 ripple {{ request()->routeIs('admin.generate_fed') ? 'active' : '' }}">
                                             FED
                                         </a>
                                     </li>
@@ -90,17 +96,11 @@
                             <a type="button"
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed d-flex justify-content-between align-items-center"
                                 data-bs-toggle="collapse" data-bs-target="#fed-collapse" aria-expanded="false">
-                                <i class="bi bi-universal-access me-2"></i>
-                                <div class="me-auto"><span>Akses</span></div>
+                                <i class="bi bi-eye me-2"></i></i>
+                                <div class="me-auto"><span>Lihat Kerja</span></div>
                             </a>
                         </li>
-
-                        <li>
-                            <a href="" class="list-group-item bg-abu list-group-item-action py-2 ripple">
-                            <i class="bi bi-person-fill-check me-2"></i>
-                                <span>Assign Role</span>
-                            </a>
-                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

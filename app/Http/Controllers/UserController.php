@@ -36,9 +36,15 @@ class UserController extends Controller
             $fakultas = "Fakultas Teknik Industri";
         }
 
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         $data = [
-            'auth' => $auth, 'keanggotaan' => $fakultas
+            'auth' => $auth, 
+            'keanggotaan' => $fakultas,
+            'isHumanResources' => $isHumanResources
         ];
+
         return view('App.Profile.profile', $data);
     }
 }

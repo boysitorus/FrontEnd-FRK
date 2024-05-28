@@ -1,4 +1,4 @@
-@extends('Template.app')
+@extends($isHumanResources ? 'Template.admin' : 'Template.app')
 
 @section('content')
     <!-- ROLE -->
