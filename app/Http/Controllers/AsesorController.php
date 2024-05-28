@@ -391,4 +391,14 @@ class AsesorController extends Controller
     {
         return view('App.AsesorFED.simpulanAsesorFED');
     }
+
+    public function getTahunAjaran()
+    {
+        return view('App.Asesor.AsesorLihatTahunAjaran');
+    }
+
+    public function getViewDosen()
+    {
+        return view('App.Asesor.AsessorLihatKerjaViewDosen');
+    }
 }
