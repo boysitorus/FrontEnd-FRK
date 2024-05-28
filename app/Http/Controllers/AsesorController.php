@@ -39,10 +39,24 @@ class AsesorController extends Controller
                 array_push($data_dosen, $res);
             }
         }
+
+        $responseAsesor =  json_decode(Http::withToken($auth->user->token)->get(env('API_ADMIN_SERVICE') . 'get-asesor')->body(), true);
+
+        $listIdAssesor = [];
+
+        foreach ($responseAsesor['data'] as $e) {
+            $listIdAssesor[] = $e['id_pegawai'];
+        }
+
+        $role = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '];
+        $isHumanResources = ($role === 'Staf Human Resources');
+
         return view('App.Asesor.rekapKegiatan',
         [
             'auth' => $auth,
             'data_dosen' => $data_dosen,
+            'isHumanResorces' => $isHumanResources,
+            'idAsesor' => $listIdAssesor
         ]);
     }
 
