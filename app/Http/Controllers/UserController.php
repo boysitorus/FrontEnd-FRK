@@ -41,4 +41,24 @@ class UserController extends Controller
         ];
         return view('App.Profile.profile', $data);
     }
+
+    public function rekapKegiatan(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        $data = [
+            'auth' => $auth
+        ];
+        return view('App.Riwayat.riwayatsaya', $data);
+    }
+
+    public function rekapKegiatanDetail(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+
+        $data = [
+            'auth' => $auth
+        ];
+        return view('App.Riwayat.dosenRiwayatDetail', $data);
+    }
 }
