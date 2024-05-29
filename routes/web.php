@@ -36,6 +36,7 @@ Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(func
     Route::prefix('/admin')->group(function () {
         Route::get('/generateFRK', [AdminController::class, 'getGenerateFRK'])->name('admin.generate_frk');
         Route::post('/generateFRK', [AdminController::class, 'postGenerateFRK'])->name('admin.generate_frk.post');
+        Route::post('/generateFRK/update', [AdminController::class, 'updateGeneratedFRK'])->name('admin.generate_frk.update');
 
         Route::get('/generateFED', [AdminController::class, 'getGenerateFED'])->name('admin.generate_fed');
         Route::post('/generateFED', [AdminController::class, 'postGenerateFED'])->name('admin.generate_fed.post');
@@ -425,5 +426,7 @@ Route::group(['middleware' => ['check.token']], function () {
             Route::get('/Rekap-Kegiatan-Asesor-penunjang/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPenunjang'])->name('ed-asesor-detail-penunjang');
             Route::post('/review-evaluasi-kerja', [AsesorEvaluasiController::class, 'reviewEvaluasi'])->name('ed-asesor-review-evaluasi');
         });
+
+        Route::get('/RekapKerja', [AsesorController::class,'getRekapKerja'])->name('ed-riwayatKerjaSaya');
     });
 });
