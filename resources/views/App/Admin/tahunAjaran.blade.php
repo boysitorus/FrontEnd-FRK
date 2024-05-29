@@ -194,8 +194,10 @@
                                             <span class="badge rounded-pill bg-danger">Tidak Aktif</span>
                                         </td>
 
-                                        <button type="button" class="btn btn-danger mr-1"><i
-                                            class="bi bi-x-circle"></i></button>
+                                        <td>
+                                            <button type="button" class="disabled btn btn-secondary mr-1"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                        </td>
                                     @endif
                                     
                                 @elseif($item['tipe'] == 'FRK')
@@ -209,7 +211,7 @@
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            <form action="{{ route('admin.generate_frk.post') }}" method="POST">
+                                            <form action="{{ route('admin.generate_frk.update') }}" method="POST">
                                                 <div class="modal-body">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $item['id'] }}" />
@@ -233,7 +235,7 @@
                                                                 <h6 style="font-weight: bold;">Tanggal Awal Periode Pengisian Rencana Kerja</h6>
                                                                 <div class="input-group date">
                                                                     <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="tanggal_awal_rencana_kerja"
-                                                                           placeholder="dd/mm/yyyy" required>
+                                                                        placeholder="dd/mm/yyyy" required>
                                                                     <div class="input-group-append">
                                                                         <button class="btn btn-outline-secondary clear-date" type="button"
                                                                                 onclick="clearDate('tanggal-awal-rencana-kerja')"><i class="fas fa-times"></i></button>
@@ -244,7 +246,7 @@
                                                                 <h6 style="font-weight: bold;">Tanggal Akhir Periode Pengisian Rencana Kerja</h6>
                                                                 <div class="input-group date">
                                                                     <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="tanggal_akhir_rencana_kerja"
-                                                                           placeholder="dd/mm/yyyy" required>
+                                                                        placeholder="dd/mm/yyyy" required>
                                                                     <div class="input-group-append">
                                                                         <button class="btn btn-outline-secondary clear-date" type="button"
                                                                                 onclick="clearDate('tanggal-akhir-rencana-kerja')"><i class="fas fa-times"></i></button>
@@ -259,7 +261,7 @@
                                                             <div class="col mr-2">
                                                                 <h6 style="font-weight: bold;">Periode Awal Approval oleh Asesor I</h6>
                                                                 <div class="input-group date">
-                                                                    <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="tanggal_awal_rencana_kerja"
+                                                                    <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="periode_awal_asesor_i"
                                                                            placeholder="dd/mm/yyyy" required>
                                                                     <div class="input-group-append">
                                                                         <button class="btn btn-outline-secondary clear-date" type="button"
@@ -270,7 +272,7 @@
                                                             <div class="col">
                                                                 <h6 style="font-weight: bold;">Periode Akhir Approval oleh Asesor I</h6>
                                                                 <div class="input-group date">
-                                                                    <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="tanggal_akhir_rencana_kerja"
+                                                                    <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="periode_akhir_asesor_i"
                                                                            placeholder="dd/mm/yyyy" required>
                                                                     <div class="input-group-append">
                                                                         <button class="btn btn-outline-secondary clear-date" type="button"
@@ -286,7 +288,7 @@
                                                             <div class="col mr-2">
                                                                 <h6 style="font-weight: bold;">Periode Awal Approval oleh Asesor II</h6>
                                                                 <div class="input-group date">
-                                                                    <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="tanggal_awal_rencana_kerja"
+                                                                    <input type="date" class="form-control date-input" id="tanggal-awal-rencana-kerja" name="periode_awal_asesor_ii"
                                                                            placeholder="dd/mm/yyyy" required>
                                                                     <div class="input-group-append">
                                                                         <button class="btn btn-outline-secondary clear-date" type="button"
@@ -297,7 +299,7 @@
                                                             <div class="col">
                                                                 <h6 style="font-weight: bold;">Periode Akhir Approval oleh Asesor II</h6>
                                                                 <div class="input-group date">
-                                                                    <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="tanggal_akhir_rencana_kerja"
+                                                                    <input type="date" class="form-control date-input" id="tanggal-akhir-rencana-kerja" name="periode_akhir_asesor_ii"
                                                                            placeholder="dd/mm/yyyy" required>
                                                                     <div class="input-group-append">
                                                                         <button class="btn btn-outline-secondary clear-date" type="button"

@@ -76,8 +76,11 @@ class AdminController extends Controller
         return redirect()->route('admin.generate_frk')->with('success', 'Tanggal FRK added successfully');
     }
 
-    public function updateGenerateFRK(Request $request, $id)
+    public function updateGeneratedFRK(Request $request)
     {
+        $id = $request->id;
+
+
         $validator = Validator::make($request->all(), [
             'tahun_ajaran' => 'required|string',
             'semester',
@@ -96,7 +99,8 @@ class AdminController extends Controller
         $auth = Tools::getAuth($request);
 
         try {
-            $genData = Http::asForm()->post(env('API_ADMIN_SERVICE', false) . 'generate-tanggal', [
+            $genData = Http::asForm()->post(env('API_ADMIN_SERVICE', false) . 'update-generated-tanggal', [
+                'id' => $id,
                 'role' => json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['posisi '],
                 'tipe_tanggal' => 'FRK',
                 "tahun_ajaran" => $request->tahun_ajaran,
@@ -107,14 +111,15 @@ class AdminController extends Controller
                 "periode_akhir_approve_assesor_1" => $request->periode_akhir_asesor_i,
                 "periode_awal_approve_assesor_2" => $request->periode_awal_asesor_ii,
                 "periode_akhir_approve_assesor_2" => $request->periode_akhir_asesor_ii,
-            ]);
+            ])->body();
 
+            // dd($genData);
         } catch (\Exception $err) {
 
-            return redirect()->route('admin.generate_frk')->withErrors(['error' => $err->getMessage()]);
+            return redirect()->route('admin.tahunAjaran.post')->withErrors(['error' => $err->getMessage()]);
         }
 
-        return redirect()->route('admin.generate_frk')->with('success', 'Tanggal FRK added successfully');
+        return redirect()->route('admin.tahunAjaran.post')->with('success', 'Tanggal FRK updated successfully');
     }
 
     public function postGenerateFED(Request $request)

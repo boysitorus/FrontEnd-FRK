@@ -36,6 +36,7 @@ Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(func
     Route::prefix('/admin')->group(function () {
         Route::get('/generateFRK', [AdminController::class, 'getGenerateFRK'])->name('admin.generate_frk');
         Route::post('/generateFRK', [AdminController::class, 'postGenerateFRK'])->name('admin.generate_frk.post');
+        Route::post('/generateFRK/update', [AdminController::class, 'updateGeneratedFRK'])->name('admin.generate_frk.update');
 
         Route::get('/generateFED', [AdminController::class, 'getGenerateFED'])->name('admin.generate_fed');
         Route::post('/generateFED', [AdminController::class, 'postGenerateFED'])->name('admin.generate_fed.post');
@@ -389,10 +390,12 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::get('/simpulan-asesor', [AsesorController::class, 'simpulanAsesor'])->name('ed-simpulan-asesor');
         
         Route::prefix('/LihatKerja')->group(function () {
-            Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaran'])->name('lk-tahunAjaranAsesor');
-            Route::get('/ViewDosen', [AsesorController::class, 'getViewDosen'])->name('lk-viewDosenAsesor');
-            Route::get('/ViewDetail', [AsesorController::class, 'getViewDetail'])->name('lk-viewDetailAsesor');
+            Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaranAdmin'])->name('lk-tahunAjaranAsesor');
+            Route::get('/ViewDosen', [AsesorController::class, 'getViewDosenAdmin'])->name('lk-viewDosenAsesor');
+            Route::get('/ViewDetail', [AsesorController::class, 'getViewDetailAdmin'])->name('lk-viewDetailAsesor');
         });
+
+        Route::get('/RekapKerja', [AsesorController::class,'getRekapKerja'])->name('ed-riwayatKerjaSaya');
     });
 
 });
