@@ -39,7 +39,7 @@
                                 <div>
                                     {{ $item['nama_kegiatan'] }}
                                 </div>
-                                
+
                                 @if (is_null($item['lampiran']) )
                                     <div class="badge text-bg-warning">
                                         Lampiran belum diupload.
@@ -52,15 +52,35 @@
                             </td>
                             <td>{{ $item['jumlah_mahasiswa'] }}</td>
                             <td>{{ $item['sks_terhitung'] }}</td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                            </td>
+                            <td>
+                            @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                            </td>
                             <td>
                                 <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal" data-bs-target="#modalEditEvaluasiPenunjang-{{ $item['id_rencana'] }}">
                                     Tambah Lampiran
                                 </button>
                             </td>
                         </tr>
-                        
+
                         {{-- TEMPAT MODAL ADD FILE A--}}
                         <div class="modal fade" id="modalEditEvaluasiPenunjang-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangALabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
@@ -87,7 +107,7 @@
                                                     <div class="col-md-12">
 
                                                         <h6>
-                                                            *Jenis Dokumen yang harus dilengkapi : 
+                                                            *Jenis Dokumen yang harus dilengkapi :
                                                         </h6>
 
                                                         <ol>
@@ -105,10 +125,10 @@
                                                         </p>
 
                                                         <p class="mb-4">
-                                                            *Dokumen yang dilengkapi dapat lebih dari 1 
+                                                            *Dokumen yang dilengkapi dapat lebih dari 1
                                                         </p>
 
-                                                        <div class="mt-3 mb-3"> 
+                                                        <div class="mt-3 mb-3">
                                                             <div id="selectedFiles-{{ $item['id_rencana'] }}">
                                                             </div>
 
@@ -267,15 +287,35 @@
                             </td>
                             <td>{{ $item['jumlah_mahasiswa'] }}</td>
                             <td>{{ $item['sks_terhitung'] }}</td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                            @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                            </td>
+                            <td>
+                            @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                            </td>
                             <td>
                                 <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal" data-bs-target="#modalEditEvaluasiPenunjangB-{{ $item['id_rencana'] }}">
                                     Tambah Lampiran
                                 </button>
                             </td>
                         </tr>
-                        
+
                         {{-- TEMPAT MODAL ADD FILE B--}}
                         <div class="modal fade" id="modalEditEvaluasiPenunjangB-{{$item['id_rencana']}}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangBLabel"
                         aria-hidden="true">
@@ -319,7 +359,7 @@
                                                         </p>
 
                                                         <p class="mb-4">
-                                                            *Dokumen yang dilengkapi dapat lebih dari 1 
+                                                            *Dokumen yang dilengkapi dapat lebih dari 1
                                                         </p>
 
                                                         <div class="mt-3 mb-3">
@@ -459,8 +499,28 @@
                                 </td>
                                 <td>{{ $item['jumlah_kegiatan'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPenunjangC-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -495,11 +555,11 @@
                                                                 <li>Surat Tugas/Surat  Keputusan/ Surat  Pengangkatan dari  Pimpinan</li>
                                                                 <li>Bukti pembinaan,  misal; kehadiran  dalam kegiatan  organisasi mahasiswa</li>
                                                             </ol>
-                                                        
+
                                                         <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                             <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                            <div class="mt-3 mb-3">   
+                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                            <div class="mt-3 mb-3">
                                                                 <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                                 <div id="existsFiles">
@@ -570,7 +630,7 @@
                                 </div>
                             </div>
                             {{-- AKHIR MODAL ADD FILE C--}}
-                        @endforeach 
+                        @endforeach
                     @endif
                 </tbody>
             </table>
@@ -625,8 +685,28 @@
                                         @endif
                                     </td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangD-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -658,14 +738,14 @@
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                                 <ol>
-                                                                    <li>Surat Tugas/ Surat Keputusan  Pimpinan</li> 
+                                                                    <li>Surat Tugas/ Surat Keputusan  Pimpinan</li>
                                                                     <li>Laporan kegiatan atau  daftar hadir rapat  organisasi internal  tersebut</li>
                                                                 </ol>
-                                                                
+
                                                                 <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                                <div class="mt-3 mb-3">   
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <div class="mt-3 mb-3">
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                                     <div id="existsFiles">
@@ -736,7 +816,7 @@
                                     </div>
                                 </div>
                                 {{-- AKHIR MODAL ADD FILE D--}}
-                            @endforeach 
+                            @endforeach
                         @endif
                     </tr>
                 </tbody>
@@ -793,8 +873,28 @@
                                 </td>
                                 <td>{{ $item['jenis_jabatan_struktural'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPenunjangE-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -826,11 +926,11 @@
                                                             <ol>
                                                                 <li>SK Pengangkatan / Surat  Tugas dari Pejabat yang  berwenang</li>
                                                             </ol>
-                                                             
+
                                                             <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                             <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                            <div class="mt-3 mb-3">   
+                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                            <div class="mt-3 mb-3">
                                                                 <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                                 <div id="existsFiles">
@@ -901,7 +1001,7 @@
                                 </div>
                             </div>
                             {{-- AKHIR MODAL ADD FILE E--}}
-                        @endforeach 
+                        @endforeach
                     @endif
                 </tbody>
             </table>
@@ -958,8 +1058,28 @@
                                 </td>
                                 <td>{{ $item['jenis_jabatan_nonstruktural'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPenunjangF-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -991,11 +1111,11 @@
                                                         <ol>
                                                             <li>SK Pengangkatan / Surat  Tugas dari Pejabat yang  berwenang</li>
                                                         </ol>
-                                                         
+
                                                         <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                         <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                        <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                        <div class="mt-3 mb-3">   
+                                                        <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                        <div class="mt-3 mb-3">
                                                             <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                             <div id="existsFiles">
@@ -1122,8 +1242,28 @@
                                     </td>
                                     <td>{{ $item['jabatan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangG-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1153,14 +1293,14 @@
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                                 <ol>
-                                                                    <li>Surat Tugas/ Surat Keputusan  Pimpinan</li> 
+                                                                    <li>Surat Tugas/ Surat Keputusan  Pimpinan</li>
                                                                     <li>Bukti jurnal yang sudaH terbit</li>
                                                                 </ol>
-                                                                 
+
                                                                 <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                                <div class="mt-3 mb-3">   
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <div class="mt-3 mb-3">
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                                     <div id="existsFiles">
@@ -1244,7 +1384,7 @@
 {{-- BAGIAN H --}}
 <div id="ed-penunjang-H" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
     <div class="card-body">
-        <h6><b>H. Ketua Panitia Ad Hoc: (umur panitia sekurang-kurangnya 2 semester), 
+        <h6><b>H. Ketua Panitia Ad Hoc: (umur panitia sekurang-kurangnya 2 semester),
             seperti Panitia Reviewer RKAT, Panitia Telaah Prodi Anggota Panitia Ad Hoc</b></h6>
         <hr />
 
@@ -1289,14 +1429,34 @@
                                 </td>
                                 <td>{{ $item['jabatan'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                         data-bs-target="#modalEditEvaluasiPenunjangH-{{ $item['id_rencana'] }}">Tambah Lampiran
                                     </button>
                                 </td>
-                            </tr>              
+                            </tr>
                             {{-- TEMPAT MODAL ADD FILE H--}}
                             <div class="modal fade" id="modalEditEvaluasiPenunjangH-{{ $item['id_rencana'] }}" tabindex="-1" aria-labelledby="modalEditEvaluasiPenunjangDLabel"
                             aria-hidden="true">
@@ -1321,11 +1481,11 @@
                                                             <li>Surat Tugas/Surat Keputusan Pimpinan</li>
                                                             <li>Laporan Kegiatan</li>
                                                         </ol>
-                                                         
+
                                                         <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                             <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                            <div class="mt-3 mb-3">   
+                                                            <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                            <div class="mt-3 mb-3">
                                                                 <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                                 <div id="existsFiles">
@@ -1452,8 +1612,28 @@
                             </td>
                             <td>{{ $item['jenis_tingkatan'] }}</td>
                             <td>{{ $item['sks_terhitung'] }}</td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                            @if ($item['asesor1_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                @endif
+                            </td>
+                            <td>
+                            @if ($item['asesor2_fed'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor2_fed'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @else
+                                    <span class="badge bg-danger">Ditolak</span>
+                                    <span
+                                        class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                @endif
+                            </td>
                             <td>
                                 <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                     data-bs-target="#modalEditEvaluasiPenunjangI-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1482,13 +1662,13 @@
                                                     <div class="col-md-12">
                                                         <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                         <ol>
-                                                            <li>Surat Tugas/ Surat Keputusan  Pimpinan</li> 
+                                                            <li>Surat Tugas/ Surat Keputusan  Pimpinan</li>
                                                         </ol>
-                                                         
+
                                                         <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                         <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                        <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                        <div class="mt-3 mb-3">   
+                                                        <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                        <div class="mt-3 mb-3">
                                                             <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                             <div id="existsFiles">
@@ -1559,7 +1739,7 @@
                             </div>
                         </div>
                     {{-- AKHIR MODAL ADD FILE I--}}
-                    @endforeach 
+                    @endforeach
                     @endif
                 </tbody>
             </table>
@@ -1616,8 +1796,28 @@
                                     </td>
                                     <td>{{ $item['jenis_tingkatan']}}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangJ-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1649,11 +1849,11 @@
                                                                     <li>Surat Tugas/Surat Keputusan Pimpinan</li>
                                                                     <li>Laporan Kegiatan</li>
                                                                 </ol>
-                                                                 
+
                                                                 <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                                <div class="mt-3 mb-3">   
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <div class="mt-3 mb-3">
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                                     <div id="existsFiles">
@@ -1726,7 +1926,7 @@
                                 {{-- AKHIR MODAL ADD FILE J--}}
                             @endforeach
                         @endif
-                    </tr>   
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -1782,8 +1982,28 @@
                                     </td>
                                     <td>{{ $item['jabatan']}}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangK-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1815,11 +2035,11 @@
                                                                     <li>Surat Tugas/Surat Keputusan/ Surat Persetujuan/Surat Ijin dari Pimpinan</li>
                                                                     <li>Laporan Kegiatan</li>
                                                                 </ol>
-                                                                 
+
                                                                 <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                                <div class="mt-3 mb-3">   
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <div class="mt-3 mb-3">
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                                     <div id="existsFiles">
@@ -1950,8 +2170,28 @@
                                     <td>{{ $item['jabatan']}}</td>
                                     <td>{{ $item['jenis_tingkatan']}}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangL-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -1984,11 +2224,11 @@
                                                                     <li>Kartu Anggota</li>
                                                                     <li>Laporan Kegiatan</li>
                                                                 </ol>
-                                                                 
+
                                                                 <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                                <div class="mt-3 mb-3">   
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <div class="mt-3 mb-3">
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                                     <div id="existsFiles">
@@ -2117,8 +2357,28 @@
                                     </td>
                                     <td>{{ $item['jenis_tingkatan']}}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangM-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -2150,11 +2410,11 @@
                                                                     <li>Surat Tugas/Surat Keputusan Pimpinan</li>
                                                                     <li>Sertifikasi atau bukti lain kehadiran di kegiatan tersebut</li>
                                                                 </ol>
-                                                                 
+
                                                                 <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                                <div class="mt-3 mb-3">   
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <div class="mt-3 mb-3">
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                                     <div id="existsFiles">
@@ -2281,8 +2541,28 @@
                                         @endif
                                     </td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor2_fed'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @else
+                                        <span class="badge bg-danger">Ditolak</span>
+                                        <span
+                                            class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenunjangN-{{ $item['id_rencana'] }}">Tambah Lampiran
@@ -2315,11 +2595,11 @@
                                                                     <li>Surat Tugas/Surat Keputusan Pimpinan</li>
                                                                     <li>Bukti hasil telaah artikel/proposal yang direview</li>
                                                                 </ol>
-                                                                 
+
                                                                 <button type="button" id="addFilesBtn-{{ $item['id_rencana'] }}" class="btn btn-secondary">Add Files</button>
                                                                 <p style="color: #808080;">Maximum file size: 5MB, maximum number of files: 50</p>
-                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>   
-                                                                <div class="mt-3 mb-3">   
+                                                                <p class="mb-4">*Dokumen yang dilengkapi dapat lebih dari 1 </p>
+                                                                <div class="mt-3 mb-3">
                                                                     <div id="selectedFiles-{{ $item['id_rencana'] }}"></div>
 
                                                                     <div id="existsFiles">
@@ -2392,7 +2672,7 @@
                                 {{-- AKHIR MODAL ADD FILE N--}}
                             @endforeach
                         @endif
-                    </tr> 
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -2429,7 +2709,7 @@
         </div>
     </div>
 </div>
-    
+
 {{-- TEMPAT MODAL DELETE CONFIRM --}}
 <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -2694,7 +2974,7 @@
                 })();
             @endforeach
         @endif
-        
+
         @if (isset($ketuapanitia) && sizeof($ketuapanitia) > 0)
             @foreach ($ketuapanitia as $item)
                 (function() {
@@ -2738,7 +3018,7 @@
                 })();
             @endforeach
         @endif
-        
+
         @if (isset($pengurusyayasan) && sizeof($pengurusyayasan) > 0)
             @foreach ($pengurusyayasan as $item)
                 (function() {
@@ -2833,7 +3113,7 @@
             selectedFiles = selectedFiles.concat(Array.from(files));
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
-                if (!file) continue; 
+                if (!file) continue;
 
                 var fileName = file.name;
                 var fileExtension = fileName.split('.').pop();
@@ -2841,12 +3121,12 @@
 
                 var fileListItem = document.createElement('div');
                 fileListItem.classList.add(
-                    'file-item', 
-                    'd-flex', 
-                    'align-items-center', 
-                    'mb-2', 
-                    'border', 
-                    'rounded', 
+                    'file-item',
+                    'd-flex',
+                    'align-items-center',
+                    'mb-2',
+                    'border',
+                    'rounded',
                     'p-3',
                     'bg-abu'
                 );

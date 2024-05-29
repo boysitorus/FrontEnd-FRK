@@ -1,6 +1,22 @@
 @extends('Template.asesorFedDetail')
 
 @section('content-kegiatan')
+
+    @php
+        use App\Utils\Tools;
+        $check = Tools::checkAsesor(json_decode(json_encode($auth->user->data_lengkap->dosen), true)['pegawai_id']);
+    @endphp
+
+    @if ($check['data']['tipe_asesor'] == '1')
+        @php
+            $tipeAsesor = 'asesor1_fed';
+        @endphp
+    @else
+        @php
+            $tipeAsesor = 'asesor2_fed';
+        @endphp
+    @endif
+
     {{-- BAGIAN A --}}
     <div id="penelitian-A" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
@@ -48,17 +64,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -173,7 +189,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -219,10 +235,10 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
-                                                <input type="hidden" name="id_dosen" value="1435" />
+                                                <input type="hidden" name="id_pegawai" value={{ $idPegawai }} />
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                                 <input id="input_komentar_{{ $item['id_rencana'] }}" type="text"
                                                     name="komentar" class="form-control" placeholder="Tambahkan Komentar"
@@ -293,17 +309,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -418,7 +434,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -463,7 +479,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -539,17 +555,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -662,7 +678,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -708,7 +724,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -786,17 +802,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -910,7 +926,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -956,7 +972,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -1031,17 +1047,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1159,7 +1175,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -1205,7 +1221,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -1280,17 +1296,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1403,7 +1419,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -1449,7 +1465,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -1526,17 +1542,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1648,7 +1664,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -1694,7 +1710,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
@@ -1762,17 +1778,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -1881,7 +1897,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -1928,7 +1944,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -2001,17 +2017,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -2120,7 +2136,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -2167,7 +2183,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -2242,17 +2258,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -2358,7 +2374,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -2405,7 +2421,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -2477,17 +2493,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -2596,7 +2612,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -2643,7 +2659,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -2715,17 +2731,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -2830,7 +2846,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -2877,7 +2893,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -2950,17 +2966,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -3068,7 +3084,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -3115,7 +3131,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"
@@ -3192,17 +3208,17 @@
                                         data-bs-toggle="modal"data-bs-target="#modalTolak-{{ $item['id_rencana'] }}"><i
                                             class="bi bi-x-lg"></i></button>
                                 </td>
-                                @if ($item['asesor1_fed'] == null)
+                                @if ($item[$tipeAsesor] == null)
                                     <td>Belum ada komentar</td>
                                 @else
-                                    @if ($item['asesor1_fed'] == 'setuju')
+                                    @if ($item[$tipeAsesor] == 'setuju')
                                         <td>
                                             <span class="badge bg-success">Disetujui</span>
                                         </td>
                                     @else
                                         <td>
                                             <span
-                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item['asesor1_fed'] }}</span>
+                                                class="badge bg-warning text-dark text-wrap text-start">{{ $item[$tipeAsesor] }}</span>
                                         </td>
                                     @endif
                                 @endif
@@ -3309,7 +3325,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id_rencana" value={{ $item['id_rencana'] }}>
                                             <input type="hidden" name="komentar" value="setuju">
@@ -3356,7 +3372,7 @@
 
                                         {{-- FORM KOMENTAR --}}
 
-                                        <form action="{{ route('rk-asesor-review-rencana') }}" method="POST">
+                                        <form action="{{ route('ed-asesor-review-evaluasi') }}" method="POST">
                                             @csrf
                                             <div class="input-group mb-3 p-3">
                                                 <input type="hidden" name="id_rencana"

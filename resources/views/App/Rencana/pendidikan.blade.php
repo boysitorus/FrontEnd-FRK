@@ -13,7 +13,7 @@
 
             <div class="row justify-content-end mr-0">
                     @if ($all == 0)
-                        <button id="btnFrkPenelitian-A" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal"
+                        <button id="btnFrkPendidikan-A" type="button" class="btn btn-success col-md-auto m-1" data-bs-toggle="modal"
                             data-bs-target="#modalPendidikan_A">
                             Tambah Kegiatan
                         </button>
@@ -2173,22 +2173,6 @@
                         <div class="modal-footer">
                             <button id="pend_simpan_I" type="submit" class="btn btn-primary">Simpan</button>
                         </div>
-                        <input type="hidden" name="id_dosen" value={{ $id_dosen }} />
-                        <div class="mb-3">
-                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input id="pend_nama_I" type="text" class="form-control" id="nama_kegiatan"
-                                name="nama_kegiatan" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Dosen (Maks. 2/smt)</label>
-                            <select class="form-control" id="jumlah_dosen" name="jumlah_dosen">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
-                        </div>
-                        <div class="modal-footer">
-                            <button id="pend_simpan_I" type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -2211,15 +2195,6 @@
                 <div class="modal-body">
                     <form action="{{ route('rk-pendidikan.koordinator.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_dosen" value={{ $id_dosen }} />
-                        <div class="mb-3">
-                            <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                            <input id="pend_nama_J" type="text" class="form-control" id="nama_kegiatan"
-                                name="nama_kegiatan" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button id="pend_simpan_J" type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
                         <input type="hidden" name="id_dosen" value={{ $id_dosen }} />
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>

@@ -23,26 +23,26 @@
                         <tr>
                             <td scope="row" style=" text-align: left;">1</td>
                             <td style=" text-align: left;">Pelaksanaan Pendidikan </td>
-                            <td style="color: {{ $pendidikanSks == 0 ? 'red' : 'green' }}">{{ $pendidikanSks }}</td>
+                            <td>{{ $pendidikanSks }}</td>
 
                         </tr>
                         <tr>
                             <td scope="row" style=" text-align: left;">2</td>
                             <td style=" text-align: left;">Pelaksanaan Penelitian </td>
-                            <td style="color: {{ $penelitianSks == 0 ? 'red' : 'green' }}">{{ $penelitianSks }}</td>
+                            <td>{{ $penelitianSks }}</td>
 
                         </tr>
                         <tr>
                             <td scope="row" style=" text-align: left;">3</td>
                             <td style=" text-align: left;">Pelaksanaan Pengabdian </td>
-                            <td style="color: {{ $pengabdianSks == 0 || $pengabdianSks > 3 ? 'red' : 'green' }}">
+                            <td>
                                 {{ $pengabdianSks }}</td>
 
                         </tr>
                         <tr>
                             <td scope="row" style=" text-align: left;">4</td>
                             <td style=" text-align: left;">Pelaksanaan Penunjang</td>
-                            <td style="color: {{ $penunjangSks == 0 || $penunjangSks > 3 ? 'red' : 'green' }}">
+                            <td>
                                 {{ $penunjangSks }}</td>
                         </tr>
 

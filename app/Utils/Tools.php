@@ -4,45 +4,53 @@ namespace App\Utils;
 
 use Illuminate\Support\Facades\Http;
 
-class   Tools{
+class   Tools
+{
 
     public static $SESSION_TOKEN = "itdel-token";
     public static $SESSION_TOKEN_REFRESH = "itdel-token-refresh";
     public static $SESSION_AUTH = "itdel-auth";
 
-    public static function getAuth($request){
+    public static function getAuth($request)
+    {
         return json_decode($request->session()->get(Tools::$SESSION_AUTH));
     }
 
-    public static function setAuth($request, $data){
+    public static function setAuth($request, $data)
+    {
         $request->session()->put(Tools::$SESSION_AUTH, json_encode($data));
     }
 
-    public static function getToken($request){
+    public static function getToken($request)
+    {
         return $request->session()->get(Tools::$SESSION_TOKEN);
     }
 
-    public static function setToken($request, $token){
+    public static function setToken($request, $token)
+    {
         $request->session()->put(Tools::$SESSION_TOKEN, $token);
     }
 
-    public static function getTokenRefresh($request){
+    public static function getTokenRefresh($request)
+    {
         return $request->session()->get(Tools::$SESSION_TOKEN_REFRESH);
     }
 
-    public static function setTokenRefresh($request, $token_refresh){
+    public static function setTokenRefresh($request, $token_refresh)
+    {
         $request->session()->put(Tools::$SESSION_TOKEN_REFRESH, $token_refresh);
     }
 
-    public static function getUserIdFromToken($token){
+    public static function getUserIdFromToken($token)
+    {
 
         $tokenData = explode(".", $token);
-        if(is_array($tokenData) && sizeof($tokenData) < 3){
+        if (is_array($tokenData) && sizeof($tokenData) < 3) {
             return 0;
         }
 
         $payloadData = json_decode(base64_decode($tokenData[1]));
-        if(!$payloadData || !isset($payloadData->uid)){
+        if (!$payloadData || !isset($payloadData->uid)) {
             return 0;
         }
 
@@ -51,7 +59,7 @@ class   Tools{
 
     public static function getPeriod($token, $type)
     {
-        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'get-tanggal', [
+        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE') . 'get-tanggal', [
             'type' => $type
         ])->body(), true);
 
@@ -61,7 +69,7 @@ class   Tools{
 
     public static function getAllPeriod($token)
     {
-        $requestDataTanggal = json_decode(Http::withToken($token)->get(env('API_ADMIN_SERVICE').'get-all-tanggal'), true);
+        $requestDataTanggal = json_decode(Http::withToken($token)->get(env('API_ADMIN_SERVICE') . 'get-all-tanggal'), true);
 
         return $requestDataTanggal;
     }
@@ -74,7 +82,7 @@ class   Tools{
          *  Y - d - m
          */
 
-        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'get-tanggal', [
+        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE') . 'get-tanggal', [
             'type' => 'FRK'
         ])->body(), true);
 
@@ -97,7 +105,7 @@ class   Tools{
          *  Y - d - m
          */
 
-        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE').'get-tanggal', [
+        $requestDataTanggal = json_decode(Http::withToken($token)->asForm()->post(env('API_ADMIN_SERVICE') . 'get-tanggal', [
             'type' => 'FED'
         ])->body(), true);
 
@@ -112,7 +120,11 @@ class   Tools{
         }
     }
 
-    public static function checkAsesor($id){
+    public static function checkAsesor($idPegawai)
+    {
+        $response = Http::get(env('API_ADMIN_SERVICE') . 'check-asesor/' . $idPegawai);
+        $check = $response->json();
 
+        return $check;
     }
 }

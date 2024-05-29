@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Utils\Tools;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class AsesorEvaluasiController extends Controller
 {
-    public function getRencanaKegiatan(Request $request)
+    public function getEvaluasiKegiatan(Request $request)
     {
         $auth = Tools::getAuth($request);
         $token = json_decode(json_encode($auth->user), true)['token'];
@@ -51,13 +52,12 @@ class AsesorEvaluasiController extends Controller
     public function getEvaluasiPendidikan(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-        $id_auth = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $id_pegawai = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['pegawai_id'];
         $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
         try {
             $response = Http::get(env('API_FED_SERVICE') . '/asesor-fed/get-all-pendidikan/' . $id);
             $responsePendidikan = $response->json();
-
 
             // Menggabungkan data teori dan bimbingan
             $data = [
@@ -74,7 +74,7 @@ class AsesorEvaluasiController extends Controller
                 'proposal' => $responsePendidikan["proposal"],
                 'auth' => $auth,
                 'dataDosen' => $dataDosen,
-                'idAuth' => $id_auth
+                'idPegawai' => $id_pegawai
             ];
 
             // Mengirim data ke view
@@ -88,13 +88,14 @@ class AsesorEvaluasiController extends Controller
     public function getEvaluasiPenelitian(Request $request, $id)
     {
         $auth = Tools::getAuth($request);
-        $id_auth = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $id_pegawai = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $token = json_decode(json_encode($auth->user), true)['token'];
         $dataDosen = $this->getDosen($id, $token);
         try {
             // Mengambil data a. penelitian kelompok dari Lumen
             $response = Http::get(env('API_FED_SERVICE') . '/asesor-fed/get-all-penelitian/' . $id);
             $responsePenelitian = $response->json();
+
 
             // Menggabungkan data
             $data = [
@@ -115,7 +116,7 @@ class AsesorEvaluasiController extends Controller
                 'auth' => $auth,
                 'id' => $id,
                 'dataDosen' => $dataDosen,
-                'idAuth' => $id_auth
+                'idPegawai' => $id_pegawai
             ];
 
             // Mengirim data ke view
@@ -126,10 +127,138 @@ class AsesorEvaluasiController extends Controller
         }
     }
 
-    public function getRencanaPengabdian (Request $request){}
-    public function getRencanaPenunjang (Request $request){}
+    public function getEvaluasiPengabdian(Request $request, $id)
+    {
+        $auth = Tools::getAuth($request);
+        $id_pegawai = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $token = json_decode(json_encode($auth->user), true)['token'];
+        $dataDosen = $this->getDosen($id, $token);
 
-    public function reviewEvaluasi (Request $request){
+        try {
+            // Mengambil data a. kegiatan dari lumen
+            $response = Http::get(env('API_FED_SERVICE') . '/asesor-fed/get-all-pengabdian/' . $id);
+            $responsePengabdian = $response->json();
 
+            // Menggabungkan data
+            $data = [
+                'kegiatan' => $responsePengabdian["kegiatan"],
+                'penyuluhan' => $responsePengabdian["penyuluhan"],
+                'konsultan' => $responsePengabdian["konsultan"],
+                'karya' => $responsePengabdian["karya"],
+                'auth' => $auth,
+                'id' => $id,
+                'dataDosen' => $dataDosen,
+                'idPegawai' => $id_pegawai
+            ];
+
+            // Mengirim data ke view
+            return view('App.AsesorEvaluasi.pengabdianAsesor', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+    public function getEvaluasiPenunjang(Request $request, $id)
+    {
+        $auth = Tools::getAuth($request);
+        $id_pegawai = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $token = json_decode(json_encode($auth->user), true)['token'];
+        $dataDosen = $this->getDosen($id, $token);
+
+        try {
+            // Mengambil data a. kegiatan dari lumen
+            $response = Http::get(env('API_FED_SERVICE') . '/asesor-fed/get-all-penunjang/' . $id);
+            $responsePenunjang = $response->json();
+
+            // Menggabungkan data
+            $data = [
+                'akademik' => $responsePenunjang["akademik"],
+                'bimbingan' => $responsePenunjang["bimbingan"],
+                'ukm' => $responsePenunjang["ukm"],
+                'sosial' => $responsePenunjang["sosial"],
+                'struktural' => $responsePenunjang["struktural"],
+                'nonstruktural' => $responsePenunjang["nonstruktural"],
+                'redaksi' => $responsePenunjang["redaksi"],
+                'adhoc' => $responsePenunjang["adhoc"],
+                'ketuapanitia' => $responsePenunjang["ketuapanitia"],
+                'anggotapanitia' => $responsePenunjang["anggotapanitia"],
+                'pengurusyayasan' => $responsePenunjang["pengurusyayasan"],
+                'asosiasi' => $responsePenunjang["asosiasi"],
+                'seminar' => $responsePenunjang["seminar"],
+                'reviewer' => $responsePenunjang["reviewer"],
+                'auth' => $auth,
+                'id' => $id,
+                'dataDosen' => $dataDosen,
+                'idPegawai' => $id_pegawai
+            ];
+
+            // Mengirim data ke view
+            return view('App.AsesorEvaluasi.penunjangAsesor', $data);
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
+    public function reviewEvaluasi(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+        $check = Tools::checkAsesor(
+            json_decode(json_encode($auth->user->data_lengkap->dosen), true)['pegawai_id'],
+        );
+
+        $id_rencana = $request->get('id_rencana');
+        $komentar = $request->get('komentar');
+        $toastMsg = "";
+        if ($komentar == "setuju") {
+            $toastMsg = "Berhasil mengapprove rencana kerja";
+        } else {
+            $toastMsg = "Berhasil menolak rencana kerja";
+        }
+        try {
+            $response = Http::post(env('API_FED_SERVICE') . '/asesor-fed/reviewEvaluasi', [
+                "id_rencana" => $id_rencana,
+                "komentar" => $komentar,
+                "role" => $check["data"]["tipe_asesor"]
+            ]);
+            if ($response->status() === 200) {
+                return back()->with('message', $toastMsg);
+            } else {
+                throw new RequestException($response);
+            }
+        } catch (RequestException $e) {
+            return back()->with('message', 'Gagal approve rencana kerja');
+        }
+    }
+
+    public function getEvaluasiKegiatanSetuju(Request $request)
+    {
+        $auth = Tools::getAuth($request);
+        $token = json_decode(json_encode($auth->user), true)['token'];
+        $auth = Tools::getAuth($request);
+        $check = Tools::checkAsesor(
+            json_decode(json_encode($auth->user->data_lengkap->dosen), true)['pegawai_id'],
+        );
+        $role = $check["data"]["tipe_asesor"] == '1' ? 'asesor1' : 'asesor2';
+        $response_dosen = Http::get(env('API_FED_SERVICE') . '/asesor-fed/getAllCompleteDosen/' . $role);
+
+
+        $data_dosen = [];
+        if (sizeof($response_dosen->json()) > 0) {
+            foreach ($response_dosen->json() as $item) {
+                $res = $this->getDosen($item, $token);
+
+                array_push($data_dosen, $res);
+            }
+        }
+
+
+        return view(
+            'App.AsesorEvaluasi.rekapKegiatanSetuju',
+            [
+                'auth' => $auth,
+                'data_dosen' => $data_dosen,
+            ]
+        );
     }
 }
