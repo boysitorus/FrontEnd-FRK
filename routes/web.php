@@ -48,7 +48,7 @@ Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(func
         Route::post('/tahunAjaran', [AdminController::class, 'postTahunAjaran'])->name('admin.tahunAjaran.post');
 
         Route::prefix('/LihatKerja')->group(function () {
-            Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaranAdmin'])->name('lk-tahunAjaran');
+            Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaranAdmin'])->name('lk-tahunAjaranAdmin');
             Route::get('/ViewDosen', [AsesorController::class, 'getViewDosenAdmin'])->name('lk-viewDosen');
             Route::get('/ViewDetail', [AsesorController::class, 'getViewDetailAdmin'])->name('lk-viewDetail');
         });

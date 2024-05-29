@@ -93,7 +93,9 @@
                         </li>
 
                         <li>
-                            <a href="{{route('lk-tahunAjaran')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaran') ? 'active' : '' }}">
+                            <a href="{{route('lk-tahunAjaranAdmin')}}" class="
+                                {{ Str::startsWith(request()->path(), 'admin/LihatKerja/') ? 'active' : '' }}
+                                list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaranAdmin') ? 'active' : '' }}>
                                 <i class="bi bi-eye me-2"></i>
                                 <span>Lihat Kerja</span>
                             </a>
