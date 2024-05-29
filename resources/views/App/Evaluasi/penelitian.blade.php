@@ -38,7 +38,7 @@
                             @endphp
                             @foreach ($penelitian_kelompok as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">{{ $counter }}</td>
                                     <td>
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
@@ -57,8 +57,28 @@
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['jumlah_anggota'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenelitian_A-{{ $item['id_rencana'] }}">Tambah
@@ -267,8 +287,28 @@
                                     </td>
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_B-{{ $item['id_rencana'] }}">Tambah
@@ -370,6 +410,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -472,8 +519,28 @@
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenelitian_C-{{ $item['id_rencana'] }}">Tambah
@@ -575,6 +642,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -679,8 +753,28 @@
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditEvaluasiPenelitian_D_{{ $item['id_rencana'] }}">Tambah
@@ -786,6 +880,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -886,8 +987,28 @@
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_E-{{ $item['id_rencana'] }}">Tambah
@@ -992,6 +1113,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -1091,8 +1219,28 @@
                                     <td>{{ $item['status_tahapan'] }}</td>
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_F-{{ $item['id_rencana'] }}">Tambah
@@ -1193,6 +1341,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -1294,18 +1449,37 @@
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditPenelitian_G-{{ $item['id_rencana'] }}">Tambah
-                                            Lampiran</button>
+                                            data-bs-target="#modalEditPenelitian_G">Tambah Lampiran</button>
                                     </td>
                                 </tr>
 
                                 {{-- MODAL UPLOAD G --}}
-                                <div class="modal fade" id="modalEditPenelitian_G-{{ $item['id_rencana'] }}"
-                                    tabindex="-1" aria-labelledby="modalEditPenelitian_G_label" aria-hidden="true">
+                                <div class="modal fade" id="modalEditPenelitian_G" tabindex="-1"
+                                    aria-labelledby="modalEditPenelitian_G_label" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -1393,6 +1567,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -1487,8 +1668,28 @@
                                         @endif
                                     </td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_H-{{ $item['id_rencana'] }}">Tambah
@@ -1583,6 +1784,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -1663,7 +1871,7 @@
                             @endphp
                             @foreach ($penelitian_tridharma as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">1</td>
                                     <td>
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
@@ -1680,8 +1888,28 @@
                                     </td>
                                     <td>{{ $item['jumlah_bkd'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_I-{{ $item['id_rencana'] }}">Tambah
@@ -1779,6 +2007,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -1860,7 +2095,7 @@
                             @endphp
                             @foreach ($jurnal_ilmiah as $item)
                                 <tr>
-                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td scope="row">1</td>
                                     <td>
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
@@ -1879,8 +2114,28 @@
                                     <td>{{ $item['jenis_pengerjaan'] }}</td>
                                     <td>{{ $item['peran'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_J-{{ $item['id_rencana'] }}">Tambah
@@ -1973,6 +2228,13 @@
                                                                                         alt="File Icon" width="30" />
                                                                                     <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -2068,8 +2330,28 @@
                                     </td>
                                     <td> {{ $item['lingkup_wilayah'] }} </td>
                                     <td> {{ $item['sks_terhitung'] }} </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_K-{{ $item['id_rencana'] }}">Tambah
@@ -2162,10 +2444,16 @@
                                                                                 <div
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
-                                                                                        alt="File Icon"
-                                                                                        width="30" />
-                                                                                    <a
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -2261,8 +2549,28 @@
                                         @endif
                                     </td>
                                     <td> {{ $item['sks_terhitung'] }} </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_L-{{ $item['id_rencana'] }}">Tambah
@@ -2353,10 +2661,16 @@
                                                                                 <div
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
-                                                                                        alt="File Icon"
-                                                                                        width="30" />
-                                                                                    <a
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -2455,8 +2769,28 @@
                                     </td>
                                     <td>{{ $item['lingkup_wilayah'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_M-{{ $item['id_rencana'] }}">Tambah
@@ -2549,10 +2883,16 @@
                                                                                 <div
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
-                                                                                        alt="File Icon"
-                                                                                        width="30" />
-                                                                                    <a
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -2655,8 +2995,28 @@
                                     <td>{{ $item['posisi'] }}</td>
                                     <td>{{ $item['jumlah_anggota'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
                                             data-bs-target="#modalEditPenelitian_N-{{ $item['id_rencana'] }}">Tambah
@@ -2752,10 +3112,16 @@
                                                                                 <div
                                                                                     class="file-item d-flex align-items-center mb-2 border rounded p-3">
                                                                                     <img src="{{ '/assets/img/' . $extension }}"
-                                                                                        alt="File Icon"
-                                                                                        width="30" />
-                                                                                    <a
+                                                                                        alt="File Icon" width="30" />
+                                                                                    <a href={{ env('API_FED_SERVICE') . '/penelitian/get-lampiran/' . base64_encode($i) }}
                                                                                         class="ms-2">{{ $i }}</a>
+                                                                                    <div style="margin-left: auto;">
+                                                                                        <a onclick="event.preventDefault(); deleteFile('{{ $item['id_rencana'] }}', '{{ base64_encode($i) }}')"
+                                                                                            class="btn btn-danger btn-sm btn-circle ms-2"><i
+                                                                                                class="bi bi-x"></i>
+                                                                                        </a>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif
@@ -2891,3 +3257,5 @@
         });
     </script>
 @endsection
+
+{{-- BAGIAN A --}}

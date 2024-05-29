@@ -12,7 +12,8 @@
             <hr />
 
             <div class="text-sm">
-                <table id="tablePengabdian-A" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePengabdian-A"
+                    class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -40,11 +41,11 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
+                                        @if (is_null($item['lampiran']))
                                             <div class="badge text-bg-warning">
                                                 Lampiran belum diupload.
                                             </div>
-                                            @else
+                                        @else
                                             <div class="badge text-bg-success   ">
                                                 Lampiran sudah diisi.
                                             </div>
@@ -52,23 +53,43 @@
                                     </td>
                                     <td>{{ $item['jumlah_durasi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                                data-bs-target="#modalEditEvaluasiPengabdian_A_{{ $item['id_rencana'] }}">Tambah
-                                                Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPengabdian_A_{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
 
                                     </td>
                                 </tr>
                                 {{-- TEMPAT MODAL ADD FILE A --}}
                                 <div class="modal fade" id="modalEditEvaluasiPengabdian_A_{{ $item['id_rencana'] }}"
-                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPenelitianDLabel"
-                                    aria-hidden="true">
+                                    tabindex="-1" aria-labelledby="modalEditEvaluasiPenelitianDLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="modalEditEvaluasiPenelitianALabel">A. Satu kegiatan yang setara dengan 50 jam kerja</h6>
+                                                <h6 class="modal-title" id="modalEditEvaluasiPenelitianALabel">A. Satu
+                                                    kegiatan yang setara dengan 50 jam kerja</h6>
 
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
@@ -80,14 +101,15 @@
                                                     @csrf
                                                     <input type="hidden" name="id_rencana"
                                                         value="{{ $item['id_rencana'] }}" />
-                                                    <input type="hidden" name="jenis_pengabdian"
-                                                        value="kegiatan">
+                                                    <input type="hidden" name="jenis_pengabdian" value="kegiatan">
                                                     <div class="container">
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                                 <ol>
-                                                                    <li>Surat Permohonan/undangan atau surat penerimaan dari lembaga yang menjadi sasaran pengabdian masyarakat</li>
+                                                                    <li>Surat Permohonan/undangan atau surat penerimaan dari
+                                                                        lembaga yang menjadi sasaran pengabdian masyarakat
+                                                                    </li>
                                                                     <li>Surat tugas/ijin/persetujuan dari pimpinan</li>
                                                                     <li>Laporan kegiatan</li>
                                                                     <li>Materi yang disampaikan</li>
@@ -175,7 +197,9 @@
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Batal</button>
-                                                    <button type="submit" id="btnUploadPengabdianA-{{ $item['id_rencana'] }}" class="btn btn-primary">Upload
+                                                    <button type="submit"
+                                                        id="btnUploadPengabdianA-{{ $item['id_rencana'] }}"
+                                                        class="btn btn-primary">Upload
                                                         Lampiran</button>
                                                 </div>
                                             </form>
@@ -213,7 +237,8 @@
             <hr />
 
             <div class="text-sm">
-                <table id="tablePengabdian-B" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePengabdian-B"
+                    class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -241,11 +266,11 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
+                                        @if (is_null($item['lampiran']))
                                             <div class="badge text-bg-warning">
                                                 Lampiran belum diupload.
                                             </div>
-                                            @else
+                                        @else
                                             <div class="badge text-bg-success   ">
                                                 Lampiran sudah diisi.
                                             </div>
@@ -253,12 +278,32 @@
                                     </td>
                                     <td>{{ $item['jumlah_durasi'] }}</td>
                                     <td>{{ $item['sks_terhitung'] }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                                data-bs-target="#modalEditEvaluasiPengabdian_B_{{ $item['id_rencana'] }}">Tambah
-                                                Lampiran</button>
+                                            data-bs-target="#modalEditEvaluasiPengabdian_B_{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button>
 
                                     </td>
                                 </tr>
@@ -270,7 +315,8 @@
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="modalEditEvaluasiPenelitianALabel">B. Memberikan penyuluhan/penataran kepada masyarakat</h6>
+                                                <h6 class="modal-title" id="modalEditEvaluasiPenelitianALabel">B.
+                                                    Memberikan penyuluhan/penataran kepada masyarakat</h6>
 
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
@@ -282,14 +328,15 @@
                                                     @csrf
                                                     <input type="hidden" name="id_rencana"
                                                         value="{{ $item['id_rencana'] }}" />
-                                                    <input type="hidden" name="jenis_pengabdian"
-                                                        value="penyuluhan">
+                                                    <input type="hidden" name="jenis_pengabdian" value="penyuluhan">
                                                     <div class="container">
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                                 <ol>
-                                                                    <li>Surat Permohonan/undangan atau surat penerimaan dari lembaga yang menjadi sasaran pengabdian masyarakat</li>
+                                                                    <li>Surat Permohonan/undangan atau surat penerimaan dari
+                                                                        lembaga yang menjadi sasaran pengabdian masyarakat
+                                                                    </li>
                                                                     <li>Surat tugas/ijin/persetujuan dari pimpinan</li>
                                                                     <li>Laporan kegiatan</li>
                                                                     <li>Materi yang disampaikan</li>
@@ -305,7 +352,8 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                    <div id="selectedFilesPengabdianB-{{ $item['id_rencana'] }}">
+                                                                    <div
+                                                                        id="selectedFilesPengabdianB-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
 
@@ -410,11 +458,13 @@
     {{-- BAGIAN C --}}
     <div id="pengabdian-C" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>C. Memberikan jasa konsultan yang relavan dengan kepakarannya atas persetujuan/penugasan pimpinan PT</b></h6>
+            <h6><b>C. Memberikan jasa konsultan yang relavan dengan kepakarannya atas persetujuan/penugasan pimpinan PT</b>
+            </h6>
             <hr />
 
             <div class="text-sm">
-                <table id="tablePengabdian-C" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                <table id="tablePengabdian-C"
+                    class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
                     style="border: 2px;">
                     <thead>
                         <tr>
@@ -444,11 +494,11 @@
                                         <div>
                                             {{ $item['nama_kegiatan'] }}
                                         </div>
-                                        @if (is_null($item['lampiran']) )
+                                        @if (is_null($item['lampiran']))
                                             <div class="badge text-bg-warning">
                                                 Lampiran belum diupload.
                                             </div>
-                                            @else
+                                        @else
                                             <div class="badge text-bg-success   ">
                                                 Lampiran sudah diisi.
                                             </div>
@@ -458,11 +508,29 @@
                                     <td>{{ $item['sks_terhitung'] }}</td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>@if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif</td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
                                     <td><button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
-                                                data-bs-target="#modalEditEvaluasiPengabdian_C_{{ $item['id_rencana'] }}">Tambah
-                                                Lampiran</button></td>
+                                            data-bs-target="#modalEditEvaluasiPengabdian_C_{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button></td>
                                 </tr>
 
                                 {{-- TEMPAT MODAL ADD FILE C --}}
@@ -472,7 +540,9 @@
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="modalEditEvaluasiPenelitianALabel">C. Memberikan jasa konsultan yang relavan dengan kepakarannya atas persetujuan/penugasan pimpinan PT</h6>
+                                                <h6 class="modal-title" id="modalEditEvaluasiPenelitianALabel">C.
+                                                    Memberikan jasa konsultan yang relavan dengan kepakarannya atas
+                                                    persetujuan/penugasan pimpinan PT</h6>
 
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
@@ -484,15 +554,17 @@
                                                     @csrf
                                                     <input type="hidden" name="id_rencana"
                                                         value="{{ $item['id_rencana'] }}" />
-                                                    <input type="hidden" name="jenis_pengabdian"
-                                                        value="konsultan">
+                                                    <input type="hidden" name="jenis_pengabdian" value="konsultan">
                                                     <div class="container">
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                                 <ol>
-                                                                    <li>Surat Permohonan/Persetujuan/ Keputusan/Penunjukkan sebagai Konsultan/ Tenaga Ahli/Staf Ahli dari institusi terkait</li>
-                                                                    <li>Laporan progres layanan konsultasi, bagi yang sedang berjalan</li>
+                                                                    <li>Surat Permohonan/Persetujuan/ Keputusan/Penunjukkan
+                                                                        sebagai Konsultan/ Tenaga Ahli/Staf Ahli dari
+                                                                        institusi terkait</li>
+                                                                    <li>Laporan progres layanan konsultasi, bagi yang sedang
+                                                                        berjalan</li>
                                                                 </ol>
                                                                 <!-- File input -->
                                                                 <button type="button"
@@ -505,7 +577,8 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                    <div id="selectedFilesPengabdianC-{{ $item['id_rencana'] }}">
+                                                                    <div
+                                                                        id="selectedFilesPengabdianC-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
 
@@ -605,75 +678,102 @@
             </div>
         </div>
     </div>
-    {{--AKHIR BAGIAN C --}}
+    {{-- AKHIR BAGIAN C --}}
 
     {{-- BAGIAN D --}}
     <div id="pengabdian-D" class="card shadow-sm mt-5 ml-1 mr-1 bg-card">
         <div class="card-body">
-            <h6><b>D. Membuat/menulis karya pengabdian kepada masyarakat dengan menulis 1 judul, direncanakan terbit ber ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISBN</b></h6>
+            <h6><b>D. Membuat/menulis karya pengabdian kepada masyarakat dengan menulis 1 judul, direncanakan terbit ber
+                    ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISBN</b></h6>
             <hr />
 
             <div class="text-sm">
-                <table id="tablePengabdian-D" class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
-                style="border: 2px;">
-                <thead>
-                    <tr>
-                        <th scope="col" rowspan="2" class="align-middle">No.</th>
-                        <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
-                        <th scope="col" rowspan="2" class="align-middle">Kategori</th>
-                        <th scope="col" rowspan="2" class="align-middle">Tahapan</th>
-                        <th scope="col" rowspan="2" class="align-middle">Jenis Pengerjaan</th>
-                        <th scope="col" rowspan="2" class="align-middle">Peran</th>
-                        <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota</th>
-                        <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
-                        <th scope="col" colspan="2">Status</th>
-                        <th scope="col" rowspan="2" class="align-middle">Aksi</th>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="fw-bold col-1">Asesor 1</th>
-                        <th scope="col" class="fw-bold col-1">Asesor 2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (isset($karya) && sizeof($karya) > 0)
-                        @php
-                            $counter = 1;
-                        @endphp
-                        @foreach ($karya as $item)
-                            <tr>
-                                <td scope="row">{{ $counter++ }}</td>
-                                <td>
-                                    <div>
-                                        {{ $item['nama_kegiatan'] }}
-                                    </div>
-                                    @if (is_null($item['lampiran']) )
-                                        <div class="badge text-bg-warning">
-                                            Lampiran belum diupload.
+                <table id="tablePengabdian-D"
+                    class="table table-striped table-bordered mt-2 text-center align-middle border-secondary-subtle"
+                    style="border: 2px;">
+                    <thead>
+                        <tr>
+                            <th scope="col" rowspan="2" class="align-middle">No.</th>
+                            <th scope="col" rowspan="2" class="align-middle">Kegiatan</th>
+                            <th scope="col" rowspan="2" class="align-middle">Kategori</th>
+                            <th scope="col" rowspan="2" class="align-middle">Tahapan</th>
+                            <th scope="col" rowspan="2" class="align-middle">Jenis Pengerjaan</th>
+                            <th scope="col" rowspan="2" class="align-middle">Peran</th>
+                            <th scope="col" rowspan="2" class="align-middle">Jumlah Anggota</th>
+                            <th scope="col" rowspan="2" class="align-middle">SKS Terhitung</th>
+                            <th scope="col" colspan="2">Status</th>
+                            <th scope="col" rowspan="2" class="align-middle">Aksi</th>
+                        </tr>
+                        <tr>
+                            <th scope="col" class="fw-bold col-1">Asesor 1</th>
+                            <th scope="col" class="fw-bold col-1">Asesor 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (isset($karya) && sizeof($karya) > 0)
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach ($karya as $item)
+                                <tr>
+                                    <td scope="row">{{ $counter++ }}</td>
+                                    <td>
+                                        <div>
+                                            {{ $item['nama_kegiatan'] }}
                                         </div>
+                                        @if (is_null($item['lampiran']))
+                                            <div class="badge text-bg-warning">
+                                                Lampiran belum diupload.
+                                            </div>
                                         @else
-                                        <div class="badge text-bg-success   ">
-                                            Lampiran sudah diisi.
-                                        </div>
-                                    @endif
-                                </td>
-                                <td>{{ $item['jenis_terbit'] }}</td>
-                                <td>{{ $item['status_tahapan'] }}</td>
-                                <td>{{ $item['jenis_pengerjaan'] }}</td>
-                                <td>{{ $item['peran'] }}</td>
-                                <td>{{ $item['jumlah_anggota'] }}</td>
-                                <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
-                                <td></td>
-                                <td><button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal" data-bs-target="#modalEditEvaluasiPengabdian_D_{{ $item['id_rencana'] }}">Tambah Lampiran</button></td>
-                            </tr>
-                            {{-- TEMPAT MODAL ADD FILE D --}}
+                                            <div class="badge text-bg-success   ">
+                                                Lampiran sudah diisi.
+                                            </div>
+                                        @endif
+                                    </td>
+                                    <td>{{ $item['jenis_terbit'] }}</td>
+                                    <td>{{ $item['status_tahapan'] }}</td>
+                                    <td>{{ $item['jenis_pengerjaan'] }}</td>
+                                    <td>{{ $item['peran'] }}</td>
+                                    <td>{{ $item['jumlah_anggota'] }}</td>
+                                    <td>{{ $item['sks_terhitung'] }}</td>
+                                    <td>
+                                    @if ($item['asesor1_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor1_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor1_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    @if ($item['asesor2_fed'] === null)
+                                            <span class="badge bg-secondary">Menunggu</span>
+                                        @elseif ($item['asesor2_fed'] === 'setuju')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span
+                                                class="bg-alert-info mt-1 d-block text-komentar">{{ $item['asesor2_fed'] }}</span>
+                                        @endif
+                                    </td>
+                                    <td><button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditEvaluasiPengabdian_D_{{ $item['id_rencana'] }}">Tambah
+                                            Lampiran</button></td>
+                                </tr>
+                                {{-- TEMPAT MODAL ADD FILE D --}}
                                 <div class="modal fade" id="modalEditEvaluasiPengabdian_D_{{ $item['id_rencana'] }}"
                                     tabindex="-1" aria-labelledby="modalEditEvaluasiPenelitianDLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="modalEditEvaluasiPenelitianALabel">D. Membuat/menulis karya pengabdian kepada masyarakat dengan menulis 1 judul, direncanakan terbit ber ISBN, ada kontrak penerbitan dan atau sudah diterbitkan dan ber-ISBN</h6>
+                                                <h6 class="modal-title" id="modalEditEvaluasiPenelitianALabel">D.
+                                                    Membuat/menulis karya pengabdian kepada masyarakat dengan menulis 1
+                                                    judul, direncanakan terbit ber ISBN, ada kontrak penerbitan dan atau
+                                                    sudah diterbitkan dan ber-ISBN</h6>
 
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
@@ -692,8 +792,11 @@
                                                             <div class="col-md-12">
                                                                 <h6>*Jenis Dokumen yang harus dilengkapi : </h6>
                                                                 <ol>
-                                                                    <li>Surat Permohonan/Persetujuan/ Keputusan/Penunjukkan sebagai Konsultan/ Tenaga Ahli/Staf Ahli dari institusi terkait</li>
-                                                                    <li>Laporan progres layanan konsultasi, bagi yang sedang berjalan</li>
+                                                                    <li>Surat Permohonan/Persetujuan/ Keputusan/Penunjukkan
+                                                                        sebagai Konsultan/ Tenaga Ahli/Staf Ahli dari
+                                                                        institusi terkait</li>
+                                                                    <li>Laporan progres layanan konsultasi, bagi yang sedang
+                                                                        berjalan</li>
                                                                 </ol>
                                                                 <!-- File input -->
                                                                 <button type="button"
@@ -706,7 +809,8 @@
                                                                     1 </p>
                                                                 <!-- tambahkan jarak bawah -->
                                                                 <div class="mt-3 mb-3"> <!-- tambahkan jarak bawah -->
-                                                                    <div id="selectedFilesPengabdianD-{{ $item['id_rencana'] }}">
+                                                                    <div
+                                                                        id="selectedFilesPengabdianD-{{ $item['id_rencana'] }}">
                                                                     </div>
                                                                 </div>
 
@@ -799,12 +903,11 @@
                                         fileInput.click();
                                     });
                                 </script>
-
-                        @endforeach
-                    @endif
-                    </tr>
-                </tbody>
-            </table>
+                            @endforeach
+                        @endif
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -841,8 +944,8 @@
     </div>
 
     {{-- TEMPAT MODAL DELETE CONFIRM --}}
-    <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -869,7 +972,8 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body text-center" style="padding: 8%;">
-                    <h5 class="modal-title" id="modalBatal_label py-5">Apakah anda yakin untuk membatalkan pengumpulan lampiran?</h5>
+                    <h5 class="modal-title" id="modalBatal_label py-5">Apakah anda yakin untuk membatalkan pengumpulan
+                        lampiran?</h5>
                     <div class="my-4">
                         <button type="button" class="btn btn-primary mx-3" data-bs-dismiss="modal">Yakin</button>
                         <button type="button" class="btn btn-secondary mx-3">Tidak</button>
@@ -881,8 +985,8 @@
 
     {{-- AKHIR BAGIAN MODAL BATAL UPLOAD --}}
 
-<script src="{{ asset('js/app.js') }}"></script>
-<script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             let deleteButtons = document.querySelectorAll('.btn-danger[data-bs-toggle="modal"]');
 

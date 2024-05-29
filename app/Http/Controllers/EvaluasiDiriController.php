@@ -15,6 +15,8 @@ class EvaluasiDiriController extends Controller
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
         try {
+            $responseAll = Http::get(env('API_FED_SERVICE') . '/pendidikan/all/' . $id_dosen);
+            $all = $responseAll->json();
             // Mengambil data teori dari Lumen
             $responseTeori = Http::get(env('API_FED_SERVICE') . '/pendidikan/teori/' . $id_dosen);
             $teori = $responseTeori->json();
@@ -77,7 +79,8 @@ class EvaluasiDiriController extends Controller
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
                 'periode' => $getTanggal,
-                'idAsesor' => $listIdAssesor
+                'idAsesor' => $listIdAssesor,
+                'all' => $all
             ];
 
             // Mengirim data ke view
@@ -94,6 +97,9 @@ class EvaluasiDiriController extends Controller
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
         $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
         try {
+            $responseAll = Http::get(env('API_FED_SERVICE') . '/pendidikan/all/' . $id_dosen);
+            $all = $responseAll->json();
+
             $responseAkademik = Http::get(env('API_FED_SERVICE') . '/penunjang/akademik/' . $id_dosen);
             $akademik = $responseAkademik->json();
 
@@ -163,7 +169,8 @@ class EvaluasiDiriController extends Controller
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
                 'periode' => $getTanggal,
-                'idAsesor' => $listIdAssesor
+                'idAsesor' => $listIdAssesor,
+                'all' => $all,
             ];
 
             return view('App.Evaluasi.penunjang', $data);
@@ -179,6 +186,9 @@ class EvaluasiDiriController extends Controller
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
         try {
+            $responseAll = Http::get(env('API_FED_SERVICE') . '/pendidikan/all/' . $id_dosen);
+            $all = $responseAll->json();
+
             // Mengambil data a. kegiatan dari lumen
             $responsKegiatan = Http::get(env('API_FRK_SERVICE') . '/pengabdian/kegiatan/' . $id_dosen);
             $Kegiatan = $responsKegiatan->json();
@@ -209,7 +219,8 @@ class EvaluasiDiriController extends Controller
                 'karya' => $Karya,
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
-                'periode' => $getTanggal
+                'periode' => $getTanggal,
+                'all' => $all,
             ];
 
             // Mengirim data ke view
@@ -227,6 +238,8 @@ class EvaluasiDiriController extends Controller
         $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
         $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FED")), true)['data'];
         try {
+            $responseAll = Http::get(env('API_FED_SERVICE') . '/pendidikan/all/' . $id_dosen);
+            $all = $responseAll->json();
             // Mengambil data a. penelitian kelompok dari Lumen
             $responsePenelitianKelompok = Http::get(env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok/' . $id_dosen);
             $PenelitianKelompok = $responsePenelitianKelompok->json();
@@ -302,7 +315,8 @@ class EvaluasiDiriController extends Controller
                 'media_massa' => $MediaMassa,
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
-                'periode' => $getTanggal
+                'periode' => $getTanggal,
+                'all' => $all,
             ];
 
             // Mengirim data ke view
