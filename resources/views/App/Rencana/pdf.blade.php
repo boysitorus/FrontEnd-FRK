@@ -1,201 +1,87 @@
-<style>
-    @page {
-        size: A4;
-        margin: 7;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekap Kerja</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 7mm;
+        }
 
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
+        body {
+            margin: 0;
+        }
 
-    #simpulan {
-        width: 100%;
-        max-width: 100%;
-        margin: 10mm auto;
-        background-color: white;
-        border: 1px solid black;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
+        .custom-container {
+            padding-left: 10mm;
+            padding-right: 10mm;
+        }
+    </style>
+</head>
+<body>
 
-    #simpulan h6 {
-        margin: 0;
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-    }
+<div class="mt-4">
+    <h4 class="font-weight-bold">Rekap Kerja - Semester 2023/2024 Genap</h4>
+    <hr />
 
-    .card-body {
-        padding: 10mm;
-    }
-
-    .table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    .table th,
-    .table td {
-        padding: 5mm;
-        border: 1px solid black;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    .text-left {
-        text-align: left;
-    }
-
-    .bg-danger {
-        background-color: #dc3545 !important;
-    }
-
-    .bg-success {
-        background-color: #28a745 !important;
-    }
-
-    .bg-primary {
-        background-color: #007bff !important;
-    }
-
-    .text-white {
-        color: #fff !important;
-    }
-
-    .text-muted {
-        color: #6c757d !important;
-    }
-
-    .mt-3 {
-        margin-top: 3mm !important;
-    }
-
-    .mr-1 {
-        margin-right: 1mm !important;
-    }
-
-    .btn {
-        padding: 5mm 10mm;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        color: white;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-    }
-</style>
-
-<div id="simpulan" style="border: 1px solid black; border-radius: 5px; margin-top: 5mm; margin-left: 0mm; margin-right: 0mm;">
-    <div style="background-color: #007bff; color: white; padding: 5mm; border-top-left-radius: 5px; border-top-right-radius: 5px;">
-        <h4 style="margin: 0;"><strong>Simpulan rencana kerja</strong></h4>
+    <div class="alert alert-info mt-2 ml-1 mr-1 mb-6 bg-alert-info" role="alert">
+        <h5> <b> <u> Profil dosen </u> </b> </h5>
+        <p><b>{{ $nama_dosen }}</b></p>
+        <p><b>{{ $nidn_dosen }}</b></p>
+        <p><b>{{ $role_dosen }}</b></p>
     </div>
-    <div style="padding: 5mm;">
 
-        <div style="border: 1px solid black; padding: 5mm; background-color: #DFF5FF; color: #008DDA; margin-bottom: 10mm;">
-            <p style="margin: 0;"><strong>Keterangan:</strong></p>
-            <ul style="margin: 0; padding-left: 5mm;">
-                <li><strong>TM:</strong> Tidak Memenuhi </li>
-                <li><strong>M:</strong> Memenuhi Keterangan</li>
-            </ul>
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0"><strong>Simpulan Rencana Kerja</strong></h4>
         </div>
-
-        <div>
-            <table id="simpulan" style="width: 100%; border-collapse: collapse; margin-top: 5mm; margin-bottom: 5mm;">
+        <div class="card-body">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th style="text-align: left; width: 5%; padding: 5mm; border: 1px solid black;"><strong>No</strong></th>
-                        <th style="text-align: left; width: 40%; padding: 5mm; border: 1px solid black;"><strong>Jenis Kinerja</strong></th>
-                        <th style="text-align: left; width: 30%; padding: 5mm; border: 1px solid black;"><strong>Syarat</strong></th>
-                        <th style="text-align: center; padding: 5mm; border: 1px solid black;"><strong>sks Terhitung</strong></th>
-                        <th style="text-align: center; padding: 5mm; border: 1px solid black;"><strong>Status</strong></th>
+                        <th class="text-left" style="width: 5%;">No</th>
+                        <th colspan="2" class="text-left" style="width: 40%;">Jenis Kinerja</th>
+                        <th class="text-center">SKS Terhitung</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">1</td>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">Pelaksanaan Pendidikan</td>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">Minimal 9 sks</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $pendidikanSks == 0 ? 'red' : 'green' }}">{{ $pendidikanSks }}</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $pendidikanSks == 0 ? 'red' : 'green' }}">{{ $pendidikanSks == 0 ? 'TM' : 'M' }}</td>
+                        <td class="text-left">1</td>
+                        <td colspan="2" class="text-left">Pelaksanaan Pendidikan</td>
+                        <td class="text-center">{{ $pendidikanSks }}</td>
                     </tr>
-
                     <tr>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">2</td>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">Pelaksanaan Penelitian</td>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">Minimal 9 sks</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $penelitianSks == 0 ? 'red' : 'green' }}">{{ $penelitianSks }}</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $penelitianSks == 0 ? 'red' : 'green' }}">{{ $penelitianSks == 0 ? 'TM' : 'M' }}</td>
+                        <td class="text-left">2</td>
+                        <td colspan="2" class="text-left">Pelaksanaan Penelitian</td>
+                        <td class="text-center">{{ $penelitianSks }}</td>
                     </tr>
-
                     <tr>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">3</td>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">Pelaksanaan Pengabdian</td>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">Maksimal 3 sks</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $pengabdianSks == 0 ? 'red' : 'green' }}">{{ $pengabdianSks }}</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $pengabdianSks == 0 ? 'red' : 'green' }}">{{ $pengabdianSks == 0 ? 'TM' : 'M' }}</td>
+                        <td class="text-left">3</td>
+                        <td colspan="2" class="text-left">Pelaksanaan Pengabdian</td>
+                        <td class="text-center">{{ $pengabdianSks }}</td>
                     </tr>
-
                     <tr>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">4</td>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">Pelaksanaan Penunjang</td>
-                        <td style="text-align: left; padding: 5mm; border: 1px solid black;">Maksimal 3 sks</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $penunjangSks == 0 ? 'red' : 'green' }}">{{ $penunjangSks }}</td>
-                        <td style="text-align: center; padding: 5mm; border: 1px solid black; color: {{ $penunjangSks == 0 ? 'red' : 'green' }}">{{ $penunjangSks == 0 ? 'TM' : 'M' }}</td>
+                        <td class="text-left">4</td>
+                        <td colspan="2" class="text-left">Pelaksanaan Penunjang</td>
+                        <td class="text-center">{{ $penunjangSks }}</td>
                     </tr>
-
-                    <tr style="border-bottom: 2px solid black;">
-                        <td colspan="2" style="text-align: center;padding: 5mm; background-color: #DFF5FF;"><strong>Total Kinerja</strong></td>
-                        <td style=" text-align: left ;padding: 5mm; background-color: #DFF5FF;"></td>
-                        <td style="text-align: center;padding: 5mm; background-color: #DFF5FF;"><span style="color: {{ $totalSks < 12 || $totalSks > 16 ? 'red' : 'green' }}">{{ $totalSks }}</span></td>
-                        <td style="text-align: center;padding: 5mm; background-color: #DFF5FF;"><span style="color: {{ $totalSks < 12 || $totalSks > 16 ? 'red' : 'green' }}">{{ $totalSks < 12 || $totalSks > 16 ? 'TM' : 'M' }}</span></td>
-                    </tr>
-
                     <tr>
-                        <td colspan="5" style="padding-top: 5mm;"></td>
+                        <td colspan="2" class="text-center bg-info"><strong>Total Kinerja</strong></td>
+                        <td class="text-left bg-info"></td>
+                        <td class="text-center bg-info">{{ $totalSks }}</td>
                     </tr>
-
-                    <tr>
-                        <td colspan="2" style="text-align: left; padding: 5mm;"><strong><i>Kriteria Pelaksanaan Pendidikan dan Pelaksanaan Penelitian</i></strong></td>
-                        <td style="text-align: left; padding: 5mm;"><em>Minimal 9 sks</em></td>
-                        <td style="text-align: center; padding: 5mm;"><span style="color: {{ $pendidikanSks + $penelitianSks < 9 ? 'red' : 'green' }}">{{ $pendidikanSks + $penelitianSks }}</span></td>
-                        <td style="text-align: center; padding: 5mm;"><span style=" color: {{ $pendidikanSks + $penelitianSks < 9 ? 'red' : 'green' }}">{{ $pendidikanSks + $penelitianSks < 9 ? 'TM' : 'M' }}</span></td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" style="text-align: left; padding: 5mm;"><strong><i>Kriteria Pelaksanaan Pengabdian dan Pelaksanaan Penunjang</i></strong></td>
-                        <td style="text-align: left; padding: 5mm;"><em>Wajib 3 sks</em></td>
-                        <td style="text-align: center; padding: 5mm;"><span style="color: {{ $pengabdianSks + $penunjangSks > 3 ? 'red' : 'green' }}">{{ $penunjangSks + $pengabdianSks }}</span></td>
-                        <td style="text-align: center; padding: 5mm;"><span style="color: {{ $pengabdianSks + $penunjangSks > 3 ? 'red' : 'green' }}">{{ $penunjangSks + $pengabdianSks > 3 ? 'TM' : 'M' }}</span></td>
-                    </tr>
-                    
-                    <tr style="border-bottom: 2px solid black;">
-                        <td colspan="2" style="text-align: center; padding: 5mm; background-color: #DFF5FF;"><strong>Kesimpulan Akhir</strong></td>
-                        <td style="text-align: left ; padding: 5mm; background-color: #DFF5FF;"></td>
-                        <td style="text-align: center; padding: 5mm; background-color: #DFF5FF;"></td>
-                        <td style="text-align: center; padding: 5mm; background-color: #DFF5FF;"><span class="{{ $pendidikanSks + $penelitianSks < 9 || $penunjangSks > 3 || $pengabdianSks > 3 ? 'red' : 'green' }}">{{ $pendidikanSks + $penelitianSks < 9 || $penunjangSks > 3 || $pengabdianSks > 3 ? 'TM' : 'M' }}</span></td>
-                    </tr>
-
                 </tbody>
             </table>
         </div>
-
     </div>
-    
-    <div style="margin:5mm; text-align: center; color: red;">
-        <strong>Tidak memenuhi ketentuan Perundang-undang beban kerja dosen, pelaksanaan kegiatan yang Tidak Memenuhi</strong>
-    </div>
-
 </div>
 
-<div style="margin-top: 5mm;"></div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

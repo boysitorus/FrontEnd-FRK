@@ -43,7 +43,15 @@
                             <td>{{ $item['nama_kegiatan'] }}</td>
                             <td>{{ $item['jumlah_durasi'] }}</td>
                             <td>{{ $item['sks_terhitung'] }}</td>
-                            <td></td>
+                            <td>
+                                @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                            </td>
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -229,7 +237,15 @@
                             <td>{{ $item['nama_kegiatan'] }}</td>
                             <td>{{ $item['jumlah_durasi'] }}</td>
                             <td>{{ $item['sks_terhitung'] }}</td>
-                            <td></td>
+                            <td>
+                                @if ($item['asesor1_frk'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_frk'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    <span class="badge bg-danger">Ditolak</span>
+                                @endif
+                            </td>
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -412,7 +428,15 @@
                             <td>{{ $item['nama_kegiatan'] }}</td>
                             <td>{{ $item['posisi'] }}</td>
                             <td>{{ $item['sks_terhitung'] }}</td>
-                            <td></td>
+                            <td>
+                                @if ($item['asesor1_frk'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_frk'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    <span class="badge bg-danger">Ditolak</span>
+                                @endif
+                            </td>
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -611,7 +635,15 @@
                             <td>{{ $item['peran'] }}</td>
                             <td>{{ $item['jumlah_anggota'] }}</td>
                             <td>{{ $item['sks_terhitung'] }}</td>
-                            <td></td>
+                            <td>
+                                @if ($item['asesor1_frk'] === null)
+                                    <span class="badge bg-secondary">Menunggu</span>
+                                @elseif ($item['asesor1_frk'] === 'setuju')
+                                    <span class="badge bg-success">Disetujui</span>
+                                @elseif ($item['asesor1_frk'] === 'ditolak')
+                                    <span class="badge bg-danger">Ditolak</span>
+                                @endif
+                            </td>
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"

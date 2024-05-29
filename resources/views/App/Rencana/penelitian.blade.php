@@ -45,7 +45,15 @@
                                 <td>{{ $item['posisi'] }}</td>
                                 <td>{{ $item['jumlah_anggota'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                            </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -215,7 +223,15 @@
                                 <td>{{ $item['nama_kegiatan'] }}</td>
                                 <td>{{ $item['status_tahapan'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -377,7 +393,15 @@
                                 <td>{{$item['jenis_pengerjaan']}}</td>
                                 <td>{{$item['peran']}}</td>
                                 <td>{{$item['sks_terhitung']}}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -530,7 +554,15 @@
                                 <td>{{$item['jenis_pengerjaan']}}</td>
                                 <td>{{$item['peran']}}</td>
                                 <td>{{$item['sks_terhitung']}}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -681,7 +713,15 @@
                                 <td>{{ $item['status_tahapan'] }}</td>
                                 <td>{{ $item['posisi'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -833,7 +873,15 @@
                                 <td>{{ $item['status_tahapan'] }}</td>
                                 <td>{{ $item['posisi'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -996,7 +1044,15 @@
                                 <td>{{ $item['jenis_pengerjaan'] }}</td>
                                 <td>{{ $item['peran'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1165,7 +1221,15 @@
                                 <td scope="row">{{ $counter }}</td>
                                 <td>{{ $item['nama_kegiatan'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1303,7 +1367,15 @@
                                 <td>{{$item['nama_kegiatan']}}</td>
                                 <td>{{$item['jumlah_bkd']}}</td>
                                 <td>{{$item['sks_terhitung']}}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1436,7 +1508,15 @@
                                 <td>{{$item['jenis_pengerjaan']}}</td>
                                 <td>{{$item['peran']}}</td>
                                 <td>{{$item['sks_terhitung']}}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                 <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1589,7 +1669,15 @@
                                 <td> {{ $item['nama_kegiatan'] }} </td>
                                 <td> {{ $item['lingkup_wilayah'] }} </td>
                                 <td> {{ $item['sks_terhitung'] }} </td>
-                                <td> </td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1726,7 +1814,15 @@
                                 <td scope="row">{{ $counter }}</td>
                                 <td> {{ $item['nama_kegiatan'] }} </td>
                                 <td> {{ $item['sks_terhitung'] }} </td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -1857,7 +1953,15 @@
                                 <td>{{ $item['nama_kegiatan'] }}</td>
                                 <td>{{ $item['lingkup_wilayah'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"
@@ -2015,7 +2119,15 @@
                                 <td>{{ $item['posisi'] }}</td>
                                 <td>{{ $item['jumlah_anggota'] }}</td>
                                 <td>{{ $item['sks_terhitung'] }}</td>
-                                <td></td>
+                                <td>
+                                    @if ($item['asesor1_frk'] === null)
+                                        <span class="badge bg-secondary">Menunggu</span>
+                                    @elseif ($item['asesor1_frk'] === 'setuju')
+                                        <span class="badge bg-success">Disetujui</span>
+                                    @elseif ($item['asesor1_frk'] === 'ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td>
                                     <button type="button" class="btn btn-warning mr-1" data-bs-toggle="modal"

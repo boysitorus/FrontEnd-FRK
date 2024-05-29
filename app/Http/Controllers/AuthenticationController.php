@@ -14,48 +14,6 @@ class AuthenticationController extends Controller
         return view('Auth.login');
     }
 
-//    public function post(Request $request)
-//    {
-//        $validator = Validator::make($request->all(), [
-//            'username' => 'required|string',
-//            'password' => 'required|string'
-//        ]);
-//
-//        $parseResponse = null;
-//
-//        $response =  Http::asForm()->post(env('API_USER_SERVICE', false) . 'login', [
-//            'username' => $request->username,
-//            'password' => $request->password
-//        ]);
-//
-//        $parseData = json_decode($response->body(), true);
-//
-//        $validator->after(function ($validator) use ($request) {
-//            $response =  Http::asForm()->post(env('API_USER_SERVICE', false) . 'login', [
-//                'username' => $request->username,
-//                'password' => $request->password
-//            ]);
-//
-//            $parseData = json_decode($response->body(), true);
-//
-//            if(!$parseData['result'])
-//            {
-//                $validator->errors()->add('error-login', 'Error, silahkan hubungi Developer! [3]');
-//            }
-//        });
-//        if($validator->fails())
-//        {
-//            return redirect()->route('user.login.get')->withErrors($validator)->withInput();
-//        }
-//
-//
-//                Tools::setAuth($request, $parseData['data']);
-//                Tools::setToken($request, $parseData['token']);
-//                Tools::setTokenRefresh($request, $parseData['refresh_token']);
-//
-//                return redirect()->route('profile');
-//    }
-
     public function post(Request $request)
     {
         // Validasi awal request

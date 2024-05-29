@@ -13,6 +13,7 @@ use App\Http\Controllers\EvaluasiDiriController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AsesorController;
 use App\Http\Controllers\ListKerjaController;
+use App\Http\Controllers\AsesorEvaluasiController;
 
 
 /*
@@ -30,7 +31,6 @@ use App\Http\Controllers\ListKerjaController;
 Route::post('/', [AuthenticationController::class, 'post'])->name('user.login.post');
 Route::get('/', [AuthenticationController::class, 'get'])->name('user.login.get');
 Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout.get');
-
 
 Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(function () {
     Route::prefix('/admin')->group(function () {
@@ -73,14 +73,18 @@ Route::group(['middleware' => ['check.token']], function () {
         return view('App.Evaluasi.pendidikan');
     });
 
-    // untuk bagian page get sahaja
+    Route::get('/formEvaluasiDiri', function () {
+        return view('App.Evaluasi.penunjang');
+    });
+
     Route::prefix('/formRencanaKerja')->group(function () {
         Route::get('/pendidikan', [PendidikanController::class, 'getAll'])->name('rk-pendidikan');
         Route::get('/penelitian', [PenelitianController::class, 'getPenelitianPanel'])->name('rk-penelitian');
-        // Route::get('/simpulan', [RencanaKerjaController::class, 'getsimpulanPanel'])->name('rk-simpulan');
         Route::get('/pengabdian', [PengabdianController::class, 'getPengabdianPanel'])->name('rk-pengabdian');
         Route::get('/penunjang', [PenunjangController::class, 'getAll'])->name('rk-penunjang');
         Route::get('/simpulan', [SimpulanController::class, 'getAll'])->name('rk-simpulan');
+        Route::post('/simpanRencana', [SimpulanController::class, 'simpanRencana'])->name('rk-simpan-rencana');
+
 
         Route::prefix('/penelitian')->group(function () {
             Route::get('/penelitian_kelompok', [PenelitianController::class, 'getPenelitianKelompok'])->name('rk-penelitian.penelitian_kelompok');
@@ -361,21 +365,42 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
         Route::get('/simpulan', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
 
-
         Route::prefix('/pendidikan')->group(function () {
+            Route::get('/', [EvaluasiDiriController::class, 'getPendidikanPanel'])->name('ed-pendidikan');
             Route::post('/upload-lampiran-pendidikan', [EvaluasiDiriController::class, 'postPendidikan'])->name('ed-add-lampiran-pendidikan');
-
             Route::post('/delete-lampiran-pendidikan', [EvaluasiDiriController::class, 'deletePendidikan'])->name('ed-delete-lampiran-pendidikan');
         });
 
-        Route::prefix('/penunjang')->group(function () {
-            Route::post('/upload-lampiran-penunjang', [EvaluasiDiriController::class, 'postPenunjang'])->name('ed-add-lampiran-penunjang');
+        Route::prefix('/penelitian')->group(function () {
+            Route::get('/', [EvaluasiDiriController::class, 'getPenelitianPanel'])->name('ed-penelitian');
+            Route::post('upload-lampiran-penelitian', [EvaluasiDiriController::class, 'postLampiran'])->name('ed-add-lampiran-penelitian');
+            Route::post('delete-lampiran-penelitian', [EvaluasiDiriController::class, 'deleteLampiranPenelitian'])->name('ed-delete-lampiran-penelitian');
+        });
 
+        Route::prefix('/penunjang')->group(function () {
+            Route::get('/', [EvaluasiDiriController::class, 'getPenunjangPanel'])->name('ed-penunjang');
+            Route::post('/upload-lampiran-penunjang', [EvaluasiDiriController::class, 'postPenunjang'])->name('ed-add-lampiran-penunjang');
             Route::post('/delete-lampiran-penunjang', [EvaluasiDiriController::class, 'deletePenunjang'])->name('ed-delete-lampiran-penunjang');
         });
 
-    });
 
+        Route::prefix('/pengabdian')->group(function () {
+            Route::get('/', [EvaluasiDiriController::class, 'getPengabdianPanel'])->name('ed-pengabdian');
+            Route::post('upload-lampiran', [EvaluasiDiriController::class, 'postLampiranPengabdian'])->name('ed-add-lampiran-pengabdian');
+            Route::post('delete-lampiran-pengabdian', [EvaluasiDiriController::class, 'deleteLampiranPengabdian'])->name('ed-delete-lampiran-pengabdian');
+        });
+
+        Route::prefix('/simpulan')->group(function () {
+            Route::get('/', [EvaluasiDiriController::class, 'getSimpulanPanel'])->name('ed-simpulan');
+            Route::get('/pendidikan', [EvaluasiDiriController::class, 'getPendidikanSimpulanPanel'])->name('ed-simpulan-pendidikan');
+            Route::get('/penelitian', [EvaluasiDiriController::class, 'getPenelitianSimpulanPanel'])->name('ed-simpulan-penelitian');
+            Route::get('/pengabdian', [EvaluasiDiriController::class, 'getPengabdianSimpulanPanel'])->name('ed-simpulan-pengabdian');
+            Route::get('/penunjang', [EvaluasiDiriController::class, 'getPenunjangSimpulanPanel'])->name('ed-simpulan-penunjang');
+        });
+
+        Route::get('/generate-simpulan-pdf', [EvaluasiDiriController::class, 'generatePdf'])->name('ed-generatePdf');
+        Route::post('/simpan-evaluasi-pdf', [EvaluasiDiriController::class, 'simpanEvaluasi'])->name('ed-simpan-evaluasi');
+    });
 
     Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
 
@@ -388,14 +413,30 @@ Route::group(['middleware' => ['check.token']], function () {
         Route::get('/Evaluasi-Diri-Asesor-penunjang/{id}', [AsesorController::class, 'getEvaluasiPenunjang'])->name('ed-asesor-detail-penunjang');
         Route::post('/review-evaluasi-diri', [AsesorController::class, 'reviewEvaluasi'])->name('ed-asesor-review-evaluasi');
         Route::get('/simpulan-asesor', [AsesorController::class, 'simpulanAsesor'])->name('ed-simpulan-asesor');
-        
+        Route::get('/Rekap-Kegiatan', [AsesorController::class, 'getRencanaKegiatan'])->name('rk-asesor');
+        Route::get('/Rekap-Kegiatan-Setuju', [AsesorController::class, 'getRencanaKegiatanSetuju'])->name('rk-asesor-setuju');
+        Route::get('/Rekap-Kegiatan-Asesor-pendidikan/{id}', [AsesorController::class, 'getRencanaPendidikan'])->name('rk-asesor-detail-pendidikan');
+        Route::get('/Rekap-Kegiatan-Asesor-penelitian/{id}', [AsesorController::class, 'getRencanaPenelitian'])->name('rk-asesor-detail-penelitian');
+        Route::get('/Rekap-Kegiatan-Asesor-pengabdian/{id}', [AsesorController::class, 'getRencanaPengabdian'])->name('rk-asesor-detail-pengabdian');
+        Route::get('/Rekap-Kegiatan-Asesor-penunjang/{id}', [AsesorController::class, 'getRencanaPenunjang'])->name('rk-asesor-detail-penunjang');
+        Route::post('/review-rencana-kerja', [AsesorController::class, 'reviewRencana'])->name('rk-asesor-review-rencana');
+
         Route::prefix('/LihatKerja')->group(function () {
-            Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaranAdmin'])->name('lk-tahunAjaranAsesor');
-            Route::get('/ViewDosen', [AsesorController::class, 'getViewDosenAdmin'])->name('lk-viewDosenAsesor');
-            Route::get('/ViewDetail', [AsesorController::class, 'getViewDetailAdmin'])->name('lk-viewDetailAsesor');
+            Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaranAsesor'])->name('lk-tahunAjaranAsesor');
+            Route::get('/ViewDosen', [AsesorController::class, 'getViewDosenAsesor'])->name('lk-viewDosenAsesor');
+            Route::get('/ViewDetail', [AsesorController::class, 'getViewDetailAsesor'])->name('lk-viewDetailAsesor');
+        });
+
+        Route::prefix('/Asesor/Evaluasi')->group(function () {
+            Route::get('/Rekap-Kegiatan', [AsesorEvaluasiController::class, 'getEvaluasiKegiatan'])->name('ed-asesor');
+            Route::get('/Rekap-Kegiatan-Setuju', [AsesorEvaluasiController::class, 'getEvaluasiKegiatanSetuju'])->name('ed-asesor-setuju');
+            Route::get('/Rekap-Kegiatan-Asesor-pendidikan/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPendidikan'])->name('ed-asesor-detail-pendidikan');
+            Route::get('/Rekap-Kegiatan-Asesor-penelitian/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPenelitian'])->name('ed-asesor-detail-penelitian');
+            Route::get('/Rekap-Kegiatan-Asesor-pengabdian/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPengabdian'])->name('ed-asesor-detail-pengabdian');
+            Route::get('/Rekap-Kegiatan-Asesor-penunjang/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPenunjang'])->name('ed-asesor-detail-penunjang');
+            Route::post('/review-evaluasi-kerja', [AsesorEvaluasiController::class, 'reviewEvaluasi'])->name('ed-asesor-review-evaluasi');
         });
 
         Route::get('/RekapKerja', [AsesorController::class,'getRekapKerja'])->name('ed-riwayatKerjaSaya');
     });
-
 });

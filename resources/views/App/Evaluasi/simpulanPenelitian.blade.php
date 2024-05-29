@@ -3,7 +3,7 @@
 @section('content-FEDsimpulanpenelitian')
 
     {{-- TAMPILAN BAGIAN SIMPULAN PENELITIAN --}}
-    
+
     <div id="simpulan-card" class="card border-primary mt-5 ml-1 mr-1">
     <div class="card-header bg-primary">
         <h6 style="color: white"><b>Lampiran Pelaksanaan Penelitian</b></h6>
@@ -13,7 +13,7 @@
 
     <div class="card-body">
         <div class="text-sm">
-            
+
         <div id="simpulan-card" class="card border mt-5 ml-1 mr-1">
         <div class="card-header">
         <h6><b>A. Keterlibatan dalam 1 judul penelitian atau pembuatan karya seni atau teknologi yang dilakukan oleh kelompok (disetujui oleh pimpinan dan tercapai)</b></h6>
@@ -39,51 +39,51 @@
                         <td scope="row" >2</td>
                         <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-    
+
                     </tr>
 
                     <tr>
                         <td scope="row" >3</td>
                         <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-    
+
                     </tr>
 
                     <tr>
                         <td scope="row" >4</td>
                         <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-    
+
                     </tr>
 
                     <tr>
                         <td scope="row" >5</td>
                         <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-    
+
                     </tr>
 
                     <tr>
                         <td scope="row" >6</td>
                         <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-    
+
                     </tr>
 
                     <tr>
                         <td scope="row" >7</td>
                         <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-    
+
                     </tr>
 
                     <tr>
                         <td scope="row" >8</td>
                         <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-    
+
                     </tr>
-                    
+
                 <tbody>
             </table>
     </div>
@@ -119,14 +119,14 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
                     <tbody>
                 </table>
@@ -163,14 +163,14 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
                     <tbody>
                 </table>
@@ -207,14 +207,14 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
                     <tbody>
                 </table>
@@ -250,22 +250,22 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
-                        
+
                     <tbody>
                 </table>
     </div>
     {{-- AKHIR BAGIAN E --}}
 
-    
+
     {{--BAGIAN F --}}
     </div>
         </div>
@@ -296,15 +296,15 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
-                        </tr>   
+
+                        </tr>
                     <tbody>
                 </table>
     </div>
@@ -339,16 +339,16 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
-                        
+
                     <tbody>
                 </table>
     </div>
@@ -372,7 +372,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody class="align-middle">
                         <tr>
                             <td scope="row">1</td>
@@ -384,16 +384,16 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
-                        
+
                     <tbody>
                 </table>
     </div>
@@ -428,14 +428,14 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
                     <tbody>
                 </table>
@@ -471,16 +471,16 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
-                        
+
                     <tbody>
                 </table>
     </div>
@@ -515,16 +515,16 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
-                        
+
                     <tbody>
                 </table>
     </div>
@@ -560,14 +560,14 @@
                         <td scope="row" >2</td>
                         <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-    
+
                     </tr>
 
                     <tr>
                         <td scope="row" >3</td>
                         <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                         <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-    
+
                     </tr>
                     <tbody>
                 </table>
@@ -603,16 +603,16 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
-                        
+
                     <tbody>
                 </table>
     </div>
@@ -636,7 +636,7 @@
                             <th scope="col" rowspan="2" class="align-middle fw-bold col-4 " >Bukti Kegiatan</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody class="align-middle">
                     <tr>
                             <td scope="row">1</td>
@@ -648,16 +648,16 @@
                             <td scope="row" >2</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#lihat">Download Lampiran</button></td>
-        
+
                         </tr>
 
                         <tr>
                             <td scope="row" >3</td>
                             <td style="text-align: left;">Lorem ipsum dolor sit amet consectetur. Semper gravida purus magna pellentesque mauris elit arcu pharetra. </td>
                             <td><button class="btn btn-primary btn-sm" href="#" data-bs-target="#liha">Download Lampiran</button></td>
-        
+
                         </tr>
-                        
+
                     <tbody>
                 </table>
     </div>
@@ -671,7 +671,7 @@
         </div>
       </div>
     </div>
-        
+
     <div style="margin-top: 20px; "></div>
 
     <div class="row">
@@ -682,9 +682,9 @@
         <div class="col-md-6 text-md-end">
         <button class="btn btn-secondary mt-3 justify-content-end mr-1"><i class="fas fa-arrow-left"></i> Kembali</button>
         </div>
-      
+
     </div>
- 
+
 
     <div style="margin-top: 20px; "></div>
         </div>

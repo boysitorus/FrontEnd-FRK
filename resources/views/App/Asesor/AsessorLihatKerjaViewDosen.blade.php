@@ -1,4 +1,4 @@
-@extends('Template.admin')
+@extends($isHumanResources ? 'Template.admin' : 'Template.app')
 
 @section('content')
     <div class = "mt-5 flex-wrap ml-4 mr-4 ">
@@ -41,8 +41,13 @@
                                 <td>12AS3456</td>
                                 <td>S1 Informatika 2021</td>
                                 <td>
+                                    @if($isHumanResources)
                                     <a type="button" href="{{route('lk-viewDetail')}}" class="btn btn-primary">View
                                         Detail</a>
+                                    @else
+                                    <a type="button" href="{{route('lk-viewDetailAsesor')}}" class="btn btn-primary">View
+                                        Detail</a>
+                                    @endif
                                 </td>
                             </tr>
                         </tbody>
