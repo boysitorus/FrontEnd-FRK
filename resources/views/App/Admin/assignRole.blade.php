@@ -86,6 +86,7 @@
                                                         </ul>
                                                     </div>
                                                 </div>
+
                                                 <div id="errorToast" class="toast bg-danger-subtle" role="alert"
                                                      aria-live="assertive" aria-atomic="true">
                                                     <div class="toast-body">
