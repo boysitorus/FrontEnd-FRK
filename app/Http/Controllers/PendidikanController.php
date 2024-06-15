@@ -61,9 +61,10 @@ class PendidikanController extends Controller
 
             $listIdAssesor = [];
 
+            $periodeSemester = ($getTanggal['semester'] == "Genap") ? '2' : '1';
             $responseMataKuliah = json_decode(
                 Http::withToken($auth->user->token)->get(
-                    env('API_CIS') . '/library-api/matkul-by-prodi-sem-ta?prodi_id='.$auth->user->data_lengkap->dosen->prodi_id.'&sem_ta=2&ta=2020'
+                    env('API_CIS') . '/library-api/matkul-by-prodi-sem-ta?prodi_id='.$auth->user->data_lengkap->dosen->prodi_id.'&sem_ta='. $periodeSemester .'&ta=2020'
                 )->body(),
             true);
 
