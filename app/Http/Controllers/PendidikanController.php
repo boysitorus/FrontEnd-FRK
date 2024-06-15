@@ -61,6 +61,11 @@ class PendidikanController extends Controller
 
             $listIdAssesor = [];
 
+            $responseMataKuliah = json_decode(
+                Http::withToken($auth->user->token)->get(
+                    env('API_CIS') . '/library-api/matkul-by-prodi-sem-ta?prodi_id='.$auth->user->data_lengkap->dosen->prodi_id.'&sem_ta=2&ta=2020'
+                )->body(),
+            true);
 
             foreach ($responseAsesor['data'] as $e) {
                 $listIdAssesor[] = $e['id_pegawai'];
@@ -82,7 +87,8 @@ class PendidikanController extends Controller
                 'auth' => $auth,
                 'id_dosen' => $id_dosen,
                 'periode' => $getTanggal,
-                'idAsesor' => $listIdAssesor
+                'idAsesor' => $listIdAssesor,
+                'mataKuliah' => $responseMataKuliah['data'],
             ];
 
 //            dd($data);
