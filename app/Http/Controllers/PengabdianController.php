@@ -70,9 +70,14 @@ class PengabdianController extends Controller
 
     public function postKegiatan(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') .'/pengabdian/kegiatan',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_durasi' => $request->get('jumlah_durasi'),
@@ -127,9 +132,14 @@ class PengabdianController extends Controller
 
     public function postPenyuluhan(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') .'/pengabdian/penyuluhan',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_durasi' => $request->get('jumlah_durasi'),
@@ -183,9 +193,14 @@ class PengabdianController extends Controller
 
     public function postKonsultan(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') .'/pengabdian/konsultan',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'posisi' => $request->get('posisi'),
@@ -240,9 +255,14 @@ class PengabdianController extends Controller
 
     public function postKarya(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') .'/pengabdian/karya',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jenis_terbit' => $request->get('jenis_terbit'),

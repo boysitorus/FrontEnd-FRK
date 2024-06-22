@@ -14,10 +14,10 @@ class PendidikanController extends Controller
 
         $getTanggal = json_decode(json_encode(Tools::getPeriod($auth->user->token, "FRK")), true)['data'];
 
-        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai),true)['user_id'];
+        $id_dosen = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
 
         try {
-            $responseAll = Http::get(env('API_FRK_SERVICE'). '/pendidikan/all/' . $id_dosen);
+            $responseAll = Http::get(env('API_FRK_SERVICE') . '/pendidikan/all/' . $id_dosen);
             $all = $responseAll->json();
 
             // Mengambil data teori dari Lumen
@@ -64,9 +64,10 @@ class PendidikanController extends Controller
             $periodeSemester = ($getTanggal['semester'] == "Genap") ? '2' : '1';
             $responseMataKuliah = json_decode(
                 Http::withToken($auth->user->token)->get(
-                    env('API_CIS') . '/library-api/matkul-by-prodi-sem-ta?prodi_id='.$auth->user->data_lengkap->dosen->prodi_id.'&sem_ta='. $periodeSemester .'&ta=2020'
+                    env('API_CIS') . '/library-api/matkul-by-prodi-sem-ta?prodi_id=' . $auth->user->data_lengkap->dosen->prodi_id . '&sem_ta=' . $periodeSemester . '&ta=2020'
                 )->body(),
-            true);
+                true
+            );
 
             foreach ($responseAsesor['data'] as $e) {
                 $listIdAssesor[] = $e['id_pegawai'];
@@ -92,7 +93,7 @@ class PendidikanController extends Controller
                 'mataKuliah' => $responseMataKuliah['data'],
             ];
 
-//            dd($data);
+            //            dd($data);
             // Mengirim sdata ke view
             return view('App.Rencana.pendidikan', $data);
         } catch (\Throwable $th) {
@@ -103,34 +104,40 @@ class PendidikanController extends Controller
 
     public function postTeori(Request $request)
     {
-            Http::post(
-                env('API_FRK_SERVICE') . '/pendidikan/teori',
-                [
-                    'id_dosen' => $request->get('id_dosen'),
-                    'nama_kegiatan' => $request->get('nama_kegiatan'),
-                    'jumlah_kelas' => $request->get('jumlah_kelas'),
-                    'jumlah_evaluasi' => $request->get('jumlah_evaluasi'),
-                    'sks_matakuliah' => $request->get('sks_matakuliah'),
-                ]
-            );
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
+        // dd($id_fed['data']['id']);
+        Http::post(
+            env('API_FRK_SERVICE') . '/pendidikan/teori',
+            [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_kelas' => $request->get('jumlah_kelas'),
+                'jumlah_evaluasi' => $request->get('jumlah_evaluasi'),
+                'sks_matakuliah' => $request->get('sks_matakuliah'),
+            ]
+        );
 
-            return redirect()->back()->with('success', 'Pendidikan teori added successfully');
+        return redirect()->back()->with('success', 'Pendidikan teori added successfully');
     }
 
     public function editTeori(Request $request)
     {
-            Http::post(
-                env('API_FRK_SERVICE') . '/pendidikan/edit/teori',
-                [
-                    'id_rencana' => $request->get('id_rencana'),
-                    'nama_kegiatan' => $request->get('nama_kegiatan'),
-                    'jumlah_kelas' => $request->get('jumlah_kelas'),
-                    'jumlah_evaluasi' => $request->get('jumlah_evaluasi'),
-                    'sks_matakuliah' => $request->get('sks_matakuliah'),
-                ]
-            );
+        Http::post(
+            env('API_FRK_SERVICE') . '/pendidikan/edit/teori',
+            [
+                'id_rencana' => $request->get('id_rencana'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_kelas' => $request->get('jumlah_kelas'),
+                'jumlah_evaluasi' => $request->get('jumlah_evaluasi'),
+                'sks_matakuliah' => $request->get('sks_matakuliah'),
+            ]
+        );
 
-            return redirect()->back()->with('success', 'Item updated successfully');
+        return redirect()->back()->with('success', 'Item updated successfully');
     }
 
     public function deleteTeori($id)
@@ -144,9 +151,19 @@ class PendidikanController extends Controller
 
     public function postPraktikum(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/pendidikan/praktikum',
-            $request->all()
+            [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
+                'id_dosen' => $request->get('id_dosen'),
+                'nama_kegiatan' => $request->get('nama_kegiatan'),
+                'jumlah_kelas' => $request->get('jumlah_kelas'),
+                'sks_matakuliah' => $request->get('sks_matakuliah')
+            ]
         );
 
         return redirect()->back()->with('success', 'Pendidikan praktikum added successfully');
@@ -179,9 +196,14 @@ class PendidikanController extends Controller
 
     public function postBimbingan(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/pendidikan/bimbingan',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
@@ -214,9 +236,14 @@ class PendidikanController extends Controller
 
     public function postSeminar(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/pendidikan/seminar',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_kelompok' => $request->get('jumlah_kelompok'),
@@ -250,9 +277,14 @@ class PendidikanController extends Controller
 
     public function postRendah(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/pendidikan/rendah',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_dosen' => $request->get('jumlah_dosen'),
@@ -285,9 +317,14 @@ class PendidikanController extends Controller
     }
     public function postKembang(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/pendidikan/kembang',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_sap' => $request->get('jumlah_sap'),
@@ -321,9 +358,14 @@ class PendidikanController extends Controller
 
     public function postCangkok(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/pendidikan/cangkok',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_dosen' => $request->get('jumlah_dosen'),
@@ -370,9 +412,14 @@ class PendidikanController extends Controller
 
     public function postKoordinator(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/pendidikan/koordinator',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan')
             ]
@@ -405,9 +452,14 @@ class PendidikanController extends Controller
 
     public function postTugasAkhir(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/pendidikan/tugasAkhir',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_kelompok' => $request->get('jumlah_kelompok'),
@@ -439,9 +491,14 @@ class PendidikanController extends Controller
 
     public function postProposal(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/pendidikan/proposal',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
@@ -470,6 +527,4 @@ class PendidikanController extends Controller
         Http::delete(env('API_FRK_SERVICE') . "/pendidikan/proposal/{$id}");
         return redirect()->back()->with('success', 'Item deleted');
     }
-
-
 }

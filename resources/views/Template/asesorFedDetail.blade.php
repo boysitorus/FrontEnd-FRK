@@ -55,6 +55,12 @@
                         href="{{ route('ed-asesor-detail-penunjang', ['id' => $id]) }} "
                         ><b>Tunjangan Lainnya</b></a>
                     </li>
+                    <li class="nav-item nav-item-150 bg-abu-nav">
+                        <a class="nav-link
+                        {{ Str::startsWith(request()->path(), 'Asesor/Evaluasi/Rekap-Kegiatan-Asesor-simpulan') ? 'active' : '' }}"
+                        href="{{ route('ed-asesor-detail-simpulan', ['id' => $id]) }} "
+                        ><b>Simpulan</b></a>
+                    </li>
                 </ul>
             </div>
 

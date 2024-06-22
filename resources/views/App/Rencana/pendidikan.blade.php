@@ -1869,10 +1869,10 @@
                         <div class="mb-3">
                             <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
 
-                            <select id="pend_nama_kegiatan_A" class="form-control" id="nama_kegiatan">
+                            <select id="pend_nama_kegiatan_A" class="form-control" id="nama_kegiatan" name="nama_kegiatan">
                                 <option value="null">-- Pilih Mata Kuliah --</option>
                                 @foreach($mataKuliah as $matkul)
-                                    <option value="{{ $matkul['kode_mk'] }}" data-sks="{{ $matkul['sks'] }}">{{ $matkul['kode_mk'] }} - {{ $matkul['nama_matkul'] }}</option>
+                                    <option value="{{ $matkul['kode_mk'] }} - {{ $matkul['nama_matkul'] }}" data-sks="{{ $matkul['sks'] }}">{{ $matkul['kode_mk'] }} - {{ $matkul['nama_matkul'] }}</option>
                                 @endforeach
                             </select>
 
@@ -1892,7 +1892,7 @@
                         <div class="mb-3">
                             <label for="sks_matakuliah" class="form-label">SKS Mata Kuliah</label>
                             <input id="pend_sks_A" type="number" class="form-control" name="sks_matakuliah"
-                                   required min="1" step="any" disabled>
+                                   required min="1" step="any" readonly>
 
                         </div>
                     </div>

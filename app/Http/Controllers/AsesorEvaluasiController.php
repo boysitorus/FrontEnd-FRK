@@ -200,6 +200,44 @@ class AsesorEvaluasiController extends Controller
         }
     }
 
+    public function getEvaluasiSimpulan(Request $request, $id)
+    {
+        $auth = Tools::getAuth($request);
+        $id_pegawai = json_decode(json_encode($auth->user->data_lengkap->pegawai), true)['user_id'];
+        $token = json_decode(json_encode($auth->user), true)['token'];
+        $dataDosen = $this->getDosen($id, $token);
+
+        try {
+            $dataSks = Http::get(env('API_FED_SERVICE') . '/simpulan/' . $id);
+
+            $totalSksPendidikan = $dataSks["sks_pendidikan"];
+            $totalSksPenelitian = $dataSks["sks_penelitian"];
+            $totalSksPengabdian = $dataSks["sks_pengabdian"];
+            $totalSksPenunjang = $dataSks["sks_penunjang"];
+            $totalSks = $dataSks["sks_total"];
+
+            return view(
+                'App.AsesorEvaluasi.simpulanAsesor',
+                [
+                    // 'nidn_dosen' => $nidn_dosen,
+                    // 'nama_dosen' => $nama_dosen,
+                    // 'role_dosen' => $role_dosen,
+                    'pendidikanSks' => $totalSksPendidikan,
+                    'penelitianSks' => $totalSksPenelitian,
+                    'pengabdianSks' => $totalSksPengabdian,
+                    'penunjangSks' => $totalSksPenunjang,
+                    'totalSks' => $totalSks,
+                    'auth' => $auth,
+                    'id' => $id,
+                    'dataDosen' => $dataDosen,
+                ]
+            );
+        } catch (\Throwable $th) {
+            // Tangani error jika terjadi
+            return response()->json(['error' => 'Failed to retrieve data from API'], 500);
+        }
+    }
+
     public function reviewEvaluasi(Request $request)
     {
         $auth = Tools::getAuth($request);

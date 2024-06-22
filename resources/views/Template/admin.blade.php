@@ -21,14 +21,17 @@
         table.outer-border-only-table {
             border-collapse: separate;
             border-spacing: 0;
-            border: 1px solid black; /* Adjust the border style as needed */
+            border: 1px solid black;
+            /* Adjust the border style as needed */
         }
+
         table.outer-border-only-table th,
         table.outer-border-only-table td {
             border-left: none;
             border-right: none;
             border-top: none;
         }
+
         table.outer-border-only-table thead th,
         table.outer-border-only-table tbody tr:last-child td {
             border-bottom: 1px solid black;
@@ -52,14 +55,16 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('profile')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('profile') ? 'active' : '' }}">
+                            <a href="{{ route('profile') }}"
+                                class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('profile') ? 'active' : '' }}">
                                 <i class="bi bi-person-fill me-1"></i>
                                 <span>Profile</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.assign-role')}}" class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('admin.assign-role') ? 'active' : '' }}">
-                            <i class="bi bi-person-fill-check me-2"></i>
+                            <a href="{{ route('admin.assign-role') }}"
+                                class="list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('admin.assign-role') ? 'active' : '' }}">
+                                <i class="bi bi-person-fill-check me-2"></i>
                                 <span>Assign Role</span>
                             </a>
                         </li>
@@ -67,7 +72,7 @@
                         <li>
                             <a type="button"
                                 class="btn-toggle list-group-item bg-abu list-group-item-action py-2 ripple collapsed
-                                d-flex justify-content-between align-items-center {{ request()->routeIs('admin.generate_frk') || request()->routeIs('admin.generate_fed')  ? 'active' : '' }}"
+                                d-flex justify-content-between align-items-center {{ request()->routeIs('admin.generate_frk') || request()->routeIs('admin.generate_fed') ? 'active' : '' }}"
                                 data-bs-toggle="collapse" data-bs-target="#frk-collapse" aria-expanded="false">
                                 <i class="bi bi-calendar-check me-2"></i>
                                 <div class="me-auto"><span>Generate Tanggal</span></div>
@@ -76,14 +81,14 @@
                             <div class="collapse" id="frk-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
-                                        <a href="{{route('admin.generate_frk')}}"
+                                        <a href="{{ route('admin.generate_frk') }}"
                                             class="text-decoration-none sub-menu list-group-item-action py-2 ripple {{ request()->routeIs('admin.generate_frk') ? 'active' : '' }}">
                                             FRK
                                         </a>
                                     </li>
 
                                     <li style="margin-top : 4px">
-                                        <a href="{{route('admin.generate_fed')}}"
+                                        <a href="{{ route('admin.generate_fed') }}"
                                             class="text-decoration-none sub-menu list-group-item-action py-2 ripple {{ request()->routeIs('admin.generate_fed') ? 'active' : '' }}">
                                             FED
                                         </a>
@@ -93,10 +98,12 @@
                         </li>
 
                         <li>
-                            <a href="{{route('lk-tahunAjaranAdmin')}}" class="
+                            <a href="{{ route('lk-tahunAjaranAdmin') }}"
+                                class="
                                 {{ Str::startsWith(request()->path(), 'admin/LihatKerja/') ? 'active' : '' }}
                                 list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaranAdmin') ? 'active' : '' }}>
-                                <i class="bi bi-eye me-2"></i>
+                                <i class="bi
+                                bi-eye me-2"></i>
                                 <span>Lihat Kerja</span>
                             </a>
                         </li>
@@ -111,9 +118,8 @@
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                    data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
 
@@ -130,9 +136,10 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                     <div class="ms-auto d-flex align-items-center justify-content-start">
+                    <div class="ms-auto d-flex align-items-center justify-content-start">
                         <img class="d-inline" src="{{ asset('assets/icon/Logout.svg') }}" alt="">
-                        <a class="text-reset me-3 text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        <a class="text-reset me-3 text-decoration-none" href="" data-bs-toggle="modal"
+                            data-bs-target="#logoutModal">
                             <h5 class="ms-2 pt-2 " style="font-weight: 700;">Keluar</h5>
                         </a>
                     </div>
@@ -160,10 +167,12 @@
                     </div>
                     <div class="justify-content-center mt-3 mb-5">
                         <div>
-                            <a href="{{ route('logout.get') }}" class="fw-bolder"  style="text-decoration: none; color: red;">Ya, Saya Yakin</a>
+                            <a href="{{ route('logout.get') }}" class="fw-bolder"
+                                style="text-decoration: none; color: red;">Ya, Saya Yakin</a>
                         </div>
                         <div class="mt-2">
-                            <a  class="fw-bolder" href="" data-bs-dismiss="modal" style="text-decoration: none; color: grey;">Tidak, Saya ingin kembali</a>
+                            <a class="fw-bolder" href="" data-bs-dismiss="modal"
+                                style="text-decoration: none; color: grey;">Tidak, Saya ingin kembali</a>
                         </div>
                     </div>
                 </div>
@@ -181,13 +190,17 @@
             $('#sidebarCollapse').on('click', function() {
                 $('#sidebarMenu').toggleClass('active');
                 $('#contentPage').toggleClass('active');
+                $('li > div.collapse').removeClass('show');
             });
+            $('.btn-toggle').on('click', function() {
+                $('#sidebarMenu').removeClass('active');
+                $('#contentPage').removeClass('active');
+            })
 
         });
     </script>
 
-    <script src="{{ asset('assets/bootstrap-5.3.3-dist/js/bootstrap.min.js') }}">
-    </script>
+    <script src="{{ asset('assets/bootstrap-5.3.3-dist/js/bootstrap.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>

@@ -101,9 +101,14 @@ class PenunjangController extends Controller
 
     public function postAkademik(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/akademik',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
@@ -133,9 +138,14 @@ class PenunjangController extends Controller
     // B. Bimbingan
     public function postBimbingan(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/bimbingan',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_mahasiswa' => $request->get('jumlah_mahasiswa'),
@@ -166,9 +176,14 @@ class PenunjangController extends Controller
     // C. Pimpinan Pembinaan Unit kegiatan mahasiswa
     public function postUkm(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/ukm',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_kegiatan' => $request->get('jumlah_kegiatan'),
@@ -201,9 +216,14 @@ class PenunjangController extends Controller
 
     public function postSosial(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/sosial',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
             ]
@@ -235,9 +255,14 @@ class PenunjangController extends Controller
     // BAGIAN E. Jabatan struktural (berdasarkan beban/semester)
     public function postStruktural(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/struktural',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jenis_jabatan_struktural' => $request->get('jenis_jabatan_struktural'),
@@ -270,9 +295,14 @@ class PenunjangController extends Controller
     // BAGIAN F. Jabatan non struktural
     public function postNonstruktural(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/nonstruktural',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jenis_jabatan_nonstruktural' => $request->get('jenis_jabatan_nonstruktural'),
@@ -305,9 +335,14 @@ class PenunjangController extends Controller
     // BAGIAN G. Redaksi
     public function postRedaksi(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/redaksi',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jabatan' => $request->get('jabatan'),
@@ -340,9 +375,14 @@ class PenunjangController extends Controller
     // BAGIAN G. Ad Hoc
     public function postAdhoc(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/adhoc',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jabatan' => $request->get('jabatan'),
@@ -375,9 +415,14 @@ class PenunjangController extends Controller
     // BAGIAN I
     public function postKetuaPanitia(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/ketuapanitia',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jenis_tingkatan' => $request->get('jenis_tingkatan'),
@@ -410,9 +455,14 @@ class PenunjangController extends Controller
     // BAGIAN J
     public function postAnggotaPanitia(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/anggotapanitia',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jenis_tingkatan' => $request->get('jenis_tingkatan'),
@@ -445,9 +495,14 @@ class PenunjangController extends Controller
     // BAGIAN I
     public function postPengurusYayasan(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/pengurusyayasan',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jabatan' => $request->get('jabatan'),
@@ -480,9 +535,14 @@ class PenunjangController extends Controller
     // BAGIAN L. Menjadi Pengurus/Anggota Asosiasi Profesi
     public function postAsosiasi(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/asosiasi',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jabatan' => $request->get('jabatan'),
@@ -517,9 +577,14 @@ class PenunjangController extends Controller
     // BAGIAN M. Peserta seminar/workshop/kursus berdasar penugasan pimpinan
     public function postSeminar(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/seminar',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jenis_tingkatan' => $request->get('jenis_tingkatan'),
@@ -552,9 +617,14 @@ class PenunjangController extends Controller
     // BAGIAN N. Reviewer jurnal ilmiah , proposal Hibah dll
     public function postReviewer(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penunjang/reviewer',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
             ]

@@ -129,9 +129,14 @@ class PenelitianController extends Controller
 
     public function postPenelitianKelompok(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/penelitian_kelompok',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'status_tahapan' => $request->get('status_tahapan'),
@@ -191,9 +196,14 @@ class PenelitianController extends Controller
 
     public function postPenelitianMandiri(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/penelitian_mandiri',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'status_tahapan' => $request->get('status_tahapan')
@@ -248,9 +258,14 @@ class PenelitianController extends Controller
 
     public function postBukuTerbit(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/buku_terbit',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'status_tahapan' => $request->get('status_tahapan'),
@@ -308,9 +323,14 @@ class PenelitianController extends Controller
 
     public function postBukuInternasional(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/buku_internasional',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'status_tahapan' => $request->get('status_tahapan'),
@@ -368,9 +388,14 @@ class PenelitianController extends Controller
 
     public function postMenyadur(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/menyadur',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'status_tahapan' => $request->get('status_tahapan'),
@@ -426,9 +451,14 @@ class PenelitianController extends Controller
 
     public function postMenyunting(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/menyunting',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'status_tahapan' => $request->get('status_tahapan'),
@@ -484,9 +514,14 @@ class PenelitianController extends Controller
 
     public function postPenelitianModul(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/penelitian_modul',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'status_tahapan' => $request->get('status_tahapan'),
@@ -544,9 +579,14 @@ class PenelitianController extends Controller
 
     public function postPenelitianPekerti(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/penelitian_pekerti',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
             ]
@@ -599,9 +639,14 @@ class PenelitianController extends Controller
 
     public function postPenelitianTridharma(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/penelitian_tridharma',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'jumlah_bkd' => $request->get('jumlah_bkd'),
@@ -665,10 +710,14 @@ class PenelitianController extends Controller
                 'peran' => 'required',
             ]
         );
-
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/jurnal_ilmiah',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'lingkup_penerbit' => $request->get('lingkup_penerbit'),
@@ -727,9 +776,14 @@ class PenelitianController extends Controller
 
     public function postHakPaten(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . "/penelitian/hak_paten",
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'lingkup_wilayah' => $request->get('lingkup_wilayah'),
@@ -785,9 +839,14 @@ class PenelitianController extends Controller
 
     public function postMediaMassa(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . "/penelitian/media_massa",
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
             ]
@@ -837,9 +896,14 @@ class PenelitianController extends Controller
 
     public function postPembicaraSeminar(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/pembicara_seminar',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'tingkatan' => $request->get('tingkatan'),
@@ -893,9 +957,14 @@ class PenelitianController extends Controller
 
     public function postPenyajianMakalah(Request $request)
     {
+        $token = Tools::getToken($request);
+        $id_frk = Tools::getPeriod($token, "FRK");
+        $id_fed = Tools::getPeriod($token, "FED");
         Http::post(
             env('API_FRK_SERVICE') . '/penelitian/penyajian_makalah',
             [
+                'id_frk' => $id_frk['data']['id'],
+                'id_fed' => $id_fed['data']['id'],
                 'id_dosen' => $request->get('id_dosen'),
                 'nama_kegiatan' => $request->get('nama_kegiatan'),
                 'tingkatan' => $request->get('tingkatan'),

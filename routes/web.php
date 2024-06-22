@@ -424,6 +424,7 @@ Route::group(['middleware' => ['check.token']], function () {
             Route::get('/Rekap-Kegiatan-Asesor-penelitian/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPenelitian'])->name('ed-asesor-detail-penelitian');
             Route::get('/Rekap-Kegiatan-Asesor-pengabdian/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPengabdian'])->name('ed-asesor-detail-pengabdian');
             Route::get('/Rekap-Kegiatan-Asesor-penunjang/{id}', [AsesorEvaluasiController::class, 'getEvaluasiPenunjang'])->name('ed-asesor-detail-penunjang');
+            Route::get('/Rekap-Kegiatan-Asesor-simpulan/{id}', [AsesorEvaluasiController::class, 'getEvaluasiSimpulan'])->name('ed-asesor-detail-simpulan');
             Route::post('/review-evaluasi-kerja', [AsesorEvaluasiController::class, 'reviewEvaluasi'])->name('ed-asesor-review-evaluasi');
         });
 
