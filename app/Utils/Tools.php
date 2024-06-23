@@ -74,6 +74,24 @@ class   Tools
         return $requestDataTanggal;
     }
 
+    public static function getListTahunAjaran($token)
+    {
+        $requestListTahunAjaran = json_decode(Http::withToken($token)->get(env('API_ADMIN_SERVICE') . 'get-list-tahun-ajaran'), true);
+
+        return $requestListTahunAjaran;
+    }
+
+    public static function getDataTahunAjaran($token, $id)
+    {
+        $requestDataTanggal = json_decode(Http::withToken($token)->get(env('API_ADMIN_SERVICE') . 'get-data-tanggal/' . $id), true);
+        return $requestDataTanggal;
+    }
+
+    public static function getListDosenByIdTahunAjaran($token, $id){
+        $requestListDosen = json_decode(Http::withToken($token)->get(env('API_ADMIN_SERVICE') . 'get-list-dosen/' . $id), true);
+        return $requestListDosen;
+    }
+
     public static function checkPeriodFRK($token)
     {
 

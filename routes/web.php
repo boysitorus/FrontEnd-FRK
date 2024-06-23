@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\RiwayatKerjaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RencanaKerjaController;
@@ -14,7 +15,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AsesorController;
 use App\Http\Controllers\ListKerjaController;
 use App\Http\Controllers\AsesorEvaluasiController;
-
+use App\Http\Controllers\LihatKerjaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,11 +49,11 @@ Route::middleware('check.token', 'check.roles:Staf Human Resources')->group(func
         Route::get('/tahunAjaran', [AdminController::class, 'getTahunAjaran'])->name('admin.tahunAjaran.post');
         Route::post('/tahunAjaran', [AdminController::class, 'postTahunAjaran'])->name('admin.tahunAjaran.post');
 
-        Route::prefix('/LihatKerja')->group(function () {
-            Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaranAdmin'])->name('lk-tahunAjaranAdmin');
-            Route::get('/ViewDosen', [AsesorController::class, 'getViewDosenAdmin'])->name('lk-viewDosen');
-            Route::get('/ViewDetail', [AsesorController::class, 'getViewDetailAdmin'])->name('lk-viewDetail');
-        });
+        // Route::prefix('/LihatKerja')->group(function () {
+        //     Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaranAdmin'])->name('lk-tahunAjaranAdmin');
+        //     Route::get('/ViewDosen', [AsesorController::class, 'getViewDosenAdmin'])->name('lk-viewDosen');
+        //     Route::get('/ViewDetail', [AsesorController::class, 'getViewDetailAdmin'])->name('lk-viewDetail');
+        // });
 
         Route::get('/RekapKerja', [AsesorController::class, 'getRekapKerja'])->name('ed-riwayatKerjaSaya');
     });
@@ -400,6 +401,25 @@ Route::group(['middleware' => ['check.token']], function () {
 
     Route::get('/generate-simpulan-pdf', [SimpulanController::class, 'generatePdf'])->name('rk-generatePdf');
 
+    Route::prefix('/riwayat-kerja')->group(function () {
+        Route::get('/list-tahun', [RiwayatKerjaController::class, 'getTahunAjaran'])->name('list-tahun-riwayat-kerja-saya');
+        Route::get('/list-tahun/detail-pendidikan/{id_ta}', [RiwayatKerjaController::class, 'getDetailPendidikan'])->name('detail-pendidikan-riwayat-kerja-saya');
+        Route::get('/list-tahun/detail-penelitian/{id_ta}', [RiwayatKerjaController::class, 'getDetailPenelitian'])->name('detail-penelitian-riwayat-kerja-saya');
+        Route::get('/list-tahun/detail-pengabdian/{id_ta}', [RiwayatKerjaController::class, 'getDetailPengabdian'])->name('detail-pengabdian-riwayat-kerja-saya');
+        Route::get('/list-tahun/detail-penunjang/{id_ta}', [RiwayatKerjaController::class, 'getDetailPenunjang'])->name('detail-penunjang-riwayat-kerja-saya');
+        Route::get('/list-tahun/detail-simpulan/{id_ta}', [RiwayatKerjaController::class, 'getDetailSimpulan'])->name('detail-simpulan-riwayat-kerja-saya');
+    });
+
+    Route::prefix('/LihatKerja')->group(function () {
+        Route::get('/TahunAjaran', [LihatKerjaController::class, 'getTahunAjaranAsesor'])->name('lk-tahunAjaran');
+        Route::get('/ViewDosen/{id_ta}', [LihatKerjaController::class, 'getViewDosenAsesor'])->name('lk-viewDosen');
+        Route::get('/ViewDetailPendidikan/{id}/{id_ta}', [LihatKerjaController::class, 'getDetailPendidikan'])->name('lk-viewDetailPendidikan');
+        Route::get('/ViewDetailPenelitian/{id}/{id_ta}', [LihatKerjaController::class, 'getDetailPenelitian'])->name('lk-viewDetailPenelitian');
+        Route::get('/ViewDetailPengabdian/{id}/{id_ta}', [LihatKerjaController::class, 'getDetailPengabdian'])->name('lk-viewDetailPengabdian');
+        Route::get('/ViewDetailPenunjang/{id}/{id_ta}', [LihatKerjaController::class, 'getDetailPenunjang'])->name('lk-viewDetailPenunjang');
+        Route::get('/ViewDetailSimpulan/{id}/{id_ta}', [LihatKerjaController::class, 'getDetailSimpulan'])->name('lk-viewDetailSimpulan');
+    });
+
     Route::prefix('/Asesor')->group(function () {
         Route::prefix('/Rencana')->group(function () {
             Route::get('/Rekap-Kegiatan', [AsesorController::class, 'getRencanaKegiatan'])->name('rk-asesor');
@@ -411,11 +431,15 @@ Route::group(['middleware' => ['check.token']], function () {
             Route::post('/review-rencana-kerja', [AsesorController::class, 'reviewRencana'])->name('rk-asesor-review-rencana');
         });
 
-        Route::prefix('/LihatKerja')->group(function () {
-            Route::get('/TahunAjaran', [AsesorController::class, 'getTahunAjaranAsesor'])->name('lk-tahunAjaranAsesor');
-            Route::get('/ViewDosen', [AsesorController::class, 'getViewDosenAsesor'])->name('lk-viewDosenAsesor');
-            Route::get('/ViewDetail', [AsesorController::class, 'getViewDetailAsesor'])->name('lk-viewDetailAsesor');
-        });
+        // Route::prefix('/LihatKerja')->group(function () {
+        //     Route::get('/TahunAjaran', [LihatKerjaController::class, 'getTahunAjaranAsesor'])->name('lk-tahunAjaranAsesor');
+        //     Route::get('/ViewDosen/{id_ta}', [LihatKerjaController::class, 'getViewDosenAsesor'])->name('lk-viewDosenAsesor');
+        //     Route::get('/ViewDetailPendidikan/{id}/{id_ta}', [LihatKerjaController::class, 'getDetailPendidikan'])->name('lk-viewDetailPendidikan');
+        //     Route::get('/ViewDetailPenelitian/{id}/{id_ta}', [LihatKerjaController::class, 'getDetailPenelitian'])->name('lk-viewDetailPenelitian');
+        //     Route::get('/ViewDetailPengabdian/{id}/{id_ta}', [LihatKerjaController::class, 'getDetailPengabdian'])->name('lk-viewDetailPengabdian');
+        //     Route::get('/ViewDetailPenunjang/{id}/{id_ta}', [LihatKerjaController::class, 'getDetailPenunjang'])->name('lk-viewDetailPenunjang');
+        //     Route::get('/ViewDetailSimpulan/{id}/{id_ta}', [LihatKerjaController::class, 'getDetailSimpulan'])->name('lk-viewDetailSimpulan');
+        // });
 
         Route::prefix('/Evaluasi')->group(function () {
             Route::get('/Rekap-Kegiatan', [AsesorEvaluasiController::class, 'getEvaluasiKegiatan'])->name('ed-asesor');

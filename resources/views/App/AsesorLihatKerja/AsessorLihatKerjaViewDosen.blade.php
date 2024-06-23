@@ -1,58 +1,63 @@
 @extends($isHumanResources ? 'Template.admin' : 'Template.app')
 
 @section('content')
-    <div class = "mt-5 flex-wrap ml-4 mr-4 ">
+    <div class = "mt-5 flex-wrap ml-4 mr-4 " style="height: 100vh">
         <div class = "row">
             <div class = "col">
-                <h3 class = "font-weight-bold">Rekap Kegiatan</h3>
-                <p class = "breadcrumbs">Asesor/Rencana Kerja / Rekap Kegiatan</p>
+                <h3 class = "font-weight-bold">Lihat Kerja</h3>
+                <p class = "breadcrumbs">Lihat Semua Riwayat Kegiatan Dosen</p>
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
-                    <p class = "mb-0 font-weight-bold"> Peran saat ini : Asesor Program Studi S1 Informatika
+                    <p class = "mb-0 font-weight-bold"> Peran saat ini : {{ $role_dosen }}
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class = "bg-white mt-2 ml-4 mr-4 mb-4">
-        <div class = "ml-2 mr-2 pt-4">
-            <h4 class = "font-weight-bold">Rekap Kerja</h4>
-            <p class="breadcrumbs">Daftar Rekan Kegiatan T.A 2023/2024</p>
-        </div>
-        <hr />
-        <div class="container-fluid ">
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama Dosen</th>
-                            <th scope="col">NIDN</th>
-                            <th scope="col">Program Studi</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    @for ($i = 0; $i < 10; $i++)
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Wilona Diva Artha Simbolon S.Kom</td>
-                                <td>12AS3456</td>
-                                <td>S1 Informatika 2021</td>
-                                <td>
-                                    @if($isHumanResources)
-                                    <a type="button" href="{{route('lk-viewDetail')}}" class="btn btn-primary">View
-                                        Detail</a>
-                                    @else
-                                    <a type="button" href="{{route('lk-viewDetailAsesor')}}" class="btn btn-primary">View
-                                        Detail</a>
-                                    @endif
-                                </td>
-                            </tr>
-                        </tbody>
-                    @endfor
-                </table>
+            <div class = "bg-white mt-2 mb-4">
+                <div class = "ml-2 mr-2 pt-4">
+                    <h4 class = "font-weight-bold">List Dosen Untuk Kegiatan Tahun Ajaran {{ $tahun_ajaran }} Semester {{ $semester }}</h4>
+                </div>
+                <hr />
+
+                <div class="container-fluid ">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="align-middle">No</th>
+                                    <th scope="col" class="align-middle">Nama Dosen</th>
+                                    <th scope="col" class="align-middle">NIDN</th>
+                                    <th scope="col" class="align-middle">Program Studi</th>
+                                    <th scope="col" class="align-middle">Aksi</th>
+                                </tr>
+                            </thead>
+                            @php
+                                $counter = 1;
+                            @endphp
+                            <tbody class="align-middle">
+                                @foreach ($list_dosen as $item)
+                                    <tr>
+                                        <th scope="row">{{ $counter++ }}</th>
+                                        <td>{{ $item['nama'] }}</td>
+                                        <td>{{ $item['nidn'] }}</td>
+                                        <td>{{ $item['prodi'] }}</td>
+                                        <td>
+                                            <a type="button"
+                                                href="{{ route('lk-viewDetailPendidikan', [
+                                                    'id' => $item['id_dosen'],
+                                                    'id_ta' => $id_ta
+                                                ]) }}"
+                                                class="btn btn-primary">View Detail
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>

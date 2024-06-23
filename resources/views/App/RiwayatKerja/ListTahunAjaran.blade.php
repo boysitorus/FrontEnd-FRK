@@ -5,7 +5,7 @@
         <div class = "row">
             <div class = "col">
                 <h3 class = "font-weight-bold">Riwayat Kegiatan</h3>
-                <p class = "breadcrumbs">Lihat Semua Riwayat Kerja Dosen</p>
+                <p class = "breadcrumbs">Riwayat Kerja Saya</p>
             </div>
             <div class = "col-md-auto">
                 <div class="alert alert-info alert-sm bg-alert-info" role="alert">
@@ -41,7 +41,7 @@
                                         <td>{{ $item['tahun_ajaran'] }}</td>
                                         <td>{{ $item['semester'] }}</td>
                                         <td>
-                                            <a type="button" href="{{ route('lk-viewDosen', ['id_ta' => $item['id']]) }}"
+                                            <a type="button" href="{{ route('detail-pendidikan-riwayat-kerja-saya', ['id_ta' => $item['id']]) }}"
                                                 class="btn btn-primary">View Detail
                                             </a>
                                         </td>

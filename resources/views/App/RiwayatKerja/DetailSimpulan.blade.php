@@ -1,4 +1,4 @@
-@extends('Template.asesorFedDetail')
+@extends('Template.RiwayatKegiatan')
 
 @section('content-kegiatan')
 

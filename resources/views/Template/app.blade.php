@@ -118,19 +118,12 @@
                         </li>
 
                         <li>
-                            <a href="" class="list-group-item bg-abu list-group-item-action py-2 ripple">
+                            <a href="{{ route('list-tahun-riwayat-kerja-saya') }}"
+                                class="
+                            {{ Str::startsWith(request()->path(), 'riwayat-kerja/list-tahun') ? 'active' : '' }}
+                            list-group-item bg-abu list-group-item-action py-2 ripple">
                                 <i class="bi bi-clock-fill me-1"></i>
                                 <span>Riwayat Kegiatan</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('lk-tahunAjaranAsesor') }}"
-                                class="
-                                {{ Str::startsWith(request()->path(), 'Asesor/LihatKerja/') ? 'active' : '' }}
-                                list-group-item bg-abu list-group-item-action py-2 ripple {{ request()->routeIs('lk-tahunAjaran') ? 'active' : '' }}">
-                                <i class="bi bi-eye me-2"></i>
-                                <span>Lihat Kerja</span>
                             </a>
                         </li>
 
@@ -142,6 +135,15 @@
                         @endphp
 
                         @if ($check['result'])
+                            <li>
+                                <a href="{{ route('lk-tahunAjaran') }}"
+                                    class="
+                            {{ Str::startsWith(request()->path(), 'LihatKerja') ? 'active' : '' }}
+                            list-group-item bg-abu list-group-item-action py-2 ripple ">
+                                    <i class="bi bi-eye me-2"></i>
+                                    <span>Lihat Kerja</span>
+                                </a>
+                            </li>
                             <li>
                                 <a type="button"
                                     class="
@@ -247,7 +249,7 @@
 
     <!--Main layout-->
     <main id="contentPage" style="margin-top: 74px;">
-        <div class="bg-abu container-fluid pt-4 ">
+        <div class="bg-abu container-fluid pt-4">
             @yield('content')
         </div>
 
